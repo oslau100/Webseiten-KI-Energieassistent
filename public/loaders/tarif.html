@@ -58,8 +58,8 @@ window.TB_BOOTSTRAP = {
 #tbx2026 .check{width:20px!important;height:20px!important;border-radius:999px!important;background:rgba(11,16,32,.08)!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:10px!important;font-weight:950!important;color:rgba(11,16,32,.80)!important;flex:0 0 auto!important;margin-top:1px!important;}
 #tbx2026 .actions{margin-top:14px!important;display:flex!important;gap:10px!important;flex-wrap:wrap!important;}
 #tbx2026 .btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;padding:13px 16px!important;border-radius:999px!important;text-decoration:none!important;font-size:14px!important;font-weight:950!important;border:1px solid rgba(15,23,42,.10)!important;background:#fff!important;color:rgba(11,16,32,.92)!important;box-shadow:var(--tb-shadow3)!important;transition:transform .14s ease,opacity .14s ease,background .14s ease!important;}
-#tbx2026 .btn:hover{transform:translateY(-1px)!important;opacity:.94!important;}#tbx2026 .btn.primary{border:1px solid rgba(0,0,0,.06)!important;background:var(--tb-green)!important;color:#000!important;box-shadow:0 16px 34px rgba(66,247,122,.22)!important;}
-#tbx2026 .btn.secondary{background:var(--tb-surface)!important;border-color:rgba(15,23,42,.10)!important;color:rgba(11,16,32,.88)!important;}#tbx2026 .btn.wide{width:100%!important;flex:1 1 100%!important;}
+#tbx2026 .btn:hover{transform:translateY(-1px)!important;opacity:.94!important;}#tbx2026 .btn.primary{border:1px solid rgba(0,0,0,.06)!important;background:var(--tb-btn-primary-bg,var(--tb-green))!important;color:var(--tb-btn-primary-text,#000)!important;box-shadow:0 16px 34px rgba(66,247,122,.22)!important;}
+#tbx2026 .btn.secondary{background:var(--tb-btn-secondary-bg,var(--tb-surface))!important;border-color:rgba(15,23,42,.10)!important;color:var(--tb-btn-secondary-text,rgba(11,16,32,.88))!important;}#tbx2026 .btn.wide{width:100%!important;flex:1 1 100%!important;}
 #tbx2026 .compare.single{grid-template-columns:1fr!important;max-width:560px!important;margin-left:auto!important;margin-right:auto!important;}#tbx2026 .hide{display:none!important;}
 #tbx2026 .aiWrap{background:#fff!important;border:1px solid var(--tb-line)!important;border-radius:var(--tb-r2)!important;box-shadow:var(--tb-shadow3)!important;padding:16px!important;}
 #tbx2026 .aiHead{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;margin-bottom:10px!important;}
@@ -118,6 +118,27 @@ window.TB_BOOTSTRAP = {
     if (lang) finalUrl.searchParams.set("lang", lang);
     return finalUrl.toString();
   }
+  function applyDesignVars(brand, offer) {
+    const b = (brand && typeof brand === "object") ? brand : {};
+    const o = (offer && typeof offer === "object") ? offer : {};
+    const root = document.documentElement;
+    root.style.setProperty("--tb-ink", b.ink || "#0b1020");
+    root.style.setProperty("--tb-muted", b.muted || "#667085");
+    root.style.setProperty("--tb-bg", b.bg || "#ffffff");
+    root.style.setProperty("--tb-surface", b.surface || "#f6f7fb");
+    root.style.setProperty("--tb-line", b.line || "rgba(15,23,42,.08)");
+    root.style.setProperty("--tb-green", b.green || "#42f77a");
+    root.style.setProperty("--tb-shadow", b.shadow || "0 26px 70px rgba(15,23,42,.11)");
+    root.style.setProperty("--tb-shadow2", b.shadow2 || "0 14px 34px rgba(15,23,42,.09)");
+    root.style.setProperty("--tb-shadow3", o.shadow_small || b.shadow3 || "0 8px 18px rgba(15,23,42,.06)");
+    root.style.setProperty("--tb-r2", b.r2 || "22px");
+    root.style.setProperty("--tb-r3", b.r3 || "28px");
+    root.style.setProperty("--tb-max", b.max || "1120px");
+    root.style.setProperty("--tb-btn-primary-bg", o.btn_primary_bg || b.btn_primary_bg || "var(--tb-green)");
+    root.style.setProperty("--tb-btn-primary-text", o.btn_primary_text || b.btn_primary_text || "#000");
+    root.style.setProperty("--tb-btn-secondary-bg", o.btn_secondary_bg || b.btn_secondary_bg || "var(--tb-surface)");
+    root.style.setProperty("--tb-btn-secondary-text", o.btn_secondary_text || b.btn_secondary_text || "rgba(11,16,32,.88)");
+  }
 
   const $ = (id)=>document.getElementById(id);
 
@@ -148,6 +169,12 @@ window.TB_BOOTSTRAP = {
   function pickAiBlock(aiRoot,lang,usecase,fallbackUsecase){const u=usecase||fallbackUsecase||"spart"; if(!aiRoot||typeof aiRoot!=="object") return {}; const L=aiRoot[lang]; if(L&&typeof L==="object"){ if(L[u]&&typeof L[u]==="object") return L[u]; if(L.fazit!=null||L.ki_zusammenfassung!=null||L.summary!=null||L.zusammenfassung!=null) return L; if(L.spart) return L.spart; if(L.nicht_spart) return L.nicht_spart; if(L.neueinzug) return L.neueinzug;} const LD=aiRoot.de; if(LD&&typeof LD==="object"){ if(LD[u]&&typeof LD[u]==="object") return LD[u]; if(LD.fazit!=null||LD.ki_zusammenfassung!=null||LD.summary!=null||LD.zusammenfassung!=null) return LD; if(LD.spart) return LD.spart; if(LD.nicht_spart) return LD.nicht_spart; if(LD.neueinzug) return LD.neueinzug;} if(aiRoot[u]&&typeof aiRoot[u]==="object") return aiRoot[u]; return aiRoot;}
   function buildKiSummaryText(U,ctx,lang){const explicit=strip(interp(resolveText(U.ki_zusammenfassung,lang)||resolveText(U.kiSummary,lang)||resolveText(U.zusammenfassung,lang)||resolveText(U.summary,lang)||"",ctx)); if(explicit) return explicit; const parts=[]; const status=strip(interp(resolveText(U.status,lang)||"",ctx)); if(status) parts.push(status); const warum=Array.isArray(U.warum)?U.warum:[]; const hinweise=Array.isArray(U.hinweise)?U.hinweise:[]; const bullets=[]; warum.forEach(x=>{const s=strip(interp(resolveText(x,lang)||String(x||""),ctx)); if(s) bullets.push("· "+s);}); hinweise.forEach(x=>{const s=strip(interp(resolveText(x,lang)||String(x||""),ctx)); if(s) bullets.push("· "+s);}); if(bullets.length) parts.push(bullets.join("\n")); return parts.join("\n\n").trim();}
   try{
+    const locationId = String(bootstrap.locationId || window.SURVEY_CONFIG?.locationId || "").trim();
+    if (locationId) {
+      const { data: kundenConfig } = await client.from("kunden_config").select("design_config").eq("location_id", locationId).single();
+      const designConfig = (kundenConfig && typeof kundenConfig.design_config === "object" && kundenConfig.design_config) ? kundenConfig.design_config : {};
+      applyDesignVars(designConfig.brand, designConfig.offer);
+    }
     const qp=new URLSearchParams(window.location.search); const uuid=qp.get("uuid"); const submissionId=qp.get("submission_id"); if(!uuid&&!submissionId) throw new Error("Fehlende URL-Parameter: uuid oder submission_id");
     let q=client.from("auftraege").select("*"); q=uuid?q.eq("uuid",uuid):q.eq("submission_id",submissionId); const {data:rows,error}=await q.limit(1); if(error) throw error; const row=rows&&rows[0]?rows[0]:null; if(!row) throw new Error("Kein Auftrag gefunden.");
     const lang=getLang(qp.get("lang")||row.language||"de"); const t=I18N[lang] || I18N.de; if(t.rtl) $("tbx2026").classList.add("rtl");
