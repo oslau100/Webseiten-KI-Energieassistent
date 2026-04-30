@@ -34,7 +34,7 @@ window.TB_BOOTSTRAP = {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: geometricPrecision;
-    max-width: 460px; margin: 0 auto; min-height: 420px;
+    max-width: 460px; margin: 0 auto; min-height: 500px;
     color: var(--text-color, #334155);
   }
 
@@ -45,7 +45,9 @@ window.TB_BOOTSTRAP = {
     box-shadow: var(--card-shadow);
     border: 1px solid rgba(241,245,249,1);
     display: flex; flex-direction: column; align-items: center;
-    min-height: var(--card-min-height); position: relative; box-sizing: border-box;
+    min-height: 480px; position: relative; box-sizing: border-box;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08);
   }
 
   .btn-back {
@@ -69,8 +71,8 @@ window.TB_BOOTSTRAP = {
     font-size: 1.22rem;
     font-weight: 800;
     text-align: center;
-    color: var(--text-color-strong, #0f172a);
-    margin: 0 0 1.35rem 0;
+    color: var(--text-color, #334155);
+    margin: 0 0 1.7rem 0;
     line-height: 1.35;
     letter-spacing: -0.02em;
   }
@@ -86,7 +88,7 @@ window.TB_BOOTSTRAP = {
     text-align: center;
   }
 
-  .input-container { width: 100%; position: relative; display: flex; flex-direction: column; gap: 0.75rem; }
+  .input-container { width: 100%; position: relative; }
   .modern-input {
     width: 100%;
     padding: 1.1rem;
@@ -121,7 +123,7 @@ window.TB_BOOTSTRAP = {
   .suggestion-item:hover { background:#f1f5f9; }
 
   .btn-start-action {
-    margin-top: 0; width: 100%;
+    margin-top: 1.5rem; width: 100%;
     padding: 1.1rem; border:none; cursor:pointer;
     border-radius: 1.25rem;
     font-weight: 800;
@@ -161,22 +163,22 @@ window.TB_BOOTSTRAP = {
   }
 
   .animated-card {
-    background: var(--choice-bg);
-    border: 1px solid var(--choice-border);
+    background: #f8fafc;
+    border: 2px solid transparent;
     border-radius:1.25rem;
     padding: 1.1rem 1.4rem;
     width:100%;
-    margin: 0;
+    margin: 0 0 10px 0;
     display:flex;
     justify-content:space-between;
     align-items:center;
     cursor:pointer;
     transition:.2s;
     box-sizing:border-box;
-    font-weight:700;
+    font-weight:600;
   }
   .animated-card:hover { border-color: rgba(0,255,157,0.55); background:white; }
-  .selected-border { border-color: var(--choice-selected-border) !important; background:white; }
+  .selected-border { border-color: var(--primary-color) !important; background:white; }
 
   .survey-actions { width: 100%; margin-top: 1.35rem; }
   .multi-choice-card { justify-content:center; text-align:center; }
