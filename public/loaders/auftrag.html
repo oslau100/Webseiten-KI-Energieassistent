@@ -30,6 +30,12 @@ window.TB_BOOTSTRAP = {
     --card-padding-top: 3.15rem;
     --card-padding-x: 2rem;
     --card-padding-bottom: 2.4rem;
+    --card-min-height: 500px;
+    --card-shadow: 0 25px 50px -12px rgba(2,8,23,0.08);
+    --choice-bg: #ffffff;
+    --choice-border: #e2e8f0;
+    --choice-selected-border: var(--primary-color);
+    --choice-text: var(--text-color-strong);
   }
 
   #survey-app {
@@ -47,12 +53,12 @@ window.TB_BOOTSTRAP = {
     background: var(--bg-card);
     border-radius: var(--border-radius);
     padding: var(--card-padding-top) var(--card-padding-x) var(--card-padding-bottom);
-    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08);
+    box-shadow: var(--card-shadow);
     border: 1px solid rgba(241,245,249,1);
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 520px;
+    min-height: var(--card-min-height);
     position: relative;
     box-sizing: border-box;
   }
@@ -127,8 +133,8 @@ window.TB_BOOTSTRAP = {
 
   .animated-card {
     width: 100%;
-    background: #ffffff;
-    border: 1px solid #e6edf6;
+    background: var(--choice-bg);
+    border: 1px solid var(--choice-border);
     padding: 1rem 1.05rem;
     border-radius: 1.25rem;
     display: flex;
@@ -140,8 +146,8 @@ window.TB_BOOTSTRAP = {
     margin-top: 0.85rem;
   }
   .animated-card:hover { transform: translateY(-1px); box-shadow: 0 10px 24px -14px rgba(0,0,0,0.18); border-color: #dbeafe; }
-  .animated-card span { font-weight: 1000; color: #0f172a; font-size: 0.98rem; }
-  .selected-border { border-color: var(--primary-color) !important; box-shadow: 0 10px 24px -14px rgba(0,0,0,0.18); }
+  .animated-card span { font-weight: 1000; color: var(--choice-text); font-size: 0.98rem; }
+  .selected-border { border-color: var(--choice-selected-border) !important; box-shadow: 0 10px 24px -14px rgba(0,0,0,0.18); }
 
   .survey-actions { width: 100%; margin-top: 1.35rem; }
 
@@ -210,6 +216,19 @@ window.TB_BOOTSTRAP = {
       if (d.card_padding_top) root.style.setProperty("--card-padding-top", d.card_padding_top);
       if (d.card_padding_x) root.style.setProperty("--card-padding-x", d.card_padding_x);
       if (d.card_padding_bottom) root.style.setProperty("--card-padding-bottom", d.card_padding_bottom);
+      if (d.card && typeof d.card === "object") {
+        if (d.card.padding_top) root.style.setProperty("--card-padding-top", d.card.padding_top);
+        if (d.card.padding_x) root.style.setProperty("--card-padding-x", d.card.padding_x);
+        if (d.card.padding_bottom) root.style.setProperty("--card-padding-bottom", d.card.padding_bottom);
+        if (d.card.min_height) root.style.setProperty("--card-min-height", d.card.min_height);
+        if (d.card.shadow) root.style.setProperty("--card-shadow", d.card.shadow);
+      }
+      if (d.choice_card && typeof d.choice_card === "object") {
+        if (d.choice_card.bg_color) root.style.setProperty("--choice-bg", d.choice_card.bg_color);
+        if (d.choice_card.border_color) root.style.setProperty("--choice-border", d.choice_card.border_color);
+        if (d.choice_card.selected_border_color) root.style.setProperty("--choice-selected-border", d.choice_card.selected_border_color);
+        if (d.choice_card.text_color) root.style.setProperty("--choice-text", d.choice_card.text_color);
+      }
     }
 
     function showFatal(msg) {
