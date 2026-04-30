@@ -258,17 +258,21 @@ window.TB_BOOTSTRAP = {
         engineUrl: String(runtime.setting_engine_url || config.engineUrl || "")
       };
 
-      const d = data.setting_survey_design || {};
+      const designConfig = (data && typeof data.design_config === "object" && data.design_config) ? data.design_config : {};
+      const brandDesign = (designConfig && typeof designConfig.brand === "object" && designConfig.brand) ? designConfig.brand : {};
+      const surveyDesign = (designConfig && typeof designConfig.survey === "object" && designConfig.survey) ? designConfig.survey : {};
+      const legacyDesign = (data && typeof data.setting_survey_design === "object" && data.setting_survey_design) ? data.setting_survey_design : {};
+      const d = { ...legacyDesign, ...brandDesign, ...surveyDesign };
 
       const root = document.documentElement;
       root.style.setProperty('--primary-color', d.primary_color || '#00ff9d');
       root.style.setProperty('--bg-card', d.bg_card || '#ffffff');
       root.style.setProperty('--text-color', d.text_color || '#334155');
       root.style.setProperty('--border-radius', d.border_radius || '2.5rem');
-      root.style.setProperty('--btn-bg', d.start_button?.bg_color || '#0f172a');
-      root.style.setProperty('--btn-text', d.start_button?.text_color || '#00ff9d');
-      root.style.setProperty('--back-bg', d.back_button?.bg_color || 'transparent');
-      root.style.setProperty('--back-text', d.back_button?.text_color || '#94a3b8');
+      root.style.setProperty('--btn-bg', d.start_button?.bg_color || legacyDesign.start_button?.bg_color || '#0f172a');
+      root.style.setProperty('--btn-text', d.start_button?.text_color || legacyDesign.start_button?.text_color || '#00ff9d');
+      root.style.setProperty('--back-bg', d.back_button?.bg_color || legacyDesign.back_button?.bg_color || 'transparent');
+      root.style.setProperty('--back-text', d.back_button?.text_color || legacyDesign.back_button?.text_color || '#94a3b8');
 
       const engineUrl = window.SURVEY_CONFIG.engineUrl;
       if (!engineUrl) throw new Error("Missing setting engine URL (runtime_config.setting_engine_url)");

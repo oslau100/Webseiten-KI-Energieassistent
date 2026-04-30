@@ -236,7 +236,12 @@ window.TB_BOOTSTRAP = {
         offerUrl: String(urls.offer_base_url || config.offerUrl || "")
       };
 
-      const design = data.closing_survey_design || data.setting_survey_design || {};
+      const designConfig = (data && typeof data.design_config === "object" && data.design_config) ? data.design_config : {};
+      const hasDesignConfig = Object.keys(designConfig).length > 0 && (designConfig.brand || designConfig.survey);
+      const brandDesign = hasDesignConfig && typeof designConfig.brand === "object" ? designConfig.brand : {};
+      const surveyDesign = hasDesignConfig && typeof designConfig.survey === "object" ? designConfig.survey : {};
+      const fallbackDesign = (data && (data.closing_survey_design || data.setting_survey_design)) || {};
+      const design = hasDesignConfig ? { ...fallbackDesign, ...brandDesign, ...surveyDesign } : fallbackDesign;
       applyDesignVars(design);
 
       const engineUrl = window.SURVEY_CONFIG.engineUrl;
