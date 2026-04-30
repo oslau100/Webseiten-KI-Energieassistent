@@ -122,22 +122,25 @@ window.TB_BOOTSTRAP = {
     const b = (brand && typeof brand === "object") ? brand : {};
     const o = (offer && typeof offer === "object") ? offer : {};
     const root = document.documentElement;
-    root.style.setProperty("--tb-ink", b.ink || "#0b1020");
-    root.style.setProperty("--tb-muted", b.muted || "#667085");
-    root.style.setProperty("--tb-bg", b.bg || "#ffffff");
-    root.style.setProperty("--tb-surface", b.surface || "#f6f7fb");
-    root.style.setProperty("--tb-line", b.line || "rgba(15,23,42,.08)");
-    root.style.setProperty("--tb-green", b.green || "#42f77a");
-    root.style.setProperty("--tb-shadow", b.shadow || "0 26px 70px rgba(15,23,42,.11)");
-    root.style.setProperty("--tb-shadow2", b.shadow2 || "0 14px 34px rgba(15,23,42,.09)");
-    root.style.setProperty("--tb-shadow3", o.shadow_small || b.shadow3 || "0 8px 18px rgba(15,23,42,.06)");
-    root.style.setProperty("--tb-r2", b.r2 || "22px");
-    root.style.setProperty("--tb-r3", b.r3 || "28px");
-    root.style.setProperty("--tb-max", b.max || "1120px");
-    root.style.setProperty("--tb-btn-primary-bg", o.btn_primary_bg || b.btn_primary_bg || "var(--tb-green)");
-    root.style.setProperty("--tb-btn-primary-text", o.btn_primary_text || b.btn_primary_text || "#000");
-    root.style.setProperty("--tb-btn-secondary-bg", o.btn_secondary_bg || b.btn_secondary_bg || "var(--tb-surface)");
-    root.style.setProperty("--tb-btn-secondary-text", o.btn_secondary_text || b.btn_secondary_text || "rgba(11,16,32,.88)");
+    root.style.setProperty("--tb-ink", o.ink || b.text_color_strong || "#0b1020");
+    root.style.setProperty("--tb-muted", o.muted || "#667085");
+    root.style.setProperty("--tb-bg", o.bg || "#ffffff");
+    root.style.setProperty("--tb-surface", o.surface || "#f6f7fb");
+    root.style.setProperty("--tb-line", o.line || "rgba(15,23,42,.08)");
+    root.style.setProperty("--tb-green", o.accent || b.primary_color || "#42f77a");
+
+    root.style.setProperty("--tb-shadow", o.shadow || "0 26px 70px rgba(15,23,42,.11)");
+    root.style.setProperty("--tb-shadow2", o.shadow_card || "0 14px 34px rgba(15,23,42,.09)");
+    root.style.setProperty("--tb-shadow3", o.shadow_small || "0 8px 18px rgba(15,23,42,.06)");
+
+    root.style.setProperty("--tb-r2", o.radius_inner || "22px");
+    root.style.setProperty("--tb-r3", o.radius_card || "28px");
+    root.style.setProperty("--tb-max", o.max_width || "1120px");
+
+    root.style.setProperty("--tb-btn-primary-bg", o.primary_button?.bg_color || o.accent || b.primary_color || "var(--tb-green)");
+    root.style.setProperty("--tb-btn-primary-text", o.primary_button?.text_color || "#000");
+    root.style.setProperty("--tb-btn-secondary-bg", o.secondary_button?.bg_color || "var(--tb-surface)");
+    root.style.setProperty("--tb-btn-secondary-text", o.secondary_button?.text_color || "rgba(11,16,32,.88)");
   }
 
   const $ = (id)=>document.getElementById(id);
