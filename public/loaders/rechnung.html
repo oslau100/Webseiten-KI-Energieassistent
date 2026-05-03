@@ -78,6 +78,21 @@ window.TB_BOOTSTRAP = {
   .error-card { width:100%; background:#fff; border-radius:var(--border-radius); border:1px solid #fecaca; padding:1.3rem; box-shadow:var(--card-shadow); }
   .error-title { margin:0 0 .5rem; color:#dc2626; font-size:1.1rem; font-weight:800; text-align:center; }
   .error-copy { margin:0; color:#64748b; font-weight:600; text-align:center; }
+  .survey-actions { width: 100%; display: flex; flex-direction: column; gap: .75rem; }
+  .phone-wrap { position: relative; width: 100%; }
+  .phone-prefix { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); height: 44px; display: flex; align-items: center; gap: 8px; padding: 0 10px; border-radius: 12px; background: #fff; border: 1px solid #d6dee9; font-weight: 800; color: #0f172a; z-index: 2; }
+  .phone-flag-img { width: 18px; height: 12px; border-radius: 2px; object-fit: cover; display: block; }
+  .phone-code { font-size: .95rem; line-height: 1; }
+  .phone-input, .phone-input.text-left { padding-left: 130px !important; }
+  .field-group { width: 100%; display: flex; flex-direction: column; gap: .4rem; }
+  .field-label { font-size: .82rem; font-weight: 800; color: #64748b; padding-left: .25rem; }
+  .input-with-unit { position: relative; width: 100%; }
+  .has-unit { padding-right: 4.5rem !important; }
+  .unit-badge-black { position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); font-weight: 700; color: #000; font-size: 1.1rem; line-height: 1; pointer-events: none; background: transparent; border: 0; padding: 0; }
+  .unit-toggle { cursor: pointer; pointer-events: auto; }
+  .unit-toggle:hover { opacity: .85; }
+  .privacy-note { width: 100%; margin-top: 12px; display: flex; gap: 8px; align-items: flex-start; justify-content: center; text-align: center; color: #64748b; font-size: .82rem; line-height: 1.25rem; padding: 0 6px; }
+  .privacy-lock { font-size: 1rem; line-height: 1; }
   @media (max-width: 420px) { :root { --card-padding-x: 1.2rem; --border-radius:2rem; } .manual-grid { grid-template-columns: 1fr; } }
 </style>
 
