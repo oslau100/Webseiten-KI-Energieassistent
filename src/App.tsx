@@ -12,6 +12,7 @@ import Start from "./pages/Start";
 import Tarif from "./pages/Tarif";
 import Auftrag from "./pages/Auftrag";
 import AuftragEingegangen from "./pages/AuftragEingegangen";
+import RechnungEingegangen from "./pages/RechnungEingegangen";
 import Fehler from "./pages/Fehler";
 import FehlerRechnung from "./pages/FehlerRechnung";
 import Rechnung from "./pages/Rechnung";
@@ -45,7 +46,7 @@ const App = () => (
             <Route path="/tarif" element={<Tarif />} />
             <Route path="/auftrag" element={<Auftrag />} />
             <Route path="/auftrag-eingegangen" element={<AuftragEingegangen />} />
-            <Route path="/rechnung-eingegangen" element={<AuftragEingegangen />} />
+            <Route path="/rechnung-eingegangen" element={<RechnungEingegangen />} />
             <Route path="/uebermittelt" element={<AuftragEingegangen />} />
             <Route path="/fehler" element={<Fehler />} />
             <Route path="/fehler-rechnung" element={<FehlerRechnung />} />
