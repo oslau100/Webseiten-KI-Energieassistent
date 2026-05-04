@@ -49,6 +49,7 @@ const App = () => (
             <Route path="/uebermittelt" element={<AuftragEingegangen />} />
             <Route path="/fehler" element={<Fehler />} />
             <Route path="/fehler-rechnung" element={<FehlerRechnung />} />
+            <Route path="/rechnung-fehler" element={<FehlerRechnung />} />
             <Route path="/rechnung" element={<Rechnung />} />
             <Route path="/start-rechnung" element={<Rechnung />} />
             <Route path="/rueckruf-anfordern" element={<RueckrufAnfordern />} />
