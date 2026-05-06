@@ -41,7 +41,7 @@ export const Testimonials = () => {
                     <Card className="h-full border-none shadow-md bg-background">
                       <CardContent className="flex flex-col h-full justify-between p-6 md:p-8 space-y-4 md:space-y-6">
                         <div className="space-y-3 md:space-y-4">
-                          <div className="flex gap-1 text-[#16a34a]">{[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 md:h-5 md:w-5 fill-current" />)}</div>
+                          <div className="flex gap-1 text-primary">{[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 md:h-5 md:w-5 fill-current" />)}</div>
                           <h3 className="font-bold text-base md:text-lg">{review.title}</h3>
                           <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{review.text}</p>
                         </div>

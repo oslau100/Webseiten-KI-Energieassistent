@@ -630,7 +630,7 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
     const queryLang = params.get("lang") as LangCode | null;
     const storedLang =
       (localStorage.getItem("site_lang") as LangCode | null) ??
-      (localStorage.getItem("kromen_lang") as LangCode | null);
+      (localStorage.getItem("ehiogie_lang") as LangCode | null);
     const valid = new Set(LANGUAGES.map((l) => l.code));
     const nextLang = (queryLang && valid.has(queryLang) ? queryLang : storedLang && valid.has(storedLang) ? storedLang : "de") as LangCode;
     setLangState(nextLang);

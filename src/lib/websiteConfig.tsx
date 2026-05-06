@@ -15,7 +15,7 @@ type WebsiteConfigState = {
   source: "fallback" | "remote";
 };
 
-const DEFAULT_LOCATION_ID = "Ddc0DVM8MT67wmLP3wAA";
+const DEFAULT_LOCATION_ID = "tn90CyE3XuYFTy4c1M3F";
 const DEFAULT_SUPABASE_URL = "https://oynhnhkldvpoqhsfirwf.supabase.co";
 const DEFAULT_SUPABASE_ANON_KEY = "<SECRET>";
 
