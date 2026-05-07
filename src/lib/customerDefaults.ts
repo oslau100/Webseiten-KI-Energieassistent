@@ -85,6 +85,12 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
       paragraph_4:
         "Mein Ziel ist es, so vielen Haushalten wie möglich zu helfen, ihre Energiekosten besser zu verstehen, unnötige Ausgaben zu vermeiden und langfristig Einsparungen zu erzielen ohne komplizierte Vergleiche oder zusätzlichen Aufwand.",
     },
+    callback: {
+      title: "Rückruf anfordern",
+      description: "Wähle einen passenden Termin für deinen Rückruf aus.",
+      calendar_url: "",
+      disabled_text: "Der Rückruf-Kalender wird gerade vorbereitet. Bitte nutze vorübergehend die Kontaktmöglichkeiten auf der Webseite.",
+    },
     links: {
       website: "https://www.ehiogie-energieassistent.de",
       datenschutz: "https://www.ehiogie-energieassistent.de/datenschutz",
