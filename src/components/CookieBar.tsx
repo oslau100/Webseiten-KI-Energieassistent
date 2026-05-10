@@ -1,33 +1,87 @@
-import { useEffect, useState } from "react";
+import { type CSSProperties, useEffect, useState } from "react";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useWebsiteConfig } from "@/lib/websiteConfig";
 
 const CONSENT_KEY = "cookie-consent";
+const CONSENT_MAX_AGE_SECONDS = 60 * 60 * 24 * 180;
+const FALLBACK_PRIMARY_COLOR = "#2563eb";
+
+const getCookieDomain = (hostname: string) => {
+  if (hostname === "ehiogie-energieassistent.de" || hostname.endsWith(".ehiogie-energieassistent.de")) {
+    return ".ehiogie-energieassistent.de";
+  }
+
+  return undefined;
+};
+
+const getCookieValue = (name: string) => {
+  const prefix = `${name}=`;
+  const cookies = document.cookie ? document.cookie.split(";") : [];
+  for (const rawCookie of cookies) {
+    const cookie = rawCookie.trim();
+    if (cookie.startsWith(prefix)) {
+      return decodeURIComponent(cookie.slice(prefix.length));
+    }
+  }
+  return null;
+};
+
+const setConsentStorage = (value: "all" | "essential") => {
+  localStorage.setItem(CONSENT_KEY, value);
+
+  const cookieParts = [
+    `${CONSENT_KEY}=${encodeURIComponent(value)}`,
+    "Path=/",
+    `Max-Age=${CONSENT_MAX_AGE_SECONDS}`,
+    "SameSite=Lax",
+  ];
+
+  const cookieDomain = getCookieDomain(window.location.hostname);
+  if (cookieDomain) {
+    cookieParts.push(`Domain=${cookieDomain}`);
+  }
+
+  if (window.location.protocol === "https:") {
+    cookieParts.push("Secure");
+  }
+
+  document.cookie = cookieParts.join("; ");
+};
 
 export const CookieBar = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [marketingAccepted, setMarketingAccepted] = useState(true);
-  const { getText } = useWebsiteConfig();
+  const { getText, design } = useWebsiteConfig();
+  const primaryColor =
+    (design?.colors as Record<string, unknown> | undefined)?.primary?.toString().trim() ||
+    FALLBACK_PRIMARY_COLOR;
 
   useEffect(() => {
-    const consent = localStorage.getItem(CONSENT_KEY);
+    const localConsent = localStorage.getItem(CONSENT_KEY);
+    const cookieConsent = getCookieValue(CONSENT_KEY);
+    const consent = localConsent || cookieConsent;
+
     if (!consent) {
       setIsVisible(true);
       return;
+    }
+
+    if (!localConsent && cookieConsent) {
+      localStorage.setItem(CONSENT_KEY, cookieConsent);
     }
 
     setMarketingAccepted(consent === "all");
   }, []);
 
   const handleAcceptAll = () => {
-    localStorage.setItem(CONSENT_KEY, "all");
+    setConsentStorage("all");
     setIsVisible(false);
   };
 
   const handleSaveSettings = () => {
-    localStorage.setItem(CONSENT_KEY, marketingAccepted ? "all" : "essential");
+    setConsentStorage(marketingAccepted ? "all" : "essential");
     setIsVisible(false);
   };
 
@@ -64,11 +118,11 @@ export const CookieBar = () => {
           <div className="bg-slate-50 rounded-xl px-4 py-3 flex flex-wrap items-center gap-5 mb-4 border border-slate-100">
             <div className="flex items-center gap-3">
               <span className="font-semibold text-slate-900 text-sm">{getText("cookie.marketing", "Marketing")}</span>
-              <Switch checked={marketingAccepted} onCheckedChange={setMarketingAccepted} className="data-[state=checked]:bg-[#008a4b]" />
+              <Switch checked={marketingAccepted} onCheckedChange={setMarketingAccepted} className="data-[state=checked]:bg-[var(--cookie-primary-color)]" style={{ "--cookie-primary-color": primaryColor } as CSSProperties} />
             </div>
             <div className="flex items-center gap-3">
               <span className="font-semibold text-slate-900 text-sm">{getText("cookie.essential", "Essenziell")}</span>
-              <Switch checked={true} disabled className="data-[state=checked]:bg-[#99d1b7] disabled:opacity-100" />
+              <Switch checked={true} disabled className="data-[state=checked]:bg-[var(--cookie-primary-color)] disabled:opacity-100" style={{ "--cookie-primary-color": primaryColor } as CSSProperties} />
             </div>
           </div>
 
@@ -85,7 +139,7 @@ export const CookieBar = () => {
             <Button variant="secondary" className="w-full rounded-full py-5 text-sm font-semibold bg-slate-100 hover:bg-slate-200 text-slate-900" onClick={handleSaveSettings}>
               {getText("cookie.save", "Einstellungen speichern")}
             </Button>
-            <Button className="w-full rounded-full py-5 text-sm font-semibold bg-[#008a4b] hover:bg-[#007a40] text-white" onClick={handleAcceptAll}>
+            <Button className="w-full rounded-full py-5 text-sm font-semibold bg-[var(--cookie-primary-color)] hover:brightness-95 text-white" style={{ "--cookie-primary-color": primaryColor } as CSSProperties} onClick={handleAcceptAll}>
               {getText("cookie.accept_all", "Alles akzeptieren")}
             </Button>
           </div>
