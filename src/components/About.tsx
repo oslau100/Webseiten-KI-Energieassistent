@@ -38,8 +38,6 @@ export const About = () => {
               <div>
                 <h3 className="text-2xl font-bold">{getText("sections.about.person_name", "Team", lang)}</h3>
                 <p className="text-primary font-medium">{getText("sections.about.role", "Experte für Strom & Gas", lang)}</p>
-                <p>{getText("sections.about.paragraph_5", "So wird aus einem komplizierten Tarifvergleich oder einer schwer verständlichen Jahresrechnung eine einfache Entscheidung.", lang)}</p>
-                <p>{getText("sections.about.paragraph_6", "Mein Ziel ist es, Haushalten eine einfache und sichere Möglichkeit zu geben, ihre Energiekosten zu prüfen – ohne Tarifchaos und ohne Risiko.", lang)}</p>
               </div>
               <div className="space-y-4 text-muted-foreground leading-relaxed text-lg">
                 <p>{getText("sections.about.paragraph_1", "Wir unterstützen Haushalte dabei, mehr Transparenz beim Thema Strom- und Gastarife zu bekommen und mögliche Einsparungen zu erkennen.", lang)}</p>
