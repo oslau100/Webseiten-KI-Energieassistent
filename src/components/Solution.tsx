@@ -8,13 +8,15 @@ export const Solution = () => {
   const { t, withLang, lang } = useI18n();
   const { getText } = useWebsiteConfig();
   const imageUrl = getText("sections.solution.image_url", "", lang);
+  const imagePosition = getText("sections.solution.image_position", "right", lang);
+  const imageLeft = imagePosition === "left";
 
   return (
     <section className="py-16 md:py-24 bg-background">
       <div className="container px-4 md:px-6">
         <AnimatedSection className="bg-primary rounded-[2.5rem] shadow-2xl relative">
           <div className="grid lg:grid-cols-2 items-center">
-            <div className="px-6 pt-10 pb-0 md:p-16 lg:p-20 space-y-8 text-primary-foreground z-10 relative">
+            <div className={`px-6 pt-10 pb-0 md:p-16 lg:p-20 space-y-8 text-primary-foreground z-10 relative ${imageLeft ? "lg:order-2" : "lg:order-1"}`}>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl leading-tight">{t("home_solution_h2")}</h2>
               <p className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed max-w-lg">{getText("sections.solution.body", "Du musst den Tarifmarkt nicht selbst verstehen oder vergleichen. Dein digitaler Energieassistent übernimmt das für dich.", lang)}</p>
               <div className="pt-4">
@@ -24,7 +26,7 @@ export const Solution = () => {
                 <p className="text-xs text-primary-foreground/70 mt-3">{getText("sections.solution.result_note", "Ergebnis in 60 Sekunden - 100% kostenlos", lang)}</p>
               </div>
             </div>
-            <div className="relative h-full min-h-[280px] md:min-h-[350px] lg:min-h-[500px] flex items-end justify-center lg:justify-end mt-8 md:mt-0">
+            <div className={`relative h-full min-h-[280px] md:min-h-[350px] lg:min-h-[500px] flex items-end justify-center mt-8 md:mt-0 ${imageLeft ? "lg:order-1 lg:justify-start" : "lg:order-2 lg:justify-end"}`}>
               {imageUrl ? <img src={imageUrl} alt={getText("sections.solution.image_alt", "Energieassistent", lang)} className="relative z-10 w-full max-w-[500px] md:max-w-[650px] lg:max-w-[850px] xl:max-w-[1000px] h-auto object-contain object-bottom drop-shadow-2xl translate-y-12 md:translate-y-8 lg:translate-y-12 lg:-mr-12 scale-[1.75] md:scale-125 lg:scale-150 origin-bottom" /> : null}
             </div>
           </div>

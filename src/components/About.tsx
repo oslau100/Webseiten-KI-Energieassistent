@@ -38,12 +38,16 @@ export const About = () => {
               <div>
                 <h3 className="text-2xl font-bold">{getText("sections.about.person_name", "Team", lang)}</h3>
                 <p className="text-primary font-medium">{getText("sections.about.role", "Experte für Strom & Gas", lang)}</p>
+                <p>{getText("sections.about.paragraph_5", "So wird aus einem komplizierten Tarifvergleich oder einer schwer verständlichen Jahresrechnung eine einfache Entscheidung.", lang)}</p>
+                <p>{getText("sections.about.paragraph_6", "Mein Ziel ist es, Haushalten eine einfache und sichere Möglichkeit zu geben, ihre Energiekosten zu prüfen – ohne Tarifchaos und ohne Risiko.", lang)}</p>
               </div>
               <div className="space-y-4 text-muted-foreground leading-relaxed text-lg">
                 <p>{getText("sections.about.paragraph_1", "Wir unterstützen Haushalte dabei, mehr Transparenz beim Thema Strom- und Gastarife zu bekommen und mögliche Einsparungen zu erkennen.", lang)}</p>
                 <p>{getText("sections.about.paragraph_2", "In meiner Arbeit habe ich immer wieder gesehen, wie unübersichtlich der Energiemarkt für viele Menschen geworden ist. Unterschiedliche Anbieter, ständig neue Tarife und komplizierte Vertragsbedingungen machen es schwer zu erkennen, welcher Tarif wirklich sinnvoll ist. Viele Haushalte beschäftigen sich deshalb erst dann mit ihrem Energievertrag, wenn eine hohe Nachzahlung kommt oder die Kosten plötzlich steigen.", lang)}</p>
                 <p>{getText("sections.about.paragraph_3", "Genau hier setze ich an. Mit dem digitalen Energieassistenten stelle ich ein System zur Verfügung, das Tarife automatisch prüft, Jahresrechnungen analysiert und verständlich zeigt, wo Einsparungen oder Auffälligkeiten liegen. So wird aus einem komplexen Energiethema eine klare und verständliche Lösung.", lang)}</p>
                 <p>{getText("sections.about.paragraph_4", "Mein Ziel ist es, so vielen Haushalten wie möglich zu helfen, ihre Energiekosten besser zu verstehen, unnötige Ausgaben zu vermeiden und langfristig Einsparungen zu erzielen ohne komplizierte Vergleiche oder zusätzlichen Aufwand.", lang)}</p>
+                <p>{getText("sections.about.paragraph_5", "So wird aus einem komplizierten Tarifvergleich oder einer schwer verständlichen Jahresrechnung eine einfache Entscheidung.", lang)}</p>
+                <p>{getText("sections.about.paragraph_6", "Mein Ziel ist es, Haushalten eine einfache und sichere Möglichkeit zu geben, ihre Energiekosten zu prüfen – ohne Tarifchaos und ohne Risiko.", lang)}</p>
               </div>
             </div>
           </div>
