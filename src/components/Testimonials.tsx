@@ -26,27 +26,27 @@ export const Testimonials = () => {
   const reviews = getArray<Review>(`sections.testimonials.home_reviews.${lang}`, getArray<Review>("sections.testimonials.home_reviews", fallbackReviews));
 
   return (
-    <section className="py-16 md:py-24 bg-muted/30">
+    <section className="py-14 md:py-24 bg-muted/30">
       <div className="container px-4 md:px-6">
-        <AnimatedSection className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-10 md:mb-16 space-y-4">
           <p className="text-primary font-semibold tracking-wide uppercase text-sm">{getText("sections.testimonials.kicker", "Das sagen unsere Nutzer", lang)}</p>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{t("home_testimonials_h2")}</h2>
         </AnimatedSection>
-        <AnimatedSection delay={200} className="max-w-5xl mx-auto px-12 relative">
+        <AnimatedSection delay={200} className="max-w-5xl mx-auto px-1 md:px-12 relative">
           <Carousel opts={{ align: "start" }} className="w-full">
-            <CarouselContent>
+            <CarouselContent className="-ml-2 md:-ml-4">
               {reviews.map((review, index) => (
-                <CarouselItem key={index} className="basis-[85%] md:basis-1/2 lg:basis-1/2 pl-4">
+                <CarouselItem key={index} className="basis-[92%] sm:basis-[86%] md:basis-1/2 lg:basis-1/2 pl-2 md:pl-4">
                   <div className="p-1 h-full">
-                    <Card className="h-full border-none shadow-md bg-background">
-                      <CardContent className="flex flex-col h-full justify-between p-6 md:p-8 space-y-4 md:space-y-6">
+                    <Card className="h-full border shadow-sm bg-card rounded-2xl">
+                      <CardContent className="flex flex-col h-full justify-between p-5 md:p-8 space-y-4 md:space-y-6 text-left">
                         <div className="space-y-3 md:space-y-4">
                           <div className="flex gap-1 text-primary">{[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 md:h-5 md:w-5 fill-current" />)}</div>
-                          <h3 className="font-bold text-base md:text-lg">{review.title}</h3>
+                          <h3 className="font-bold text-base md:text-lg leading-snug">{review.title}</h3>
                           <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{review.text}</p>
                         </div>
-                        <div className="flex items-center gap-2 pt-2 md:pt-4">
-                          <span className="font-bold text-sm">{review.name}</span>
+                        <div className="flex items-center gap-2 pt-1 md:pt-4">
+                          <span className="font-semibold text-sm text-foreground">{review.name}</span>
                         </div>
                       </CardContent>
                     </Card>
@@ -54,11 +54,11 @@ export const Testimonials = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="-left-12 h-12 w-12 border-none shadow-md" />
-            <CarouselNext className="-right-12 h-12 w-12 border-none shadow-md" />
+            <CarouselPrevious className="hidden md:flex -left-12 h-12 w-12 border shadow-md bg-background" />
+            <CarouselNext className="hidden md:flex -right-12 h-12 w-12 border shadow-md bg-background" />
           </Carousel>
         </AnimatedSection>
-        <AnimatedSection delay={400} className="mt-16 text-center">
+        <AnimatedSection delay={400} className="mt-10 md:mt-16 text-center">
           <Button size="lg" className="h-14 px-10 text-lg font-semibold shadow-lg shadow-primary/20" asChild>
             <Link to={withLang("/start")}>{t("cta_check_savings")}</Link>
           </Button>
