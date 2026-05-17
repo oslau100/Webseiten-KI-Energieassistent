@@ -15,7 +15,7 @@ export const About = () => {
           <div className="grid md:grid-cols-12 gap-8 items-center p-8 md:p-12 lg:p-16">
             <div className="md:col-span-4 lg:col-span-5 flex flex-col items-center text-center space-y-6">
               <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-background shadow-xl">
-                <img src="https://vibe.filesafe.space/1774643086282323006/attachments/c0d6a4ae-c0f8-414e-83a4-712227fc30fb.png" alt="Marcel Kromen" className="w-full h-full object-cover" />
+                <img src="https://vibe.filesafe.space/1774643086282323006/attachments/c0d6a4ae-c0f8-414e-83a4-712227fc30fb.png" alt="Marvin Ehiogie" className="w-full h-full object-cover" />
               </div>
               <div className="space-y-4">
                 <p className="font-bold text-sm uppercase tracking-wider text-muted-foreground">Folge mir auf den Sozialen Medien für Tipps rund um Strom & Gas</p>
@@ -30,9 +30,9 @@ export const About = () => {
               </div>
             </div>
             <div className="md:col-span-8 lg:col-span-7 space-y-6">
-              <div><h3 className="text-2xl font-bold">Marcel Kromen</h3><p className="text-primary font-medium">Experte für Strom & Gas</p></div>
+              <div><h3 className="text-2xl font-bold">Marvin Ehiogie</h3><p className="text-primary font-medium">Experte für Strom & Gas</p></div>
               <div className="space-y-4 text-muted-foreground leading-relaxed text-lg">
-                <p>Ich bin Marcel Kromen und unterstütze Haushalte dabei, mehr Transparenz beim Thema Strom- und Gastarife zu bekommen und mögliche Einsparungen zu erkennen.</p>
+                <p>Ich bin Marvin Ehiogie und unterstütze Haushalte dabei, mehr Transparenz beim Thema Strom- und Gastarife zu bekommen und mögliche Einsparungen zu erkennen.</p>
                 <p>In meiner Arbeit habe ich immer wieder gesehen, wie unübersichtlich der Energiemarkt für viele Menschen geworden ist. Unterschiedliche Anbieter, ständig neue Tarife und komplizierte Vertragsbedingungen machen es schwer zu erkennen, welcher Tarif wirklich sinnvoll ist. Viele Haushalte beschäftigen sich deshalb erst dann mit ihrem Energievertrag, wenn eine hohe Nachzahlung kommt oder die Kosten plötzlich steigen.</p>
                 <p>Genau hier setze ich an. Mit dem digitalen Energieassistenten stelle ich ein System zur Verfügung, das Tarife automatisch prüft, Jahresrechnungen analysiert und verständlich zeigt, wo Einsparungen oder Auffälligkeiten liegen. So wird aus einem komplexen Energiethema eine klare und verständliche Lösung.</p>
                 <p>Mein Ziel ist es, so vielen Haushalten wie möglich zu helfen, ihre Energiekosten besser zu verstehen, unnötige Ausgaben zu vermeiden und langfristig Einsparungen zu erzielen ohne komplizierte Vergleiche oder zusätzlichen Aufwand.</p>
