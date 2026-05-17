@@ -27,10 +27,10 @@ export const About = () => {
               <div className="space-y-4">
                 <p className="font-bold text-sm uppercase tracking-wider text-muted-foreground">{getText("sections.about.social_hint", "Folge mir auf den Sozialen Medien für Tipps rund um Strom & Gas", lang)}</p>
                 <div className="flex justify-center gap-4 text-muted-foreground">
-                  <a href={getText("sections.about.social.tiktok", "#", lang)} target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors"><Music2 className="h-6 w-6" /></a>
-                  <a href={getText("sections.about.social.youtube", "#", lang)} target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors"><Youtube className="h-6 w-6" /></a>
-                  <a href={getText("sections.about.social.facebook", "#", lang)} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors"><Facebook className="h-6 w-6" /></a>
-                  <a href={getText("sections.about.social.instagram", "#", lang)} target="_blank" rel="noopener noreferrer" className="hover:text-pink-600 transition-colors"><Instagram className="h-6 w-6" /></a>
+                  <a href={getText("sections.about.social.tiktok", "#", lang)} target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="transition-colors hover:text-primary"><Music2 className="h-6 w-6" /></a>
+                  <a href={getText("sections.about.social.youtube", "#", lang)} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="transition-colors hover:text-primary"><Youtube className="h-6 w-6" /></a>
+                  <a href={getText("sections.about.social.facebook", "#", lang)} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="transition-colors hover:text-primary"><Facebook className="h-6 w-6" /></a>
+                  <a href={getText("sections.about.social.instagram", "#", lang)} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="transition-colors hover:text-primary"><Instagram className="h-6 w-6" /></a>
                 </div>
               </div>
             </div>

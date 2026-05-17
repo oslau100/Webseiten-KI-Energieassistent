@@ -36,16 +36,16 @@ export const Testimonials = () => {
           <Carousel opts={{ align: "start" }} className="w-full">
             <CarouselContent>
               {reviews.map((review, index) => (
-                <CarouselItem key={index} className="basis-[88%] sm:basis-[80%] md:basis-1/2 lg:basis-1/2 pl-3 md:pl-4">
-                  <div className="p-1 h-full">
-                    <Card className="h-full border-none shadow-md bg-background">
-                      <CardContent className="flex flex-col h-full justify-between p-5 md:p-8 space-y-4 md:space-y-6">
+                <CarouselItem key={index} className="basis-[85%] md:basis-1/2 lg:basis-1/2 pl-4">
+                  <div className="p-1 md:h-full">
+                    <Card className="border-none shadow-md bg-background md:h-full">
+                      <CardContent className="flex flex-col p-6 md:p-8 space-y-4 md:space-y-6 md:h-full">
                         <div className="space-y-3 md:space-y-4">
                           <div className="flex gap-1 text-primary">{[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 md:h-5 md:w-5 fill-current" />)}</div>
                           <h3 className="font-bold text-base md:text-lg">{review.title}</h3>
                           <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{review.text}</p>
                         </div>
-                        <div className="flex items-center gap-2 pt-2 md:pt-4">
+                        <div className="flex items-center gap-2 pt-1 md:pt-4">
                           <span className="font-bold text-sm">{review.name}</span>
                         </div>
                       </CardContent>
