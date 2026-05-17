@@ -17,7 +17,13 @@ export const HowItWorks = () => {
     { title: "Wechsel & Tarifüberwachung", description: "Wenn dir der empfohlene Tarif zusagt, übernimmt der Energieassistent den Wechsel für dich, behält deine Kündigungsfristen im Blick und meldet sich automatisch, sobald ein neuer Wechsel sinnvoll ist." },
   ];
 
-  const steps = getArray<Step>(`sections.how_it_works.items.${lang}`, getArray<Step>("sections.how_it_works.items", fallbackSteps));
+  const steps = getArray<Step>(
+    `sections.how_it_works.items.${lang}`,
+    getArray<Step>(
+      "sections.how_it_works.items",
+      getArray<Step>(`sections.how_it_works.steps.${lang}`, getArray<Step>("sections.how_it_works.steps", fallbackSteps)),
+    ),
+  );
 
   return (
     <section className="py-16 md:py-24 bg-muted/30">

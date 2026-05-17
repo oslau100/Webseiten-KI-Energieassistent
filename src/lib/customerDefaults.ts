@@ -63,6 +63,7 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
       headline: "Zahlst du gerade zu viel für Strom oder Gas?",
       subline: "Finde es in nur 60 Sekunden heraus. Dein digitaler Energieassistent analysiert automatisch hunderte Tarife, filtert Lockangebote und riskante Anbieter heraus und zeigt dir eine sichere Empfehlung mit möglicher Ersparnis.",
       cta_text: "Jetzt Ersparnis prüfen",
+      result_note: "Ergebnis in 60 Sekunden - 100% kostenlos",
     },
     solution: {
       image_url: "https://assets.cdn.filesafe.space/tn90CyE3XuYFTy4c1M3F/media/69d3fc9824c2b28f039a10c4.png",
