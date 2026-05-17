@@ -154,6 +154,8 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
       rechnung_fehler: "https://www.ehiogie-energieassistent.de/rechnung-fehler",
     },
     testimonials: {
+      kicker: "Das sagen unsere Nutzer",
+      headline: "Über 1500 Haushalte nutzen bereits den digitalen Energieassistenten",
       home_reviews: [
         { title: "Ich hatte ehrlich gesagt keine...", text: "Ich hatte ehrlich gesagt keine Lust, mich durch hunderte Stromtarife zu wühlen. Der Energieassistent hat mir in weniger als einer Minute eine klare Empfehlung gezeigt. Ich spare jetzt über 200 € im Jahr und musste mich um nichts kümmern.", name: "Manfred Z." },
         { title: "Ich dachte immer, mein Tarif...", text: "Ich dachte immer, mein Tarif wäre schon günstig. Nach der Prüfung habe ich gesehen, dass ich deutlich zu viel zahle. Der Wechsel war super einfach und ohne Probleme.", name: "Burak H." },

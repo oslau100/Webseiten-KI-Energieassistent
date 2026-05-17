@@ -30,7 +30,7 @@ export const Testimonials = () => {
       <div className="container px-4 md:px-6">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <p className="text-primary font-semibold tracking-wide uppercase text-sm">{getText("sections.testimonials.kicker", "Das sagen unsere Nutzer", lang)}</p>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{t("home_testimonials_h2")}</h2>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{getText("sections.testimonials.headline", t("home_testimonials_h2"), lang)}</h2>
         </AnimatedSection>
         <AnimatedSection delay={200} className="max-w-5xl mx-auto px-4 md:px-12 relative">
           <Carousel opts={{ align: "start" }} className="w-full">
