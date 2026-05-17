@@ -20,7 +20,7 @@ export const customerDefaultWebsiteDesignConfig: JsonRecord = {
     logo_header: "https://assets.cdn.filesafe.space/tn90CyE3XuYFTy4c1M3F/media/69fb93b70394c985036ed4ae.png",
     logo_footer: "https://assets.cdn.filesafe.space/tn90CyE3XuYFTy4c1M3F/media/69fb93b70394c985036ed4ae.png",
     hero_image: "https://assets.cdn.filesafe.space/tn90CyE3XuYFTy4c1M3F/media/69d3fcc217d86ef0ca1836e6.png",
-    agency_logo: "https://vibe.filesafe.space/1774643086282323006/attachments/a629d547-6056-4079-8549-0a910a7eafbd.png",
+    agency_logo: "https://assets.cdn.filesafe.space/1774643086282323006/media/a629d547-6056-4079-8549-0a910a7eafbd.png",
   },
 };
 
@@ -59,10 +59,14 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
   sections: {
     hero: {
       image_alt: "Energieassistent",
+      headline: "Jedes Jahr verschenken Millionen Haushalte bis zu 1.500 € an ihren Energieanbieter",
+      subline: "Prüfe in nur 60 Sekunden, ob und wie viel du aktuell sparen könntest.",
+      cta_text: "Jetzt Ersparnis prüfen",
     },
     solution: {
       image_url: "https://assets.cdn.filesafe.space/tn90CyE3XuYFTy4c1M3F/media/69d3fc9824c2b28f039a10c4.png",
       image_alt: "Energieassistent",
+      image_position: "left",
       body: "Du musst den Tarifmarkt nicht selbst verstehen oder vergleichen. Dein digitaler Energieassistent übernimmt das für dich.",
       result_note: "Ergebnis in 60 Sekunden - 100% kostenlos",
     },
@@ -72,18 +76,17 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
       role: "Experte für Strom & Gas",
       social_hint: "Folge mir auf den Sozialen Medien für Tipps rund um Strom & Gas",
       social: {
-        youtube: "https://youtube.com/@marvinstromgastipps?si=qQBOGqtUFXZe05XS",
-        facebook: "https://www.facebook.com/share/1BB2cgcqpF/?mibextid=wwXIfr",
-        tiktok: "https://www.tiktok.com/@marvin.ehiogie?_r=1&_t=ZG-95GREb4jM2K",
-        instagram: "https://www.instagram.com/marvin.ehiogie?igsh=MWJoemtjY2VxM2E3OQ%3D%3D&utm_source=qr",
+        youtube: "https://youtube.com/@marvinstromgastipps",
+        facebook: "https://www.facebook.com/share/1BB2cgcqpF/",
+        tiktok: "https://www.tiktok.com/@marvin.ehiogie",
+        instagram: "https://www.instagram.com/marvin.ehiogie",
       },
-      paragraph_1: "Ich bin Marvin Ehiogie und unterstütze Haushalte dabei, mehr Transparenz beim Thema Strom- und Gastarife zu bekommen und mögliche Einsparungen zu erkennen.",
-      paragraph_2:
-        "In meiner Arbeit habe ich immer wieder gesehen, wie unübersichtlich der Energiemarkt für viele Menschen geworden ist. Unterschiedliche Anbieter, ständig neue Tarife und komplizierte Vertragsbedingungen machen es schwer zu erkennen, welcher Tarif wirklich sinnvoll ist. Viele Haushalte beschäftigen sich deshalb erst dann mit ihrem Energievertrag, wenn eine hohe Nachzahlung kommt oder die Kosten plötzlich steigen.",
-      paragraph_3:
-        "Genau hier setze ich an. Mit dem digitalen Energieassistenten stelle ich ein System zur Verfügung, das Tarife automatisch prüft, Jahresrechnungen analysiert und verständlich zeigt, wo Einsparungen oder Auffälligkeiten liegen. So wird aus einem komplexen Energiethema eine klare und verständliche Lösung.",
-      paragraph_4:
-        "Mein Ziel ist es, so vielen Haushalten wie möglich zu helfen, ihre Energiekosten besser zu verstehen, unnötige Ausgaben zu vermeiden und langfristig Einsparungen zu erzielen ohne komplizierte Vergleiche oder zusätzlichen Aufwand.",
+      paragraph_1: "Ich habe mehrere Jahre bei einem Energieversorger gearbeitet und beschäftige mich seit über 8 Jahren intensiv mit dem deutschen Energiemarkt.",
+      paragraph_2: "Dabei sehe ich täglich, wie unübersichtlich Strom- und Gastarife für viele Haushalte geworden sind. Tausende Angebote, komplizierte Vertragsbedingungen und Lockangebote machen es schwer zu erkennen, welcher Tarif wirklich sinnvoll ist.",
+      paragraph_3: "Viele Menschen zahlen deshalb jahrelang mehr als nötig – nicht aus Bequemlichkeit, sondern weil der Markt unnötig kompliziert geworden ist. Auch bei Jahresabrechnungen ist oft unklar, ob die Kosten wirklich korrekt berechnet wurden.",
+      paragraph_4: "Genau aus diesem Grund stelle ich Haushalten den digitalen Energieassistenten zur Verfügung, um Tarife und Energiekosten schnell und sicher prüfen zu können. Das System analysiert automatisch hunderte Tarife, erkennt Auffälligkeiten in Rechnungen und zeigt eine klare Empfehlung, die wirklich zu deinem Haushalt passt.",
+      paragraph_5: "So wird aus einem komplizierten Tarifvergleich oder einer schwer verständlichen Jahresrechnung eine einfache Entscheidung.",
+      paragraph_6: "Mein Ziel ist es, Haushalten eine einfache und sichere Möglichkeit zu geben, ihre Energiekosten zu prüfen – ohne Tarifchaos und ohne Risiko.",
     },
     callback: {
       title: "Rückruf anfordern",
@@ -116,6 +119,14 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
         { title: "Ich habe einfach...", text: "Ich habe einfach meine Rechnung hochgeladen und kurz darauf eine verständliche Auswertung bekommen. Fand ich super praktisch, weil ich bei diesen Rechnungen sonst überhaupt nicht durchblicke.", name: "Markus R." },
       ],
     },
+    stats: {
+      headline: "Über 1.500 Haushalte nutzen bereits den digitalen Energieassistenten",
+      items: [
+        { end: 1500, suffix: "+", label: "Haushalte nutzen den Energieassistenten" },
+        { end: 600000, suffix: "+ €", label: "An Energiekosten bereits eingespart" },
+        { end: 10000, suffix: "+", label: "Tarife und Rechnungen bereits geprüft" },
+      ],
+    },
     faq: {
       home_items: [
         {
@@ -131,6 +142,20 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
         {
           question: "Ist die Tarifprüfung wirklich kostenlos?",
           answer: "Ja, die Prüfung deiner aktuellen Situation und die erste Empfehlung sind komplett kostenlos und unverbindlich.",
+        },
+        {
+          question: "Sind meine Daten bei der Prüfung sicher?",
+          answer:
+            "Absolut. Wir legen höchsten Wert auf Datenschutz und verarbeiten deine Angaben ausschließlich verschlüsselt nach den aktuellen DSGVO-Richtlinien.",
+        },
+        {
+          question: "Kann es beim Wechsel zu einer Unterbrechung der Versorgung kommen?",
+          answer: "Nein, eine Unterbrechung der Strom- oder Gasversorgung ist gesetzlich ausgeschlossen. Der Wechsel verläuft für dich nahtlos im Hintergrund.",
+        },
+        {
+          question: "An wen kann ich mich wenden, wenn ich Fragen habe?",
+          answer:
+            "Unser Kundenservice steht dir jederzeit per E-Mail oder telefonisch zur Verfügung. Die Kontaktdaten findest du im Fußbereich dieser Seite.",
         },
       ],
     },
