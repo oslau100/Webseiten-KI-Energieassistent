@@ -59,15 +59,19 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
   sections: {
     hero: {
       image_alt: "Energieassistent",
-      headline: "Jedes Jahr verschenken Millionen Haushalte bis zu 1.500 € an ihren Energieanbieter",
-      subline: "Prüfe in nur 60 Sekunden, ob und wie viel du aktuell sparen könntest.",
+      badge: "Bereits 1.500+ zufriedene Nutzer in ganz Deutschland",
+      headline: "Zahlst du gerade zu viel für Strom oder Gas?",
+      subline: "Finde es in nur 60 Sekunden heraus. Dein digitaler Energieassistent analysiert automatisch hunderte Tarife, filtert Lockangebote und riskante Anbieter heraus und zeigt dir eine sichere Empfehlung mit möglicher Ersparnis.",
       cta_text: "Jetzt Ersparnis prüfen",
+      result_note: "Ergebnis in 60 Sekunden - 100% kostenlos",
     },
     solution: {
       image_url: "https://assets.cdn.filesafe.space/tn90CyE3XuYFTy4c1M3F/media/69d3fc9824c2b28f039a10c4.png",
       image_alt: "Energieassistent",
       image_position: "left",
-      body: "Du musst den Tarifmarkt nicht selbst verstehen oder vergleichen. Dein digitaler Energieassistent übernimmt das für dich.",
+      headline: "Du musst den Tarifmarkt nicht selbst verstehen oder vergleichen.",
+      body: "Dein digitaler Energieassistent übernimmt das für dich! Finde in 60 Sekunden heraus, ob du aktuell zu viel zahlst.",
+      cta_text: "Jetzt Ersparnis prüfen",
       result_note: "Ergebnis in 60 Sekunden - 100% kostenlos",
     },
     about: {
@@ -88,6 +92,50 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
       paragraph_5: "So wird aus einem komplizierten Tarifvergleich oder einer schwer verständlichen Jahresrechnung eine einfache Entscheidung.",
       paragraph_6: "Mein Ziel ist es, Haushalten eine einfache und sichere Möglichkeit zu geben, ihre Energiekosten zu prüfen – ohne Tarifchaos und ohne Risiko.",
     },
+    how_it_works: {
+      headline: "So einfach funktioniert’s",
+      cta_text: "Jetzt Ersparnis prüfen",
+      items: [
+        { title: "Ersparnisprüfung starten", description: "Klicke dich einfach durch ein paar kurze Fragen zu deinem Tarif und Haushalt, damit der Energieassistent deine Situation prüfen kann." },
+        { title: "Automatische Analyse", description: "Der Energieassistent analysiert mithilfe von KI verfügbare Tarife in deiner Region und filtert Lockangebote, riskante Anbieter sowie versteckte Vertragsfallen für dich heraus." },
+        { title: "Tarifempfehlung erhalten", description: "Statt einer langen Tarifliste erhältst du eine sichere Empfehlung mit möglicher Ersparnis inklusive Erklärung, warum dieser Tarif eine sichere Wahl ist." },
+        { title: "Wechsel & Tarifüberwachung", description: "Wenn dir der empfohlene Tarif zusagt, übernimmt der Energieassistent den Wechsel für dich, überwacht deine Kündigungsfristen und meldet sich automatisch, sobald ein erneuter Wechsel sinnvoll ist." }
+      ],
+    },
+    problem: {
+      headline: "Warum die meisten Haushalte unnötig zu viel für Strom oder Gas zahlen",
+      items: [
+        { title: "Viele prüfen ihren Tarif jahrelang nicht", description: "Wer seinen Tarif lange nicht überprüft, zahlt oft deutlich mehr als nötig, weil sich Preise und Angebote ständig verändern.", iconKey: "calendar" },
+        { title: "Viele glauben, ihr Tarif sei bereits günstig", description: "Ein Tarif, der früher gut war, kann heute längst nicht mehr optimal sein. Ohne Prüfung merkt man das oft nicht.", iconKey: "coins" },
+        { title: "Viele bleiben beim Grundversorger", description: "In vielen Regionen ist die Grundversorgung deutlich teurer als alternative Tarife. Trotzdem bleiben viele Haushalte dort oft aus Gewohnheit oder Unwissen.", iconKey: "building" },
+        { title: "Der Tarifmarkt wirkt kompliziert", description: "Hunderte Angebote mit unterschiedlichen Bedingungen machen es schwer zu erkennen, welcher Tarif wirklich gut ist deshalb lassen viele ihren Tarif einfach unverändert.", iconKey: "search" }
+      ],
+    },
+    comparison: {
+      headline: "Der Unterschied: Digitaler Energieassistent vs. klassische Vergleichsportale",
+      portals_title: "Mit Vergleichsportalen",
+      assistant_title: "Mit Energieassistent",
+      portals: [
+        "Du vergleichst hunderte Tarife mühsam selbst und bist am Ende unsicher als vorher",
+        "Du musst Lockangebote, Bonus-Tricks und versteckte Kosten selbst erkennen",
+        "Du musst selbst prüfen, ob Anbieter stabil oder risikoreich sind",
+        "Du erhältst viele Optionen, aber keine klare Empfehlung",
+        "Nach dem Wechsel bist du auf dich gestellt keine Erinnerung oder Betreuung"
+      ],
+      assistant: [
+        "Der Energieassistent filtert hunderte Tarife für dich du bekommst eine klare, sichere Empfehlung",
+        "Lockangebote, Boni-Tricks und versteckte Kosten werden automatisch für dich ausgeschlossen",
+        "Der Energieassistent prüft Anbieter auf Stabilität und Risiko du bekommst nur sichere Anbieter",
+        "Du bekommst eine geprüfte Empfehlung statt endlose Listen kein Vergleichen, keine Unsicherheit",
+        "Der Energieassistent bleibt für dich aktiv überwacht Fristen und meldet sich automatisch mit Empfehlungen"
+      ],
+      cta_text: "Jetzt Ersparnis prüfen",
+    },
+    final_cta: {
+      headline: "Jedes Jahr verschenken Millionen Haushalte bis zu 1.500 € an ihren Energieanbieter",
+      subline: "Prüfe in nur 60 Sekunden, ob und wie viel du aktuell sparen könntest.",
+      cta_text: "Jetzt Ersparnis prüfen",
+    },
     callback: {
       title: "Rückruf anfordern",
       description: "Wähle einen passenden Termin für deinen Rückruf aus.",
@@ -106,6 +154,8 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
       rechnung_fehler: "https://www.ehiogie-energieassistent.de/rechnung-fehler",
     },
     testimonials: {
+      kicker: "Das sagen unsere Nutzer",
+      headline: "Über 1500 Haushalte nutzen bereits den digitalen Energieassistenten",
       home_reviews: [
         { title: "Ich hatte ehrlich gesagt keine...", text: "Ich hatte ehrlich gesagt keine Lust, mich durch hunderte Stromtarife zu wühlen. Der Energieassistent hat mir in weniger als einer Minute eine klare Empfehlung gezeigt. Ich spare jetzt über 200 € im Jahr und musste mich um nichts kümmern.", name: "Manfred Z." },
         { title: "Ich dachte immer, mein Tarif...", text: "Ich dachte immer, mein Tarif wäre schon günstig. Nach der Prüfung habe ich gesehen, dass ich deutlich zu viel zahle. Der Wechsel war super einfach und ohne Probleme.", name: "Burak H." },
@@ -122,9 +172,9 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
     stats: {
       headline: "Über 1.500 Haushalte nutzen bereits den digitalen Energieassistenten",
       items: [
-        { end: 1500, suffix: "+", label: "Haushalte nutzen den Energieassistenten" },
-        { end: 600000, suffix: "+ €", label: "An Energiekosten bereits eingespart" },
         { end: 10000, suffix: "+", label: "Tarife und Rechnungen bereits geprüft" },
+        { end: 1500, suffix: "+", label: "Haushalte nutzen den Energieassistenten" },
+        { end: 600000, suffix: "+ €", label: "an Energiekosten bereits eingespart" },
       ],
     },
     faq: {
