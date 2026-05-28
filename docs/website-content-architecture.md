@@ -25,9 +25,9 @@
 
 1. **`src/lib/i18n.tsx`**: dictionaries + headline dictionaries + `t(key)` API.
 2. **Direct hardcoded strings in components/pages**: especially in `Jahresrechnung.tsx`, plus sections in `Solution.tsx`, `FAQ.tsx`, `Testimonials.tsx`.
-3. **Expected but missing files from requested list**:
-   - `src/lib/customerDefaults.ts` not present.
-   - `src/lib/websiteConfig.tsx` not present.
+3. **Branch baseline files for customer defaults/config**:
+   - `src/lib/customerDefaults.ts` provides customer-level defaults as part of the Ehiogie baseline.
+   - `src/lib/websiteConfig.tsx` provides website config wiring for branch-specific runtime configuration.
 
 ### 2.2 `i18n.tsx` supplied texts
 
@@ -37,7 +37,7 @@
 
 ### 2.3 `customerDefaults.ts` supplied texts
 
-- Currently none observable in this checkout (file absent).
+- Customer defaults are provided in the Ehiogie branch baseline and should be treated as existing fallback/config inputs in the architecture model.
 
 ### 2.4 Direct component/page fallback texts
 
@@ -53,8 +53,8 @@
 
 ### 2.6 Note on `websiteConfig.tsx`
 
-- Trigger context says `websiteConfig.tsx` expects `webseite_content_config`, but file not found in this checkout.
-- Likely branch drift or pending implementation.
+- `websiteConfig.tsx` is part of the Ehiogie branch baseline and should be used as the canonical integration point for `webseite_content_config`.
+- This architecture therefore assumes existing config wiring and focuses only on the content model + resolver contract.
 
 ---
 
