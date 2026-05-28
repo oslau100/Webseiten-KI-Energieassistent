@@ -4,8 +4,14 @@ import {
   customerDefaultWebsiteDesignConfig,
   customerDefaultWebsiteLayoutConfig,
 } from "./customerDefaults";
-
-type JsonRecord = Record<string, unknown>;
+import {
+  deepMerge,
+  interpolateTemplate,
+  resolveArray,
+  resolveLocalizedText,
+  resolveObject,
+  type JsonRecord,
+} from "./websiteContentResolver";
 
 type WebsiteConfigState = {
   design: JsonRecord;
@@ -29,30 +35,6 @@ export const defaultWebsiteLayoutConfig: JsonRecord = {
 
 export const defaultWebsiteContentConfig: JsonRecord = {
   ...customerDefaultWebsiteContentConfig,
-};
-
-const deepMerge = (base: JsonRecord, override: JsonRecord): JsonRecord => {
-  const merged: JsonRecord = { ...base };
-  for (const [key, value] of Object.entries(override || {})) {
-    const current = merged[key];
-    if (Array.isArray(value)) {
-      merged[key] = value;
-      continue;
-    }
-    if (value && typeof value === "object" && current && typeof current === "object" && !Array.isArray(current)) {
-      merged[key] = deepMerge(current as JsonRecord, value as JsonRecord);
-      continue;
-    }
-    merged[key] = value;
-  }
-  return merged;
-};
-
-const getByPath = (obj: JsonRecord, path: string): unknown => {
-  return path.split(".").reduce<unknown>((acc, key) => {
-    if (!acc || typeof acc !== "object") return undefined;
-    return (acc as JsonRecord)[key];
-  }, obj);
 };
 
 type WebsiteConfigContextValue = WebsiteConfigState & {
@@ -142,31 +124,10 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
 
   const value = useMemo<WebsiteConfigContextValue>(() => ({
     ...state,
-    getText: (path, fallback, lang) => {
-      const raw = getByPath(state.content, path);
-      if (typeof raw === "string") return raw;
-      if (raw && typeof raw === "object") {
-        if (lang) {
-          const localized = (raw as JsonRecord)[lang];
-          if (typeof localized === "string") return localized;
-        }
-        const de = (raw as JsonRecord).de;
-        if (typeof de === "string") return de;
-        for (const v of Object.values(raw as JsonRecord)) {
-          if (typeof v === "string") return v;
-        }
-      }
-      return fallback;
-    },
-    getArray: (path, fallback) => {
-      const raw = getByPath(state.content, path);
-      return Array.isArray(raw) ? (raw as typeof fallback) : fallback;
-    },
-    getObject: (path, fallback) => {
-      const raw = getByPath(state.content, path);
-      return raw && typeof raw === "object" && !Array.isArray(raw) ? (raw as typeof fallback) : fallback;
-    },
-    interpolate: (template, vars = {}) => String(template || "").replace(/\{\{\s*([\w.]+)\s*\}\}/g, (_, key) => vars[key] ?? ""),
+    getText: (path, fallback, lang) => resolveLocalizedText(state.content, path, fallback, lang),
+    getArray: (path, fallback) => resolveArray(state.content, path, fallback),
+    getObject: (path, fallback) => resolveObject(state.content, path, fallback),
+    interpolate: (template, vars = {}) => interpolateTemplate(template, vars),
   }), [state]);
 
   return <WebsiteConfigContext.Provider value={value}>{children}</WebsiteConfigContext.Provider>;
