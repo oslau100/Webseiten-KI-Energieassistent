@@ -1,13 +1,13 @@
 <script>
 window.TB_BOOTSTRAP = {
-  locationId: "Ddc0DVM8MT67wmLP3wAA",
+  locationId: "tn90CyE3XuYFTy4c1M3F",
   supabaseUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co",
   supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im95bmhuaGtsZHZwb3Foc2ZpcndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0OTAwODksImV4cCI6MjA3NTA2NjA4OX0.9zYOwel585SOUAtVc4XkWhhJl4qldwX6oOhOH7L-eJ4",
   rechnungEngineUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/engine-assets/rechnung-survey-engine.js",
   rechnungProxyPath: "https://oynhnhkldvpoqhsfirwf.supabase.co/functions/v1/rechnung-proxy",
-  rechnungSuccessUrl: "https://www.kromen-energieassistent.de/rechnung-eingegangen",
-  rechnungErrorUrl: "https://www.kromen-energieassistent.de/fehler",
-  privacyUrl: "https://www.kromen-energieassistent.de/datenschutz"
+  rechnungSuccessUrl: "https://www.ehiogie-energieassistent.de/rechnung-eingegangen",
+  rechnungErrorUrl: "https://www.ehiogie-energieassistent.de/rechnung-fehler",
+  privacyUrl: "https://www.ehiogie-energieassistent.de/datenschutz"
 };
 </script>
 
@@ -15,11 +15,11 @@ window.TB_BOOTSTRAP = {
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
   * { box-sizing: border-box; }
   :root {
-    --primary-color: #00ff9d;
+    --primary-color: #2563eb;
     --btn-bg: #0f172a;
-    --btn-text: #00ff9d;
+    --btn-text: #2563eb;
     --submit-btn-bg: #0f172a;
-    --submit-btn-text: #00ff9d;
+    --submit-btn-text: #2563eb;
     --text-color: #334155;
     --text-color-strong: #0f172a;
     --bg-card: #ffffff;
@@ -33,7 +33,7 @@ window.TB_BOOTSTRAP = {
     --card-shadow: 0 25px 50px -12px rgba(2,8,23,0.08);
     --choice-bg: #ffffff;
     --choice-border: #e2e8f0;
-    --choice-selected-border: var(--primary-color, #00ff9d);
+    --choice-selected-border: var(--primary-color, #2563eb);
     --choice-text: var(--text-color-strong, #0f172a);
   }
   #survey-app { font-family: 'Poppins', sans-serif; max-width: 460px; margin: 0 auto; min-height: 500px; color: var(--text-color); }
@@ -44,14 +44,16 @@ window.TB_BOOTSTRAP = {
   .survey-question { font-size: 1.22rem; font-weight: 800; text-align: center; color: var(--text-color, #334155); margin-top: 2.2rem; margin-bottom: 1.7rem; line-height: 1.35; letter-spacing: -0.02em; }
   .survey-subtext { width: 100%; margin: 0 0 0.8rem 0; font-size: 0.92rem; line-height: 1.35rem; color: #64748b; font-weight: 600; text-align: center; }
   .language-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; width:100%; }
-  .lang-card { background:#f8fafc; border:2px solid transparent; border-radius:1.25rem; padding: 1.2rem 0.5rem; display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; transition:.3s; position:relative; min-height:76px; text-align:center; }
+  .lang-card { background:#f8fafc; border:2px solid transparent; border-radius:1.25rem; padding: 1.2rem 0.5rem; display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; transition:.3s; position: relative; text-align:center; }
   .lang-card.selected-border { border-color: var(--primary-color); background:white; box-shadow:0 10px 20px rgba(0,0,0,0.05); }
+  
   .flag-icon { width:32px; height:24px; margin-bottom:8px; border-radius:3px; object-fit:cover; display:block; }
   .lang-card span, .lang-card div { font-size:.9rem; line-height:1.15; }
-  .animated-card { background:#f8fafc; border:2px solid transparent; border-radius:1.25rem; padding: 1.1rem 1.4rem; width:100%; margin-bottom: 10px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; transition:.2s; box-sizing:border-box; font-weight:600; }
-  .animated-card:hover { border-color: #dbeafe; background:white; }
-  .selected-border { border-color: var(--primary-color) !important; background: white; }
+  .animated-card { background: #f8fafc; border: 2px solid transparent; border-radius:1.25rem; padding: 1.1rem 1.4rem; width:100%; margin: 0 0 10px 0; display:flex; justify-content:space-between; align-items:center; cursor:pointer; transition:.2s; box-sizing:border-box; font-weight:600; }
+  .animated-card:hover { border-color: rgba(37,99,235,0.55); background:white; }
+  .selected-border { border-color: var(--primary-color) !important; background:white; }
   .multi-choice-card { justify-content:center; text-align:center; }
+  
   .modern-input { width: 100%; padding: 1.1rem; border-radius: 1.25rem; border: 2px solid #f1f5f9; background: #f8fafc; font-size: 1.15rem; font-weight: 600; text-align: center; outline: none; transition: all .2s; box-sizing: border-box; color: var(--text-color); }
   .modern-input:focus { border-color:#cbd5e1; background:white; }
   .text-left { text-align:left !important; padding-left: 1.2rem !important; }
@@ -135,7 +137,7 @@ window.TB_BOOTSTRAP = {
 
   .meter-tab-active {
     color: #0f172a;
-    border-bottom-color: var(--choice-selected-border, var(--primary-color, #00ff9d));
+    border-bottom-color: var(--choice-selected-border, var(--primary-color, #2563eb));
   }
 
   .meter-reading-list {
@@ -207,7 +209,12 @@ window.TB_BOOTSTRAP = {
       if (d.submit_button.bg_color) root.style.setProperty('--submit-btn-bg', d.submit_button.bg_color);
       if (d.submit_button.text_color) root.style.setProperty('--submit-btn-text', d.submit_button.text_color);
     }
-    if (d.choice_card && typeof d.choice_card === 'object' && d.choice_card.selected_border_color) root.style.setProperty('--choice-selected-border', d.choice_card.selected_border_color);
+    if (d.choice_card && typeof d.choice_card === 'object') {
+      if (d.choice_card.bg_color) root.style.setProperty('--choice-bg', d.choice_card.bg_color);
+      if (d.choice_card.border_color) root.style.setProperty('--choice-border', d.choice_card.border_color);
+      if (d.choice_card.selected_border_color) root.style.setProperty('--choice-selected-border', d.choice_card.selected_border_color);
+      if (d.choice_card.text_color) root.style.setProperty('--choice-text', d.choice_card.text_color);
+    }
     if (d.card && typeof d.card === 'object') {
       if (d.card.padding_top) root.style.setProperty('--card-padding-top', d.card.padding_top);
       if (d.card.padding_x) root.style.setProperty('--card-padding-x', d.card.padding_x);

@@ -6,13 +6,13 @@ const Datenschutz = () => {
   const { getText } = useWebsiteConfig();
   const htmlOverride = getText("pages.datenschutz.html", "");
   const legalVars = {
-    firma: getText("legal.variables.firma", "Kromen Energieassistent"),
-    inhaber: getText("legal.variables.inhaber", "Marcel Kromen"),
-    strasse: getText("legal.variables.strasse", "Kavenstr. 10"),
-    plz: getText("legal.variables.plz", "52072"),
+    firma: getText("legal.variables.firma", "Ehiogie Energieassistent"),
+    inhaber: getText("legal.variables.inhaber", "Marvin Ehiogie"),
+    strasse: getText("legal.variables.strasse", "Vaalser Str. 304B"),
+    plz: getText("legal.variables.plz", "52074"),
     ort: getText("legal.variables.ort", "Aachen"),
     land: getText("legal.variables.land", "Deutschland"),
-    email: getText("legal.variables.email", "info@kromen-energieassistent.de"),
+    email: getText("legal.variables.email", "marvin@ehiogie-energieassistent.de"),
   };
 
   if (htmlOverride) {

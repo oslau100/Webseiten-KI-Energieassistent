@@ -4,58 +4,129 @@ import {
   customerDefaultWebsiteDesignConfig,
   customerDefaultWebsiteLayoutConfig,
 } from "./customerDefaults";
+import {
+  deepMerge,
+  interpolateTemplate,
+  resolveArray,
+  resolveLocalizedText,
+  resolveObject,
+  type JsonRecord,
+} from "./websiteContentResolver";
 
-type JsonRecord = Record<string, unknown>;
+export type WebsiteConfigSource = "fallback" | "supabase";
 
-type WebsiteConfigState = {
-  design: JsonRecord;
+export type WebsiteConfigBucket = "content" | "design" | "layout";
+
+export type WebsiteConfig = {
   content: JsonRecord;
+  design: JsonRecord;
   layout: JsonRecord;
+};
+
+export type WebsiteConfigOverrides = Partial<Record<WebsiteConfigBucket, JsonRecord | null | undefined>>;
+
+type WebsiteConfigState = WebsiteConfig & {
   loading: boolean;
-  source: "fallback" | "remote";
+  source: WebsiteConfigSource;
 };
 
-const DEFAULT_LOCATION_ID = "Ddc0DVM8MT67wmLP3wAA";
-const DEFAULT_SUPABASE_URL = "https://oynhnhkldvpoqhsfirwf.supabase.co";
-const DEFAULT_SUPABASE_ANON_KEY = "<SECRET>";
-
-export const defaultWebsiteDesignConfig: JsonRecord = {
-  ...customerDefaultWebsiteDesignConfig,
+export type WebsiteTenantConfig = {
+  customer: "ehiogie";
+  locationId: string;
 };
 
-export const defaultWebsiteLayoutConfig: JsonRecord = {
-  ...customerDefaultWebsiteLayoutConfig,
+type SupabaseRuntimeConfig = {
+  url?: string;
+  anonKey?: string;
 };
 
-export const defaultWebsiteContentConfig: JsonRecord = {
-  ...customerDefaultWebsiteContentConfig,
+type RuntimeQueryConfig = {
+  locationId?: string;
+  supabaseUrl?: string;
+  supabaseKey?: string;
 };
 
-const deepMerge = (base: JsonRecord, override: JsonRecord): JsonRecord => {
-  const merged: JsonRecord = { ...base };
-  for (const [key, value] of Object.entries(override || {})) {
-    const current = merged[key];
-    if (Array.isArray(value)) {
-      merged[key] = value;
-      continue;
-    }
-    if (value && typeof value === "object" && current && typeof current === "object" && !Array.isArray(current)) {
-      merged[key] = deepMerge(current as JsonRecord, value as JsonRecord);
-      continue;
-    }
-    merged[key] = value;
-  }
-  return merged;
+type BootstrapConfig = {
+  locationId?: string;
+  supabaseUrl?: string;
+  supabaseAnonKey?: string;
+  supabaseKey?: string;
 };
 
-const getByPath = (obj: JsonRecord, path: string): unknown => {
-  return path.split(".").reduce<unknown>((acc, key) => {
-    if (!acc || typeof acc !== "object") return undefined;
-    return (acc as JsonRecord)[key];
-  }, obj);
+const EhiogieTenantFallback: WebsiteTenantConfig = {
+  customer: "ehiogie",
+  locationId: "tn90CyE3XuYFTy4c1M3F",
+};
+
+const safeDefaultWebsiteConfig: WebsiteConfig = {
+  content: {},
+  design: {},
+  layout: {},
+};
+
+export const tenantFallbackWebsiteConfig: WebsiteConfig = {
+  design: {
+    ...customerDefaultWebsiteDesignConfig,
+  },
+  content: {
+    ...customerDefaultWebsiteContentConfig,
+  },
+  layout: {
+    ...customerDefaultWebsiteLayoutConfig,
+  },
+};
+
+export const defaultWebsiteDesignConfig: JsonRecord = tenantFallbackWebsiteConfig.design;
+export const defaultWebsiteLayoutConfig: JsonRecord = tenantFallbackWebsiteConfig.layout;
+export const defaultWebsiteContentConfig: JsonRecord = tenantFallbackWebsiteConfig.content;
+
+const isJsonRecord = (value: unknown): value is JsonRecord => {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+};
+
+export const mergeWebsiteConfig = (base: WebsiteConfig, overrides: WebsiteConfigOverrides = {}): WebsiteConfig => ({
+  content: deepMerge(base.content, isJsonRecord(overrides.content) ? overrides.content : {}),
+  design: deepMerge(base.design, isJsonRecord(overrides.design) ? overrides.design : {}),
+  layout: deepMerge(base.layout, isJsonRecord(overrides.layout) ? overrides.layout : {}),
+});
+
+export const resolveWebsiteConfig = (overrides: WebsiteConfigOverrides = {}): WebsiteConfig => {
+  const repoFallback = mergeWebsiteConfig(safeDefaultWebsiteConfig, tenantFallbackWebsiteConfig);
+  return mergeWebsiteConfig(repoFallback, overrides);
+};
+
+const getBootstrapConfig = (): BootstrapConfig => {
+  if (typeof window === "undefined") return {};
+  return ((window as Window & { TB_BOOTSTRAP?: BootstrapConfig }).TB_BOOTSTRAP || {}) as BootstrapConfig;
+};
+
+const getRuntimeQueryConfig = (): RuntimeQueryConfig => {
+  if (typeof window === "undefined") return {};
+
+  const searchParams = new URLSearchParams(window.location.search);
+  return {
+    locationId: String(searchParams.get("location_id") || searchParams.get("locationId") || "").trim() || undefined,
+    supabaseUrl: String(searchParams.get("supabase_url") || "").trim() || undefined,
+    supabaseKey: String(searchParams.get("supabase_key") || "").trim() || undefined,
+  };
+};
+
+const getRuntimeLocationId = (bootstrap: BootstrapConfig, query: RuntimeQueryConfig): string => {
+  return String(query.locationId || bootstrap.locationId || EhiogieTenantFallback.locationId).trim();
+};
+
+const getRuntimeSupabaseConfig = (bootstrap: BootstrapConfig, query: RuntimeQueryConfig): SupabaseRuntimeConfig => {
+  const env = import.meta.env as Record<string, string | undefined>;
+  return {
+    url: String(query.supabaseUrl || bootstrap.supabaseUrl || env.VITE_SUPABASE_URL || "").trim() || undefined,
+    anonKey: String(
+      query.supabaseKey || bootstrap.supabaseAnonKey || bootstrap.supabaseKey || env.VITE_SUPABASE_ANON_KEY || "",
+    ).trim() || undefined,
+  };
 };
 
 type WebsiteConfigContextValue = WebsiteConfigState & {
+  tenant: WebsiteTenantConfig;
   getText: (path: string, fallback: string, lang?: string) => string;
   getArray: <T = unknown>(path: string, fallback: T[]) => T[];
   getObject: <T extends JsonRecord = JsonRecord>(path: string, fallback: T) => T;
@@ -66,9 +137,7 @@ const WebsiteConfigContext = createContext<WebsiteConfigContextValue | null>(nul
 
 export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => {
   const [state, setState] = useState<WebsiteConfigState>({
-    design: defaultWebsiteDesignConfig,
-    content: defaultWebsiteContentConfig,
-    layout: defaultWebsiteLayoutConfig,
+    ...resolveWebsiteConfig(),
     loading: true,
     source: "fallback",
   });
@@ -76,27 +145,21 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
   useEffect(() => {
     const run = async () => {
       try {
-        const url = new URL(window.location.href);
-        const queryLocation = url.searchParams.get("location_id") || url.searchParams.get("locationId");
-        const querySupabaseUrl = url.searchParams.get("supabase_url");
-        const querySupabaseKey = url.searchParams.get("supabase_key");
+        const bootstrap = getBootstrapConfig();
+        const query = getRuntimeQueryConfig();
+        const runtimeSupabase = getRuntimeSupabaseConfig(bootstrap, query);
+        const locationId = getRuntimeLocationId(bootstrap, query);
 
-        const bootstrap = (window as Window & { TB_BOOTSTRAP?: Record<string, string> }).TB_BOOTSTRAP || {};
-
-        const locationId = String(queryLocation || bootstrap.locationId || DEFAULT_LOCATION_ID).trim();
-        const supabaseUrl = String(querySupabaseUrl || bootstrap.supabaseUrl || DEFAULT_SUPABASE_URL).trim();
-        const supabaseKey = String(querySupabaseKey || bootstrap.supabaseKey || DEFAULT_SUPABASE_ANON_KEY).trim();
-
-        if (!locationId || !supabaseUrl || !supabaseKey || supabaseKey === "<SECRET>") {
+        if (!locationId || !runtimeSupabase.url || !runtimeSupabase.anonKey) {
           setState((prev) => ({ ...prev, loading: false }));
           return;
         }
 
-        const endpoint = `${supabaseUrl}/rest/v1/kunden_config?select=webseite_design_config,webseite_content_config,webseite_layout_config&location_id=eq.${encodeURIComponent(locationId)}&limit=1`;
+        const endpoint = `${runtimeSupabase.url}/rest/v1/kunden_config?select=webseite_design_config,webseite_content_config,webseite_layout_config&location_id=eq.${encodeURIComponent(locationId)}&limit=1`;
         const response = await fetch(endpoint, {
           headers: {
-            apikey: supabaseKey,
-            Authorization: `Bearer ${supabaseKey}`,
+            apikey: runtimeSupabase.anonKey,
+            Authorization: `Bearer ${runtimeSupabase.anonKey}`,
           },
         });
 
@@ -106,9 +169,9 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
         }
 
         const rows = (await response.json()) as Array<{
-          webseite_design_config?: JsonRecord;
-          webseite_content_config?: JsonRecord;
-          webseite_layout_config?: JsonRecord;
+          webseite_design_config?: unknown;
+          webseite_content_config?: unknown;
+          webseite_layout_config?: unknown;
         }>;
 
         const row = rows?.[0];
@@ -118,11 +181,13 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
         }
 
         setState({
-          design: deepMerge(defaultWebsiteDesignConfig, row.webseite_design_config || {}),
-          content: deepMerge(defaultWebsiteContentConfig, row.webseite_content_config || {}),
-          layout: deepMerge(defaultWebsiteLayoutConfig, row.webseite_layout_config || {}),
+          ...resolveWebsiteConfig({
+            design: row.webseite_design_config,
+            content: row.webseite_content_config,
+            layout: row.webseite_layout_config,
+          }),
           loading: false,
-          source: "remote",
+          source: "supabase",
         });
       } catch {
         setState((prev) => ({ ...prev, loading: false }));
@@ -142,31 +207,11 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
 
   const value = useMemo<WebsiteConfigContextValue>(() => ({
     ...state,
-    getText: (path, fallback, lang) => {
-      const raw = getByPath(state.content, path);
-      if (typeof raw === "string") return raw;
-      if (raw && typeof raw === "object") {
-        if (lang) {
-          const localized = (raw as JsonRecord)[lang];
-          if (typeof localized === "string") return localized;
-        }
-        const de = (raw as JsonRecord).de;
-        if (typeof de === "string") return de;
-        for (const v of Object.values(raw as JsonRecord)) {
-          if (typeof v === "string") return v;
-        }
-      }
-      return fallback;
-    },
-    getArray: (path, fallback) => {
-      const raw = getByPath(state.content, path);
-      return Array.isArray(raw) ? (raw as typeof fallback) : fallback;
-    },
-    getObject: (path, fallback) => {
-      const raw = getByPath(state.content, path);
-      return raw && typeof raw === "object" && !Array.isArray(raw) ? (raw as typeof fallback) : fallback;
-    },
-    interpolate: (template, vars = {}) => String(template || "").replace(/\{\{\s*([\w.]+)\s*\}\}/g, (_, key) => vars[key] ?? ""),
+    tenant: EhiogieTenantFallback,
+    getText: (path, fallback, lang) => resolveLocalizedText(state.content, path, fallback, lang),
+    getArray: (path, fallback) => resolveArray(state.content, path, fallback),
+    getObject: (path, fallback) => resolveObject(state.content, path, fallback),
+    interpolate: (template, vars = {}) => interpolateTemplate(template, vars),
   }), [state]);
 
   return <WebsiteConfigContext.Provider value={value}>{children}</WebsiteConfigContext.Provider>;

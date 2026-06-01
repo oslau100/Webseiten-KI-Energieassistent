@@ -3,6 +3,12 @@ import { AnimatedSection } from "./AnimatedSection";
 import { useI18n } from "@/lib/i18n";
 import { useWebsiteConfig } from "@/lib/websiteConfig";
 
+const TikTokIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25h-3.27v13.37a2.89 2.89 0 1 1-2.89-2.89c.24 0 .48.03.7.09V9.69a6.16 6.16 0 0 0-.7-.04A6.17 6.17 0 1 0 15.82 15V8.2a8.1 8.1 0 0 0 4.74 1.53V6.69h-.97Z" />
+  </svg>
+);
+
 export const About = () => {
   const { t, lang } = useI18n();
   const { getText } = useWebsiteConfig();
@@ -27,9 +33,10 @@ export const About = () => {
               <div className="space-y-4">
                 <p className="font-bold text-sm uppercase tracking-wider text-muted-foreground">{getText("sections.about.social_hint", "Folge mir auf den Sozialen Medien für Tipps rund um Strom & Gas", lang)}</p>
                 <div className="flex justify-center gap-4 text-muted-foreground">
-                  <a href={getText("sections.about.social.youtube", "#", lang)} target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors"><Youtube className="h-6 w-6" /></a>
-                  <a href={getText("sections.about.social.facebook", "#", lang)} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors"><Facebook className="h-6 w-6" /></a>
-                  <a href={getText("sections.about.social.instagram", "#", lang)} target="_blank" rel="noopener noreferrer" className="hover:text-pink-600 transition-colors"><Instagram className="h-6 w-6" /></a>
+                  <a href={getText("sections.about.social.tiktok", "#", lang)} target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="transition-colors hover:text-primary"><TikTokIcon className="h-6 w-6" /></a>
+                  <a href={getText("sections.about.social.youtube", "#", lang)} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="transition-colors hover:text-primary"><Youtube className="h-6 w-6" /></a>
+                  <a href={getText("sections.about.social.facebook", "#", lang)} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="transition-colors hover:text-primary"><Facebook className="h-6 w-6" /></a>
+                  <a href={getText("sections.about.social.instagram", "#", lang)} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="transition-colors hover:text-primary"><Instagram className="h-6 w-6" /></a>
                 </div>
               </div>
             </div>
@@ -43,6 +50,8 @@ export const About = () => {
                 <p>{getText("sections.about.paragraph_2", "In meiner Arbeit habe ich immer wieder gesehen, wie unübersichtlich der Energiemarkt für viele Menschen geworden ist. Unterschiedliche Anbieter, ständig neue Tarife und komplizierte Vertragsbedingungen machen es schwer zu erkennen, welcher Tarif wirklich sinnvoll ist. Viele Haushalte beschäftigen sich deshalb erst dann mit ihrem Energievertrag, wenn eine hohe Nachzahlung kommt oder die Kosten plötzlich steigen.", lang)}</p>
                 <p>{getText("sections.about.paragraph_3", "Genau hier setze ich an. Mit dem digitalen Energieassistenten stelle ich ein System zur Verfügung, das Tarife automatisch prüft, Jahresrechnungen analysiert und verständlich zeigt, wo Einsparungen oder Auffälligkeiten liegen. So wird aus einem komplexen Energiethema eine klare und verständliche Lösung.", lang)}</p>
                 <p>{getText("sections.about.paragraph_4", "Mein Ziel ist es, so vielen Haushalten wie möglich zu helfen, ihre Energiekosten besser zu verstehen, unnötige Ausgaben zu vermeiden und langfristig Einsparungen zu erzielen ohne komplizierte Vergleiche oder zusätzlichen Aufwand.", lang)}</p>
+                <p>{getText("sections.about.paragraph_5", "So wird aus einem komplizierten Tarifvergleich oder einer schwer verständlichen Jahresrechnung eine einfache Entscheidung.", lang)}</p>
+                <p>{getText("sections.about.paragraph_6", "Mein Ziel ist es, Haushalten eine einfache und sichere Möglichkeit zu geben, ihre Energiekosten zu prüfen – ohne Tarifchaos und ohne Risiko.", lang)}</p>
               </div>
             </div>
           </div>

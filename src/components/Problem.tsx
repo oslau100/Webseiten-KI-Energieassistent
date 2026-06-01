@@ -15,7 +15,7 @@ const iconMap = {
 
 export const Problem = () => {
   const { t, lang } = useI18n();
-  const { getArray } = useWebsiteConfig();
+  const { getArray, getText } = useWebsiteConfig();
 
   const fallbackProblems: ProblemItem[] = [
     { title: "Der Markt ist schwer zu überblicken", description: "Hunderte Angebote machen es schwer zu erkennen, welcher Tarif wirklich sinnvoll ist. Deshalb ändern viele ihren Tarif einfach nicht.", iconKey: "search" },
@@ -30,7 +30,7 @@ export const Problem = () => {
     <section className="py-16 md:py-24 bg-background overflow-hidden">
       <div className="container px-4 md:px-6">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{t("home_problem_h2")}</h2>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{getText("sections.problem.headline", t("home_problem_h2"), lang)}</h2>
         </AnimatedSection>
         <div className="grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
           {problems.map((problem, index) => {
