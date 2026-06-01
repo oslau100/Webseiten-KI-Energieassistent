@@ -40,6 +40,12 @@ type SupabaseRuntimeConfig = {
   anonKey?: string;
 };
 
+type RuntimeQueryConfig = {
+  locationId?: string;
+  supabaseUrl?: string;
+  supabaseKey?: string;
+};
+
 type BootstrapConfig = {
   locationId?: string;
   supabaseUrl?: string;
@@ -94,11 +100,28 @@ const getBootstrapConfig = (): BootstrapConfig => {
   return ((window as Window & { TB_BOOTSTRAP?: BootstrapConfig }).TB_BOOTSTRAP || {}) as BootstrapConfig;
 };
 
-const getRuntimeSupabaseConfig = (bootstrap: BootstrapConfig): SupabaseRuntimeConfig => {
+const getRuntimeQueryConfig = (): RuntimeQueryConfig => {
+  if (typeof window === "undefined") return {};
+
+  const searchParams = new URLSearchParams(window.location.search);
+  return {
+    locationId: String(searchParams.get("location_id") || searchParams.get("locationId") || "").trim() || undefined,
+    supabaseUrl: String(searchParams.get("supabase_url") || "").trim() || undefined,
+    supabaseKey: String(searchParams.get("supabase_key") || "").trim() || undefined,
+  };
+};
+
+const getRuntimeLocationId = (bootstrap: BootstrapConfig, query: RuntimeQueryConfig): string => {
+  return String(query.locationId || bootstrap.locationId || EhiogieTenantFallback.locationId).trim();
+};
+
+const getRuntimeSupabaseConfig = (bootstrap: BootstrapConfig, query: RuntimeQueryConfig): SupabaseRuntimeConfig => {
   const env = import.meta.env as Record<string, string | undefined>;
   return {
-    url: String(bootstrap.supabaseUrl || env.VITE_SUPABASE_URL || "").trim() || undefined,
-    anonKey: String(bootstrap.supabaseAnonKey || bootstrap.supabaseKey || env.VITE_SUPABASE_ANON_KEY || "").trim() || undefined,
+    url: String(query.supabaseUrl || bootstrap.supabaseUrl || env.VITE_SUPABASE_URL || "").trim() || undefined,
+    anonKey: String(
+      query.supabaseKey || bootstrap.supabaseAnonKey || bootstrap.supabaseKey || env.VITE_SUPABASE_ANON_KEY || "",
+    ).trim() || undefined,
   };
 };
 
@@ -123,8 +146,9 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
     const run = async () => {
       try {
         const bootstrap = getBootstrapConfig();
-        const runtimeSupabase = getRuntimeSupabaseConfig(bootstrap);
-        const locationId = String(bootstrap.locationId || EhiogieTenantFallback.locationId).trim();
+        const query = getRuntimeQueryConfig();
+        const runtimeSupabase = getRuntimeSupabaseConfig(bootstrap, query);
+        const locationId = getRuntimeLocationId(bootstrap, query);
 
         if (!locationId || !runtimeSupabase.url || !runtimeSupabase.anonKey) {
           setState((prev) => ({ ...prev, loading: false }));
