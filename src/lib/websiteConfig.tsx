@@ -13,31 +13,97 @@ import {
   type JsonRecord,
 } from "./websiteContentResolver";
 
-type WebsiteConfigState = {
-  design: JsonRecord;
+export type WebsiteConfigSource = "fallback" | "supabase";
+
+export type WebsiteConfigBucket = "content" | "design" | "layout";
+
+export type WebsiteConfig = {
   content: JsonRecord;
+  design: JsonRecord;
   layout: JsonRecord;
+};
+
+export type WebsiteConfigOverrides = Partial<Record<WebsiteConfigBucket, JsonRecord | null | undefined>>;
+
+type WebsiteConfigState = WebsiteConfig & {
   loading: boolean;
-  source: "fallback" | "remote";
+  source: WebsiteConfigSource;
 };
 
-const DEFAULT_LOCATION_ID = "tn90CyE3XuYFTy4c1M3F";
-const DEFAULT_SUPABASE_URL = "https://oynhnhkldvpoqhsfirwf.supabase.co";
-const DEFAULT_SUPABASE_ANON_KEY = "<SECRET>";
-
-export const defaultWebsiteDesignConfig: JsonRecord = {
-  ...customerDefaultWebsiteDesignConfig,
+export type WebsiteTenantConfig = {
+  customer: "ehiogie";
+  locationId: string;
 };
 
-export const defaultWebsiteLayoutConfig: JsonRecord = {
-  ...customerDefaultWebsiteLayoutConfig,
+type SupabaseRuntimeConfig = {
+  url?: string;
+  anonKey?: string;
 };
 
-export const defaultWebsiteContentConfig: JsonRecord = {
-  ...customerDefaultWebsiteContentConfig,
+type BootstrapConfig = {
+  locationId?: string;
+  supabaseUrl?: string;
+  supabaseAnonKey?: string;
+  supabaseKey?: string;
+};
+
+const EhiogieTenantFallback: WebsiteTenantConfig = {
+  customer: "ehiogie",
+  locationId: "tn90CyE3XuYFTy4c1M3F",
+};
+
+const safeDefaultWebsiteConfig: WebsiteConfig = {
+  content: {},
+  design: {},
+  layout: {},
+};
+
+export const tenantFallbackWebsiteConfig: WebsiteConfig = {
+  design: {
+    ...customerDefaultWebsiteDesignConfig,
+  },
+  content: {
+    ...customerDefaultWebsiteContentConfig,
+  },
+  layout: {
+    ...customerDefaultWebsiteLayoutConfig,
+  },
+};
+
+export const defaultWebsiteDesignConfig: JsonRecord = tenantFallbackWebsiteConfig.design;
+export const defaultWebsiteLayoutConfig: JsonRecord = tenantFallbackWebsiteConfig.layout;
+export const defaultWebsiteContentConfig: JsonRecord = tenantFallbackWebsiteConfig.content;
+
+const isJsonRecord = (value: unknown): value is JsonRecord => {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+};
+
+export const mergeWebsiteConfig = (base: WebsiteConfig, overrides: WebsiteConfigOverrides = {}): WebsiteConfig => ({
+  content: deepMerge(base.content, isJsonRecord(overrides.content) ? overrides.content : {}),
+  design: deepMerge(base.design, isJsonRecord(overrides.design) ? overrides.design : {}),
+  layout: deepMerge(base.layout, isJsonRecord(overrides.layout) ? overrides.layout : {}),
+});
+
+export const resolveWebsiteConfig = (overrides: WebsiteConfigOverrides = {}): WebsiteConfig => {
+  const repoFallback = mergeWebsiteConfig(safeDefaultWebsiteConfig, tenantFallbackWebsiteConfig);
+  return mergeWebsiteConfig(repoFallback, overrides);
+};
+
+const getBootstrapConfig = (): BootstrapConfig => {
+  if (typeof window === "undefined") return {};
+  return ((window as Window & { TB_BOOTSTRAP?: BootstrapConfig }).TB_BOOTSTRAP || {}) as BootstrapConfig;
+};
+
+const getRuntimeSupabaseConfig = (bootstrap: BootstrapConfig): SupabaseRuntimeConfig => {
+  const env = import.meta.env as Record<string, string | undefined>;
+  return {
+    url: String(bootstrap.supabaseUrl || env.VITE_SUPABASE_URL || "").trim() || undefined,
+    anonKey: String(bootstrap.supabaseAnonKey || bootstrap.supabaseKey || env.VITE_SUPABASE_ANON_KEY || "").trim() || undefined,
+  };
 };
 
 type WebsiteConfigContextValue = WebsiteConfigState & {
+  tenant: WebsiteTenantConfig;
   getText: (path: string, fallback: string, lang?: string) => string;
   getArray: <T = unknown>(path: string, fallback: T[]) => T[];
   getObject: <T extends JsonRecord = JsonRecord>(path: string, fallback: T) => T;
@@ -48,9 +114,7 @@ const WebsiteConfigContext = createContext<WebsiteConfigContextValue | null>(nul
 
 export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => {
   const [state, setState] = useState<WebsiteConfigState>({
-    design: defaultWebsiteDesignConfig,
-    content: defaultWebsiteContentConfig,
-    layout: defaultWebsiteLayoutConfig,
+    ...resolveWebsiteConfig(),
     loading: true,
     source: "fallback",
   });
@@ -58,27 +122,20 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
   useEffect(() => {
     const run = async () => {
       try {
-        const url = new URL(window.location.href);
-        const queryLocation = url.searchParams.get("location_id") || url.searchParams.get("locationId");
-        const querySupabaseUrl = url.searchParams.get("supabase_url");
-        const querySupabaseKey = url.searchParams.get("supabase_key");
+        const bootstrap = getBootstrapConfig();
+        const runtimeSupabase = getRuntimeSupabaseConfig(bootstrap);
+        const locationId = String(bootstrap.locationId || EhiogieTenantFallback.locationId).trim();
 
-        const bootstrap = (window as Window & { TB_BOOTSTRAP?: Record<string, string> }).TB_BOOTSTRAP || {};
-
-        const locationId = String(queryLocation || bootstrap.locationId || DEFAULT_LOCATION_ID).trim();
-        const supabaseUrl = String(querySupabaseUrl || bootstrap.supabaseUrl || DEFAULT_SUPABASE_URL).trim();
-        const supabaseKey = String(querySupabaseKey || bootstrap.supabaseKey || DEFAULT_SUPABASE_ANON_KEY).trim();
-
-        if (!locationId || !supabaseUrl || !supabaseKey || supabaseKey === "<SECRET>") {
+        if (!locationId || !runtimeSupabase.url || !runtimeSupabase.anonKey) {
           setState((prev) => ({ ...prev, loading: false }));
           return;
         }
 
-        const endpoint = `${supabaseUrl}/rest/v1/kunden_config?select=webseite_design_config,webseite_content_config,webseite_layout_config&location_id=eq.${encodeURIComponent(locationId)}&limit=1`;
+        const endpoint = `${runtimeSupabase.url}/rest/v1/kunden_config?select=webseite_design_config,webseite_content_config,webseite_layout_config&location_id=eq.${encodeURIComponent(locationId)}&limit=1`;
         const response = await fetch(endpoint, {
           headers: {
-            apikey: supabaseKey,
-            Authorization: `Bearer ${supabaseKey}`,
+            apikey: runtimeSupabase.anonKey,
+            Authorization: `Bearer ${runtimeSupabase.anonKey}`,
           },
         });
 
@@ -88,9 +145,9 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
         }
 
         const rows = (await response.json()) as Array<{
-          webseite_design_config?: JsonRecord;
-          webseite_content_config?: JsonRecord;
-          webseite_layout_config?: JsonRecord;
+          webseite_design_config?: unknown;
+          webseite_content_config?: unknown;
+          webseite_layout_config?: unknown;
         }>;
 
         const row = rows?.[0];
@@ -100,11 +157,13 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
         }
 
         setState({
-          design: deepMerge(defaultWebsiteDesignConfig, row.webseite_design_config || {}),
-          content: deepMerge(defaultWebsiteContentConfig, row.webseite_content_config || {}),
-          layout: deepMerge(defaultWebsiteLayoutConfig, row.webseite_layout_config || {}),
+          ...resolveWebsiteConfig({
+            design: row.webseite_design_config,
+            content: row.webseite_content_config,
+            layout: row.webseite_layout_config,
+          }),
           loading: false,
-          source: "remote",
+          source: "supabase",
         });
       } catch {
         setState((prev) => ({ ...prev, loading: false }));
@@ -124,6 +183,7 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
 
   const value = useMemo<WebsiteConfigContextValue>(() => ({
     ...state,
+    tenant: EhiogieTenantFallback,
     getText: (path, fallback, lang) => resolveLocalizedText(state.content, path, fallback, lang),
     getArray: (path, fallback) => resolveArray(state.content, path, fallback),
     getObject: (path, fallback) => resolveObject(state.content, path, fallback),
