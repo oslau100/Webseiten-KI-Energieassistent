@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 133 15% 12%; /* #1a231c */
+    --foreground: 0 0% 100%;
+
+    --card: 133 15% 16%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 133 15% 16%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 139 58% 39%; /* #2a9d4f */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 133 15% 20%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 133 15% 20%;
+    --muted-foreground: 215 20% 75%;
+
+    --accent: 139 58% 39%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 133 15% 20%;
+    --input: 133 15% 20%;
+    --ring: 139 58% 39%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 133 15% 12%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 139 58% 39%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 133 15% 20%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 133 15% 20%;
+    --sidebar-ring: 139 58% 39%;
+  }
+
+  .dark {
+    --background: 133 15% 12%;
+    --foreground: 0 0% 100%;
+    --card: 133 15% 16%;
+    --card-foreground: 0 0% 100%;
+    --popover: 133 15% 16%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 139 58% 39%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 133 15% 20%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 133 15% 20%;
+    --muted-foreground: 215 20% 75%;
+    --accent: 139 58% 39%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 133 15% 20%;
+    --input: 133 15% 20%;
+    --ring: 139 58% 39%;
+    --sidebar-background: 133 15% 12%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 139 58% 39%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 133 15% 20%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 133 15% 20%;
+    --sidebar-ring: 139 58% 39%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+}
