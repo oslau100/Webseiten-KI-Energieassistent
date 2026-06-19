@@ -7,124 +7,100 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
-    :root{--primary:#00ff9d;--ink:#0f172a;--muted:#64748b;--card:#fff;--line:#e2e8f0}*{box-sizing:border-box}body{margin:0;background:transparent;font-family:Poppins,system-ui,sans-serif;color:var(--ink)}.wrap{max-width:980px;margin:0 auto;padding:16px}.hero,.card{background:var(--card);border:1px solid #eef2f7;border-radius:32px;box-shadow:0 24px 80px #0f172a14}.hero{padding:34px;margin-bottom:18px}.eyebrow{font-weight:800;color:#10b981;text-transform:uppercase;letter-spacing:.08em;font-size:.78rem}.title{font-size:clamp(2rem,5vw,3.6rem);line-height:1.02;margin:.35rem 0;font-weight:800}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0}.metric{padding:22px;border-radius:24px;background:#f8fafc}.metric b{display:block;font-size:clamp(1.5rem,4vw,2.5rem)}.metric span{color:var(--muted);font-weight:700}.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{padding:26px}.row{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}.cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;margin-top:18px;padding:24px;border-radius:28px;background:#0f172a;color:white}.btn{border:0;border-radius:999px;background:var(--primary);color:#0f172a;padding:16px 24px;font-weight:900;cursor:pointer;text-decoration:none}.btn.secondary{background:#fff;color:#0f172a}.error{text-align:center;padding:40px;color:#ef4444}@media(max-width:760px){.grid,.cards{grid-template-columns:1fr}.hero,.card{border-radius:24px;padding:22px}}
+    :root{--primary-color:#00ff9d;--bg-card:#ffffff;--text-color:#0f172a;--border-radius:2rem;--muted:#64748b}
+    *{box-sizing:border-box}body{margin:0;background:transparent;font-family:Poppins,system-ui,sans-serif;color:var(--text-color)}
+    #tarif-app{width:100%;min-height:640px}.loader-state{max-width:760px;margin:32px auto;padding:32px;border-radius:var(--border-radius);background:var(--bg-card);box-shadow:0 24px 80px #0f172a14;text-align:center}.loader-state p{color:var(--muted)}.loader-error{color:#ef4444;font-weight:800}
   </style>
 </head>
 <body>
-  <main id="app" class="wrap"><section class="hero"><p class="eyebrow">TarifButler</p><h1 class="title">Ihr Angebot wird geladen…</h1><p class="muted">Bitte einen Moment Geduld.</p></section></main>
+  <div id="tarif-app"><div class="loader-state"><h1>Ihr Tarifangebot wird geladen…</h1><p>Bitte einen Moment Geduld.</p></div></div>
   <script>
     const BOOTSTRAP_CONFIG = {
       locationId: "zMzYbmm0fF0pPpuzSBL7",
+      avatarUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/TarifButler%20Specifics/setting-survey-avatar.png",
       supabaseUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co",
       supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im95bmhuaGtsZHZwb3Foc2ZpcndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0OTAwODksImV4cCI6MjA3NTA2NjA4OX0.9zYOwel585SOUAtVc4XkWhhJl4qldwX6oOhOH7L-eJ4",
       offerUrl: "https://www.tarif-butler.de/tarif",
       auftragUrl: "https://www.tarif-butler.de/auftrag",
-      startUrl: "https://www.tarif-butler.de/start"
+      startUrl: "https://www.tarif-butler.de/start",
+      offerProxyPath: "https://oynhnhkldvpoqhsfirwf.supabase.co/functions/v1/offer-proxy",
+      offerEngineUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/engine-assets/tarif-engine.js"
     };
+
     const params = new URLSearchParams(window.location.search);
     const uuid = params.get("uuid");
     const lang = params.get("lang") || params.get("language") || "de";
-    const app = document.getElementById("app");
     const postHeight = () => window.parent.postMessage({ type: "tarifbutler:height", height: document.documentElement.scrollHeight }, "*");
     new ResizeObserver(postHeight).observe(document.body);
     window.addEventListener("load", postHeight);
-    const money = (value) => Number.isFinite(Number(value)) ? new Intl.NumberFormat(lang === "de" ? "de-DE" : undefined, { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(Number(value)) : "—";
-    const text = (value, fallback = "—") => value === undefined || value === null || value === "" ? fallback : String(value);
-    const pick = (obj, keys) => keys.reduce((found, key) => found ?? obj?.[key], undefined);
 
-    function navigate(pathOrUrl) {
-      const url = new URL(pathOrUrl, window.location.origin);
-      if (url.origin === window.location.origin) {
-        window.parent.postMessage({ type: "tarifbutler:navigate", url: `${url.pathname}${url.search}${url.hash}` }, "*");
-      } else if (window.parent === window) {
-        window.location.assign(url.toString());
+    function navigateTo(pathOrUrl) {
+      const target = new URL(pathOrUrl, window.location.origin);
+      const localPath = `${target.pathname}${target.search}${target.hash}`;
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: "tarifbutler:navigate", url: localPath }, "*");
+      } else if (target.origin === window.location.origin) {
+        window.location.assign(localPath);
       } else {
-        window.parent.postMessage({ type: "tarifbutler:navigate", url: `${url.pathname}${url.search}${url.hash}` }, "*");
+        window.location.assign(target.toString());
       }
     }
 
-    async function firstSingle(client, table, column, value) {
-      try {
-        const { data } = await client.from(table).select("*").eq(column, value).maybeSingle();
-        return data;
-      } catch (_) {
-        return null;
-      }
+    window.TARIFBUTLER_NAVIGATE = navigateTo;
+    window.navigateToAuftrag = (nextUuid = uuid, nextLang = lang) => navigateTo(`/auftrag?uuid=${encodeURIComponent(nextUuid)}&lang=${encodeURIComponent(nextLang)}`);
+    window.navigateToStart = (nextLang = lang) => navigateTo(`/start?lang=${encodeURIComponent(nextLang)}`);
+
+    function applyDesign(data) {
+      const brand = data?.design_config?.brand || {};
+      const offer = data?.design_config?.offer || data?.design_config?.tarif || {};
+      const legacy = data?.tarif_design || data?.offer_design || data?.setting_survey_design || {};
+      const root = document.documentElement;
+      root.style.setProperty("--primary-color", offer.primary_color || brand.primary_color || legacy.primary_color || "#00ff9d");
+      root.style.setProperty("--bg-card", offer.bg_card || legacy.bg_card || "#ffffff");
+      root.style.setProperty("--text-color", offer.text_color || brand.text_color || legacy.text_color || "#0f172a");
+      root.style.setProperty("--border-radius", offer.border_radius || legacy.border_radius || "2rem");
     }
 
-    async function loadOrder(client) {
-      const tableNames = ["auftraege", "orders", "kunden_anfragen", "setting_survey_orders", "requests"];
-      for (const table of tableNames) {
-        const byUuid = await firstSingle(client, table, "uuid", uuid);
-        if (byUuid) return byUuid;
-        const byId = await firstSingle(client, table, "id", uuid);
-        if (byId) return byId;
-      }
-      return null;
-    }
-
-    function normalize(order) {
-      const offer = order?.angebot || order?.offer || order?.tarif || order?.selected_tariff || order?.tariff || {};
-      const current = order?.aktueller_tarif || order?.current_tariff || order?.currentTariff || {};
-      const saving = pick(offer, ["ersparnis", "savings", "annual_savings", "saving_per_year"]) ?? pick(order, ["ersparnis", "savings", "annual_savings", "saving_per_year"]);
+    function buildOfferConfig(data) {
+      const runtime = data?.runtime_config || {};
+      const urls = data?.url_config || {};
       return {
-        provider: pick(offer, ["anbieter", "provider", "supplier", "versorger"]),
-        name: pick(offer, ["name", "tarif_name", "tariff_name", "productName"]),
-        annualCost: pick(offer, ["jahreskosten", "annual_cost", "cost_per_year", "newAnnualCost"]),
-        monthlyCost: pick(offer, ["abschlag", "monthly_cost", "monthlyPayment", "newMonthlyCost"]),
-        currentAnnualCost: pick(current, ["jahreskosten", "annual_cost", "cost_per_year"]) ?? pick(order, ["currentAnnualCost", "bisherige_jahreskosten"]),
-        savings: saving,
-        bonus: pick(offer, ["bonus", "neukundenbonus", "cashback"]),
-        priceGuarantee: pick(offer, ["preisgarantie", "price_guarantee"]),
-        term: pick(offer, ["laufzeit", "contract_term", "term"]),
-        notice: pick(offer, ["kuendigungsfrist", "notice_period"]),
-        consumption: pick(order, ["verbrauch", "consumption", "annual_consumption"]),
-        postcode: pick(order, ["plz", "postcode", "zip"])
+        ...BOOTSTRAP_CONFIG,
+        uuid,
+        orderUuid: uuid,
+        auftragUuid: uuid,
+        lang,
+        language: lang,
+        locationId: BOOTSTRAP_CONFIG.locationId,
+        avatarUrl: urls.avatarUrl || urls.avatar_url || BOOTSTRAP_CONFIG.avatarUrl,
+        offerUrl: urls.offerUrl || urls.offer_url || BOOTSTRAP_CONFIG.offerUrl,
+        auftragUrl: urls.auftragUrl || urls.auftrag_url || BOOTSTRAP_CONFIG.auftragUrl,
+        startUrl: urls.startUrl || urls.start_url || BOOTSTRAP_CONFIG.startUrl,
+        offerProxyPath: runtime.offerProxyPath || runtime.offer_proxy_path || runtime.tarifProxyPath || runtime.tarif_proxy_path || BOOTSTRAP_CONFIG.offerProxyPath,
+        offerEngineUrl: runtime.offerEngineUrl || runtime.offer_engine_url || runtime.tarifEngineUrl || runtime.tarif_engine_url || BOOTSTRAP_CONFIG.offerEngineUrl
       };
-    }
-
-    function render(order, kundenConfig) {
-      const n = normalize(order);
-      const brand = kundenConfig?.design_config?.brand || {};
-      document.documentElement.style.setProperty("--primary", brand.primary_color || "#00ff9d");
-      const auftragPath = `/auftrag?uuid=${encodeURIComponent(uuid)}&lang=${encodeURIComponent(lang)}`;
-      app.innerHTML = `
-        <section class="hero">
-          <p class="eyebrow">Ihr geprüfter Tarifvorschlag</p>
-          <h1 class="title">${text(n.provider, "TarifButler")}${n.name ? ` ${text(n.name)}` : ""}</h1>
-          <p class="muted">Basierend auf Ihrer Anfrage ${n.postcode ? `für ${text(n.postcode)}` : ""}${n.consumption ? ` und ${text(n.consumption)} kWh Jahresverbrauch` : ""}.</p>
-          <div class="grid">
-            <div class="metric"><b>${money(n.savings)}</b><span>Ersparnis pro Jahr</span></div>
-            <div class="metric"><b>${money(n.annualCost)}</b><span>Neue Jahreskosten</span></div>
-            <div class="metric"><b>${money(n.monthlyCost)}</b><span>Monatlicher Abschlag</span></div>
-          </div>
-        </section>
-        <section class="cards">
-          <article class="card"><h2>Kostenvergleich</h2><div class="row"><span>Bisherige Jahreskosten</span><strong>${money(n.currentAnnualCost)}</strong></div><div class="row"><span>Neue Jahreskosten</span><strong>${money(n.annualCost)}</strong></div><div class="row"><span>Ihre Ersparnis</span><strong>${money(n.savings)}</strong></div></article>
-          <article class="card"><h2>Tarifdetails</h2><div class="row"><span>Anbieter</span><strong>${text(n.provider)}</strong></div><div class="row"><span>Tarif</span><strong>${text(n.name)}</strong></div><div class="row"><span>Bonus</span><strong>${money(n.bonus)}</strong></div><div class="row"><span>Preisgarantie</span><strong>${text(n.priceGuarantee)}</strong></div><div class="row"><span>Laufzeit</span><strong>${text(n.term)}</strong></div><div class="row"><span>Kündigungsfrist</span><strong>${text(n.notice)}</strong></div></article>
-        </section>
-        <section class="cta"><div><h2>Jetzt wechseln</h2><p>Wir übernehmen den Wechselprozess für Sie.</p></div><button id="auftrag-cta" class="btn">Jetzt wechseln</button></section>`;
-      document.getElementById("auftrag-cta").addEventListener("click", () => navigate(auftragPath));
-      postHeight();
     }
 
     (async () => {
       try {
         if (!uuid) throw new Error("UUID fehlt");
-        window.TARIF_CONFIG = { ...BOOTSTRAP_CONFIG, uuid, lang, language: lang };
         const client = supabase.createClient(BOOTSTRAP_CONFIG.supabaseUrl, BOOTSTRAP_CONFIG.supabaseKey);
-        const [{ data: kundenConfig }, order] = await Promise.all([
-          client.from("kunden_config").select("*").eq("location_id", BOOTSTRAP_CONFIG.locationId).single(),
-          loadOrder(client)
-        ]);
-        if (!order) throw new Error("Auftrag nicht gefunden");
-        window.KUNDEN_DATA = kundenConfig;
-        window.AUFTRAG_DATA = order;
-        render(order, kundenConfig);
+        const { data, error } = await client.from("kunden_config").select("*").eq("location_id", BOOTSTRAP_CONFIG.locationId).single();
+        if (error) throw error;
+        window.KUNDEN_DATA = data;
+        applyDesign(data);
+        window.OFFER_CONFIG = buildOfferConfig(data);
+        window.TARIF_CONFIG = window.OFFER_CONFIG;
+        window.SURVEY_CONFIG = window.OFFER_CONFIG;
+        const response = await fetch(`${window.OFFER_CONFIG.offerEngineUrl}?v=${Date.now()}`);
+        if (!response.ok) throw new Error(`Angebots-Engine konnte nicht geladen werden: ${response.status}`);
+        const script = document.createElement("script");
+        script.text = await response.text();
+        document.body.appendChild(script);
+        postHeight();
       } catch (error) {
         console.error("Offer loader error:", error);
-        app.innerHTML = '<section class="hero error"><h1>Angebot konnte nicht geladen werden.</h1><p>Bitte starten Sie die Anfrage erneut.</p><button class="btn secondary" id="restart">Zur Ersparnisprüfung</button></section>';
-        document.getElementById("restart")?.addEventListener("click", () => navigate(`/start?lang=${encodeURIComponent(lang)}`));
+        document.getElementById("tarif-app").innerHTML = '<div class="loader-state loader-error"><h1>Angebot konnte nicht geladen werden.</h1><p>Bitte starten Sie die Anfrage erneut.</p></div>';
         postHeight();
       }
     })();
