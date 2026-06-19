@@ -1,6 +1,113 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TarifButler Auftrag</title><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><style>body{margin:0;background:transparent;font-family:Poppins,system-ui,sans-serif}.fallback{max-width:560px;margin:48px auto;padding:32px;border-radius:28px;background:#fff;box-shadow:0 24px 80px #0f172a14;text-align:center}#survey-app{min-height:560px}</style></head><body><div id="survey-app"></div><script>
-const BOOTSTRAP={locationId:"zMzYbmm0fF0pPpuzSBL7",supabaseUrl:"https://oynhnhkldvpoqhsfirwf.supabase.co",supabaseKey:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im95bmhuaGtsZHZwb3Foc2ZpcndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0OTAwODksImV4cCI6MjA3NTA2NjA4OX0.9zYOwel585SOUAtVc4XkWhhJl4qldwX6oOhOH7L-eJ4"};const params=new URLSearchParams(location.search);const uuid=params.get('uuid');const lang=params.get('lang')||'de';const resize=()=>parent.postMessage({type:'tarifbutler:height',height:document.documentElement.scrollHeight},'*');new ResizeObserver(resize).observe(document.body);addEventListener('load',resize);function nav(path){const url=new URL(path,location.origin).toString();try{parent.postMessage({type:'tarifbutler:navigate',url},'*')}catch{} if(parent===window)location.assign(url)}
-window.SURVEY_CONFIG={...BOOTSTRAP,uuid,lang,successUrl:`${location.origin}/auftrag-eingegangen`,errorUrl:`${location.origin}/fehler`};
-(async()=>{try{if(!uuid)throw new Error('missing uuid');const sb=supabase.createClient(BOOTSTRAP.supabaseUrl,BOOTSTRAP.supabaseKey);const {data}=await sb.from('kunden_config').select('*').eq('location_id',BOOTSTRAP.locationId).single();window.KUNDEN_DATA=data;const candidates=['closing-survey-engine.js','auftrag-survey-engine.js','order-survey-engine.js'];for(const file of candidates){const r=await fetch(`${BOOTSTRAP.supabaseUrl}/storage/v1/object/public/engine-assets/${file}?v=${Date.now()}`);if(r.ok){const s=document.createElement('script');s.text=await r.text();document.body.appendChild(s);resize();return}}throw new Error('closing engine not found')}catch(e){console.error(e);document.getElementById('survey-app').innerHTML='<div class="fallback"><h2>Auftrag abschließen</h2><p>Der Wechselauftrag konnte nicht geladen werden.</p><button onclick="nav(\'/fehler\')">Weiter</button></div>';resize()}})();
-window.finishOrder=()=>nav('/auftrag-eingegangen?uuid='+encodeURIComponent(uuid)+'&lang='+encodeURIComponent(lang));
-</script></body></html>
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TarifButler Wechselauftrag</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+    :root{--primary-color:#00ff9d;--bg-card:#fff;--text-color:#334155;--border-radius:2.5rem}body{margin:0;background:transparent;font-family:Poppins,system-ui,sans-serif;color:var(--text-color)}#survey-app{max-width:720px;margin:0 auto;min-height:560px}.loader-error{max-width:560px;margin:48px auto;padding:32px;border-radius:28px;background:#fff;box-shadow:0 24px 80px #0f172a14;text-align:center;color:#ef4444;font-weight:800}
+  </style>
+</head>
+<body>
+  <div id="survey-app"></div>
+  <script>
+    const BOOTSTRAP_CONFIG = {
+      locationId: "zMzYbmm0fF0pPpuzSBL7",
+      supabaseUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co",
+      supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im95bmhuaGtsZHZwb3Foc2ZpcndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0OTAwODksImV4cCI6MjA3NTA2NjA4OX0.9zYOwel585SOUAtVc4XkWhhJl4qldwX6oOhOH7L-eJ4",
+      auftragUrl: "https://www.tarif-butler.de/auftrag",
+      successUrl: "https://www.tarif-butler.de/auftrag-eingegangen",
+      errorUrl: "https://www.tarif-butler.de/fehler",
+      closingProxyPath: "/api/closing-survey",
+      closingEngineUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/engine-assets/closing-survey-engine.js"
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const uuid = params.get("uuid");
+    const lang = params.get("lang") || params.get("language") || "de";
+    const postHeight = () => window.parent.postMessage({ type: "tarifbutler:height", height: document.documentElement.scrollHeight }, "*");
+    new ResizeObserver(postHeight).observe(document.body);
+    window.addEventListener("load", postHeight);
+
+    function applyDesign(data) {
+      const brand = data?.design_config?.brand || {};
+      const survey = data?.design_config?.closing || data?.design_config?.survey || {};
+      const legacy = data?.closing_survey_design || data?.setting_survey_design || {};
+      const root = document.documentElement;
+      root.style.setProperty("--primary-color", survey.primary_color || brand.primary_color || legacy.primary_color || "#00ff9d");
+      root.style.setProperty("--bg-card", survey.bg_card || legacy.bg_card || "#ffffff");
+      root.style.setProperty("--text-color", survey.text_color || brand.text_color || legacy.text_color || "#334155");
+      root.style.setProperty("--border-radius", survey.border_radius || legacy.border_radius || "2.5rem");
+    }
+
+    function buildSurveyConfig(data, order) {
+      const runtime = data?.runtime_config || {};
+      const urls = data?.url_config || {};
+      const successUrl = urls.successUrl || urls.success_url || BOOTSTRAP_CONFIG.successUrl;
+      const errorUrl = urls.errorUrl || urls.error_url || BOOTSTRAP_CONFIG.errorUrl;
+      return {
+        ...BOOTSTRAP_CONFIG,
+        uuid,
+        orderUuid: uuid,
+        auftragUuid: uuid,
+        lang,
+        language: lang,
+        order,
+        locationId: BOOTSTRAP_CONFIG.locationId,
+        auftragUrl: urls.auftragUrl || urls.auftrag_url || BOOTSTRAP_CONFIG.auftragUrl,
+        successUrl,
+        errorUrl,
+        closingProxyPath: runtime.closingProxyPath || runtime.closing_proxy_path || BOOTSTRAP_CONFIG.closingProxyPath,
+        closingEngineUrl: runtime.closingEngineUrl || runtime.closing_engine_url || BOOTSTRAP_CONFIG.closingEngineUrl
+      };
+    }
+
+    async function firstSingle(client, table, column, value) {
+      try {
+        const { data } = await client.from(table).select("*").eq(column, value).maybeSingle();
+        return data;
+      } catch (_) {
+        return null;
+      }
+    }
+
+    async function loadOrder(client) {
+      for (const table of ["auftraege", "orders", "kunden_anfragen", "setting_survey_orders", "requests"]) {
+        const byUuid = await firstSingle(client, table, "uuid", uuid);
+        if (byUuid) return byUuid;
+        const byId = await firstSingle(client, table, "id", uuid);
+        if (byId) return byId;
+      }
+      return null;
+    }
+
+    (async () => {
+      try {
+        if (!uuid) throw new Error("UUID fehlt");
+        const client = supabase.createClient(BOOTSTRAP_CONFIG.supabaseUrl, BOOTSTRAP_CONFIG.supabaseKey);
+        const [{ data, error }, order] = await Promise.all([
+          client.from("kunden_config").select("*").eq("location_id", BOOTSTRAP_CONFIG.locationId).single(),
+          loadOrder(client)
+        ]);
+        if (error) throw error;
+        window.KUNDEN_DATA = data;
+        window.AUFTRAG_DATA = order;
+        applyDesign(data);
+        window.SURVEY_CONFIG = buildSurveyConfig(data, order);
+        const response = await fetch(`${window.SURVEY_CONFIG.closingEngineUrl}?v=${Date.now()}`);
+        if (!response.ok) throw new Error(`Closing Engine konnte nicht geladen werden: ${response.status}`);
+        const script = document.createElement("script");
+        script.text = await response.text();
+        document.body.appendChild(script);
+        postHeight();
+      } catch (error) {
+        console.error("Closing loader error:", error);
+        document.getElementById("survey-app").innerHTML = '<div class="loader-error">Der Wechselauftrag konnte nicht geladen werden.</div>';
+        postHeight();
+      }
+    })();
+  </script>
+</body>
+</html>

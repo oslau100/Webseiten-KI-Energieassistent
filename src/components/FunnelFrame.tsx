@@ -9,6 +9,18 @@ interface FunnelFrameProps {
   requireUuid?: boolean;
 }
 
+function getSafeNavigationUrl(rawUrl: string): string | null {
+  try {
+    const target = new URL(rawUrl, window.location.origin);
+    if (target.origin !== window.location.origin) {
+      return null;
+    }
+    return `${target.pathname}${target.search}${target.hash}`;
+  } catch {
+    return null;
+  }
+}
+
 export function FunnelFrame({ title, src, requireUuid = false }: FunnelFrameProps) {
   const [searchParams] = useSearchParams();
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -24,6 +36,8 @@ export function FunnelFrame({ title, src, requireUuid = false }: FunnelFrameProp
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
+      if (event.source !== iframeRef.current?.contentWindow) return;
+
       const data = event.data;
       if (!data || typeof data !== "object") return;
 
@@ -32,7 +46,10 @@ export function FunnelFrame({ title, src, requireUuid = false }: FunnelFrameProp
       }
 
       if (data.type === "tarifbutler:navigate" && typeof data.url === "string") {
-        window.location.assign(data.url);
+        const safeUrl = getSafeNavigationUrl(data.url);
+        if (safeUrl) {
+          window.location.assign(safeUrl);
+        }
       }
     };
 

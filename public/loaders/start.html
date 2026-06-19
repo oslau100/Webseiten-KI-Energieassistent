@@ -1,8 +1,87 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TarifButler Start</title><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><style>body{margin:0;background:transparent;font-family:Poppins,system-ui,sans-serif}.fallback{max-width:520px;margin:48px auto;padding:32px;border-radius:28px;background:#fff;box-shadow:0 24px 80px #0f172a14;text-align:center}#survey-app{min-height:560px}</style></head><body><div id="survey-app"></div><script>
-const BOOTSTRAP={locationId:"zMzYbmm0fF0pPpuzSBL7",supabaseUrl:"https://oynhnhkldvpoqhsfirwf.supabase.co",supabaseKey:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im95bmhuaGtsZHZwb3Foc2ZpcndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0OTAwODksImV4cCI6MjA3NTA2NjA4OX0.9zYOwel585SOUAtVc4XkWhhJl4qldwX6oOhOH7L-eJ4",avatarUrl:"https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/TarifButler%20Specifics/setting-survey-avatar.png"};
-const params=new URLSearchParams(location.search);const lang=params.get('lang')||'de';const topNav=(path)=>{const url=new URL(path,location.origin).toString();try{parent.postMessage({type:'tarifbutler:navigate',url},'*')}catch{} if(parent===window) location.assign(url)};
-window.SURVEY_CONFIG={...BOOTSTRAP,lang,offerUrl:`${location.origin}/tarif`};
-const resize=()=>parent.postMessage({type:'tarifbutler:height',height:document.documentElement.scrollHeight},'*');new ResizeObserver(resize).observe(document.body);addEventListener('load',resize);
-(async()=>{try{const sb=supabase.createClient(BOOTSTRAP.supabaseUrl,BOOTSTRAP.supabaseKey);const {data,error}=await sb.from('kunden_config').select('*').eq('location_id',BOOTSTRAP.locationId).single();if(error)throw error;window.KUNDEN_DATA=data;const d=data.setting_survey_design||{};document.documentElement.style.setProperty('--primary-color',d.primary_color||'#00ff9d');document.documentElement.style.setProperty('--bg-card',d.bg_card||'#fff');document.documentElement.style.setProperty('--text-color',d.text_color||'#334155');document.documentElement.style.setProperty('--border-radius',d.border_radius||'2.5rem');const r=await fetch(`${BOOTSTRAP.supabaseUrl}/storage/v1/object/public/engine-assets/setting-survey-engine.js?v=${Date.now()}`);const js=await r.text();const s=document.createElement('script');s.text=js;document.body.appendChild(s)}catch(e){console.error(e);document.getElementById('survey-app').innerHTML='<div class="fallback"><h2>Fehler beim Laden</h2><p>Bitte versuchen Sie es später erneut.</p></div>';resize()}})();
-const oldAssign=location.assign.bind(location);window.navigateToOffer=(uuid,nextLang=lang)=>topNav(`/tarif?uuid=${encodeURIComponent(uuid)}&lang=${encodeURIComponent(nextLang)}`);
-</script></body></html>
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TarifButler Ersparnis prüfen</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+    :root{--primary-color:#00ff9d;--bg-card:#fff;--text-color:#334155;--border-radius:2.5rem;--btn-bg:#0f172a;--btn-text:#00ff9d;--back-bg:transparent;--back-text:#94a3b8}
+    body{margin:0;background:transparent;font-family:Poppins,system-ui,sans-serif;color:var(--text-color)}
+    #survey-app{max-width:460px;margin:0 auto;min-height:560px}
+    .loader-error{max-width:520px;margin:48px auto;padding:32px;border-radius:28px;background:#fff;box-shadow:0 24px 80px #0f172a14;text-align:center;color:#ef4444;font-weight:800}
+  </style>
+</head>
+<body>
+  <div id="survey-app"></div>
+  <script>
+    const BOOTSTRAP_CONFIG = {
+      locationId: "zMzYbmm0fF0pPpuzSBL7",
+      avatarUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/TarifButler%20Specifics/setting-survey-avatar.png",
+      supabaseUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co",
+      supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im95bmhuaGtsZHZwb3Foc2ZpcndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0OTAwODksImV4cCI6MjA3NTA2NjA4OX0.9zYOwel585SOUAtVc4XkWhhJl4qldwX6oOhOH7L-eJ4",
+      offerUrl: "https://www.tarif-butler.de/tarif",
+      settingProxyPath: "/api/setting-survey",
+      engineUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/engine-assets/setting-survey-engine.js"
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const lang = params.get("lang") || params.get("language") || "de";
+    const postHeight = () => window.parent.postMessage({ type: "tarifbutler:height", height: document.documentElement.scrollHeight }, "*");
+    new ResizeObserver(postHeight).observe(document.body);
+    window.addEventListener("load", postHeight);
+
+    function applyDesign(data) {
+      const brand = data?.design_config?.brand || {};
+      const survey = data?.design_config?.survey || {};
+      const legacy = data?.setting_survey_design || {};
+      const root = document.documentElement;
+      root.style.setProperty("--primary-color", survey.primary_color || brand.primary_color || legacy.primary_color || "#00ff9d");
+      root.style.setProperty("--bg-card", survey.bg_card || legacy.bg_card || "#ffffff");
+      root.style.setProperty("--text-color", survey.text_color || brand.text_color || legacy.text_color || "#334155");
+      root.style.setProperty("--border-radius", survey.border_radius || legacy.border_radius || "2.5rem");
+      root.style.setProperty("--btn-bg", survey.start_button?.bg_color || legacy.start_button?.bg_color || "#0f172a");
+      root.style.setProperty("--btn-text", survey.start_button?.text_color || legacy.start_button?.text_color || "#00ff9d");
+      root.style.setProperty("--back-bg", survey.back_button?.bg_color || legacy.back_button?.bg_color || "transparent");
+      root.style.setProperty("--back-text", survey.back_button?.text_color || legacy.back_button?.text_color || "#94a3b8");
+    }
+
+    function buildSurveyConfig(data) {
+      const runtime = data?.runtime_config || {};
+      const urls = data?.url_config || {};
+      return {
+        ...BOOTSTRAP_CONFIG,
+        lang,
+        language: lang,
+        locationId: BOOTSTRAP_CONFIG.locationId,
+        avatarUrl: urls.avatarUrl || urls.avatar_url || BOOTSTRAP_CONFIG.avatarUrl,
+        offerUrl: urls.offerUrl || urls.offer_url || BOOTSTRAP_CONFIG.offerUrl,
+        settingProxyPath: runtime.settingProxyPath || runtime.setting_proxy_path || BOOTSTRAP_CONFIG.settingProxyPath,
+        engineUrl: runtime.engineUrl || runtime.settingEngineUrl || runtime.setting_engine_url || BOOTSTRAP_CONFIG.engineUrl
+      };
+    }
+
+    (async () => {
+      try {
+        const client = supabase.createClient(BOOTSTRAP_CONFIG.supabaseUrl, BOOTSTRAP_CONFIG.supabaseKey);
+        const { data, error } = await client.from("kunden_config").select("*").eq("location_id", BOOTSTRAP_CONFIG.locationId).single();
+        if (error) throw error;
+        window.KUNDEN_DATA = data;
+        applyDesign(data);
+        window.SURVEY_CONFIG = buildSurveyConfig(data);
+        const response = await fetch(`${window.SURVEY_CONFIG.engineUrl}?v=${Date.now()}`);
+        if (!response.ok) throw new Error(`Engine konnte nicht geladen werden: ${response.status}`);
+        const script = document.createElement("script");
+        script.text = await response.text();
+        document.body.appendChild(script);
+        postHeight();
+      } catch (error) {
+        console.error("Setting loader error:", error);
+        document.getElementById("survey-app").innerHTML = '<div class="loader-error">Fehler beim Laden.</div>';
+        postHeight();
+      }
+    })();
+  </script>
+</body>
+</html>
