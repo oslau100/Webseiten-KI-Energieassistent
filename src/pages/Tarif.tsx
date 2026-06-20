@@ -6,6 +6,7 @@ const Tarif = () => (
     src="/loaders/tarif.html"
     requireUuid
     showChrome={false}
+    showSimpleFooter
   />
 );
 

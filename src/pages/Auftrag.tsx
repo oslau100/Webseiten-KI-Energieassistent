@@ -6,6 +6,7 @@ const Auftrag = () => (
     src="/loaders/auftrag.html"
     requireUuid
     showChrome={false}
+    showSimpleFooter
   />
 );
 

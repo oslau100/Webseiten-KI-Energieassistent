@@ -5,6 +5,7 @@ const Start = () => (
     title="Ersparnis prüfen"
     src="/loaders/start.html"
     showChrome={false}
+    showSimpleFooter
   />
 );
 

@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { SimpleFooter } from "@/components/SimpleFooter";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
@@ -8,6 +9,7 @@ interface FunnelFrameProps {
   src: string;
   requireUuid?: boolean;
   showChrome?: boolean;
+  showSimpleFooter?: boolean;
 }
 
 function getSafeNavigationUrl(rawUrl: string): string | null {
@@ -22,7 +24,7 @@ function getSafeNavigationUrl(rawUrl: string): string | null {
   }
 }
 
-export function FunnelFrame({ title, src, requireUuid = false, showChrome = true }: FunnelFrameProps) {
+export function FunnelFrame({ title, src, requireUuid = false, showChrome = true, showSimpleFooter = false }: FunnelFrameProps) {
   const [searchParams] = useSearchParams();
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [height, setHeight] = useState(720);
@@ -146,6 +148,7 @@ export function FunnelFrame({ title, src, requireUuid = false, showChrome = true
           <a className="font-bold underline" href="/start">Zur Ersparnisprüfung</a>
         </main>
         {showChrome && <Footer />}
+        {!showChrome && showSimpleFooter && <SimpleFooter />}
       </div>
     );
   }
@@ -165,6 +168,7 @@ export function FunnelFrame({ title, src, requireUuid = false, showChrome = true
         />
       </main>
       {showChrome && <Footer />}
+      {!showChrome && showSimpleFooter && <SimpleFooter />}
     </div>
   );
 }

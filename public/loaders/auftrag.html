@@ -1,113 +1,306 @@
-<!doctype html>
-<html lang="de">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TarifButler Wechselauftrag</title>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
-    :root{--primary-color:#00ff9d;--bg-card:#fff;--text-color:#334155;--border-radius:2.5rem}body{margin:0;background:transparent;font-family:Poppins,system-ui,sans-serif;color:var(--text-color)}#survey-app{max-width:720px;margin:0 auto;min-height:560px}.loader-error{max-width:560px;margin:48px auto;padding:32px;border-radius:28px;background:#fff;box-shadow:0 24px 80px #0f172a14;text-align:center;color:#ef4444;font-weight:800}
-  </style>
-</head>
-<body>
-  <div id="survey-app"></div>
-  <script>
-    const BOOTSTRAP_CONFIG = {
-      locationId: "zMzYbmm0fF0pPpuzSBL7",
-      supabaseUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co",
-      supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im95bmhuaGtsZHZwb3Foc2ZpcndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0OTAwODksImV4cCI6MjA3NTA2NjA4OX0.9zYOwel585SOUAtVc4XkWhhJl4qldwX6oOhOH7L-eJ4",
-      auftragUrl: "https://www.tarif-butler.de/auftrag",
-      successUrl: "https://www.tarif-butler.de/auftrag-eingegangen",
-      errorUrl: "https://www.tarif-butler.de/fehler",
-      closingProxyPath: "https://oynhnhkldvpoqhsfirwf.supabase.co/functions/v1/closing-proxy",
-      closingEngineUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/engine-assets/closing-survey-engine.js"
+<script>
+window.TB_BOOTSTRAP = {
+  locationId: "zMzYbmm0fF0pPpuzSBL7",
+  supabaseUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co",
+  supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im95bmhuaGtsZHZwb3Foc2ZpcndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0OTAwODksImV4cCI6MjA3NTA2NjA4OX0.9zYOwel585SOUAtVc4XkWhhJl4qldwX6oOhOH7L-eJ4",
+  settingEngineUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/engine-assets/setting-survey-engine.js",
+  closingEngineUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/engine-assets/closing-survey-engine.js",
+  settingProxyPath: "https://oynhnhkldvpoqhsfirwf.supabase.co/functions/v1/setting-proxy",
+  closingProxyPath: "https://oynhnhkldvpoqhsfirwf.supabase.co/functions/v1/closing-proxy",
+  offerUrl: "https://www.tarif-butler.de/tarif",
+  auftragUrl: "https://www.tarif-butler.de/auftrag",
+  startUrl: "https://www.tarif-butler.de/start",
+  avatarUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/TarifButler%20Specifics/setting-survey-avatar.png"
+};
+</script>
+
+<style id="survey-dynamic-styles">
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+  :root{
+    --primary-color: #00ff9d;
+    --btn-bg: #0f172a;
+    --btn-text: #00ff9d;
+    --text-color: #334155;
+    --text-color-strong: #0f172a;
+    --bg-card: #ffffff;
+    --border-radius: 2.5rem;
+    --back-text: #94a3b8;
+    --back-bg: transparent;
+    --card-padding-top: 2rem;
+    --card-padding-x: 2rem;
+    --card-padding-bottom: 2rem;
+    --card-min-height: 420px;
+    --card-shadow: 0 25px 50px -12px rgba(2,8,23,0.08);
+    --choice-bg: #ffffff;
+    --choice-border: #e2e8f0;
+    --choice-selected-border: var(--primary-color);
+    --choice-text: var(--text-color-strong);
+  }
+
+  #survey-app {
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: geometricPrecision;
+    max-width: 460px;
+    margin: 0 auto;
+    min-height: 420px;
+    color: var(--text-color);
+  }
+
+  .survey-card-container {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: var(--card-padding-top) var(--card-padding-x) var(--card-padding-bottom);
+    box-shadow: var(--card-shadow);
+    border: 1px solid rgba(241,245,249,1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: var(--card-min-height);
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .btn-back {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    background: var(--back-bg);
+    color: var(--back-text);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 10px;
+    transition: all .2s ease;
+    z-index: 10;
+  }
+  .btn-back:hover { opacity: .75; }
+  .hidden-v { display:none !important; }
+
+  .survey-question {
+    font-size: 1.22rem;
+    font-weight: 800;
+    text-align: center;
+    color: var(--text-color-strong);
+    line-height: 1.35;
+    margin: 0 0 1.7rem 0;
+  }
+
+  .survey-subtext {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 10px 0;
+    font-size: 0.92rem;
+    line-height: 1.35rem;
+    color: #64748b;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  #survey-app .hint-card {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+  }
+
+  .input-container {
+    width: 100%;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .survey-card-container > div[style*="width:100%"] {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .modern-input {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 1.25rem;
+    border: 2px solid #f1f5f9;
+    background: #f8fafc;
+    padding: 1.05rem 1.1rem;
+    font-size: 1.05rem;
+    font-weight: 800;
+    outline: none;
+    transition: all .18s ease;
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+  }
+  .modern-input::placeholder { color: #94a3b8; font-weight: 700; }
+  .modern-input:focus { background: #ffffff; border-color: #cbd5e1; }
+  .text-left { text-align: left; }
+  .select-left { text-align: left; }
+
+  .animated-card {
+    width: 100%;
+    background: var(--choice-bg);
+    border: 1px solid var(--choice-border);
+    padding: 1.1rem 1.4rem;
+    border-radius: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    user-select: none;
+    margin-top: 0;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  .animated-card:hover { transform: translateY(-1px); box-shadow: 0 10px 24px -14px rgba(0,0,0,0.18); border-color: #42f77a; }
+  .input-container .animated-card {
+    margin-top: 0;
+  }
+  .animated-card span { font-weight: 1000; color: var(--choice-text); font-size: 0.98rem; }
+  .selected-border { border-color: var(--choice-selected-border) !important; box-shadow: 0 10px 24px -14px rgba(0,0,0,0.18); }
+
+  .survey-actions { width: 100%; margin-top: 1.35rem; }
+
+  .btn-start-action {
+    width: 100%; border: none; cursor: pointer; border-radius: 1.35rem;
+    padding: 1.05rem 1.2rem; font-weight: 1000; font-size: 1.02rem;
+    background: var(--btn-bg) !important; color: var(--btn-text) !important;
+    transition: opacity .15s ease; font-family: 'Poppins', sans-serif;
+  }
+  #survey-app #survey-primary-btn.btn-start-action,
+  #survey-app #survey-primary-btn.btn-start-action * {
+    color: var(--btn-text) !important;
+    -webkit-text-fill-color: var(--btn-text) !important;
+  }
+
+  #survey-app #survey-primary-btn.btn-start-action {
+    background: var(--btn-bg) !important;
+  }
+
+  .btn-start-action:hover { opacity: .92; }
+
+  .consent-row {
+    width: 100%; display: flex; align-items: flex-start; gap: 12px;
+    padding: 12px 12px; background: #ffffff; border: 1px solid #e6edf6; border-radius: 18px;
+  }
+  .consent-row input { margin-top: 3px; width: 18px; height: 18px; accent-color: var(--primary-color); }
+  .consent-text { font-size: 0.88rem; line-height: 1.35rem; color: #475569; font-weight: 750; font-family: 'Poppins', sans-serif; }
+  .consent-text a { color:#0f172a; font-weight:1000; text-decoration: underline; }
+
+  @media (max-width: 420px) {
+    :root{ --card-padding-top: 2rem; --card-padding-x: 1.35rem; --card-padding-bottom: 2rem; --border-radius: 2.1rem; }
+    .survey-question { font-size: 1.14rem; }
+    .btn-back { top: 1.05rem; left: 1.05rem; }
+  }
+</style>
+
+<div id="survey-app"><div class="survey-card-container"><h2 class="survey-question">Loading…</h2></div></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  (async function () {
+    const bootstrap = (window.TB_BOOTSTRAP && typeof window.TB_BOOTSTRAP === "object") ? window.TB_BOOTSTRAP : {};
+    const config = {
+      locationId: String(bootstrap.locationId || "").trim(),
+      supabaseUrl: String(bootstrap.supabaseUrl || "").trim(),
+      supabaseKey: String(bootstrap.supabaseKey || "").trim(),
+      engineUrl: String(bootstrap.closingEngineUrl || "").trim(),
+      closingProxyPath: String(bootstrap.closingProxyPath || "").trim(),
+      offerUrl: String(bootstrap.offerUrl || "").trim(),
+      langOverride: null,
+      uuidOverride: null
     };
 
-    const params = new URLSearchParams(window.location.search);
-    const uuid = params.get("uuid");
-    const lang = params.get("lang") || params.get("language") || "de";
-    const postHeight = () => window.parent.postMessage({ type: "tarifbutler:height", height: document.documentElement.scrollHeight }, "*");
-    new ResizeObserver(postHeight).observe(document.body);
-    window.addEventListener("load", postHeight);
+    const url = new URL(window.location.href);
+    const langParam = (url.searchParams.get("lang") || "").trim().toLowerCase();
+    const uuidParam = (url.searchParams.get("uuid") || "").trim();
+    if (langParam) config.langOverride = langParam;
+    if (uuidParam) config.uuidOverride = uuidParam;
 
-    function applyDesign(data) {
-      const brand = data?.design_config?.brand || {};
-      const survey = data?.design_config?.closing || data?.design_config?.survey || {};
-      const legacy = data?.closing_survey_design || data?.setting_survey_design || {};
+    function applyDesignVars(design) {
+      const d = design || {};
       const root = document.documentElement;
-      root.style.setProperty("--primary-color", survey.primary_color || brand.primary_color || legacy.primary_color || "#00ff9d");
-      root.style.setProperty("--bg-card", survey.bg_card || legacy.bg_card || "#ffffff");
-      root.style.setProperty("--text-color", survey.text_color || brand.text_color || legacy.text_color || "#334155");
-      root.style.setProperty("--border-radius", survey.border_radius || legacy.border_radius || "2.5rem");
+      if (d.primary_color) root.style.setProperty("--primary-color", d.primary_color);
+      if (d.bg_card) root.style.setProperty("--bg-card", d.bg_card);
+      if (d.text_color) root.style.setProperty("--text-color", d.text_color);
+      if (d.border_radius) root.style.setProperty("--border-radius", d.border_radius);
+      if (d.text_color_strong) root.style.setProperty("--text-color-strong", d.text_color_strong);
+      if (d.back_button && typeof d.back_button === "object") {
+        if (d.back_button.bg_color) root.style.setProperty("--back-bg", d.back_button.bg_color);
+        if (d.back_button.text_color) root.style.setProperty("--back-text", d.back_button.text_color);
+      }
+      if (d.start_button && typeof d.start_button === "object") {
+        if (d.start_button.bg_color) root.style.setProperty("--btn-bg", d.start_button.bg_color);
+        if (d.start_button.text_color) root.style.setProperty("--btn-text", d.start_button.text_color);
+      }
+      if (d.card_padding_top) root.style.setProperty("--card-padding-top", d.card_padding_top);
+      if (d.card_padding_x) root.style.setProperty("--card-padding-x", d.card_padding_x);
+      if (d.card_padding_bottom) root.style.setProperty("--card-padding-bottom", d.card_padding_bottom);
+      if (d.card && typeof d.card === "object") {
+        if (d.card.padding_top) root.style.setProperty("--card-padding-top", d.card.padding_top);
+        if (d.card.padding_x) root.style.setProperty("--card-padding-x", d.card.padding_x);
+        if (d.card.padding_bottom) root.style.setProperty("--card-padding-bottom", d.card.padding_bottom);
+        if (d.card.min_height) root.style.setProperty("--card-min-height", d.card.min_height);
+        if (d.card.shadow) root.style.setProperty("--card-shadow", d.card.shadow);
+      }
+      if (d.choice_card && typeof d.choice_card === "object") {
+        if (d.choice_card.bg_color) root.style.setProperty("--choice-bg", d.choice_card.bg_color);
+        if (d.choice_card.border_color) root.style.setProperty("--choice-border", d.choice_card.border_color);
+        if (d.choice_card.selected_border_color) root.style.setProperty("--choice-selected-border", d.choice_card.selected_border_color);
+        if (d.choice_card.text_color) root.style.setProperty("--choice-text", d.choice_card.text_color);
+      }
     }
 
-    function buildSurveyConfig(data, order) {
-      const runtime = data?.runtime_config || {};
-      const urls = data?.url_config || {};
-      const successUrl = urls.successUrl || urls.success_url || BOOTSTRAP_CONFIG.successUrl;
-      const errorUrl = urls.errorUrl || urls.error_url || BOOTSTRAP_CONFIG.errorUrl;
-      return {
-        ...BOOTSTRAP_CONFIG,
-        uuid,
-        orderUuid: uuid,
-        auftragUuid: uuid,
-        lang,
-        language: lang,
-        order,
-        locationId: BOOTSTRAP_CONFIG.locationId,
-        auftragUrl: urls.auftragUrl || urls.auftrag_url || BOOTSTRAP_CONFIG.auftragUrl,
-        successUrl,
-        errorUrl,
-        closingProxyPath: runtime.closingProxyPath || runtime.closing_proxy_path || BOOTSTRAP_CONFIG.closingProxyPath,
-        closingEngineUrl: runtime.closingEngineUrl || runtime.closing_engine_url || BOOTSTRAP_CONFIG.closingEngineUrl
+    function showFatal(msg) {
+      const mount = document.getElementById("survey-app");
+      mount.innerHTML = `<div class="survey-card-container"><h2 class="survey-question" style="color:#ef4444;">${String(msg || "Error")}</h2><div class="survey-subtext">Bitte Seite neu laden oder später erneut versuchen.</div></div>`;
+    }
+
+    try {
+      if (!config.locationId || !config.supabaseUrl || !config.supabaseKey) {
+        throw new Error("Missing TB_BOOTSTRAP values: locationId, supabaseUrl, supabaseKey");
+      }
+
+      const client = supabase.createClient(config.supabaseUrl, config.supabaseKey);
+      const { data, error } = await client.from("kunden_config").select("*").eq("location_id", config.locationId).single();
+      if (error) throw error;
+
+      window.KUNDEN_DATA = data;
+      const runtime = (data && typeof data.runtime_config === "object" && data.runtime_config) ? data.runtime_config : {};
+      const urls = (data && typeof data.url_config === "object" && data.url_config) ? data.url_config : {};
+      window.SURVEY_CONFIG = {
+        ...config,
+        engineUrl: String(runtime.closing_engine_url || config.engineUrl || ""),
+        closingProxyPath: String(runtime.closing_proxy_path || config.closingProxyPath || ""),
+        offerUrl: String(urls.offer_base_url || config.offerUrl || "")
       };
-    }
 
-    async function firstSingle(client, table, column, value) {
-      try {
-        const { data } = await client.from(table).select("*").eq(column, value).maybeSingle();
-        return data;
-      } catch (_) {
-        return null;
-      }
-    }
+      const designConfig = (data && typeof data.design_config === "object" && data.design_config) ? data.design_config : {};
+      const hasDesignConfig = Object.keys(designConfig).length > 0 && (designConfig.brand || designConfig.survey);
+      const brandDesign = hasDesignConfig && typeof designConfig.brand === "object" ? designConfig.brand : {};
+      const surveyDesign = hasDesignConfig && typeof designConfig.survey === "object" ? designConfig.survey : {};
+      const fallbackDesign = (data && (data.closing_survey_design || data.setting_survey_design)) || {};
+      const design = hasDesignConfig ? { ...fallbackDesign, ...brandDesign, ...surveyDesign } : fallbackDesign;
+      applyDesignVars(design);
 
-    async function loadOrder(client) {
-      for (const table of ["auftraege", "orders", "kunden_anfragen", "setting_survey_orders", "requests"]) {
-        const byUuid = await firstSingle(client, table, "uuid", uuid);
-        if (byUuid) return byUuid;
-        const byId = await firstSingle(client, table, "id", uuid);
-        if (byId) return byId;
-      }
-      return null;
+      const engineUrl = window.SURVEY_CONFIG.engineUrl;
+      if (!engineUrl) throw new Error("Missing closing engine URL (runtime_config.closing_engine_url)");
+      const engineSrc = engineUrl + (engineUrl.includes("?") ? "&" : "?") + "v=" + Date.now();
+      const s = document.createElement("script");
+      s.src = engineSrc;
+      s.async = true;
+      s.onerror = function () { showFatal("Engine konnte nicht geladen werden (Bucket Asset nicht erreichbar)."); };
+      document.body.appendChild(s);
+    } catch {
+      showFatal("Fehler beim Laden. Bitte versuche es erneut.");
     }
-
-    (async () => {
-      try {
-        if (!uuid) throw new Error("UUID fehlt");
-        const client = supabase.createClient(BOOTSTRAP_CONFIG.supabaseUrl, BOOTSTRAP_CONFIG.supabaseKey);
-        const [{ data, error }, order] = await Promise.all([
-          client.from("kunden_config").select("*").eq("location_id", BOOTSTRAP_CONFIG.locationId).single(),
-          loadOrder(client)
-        ]);
-        if (error) throw error;
-        window.KUNDEN_DATA = data;
-        window.AUFTRAG_DATA = order;
-        applyDesign(data);
-        window.SURVEY_CONFIG = buildSurveyConfig(data, order);
-        const response = await fetch(`${window.SURVEY_CONFIG.closingEngineUrl}?v=${Date.now()}`);
-        if (!response.ok) throw new Error(`Closing Engine konnte nicht geladen werden: ${response.status}`);
-        const script = document.createElement("script");
-        script.text = await response.text();
-        document.body.appendChild(script);
-        postHeight();
-      } catch (error) {
-        console.error("Closing loader error:", error);
-        document.getElementById("survey-app").innerHTML = '<div class="loader-error">Der Wechselauftrag konnte nicht geladen werden.</div>';
-        postHeight();
-      }
-    })();
-  </script>
-</body>
-</html>
+  })();
+</script>
