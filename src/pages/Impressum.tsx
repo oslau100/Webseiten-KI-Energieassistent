@@ -16,7 +16,7 @@ const Impressum = () => {
         }}
       ></div>
       {/* Radial gradient to fade out grid at edges */}
-      <div className="fixed inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_0%,#1a231c_100%)] pointer-events-none"></div>
+      <div className="fixed inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000000_100%)] pointer-events-none"></div>
 
       <div className="relative z-10 flex flex-col min-h-screen">
         <div className="flex-grow bg-[#FDFDFD] text-[#1a231c] w-full">

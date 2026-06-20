@@ -2,7 +2,7 @@ import { Button } from "./ui/button";
 
 export const SystemSolution = () => {
   return (
-    <section className="relative w-full py-20 md:py-32 bg-[#1a231c] text-white overflow-hidden">
+    <section className="relative w-full py-20 md:py-32 bg-[#000000] text-white overflow-hidden">
       {/* Background Pattern */}
       <div 
         className="absolute inset-0 z-0 opacity-[0.03]" 
@@ -53,7 +53,7 @@ export const SystemSolution = () => {
         <div className="flex justify-center mt-8 sm:mt-24 md:mt-24 relative z-20">
           <Button 
             size="lg" 
-            className="bg-white text-[#1a231c] hover:bg-gray-100 text-sm sm:text-base md:text-lg font-bold px-8 py-6 rounded-xl shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all hover:scale-105"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:text-base md:text-lg font-bold px-8 py-6 rounded-xl shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all hover:scale-105"
             asChild
           >
             <a href="https://calendly.com/laurent-digital-info/60min" target="_blank" rel="noopener noreferrer">

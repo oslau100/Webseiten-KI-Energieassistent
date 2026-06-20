@@ -65,7 +65,7 @@ export const AboutSection = () => {
             </div>
             <Button 
               size="lg" 
-              className="mt-4 bg-[#1a231c] text-white hover:bg-[#253228] font-semibold px-8 py-6 text-base rounded-md"
+              className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8 py-6 text-base rounded-md"
               asChild
             >
               <a href="https://calendly.com/laurent-digital-info/60min" target="_blank" rel="noopener noreferrer">

@@ -57,12 +57,12 @@ export const Header = () => {
         <div className="md:hidden z-10">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 hover:text-white">
+              <Button variant="ghost" size="icon" className="text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="top" className="bg-[#1a231c] border-b border-white/10 text-white pt-20">
+            <SheetContent side="top" className="bg-[#000000] border-b border-white/10 text-white pt-20">
               <nav className="flex flex-col items-center gap-6 text-lg font-medium">
                 {navLinks.map((link) => (
                   <a

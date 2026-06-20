@@ -50,7 +50,7 @@ export const Comparison = () => {
           </div>
 
           {/* System Side */}
-          <div className="bg-[#1a231c] rounded-2xl p-8 md:p-10 lg:p-12 shadow-lg relative overflow-hidden">
+          <div className="bg-[#000000] rounded-2xl p-8 md:p-10 lg:p-12 shadow-lg relative overflow-hidden">
             <div 
               className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
               style={{
@@ -61,7 +61,7 @@ export const Comparison = () => {
                 backgroundSize: '40px 40px'
               }}
             ></div>
-            <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_0%,#1a231c_100%)] pointer-events-none"></div>
+            <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000000_100%)] pointer-events-none"></div>
             
             <div className="relative z-10">
               <h3 className="text-2xl md:text-3xl font-bold text-center text-white mb-8 md:mb-10">
@@ -86,7 +86,7 @@ export const Comparison = () => {
         <div className="mt-12 md:mt-16 flex justify-center">
           <Button 
             size="lg" 
-            className="bg-[#1a231c] text-white hover:bg-[#1a231c]/90 text-base md:text-lg font-bold px-8 py-6 rounded-md shadow-lg transition-all hover:scale-105"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 text-base md:text-lg font-bold px-8 py-6 rounded-md shadow-lg transition-all hover:scale-105"
             asChild
           >
             <a href="https://calendly.com/laurent-digital-info/60min" target="_blank" rel="noopener noreferrer">

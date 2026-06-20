@@ -65,7 +65,7 @@ export const SystemUsage = () => {
         <div className="flex justify-center">
           <Button
             size="lg"
-            className="bg-[#1a231c] text-white hover:bg-[#1a231c]/90 text-sm md:text-base font-bold px-8 py-6 rounded-xl shadow-lg transition-all hover:scale-105"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 text-sm md:text-base font-bold px-8 py-6 rounded-xl shadow-lg transition-all hover:scale-105"
             asChild
           >
             <a href="https://calendly.com/laurent-digital-info/60min" target="_blank" rel="noopener noreferrer">

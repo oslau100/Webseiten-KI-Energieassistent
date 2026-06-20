@@ -5,7 +5,7 @@ export const NextStep = () => {
   return (
     <section className="bg-[#FDFDFD] py-16 md:py-20 px-3 sm:px-4 md:px-8">
       <div className="max-w-6xl mx-auto w-full">
-        <div className="relative bg-[#1a231c] rounded-2xl md:rounded-[2rem] px-5 py-10 sm:p-8 md:p-8 lg:p-16 overflow-hidden shadow-2xl">
+        <div className="relative bg-[#000000] rounded-2xl md:rounded-[2rem] px-5 py-10 sm:p-8 md:p-8 lg:p-16 overflow-hidden shadow-2xl">
           {/* Grid Background */}
           <div
             className="absolute inset-0 z-0 opacity-[0.03]"
@@ -19,7 +19,7 @@ export const NextStep = () => {
           ></div>
           
           {/* Radial gradient to fade out grid at edges */}
-          <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_0%,#1a231c_100%)]"></div>
+          <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000000_100%)]"></div>
 
           <div className="relative z-10">
             <h2 className="text-[22px] min-[375px]:text-[26px] sm:text-4xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-16 md:mb-24">
@@ -69,7 +69,7 @@ export const NextStep = () => {
             <div className="mt-12 md:mt-24 flex justify-center w-full">
               <Button
                 size="lg"
-                className="bg-white text-[#1a231c] hover:bg-gray-100 text-sm sm:text-base md:text-lg font-bold px-4 sm:px-8 py-6 h-auto whitespace-normal text-center rounded-md shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all hover:scale-105 w-full sm:w-auto max-w-md"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:text-base md:text-lg font-bold px-4 sm:px-8 py-6 h-auto whitespace-normal text-center rounded-md shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all hover:scale-105 w-full sm:w-auto max-w-md"
                 asChild
               >
                 <a href="https://calendly.com/laurent-digital-info/60min" target="_blank" rel="noopener noreferrer">
