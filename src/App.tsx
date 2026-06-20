@@ -7,7 +7,11 @@ import { CookieConsent } from "./components/CookieConsent";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
-import Survey from "./pages/Survey";
+import Start from "./pages/Start";
+import Tarif from "./pages/Tarif";
+import Auftrag from "./pages/Auftrag";
+import AuftragEingegangen from "./pages/AuftragEingegangen";
+import Fehler from "./pages/Fehler";
 import Privacy from "./pages/Privacy";
 import Imprint from "./pages/Imprint";
 
@@ -22,7 +26,11 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/ueber-uns" element={<About />} />
-          <Route path="/start" element={<Survey />} />
+          <Route path="/start" element={<Start />} />
+          <Route path="/tarif" element={<Tarif />} />
+          <Route path="/auftrag" element={<Auftrag />} />
+          <Route path="/auftrag-eingegangen" element={<AuftragEingegangen />} />
+          <Route path="/fehler" element={<Fehler />} />
           <Route path="/datenschutz" element={<Privacy />} />
           <Route path="/impressum" element={<Imprint />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
