@@ -38,7 +38,7 @@ export const AboutSection = () => {
             </div>
             <div className="text-center sm:text-left mt-2">
               <h3 className="text-xl sm:text-2xl font-bold text-slate-900">Osasere Laurent</h3>
-              <p className="text-[#2a9d4f] text-base sm:text-lg mt-1">Gründer & Geschäftsführer</p>
+              <p className="text-[#195044] text-base sm:text-lg mt-1">Gründer & Geschäftsführer</p>
             </div>
           </div>
         </div>

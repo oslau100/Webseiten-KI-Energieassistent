@@ -15,7 +15,7 @@ export const Hero = () => {
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-50" style={{ animationDuration: '3s' }}></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary shadow-[0_0_8px_rgba(42,157,79,0.8)]"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary shadow-[0_0_8px_rgba(25,80,68,0.8)]"></span>
             </span>
             Für Strom- & Gasvertriebler
           </Badge>

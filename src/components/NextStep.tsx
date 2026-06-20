@@ -28,12 +28,12 @@ export const NextStep = () => {
 
             <div className="relative">
               {/* Connecting Line (Desktop) */}
-              <div className="hidden lg:block absolute top-10 left-[16.66%] right-[16.66%] h-1.5 bg-[#2a9d4f] z-0"></div>
+              <div className="hidden lg:block absolute top-10 left-[16.66%] right-[16.66%] h-1.5 bg-[#195044] z-0"></div>
 
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 md:gap-8">
                 {/* Step 1 */}
                 <div className="relative z-10 flex flex-col items-center text-center">
-                  <div className="w-20 h-20 rounded-full bg-[#2a9d4f] flex items-center justify-center mb-6 md:mb-8 shadow-[0_0_20px_rgba(42,157,79,0.3)]">
+                  <div className="w-20 h-20 rounded-full bg-[#195044] flex items-center justify-center mb-6 md:mb-8 shadow-[0_0_20px_rgba(25,80,68,0.3)]">
                     <Calendar className="w-10 h-10 text-[#1a231c]" strokeWidth={2} />
                   </div>
                   <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Termin auswählen</h3>
@@ -44,7 +44,7 @@ export const NextStep = () => {
 
                 {/* Step 2 */}
                 <div className="relative z-10 flex flex-col items-center text-center">
-                  <div className="w-20 h-20 rounded-full bg-[#2a9d4f] flex items-center justify-center mb-6 md:mb-8 shadow-[0_0_20px_rgba(42,157,79,0.3)]">
+                  <div className="w-20 h-20 rounded-full bg-[#195044] flex items-center justify-center mb-6 md:mb-8 shadow-[0_0_20px_rgba(25,80,68,0.3)]">
                     <FileSearch className="w-10 h-10 text-[#1a231c]" strokeWidth={2} />
                   </div>
                   <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Kurzes Formular ausfüllen</h3>
@@ -55,7 +55,7 @@ export const NextStep = () => {
 
                 {/* Step 3 */}
                 <div className="relative z-10 flex flex-col items-center text-center">
-                  <div className="w-20 h-20 rounded-full bg-[#2a9d4f] flex items-center justify-center mb-6 md:mb-8 shadow-[0_0_20px_rgba(42,157,79,0.3)]">
+                  <div className="w-20 h-20 rounded-full bg-[#195044] flex items-center justify-center mb-6 md:mb-8 shadow-[0_0_20px_rgba(25,80,68,0.3)]">
                     <ClipboardCheck className="w-10 h-10 text-[#1a231c]" strokeWidth={2} />
                   </div>
 <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Potenzialanalyse</h3>

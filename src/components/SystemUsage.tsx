@@ -34,7 +34,7 @@ export const SystemUsage = () => {
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto mb-16 md:mb-24">
           <h2 className="text-[22px] min-[375px]:text-[26px] sm:text-4xl md:text-4xl lg:text-5xl font-bold text-[#1a231c] leading-tight">
-            So generiert dein <span className="text-[#2a9d4f]">Energieassistent</span> planbar neue Interessenten und Abschlüsse
+            So generiert dein <span className="text-[#195044]">Energieassistent</span> planbar neue Interessenten und Abschlüsse
           </h2>
         </div>
 
@@ -46,8 +46,8 @@ export const SystemUsage = () => {
               className="bg-white rounded-3xl p-8 md:p-10 flex flex-col items-start transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100/50 sticky md:static md:hover:-translate-y-2"
               style={{ top: `calc(100px + ${index * 20}px)` }}
             >
-              <div className="flex items-center justify-center mb-6 w-16 h-16 rounded-2xl bg-[#2a9d4f]/10">
-                <span className="text-[28px] md:text-[32px] font-black text-[#2a9d4f] leading-none">
+              <div className="flex items-center justify-center mb-6 w-16 h-16 rounded-2xl bg-[#195044]/10">
+                <span className="text-[28px] md:text-[32px] font-black text-[#195044] leading-none">
                   {card.number}
                 </span>
               </div>

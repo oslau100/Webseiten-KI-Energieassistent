@@ -88,7 +88,7 @@ export const SystemOverview = () => {
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-[22px] min-[375px]:text-[26px] sm:text-4xl md:text-4xl lg:text-5xl font-bold text-[#1a231c] leading-tight">
-            So arbeitet dein <span className="text-[#2a9d4f]">Energieassistent</span> <br className="hidden md:block" />
+            So arbeitet dein <span className="text-[#195044]">Energieassistent</span> <br className="hidden md:block" />
             in 6 einfachen Schritten
           </h2>
         </div>
@@ -144,7 +144,7 @@ export const SystemOverview = () => {
                 >
                   <div className="flex items-center justify-center shrink-0 mt-0.5 transition-transform hover:scale-110 duration-300">
                     <Check
-                      className="w-6 h-6 md:w-7 md:h-7 text-[#2a9d4f]"
+                      className="w-6 h-6 md:w-7 md:h-7 text-[#195044]"
                       strokeWidth={4}
                     />
                   </div>
