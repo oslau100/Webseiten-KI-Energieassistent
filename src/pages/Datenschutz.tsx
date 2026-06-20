@@ -1,4 +1,5 @@
 import React from "react";
+import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
 const Datenschutz = () => {
@@ -19,6 +20,7 @@ const Datenschutz = () => {
       <div className="fixed inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000000_100%)] pointer-events-none"></div>
 
       <div className="relative z-10 flex flex-col min-h-screen">
+        <Header />
         <div className="flex-grow bg-[#FDFDFD] text-[#1a231c] w-full">
           <main className="max-w-4xl mx-auto py-24 px-6 md:px-12">
             <h1 className="text-3xl md:text-5xl font-bold mb-12">Datenschutzerklärung</h1>

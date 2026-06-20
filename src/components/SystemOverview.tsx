@@ -102,8 +102,8 @@ export const SystemOverview = () => {
                 onClick={() => setActiveTab(step.id)}
                 className={`px-6 py-3 md:px-8 md:py-4 rounded-xl font-bold whitespace-nowrap transition-all duration-300 shrink-0 snap-center ${
                   activeTab === step.id
-                    ? "bg-[#000000] text-white border border-white/20 shadow-lg scale-105"
-                    : "bg-[#000000] text-white/90 hover:text-white hover:shadow-[0_4px_20px_rgba(0,0,0,0.2)] border border-white/10"
+                    ? "bg-[#000000] text-white shadow-lg scale-105"
+                    : "bg-white text-[#1a231c] hover:bg-slate-50 shadow-[0_4px_20px_rgb(0,0,0,0.04)] border border-slate-100/50"
                 }`}
               >
                 {step.label}

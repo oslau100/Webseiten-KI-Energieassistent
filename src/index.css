@@ -92,3 +92,42 @@
     font-family: 'Poppins', sans-serif;
   }
 }
+
+@layer components {
+  .cta-shimmer {
+    @apply relative isolate overflow-hidden;
+  }
+
+  .cta-shimmer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-125%);
+    background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.18) 45%, transparent 70%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .cta-shimmer:hover::before,
+  .cta-shimmer:focus-visible::before {
+    animation: cta-shimmer-sweep 900ms ease-out;
+    opacity: 1;
+  }
+
+  @keyframes cta-shimmer-sweep {
+    from {
+      transform: translateX(-125%);
+    }
+    to {
+      transform: translateX(125%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cta-shimmer:hover::before,
+    .cta-shimmer:focus-visible::before {
+      animation: none;
+      opacity: 0;
+    }
+  }
+}

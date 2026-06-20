@@ -53,7 +53,7 @@ export const SystemSolution = () => {
         <div className="flex justify-center mt-8 sm:mt-24 md:mt-24 relative z-20">
           <Button 
             size="lg" 
-            className="bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:text-base md:text-lg tracking-tighter sm:tracking-normal font-bold px-6 sm:px-12 py-3 sm:py-4 md:px-16 md:py-4 rounded-md transition-all hover:scale-105 h-auto whitespace-normal sm:whitespace-nowrap shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+            className="cta-shimmer bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:text-base md:text-lg tracking-tighter sm:tracking-normal font-bold px-6 sm:px-12 py-3 sm:py-4 md:px-16 md:py-4 rounded-md transition-all hover:scale-105 h-auto whitespace-normal sm:whitespace-nowrap shadow-[0_0_30px_rgba(255,255,255,0.1)]"
             asChild
           >
             <a href="https://calendly.com/laurent-digital-info/60min" target="_blank" rel="noopener noreferrer">

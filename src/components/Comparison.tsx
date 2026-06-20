@@ -70,8 +70,8 @@ export const Comparison = () => {
               <ul className="space-y-6">
                 {systemItems.map((item, index) => (
                   <li key={index} className="flex items-start gap-4">
-                    <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
-                      <Check className="w-4 h-4 text-[#2a9d4f]" strokeWidth={3} />
+                    <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                      <Check className="w-4 h-4 text-primary-foreground" strokeWidth={3} />
                     </div>
                     <span className="text-white font-medium leading-snug">
                       {item}
@@ -86,7 +86,7 @@ export const Comparison = () => {
         <div className="mt-12 md:mt-16 flex justify-center">
           <Button 
             size="lg" 
-            className="bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:text-base md:text-lg tracking-tighter sm:tracking-normal font-bold px-6 sm:px-12 py-3 sm:py-4 md:px-16 md:py-4 rounded-md transition-all hover:scale-105 h-auto whitespace-normal sm:whitespace-nowrap shadow-lg"
+            className="cta-shimmer bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:text-base md:text-lg tracking-tighter sm:tracking-normal font-bold px-6 sm:px-12 py-3 sm:py-4 md:px-16 md:py-4 rounded-md transition-all hover:scale-105 h-auto whitespace-normal sm:whitespace-nowrap shadow-lg"
             asChild
           >
             <a href="https://calendly.com/laurent-digital-info/60min" target="_blank" rel="noopener noreferrer">
