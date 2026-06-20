@@ -135,29 +135,44 @@
 
 @layer components {
   .hero-headline-shimmer {
+    position: relative;
+    display: block;
+    overflow: visible;
     color: #FFFFFF;
-    background: linear-gradient(105deg, #FFFFFF 0%, #FFFFFF 38%, rgba(223, 255, 232, 0.92) 48%, #FFFFFF 58%, #FFFFFF 100%);
-    background-size: 260% 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: hero-headline-shimmer 8s ease-in-out infinite;
+    text-shadow: 0 0 22px rgba(255, 255, 255, 0.08);
+    isolation: isolate;
+  }
+
+  .hero-headline-shimmer::after {
+    content: "";
+    position: absolute;
+    inset: -0.12em -0.3em;
+    background: linear-gradient(105deg, transparent 30%, rgba(223, 255, 232, 0.28) 44%, rgba(255, 255, 255, 0.32) 50%, rgba(223, 255, 232, 0.22) 56%, transparent 70%);
+    transform: translateX(-120%);
+    opacity: 0;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    animation: hero-headline-shimmer 7.5s ease-in-out infinite;
   }
 
   @keyframes hero-headline-shimmer {
-    0%, 45% {
-      background-position: 130% 50%;
+    0%, 38% {
+      transform: translateX(-120%);
+      opacity: 0;
     }
-    100% {
-      background-position: -30% 50%;
+    48% {
+      opacity: 0.55;
+    }
+    62%, 100% {
+      transform: translateX(120%);
+      opacity: 0;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero-headline-shimmer {
+    .hero-headline-shimmer::after {
       animation: none;
-      background: none;
-      -webkit-text-fill-color: #FFFFFF;
+      opacity: 0;
     }
   }
 }
