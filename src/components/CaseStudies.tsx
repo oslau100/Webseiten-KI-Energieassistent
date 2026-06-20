@@ -36,7 +36,7 @@ export const CaseStudies = () => {
   const prevSlide = () => setActiveIndex((p) => (p - 1 + caseStudies.length) % caseStudies.length);
 
   return (
-    <section className="relative bg-[#1a231c] py-20 overflow-hidden border-t border-white/5">
+    <section className="relative bg-[#000000] py-20 overflow-hidden border-t border-white/5">
       {/* Background Grid Pattern */}
       <div 
         className="absolute inset-0 z-0 opacity-[0.03]" 
@@ -72,7 +72,7 @@ export const CaseStudies = () => {
               
               {/* Left Column - Meta */}
               <div className="md:col-span-5 flex flex-col items-start h-full">
-                <Badge className="bg-[#2a9d4f] text-[#1a231c] hover:opacity-90 rounded-sm px-3 py-1 font-bold mb-6 text-sm uppercase tracking-wider border-none">
+                <Badge className="bg-primary text-primary-foreground hover:opacity-90 rounded-sm px-3 py-1 font-bold mb-6 text-sm uppercase tracking-wider border-none">
                   FALLSTUDIE {caseStudies[activeIndex].id}
                 </Badge>
                 
@@ -170,7 +170,7 @@ export const CaseStudies = () => {
         <div className="flex justify-center mt-12 md:mt-16">
           <Button 
             size="lg" 
-            className="bg-white text-[#1a231c] hover:bg-gray-100 text-base md:text-lg font-bold px-8 py-6 rounded-md shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all hover:scale-105"
+            className="cta-shimmer bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:text-base md:text-lg tracking-tighter sm:tracking-normal font-bold px-6 sm:px-12 py-3 sm:py-4 md:px-16 md:py-4 rounded-md transition-all hover:scale-105 h-auto whitespace-normal sm:whitespace-nowrap shadow-[0_0_20px_rgba(255,255,255,0.1)]"
             asChild
           >
             <a href="https://calendly.com/laurent-digital-info/60min" target="_blank" rel="noopener noreferrer">

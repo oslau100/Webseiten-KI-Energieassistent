@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 133 15% 12%; /* #1a231c */
+    --background: 0 0% 0%; /* #000000 */
     --foreground: 0 0% 100%;
 
     --card: 133 15% 16%;
@@ -34,7 +34,7 @@
 
     --radius: 0.5rem;
 
-    --sidebar-background: 133 15% 12%;
+    --sidebar-background: 0 0% 0%;
     --sidebar-foreground: 0 0% 100%;
     --sidebar-primary: 139 58% 39%;
     --sidebar-primary-foreground: 0 0% 100%;
@@ -45,7 +45,7 @@
   }
 
   .dark {
-    --background: 133 15% 12%;
+    --background: 0 0% 0%;
     --foreground: 0 0% 100%;
     --card: 133 15% 16%;
     --card-foreground: 0 0% 100%;
@@ -64,7 +64,7 @@
     --border: 133 15% 20%;
     --input: 133 15% 20%;
     --ring: 139 58% 39%;
-    --sidebar-background: 133 15% 12%;
+    --sidebar-background: 0 0% 0%;
     --sidebar-foreground: 0 0% 100%;
     --sidebar-primary: 139 58% 39%;
     --sidebar-primary-foreground: 0 0% 100%;
@@ -90,5 +90,123 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  .cta-shimmer {
+    @apply relative isolate overflow-hidden;
+  }
+
+  .cta-shimmer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-125%);
+    background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.18) 45%, transparent 70%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .cta-shimmer:hover::before,
+  .cta-shimmer:focus-visible::before {
+    animation: cta-shimmer-sweep 900ms ease-out;
+    opacity: 1;
+  }
+
+  @keyframes cta-shimmer-sweep {
+    from {
+      transform: translateX(-125%);
+    }
+    to {
+      transform: translateX(125%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cta-shimmer:hover::before,
+    .cta-shimmer:focus-visible::before {
+      animation: none;
+      opacity: 0;
+    }
+  }
+}
+
+
+@layer components {
+  .hero-headline-shimmer {
+    position: relative;
+    display: block;
+    overflow: visible;
+    color: #FFFFFF;
+    text-shadow: 0 0 18px rgba(255, 255, 255, 0.04);
+    isolation: isolate;
+  }
+
+  .hero-headline-shimmer::after {
+    content: "";
+    position: absolute;
+    inset: -0.08em -0.18em;
+    background: linear-gradient(105deg, transparent 38%, rgba(223, 255, 232, 0.10) 47%, rgba(255, 255, 255, 0.14) 50%, rgba(223, 255, 232, 0.08) 53%, transparent 62%);
+    transform: translateX(-120%);
+    opacity: 0;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    animation: hero-headline-shimmer 12s ease-in-out infinite;
+  }
+
+  @keyframes hero-headline-shimmer {
+    0%, 52% {
+      transform: translateX(-115%);
+      opacity: 0;
+    }
+    60% {
+      opacity: 0.22;
+    }
+    72%, 100% {
+      transform: translateX(115%);
+      opacity: 0;
+    }
+  }
+
+
+  .hero-cta-wiggle {
+    animation: hero-cta-wiggle 6.5s ease-in-out infinite;
+    transform-origin: center;
+    will-change: translate, rotate;
+  }
+
+  @keyframes hero-cta-wiggle {
+    0%, 82%, 100% {
+      translate: 0 0;
+      rotate: 0deg;
+    }
+    85% {
+      translate: -1px 0;
+      rotate: -0.45deg;
+    }
+    88% {
+      translate: 1px 0;
+      rotate: 0.45deg;
+    }
+    91% {
+      translate: -0.5px 0;
+      rotate: -0.25deg;
+    }
+    94% {
+      translate: 0 0;
+      rotate: 0deg;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-headline-shimmer::after {
+      animation: none;
+      opacity: 0;
+    }
+
+    .hero-cta-wiggle {
+      animation: none;
+    }
   }
 }

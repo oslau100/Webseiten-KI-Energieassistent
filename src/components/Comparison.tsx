@@ -50,7 +50,7 @@ export const Comparison = () => {
           </div>
 
           {/* System Side */}
-          <div className="bg-[#1a231c] rounded-2xl p-8 md:p-10 lg:p-12 shadow-lg relative overflow-hidden">
+          <div className="bg-[#000000] rounded-2xl p-8 md:p-10 lg:p-12 shadow-lg relative overflow-hidden">
             <div 
               className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
               style={{
@@ -61,7 +61,7 @@ export const Comparison = () => {
                 backgroundSize: '40px 40px'
               }}
             ></div>
-            <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_0%,#1a231c_100%)] pointer-events-none"></div>
+            <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000000_100%)] pointer-events-none"></div>
             
             <div className="relative z-10">
               <h3 className="text-2xl md:text-3xl font-bold text-center text-white mb-8 md:mb-10">
@@ -70,8 +70,8 @@ export const Comparison = () => {
               <ul className="space-y-6">
                 {systemItems.map((item, index) => (
                   <li key={index} className="flex items-start gap-4">
-                    <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
-                      <Check className="w-4 h-4 text-[#2a9d4f]" strokeWidth={3} />
+                    <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                      <Check className="w-4 h-4 text-primary-foreground" strokeWidth={3} />
                     </div>
                     <span className="text-white font-medium leading-snug">
                       {item}
@@ -86,7 +86,7 @@ export const Comparison = () => {
         <div className="mt-12 md:mt-16 flex justify-center">
           <Button 
             size="lg" 
-            className="bg-[#1a231c] text-white hover:bg-[#1a231c]/90 text-base md:text-lg font-bold px-8 py-6 rounded-md shadow-lg transition-all hover:scale-105"
+            className="cta-shimmer bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:text-base md:text-lg tracking-tighter sm:tracking-normal font-bold px-6 sm:px-12 py-3 sm:py-4 md:px-16 md:py-4 rounded-md transition-all hover:scale-105 h-auto whitespace-normal sm:whitespace-nowrap shadow-lg"
             asChild
           >
             <a href="https://calendly.com/laurent-digital-info/60min" target="_blank" rel="noopener noreferrer">

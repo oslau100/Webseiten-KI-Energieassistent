@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 export const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-transparent text-foreground pt-0 pb-8 md:pt-0 md:pb-16 px-2 sm:px-4">
+    <section className="relative overflow-hidden bg-[#000000] text-foreground pt-0 pb-8 md:pt-0 md:pb-16 px-2 sm:px-4">
 
       <div className="container relative z-10 mx-auto max-w-[1000px] pt-4 md:pt-12">
         <div className="flex flex-col items-center text-center">
@@ -21,7 +21,7 @@ export const Hero = () => {
           </Badge>
 
           {/* Headings */}
-          <h1 className="text-[28px] min-[375px]:text-[32px] sm:text-4xl md:text-[42px] lg:text-5xl xl:text-6xl font-bold tracking-tight mb-3 md:mb-6 text-white leading-[1.2] md:leading-tight">
+          <h1 className="hero-headline-shimmer text-[28px] min-[375px]:text-[32px] sm:text-4xl md:text-[42px] lg:text-5xl xl:text-6xl font-bold tracking-tight mb-3 md:mb-6 text-white leading-[1.2] md:leading-tight">
             Mehr Verträge. Weniger Aufwand.
           </h1>
 
@@ -33,7 +33,7 @@ export const Hero = () => {
           {/* CTA Button */}
           <Button 
             size="lg" 
-            className="bg-white text-[#1a231c] hover:bg-gray-100 text-sm sm:text-base md:text-lg tracking-tighter sm:tracking-normal font-bold w-full sm:w-auto px-6 sm:px-12 py-3 sm:py-4 md:px-16 md:py-4 rounded-md mb-2 transition-all hover:scale-105 h-auto whitespace-normal sm:whitespace-nowrap min-w-[280px]"
+            className="hero-cta-wiggle cta-shimmer bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:text-base md:text-lg tracking-tighter sm:tracking-normal font-bold px-6 sm:px-12 py-3 sm:py-4 md:px-16 md:py-4 rounded-md transition-all hover:scale-105 h-auto whitespace-normal sm:whitespace-nowrap w-full sm:w-auto mb-2 min-w-[280px]"
             asChild
           >
             <a href="https://calendly.com/laurent-digital-info/60min" target="_blank" rel="noopener noreferrer" className="text-center">

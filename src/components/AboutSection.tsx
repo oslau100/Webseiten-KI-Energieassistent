@@ -8,7 +8,7 @@ export const AboutSection = () => {
         <div className="mb-16 grid gap-12 lg:grid-cols-2 lg:items-start">
           <div className="space-y-6 order-2 lg:order-1">
             <h2 className="text-[22px] min-[375px]:text-[26px] sm:text-4xl font-bold text-[#1a231c] hidden lg:block">
-              Wer steckt hinter Energieassistent.io
+              Wer steckt hinter <span className="text-primary">Energieassistent.io</span>
             </h2>
             <div className="space-y-4 text-base leading-relaxed text-slate-700 sm:text-lg">
               <p>
@@ -27,7 +27,7 @@ export const AboutSection = () => {
           </div>
           <div className="flex flex-col gap-4 order-1 lg:order-2">
             <h2 className="text-[22px] min-[375px]:text-[26px] sm:text-4xl font-bold text-[#1a231c] lg:hidden mb-2 text-center">
-              Wer steckt hinter Energieassistent.io
+              Wer steckt hinter <span className="text-primary">Energieassistent.io</span>
             </h2>
             <div className="relative w-full rounded-2xl shadow-lg bg-white p-3 sm:p-4 h-[400px] min-[400px]:h-[450px] sm:h-[600px]">
               <img
@@ -65,7 +65,7 @@ export const AboutSection = () => {
             </div>
             <Button 
               size="lg" 
-              className="mt-4 bg-[#1a231c] text-white hover:bg-[#253228] font-semibold px-8 py-6 text-base rounded-md"
+              className="mt-4 cta-shimmer bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:text-base md:text-lg tracking-tighter sm:tracking-normal font-bold px-6 sm:px-12 py-3 sm:py-4 md:px-16 md:py-4 rounded-md transition-all hover:scale-105 h-auto whitespace-normal sm:whitespace-nowrap"
               asChild
             >
               <a href="https://calendly.com/laurent-digital-info/60min" target="_blank" rel="noopener noreferrer">

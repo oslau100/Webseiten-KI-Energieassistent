@@ -72,7 +72,7 @@ export const CollaborationProcess = () => {
 
             {/* Animated Scroll Marker */}
             <div 
-              className="absolute left-6 md:left-1/2 w-5 h-5 bg-[#1a231c] rounded-md -translate-x-1/2 -translate-y-1/2 shadow-md z-20 transition-all duration-75 ease-out"
+              className="absolute left-6 md:left-1/2 w-5 h-5 bg-[#000000] rounded-md -translate-x-1/2 -translate-y-1/2 shadow-md z-20 transition-all duration-75 ease-out"
               style={{ top: `${scrollProgress * 100}%` }}
             ></div>
 
@@ -116,7 +116,7 @@ export const CollaborationProcess = () => {
         <div className="flex justify-center mt-12 md:mt-16">
           <Button
             size="lg"
-            className="bg-[#1a231c] text-white hover:bg-[#1a231c]/90 text-sm md:text-base font-bold px-8 py-6 rounded-md shadow-lg transition-all hover:scale-105"
+            className="cta-shimmer bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:text-base md:text-lg tracking-tighter sm:tracking-normal font-bold px-6 sm:px-12 py-3 sm:py-4 md:px-16 md:py-4 rounded-md transition-all hover:scale-105 h-auto whitespace-normal sm:whitespace-nowrap shadow-lg"
             asChild
           >
             <a href="https://calendly.com/laurent-digital-info/60min" target="_blank" rel="noopener noreferrer">

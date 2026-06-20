@@ -30,7 +30,7 @@ export const Header = () => {
   };
 
   return (
-    <header className="relative z-50 w-full border-b border-white/5 bg-transparent text-white">
+    <header className="relative z-50 w-full bg-[#000000] text-white">
       <div className="container relative mx-auto flex py-0 items-center justify-between px-4 md:px-8">
         <a href="/" className="flex items-center z-10 -my-14 md:-my-16">
           <img
@@ -57,12 +57,12 @@ export const Header = () => {
         <div className="md:hidden z-10">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 hover:text-white">
+              <Button variant="ghost" size="icon" className="bg-transparent text-white hover:bg-transparent hover:text-white">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="top" className="bg-[#1a231c] border-b border-white/10 text-white pt-20">
+            <SheetContent side="top" className="bg-[#000000] border-b-0 text-white pt-20">
               <nav className="flex flex-col items-center gap-6 text-lg font-medium">
                 {navLinks.map((link) => (
                   <a

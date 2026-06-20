@@ -43,7 +43,7 @@ export const PainPoints = () => {
   return (
     <section className="relative w-full pt-20 md:pt-32 pb-16 md:pb-24 bg-[#FDFDFD]">
       {/* Bottom Dark Background with Grid (Overlaps the bottom row of cards by ~1/3) */}
-      <div className="absolute bottom-0 left-0 right-0 h-[180px] md:h-[240px] lg:h-[260px] bg-[#1a231c] z-0 overflow-hidden">
+      <div className="absolute bottom-0 left-0 right-0 h-[180px] md:h-[240px] lg:h-[260px] bg-[#000000] z-0 overflow-hidden">
         {/* Grid Pattern */}
         <div 
           className="absolute inset-0 opacity-[0.03]" 
