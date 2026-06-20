@@ -8,7 +8,7 @@ export const AboutSection = () => {
         <div className="mb-16 grid gap-12 lg:grid-cols-2 lg:items-start">
           <div className="space-y-6 order-2 lg:order-1">
             <h2 className="text-[22px] min-[375px]:text-[26px] sm:text-4xl font-bold text-[#1a231c] hidden lg:block">
-              Wer steckt hinter Energieassistent.io
+              Wer steckt hinter <span className="text-primary">Energieassistent.io</span>
             </h2>
             <div className="space-y-4 text-base leading-relaxed text-slate-700 sm:text-lg">
               <p>
@@ -27,7 +27,7 @@ export const AboutSection = () => {
           </div>
           <div className="flex flex-col gap-4 order-1 lg:order-2">
             <h2 className="text-[22px] min-[375px]:text-[26px] sm:text-4xl font-bold text-[#1a231c] lg:hidden mb-2 text-center">
-              Wer steckt hinter Energieassistent.io
+              Wer steckt hinter <span className="text-primary">Energieassistent.io</span>
             </h2>
             <div className="relative w-full rounded-2xl shadow-lg bg-white p-3 sm:p-4 h-[400px] min-[400px]:h-[450px] sm:h-[600px]">
               <img
