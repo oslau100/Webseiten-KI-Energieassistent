@@ -55,7 +55,7 @@ export const CaseStudies = () => {
           <Badge className="bg-primary/10 text-primary hover:bg-primary/20 border border-primary/20 rounded-full px-4 py-1.5 font-bold mb-6 text-sm tracking-tight flex items-center gap-2 w-fit mx-auto transition-colors">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-50" style={{ animationDuration: '3s' }}></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary shadow-[0_0_8px_rgba(42,157,79,0.8)]"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary shadow-[0_0_8px_rgba(25,80,68,0.8)]"></span>
             </span>
             Ergebnisse aus der Praxis
           </Badge>
@@ -90,15 +90,15 @@ export const CaseStudies = () => {
                 
                 <div className="mt-auto">
                   <div className="flex flex-col items-start mb-3">
-                    <span className="text-xs md:text-sm font-bold mb-1 text-[#2a9d4f]">Energieassistent ansehen</span>
-                    <ArrowDown className="w-5 h-5 ml-16 animate-bounce text-[#2a9d4f]" />
+                    <span className="text-xs md:text-sm font-bold mb-1 text-[#195044]">Energieassistent ansehen</span>
+                    <ArrowDown className="w-5 h-5 ml-16 animate-bounce text-[#195044]" />
                   </div>
                   <div className="flex flex-col gap-1 mb-4">
                     <a 
                       href={`https://${caseStudies[activeIndex].website}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-[#2a9d4f] transition-colors underline underline-offset-4"
+                      className="text-gray-600 hover:text-[#195044] transition-colors underline underline-offset-4"
                     >
                       {caseStudies[activeIndex].website}
                     </a>
@@ -107,7 +107,7 @@ export const CaseStudies = () => {
                   
                   <div className="flex gap-1">
                     {[1, 2, 3, 4, 5].map((star) => (
-                      <Star key={star} className="w-6 h-6 fill-[#2a9d4f] text-[#2a9d4f]" />
+                      <Star key={star} className="w-6 h-6 fill-[#195044] text-[#195044]" />
                     ))}
                   </div>
                 </div>
@@ -137,7 +137,7 @@ export const CaseStudies = () => {
           <div className="flex items-center justify-center gap-6 mt-10">
             <button 
               onClick={prevSlide} 
-              className="text-white hover:text-[#2a9d4f] transition-colors p-2"
+              className="text-white hover:text-[#195044] transition-colors p-2"
               aria-label="Previous slide"
             >
               <ChevronLeft className="w-8 h-8" strokeWidth={2.5} />
@@ -158,7 +158,7 @@ export const CaseStudies = () => {
             
             <button 
               onClick={nextSlide} 
-              className="text-white hover:text-[#2a9d4f] transition-colors p-2"
+              className="text-white hover:text-[#195044] transition-colors p-2"
               aria-label="Next slide"
             >
               <ChevronRight className="w-8 h-8" strokeWidth={2.5} />

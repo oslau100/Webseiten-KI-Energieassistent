@@ -44,7 +44,7 @@ export const SystemSolution = () => {
             <img 
               src="https://vibe.filesafe.space/1779705604088859430/attachments/921658c1-2ee1-4ae6-a37c-a126410c4d40.png" 
               alt="Automatisiertes Vertriebssystem" 
-              className="w-full h-auto object-contain drop-shadow-[0_0_40px_rgba(42,157,79,0.2)] scale-[1.75] sm:scale-[1.3] md:scale-125 lg:scale-[1.35] origin-center"
+              className="w-full h-auto object-contain drop-shadow-[0_0_40px_rgba(25,80,68,0.2)] scale-[1.75] sm:scale-[1.3] md:scale-125 lg:scale-[1.35] origin-center"
             />
           </div>
         </div>

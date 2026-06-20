@@ -9,7 +9,7 @@ export const FailedSolutions = () => {
       tabName: "Der Irrglaube",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8 md:w-10 md:h-10">
-          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" fill="#2a9d4f" />
+          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" fill="#195044" />
           <path d="M12 9v4" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
           <path d="M12 17.5h.01" stroke="#ffffff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -23,7 +23,7 @@ export const FailedSolutions = () => {
     },
     {
       tabName: "Die Sackgasse",
-      icon: <Filter className="w-8 h-8 md:w-10 md:h-10 text-[#2a9d4f]" strokeWidth={2.5} fill="#2a9d4f" />,
+      icon: <Filter className="w-8 h-8 md:w-10 md:h-10 text-[#195044]" strokeWidth={2.5} fill="#195044" />,
       title: "Mehr Kontakte oder bessere Verkaufstechniken bringen dich nicht weiter",
       description:
         "Ob mehr Kontakte oder besser pitchen beides wirkt wie eine Lösung, bringt dich aber kaum weiter. Mehr Kontakte erhöhen nur deinen Aufwand, ohne dass automatisch mehr Abschlüsse entstehen.\n\nUnd selbst bessere Pitches oder Einwandbehandlung sorgen meist nur für minimal bessere Quoten – nicht für planbar mehr Ergebnisse.",
@@ -33,7 +33,7 @@ export const FailedSolutions = () => {
     },
     {
       tabName: "Die Wahrheit",
-      icon: <Puzzle className="w-8 h-8 md:w-10 md:h-10 text-[#2a9d4f]" strokeWidth={2.5} fill="#2a9d4f" />,
+      icon: <Puzzle className="w-8 h-8 md:w-10 md:h-10 text-[#195044]" strokeWidth={2.5} fill="#195044" />,
       title: "Deine Art der Kundengewinnung ist das eigentliche Problem",
       description:
         "Der Engpass ist nicht die Anzahl deiner Kontakte, sondern wie dein Vertrieb aufgebaut ist.\n\nDie meisten Prozesse im D2D- und Online-Vertrieb erzeugen Ablehnung, Druck und Misstrauen, bevor überhaupt echtes Interesse entsteht. Dein aktueller Ansatz ist nicht darauf ausgelegt, Vertrauen aufzubauen und Hürden zu senken. Genau deshalb bleiben deine Abschlüsse unplanbar und schwer erreichbar.",
@@ -70,7 +70,7 @@ export const FailedSolutions = () => {
               >
                 <div 
                   className={`w-5 h-5 md:w-6 md:h-6 rounded-full transition-colors duration-200 ${
-                    activeTab === index ? "bg-[#2a9d4f]" : "bg-[#f1f5f9] group-hover:bg-slate-200"
+                    activeTab === index ? "bg-[#195044]" : "bg-[#f1f5f9] group-hover:bg-slate-200"
                   }`} 
                 />
                 <span className="font-bold text-sm md:text-lg text-[#1a231c]">
@@ -82,7 +82,7 @@ export const FailedSolutions = () => {
 
           {/* Active Card */}
           <div className={`${activeCard.bgColor} rounded-[2rem] p-8 md:p-12 w-full flex flex-col items-start transition-all duration-300`}>
-            <div className="flex items-center justify-center mb-6 md:mb-8 w-16 h-16 rounded-2xl bg-[#2a9d4f]/10">
+            <div className="flex items-center justify-center mb-6 md:mb-8 w-16 h-16 rounded-2xl bg-[#195044]/10">
               {activeCard.icon}
             </div>
             <h3 className={`text-2xl md:text-[28px] font-bold ${activeCard.textColor} mb-6 leading-tight`}>

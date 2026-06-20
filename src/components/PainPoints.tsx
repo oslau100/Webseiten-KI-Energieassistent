@@ -61,7 +61,7 @@ export const PainPoints = () => {
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto mb-16 md:mb-24 px-2">
           <h2 className="text-[22px] min-[375px]:text-[26px] sm:text-4xl md:text-4xl lg:text-5xl font-bold text-[#1a231c] mb-6 tracking-tight overflow-visible">
-            Kommt dir das <span className="text-[#2a9d4f]">im Vertrieb</span> bekannt vor?
+            Kommt dir das <span className="text-[#195044]">im Vertrieb</span> bekannt vor?
           </h2>
           <p className="text-base md:text-lg text-[#1a231c]/80 leading-relaxed max-w-2xl mx-auto font-medium whitespace-normal">
             Die meisten Strom & Gasvertriebler geben täglich Vollgas – kämpfen aber mit unplanbaren Ergebnissen, hoher Ablehnung, viel Aufwand und verlieren dabei einen Großteil ihres Potenzials.
@@ -76,8 +76,8 @@ export const PainPoints = () => {
               className="bg-white rounded-3xl p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100/50 flex flex-col items-start transition-transform hover:-translate-y-1 duration-300"
             >
               {/* Icon */}
-              <div className="flex items-center justify-center mb-6 w-16 h-16 rounded-2xl bg-[#2a9d4f]/10">
-                <point.icon className="w-8 h-8 md:w-10 md:h-10 text-[#2a9d4f]" />
+              <div className="flex items-center justify-center mb-6 w-16 h-16 rounded-2xl bg-[#195044]/10">
+                <point.icon className="w-8 h-8 md:w-10 md:h-10 text-[#195044]" />
               </div>
               
               {/* Content */}

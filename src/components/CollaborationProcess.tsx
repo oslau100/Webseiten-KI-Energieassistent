@@ -68,7 +68,7 @@ export const CollaborationProcess = () => {
         <div className="relative max-w-4xl mx-auto" ref={timelineRef}>
           <div className="relative">
             {/* Central Line */}
-            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-[#2a9d4f] md:-translate-x-1/2 z-0"></div>
+            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-[#195044] md:-translate-x-1/2 z-0"></div>
 
             {/* Animated Scroll Marker */}
             <div 
@@ -95,7 +95,7 @@ export const CollaborationProcess = () => {
                     }`}
                   >
                     <div className="flex flex-col gap-2">
-                      <span className="text-[#2a9d4f] font-bold text-base md:text-lg tracking-wide">
+                      <span className="text-[#195044] font-bold text-base md:text-lg tracking-wide">
                         {step.step}
                       </span>
                       <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#1a231c] leading-snug mb-3">

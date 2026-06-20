@@ -8,7 +8,7 @@ export const CrmIntegration = () => {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 font-semibold mb-6 text-sm transition-colors whitespace-nowrap">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-50" style={{ animationDuration: '3s' }}></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary shadow-[0_0_8px_rgba(42,157,79,0.8)]"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary shadow-[0_0_8px_rgba(25,80,68,0.8)]"></span>
             </span>
             Perfektes Zusammenspiel
           </div>
@@ -27,7 +27,7 @@ export const CrmIntegration = () => {
         </div>
 
         <div className="relative rounded-2xl md:rounded-[2rem] p-[3px] overflow-hidden shadow-[0_20px_60px_rgb(0,0,0,0.08)]">
-          <div className="absolute inset-[-100%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,#2a9d4f_50%,transparent_100%)]" />
+          <div className="absolute inset-[-100%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,#195044_50%,transparent_100%)]" />
           <div className="relative bg-white rounded-[14px] md:rounded-[30px] overflow-hidden">
             <img 
               src="https://vibe.filesafe.space/1779705604088859430/attachments/83795923-f5b6-48a7-8560-04923eccea8c.png" 

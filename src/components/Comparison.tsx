@@ -26,7 +26,7 @@ export const Comparison = () => {
     <section className="py-20 md:py-32 bg-[#FDFDFD]">
       <div className="container mx-auto px-4 max-w-5xl">
         <h2 className="text-[22px] min-[375px]:text-[26px] sm:text-4xl md:text-4xl lg:text-5xl font-bold text-center text-[#1a231c] mb-12 md:mb-16 tracking-tight">
-          Klassischer Energievertrieb vs. <span className="text-[#2a9d4f]">Energieassistent</span>
+          Klassischer Energievertrieb vs. <span className="text-[#195044]">Energieassistent</span>
         </h2>
 
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
