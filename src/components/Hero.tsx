@@ -21,7 +21,7 @@ export const Hero = () => {
           </Badge>
 
           {/* Headings */}
-          <h1 className="text-[28px] min-[375px]:text-[32px] sm:text-4xl md:text-[42px] lg:text-5xl xl:text-6xl font-bold tracking-tight mb-3 md:mb-6 text-white leading-[1.2] md:leading-tight">
+          <h1 className="hero-headline-shimmer text-[28px] min-[375px]:text-[32px] sm:text-4xl md:text-[42px] lg:text-5xl xl:text-6xl font-bold tracking-tight mb-3 md:mb-6 text-white leading-[1.2] md:leading-tight">
             Mehr Verträge. Weniger Aufwand.
           </h1>
 
@@ -54,8 +54,8 @@ export const Hero = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 lg:gap-10 text-left w-full mt-2 md:mt-0">
             {/* Feature 1 */}
             <div className="flex gap-3 sm:gap-4 items-start">
-              <div className="bg-white rounded-full p-1 shrink-0 mt-0.5">
-                <Check className="w-3 h-3 sm:w-4 sm:h-4 text-primary" strokeWidth={4} />
+              <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                <Check className="w-4 h-4 text-primary-foreground" strokeWidth={4} />
               </div>
               <p className="text-[13px] sm:text-sm text-white leading-tight sm:leading-snug tracking-tighter sm:tracking-normal">
                 <span className="font-bold">Im D2D- und Online-Vertrieb einsetzbar</span> – ohne Umstellung oder zusätzlichen Aufwand
@@ -64,8 +64,8 @@ export const Hero = () => {
 
             {/* Feature 2 */}
             <div className="flex gap-3 sm:gap-4 items-start">
-              <div className="bg-white rounded-full p-1 shrink-0 mt-0.5">
-                <Check className="w-3 h-3 sm:w-4 sm:h-4 text-primary" strokeWidth={4} />
+              <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                <Check className="w-4 h-4 text-primary-foreground" strokeWidth={4} />
               </div>
               <p className="text-[13px] sm:text-sm text-white leading-tight sm:leading-snug tracking-tighter sm:tracking-normal">
                 <span className="font-bold">Macht deinen Vertrieb deutlich einfacher</span> – und bringt dir planbar mehr Abschlüsse
@@ -74,8 +74,8 @@ export const Hero = () => {
 
             {/* Feature 3 */}
             <div className="flex gap-3 sm:gap-4 items-start">
-              <div className="bg-white rounded-full p-1 shrink-0 mt-0.5">
-                <Check className="w-3 h-3 sm:w-4 sm:h-4 text-primary" strokeWidth={4} />
+              <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                <Check className="w-4 h-4 text-primary-foreground" strokeWidth={4} />
               </div>
               <p className="text-[13px] sm:text-sm text-white leading-tight sm:leading-snug tracking-tighter sm:tracking-normal">
                 <span className="font-bold">Maßgeschneidert für deinen Vertrieb</span> – und sofort einsatzbereit

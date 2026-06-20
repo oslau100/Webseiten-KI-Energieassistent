@@ -47,7 +47,7 @@ export const Footer = () => {
 
           {/* Column 2: Sitemap */}
           <div>
-            <h3 className="text-2xl font-bold mb-8">Sitemap</h3>
+            <h3 className="text-2xl font-bold mb-8">Navigation</h3>
             <ul className="space-y-5">
               <li>
                 <a href={getHref("#problem")} className="text-gray-300 hover:text-white transition-colors text-lg">
