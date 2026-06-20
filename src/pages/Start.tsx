@@ -4,6 +4,7 @@ const Start = () => (
   <FunnelFrame
     title="Ersparnis prüfen"
     src="/loaders/start.html"
+    showChrome={false}
   />
 );
 

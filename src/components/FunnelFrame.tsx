@@ -7,6 +7,7 @@ interface FunnelFrameProps {
   title: string;
   src: string;
   requireUuid?: boolean;
+  showChrome?: boolean;
 }
 
 function getSafeNavigationUrl(rawUrl: string): string | null {
@@ -21,7 +22,7 @@ function getSafeNavigationUrl(rawUrl: string): string | null {
   }
 }
 
-export function FunnelFrame({ title, src, requireUuid = false }: FunnelFrameProps) {
+export function FunnelFrame({ title, src, requireUuid = false, showChrome = true }: FunnelFrameProps) {
   const [searchParams] = useSearchParams();
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [height, setHeight] = useState(720);
@@ -60,21 +61,21 @@ export function FunnelFrame({ title, src, requireUuid = false }: FunnelFrameProp
   if (requireUuid && !uuid) {
     return (
       <div className="min-h-screen bg-background flex flex-col font-sans">
-        <Navbar />
+        {showChrome && <Navbar />}
         <main className="container mx-auto flex-1 px-4 py-16 text-center">
           <h1 className="text-3xl font-bold mb-4">Auftrag nicht gefunden</h1>
           <p className="text-muted-foreground mb-8">Bitte starten Sie die Anfrage erneut.</p>
           <a className="font-bold underline" href="/start">Zur Ersparnisprüfung</a>
         </main>
-        <Footer />
+        {showChrome && <Footer />}
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
-      <Navbar />
-      <main className="flex-1 w-full py-8 md:py-12">
+      {showChrome && <Navbar />}
+      <main className={showChrome ? "flex-1 w-full py-8 md:py-12" : "flex-1 w-full py-0"}>
         <iframe
           ref={iframeRef}
           title={title}
@@ -84,7 +85,7 @@ export function FunnelFrame({ title, src, requireUuid = false }: FunnelFrameProp
           allow="clipboard-write; payment"
         />
       </main>
-      <Footer />
+      {showChrome && <Footer />}
     </div>
   );
 }

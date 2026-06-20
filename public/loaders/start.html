@@ -16,14 +16,18 @@
 <body>
   <div id="survey-app"></div>
   <script>
-    const BOOTSTRAP_CONFIG = {
+    window.TB_BOOTSTRAP = {
       locationId: "zMzYbmm0fF0pPpuzSBL7",
       avatarUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/TarifButler%20Specifics/setting-survey-avatar.png",
       supabaseUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co",
       supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im95bmhuaGtsZHZwb3Foc2ZpcndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0OTAwODksImV4cCI6MjA3NTA2NjA4OX0.9zYOwel585SOUAtVc4XkWhhJl4qldwX6oOhOH7L-eJ4",
       offerUrl: "https://www.tarif-butler.de/tarif",
+      auftragUrl: "https://www.tarif-butler.de/auftrag",
+      startUrl: "https://www.tarif-butler.de/start",
       settingProxyPath: "https://oynhnhkldvpoqhsfirwf.supabase.co/functions/v1/setting-proxy",
-      engineUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/engine-assets/setting-survey-engine.js"
+      settingEngineUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/engine-assets/setting-survey-engine.js",
+      closingEngineUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/engine-assets/closing-survey-engine.js",
+      closingProxyPath: "https://oynhnhkldvpoqhsfirwf.supabase.co/functions/v1/closing-proxy"
     };
 
     const params = new URLSearchParams(window.location.search);
@@ -51,21 +55,26 @@
       const runtime = data?.runtime_config || {};
       const urls = data?.url_config || {};
       return {
-        ...BOOTSTRAP_CONFIG,
+        ...window.TB_BOOTSTRAP,
         lang,
         language: lang,
-        locationId: BOOTSTRAP_CONFIG.locationId,
-        avatarUrl: urls.avatarUrl || urls.avatar_url || BOOTSTRAP_CONFIG.avatarUrl,
-        offerUrl: urls.offerUrl || urls.offer_url || BOOTSTRAP_CONFIG.offerUrl,
-        settingProxyPath: runtime.settingProxyPath || runtime.setting_proxy_path || BOOTSTRAP_CONFIG.settingProxyPath,
-        engineUrl: runtime.engineUrl || runtime.settingEngineUrl || runtime.setting_engine_url || BOOTSTRAP_CONFIG.engineUrl
+        locationId: window.TB_BOOTSTRAP.locationId,
+        avatarUrl: urls.avatarUrl || urls.avatar_url || window.TB_BOOTSTRAP.avatarUrl,
+        offerUrl: urls.offerUrl || urls.offer_url || window.TB_BOOTSTRAP.offerUrl,
+        settingProxyPath: runtime.settingProxyPath || runtime.setting_proxy_path || window.TB_BOOTSTRAP.settingProxyPath,
+        auftragUrl: urls.auftragUrl || urls.auftrag_url || window.TB_BOOTSTRAP.auftragUrl,
+        startUrl: urls.startUrl || urls.start_url || window.TB_BOOTSTRAP.startUrl,
+        settingEngineUrl: runtime.settingEngineUrl || runtime.setting_engine_url || window.TB_BOOTSTRAP.settingEngineUrl,
+        closingEngineUrl: runtime.closingEngineUrl || runtime.closing_engine_url || window.TB_BOOTSTRAP.closingEngineUrl,
+        closingProxyPath: runtime.closingProxyPath || runtime.closing_proxy_path || window.TB_BOOTSTRAP.closingProxyPath,
+        engineUrl: runtime.engineUrl || runtime.settingEngineUrl || runtime.setting_engine_url || window.TB_BOOTSTRAP.settingEngineUrl
       };
     }
 
     (async () => {
       try {
-        const client = supabase.createClient(BOOTSTRAP_CONFIG.supabaseUrl, BOOTSTRAP_CONFIG.supabaseKey);
-        const { data, error } = await client.from("kunden_config").select("*").eq("location_id", BOOTSTRAP_CONFIG.locationId).single();
+        const client = supabase.createClient(window.TB_BOOTSTRAP.supabaseUrl, window.TB_BOOTSTRAP.supabaseKey);
+        const { data, error } = await client.from("kunden_config").select("*").eq("location_id", window.TB_BOOTSTRAP.locationId).single();
         if (error) throw error;
         window.KUNDEN_DATA = data;
         applyDesign(data);

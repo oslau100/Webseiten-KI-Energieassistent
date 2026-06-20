@@ -5,6 +5,7 @@ const Tarif = () => (
     title="Ihr Tarifangebot"
     src="/loaders/tarif.html"
     requireUuid
+    showChrome={false}
   />
 );
 

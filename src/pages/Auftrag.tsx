@@ -5,6 +5,7 @@ const Auftrag = () => (
     title="Wechselauftrag"
     src="/loaders/auftrag.html"
     requireUuid
+    showChrome={false}
   />
 );
 
