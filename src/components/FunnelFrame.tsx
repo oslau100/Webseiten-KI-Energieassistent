@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 interface FunnelFrameProps {
@@ -35,6 +35,83 @@ export function FunnelFrame({ title, src, requireUuid = false, showChrome = true
     return `${src}?${params.toString()}`;
   }, [searchParams, src]);
 
+  const measureIframeHeight = useCallback(() => {
+    if (showChrome) return;
+
+    const iframe = iframeRef.current;
+    const doc = iframe?.contentDocument;
+    if (!doc) return;
+
+    const body = doc.body;
+    const html = doc.documentElement;
+    if (!body || !html) return;
+
+    body.style.overflow = "hidden";
+    html.style.overflow = "hidden";
+
+    const nextHeight = Math.max(
+      520,
+      body.scrollHeight,
+      body.offsetHeight,
+      html.clientHeight,
+      html.scrollHeight,
+      html.offsetHeight
+    );
+
+    setHeight(Math.ceil(nextHeight));
+  }, [showChrome]);
+
+
+  useEffect(() => {
+    if (showChrome) return;
+
+    const iframe = iframeRef.current;
+    if (!iframe) return;
+
+    let frameObserver: ResizeObserver | null = null;
+    let animationFrame = 0;
+
+    const scheduleMeasure = () => {
+      window.cancelAnimationFrame(animationFrame);
+      animationFrame = window.requestAnimationFrame(measureIframeHeight);
+    };
+
+    const attachObserver = () => {
+      frameObserver?.disconnect();
+      frameObserver = null;
+
+      const doc = iframe.contentDocument;
+      if (!doc) {
+        scheduleMeasure();
+        return;
+      }
+
+      if (doc.body) {
+        frameObserver = new ResizeObserver(scheduleMeasure);
+        frameObserver.observe(doc.body);
+      }
+
+      if (doc.documentElement) {
+        doc.documentElement.style.overflow = "hidden";
+      }
+
+      if (doc.body) {
+        doc.body.style.overflow = "hidden";
+      }
+
+      scheduleMeasure();
+    };
+
+    iframe.addEventListener("load", attachObserver);
+    attachObserver();
+
+    return () => {
+      iframe.removeEventListener("load", attachObserver);
+      frameObserver?.disconnect();
+      window.cancelAnimationFrame(animationFrame);
+    };
+  }, [frameSrc, measureIframeHeight, showChrome]);
+
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
       if (event.source !== iframeRef.current?.contentWindow) return;
@@ -44,6 +121,7 @@ export function FunnelFrame({ title, src, requireUuid = false, showChrome = true
 
       if (data.type === "tarifbutler:height" && Number.isFinite(data.height)) {
         setHeight(Math.max(520, Math.ceil(data.height)));
+        measureIframeHeight();
       }
 
       if (data.type === "tarifbutler:navigate" && typeof data.url === "string") {
@@ -56,7 +134,7 @@ export function FunnelFrame({ title, src, requireUuid = false, showChrome = true
 
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
-  }, []);
+  }, [measureIframeHeight]);
 
   if (requireUuid && !uuid) {
     return (
@@ -80,8 +158,9 @@ export function FunnelFrame({ title, src, requireUuid = false, showChrome = true
           ref={iframeRef}
           title={title}
           src={frameSrc}
-          className="mx-auto block w-full max-w-5xl border-0 bg-transparent"
-          style={{ height }}
+          className={showChrome ? "mx-auto block w-full max-w-5xl border-0 bg-transparent" : "mx-auto block w-full max-w-5xl overflow-hidden border-0 bg-transparent"}
+          style={{ height, overflow: "hidden" }}
+          scrolling="no"
           allow="clipboard-write; payment"
         />
       </main>
