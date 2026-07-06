@@ -20,7 +20,6 @@ export const customerDefaultWebsiteDesignConfig: JsonRecord = {
     logo_header: "https://assets.cdn.filesafe.space/tn90CyE3XuYFTy4c1M3F/media/69fb93b70394c985036ed4ae.png",
     logo_footer: "https://assets.cdn.filesafe.space/tn90CyE3XuYFTy4c1M3F/media/69fb93b70394c985036ed4ae.png",
     hero_image: "https://assets.cdn.filesafe.space/tn90CyE3XuYFTy4c1M3F/media/69d3fcc217d86ef0ca1836e6.png",
-    agency_logo: "https://assets.cdn.filesafe.space/1774643086282323006/media/a629d547-6056-4079-8549-0a910a7eafbd.png",
   },
 };
 
