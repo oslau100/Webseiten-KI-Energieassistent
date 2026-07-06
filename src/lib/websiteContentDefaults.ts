@@ -10,8 +10,8 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
   brand: {
     name: "Ehiogie Energieassistent",
     contact_email: "marvin@ehiogie-energieassistent.de",
-    agency_url: "https://www.laurent-digital.de",
-    agency_alt: "Made by Laurent Digital",
+    agency_url: "",
+    agency_alt: "",
   },
   legal: {
     variables: {
