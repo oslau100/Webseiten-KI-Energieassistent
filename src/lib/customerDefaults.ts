@@ -20,7 +20,6 @@ export const customerDefaultWebsiteDesignConfig: JsonRecord = {
     logo_header: "https://vibe.filesafe.space/1774643086282323006/attachments/e9aa516d-6891-4336-a8a2-49e0e6e79579.png",
     logo_footer: "https://vibe.filesafe.space/1774643086282323006/attachments/2e3ecdff-f542-4634-89f0-2179d8141a83.png",
     hero_image: "https://vibe.filesafe.space/1774643086282323006/attachments/a00ebdfb-5bde-454f-921f-abeedbbb3c22.png",
-    agency_logo: "https://vibe.filesafe.space/1774643086282323006/attachments/a629d547-6056-4079-8549-0a910a7eafbd.png",
   },
 };
 
@@ -39,8 +38,8 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
   brand: {
     name: "Kromen Energieassistent",
     contact_email: "info@kromen-energieassistent.de",
-    agency_url: "https://www.laurent-digital.de",
-    agency_alt: "Made by Laurent Digital",
+    agency_url: "",
+    agency_alt: "",
   },
   legal: {
     variables: {
@@ -72,7 +71,8 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
       role: "Experte für Strom & Gas",
       social_hint: "Folge mir auf den Sozialen Medien für Tipps rund um Strom & Gas",
       social: {
-        youtube: "https://www.tiktok.com/@marcel_kromen?_r=1&_t=ZG-95GQrePUCGm",
+        youtube: "https://www.youtube.com/@marcelstromgasexperte",
+        tiktok: "https://www.tiktok.com/@marcel_kromen",
         facebook: "https://www.facebook.com/share/1GMo5WR681/",
         instagram: "https://www.instagram.com/marcel_kromen?utm_source=qr&igsh=MTd6NWFrY3FtaGM2Zw==",
       },
@@ -99,6 +99,21 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
         {
           question: "Ist die Tarifprüfung wirklich kostenlos?",
           answer: "Ja, die Prüfung deiner aktuellen Situation und die erste Empfehlung sind komplett kostenlos und unverbindlich.",
+        },
+        {
+          question: "Sind meine Daten bei der Prüfung sicher?",
+          answer:
+            "Absolut. Wir legen höchsten Wert auf Datenschutz und verarbeiten deine Angaben ausschließlich verschlüsselt nach den aktuellen DSGVO-Richtlinien.",
+        },
+        {
+          question: "Kann es beim Wechsel zu einer Unterbrechung der Versorgung kommen?",
+          answer:
+            "Nein, eine Unterbrechung der Strom- oder Gasversorgung ist gesetzlich ausgeschlossen. Der Wechsel verläuft für dich nahtlos im Hintergrund.",
+        },
+        {
+          question: "An wen kann ich mich wenden, wenn ich Fragen habe?",
+          answer:
+            "Unser Kundenservice steht dir jederzeit per E-Mail oder telefonisch zur Verfügung. Die Kontaktdaten findest du im Fußbereich dieser Seite.",
         },
       ],
     },
