@@ -32,20 +32,20 @@ export const Testimonials = () => {
           <p className="text-primary font-semibold tracking-wide uppercase text-sm">{getText("sections.testimonials.kicker", "Das sagen unsere Nutzer", lang)}</p>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{t("home_testimonials_h2")}</h2>
         </AnimatedSection>
-        <AnimatedSection delay={200} className="max-w-5xl mx-auto px-12 relative">
+        <AnimatedSection delay={200} className="max-w-5xl mx-auto px-4 md:px-12 relative">
           <Carousel opts={{ align: "start" }} className="w-full">
             <CarouselContent>
               {reviews.map((review, index) => (
-                <CarouselItem key={index} className="basis-[85%] md:basis-1/2 lg:basis-1/2 pl-4">
+                <CarouselItem key={index} className="basis-[88%] sm:basis-[82%] md:basis-1/2 lg:basis-1/2 pl-3 md:pl-4">
                   <div className="p-1 h-full">
                     <Card className="h-full border-none shadow-md bg-background">
-                      <CardContent className="flex flex-col h-full justify-between p-6 md:p-8 space-y-4 md:space-y-6">
-                        <div className="space-y-3 md:space-y-4">
+                      <CardContent className="flex flex-col h-full justify-between p-4 sm:p-5 md:p-8 space-y-3 sm:space-y-4 md:space-y-6">
+                        <div className="space-y-2 sm:space-y-3 md:space-y-4">
                           <div className="flex gap-1 text-[#16a34a]">{[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 md:h-5 md:w-5 fill-current" />)}</div>
-                          <h3 className="font-bold text-base md:text-lg">{review.title}</h3>
+                          <h3 className="font-bold text-[15px] sm:text-base md:text-lg leading-snug">{review.title}</h3>
                           <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{review.text}</p>
                         </div>
-                        <div className="flex items-center gap-2 pt-2 md:pt-4">
+                        <div className="flex items-center gap-2 pt-1 sm:pt-2 md:pt-4">
                           <span className="font-bold text-sm">{review.name}</span>
                         </div>
                       </CardContent>
@@ -54,8 +54,8 @@ export const Testimonials = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="-left-12 h-12 w-12 border-none shadow-md" />
-            <CarouselNext className="-right-12 h-12 w-12 border-none shadow-md" />
+            <CarouselPrevious className="-left-2 md:-left-12 h-10 w-10 md:h-12 md:w-12 border-none shadow-md" />
+            <CarouselNext className="-right-2 md:-right-12 h-10 w-10 md:h-12 md:w-12 border-none shadow-md" />
           </Carousel>
         </AnimatedSection>
         <AnimatedSection delay={400} className="mt-16 text-center">
