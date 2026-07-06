@@ -3,6 +3,12 @@ import { AnimatedSection } from "./AnimatedSection";
 import { useI18n } from "@/lib/i18n";
 import { useWebsiteConfig } from "@/lib/websiteConfig";
 
+const TikTokIcon = ({ className = "h-6 w-6" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+    <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.217V2h-3.265v13.517a2.06 2.06 0 0 1-2.059 2.056 2.06 2.06 0 0 1 0-4.116c.254 0 .495.048.718.133V10.26a5.365 5.365 0 0 0-.718-.05A5.327 5.327 0 0 0 5.17 15.54a5.327 5.327 0 0 0 5.325 5.325 5.327 5.327 0 0 0 5.325-5.325V8.687a8.07 8.07 0 0 0 4.72 1.516V6.94a4.76 4.76 0 0 1-.951-.254Z" />
+  </svg>
+);
+
 export const About = () => {
   const { t, lang } = useI18n();
   const { getText } = useWebsiteConfig();
@@ -30,7 +36,7 @@ export const About = () => {
                   <a href={getText("sections.about.social.youtube", "#", lang)} target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors"><Youtube className="h-6 w-6" /></a>
                   <a href={getText("sections.about.social.facebook", "#", lang)} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors"><Facebook className="h-6 w-6" /></a>
                   <a href={getText("sections.about.social.instagram", "#", lang)} target="_blank" rel="noopener noreferrer" className="hover:text-pink-600 transition-colors"><Instagram className="h-6 w-6" /></a>
-                  <a href={getText("sections.about.social.tiktok", "#", lang)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-full border px-3 py-1.5 text-sm font-medium hover:bg-muted transition-colors">TikTok</a>
+                  <a href={getText("sections.about.social.tiktok", "#", lang)} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors"><TikTokIcon className="h-6 w-6" /></a>
                 </div>
               </div>
             </div>
