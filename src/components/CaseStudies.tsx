@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
@@ -40,9 +40,9 @@ const caseStudies: CaseStudy[] = [
   },
   {
     id: 2,
-    title: "111 Verträge in den ersten 3 Monaten automatisiert über Einwurfkarten abgeschlossen",
+    title: "111 Verträge in den ersten 3 Monaten mit Einwurfkarten",
     website: "www.kromen-energieassistent.de",
-    company: "Kromen Energieassistent",
+    company: "Marcel Kromen",
     previewImage: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/Fallstudie-Seite-Kromen.png",
     previewImageAlt: "Kromen Energieassistent Vorschau",
     situation: (
@@ -66,7 +66,7 @@ const caseStudies: CaseStudy[] = [
     id: 3,
     title: "Jeden Monat über 50 Verträge mit deutlich weniger Aufwand",
     website: "www.ehiogie-energieassistent.de",
-    company: "Ehiogie Energieassistent",
+    company: "Marvin Ehiogie",
     previewImage: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/Fallstudie-Seite-Ehiogie.png",
     previewImageAlt: "Ehiogie Energieassistent Vorschau",
     situation: (
@@ -90,9 +90,34 @@ const caseStudies: CaseStudy[] = [
 
 export const CaseStudies = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
 
   const nextSlide = () => setActiveIndex((p) => (p + 1) % caseStudies.length);
   const prevSlide = () => setActiveIndex((p) => (p - 1 + caseStudies.length) % caseStudies.length);
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    const touch = event.touches[0];
+
+    touchStartRef.current = touch ? { x: touch.clientX, y: touch.clientY } : null;
+  };
+  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+    const touchStart = touchStartRef.current;
+    const touchEnd = event.changedTouches[0];
+
+    touchStartRef.current = null;
+
+    if (!touchStart || !touchEnd) return;
+
+    const deltaX = touchEnd.clientX - touchStart.x;
+    const deltaY = touchEnd.clientY - touchStart.y;
+
+    if (Math.abs(deltaX) >= 50 && Math.abs(deltaX) > Math.abs(deltaY) * 1.1) {
+      if (deltaX < 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+  };
   const activeCaseStudy = caseStudies[activeIndex];
 
   return (
@@ -112,10 +137,10 @@ export const CaseStudies = () => {
       <div className="container relative z-10 mx-auto px-4 max-w-6xl">
         {/* Header Section */}
         <div className="flex flex-col items-center text-center mb-12">
-          <Badge className="bg-primary/10 text-primary hover:bg-primary/20 border border-primary/20 rounded-full px-4 py-1.5 font-bold mb-6 text-sm tracking-tight flex items-center gap-2 w-fit mx-auto transition-colors">
+          <Badge className="bg-[rgba(25,80,68,0.22)] text-[#B9D8D0] hover:bg-[rgba(25,80,68,0.28)] border border-[rgba(88,150,132,0.35)] rounded-full px-4 py-1.5 font-bold mb-6 text-sm tracking-tight flex items-center gap-2 w-fit mx-auto transition-colors">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-50" style={{ animationDuration: '3s' }}></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary shadow-[0_0_8px_rgba(25,80,68,0.8)]"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3DA58B] opacity-40" style={{ animationDuration: '3s' }}></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#3DA58B] shadow-[0_0_8px_rgba(61,165,139,0.35)]"></span>
             </span>
             Ergebnisse aus der Praxis
           </Badge>
@@ -127,7 +152,12 @@ export const CaseStudies = () => {
         {/* Carousel Container */}
         <div className="relative w-full max-w-5xl mx-auto">
           {/* Card */}
-          <div className="bg-white rounded-[2rem] p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100/50 relative overflow-hidden transition-all duration-500">
+          <div
+            className="bg-white rounded-[2rem] p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100/50 relative overflow-hidden transition-all duration-500"
+            style={{ touchAction: "pan-y" }}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 lg:gap-16">
 
               {/* Left Column - Meta */}
