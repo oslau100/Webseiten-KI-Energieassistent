@@ -137,10 +137,10 @@ export const CaseStudies = () => {
       <div className="container relative z-10 mx-auto px-4 max-w-6xl">
         {/* Header Section */}
         <div className="flex flex-col items-center text-center mb-12">
-          <Badge className="bg-primary/10 text-primary hover:bg-primary/20 border border-primary/20 rounded-full px-4 py-1.5 font-bold mb-6 text-sm tracking-tight flex items-center gap-2 w-fit mx-auto transition-colors">
+          <Badge className="bg-[rgba(25,80,68,0.22)] text-[#B9D8D0] hover:bg-[rgba(25,80,68,0.28)] border border-[rgba(88,150,132,0.35)] rounded-full px-4 py-1.5 font-bold mb-6 text-sm tracking-tight flex items-center gap-2 w-fit mx-auto transition-colors">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-50" style={{ animationDuration: '3s' }}></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary shadow-[0_0_8px_rgba(25,80,68,0.8)]"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3DA58B] opacity-40" style={{ animationDuration: '3s' }}></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#3DA58B] shadow-[0_0_8px_rgba(61,165,139,0.35)]"></span>
             </span>
             Ergebnisse aus der Praxis
           </Badge>
