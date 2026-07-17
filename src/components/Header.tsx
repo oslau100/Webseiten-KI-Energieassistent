@@ -31,7 +31,19 @@ export const Header = () => {
 
   return (
     <header className="relative z-50 w-full bg-[#000000] text-white">
-      <div className="container relative mx-auto flex py-0 items-center justify-between px-4 md:px-8">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 opacity-[0.075]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #ffffff 1px, transparent 1px),
+            linear-gradient(to bottom, #ffffff 1px, transparent 1px)
+          `,
+          backgroundSize: "80px 80px",
+        }}
+      />
+
+      <div className="container relative z-10 mx-auto flex py-0 items-center justify-between px-4 md:px-8">
         <a href="/" className="flex items-center z-10 -my-14 md:-my-16">
           <img
             src="https://vibe.filesafe.space/1779705604088859430/attachments/62898ce1-fbf0-49e2-bbe3-58b700e1a2ee.png"
