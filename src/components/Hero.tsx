@@ -8,7 +8,7 @@ export const Hero = () => {
     <section className="relative overflow-hidden bg-[#000000] text-foreground pt-0 pb-8 md:pt-0 md:pb-16 px-2 sm:px-4">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0 opacity-[0.07]"
+        className="pointer-events-none absolute inset-0 z-0 opacity-[0.09]"
         style={{
           backgroundImage: `
             linear-gradient(to right, #ffffff 1px, transparent 1px),

@@ -99,7 +99,7 @@ export const CaseStudies = () => {
     <section className="relative bg-[#000000] py-20 overflow-hidden border-t border-white/5">
       {/* Background Grid Pattern */}
       <div
-        className="pointer-events-none absolute inset-0 z-0 opacity-[0.07]"
+        className="pointer-events-none absolute inset-0 z-0 opacity-[0.09]"
         style={{
           backgroundImage: `
             linear-gradient(to right, #ffffff 1px, transparent 1px),
