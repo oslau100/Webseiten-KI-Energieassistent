@@ -40,7 +40,7 @@ const caseStudies: CaseStudy[] = [
   },
   {
     id: 2,
-    title: "111 Verträge in den ersten 3 Monaten automatisiert über Einwurfkarten abgeschlossen",
+    title: "111 Verträge in den ersten 3 Monaten mit Einwurfkarten",
     website: "www.kromen-energieassistent.de",
     company: "Marcel Kromen",
     previewImage: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/Fallstudie-Seite-Kromen.png",
