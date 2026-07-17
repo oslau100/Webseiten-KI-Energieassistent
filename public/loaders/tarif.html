@@ -216,7 +216,7 @@ window.TB_BOOTSTRAP = {
     }
     const riskAnchor=Array.from(container.querySelectorAll(".aiParagraph")).find(paragraph=>paragraph.textContent.trim()==="Ausgeschlossen wurden:");
     if(riskAnchor){
-      const riskTitles=new Set(["Tarife mit unsicheren Bonusversprechen","Tarife mit unklaren Preisgarantien","Tarife mit versteckten Kosten oder unklaren Bedingungen"]);
+      const riskTitles=new Set(["Tarife mit unsicheren Bonusversprechen","Tarife mit unklaren Preisgarantien","Tarife mit versteckten Kosten oder unklaren Bedingungen","Tarife, die nur im ersten Jahr günstig erscheinen","Anbieter, die schwer einzuschätzen sind"]);
       const pairs=[]; const sourceNodes=[]; let cursor=riskAnchor.nextElementSibling;
       while(cursor?.classList.contains("aiParagraph")){
         const lines=cursor.textContent.split("\n").map(line=>line.trim()).filter(Boolean);
