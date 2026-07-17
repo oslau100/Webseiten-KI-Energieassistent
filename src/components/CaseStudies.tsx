@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { ReactNode } from "react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
-import { ChevronLeft, ChevronRight, Star, ArrowDown } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowDown } from "lucide-react";
 
 type CaseStudy = {
   id: number;
@@ -159,39 +159,35 @@ export const CaseStudies = () => {
 
                 <div className="mt-8 flex w-full flex-col items-start">
                   <div>
-                    <div className="flex flex-col items-start mb-3">
+                    <div className="mb-3 flex w-fit flex-col items-center">
                       <span className="text-xs md:text-sm font-bold mb-1 text-[#195044]">Energieassistent ansehen</span>
-                      <ArrowDown className="w-5 h-5 ml-16 animate-bounce text-[#195044]" />
+                      <ArrowDown className="h-5 w-5 animate-bounce text-[#195044]" />
                     </div>
-                    <div className="flex flex-col gap-1 mb-4">
+                    <div className="flex flex-col gap-1">
                       <a
                         href={`https://${activeCaseStudy.website}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-600 underline underline-offset-4 transition-colors hover:text-[#195044] sm:whitespace-nowrap"
+                        className="text-gray-600 underline decoration-1 decoration-gray-300 underline-offset-4 transition-colors hover:text-[#195044] hover:decoration-[#195044] sm:whitespace-nowrap"
                       >
                         {activeCaseStudy.website}
                       </a>
                       <span className="font-bold text-[#1a231c]">{activeCaseStudy.company}</span>
                     </div>
-
-                    <div className="flex gap-1">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <Star key={star} className="w-6 h-6 fill-[#195044] text-[#195044]" />
-                      ))}
-                    </div>
                   </div>
 
                   {activeCaseStudy.personName && activeCaseStudy.personAvatar && (
-                    <div className="mt-6 flex items-center gap-3">
-                      <img
-                        src={activeCaseStudy.personAvatar}
-                        alt={activeCaseStudy.personAvatarAlt ?? activeCaseStudy.personName}
-                        className="h-14 w-14 rounded-full border border-gray-200 object-cover shadow-sm md:h-16 md:w-16"
-                      />
-                      <span className="text-left text-sm font-semibold text-[#1a231c]">
-                        {activeCaseStudy.personName}
-                      </span>
+                    <div className="mt-5 w-full border-t border-gray-200 pt-5">
+                      <div className="flex items-center gap-3">
+                        <img
+                          src={activeCaseStudy.personAvatar}
+                          alt={activeCaseStudy.personAvatarAlt ?? activeCaseStudy.personName}
+                          className="h-14 w-14 rounded-full border border-gray-200 object-cover shadow-sm md:h-16 md:w-16"
+                        />
+                        <span className="text-left text-sm font-semibold text-[#1a231c]">
+                          {activeCaseStudy.personName}
+                        </span>
+                      </div>
                     </div>
                   )}
                 </div>
