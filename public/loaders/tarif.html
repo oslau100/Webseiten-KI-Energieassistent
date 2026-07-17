@@ -35,7 +35,10 @@ window.TB_BOOTSTRAP = {
 #tbx2026 .hero{display:grid!important;grid-template-columns:1.2fr .8fr!important;gap:14px!important;align-items:stretch!important;}
 #tbx2026 .panel{border-radius:var(--tb-r3)!important;padding:20px!important;background:#fff!important;border:1px solid var(--tb-line)!important;box-shadow:var(--tb-shadow2)!important;}
 #tbx2026 .title{margin:0!important;font-size:clamp(24px,2.8vw,38px)!important;font-weight:900!important;letter-spacing:-.04em!important;line-height:1.08!important;}
-#tbx2026 .fazit{margin-top:10px!important;font-size:14px!important;line-height:1.75!important;color:rgba(11,16,32,.75)!important;white-space:pre-wrap!important;}
+#tbx2026 .fazit{margin-top:8px!important;font-size:14px!important;line-height:1.55!important;color:rgba(11,16,32,.75)!important;white-space:pre-wrap!important;}
+#tbx2026 .fazit.fazitStructured{white-space:normal!important;}
+#tbx2026 .fazit.fazitStructured p{margin:0 0 9px 0!important;}
+#tbx2026 .fazit.fazitStructured p:last-child{margin-bottom:0!important;}
 #tbx2026 .save{border-radius:var(--tb-r3)!important;padding:18px!important;background:linear-gradient(155deg, rgba(66,247,122,.92) 0%, rgba(66,247,122,1) 55%, rgba(66,247,122,.95) 100%)!important;border:1px solid rgba(0,0,0,.06)!important;box-shadow:0 32px 90px rgba(66,247,122,.18),var(--tb-shadow2)!important;position:relative!important;overflow:hidden!important;}
 #tbx2026 .save::before{content:""!important;position:absolute!important;top:-70px!important;right:-70px!important;width:260px!important;height:260px!important;border-radius:999px!important;background:rgba(255,255,255,.16)!important;}
 #tbx2026 .save::after{content:""!important;position:absolute!important;bottom:-70px!important;left:-80px!important;width:300px!important;height:300px!important;border-radius:999px!important;background:rgba(255,255,255,.10)!important;}
@@ -66,10 +69,16 @@ window.TB_BOOTSTRAP = {
 #tbx2026 .aiLabel{display:flex!important;align-items:center!important;gap:10px!important;font-size:10.5px!important;font-weight:950!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:rgba(11,16,32,.55)!important;}
 #tbx2026 .aiIc{width:30px!important;height:30px!important;border-radius:12px!important;display:flex!important;align-items:center!important;justify-content:center!important;background:var(--tb-surface)!important;border:1px solid var(--tb-line)!important;box-shadow:0 6px 14px rgba(15,23,42,.06)!important;flex:0 0 auto!important;}
 #tbx2026 .aiTxt{font-size:13px!important;line-height:1.7!important;color:rgba(11,16,32,.72)!important;white-space:pre-wrap!important;}
+#tbx2026 .aiTxt.aiStructured{font-size:14.5px!important;line-height:1.6!important;white-space:normal!important;text-align:left!important;}
+#tbx2026 .aiTxt .aiParagraph{margin:0 0 9px 0!important;white-space:pre-line!important;}
+#tbx2026 .aiTxt .aiParagraph:last-child{margin-bottom:0!important;}
+#tbx2026 .aiTxt .aiMainHeading{margin:24px 0 8px 0!important;font-size:16px!important;line-height:1.4!important;font-weight:800!important;color:var(--tb-ink)!important;}
+#tbx2026 .aiTxt .aiMainHeading.aiFirstHeading{margin-top:0!important;}
+#tbx2026 .aiTxt .aiSubheading{margin:10px 0 4px 0!important;font-size:inherit!important;line-height:1.5!important;font-weight:800!important;color:var(--tb-ink)!important;}
 #tbx2026 .sk{border-radius:10px!important;background:linear-gradient(90deg,#e9ecf6 0%,#f1f4fb 45%,#e9ecf6 100%)!important;background-size:300% 100%!important;animation:tbSk 1.35s ease infinite!important;}
 @keyframes tbSk{0%{background-position:300% 0}100%{background-position:-300% 0}}#tbx2026 .sk.l{height:12px!important;margin:0 0 10px 0!important;}#tbx2026 .w90{width:90%!important;}#tbx2026 .w70{width:70%!important;}#tbx2026 .w50{width:50%!important;}
 #tbx2026.rtl{direction:rtl!important;text-align:right!important;}#tbx2026.rtl .top{flex-direction:row-reverse!important;}#tbx2026.rtl .summary-v{text-align:left!important;}#tbx2026.rtl .recMeta{justify-content:flex-end!important;}#tbx2026.rtl .bulIt{flex-direction:row-reverse!important;}#tbx2026.rtl .actions{justify-content:flex-start!important;}
-@media (max-width:920px){#tbx2026 .hero{grid-template-columns:1fr!important;}}@media (max-width:780px){#tbx2026 .compare{grid-template-columns:1fr!important;}}@media (max-width:560px){#tbx2026 .actions{gap:10px!important;}#tbx2026 .actions .btn{flex:1 1 180px!important;width:100%!important;}}@media (max-width:460px){#tbx2026{padding:20px 14px 48px!important;}#tbx2026 .kpis{grid-template-columns:1fr!important;}#tbx2026 .provider{font-size:22px!important;}}
+@media (max-width:920px){#tbx2026 .hero{grid-template-columns:1fr!important;}}@media (max-width:780px){#tbx2026 .compare{grid-template-columns:1fr!important;}}@media (max-width:560px){#tbx2026 .actions{gap:10px!important;}#tbx2026 .actions .btn{flex:1 1 180px!important;width:100%!important;}}@media (max-width:460px){#tbx2026{padding:20px 14px 48px!important;}#tbx2026 .kpis{grid-template-columns:1fr!important;}#tbx2026 .provider{font-size:22px!important;}#tbx2026 .aiTxt.aiStructured{font-size:14px!important;}}
 #tbx2026 .modalBack{position:fixed!important;inset:0!important;background:rgba(15,23,42,0.55)!important;display:none!important;align-items:center!important;justify-content:center!important;padding:18px!important;z-index:999999!important;}#tbx2026 .modalBack.open{display:flex!important;}
 #tbx2026 .modal{width:min(640px,100%)!important;background:#fff!important;border-radius:24px!important;border:1px solid rgba(15,23,42,.08)!important;box-shadow:0 30px 80px rgba(0,0,0,0.18)!important;overflow:hidden!important;animation:tbFadeUp .18s ease both!important;max-height:calc(100vh - 40px)!important;display:flex!important;flex-direction:column!important;}
 #tbx2026 .modalTop{padding:14px 16px!important;border-bottom:1px solid rgba(15,23,42,.08)!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;background:linear-gradient(180deg,#ffffff 0%, #fbfcff 100%)!important;}
@@ -174,6 +183,22 @@ window.TB_BOOTSTRAP = {
   function resolveText(val,lang){if(val==null) return ""; if(typeof val==="string") return val; if(typeof val==="number") return String(val); if(typeof val==="object"){const direct=val[lang]; if(typeof direct==="string") return direct; const de=val.de; if(typeof de==="string") return de; for(const k of Object.keys(val)){ if(typeof val[k]==="string") return val[k]; }} return "";}
   function pickAiBlock(aiRoot,lang,usecase,fallbackUsecase){const u=usecase||fallbackUsecase||"spart"; if(!aiRoot||typeof aiRoot!=="object") return {}; const L=aiRoot[lang]; if(L&&typeof L==="object"){ if(L[u]&&typeof L[u]==="object") return L[u]; if(L.fazit!=null||L.ki_zusammenfassung!=null||L.summary!=null||L.zusammenfassung!=null) return L; if(L.spart) return L.spart; if(L.nicht_spart) return L.nicht_spart; if(L.neueinzug) return L.neueinzug;} const LD=aiRoot.de; if(LD&&typeof LD==="object"){ if(LD[u]&&typeof LD[u]==="object") return LD[u]; if(LD.fazit!=null||LD.ki_zusammenfassung!=null||LD.summary!=null||LD.zusammenfassung!=null) return LD; if(LD.spart) return LD.spart; if(LD.nicht_spart) return LD.nicht_spart; if(LD.neueinzug) return LD.neueinzug;} if(aiRoot[u]&&typeof aiRoot[u]==="object") return aiRoot[u]; return aiRoot;}
   function buildKiSummaryText(U,ctx,lang){const explicit=strip(interp(resolveText(U.ki_zusammenfassung,lang)||resolveText(U.kiSummary,lang)||resolveText(U.zusammenfassung,lang)||resolveText(U.summary,lang)||"",ctx)); if(explicit) return explicit; const parts=[]; const status=strip(interp(resolveText(U.status,lang)||"",ctx)); if(status) parts.push(status); const warum=Array.isArray(U.warum)?U.warum:[]; const hinweise=Array.isArray(U.hinweise)?U.hinweise:[]; const bullets=[]; warum.forEach(x=>{const s=strip(interp(resolveText(x,lang)||String(x||""),ctx)); if(s) bullets.push("· "+s);}); hinweise.forEach(x=>{const s=strip(interp(resolveText(x,lang)||String(x||""),ctx)); if(s) bullets.push("· "+s);}); if(bullets.length) parts.push(bullets.join("\n")); return parts.join("\n\n").trim();}
+  function removeSeparatorLines(text){return String(text||"").split(/\r?\n/).filter(line=>!/^\s*(?:⸻+|[-_─━—–═=~·•]{3,})\s*$/.test(line)).join("\n");}
+  function appendTextElement(container,tag,className,text){const element=document.createElement(tag); element.className=className; element.textContent=text; container.appendChild(element);}
+  function renderFazit(container,text,lang){container.classList.toggle("fazitStructured",lang==="de"); if(lang!=="de"){container.textContent=text||"—"; return;} container.replaceChildren(); const paragraphs=String(text||"").trim().split(/\n\s*\n+/).filter(Boolean); if(!paragraphs.length){container.textContent="—"; return;} paragraphs.forEach(paragraph=>appendTextElement(container,"p","",paragraph.trim()));}
+  function renderAiSummary(container,text,lang){
+    const cleanText=removeSeparatorLines(text).trim();
+    container.classList.toggle("aiStructured",lang==="de");
+    if(lang!=="de"){container.textContent=cleanText||"—"; return;}
+    container.replaceChildren();
+    const mainHeading=/^(?:✨|🔍|🛡️|🔒|🔎|⚙️|✅|💸|⏳|👉)(?:\uFE0F)?\s*\S/;
+    const subheadings=new Set(["Preis:","Echte Kosten:","Preisgarantie:","Vertragsbedingungen:","Anbieterqualität:","Langfristige Eignung:","Das bedeutet:","Der wichtige Punkt:","Einfach gesagt:","Die Empfehlung lautet deshalb:"]);
+    let paragraphLines=[]; let hasMainHeading=false;
+    const flushParagraph=()=>{if(!paragraphLines.length)return; appendTextElement(container,"p","aiParagraph",paragraphLines.join("\n")); paragraphLines=[];};
+    cleanText.split(/\r?\n/).forEach(line=>{const trimmed=line.trim(); if(!trimmed){flushParagraph(); return;} if(mainHeading.test(trimmed)){flushParagraph(); appendTextElement(container,"div",hasMainHeading?"aiMainHeading":"aiMainHeading aiFirstHeading",trimmed); hasMainHeading=true; return;} if(subheadings.has(trimmed)){flushParagraph(); appendTextElement(container,"div","aiSubheading",trimmed); return;} paragraphLines.push(line.trim());});
+    flushParagraph();
+    if(!container.childNodes.length) container.textContent="—";
+  }
   try{
     const locationId = String(bootstrap.locationId || window.SURVEY_CONFIG?.locationId || "").trim();
     if (locationId) {
@@ -197,7 +222,7 @@ window.TB_BOOTSTRAP = {
     const ctx={vorname:row.vorname||"",provider_current:row.provider_current||"",tariff_provider:row.tariff_provider||"",tariff_name:row.tariff_name||"",laufzeit_monate:row.laufzeit_monate ?? "",preisgarantie_text:formatGuarantee(row.preisgarantie_text,t),ersparnis_jahr:(ersparnis==null||isNaN(ersparnis))?"0":euro2(ersparnis),ersparnis_monat:(ersparnis==null||isNaN(ersparnis))?"0":euro2(ersparnis/12),plz:row.plz||"",verbrauch:(row.verbrauch ?? row.consumption_kwh ?? ""),stadt:row.stadt||"",energieart:formatEnergyType(energyType,t),verbrauch_text:(asPresentNumber(verbrauchRaw)!=null)?formatVerbrauchKwh(verbrauchRaw):"",aktuelle_monatskosten:(currentMonthly!=null)?euro2(currentMonthly):"",aktuelle_jahreskosten:(currentYearly!=null)?euro2(currentYearly):"",jahreskosten:(recYearly!=null)?euro2(recYearly):"",monatsabschlag:(recMonthly!=null)?euro2(recMonthly):"",arbeitspreis:(workPrice!=null)?formatArbeitspreis(workPrice):"",grundpreis_monat:formatGrundpreisMonatText(basePriceYearly,t),laufzeit_text:formatTerm(row.laufzeit_monate,t)};
     $("tbTitle").textContent=t.title;
     const aiRoot=safeJson(row.ai_content) || (row.ai_content || {}); const U=pickAiBlock(aiRoot,lang,usecase,row.ai_usecase);
-    const fazitText=strip(interp(resolveText(U.fazit,lang)||"",ctx)).trim(); $("tbFazit").textContent=fazitText || "—";
+    const fazitText=strip(interp(resolveText(U.fazit,lang)||"",ctx)).trim(); renderFazit($("tbFazit"),fazitText,lang);
     $("tbCurTag").textContent=t.cur; $("tbRecTag").textContent=t.rec; $("tbLblYear").textContent=t.year; $("tbLblYear2").textContent=t.year; $("tbLblMonth").textContent=t.month; $("tbLblMonth2").textContent=t.month; $("tbBtnChange").textContent=t.change; $("tbBtnCta").textContent=t.cta; $("tbBtnCta2").textContent=t.cta; $("tbBtnDetails").textContent=t.details; $("tbSaveKicker").textContent=t.saveK; $("tbSavingsHint").textContent=t.saveH; $("tbAiLabel").textContent=t.aiSummary;
     const finalAuftragUrl = buildFinalUrl(PATHS.auftrag, uuid || "", lang || "");
     const finalStartUrl = buildFinalUrl(PATHS.start, uuid || "", lang || "");
@@ -226,7 +251,7 @@ window.TB_BOOTSTRAP = {
     const plzTxt=String(row.plz || "").trim(); const verbrauchForMeta=(row.verbrauch ?? row.consumption_kwh ?? ""); const verbTxt=String(verbrauchForMeta ?? "").trim(); const metaParts=[]; if(verbTxt){metaParts.push(formatVerbrauchKwh(verbrauchForMeta));} if(plzTxt){metaParts.push(plzTxt);} if(metaParts.length===2){$("tbRecMeta").innerHTML=`<span>${metaParts[0]}</span><span class="dot"></span><span>${metaParts[1]}</span>`;} else if(metaParts.length===1){$("tbRecMeta").textContent=metaParts[0];} else {$("tbRecMeta").textContent="";}
     const bullets=[]; const termTxt=formatTerm(row.laufzeit_monate,t); const garTxt=formatGuarantee(row.preisgarantie_text,t); if(termTxt) bullets.push(`${t.m_term}: ${termTxt}`); if(garTxt) bullets.push(`${t.m_guarantee}: ${garTxt}`); if(row.oekotarif===true) bullets.push(t.oeko); bullets.push(t.fast);
     $("tbBullets").innerHTML=bullets.slice(0,4).map(b=>`<div class="bulIt"><span class="check">✓</span><span>${String(b)}</span></div>`).join("");
-    const summaryText=(buildKiSummaryText(U,ctx,lang) || "").trim(); $("tbAiText").textContent=summaryText || "—";
+    const summaryText=(buildKiSummaryText(U,ctx,lang) || "").trim(); renderAiSummary($("tbAiText"),summaryText,lang);
     $("tbBtnDetails").addEventListener("click",()=>{renderModal(t,row,usecase);openModal();});
     $("tbModalClose").addEventListener("click",closeModal); $("tbModalBack").addEventListener("click",(e)=>{if(e.target === $("tbModalBack")) closeModal();}); document.addEventListener("keydown",(e)=>{if(e.key==="Escape") closeModal();});
   }catch(e){
