@@ -213,6 +213,35 @@ window.TB_BOOTSTRAP = {
       pairs.forEach(([title,text])=>{const item=document.createElement("li"); item.className="aiListItem"; title.className="aiListTitle"; text.className="aiListText"; item.append(title,text); list.appendChild(item);});
       container.insertBefore(list,cursor); node=cursor;
     }
+    const riskAnchor=Array.from(container.querySelectorAll(".aiParagraph")).find(paragraph=>paragraph.textContent.trim()==="Ausgeschlossen wurden:");
+    if(riskAnchor){
+      const pairs=[]; let cursor=riskAnchor.nextElementSibling;
+      while(cursor?.classList.contains("aiParagraph")){
+        const explanation=cursor.nextElementSibling;
+        const titleText=cursor.textContent.trim(); const explanationText=explanation?.textContent.trim()||"";
+        if(!explanation?.classList.contains("aiParagraph")||titleText.includes("\n")||explanationText.includes("\n")||/[.!?:]$/.test(titleText)||!/[.!?]$/.test(explanationText)) break;
+        pairs.push([cursor,explanation]); cursor=explanation.nextElementSibling;
+      }
+      if(pairs.length>=2){
+        const list=document.createElement("ul"); list.className="aiList";
+        pairs.forEach(([title,text])=>{const item=document.createElement("li"); item.className="aiListItem"; title.className="aiListTitle"; text.className="aiListText"; item.append(title,text); list.appendChild(item);});
+        container.insertBefore(list,cursor);
+      }
+    }
+    const simpleItems=new Set(["zählernummer","aktuelle kundennummer","kundennummer","gewünschter wechselzeitpunkt","wechselzeitpunkt","einzugsdatum","angaben zur neuen adresse","gleiche versorgung.","gleiche nutzung.","höherer preis – solange du nichts änderst."]);
+    const makeSimpleList=(items,before)=>{const list=document.createElement("ul"); list.className="aiList aiSimpleList"; items.forEach(text=>appendTextElement(list,"li","aiListItem",text)); container.insertBefore(list,before);};
+    node=container.firstElementChild;
+    while(node){
+      if(!node.classList.contains("aiParagraph")){node=node.nextElementSibling; continue;}
+      const lines=node.textContent.split("\n").map(line=>line.trim()).filter(Boolean);
+      if(lines.length>=2&&lines.every(line=>simpleItems.has(line.toLocaleLowerCase("de-DE")))){const next=node.nextElementSibling; makeSimpleList(lines,node); node.remove(); node=next; continue;}
+      if(lines.length===1&&simpleItems.has(lines[0].toLocaleLowerCase("de-DE"))){
+        const items=[]; const nodes=[]; let cursor=node;
+        while(cursor?.classList.contains("aiParagraph")){const text=cursor.textContent.trim(); if(!simpleItems.has(text.toLocaleLowerCase("de-DE"))) break; items.push(text); nodes.push(cursor); cursor=cursor.nextElementSibling;}
+        if(items.length>=2){makeSimpleList(items,node); nodes.forEach(item=>item.remove()); node=cursor; continue;}
+      }
+      node=node.nextElementSibling;
+    }
   }
   function addAiDetailsToggle(container){
     const headings=Array.from(container.querySelectorAll(".aiMainHeading"));
