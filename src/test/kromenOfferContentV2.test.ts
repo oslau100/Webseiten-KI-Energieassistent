@@ -129,6 +129,35 @@ describe("Kromen Offer Content format_version 2", () => {
     expect(details.hidden).toBe(true);
   });
 
+  it("keeps structured rendering RTL-safe without changing German or English defaults", () => {
+    const api = createApi();
+    const rtlContainer = setupContainer();
+    const rtlRoot = document.getElementById("tbx2026") as HTMLElement;
+    rtlRoot.classList.add("rtl");
+    api.renderAiSummaryV2(rtlContainer, validContent(), { vorname: "Ada", tariff_name: "Klima", laufzeit_monate: "12" }, "ar");
+
+    expect(rtlRoot).toHaveClass("rtl");
+    expect(rtlContainer).toHaveClass("aiStructured");
+    expect(rtlContainer.querySelector("ul.aiList")).not.toBeNull();
+    expect(rtlContainer.querySelector("ol.aiList")).not.toBeNull();
+    expect(rtlContainer.querySelector(".aiDetailsToggle")).not.toBeNull();
+    expect(loader).toContain("#tbx2026.rtl .aiTxt.aiStructured{direction:rtl!important;text-align:right!important;}");
+    expect(loader).toContain("#tbx2026.rtl .aiTxt.aiStructured .aiList{margin-left:0!important;margin-right:20px!important;}");
+    expect(loader).toContain("#tbx2026.rtl .aiTxt.aiStructured .aiListItem{padding-left:0!important;padding-right:3px!important;}");
+    expect(loader).toContain("#tbx2026.rtl .aiTxt.aiStructured .aiDetailsToggle{direction:rtl!important;text-align:right!important;}");
+
+    const germanContainer = setupContainer();
+    api.renderAiSummaryV2(germanContainer, validContent(), {}, "de");
+    expect(document.getElementById("tbx2026")).not.toHaveClass("rtl");
+    expect(germanContainer).toHaveClass("aiStructured");
+    const englishContainer = setupContainer();
+    api.renderAiSummaryV2(englishContainer, validContent(), {}, "en");
+    expect(document.getElementById("tbx2026")).not.toHaveClass("rtl");
+    expect(englishContainer).toHaveClass("aiStructured");
+    expect(loader).toContain("#tbx2026 .aiTxt.aiStructured{max-width:88ch!important");
+    expect(loader).toContain("text-align:left!important;");
+  });
+
   it.each([
     ["unknown section", (value: ReturnType<typeof validContent>) => (value.sections[0].id = "unknown")],
     ["unknown group", (value: ReturnType<typeof validContent>) => (value.sections[0].group = "other")],
