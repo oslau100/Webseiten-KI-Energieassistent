@@ -149,15 +149,15 @@ export const CaseStudies = () => {
                   {activeCaseStudy.title}
                 </h3>
 
-                <div className="bg-gray-100 rounded-2xl p-3 mb-10 w-full flex items-center justify-center">
+                <div className="flex h-[175px] w-full items-center justify-center rounded-2xl bg-gray-100 p-3 md:h-[200px]">
                   <img
                     src={activeCaseStudy.previewImage}
                     alt={activeCaseStudy.previewImageAlt}
-                    className="w-full h-auto object-contain rounded-xl shadow-sm bg-white"
+                    className="max-h-full w-full rounded-xl bg-white object-contain shadow-sm"
                   />
                 </div>
 
-                <div className="mt-auto flex w-full flex-col items-start gap-6 sm:flex-row sm:items-end sm:justify-between">
+                <div className="mt-8 flex w-full flex-col items-start">
                   <div>
                     <div className="flex flex-col items-start mb-3">
                       <span className="text-xs md:text-sm font-bold mb-1 text-[#195044]">Energieassistent ansehen</span>
@@ -168,7 +168,7 @@ export const CaseStudies = () => {
                         href={`https://${activeCaseStudy.website}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-600 hover:text-[#195044] transition-colors underline underline-offset-4"
+                        className="text-gray-600 underline underline-offset-4 transition-colors hover:text-[#195044] sm:whitespace-nowrap"
                       >
                         {activeCaseStudy.website}
                       </a>
@@ -183,13 +183,13 @@ export const CaseStudies = () => {
                   </div>
 
                   {activeCaseStudy.personName && activeCaseStudy.personAvatar && (
-                    <div className="flex flex-col items-center self-center sm:self-auto">
+                    <div className="mt-6 flex items-center gap-3">
                       <img
                         src={activeCaseStudy.personAvatar}
                         alt={activeCaseStudy.personAvatarAlt ?? activeCaseStudy.personName}
-                        className="h-20 w-20 rounded-full border border-gray-200 object-cover shadow-sm md:h-24 md:w-24"
+                        className="h-14 w-14 rounded-full border border-gray-200 object-cover shadow-sm md:h-16 md:w-16"
                       />
-                      <span className="mt-2 text-center text-sm font-semibold text-[#1a231c]">
+                      <span className="text-left text-sm font-semibold text-[#1a231c]">
                         {activeCaseStudy.personName}
                       </span>
                     </div>
