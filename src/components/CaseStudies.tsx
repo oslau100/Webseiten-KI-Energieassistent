@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
@@ -90,9 +90,34 @@ const caseStudies: CaseStudy[] = [
 
 export const CaseStudies = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
 
   const nextSlide = () => setActiveIndex((p) => (p + 1) % caseStudies.length);
   const prevSlide = () => setActiveIndex((p) => (p - 1 + caseStudies.length) % caseStudies.length);
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    const touch = event.touches[0];
+
+    touchStartRef.current = touch ? { x: touch.clientX, y: touch.clientY } : null;
+  };
+  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+    const touchStart = touchStartRef.current;
+    const touchEnd = event.changedTouches[0];
+
+    touchStartRef.current = null;
+
+    if (!touchStart || !touchEnd) return;
+
+    const deltaX = touchEnd.clientX - touchStart.x;
+    const deltaY = touchEnd.clientY - touchStart.y;
+
+    if (Math.abs(deltaX) >= 50 && Math.abs(deltaX) > Math.abs(deltaY) * 1.1) {
+      if (deltaX < 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+  };
   const activeCaseStudy = caseStudies[activeIndex];
 
   return (
@@ -127,7 +152,12 @@ export const CaseStudies = () => {
         {/* Carousel Container */}
         <div className="relative w-full max-w-5xl mx-auto">
           {/* Card */}
-          <div className="bg-white rounded-[2rem] p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100/50 relative overflow-hidden transition-all duration-500">
+          <div
+            className="bg-white rounded-[2rem] p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100/50 relative overflow-hidden transition-all duration-500"
+            style={{ touchAction: "pan-y" }}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 lg:gap-16">
 
               {/* Left Column - Meta */}
