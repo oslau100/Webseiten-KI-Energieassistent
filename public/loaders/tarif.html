@@ -94,6 +94,10 @@ window.TB_BOOTSTRAP = {
 #tbx2026 .aiTxt .aiDetails[hidden]{display:none!important;}
 #tbx2026 .aiTxt .aiDetails.isOpening{animation:tbDetailsIn .18s ease both!important;}
 @keyframes tbDetailsIn{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:translateY(0)}}
+#tbx2026.rtl .aiTxt.aiStructured{direction:rtl!important;text-align:right!important;}
+#tbx2026.rtl .aiTxt.aiStructured .aiList{margin-left:0!important;margin-right:20px!important;}
+#tbx2026.rtl .aiTxt.aiStructured .aiListItem{padding-left:0!important;padding-right:3px!important;}
+#tbx2026.rtl .aiTxt.aiStructured .aiDetailsToggle{direction:rtl!important;text-align:right!important;}
 #tbx2026 .sk{border-radius:10px!important;background:linear-gradient(90deg,#e9ecf6 0%,#f1f4fb 45%,#e9ecf6 100%)!important;background-size:300% 100%!important;animation:tbSk 1.35s ease infinite!important;}
 @keyframes tbSk{0%{background-position:300% 0}100%{background-position:-300% 0}}#tbx2026 .sk.l{height:12px!important;margin:0 0 10px 0!important;}#tbx2026 .w90{width:90%!important;}#tbx2026 .w70{width:70%!important;}#tbx2026 .w50{width:50%!important;}
 #tbx2026.rtl{direction:rtl!important;text-align:right!important;}#tbx2026.rtl .top{flex-direction:row-reverse!important;}#tbx2026.rtl .summary-v{text-align:left!important;}#tbx2026.rtl .recMeta{justify-content:flex-end!important;}#tbx2026.rtl .bulIt{flex-direction:row-reverse!important;}#tbx2026.rtl .actions{justify-content:flex-start!important;}
@@ -205,6 +209,73 @@ window.TB_BOOTSTRAP = {
   function removeSeparatorLines(text){return String(text||"").split(/\r?\n/).filter(line=>!/^\s*(?:⸻+|[-_─━—–═=~·•]{3,})\s*$/.test(line)).join("\n");}
   function appendTextElement(container,tag,className,text){const element=document.createElement(tag); element.className=className; element.textContent=text; container.appendChild(element);}
   function renderFazit(container,text,lang){container.classList.toggle("fazitStructured",lang==="de"); container.closest(".hero")?.classList.toggle("heroGerman",lang==="de"); if(lang!=="de"){container.textContent=text||"—"; return;} container.replaceChildren(); const paragraphs=String(text||"").trim().split(/\n\s*\n+/).filter(Boolean); if(!paragraphs.length){container.textContent="—"; return;} paragraphs.forEach(paragraph=>appendTextElement(container,"p","",paragraph.trim()));}
+  const OFFER_CONTENT_V2_SECTION_IDS=new Set(["central_insight","timing","selection_reason","risks","comparison","effort","changes","inaction","recommendation"]);
+  const OFFER_CONTENT_V2_GROUPS=new Set(["main","methodology"]);
+  const OFFER_CONTENT_V2_BLOCK_TYPES=new Set(["paragraph","subheading","answer","list","ordered_list"]);
+  const OFFER_CONTENT_V2_VARIABLES=new Set(["vorname","provider_current","tariff_provider","tariff_name","laufzeit_monate","preisgarantie_text","ersparnis_jahr","ersparnis_monat","plz","verbrauch","stadt","energieart","verbrauch_text","aktuelle_monatskosten","aktuelle_jahreskosten","jahreskosten","monatsabschlag","arbeitspreis","grundpreis_monat","laufzeit_text"]);
+  function validateOfferContentV2(content){
+    const fail=reason=>({valid:false,reason}); const nonEmpty=value=>typeof value==="string"&&value.trim().length>0;
+    const validateVariables=(value,path)=>{if(typeof value!=="string") return `${path} muss ein String sein.`; let unknownVariable=""; const remainder=value.replace(/\{\{([A-Za-z0-9_]+)\}\}|\{([A-Za-z0-9_]+)\}/g,(placeholder,doubleName,singleName)=>{const variable=doubleName||singleName; if(!OFFER_CONTENT_V2_VARIABLES.has(variable)) unknownVariable=variable; return "";}); if(unknownVariable) return `${path} verwendet die unbekannte Variable ${unknownVariable}.`; if(/[{}]/.test(remainder)) return `${path} enthält eine ungültige Platzhaltersyntax.`; return "";};
+    if(!content||typeof content!=="object"||Array.isArray(content)) return fail("Der Inhalt ist kein Objekt.");
+    if(content.format_version!==2) return fail("format_version ist nicht 2.");
+    if(typeof content.fazit!=="string") return fail("fazit muss ein String sein.");
+    if(!nonEmpty(content.ki_zusammenfassung)) return fail("ki_zusammenfassung muss als Legacy-Fallback vorhanden sein.");
+    if(!content.title||typeof content.title!=="object"||!nonEmpty(content.title.icon)||!nonEmpty(content.title.text)) return fail("title.icon und title.text werden benötigt.");
+    if(!Array.isArray(content.sections)||!content.sections.length) return fail("sections muss ein nicht leeres Array sein.");
+    const contractTexts=[[content.fazit,"fazit"],[content.ki_zusammenfassung,"ki_zusammenfassung"],[content.title.icon,"title.icon"],[content.title.text,"title.text"]];
+    const seenIds=new Set(); let methodologyEnded=false; let inMethodology=false;
+    for(let sectionIndex=0;sectionIndex<content.sections.length;sectionIndex+=1){
+      const section=content.sections[sectionIndex]; const path=`sections[${sectionIndex}]`;
+      if(!section||typeof section!=="object"||Array.isArray(section)) return fail(`${path} ist ungültig.`);
+      if(!OFFER_CONTENT_V2_SECTION_IDS.has(section.id)) return fail(`${path}.id ist unbekannt.`);
+      if(seenIds.has(section.id)) return fail(`${path}.id ist doppelt vorhanden.`); seenIds.add(section.id);
+      if(!OFFER_CONTENT_V2_GROUPS.has(section.group)) return fail(`${path}.group ist ungültig.`);
+      if(section.group==="methodology"){if(methodologyEnded) return fail("Methodology-Sections müssen zusammenhängend sein."); inMethodology=true;} else if(inMethodology){methodologyEnded=true;}
+      if(!nonEmpty(section.icon)||!nonEmpty(section.title)) return fail(`${path}.icon und ${path}.title werden benötigt.`);
+      contractTexts.push([section.icon,`${path}.icon`],[section.title,`${path}.title`]);
+      if(!Array.isArray(section.blocks)||!section.blocks.length) return fail(`${path}.blocks muss ein nicht leeres Array sein.`);
+      for(let blockIndex=0;blockIndex<section.blocks.length;blockIndex+=1){
+        const block=section.blocks[blockIndex]; const blockPath=`${path}.blocks[${blockIndex}]`;
+        if(!block||typeof block!=="object"||Array.isArray(block)||!OFFER_CONTENT_V2_BLOCK_TYPES.has(block.type)) return fail(`${blockPath}.type ist ungültig.`);
+        if(block.type==="paragraph"||block.type==="subheading"||block.type==="answer"){
+          if(!nonEmpty(block.text)) return fail(`${blockPath}.text wird benötigt.`); contractTexts.push([block.text,`${blockPath}.text`]); continue;
+        }
+        if(!Array.isArray(block.items)||!block.items.length) return fail(`${blockPath}.items muss ein nicht leeres Array sein.`);
+        for(let itemIndex=0;itemIndex<block.items.length;itemIndex+=1){
+          const item=block.items[itemIndex]; const itemPath=`${blockPath}.items[${itemIndex}]`;
+          if(nonEmpty(item)){contractTexts.push([item,itemPath]); continue;}
+          if(!item||typeof item!=="object"||Array.isArray(item)||!nonEmpty(item.title)||!nonEmpty(item.text)) return fail(`${itemPath} ist ungültig.`);
+          contractTexts.push([item.title,`${itemPath}.title`],[item.text,`${itemPath}.text`]);
+        }
+      }
+    }
+    if(content.methodology_toggle&&typeof content.methodology_toggle==="object"){
+      if(typeof content.methodology_toggle.collapsed_label==="string") contractTexts.push([content.methodology_toggle.collapsed_label,"methodology_toggle.collapsed_label"]);
+      if(typeof content.methodology_toggle.expanded_label==="string") contractTexts.push([content.methodology_toggle.expanded_label,"methodology_toggle.expanded_label"]);
+    }
+    for(const [value,path] of contractTexts){const error=validateVariables(value,path); if(error) return fail(error);}
+    return {valid:true,reason:""};
+  }
+  function renderStructuredBlock(block,ctx){
+    if(block.type==="paragraph"||block.type==="subheading"||block.type==="answer"){
+      const element=document.createElement(block.type==="subheading"?"div":"p"); element.className=block.type==="subheading"?"aiSubheading":block.type==="answer"?"aiParagraph aiAnswerLead":"aiParagraph"; element.textContent=interp(block.text,ctx); return element;
+    }
+    const list=document.createElement(block.type==="ordered_list"?"ol":"ul"); list.className="aiList";
+    block.items.forEach(item=>{const listItem=document.createElement("li"); listItem.className="aiListItem"; if(typeof item==="string"){listItem.textContent=interp(item,ctx);} else {appendTextElement(listItem,"div","aiListTitle",interp(item.title,ctx)); appendTextElement(listItem,"div","aiListText",interp(item.text,ctx));} list.appendChild(listItem);}); return list;
+  }
+  function renderStructuredSection(section,ctx){const fragment=document.createDocumentFragment(); const heading=document.createElement("div"); heading.className="aiMainHeading"; heading.textContent=`${interp(section.icon,ctx)} ${interp(section.title,ctx)}`.trim(); fragment.appendChild(heading); section.blocks.forEach(block=>fragment.appendChild(renderStructuredBlock(block,ctx))); return fragment;}
+  function renderMethodologyGroupV2(sections,ctx,labels){
+    const fragment=document.createDocumentFragment(); const details=document.createElement("div"); details.className="aiDetails"; details.id="tbAiDetailsV2"; details.hidden=true; sections.forEach(section=>details.appendChild(renderStructuredSection(section,ctx)));
+    const toggle=document.createElement("button"); toggle.type="button"; toggle.className="aiDetailsToggle"; toggle.textContent=labels.collapsed; toggle.setAttribute("aria-expanded","false"); toggle.setAttribute("aria-controls",details.id);
+    toggle.addEventListener("click",()=>{const opening=toggle.getAttribute("aria-expanded")==="false"; toggle.setAttribute("aria-expanded",String(opening)); toggle.textContent=opening?labels.expanded:labels.collapsed; details.classList.remove("isOpening"); if(opening){details.hidden=false; requestAnimationFrame(()=>{details.classList.add("isOpening"); scheduleOfferLayoutSync();});} else {details.hidden=true; ["height","max-height","min-height","overflow"].forEach(property=>details.style.removeProperty(property)); scheduleOfferLayoutSync();}});
+    fragment.append(toggle,details); return fragment;
+  }
+  function renderAiSummaryV2(container,content,ctx,lang){
+    const fragment=document.createDocumentFragment(); const title=document.createElement("div"); title.className="aiMainHeading aiFirstHeading"; title.textContent=`${interp(content.title.icon,ctx)} ${interp(content.title.text,ctx)}`.trim(); fragment.appendChild(title);
+    const toggle=content.methodology_toggle; const labels={collapsed:toggle&&typeof toggle.collapsed_label==="string"&&toggle.collapsed_label.trim()?interp(toggle.collapsed_label,ctx):(lang==="de"?"So wurde dein Tarif geprüft":"Methodology details"),expanded:toggle&&typeof toggle.expanded_label==="string"&&toggle.expanded_label.trim()?interp(toggle.expanded_label,ctx):(lang==="de"?"Prüfdetails ausblenden":"Hide methodology details")};
+    for(let index=0;index<content.sections.length;){const section=content.sections[index]; if(section.group==="main"){fragment.appendChild(renderStructuredSection(section,ctx)); index+=1; continue;} const methodology=[]; while(index<content.sections.length&&content.sections[index].group==="methodology"){methodology.push(content.sections[index]); index+=1;} fragment.appendChild(renderMethodologyGroupV2(methodology,ctx,labels));}
+    container.classList.add("aiStructured"); container.closest(".aiWrap")?.classList.toggle("aiGerman",lang==="de"); container.closest("#tbx2026")?.classList.toggle("offerGerman",lang==="de"); container.replaceChildren(fragment); markHeadingsAfterAnswers(container);
+  }
   function formatAiLists(container){
     const isPairStart=node=>node?.classList?.contains("aiSubheading")&&node.nextElementSibling?.classList?.contains("aiParagraph");
     let node=container.firstElementChild;
@@ -364,6 +435,12 @@ window.TB_BOOTSTRAP = {
     if(!container.childNodes.length){container.textContent="—"; return;}
     formatAiLists(container); formatUsecaseLists(container,usecase); markAnswerLeads(container,usecase); markHeadingsAfterAnswers(container); addAiDetailsToggle(container);
   }
+  function renderOfferSummary(container,content,legacyText,ctx,lang,usecase){
+    const validation=validateOfferContentV2(content);
+    if(content.format_version===2&&validation.valid){try{renderAiSummaryV2(container,content,ctx,lang); return "v2";}catch(error){console.warn("Offer Content format_version 2 konnte nicht sicher gerendert werden; Legacy-Fallback wird verwendet.",error);}}
+    else if(content.format_version===2) console.warn(`Offer Content format_version 2 ist ungültig (${validation.reason}); Legacy-Fallback wird verwendet.`);
+    renderAiSummary(container,legacyText,lang,usecase); return "legacy";
+  }
   try{
     const locationId = String(bootstrap.locationId || window.SURVEY_CONFIG?.locationId || "").trim();
     if (locationId) {
@@ -416,7 +493,7 @@ window.TB_BOOTSTRAP = {
     const plzTxt=String(row.plz || "").trim(); const verbrauchForMeta=(row.verbrauch ?? row.consumption_kwh ?? ""); const verbTxt=String(verbrauchForMeta ?? "").trim(); const metaParts=[]; if(verbTxt){metaParts.push(formatVerbrauchKwh(verbrauchForMeta));} if(plzTxt){metaParts.push(plzTxt);} if(metaParts.length===2){$("tbRecMeta").innerHTML=`<span>${metaParts[0]}</span><span class="dot"></span><span>${metaParts[1]}</span>`;} else if(metaParts.length===1){$("tbRecMeta").textContent=metaParts[0];} else {$("tbRecMeta").textContent="";}
     const bullets=[]; const termTxt=formatTerm(row.laufzeit_monate,t); const garTxt=formatGuarantee(row.preisgarantie_text,t); if(termTxt) bullets.push(`${t.m_term}: ${termTxt}`); if(garTxt) bullets.push(`${t.m_guarantee}: ${garTxt}`); if(row.oekotarif===true) bullets.push(t.oeko); bullets.push(t.fast);
     $("tbBullets").innerHTML=bullets.slice(0,4).map(b=>`<div class="bulIt"><span class="check">✓</span><span>${String(b)}</span></div>`).join("");
-    const summaryText=(buildKiSummaryText(U,ctx,lang) || "").trim(); renderAiSummary($("tbAiText"),summaryText,lang,usecase);
+    const summaryText=(buildKiSummaryText(U,ctx,lang) || "").trim(); renderOfferSummary($("tbAiText"),U,summaryText,ctx,lang,usecase);
     $("tbBtnDetails").addEventListener("click",()=>{renderModal(t,row,usecase);openModal();});
     $("tbModalClose").addEventListener("click",closeModal); $("tbModalBack").addEventListener("click",(e)=>{if(e.target === $("tbModalBack")) closeModal();}); document.addEventListener("keydown",(e)=>{if(e.key==="Escape") closeModal();});
   }catch(e){
