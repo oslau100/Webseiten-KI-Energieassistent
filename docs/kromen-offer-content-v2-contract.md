@@ -68,7 +68,7 @@ Objekt-Items erzeugen `.aiListTitle` und `.aiListText` innerhalb von `.aiListIte
 
 ## Erlaubte Variablen
 
-Sowohl `{variable}` als auch `{{variable}}` sind zulässig. Erlaubt sind ausschließlich:
+Sowohl `{variable}` als auch `{{variable}}` sind zulässig. Die Schreibweise muss exakt sein; nicht geschlossene oder zusätzliche Klammern sowie Namen mit Bindestrich, Punkt oder Leerzeichen machen den gesamten V2-Vertrag ungültig. Erlaubt sind ausschließlich:
 
 - `vorname`
 - `provider_current`

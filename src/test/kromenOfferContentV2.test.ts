@@ -54,8 +54,12 @@ const validContent = (): TestContent => ({
         { type: "answer", text: "Klare Antwort" },
         { type: "list", items: ["Punkt 1", "Punkt {laufzeit_monate}"] },
         { type: "ordered_list", items: [{ title: "Preis", text: "Geprüfte Kosten" }] },
+        { type: "answer", text: "Strukturell letzte Antwort" },
       ],
     },
+    { id: "timing", icon: "T", title: "Direkt nach Antwort", group: "main", blocks: [{ type: "paragraph", text: "Normaler Abschluss" }] },
+    { id: "changes", icon: "P", title: "Direkt nach Paragraph", group: "main", blocks: [{ type: "list", items: ["Listenabschluss"] }] },
+    { id: "effort", icon: "L", title: "Direkt nach Liste", group: "main", blocks: [{ type: "paragraph", text: "Aufwand" }] },
     { id: "selection_reason", icon: "B", title: "Methodik ohne erwartetes Emoji", group: "methodology", blocks: [{ type: "paragraph", text: "Methode" }] },
     { id: "risks", icon: "C", title: "Risiken", group: "methodology", blocks: [{ type: "list", items: [{ title: "Risiko", text: "Beschreibung" }] }] },
     { id: "recommendation", icon: "D", title: "Empfehlung nach Methodik", group: "main", blocks: [{ type: "answer", text: "Abschluss" }] },
@@ -91,14 +95,17 @@ describe("Kromen Offer Content format_version 2", () => {
     api.renderAiSummaryV2(container, content, { vorname: "Ada", tariff_name: "Klima", laufzeit_monate: "12" }, "de");
 
     expect(container.querySelector(".aiFirstHeading")).toHaveTextContent("Strukturierte Prüfung für Ada");
-    expect([...container.querySelectorAll(":scope > .aiMainHeading")].map((node) => node.textContent)).toEqual(["🌐 Strukturierte Prüfung für Ada", "A Erkenntnis", "D Empfehlung nach Methodik"]);
+    expect([...container.querySelectorAll(":scope > .aiMainHeading")].map((node) => node.textContent)).toEqual(["🌐 Strukturierte Prüfung für Ada", "A Erkenntnis", "T Direkt nach Antwort", "P Direkt nach Paragraph", "L Direkt nach Liste", "D Empfehlung nach Methodik"]);
     expect(container.querySelector(".aiParagraph:not(.aiAnswerLead)")).toHaveTextContent("Normal für Klima");
     expect(container.querySelector(".aiSubheading")).toHaveTextContent("Einordnung");
     expect(container.querySelector(".aiAnswerLead")).toHaveTextContent("Klare Antwort");
     expect(container.querySelector("ul.aiList")).toHaveTextContent("Punkt 12");
     expect(container.querySelector("ol.aiList .aiListTitle")).toHaveTextContent("Preis");
     expect(container.querySelector("ol.aiList .aiListText")).toHaveTextContent("Geprüfte Kosten");
-    expect(container.querySelector(".aiHeadingAfterAnswer")).toHaveTextContent("Empfehlung nach Methodik");
+    expect(container.querySelector(".aiHeadingAfterAnswer")).toHaveTextContent("Direkt nach Antwort");
+    expect([...container.querySelectorAll(".aiMainHeading")].find((node) => node.textContent?.includes("Direkt nach Paragraph"))).not.toHaveClass("aiHeadingAfterAnswer");
+    expect([...container.querySelectorAll(".aiMainHeading")].find((node) => node.textContent?.includes("Direkt nach Liste"))).not.toHaveClass("aiHeadingAfterAnswer");
+    expect([...container.querySelectorAll(".aiMainHeading")].find((node) => node.textContent?.includes("Empfehlung nach Methodik"))).not.toHaveClass("aiHeadingAfterAnswer");
   });
 
   it("groups methodology by metadata and exposes an accessible, reversible toggle", () => {
@@ -148,6 +155,7 @@ describe("Kromen Offer Content format_version 2", () => {
     expect(container).toHaveTextContent("Plain legacy fallback");
     expect(container).not.toHaveTextContent("partial V2 must disappear");
     expect(container.querySelector(".aiFirstHeading")).toBeNull();
+    warn.mockRestore();
   });
 
   it("renders markup and scripts only as inert text", () => {
@@ -172,4 +180,30 @@ describe("Kromen Offer Content format_version 2", () => {
     expect(container).toHaveTextContent("Klima");
     expect(container.querySelector("button")).toHaveTextContent("So wurde dein Tarif geprüft");
   });
+
+  it.each(["{vorname}", "{{vorname}}", "{tariff_name}", "{{tariff_name}}"])("accepts the exact placeholder syntax %s", (placeholder) => {
+    const content = validContent();
+    content.sections[0].blocks[0].text = `Hallo ${placeholder}`;
+    expect(createApi().validateOfferContentV2(content).valid).toBe(true);
+  });
+
+  it.each(["{{vorname}", "{vorname}}", "{{tariff-name}}", "{{tariff.name}}", "{{vor name}}", "{{not_allowed}}", "{not_allowed}"])(
+    "rejects malformed or unknown placeholder %s and renders only the complete legacy fallback",
+    (placeholder) => {
+      const api = createApi();
+      const content = validContent();
+      content.sections[0].blocks[0].text = `V2 marker ${placeholder}`;
+      expect(api.validateOfferContentV2(content).valid).toBe(false);
+
+      const container = setupContainer();
+      const warn = vi.spyOn(console, "warn").mockImplementation(() => undefined);
+      expect(api.renderOfferSummary(container, content, "Complete legacy fallback", {}, "en", "spart")).toBe("legacy");
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining("Legacy-Fallback"));
+      expect(container.textContent).toBe("Complete legacy fallback");
+      expect(container).not.toHaveTextContent("V2 marker");
+      expect(container).not.toHaveTextContent(placeholder);
+      expect(container.querySelector(".aiFirstHeading")).toBeNull();
+      warn.mockRestore();
+    },
+  );
 });

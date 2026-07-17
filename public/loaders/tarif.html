@@ -211,7 +211,7 @@ window.TB_BOOTSTRAP = {
   const OFFER_CONTENT_V2_VARIABLES=new Set(["vorname","provider_current","tariff_provider","tariff_name","laufzeit_monate","preisgarantie_text","ersparnis_jahr","ersparnis_monat","plz","verbrauch","stadt","energieart","verbrauch_text","aktuelle_monatskosten","aktuelle_jahreskosten","jahreskosten","monatsabschlag","arbeitspreis","grundpreis_monat","laufzeit_text"]);
   function validateOfferContentV2(content){
     const fail=reason=>({valid:false,reason}); const nonEmpty=value=>typeof value==="string"&&value.trim().length>0;
-    const validateVariables=(value,path)=>{if(typeof value!=="string") return `${path} muss ein String sein.`; const matches=value.matchAll(/\{\{?(\w+)\}?\}/g); for(const match of matches){if(!OFFER_CONTENT_V2_VARIABLES.has(match[1])) return `${path} verwendet die unbekannte Variable ${match[1]}.`;} return "";};
+    const validateVariables=(value,path)=>{if(typeof value!=="string") return `${path} muss ein String sein.`; let unknownVariable=""; const remainder=value.replace(/\{\{([A-Za-z0-9_]+)\}\}|\{([A-Za-z0-9_]+)\}/g,(placeholder,doubleName,singleName)=>{const variable=doubleName||singleName; if(!OFFER_CONTENT_V2_VARIABLES.has(variable)) unknownVariable=variable; return "";}); if(unknownVariable) return `${path} verwendet die unbekannte Variable ${unknownVariable}.`; if(/[{}]/.test(remainder)) return `${path} enthält eine ungültige Platzhaltersyntax.`; return "";};
     if(!content||typeof content!=="object"||Array.isArray(content)) return fail("Der Inhalt ist kein Objekt.");
     if(content.format_version!==2) return fail("format_version ist nicht 2.");
     if(typeof content.fazit!=="string") return fail("fazit muss ein String sein.");
