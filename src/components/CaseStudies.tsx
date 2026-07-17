@@ -13,9 +13,6 @@ type CaseStudy = {
   previewImageAlt: string;
   situation: ReactNode;
   result: ReactNode;
-  personName?: string;
-  personAvatar?: string;
-  personAvatarAlt?: string;
 };
 
 const caseStudies: CaseStudy[] = [
@@ -48,9 +45,6 @@ const caseStudies: CaseStudy[] = [
     company: "Kromen Energieassistent",
     previewImage: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/Fallstudie-Seite-Kromen.png",
     previewImageAlt: "Kromen Energieassistent Vorschau",
-    personName: "Marcel Kromen",
-    personAvatar: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/Fallstudie-Profil-Kromen.png",
-    personAvatarAlt: "Marcel Kromen",
     situation: (
       <>
         Marcel gewann seine Kunden ausschließlich über klassischen Door-to-Door-Vertrieb und schrieb damit monatlich zwischen 25 und 40 Verträge.
@@ -75,9 +69,6 @@ const caseStudies: CaseStudy[] = [
     company: "Ehiogie Energieassistent",
     previewImage: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/Fallstudie-Seite-Ehiogie.png",
     previewImageAlt: "Ehiogie Energieassistent Vorschau",
-    personName: "Marvin Ehiogie",
-    personAvatar: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/Fallstudie-Profil-Ehiogie.png",
-    personAvatarAlt: "Marvin Ehiogie",
     situation: (
       <>
         Marvin gewann seine Kunden ausschließlich über klassischen D2D-Vertrieb und erzielte damit unregelmäßig zwischen 20 und 30 Verträge pro Monat.
@@ -175,21 +166,6 @@ export const CaseStudies = () => {
                       <span className="font-bold text-[#1a231c]">{activeCaseStudy.company}</span>
                     </div>
                   </div>
-
-                  {activeCaseStudy.personName && activeCaseStudy.personAvatar && (
-                    <div className="mt-5 w-full border-t border-gray-200 pt-5">
-                      <div className="flex items-center gap-3">
-                        <img
-                          src={activeCaseStudy.personAvatar}
-                          alt={activeCaseStudy.personAvatarAlt ?? activeCaseStudy.personName}
-                          className="h-14 w-14 rounded-full border border-gray-200 object-cover shadow-sm md:h-16 md:w-16"
-                        />
-                        <span className="text-left text-sm font-semibold text-[#1a231c]">
-                          {activeCaseStudy.personName}
-                        </span>
-                      </div>
-                    </div>
-                  )}
                 </div>
               </div>
 
