@@ -51,7 +51,7 @@ export const FailedSolutions = () => {
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto mb-16 md:mb-20">
           <h2 className="text-[22px] min-[375px]:text-[26px] sm:text-4xl md:text-4xl lg:text-5xl font-bold text-[#1a231c] mb-6 tracking-tight">
-            Warum klassische Lösungsansätze nicht funktionieren
+            Warum klassische Lösungsansätze nicht ausreichen
           </h2>
           <p className="text-base md:text-lg text-[#1a231c]/80 leading-relaxed max-w-3xl mx-auto font-medium">
             Viele versuchen, mehr Abschlüsse mit den falschen Ansätzen zu erzwingen – und <br className="hidden md:block" /> bleiben genau deshalb auf der Stelle stehen.

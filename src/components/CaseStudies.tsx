@@ -42,7 +42,7 @@ const caseStudies: CaseStudy[] = [
     id: 2,
     title: "111 Verträge in den ersten 3 Monaten automatisiert über Einwurfkarten abgeschlossen",
     website: "www.kromen-energieassistent.de",
-    company: "Kromen Energieassistent",
+    company: "Marcel Kromen",
     previewImage: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/Fallstudie-Seite-Kromen.png",
     previewImageAlt: "Kromen Energieassistent Vorschau",
     situation: (
@@ -66,7 +66,7 @@ const caseStudies: CaseStudy[] = [
     id: 3,
     title: "Jeden Monat über 50 Verträge mit deutlich weniger Aufwand",
     website: "www.ehiogie-energieassistent.de",
-    company: "Ehiogie Energieassistent",
+    company: "Marvin Ehiogie",
     previewImage: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/Fallstudie-Seite-Ehiogie.png",
     previewImageAlt: "Ehiogie Energieassistent Vorschau",
     situation: (
