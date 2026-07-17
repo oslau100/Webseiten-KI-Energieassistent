@@ -279,16 +279,27 @@ window.TB_BOOTSTRAP = {
     if(remainder.length){const paragraph=document.createElement("p"); paragraph.className="aiParagraph"; paragraph.textContent=remainder.join("\n"); container.insertBefore(paragraph,sources[0]);}
     sources.forEach(source=>source.remove());
   }
+  function convertExactSectionLinesToList(container,headingPrefix,expectedLines){
+    const range=findSectionRange(container,headingPrefix); if(!range) return;
+    let node=range.heading.nextElementSibling;
+    while(node&&node!==range.end){if(!node.classList.contains("aiParagraph")||node.closest("ul,ol")){node=node.nextElementSibling; continue;}
+      const sources=[]; const lines=[]; let cursor=node; while(cursor&&cursor!==range.end&&cursor.classList.contains("aiParagraph")&&!cursor.closest("ul,ol")){sources.push(cursor); lines.push(...cursor.textContent.split("\n").map(line=>line.trim()).filter(Boolean)); cursor=cursor.nextElementSibling;}
+      const start=lines.findIndex((line,index)=>expectedLines.every((expected,offset)=>lines[index+offset]===expected)); if(start<0){node=cursor; continue;}
+      const list=document.createElement("ul"); list.className="aiList"; expectedLines.forEach(text=>appendTextElement(list,"li","aiListItem",text)); const firstSource=sources[0];
+      const before=lines.slice(0,start); const after=lines.slice(start+expectedLines.length); if(before.length){const paragraph=document.createElement("p"); paragraph.className="aiParagraph"; paragraph.textContent=before.join("\n"); container.insertBefore(paragraph,firstSource);}
+      container.insertBefore(list,firstSource); if(after.length){const paragraph=document.createElement("p"); paragraph.className="aiParagraph"; paragraph.textContent=after.join("\n"); container.insertBefore(paragraph,firstSource);} sources.forEach(source=>source.remove()); return;
+    }
+  }
   function formatUsecaseLists(container,usecase){
     const configs={
       spart:[
         ["🔍","Dabei bekommst du keinen zusätzlichen Vorteil.",[3]], ["🔎","Du müsstest weiterhin selbst bewerten:",[6]], ["⚙️","Das bedeutet:",[3]],
-        ["✅","In deinem Alltag ändert sich nichts.",[4,4]], ["💸","Es bedeutet, dass dein aktueller, teurerer Tarif weiterläuft, obwohl eine geprüfte, günstigere Alternative verfügbar ist.",[3]]
+        ["✅","In deinem Alltag ändert sich nichts.",[4,4]]
       ],
       neueinzug:[
-        ["🔍",null,[3]], ["🔎","Du müsstest weiterhin selbst bewerten:",[6]], ["⚙️","Das bedeutet:",[3]],
-        ["✅","Für dich bedeutet das konkret:",[5]], ["✅","Was sich für dich ändert:",[3]], ["💸","Wenn du keinen eigenen Tarif für die neue Adresse auswählst, landest du in der Regel in der Grundversorgung.",[3]],
-        ["💸","Einfach gesagt:",[4]], ["👉","Das ist ein wichtiger Punkt:",[3]]
+        ["🔍","Der wichtige Punkt ist:",[3]], ["🔎","Du müsstest weiterhin selbst bewerten:",[6]], ["⚙️","Das bedeutet:",[3]],
+        ["✅","Für dich bedeutet das konkret:",[5]], ["✅","Was sich für dich ändert:",[3]],
+        ["💸","Und dafür bekommst du keinen zusätzlichen Vorteil.",[3]], ["💸","Einfach gesagt:",[4]], ["👉","Das ist ein wichtiger Punkt:",[3]]
       ],
       nicht_spart:[
         ["🔍","Besonders wichtig sind:",[10],{titlePairs:true}], ["⏳","Die Empfehlung kann deshalb interessant werden, wenn:",[6],{stripDash:true}],
@@ -298,6 +309,7 @@ window.TB_BOOTSTRAP = {
       ]
     };
     (configs[usecase]||[]).forEach(([heading,anchor,sizes,options])=>convertFollowingLinesToLists(container,heading,anchor,sizes,options));
+    if(usecase==="spart") convertExactSectionLinesToList(container,"💸",["Dabei bekommst du keine bessere Versorgung.","Du bekommst keinen zusätzlichen Vorteil.","Und du bekommst keine spürbar andere Nutzung im Alltag."]);
   }
   function markAnswerLeads(container,usecase){
     const answers={
@@ -334,7 +346,7 @@ window.TB_BOOTSTRAP = {
     container.replaceChildren();
     const mainHeading=/^(?:✨|🔍|🛡️|🔒|🔎|⚙️|✅|💸|⏳|👉)(?:\uFE0F)?\s*\S/;
     const subheadings=new Set(["Preis:","Echte Kosten:","Preisgarantie:","Vertragsbedingungen:","Anbieterqualität:","Langfristige Eignung:","Das bedeutet:","Der wichtige Punkt:","Einfach gesagt:","Die Empfehlung lautet deshalb:","Dein aktueller Monatsabschlag","Dein Jahresverbrauch","Deine letzte Abrechnung","Aktuelle Preisänderungen","Deine bestehende Preisgarantie","Preis","Echte Gesamtkosten","Preisgarantie","Vertragsbedingungen","Anbieterqualität","Langfristige Eignung"]);
-    const structuralLines=new Set(["Dabei bekommst du keinen zusätzlichen Vorteil.","Du müsstest weiterhin selbst bewerten:","In deinem Alltag ändert sich nichts.","Für dich bedeutet das konkret:","Was sich für dich ändert:","Das ist ein wichtiger Punkt:","Besonders wichtig sind:","Die Empfehlung kann deshalb interessant werden, wenn:","Berücksichtigt wurden vor allem diese Punkte:","Du müsstest weiterhin selbst prüfen:","Die abschließende Einschätzung lautet deshalb:","Es bedeutet, dass dein aktueller, teurerer Tarif weiterläuft, obwohl eine geprüfte, günstigere Alternative verfügbar ist.","Wenn du keinen eigenen Tarif für die neue Adresse auswählst, landest du in der Regel in der Grundversorgung.","Auch wenn du dich für die empfohlene Alternative entscheidest, ändert sich in deinem Alltag nichts."]);
+    const structuralLines=new Set(["Dabei bekommst du keinen zusätzlichen Vorteil.","Du müsstest weiterhin selbst bewerten:","In deinem Alltag ändert sich nichts.","Für dich bedeutet das konkret:","Was sich für dich ändert:","Das ist ein wichtiger Punkt:","Der wichtige Punkt ist:","Und dafür bekommst du keinen zusätzlichen Vorteil.","Besonders wichtig sind:","Die Empfehlung kann deshalb interessant werden, wenn:","Berücksichtigt wurden vor allem diese Punkte:","Du müsstest weiterhin selbst prüfen:","Die abschließende Einschätzung lautet deshalb:","Es bedeutet, dass dein aktueller, teurerer Tarif weiterläuft, obwohl eine geprüfte, günstigere Alternative verfügbar ist.","Wenn du keinen eigenen Tarif für die neue Adresse auswählst, landest du in der Regel in der Grundversorgung.","Auch wenn du dich für die empfohlene Alternative entscheidest, ändert sich in deinem Alltag nichts."]);
     let paragraphLines=[]; let hasMainHeading=false;
     const flushParagraph=()=>{if(!paragraphLines.length)return; appendTextElement(container,"p","aiParagraph",paragraphLines.join("\n")); paragraphLines=[];};
     cleanText.split(/\r?\n/).forEach(line=>{const trimmed=line.trim(); if(!trimmed){flushParagraph(); return;} if(mainHeading.test(trimmed)){flushParagraph(); appendTextElement(container,"div",hasMainHeading?"aiMainHeading":"aiMainHeading aiFirstHeading",trimmed); hasMainHeading=true; return;} if(subheadings.has(trimmed)){flushParagraph(); appendTextElement(container,"div","aiSubheading",trimmed); return;} if(structuralLines.has(trimmed)){flushParagraph(); appendTextElement(container,"p","aiParagraph",trimmed); return;} paragraphLines.push(line.trim());});
