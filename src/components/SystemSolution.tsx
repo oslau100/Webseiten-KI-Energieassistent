@@ -3,7 +3,7 @@ export const SystemSolution = () => {
     <section className="relative w-full py-20 md:py-32 bg-[#000000] text-white overflow-hidden">
       {/* Background Pattern */}
       <div 
-        className="pointer-events-none absolute inset-0 z-0 opacity-[0.05]"
+        className="pointer-events-none absolute inset-0 z-0 opacity-[0.07]"
         style={{
           backgroundImage: `
             linear-gradient(to right, #ffffff 1px, transparent 1px),
