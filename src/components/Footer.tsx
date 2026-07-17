@@ -8,7 +8,19 @@ export const Footer = () => {
   const getHref = (hash: string) => isHome ? hash : `/${hash}`;
 
   return (
-    <footer className="relative bg-transparent pt-16 pb-8 overflow-hidden text-white border-t border-white/5">
+    <footer className="relative bg-[#000000] pt-16 pb-8 overflow-hidden text-white border-t border-white/5">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 opacity-[0.09]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #ffffff 1px, transparent 1px),
+            linear-gradient(to bottom, #ffffff 1px, transparent 1px)
+          `,
+          backgroundSize: "80px 80px",
+        }}
+      />
+
       <div className="container relative z-10 mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-24 mb-16">
           {/* Column 1: Info */}
