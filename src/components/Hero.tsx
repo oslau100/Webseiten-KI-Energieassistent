@@ -6,6 +6,17 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 export const Hero = () => {
   return (
     <section className="relative overflow-hidden bg-[#000000] text-foreground pt-0 pb-8 md:pt-0 md:pb-16 px-2 sm:px-4">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 opacity-[0.05]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #ffffff 1px, transparent 1px),
+            linear-gradient(to bottom, #ffffff 1px, transparent 1px)
+          `,
+          backgroundSize: "80px 80px",
+        }}
+      />
 
       <div className="container relative z-10 mx-auto max-w-[1000px] pt-4 md:pt-12">
         <div className="flex flex-col items-center text-center">
