@@ -27,7 +27,7 @@ window.TB_BOOTSTRAP = {
 @keyframes tbFadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}@keyframes tbPulse{0%{box-shadow:0 0 0 0 rgba(66,247,122,.30);}70%{box-shadow:0 0 0 10px rgba(66,247,122,0);}100%{box-shadow:0 0 0 0 rgba(66,247,122,0);}}
 #tbx2026 .enter{animation:tbFadeUp .55s ease both!important;}#tbx2026 .enter.d2{animation-delay:.08s!important;}#tbx2026 .enter.d3{animation-delay:.16s!important;}#tbx2026 .enter.d4{animation-delay:.24s!important;}
 #tbx2026 .lift{transition:transform .18s ease,box-shadow .18s ease!important;will-change:transform!important;}#tbx2026 .lift:hover{transform:translateY(-2px)!important;box-shadow:0 18px 44px rgba(15,23,42,.12)!important;}
-@media (prefers-reduced-motion: reduce){#tbx2026 .enter{animation:none!important;}#tbx2026 .pulseDot{animation:none!important;}#tbx2026 .lift{transition:none!important;}}
+@media (prefers-reduced-motion: reduce){#tbx2026 .enter{animation:none!important;}#tbx2026 .pulseDot{animation:none!important;}#tbx2026 .lift{transition:none!important;}#tbx2026 .aiTxt .aiDetails{animation:none!important;}#tbx2026 .aiTxt .aiDetailsToggle::after{transition:none!important;}}
 #tbx2026 .top{display:flex!important;align-items:flex-start!important;justify-content:space-between!important;gap:16px!important;margin-bottom:14px!important;}#tbx2026 .top.single{justify-content:flex-start!important;}
 #tbx2026 .pill{display:inline-flex!important;align-items:center!important;gap:10px!important;padding:10px 12px!important;border-radius:999px!important;background:#fff!important;border:1px solid var(--tb-line)!important;box-shadow:var(--tb-shadow3)!important;}
 #tbx2026 .pulseDot{width:10px!important;height:10px!important;border-radius:999px!important;background:var(--tb-green)!important;animation:tbPulse 1.8s ease-out infinite!important;}
@@ -35,11 +35,12 @@ window.TB_BOOTSTRAP = {
 #tbx2026 .hero{display:grid!important;grid-template-columns:1.2fr .8fr!important;gap:14px!important;align-items:stretch!important;}
 #tbx2026 .panel{border-radius:var(--tb-r3)!important;padding:20px!important;background:#fff!important;border:1px solid var(--tb-line)!important;box-shadow:var(--tb-shadow2)!important;}
 #tbx2026 .title{margin:0!important;font-size:clamp(24px,2.8vw,38px)!important;font-weight:900!important;letter-spacing:-.04em!important;line-height:1.08!important;}
-#tbx2026 .fazit{margin-top:8px!important;font-size:14px!important;line-height:1.55!important;color:rgba(11,16,32,.75)!important;white-space:pre-wrap!important;}
-#tbx2026 .fazit.fazitStructured{white-space:normal!important;}
+#tbx2026 .fazit{margin-top:10px!important;font-size:14px!important;line-height:1.75!important;color:rgba(11,16,32,.75)!important;white-space:pre-wrap!important;}
+#tbx2026 .fazit.fazitStructured{margin-top:12px!important;line-height:1.55!important;white-space:normal!important;}
 #tbx2026 .fazit.fazitStructured p{margin:0 0 9px 0!important;}
 #tbx2026 .fazit.fazitStructured p:last-child{margin-bottom:0!important;}
 #tbx2026 .save{border-radius:var(--tb-r3)!important;padding:18px!important;background:linear-gradient(155deg, rgba(66,247,122,.92) 0%, rgba(66,247,122,1) 55%, rgba(66,247,122,.95) 100%)!important;border:1px solid rgba(0,0,0,.06)!important;box-shadow:0 32px 90px rgba(66,247,122,.18),var(--tb-shadow2)!important;position:relative!important;overflow:hidden!important;}
+#tbx2026 .hero.heroGerman .save{align-self:start!important;height:auto!important;}
 #tbx2026 .save::before{content:""!important;position:absolute!important;top:-70px!important;right:-70px!important;width:260px!important;height:260px!important;border-radius:999px!important;background:rgba(255,255,255,.16)!important;}
 #tbx2026 .save::after{content:""!important;position:absolute!important;bottom:-70px!important;left:-80px!important;width:300px!important;height:300px!important;border-radius:999px!important;background:rgba(255,255,255,.10)!important;}
 #tbx2026 .saveInner{position:relative!important;z-index:1!important;}#tbx2026 .saveK{display:flex!important;align-items:center!important;gap:10px!important;font-size:11px!important;font-weight:900!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:rgba(0,0,0,.55)!important;}
@@ -65,16 +66,30 @@ window.TB_BOOTSTRAP = {
 #tbx2026 .btn.secondary{background:var(--tb-btn-secondary-bg,var(--tb-surface))!important;border-color:rgba(15,23,42,.10)!important;color:var(--tb-btn-secondary-text,rgba(11,16,32,.88))!important;}#tbx2026 .btn.wide{width:100%!important;flex:1 1 100%!important;}
 #tbx2026 .compare.single{grid-template-columns:1fr!important;max-width:560px!important;margin-left:auto!important;margin-right:auto!important;}#tbx2026 .hide{display:none!important;}
 #tbx2026 .aiWrap{background:#fff!important;border:1px solid var(--tb-line)!important;border-radius:var(--tb-r2)!important;box-shadow:var(--tb-shadow3)!important;padding:16px!important;}
+#tbx2026 .aiWrap.aiGerman .aiHead{display:none!important;margin:0!important;}
 #tbx2026 .aiHead{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;margin-bottom:10px!important;}
 #tbx2026 .aiLabel{display:flex!important;align-items:center!important;gap:10px!important;font-size:10.5px!important;font-weight:950!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:rgba(11,16,32,.55)!important;}
 #tbx2026 .aiIc{width:30px!important;height:30px!important;border-radius:12px!important;display:flex!important;align-items:center!important;justify-content:center!important;background:var(--tb-surface)!important;border:1px solid var(--tb-line)!important;box-shadow:0 6px 14px rgba(15,23,42,.06)!important;flex:0 0 auto!important;}
 #tbx2026 .aiTxt{font-size:13px!important;line-height:1.7!important;color:rgba(11,16,32,.72)!important;white-space:pre-wrap!important;}
-#tbx2026 .aiTxt.aiStructured{font-size:14.5px!important;line-height:1.6!important;white-space:normal!important;text-align:left!important;}
-#tbx2026 .aiTxt .aiParagraph{margin:0 0 9px 0!important;white-space:pre-line!important;}
+#tbx2026 .aiTxt.aiStructured{font-size:15px!important;line-height:1.6!important;color:rgba(11,16,32,.82)!important;white-space:normal!important;text-align:left!important;}
+#tbx2026 .aiTxt .aiParagraph{margin:0 0 10px 0!important;white-space:pre-line!important;}
 #tbx2026 .aiTxt .aiParagraph:last-child{margin-bottom:0!important;}
 #tbx2026 .aiTxt .aiMainHeading{margin:24px 0 8px 0!important;font-size:16px!important;line-height:1.4!important;font-weight:800!important;color:var(--tb-ink)!important;}
 #tbx2026 .aiTxt .aiMainHeading.aiFirstHeading{margin-top:0!important;}
 #tbx2026 .aiTxt .aiSubheading{margin:10px 0 4px 0!important;font-size:inherit!important;line-height:1.5!important;font-weight:800!important;color:var(--tb-ink)!important;}
+#tbx2026 .aiTxt .aiList{margin:0 0 12px 20px!important;padding:0!important;}
+#tbx2026 .aiTxt .aiListItem{margin:0 0 11px 0!important;padding-left:3px!important;}
+#tbx2026 .aiTxt .aiListItem:last-child{margin-bottom:0!important;}
+#tbx2026 .aiTxt .aiListItem::marker{font-size:.72em!important;color:rgba(11,16,32,.48)!important;}
+#tbx2026 .aiTxt .aiListTitle{font-weight:800!important;color:var(--tb-ink)!important;}
+#tbx2026 .aiTxt .aiListText{margin-top:2px!important;font-weight:400!important;}
+#tbx2026 .aiTxt .aiDetailsToggle{display:inline-flex!important;align-items:center!important;gap:7px!important;margin:8px 0 2px!important;padding:4px 0!important;border:0!important;background:transparent!important;color:var(--tb-ink)!important;font:inherit!important;font-weight:700!important;cursor:pointer!important;text-align:left!important;}
+#tbx2026 .aiTxt .aiDetailsToggle::after{content:"⌄"!important;font-size:16px!important;line-height:1!important;transition:transform .18s ease!important;}
+#tbx2026 .aiTxt .aiDetailsToggle[aria-expanded="true"]::after{transform:rotate(180deg)!important;}
+#tbx2026 .aiTxt .aiDetailsToggle:focus-visible{outline:2px solid var(--tb-ink)!important;outline-offset:3px!important;border-radius:3px!important;}
+#tbx2026 .aiTxt .aiDetails[hidden]{display:none!important;}
+#tbx2026 .aiTxt .aiDetails.isOpening{animation:tbDetailsIn .18s ease both!important;}
+@keyframes tbDetailsIn{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:translateY(0)}}
 #tbx2026 .sk{border-radius:10px!important;background:linear-gradient(90deg,#e9ecf6 0%,#f1f4fb 45%,#e9ecf6 100%)!important;background-size:300% 100%!important;animation:tbSk 1.35s ease infinite!important;}
 @keyframes tbSk{0%{background-position:300% 0}100%{background-position:-300% 0}}#tbx2026 .sk.l{height:12px!important;margin:0 0 10px 0!important;}#tbx2026 .w90{width:90%!important;}#tbx2026 .w70{width:70%!important;}#tbx2026 .w50{width:50%!important;}
 #tbx2026.rtl{direction:rtl!important;text-align:right!important;}#tbx2026.rtl .top{flex-direction:row-reverse!important;}#tbx2026.rtl .summary-v{text-align:left!important;}#tbx2026.rtl .recMeta{justify-content:flex-end!important;}#tbx2026.rtl .bulIt{flex-direction:row-reverse!important;}#tbx2026.rtl .actions{justify-content:flex-start!important;}
@@ -185,10 +200,38 @@ window.TB_BOOTSTRAP = {
   function buildKiSummaryText(U,ctx,lang){const explicit=strip(interp(resolveText(U.ki_zusammenfassung,lang)||resolveText(U.kiSummary,lang)||resolveText(U.zusammenfassung,lang)||resolveText(U.summary,lang)||"",ctx)); if(explicit) return explicit; const parts=[]; const status=strip(interp(resolveText(U.status,lang)||"",ctx)); if(status) parts.push(status); const warum=Array.isArray(U.warum)?U.warum:[]; const hinweise=Array.isArray(U.hinweise)?U.hinweise:[]; const bullets=[]; warum.forEach(x=>{const s=strip(interp(resolveText(x,lang)||String(x||""),ctx)); if(s) bullets.push("· "+s);}); hinweise.forEach(x=>{const s=strip(interp(resolveText(x,lang)||String(x||""),ctx)); if(s) bullets.push("· "+s);}); if(bullets.length) parts.push(bullets.join("\n")); return parts.join("\n\n").trim();}
   function removeSeparatorLines(text){return String(text||"").split(/\r?\n/).filter(line=>!/^\s*(?:⸻+|[-_─━—–═=~·•]{3,})\s*$/.test(line)).join("\n");}
   function appendTextElement(container,tag,className,text){const element=document.createElement(tag); element.className=className; element.textContent=text; container.appendChild(element);}
-  function renderFazit(container,text,lang){container.classList.toggle("fazitStructured",lang==="de"); if(lang!=="de"){container.textContent=text||"—"; return;} container.replaceChildren(); const paragraphs=String(text||"").trim().split(/\n\s*\n+/).filter(Boolean); if(!paragraphs.length){container.textContent="—"; return;} paragraphs.forEach(paragraph=>appendTextElement(container,"p","",paragraph.trim()));}
+  function renderFazit(container,text,lang){container.classList.toggle("fazitStructured",lang==="de"); container.closest(".hero")?.classList.toggle("heroGerman",lang==="de"); if(lang!=="de"){container.textContent=text||"—"; return;} container.replaceChildren(); const paragraphs=String(text||"").trim().split(/\n\s*\n+/).filter(Boolean); if(!paragraphs.length){container.textContent="—"; return;} paragraphs.forEach(paragraph=>appendTextElement(container,"p","",paragraph.trim()));}
+  function formatAiLists(container){
+    const isPairStart=node=>node?.classList?.contains("aiSubheading")&&node.nextElementSibling?.classList?.contains("aiParagraph");
+    let node=container.firstElementChild;
+    while(node){
+      if(!isPairStart(node)){node=node.nextElementSibling; continue;}
+      const pairs=[]; let cursor=node;
+      while(isPairStart(cursor)){const text=cursor.nextElementSibling; pairs.push([cursor,text]); cursor=text.nextElementSibling;}
+      if(pairs.length<2){node=cursor; continue;}
+      const list=document.createElement("ul"); list.className="aiList";
+      pairs.forEach(([title,text])=>{const item=document.createElement("li"); item.className="aiListItem"; title.className="aiListTitle"; text.className="aiListText"; item.append(title,text); list.appendChild(item);});
+      container.insertBefore(list,cursor); node=cursor;
+    }
+  }
+  function addAiDetailsToggle(container){
+    const headings=Array.from(container.querySelectorAll(".aiMainHeading"));
+    const start=headings.find(heading=>heading.textContent.startsWith("🛡️"));
+    const risk=headings.find(heading=>heading.textContent.startsWith("🔒"));
+    const comparison=headings.find(heading=>heading.textContent.startsWith("🔎"));
+    const end=headings.find(heading=>heading.textContent.startsWith("⚙️"));
+    const follows=(first,second)=>Boolean(first.compareDocumentPosition(second)&Node.DOCUMENT_POSITION_FOLLOWING);
+    if(!start||!risk||!comparison||!end||!follows(start,risk)||!follows(risk,comparison)||!follows(comparison,end)) return;
+    const details=document.createElement("div"); details.className="aiDetails"; details.id="tbAiDetails"; details.hidden=true;
+    let node=start; while(node&&node!==end){const next=node.nextSibling; details.appendChild(node); node=next;}
+    const toggle=document.createElement("button"); toggle.type="button"; toggle.className="aiDetailsToggle"; toggle.textContent="So wurde dein Tarif geprüft"; toggle.setAttribute("aria-expanded","false"); toggle.setAttribute("aria-controls",details.id);
+    toggle.addEventListener("click",()=>{const opening=toggle.getAttribute("aria-expanded")==="false"; toggle.setAttribute("aria-expanded",String(opening)); toggle.textContent=opening?"Prüfdetails ausblenden":"So wurde dein Tarif geprüft"; details.hidden=!opening; if(opening){details.classList.remove("isOpening"); requestAnimationFrame(()=>details.classList.add("isOpening"));} else {details.classList.remove("isOpening");}});
+    container.insertBefore(toggle,end); container.insertBefore(details,end);
+  }
   function renderAiSummary(container,text,lang){
     const cleanText=removeSeparatorLines(text).trim();
     container.classList.toggle("aiStructured",lang==="de");
+    container.closest(".aiWrap")?.classList.toggle("aiGerman",lang==="de");
     if(lang!=="de"){container.textContent=cleanText||"—"; return;}
     container.replaceChildren();
     const mainHeading=/^(?:✨|🔍|🛡️|🔒|🔎|⚙️|✅|💸|⏳|👉)(?:\uFE0F)?\s*\S/;
@@ -197,7 +240,8 @@ window.TB_BOOTSTRAP = {
     const flushParagraph=()=>{if(!paragraphLines.length)return; appendTextElement(container,"p","aiParagraph",paragraphLines.join("\n")); paragraphLines=[];};
     cleanText.split(/\r?\n/).forEach(line=>{const trimmed=line.trim(); if(!trimmed){flushParagraph(); return;} if(mainHeading.test(trimmed)){flushParagraph(); appendTextElement(container,"div",hasMainHeading?"aiMainHeading":"aiMainHeading aiFirstHeading",trimmed); hasMainHeading=true; return;} if(subheadings.has(trimmed)){flushParagraph(); appendTextElement(container,"div","aiSubheading",trimmed); return;} paragraphLines.push(line.trim());});
     flushParagraph();
-    if(!container.childNodes.length) container.textContent="—";
+    if(!container.childNodes.length){container.textContent="—"; return;}
+    formatAiLists(container); addAiDetailsToggle(container);
   }
   try{
     const locationId = String(bootstrap.locationId || window.SURVEY_CONFIG?.locationId || "").trim();
