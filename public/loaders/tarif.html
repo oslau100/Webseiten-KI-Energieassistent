@@ -21,7 +21,7 @@ window.TB_BOOTSTRAP = {
 <style>
 :root{--tb-ink:#0b1020;--tb-muted:#667085;--tb-bg:#ffffff;--tb-surface:#f6f7fb;--tb-line:rgba(15,23,42,.08);--tb-green:#42f77a;--tb-shadow: 0 26px 70px rgba(15,23,42,.11);--tb-shadow2: 0 14px 34px rgba(15,23,42,.09);--tb-shadow3: 0 8px 18px rgba(15,23,42,.06);--tb-r2: 22px;--tb-r3: 28px;--tb-max: 1120px;}
 #tbx2026{position:relative!important;width:100%!important;margin:0!important;padding:30px 18px 56px!important;box-sizing:border-box!important;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial!important;color:var(--tb-ink)!important;-webkit-font-smoothing:antialiased!important;-moz-osx-font-smoothing:grayscale!important;background:transparent!important;overflow:hidden!important;}
-#tbx2026.offerGerman{padding-bottom:22px!important;}
+#tbx2026.offerGerman{padding-bottom:8px!important;}
 #tbx2026, #tbx2026 *, #tbx2026 *::before, #tbx2026 *::after{box-sizing:border-box!important;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial!important;}
 #tbx2026::before{content:""!important;position:absolute!important;left:50%!important;transform:translateX(-50%)!important;top:0!important;width:100vw!important;height:100%!important;background: linear-gradient(180deg, #ffffff 0%, #ffffff 65%, #fbfcff 100%)!important;z-index:0!important;}
 #tbx2026 .wrap{position:relative!important;z-index:1!important;width:min(var(--tb-max),calc(100% - 0px))!important;margin:0 auto!important;}
@@ -67,6 +67,7 @@ window.TB_BOOTSTRAP = {
 #tbx2026 .btn.secondary{background:var(--tb-btn-secondary-bg,var(--tb-surface))!important;border-color:rgba(15,23,42,.10)!important;color:var(--tb-btn-secondary-text,rgba(11,16,32,.88))!important;}#tbx2026 .btn.wide{width:100%!important;flex:1 1 100%!important;}
 #tbx2026 .compare.single{grid-template-columns:1fr!important;max-width:560px!important;margin-left:auto!important;margin-right:auto!important;}#tbx2026 .hide{display:none!important;}
 #tbx2026 .aiWrap{background:#fff!important;border:1px solid var(--tb-line)!important;border-radius:var(--tb-r2)!important;box-shadow:var(--tb-shadow3)!important;padding:16px!important;}
+#tbx2026 .aiWrap.aiGerman{padding-bottom:10px!important;}
 #tbx2026 .aiWrap.aiGerman .aiHead{display:none!important;margin:0!important;}
 #tbx2026 .aiHead{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;margin-bottom:10px!important;}
 #tbx2026 .aiLabel{display:flex!important;align-items:center!important;gap:10px!important;font-size:10.5px!important;font-weight:950!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:rgba(11,16,32,.55)!important;}
@@ -94,7 +95,7 @@ window.TB_BOOTSTRAP = {
 #tbx2026 .sk{border-radius:10px!important;background:linear-gradient(90deg,#e9ecf6 0%,#f1f4fb 45%,#e9ecf6 100%)!important;background-size:300% 100%!important;animation:tbSk 1.35s ease infinite!important;}
 @keyframes tbSk{0%{background-position:300% 0}100%{background-position:-300% 0}}#tbx2026 .sk.l{height:12px!important;margin:0 0 10px 0!important;}#tbx2026 .w90{width:90%!important;}#tbx2026 .w70{width:70%!important;}#tbx2026 .w50{width:50%!important;}
 #tbx2026.rtl{direction:rtl!important;text-align:right!important;}#tbx2026.rtl .top{flex-direction:row-reverse!important;}#tbx2026.rtl .summary-v{text-align:left!important;}#tbx2026.rtl .recMeta{justify-content:flex-end!important;}#tbx2026.rtl .bulIt{flex-direction:row-reverse!important;}#tbx2026.rtl .actions{justify-content:flex-start!important;}
-@media (max-width:920px){#tbx2026 .hero{grid-template-columns:1fr!important;}}@media (max-width:780px){#tbx2026 .compare{grid-template-columns:1fr!important;}}@media (max-width:560px){#tbx2026 .actions{gap:10px!important;}#tbx2026 .actions .btn{flex:1 1 180px!important;width:100%!important;}}@media (max-width:460px){#tbx2026{padding:20px 14px 48px!important;}#tbx2026.offerGerman{padding-bottom:18px!important;}#tbx2026 .kpis{grid-template-columns:1fr!important;}#tbx2026 .provider{font-size:22px!important;}#tbx2026 .aiTxt.aiStructured{font-size:14px!important;}#tbx2026 .aiTxt .aiMainHeading.aiFirstHeading{font-size:18px!important;line-height:1.35!important;}}
+@media (max-width:920px){#tbx2026 .hero{grid-template-columns:1fr!important;}}@media (max-width:780px){#tbx2026 .compare{grid-template-columns:1fr!important;}}@media (max-width:560px){#tbx2026 .actions{gap:10px!important;}#tbx2026 .actions .btn{flex:1 1 180px!important;width:100%!important;}}@media (max-width:460px){#tbx2026{padding:20px 14px 48px!important;}#tbx2026.offerGerman{padding-bottom:6px!important;}#tbx2026 .aiWrap.aiGerman{padding-bottom:10px!important;}#tbx2026 .kpis{grid-template-columns:1fr!important;}#tbx2026 .provider{font-size:22px!important;}#tbx2026 .aiTxt.aiStructured{font-size:14px!important;}#tbx2026 .aiTxt .aiMainHeading.aiFirstHeading{font-size:18px!important;line-height:1.35!important;}}
 #tbx2026 .modalBack{position:fixed!important;inset:0!important;background:rgba(15,23,42,0.55)!important;display:none!important;align-items:center!important;justify-content:center!important;padding:18px!important;z-index:999999!important;}#tbx2026 .modalBack.open{display:flex!important;}
 #tbx2026 .modal{width:min(640px,100%)!important;background:#fff!important;border-radius:24px!important;border:1px solid rgba(15,23,42,.08)!important;box-shadow:0 30px 80px rgba(0,0,0,0.18)!important;overflow:hidden!important;animation:tbFadeUp .18s ease both!important;max-height:calc(100vh - 40px)!important;display:flex!important;flex-direction:column!important;}
 #tbx2026 .modalTop{padding:14px 16px!important;border-bottom:1px solid rgba(15,23,42,.08)!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;background:linear-gradient(180deg,#ffffff 0%, #fbfcff 100%)!important;}
@@ -238,7 +239,14 @@ window.TB_BOOTSTRAP = {
     while(node){
       if(!node.classList.contains("aiParagraph")){node=node.nextElementSibling; continue;}
       const lines=node.textContent.split("\n").map(line=>line.trim()).filter(Boolean);
-      if(lines.length>=2&&lines.every(line=>simpleItems.has(line.toLocaleLowerCase("de-DE")))){const next=node.nextElementSibling; makeSimpleList(lines,node); node.remove(); node=next; continue;}
+      const simpleRuns=[]; let runStart=-1;
+      lines.forEach((line,index)=>{const known=simpleItems.has(line.toLocaleLowerCase("de-DE")); if(known&&runStart<0) runStart=index; if((!known||index===lines.length-1)&&runStart>=0){const runEnd=known&&index===lines.length-1?index+1:index; if(runEnd-runStart>=2) simpleRuns.push([runStart,runEnd]); runStart=-1;}});
+      if(simpleRuns.length){
+        const next=node.nextElementSibling; let lineIndex=0;
+        simpleRuns.forEach(([start,end])=>{if(start>lineIndex){const paragraph=document.createElement("p"); paragraph.className="aiParagraph"; paragraph.textContent=lines.slice(lineIndex,start).join("\n"); container.insertBefore(paragraph,node);} makeSimpleList(lines.slice(start,end),node); lineIndex=end;});
+        if(lineIndex<lines.length){const paragraph=document.createElement("p"); paragraph.className="aiParagraph"; paragraph.textContent=lines.slice(lineIndex).join("\n"); container.insertBefore(paragraph,node);}
+        node.remove(); node=next; continue;
+      }
       if(lines.length===1&&simpleItems.has(lines[0].toLocaleLowerCase("de-DE"))){
         const items=[]; const nodes=[]; let cursor=node;
         while(cursor?.classList.contains("aiParagraph")){const text=cursor.textContent.trim(); if(!simpleItems.has(text.toLocaleLowerCase("de-DE"))) break; items.push(text); nodes.push(cursor); cursor=cursor.nextElementSibling;}
