@@ -33,7 +33,7 @@ export const Header = () => {
     <header className="relative z-50 w-full bg-[#000000] text-white">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0 opacity-[0.09]"
+        className="pointer-events-none absolute inset-0 z-0 opacity-[0.075]"
         style={{
           backgroundImage: `
             linear-gradient(to right, #ffffff 1px, transparent 1px),
