@@ -13,39 +13,37 @@ const Tarif = () => {
     if (!iframe) return;
 
     let observer: ResizeObserver | null = null;
-    const updateHeight = (shrink = false) => {
+    let resizeFrame: number | null = null;
+    const updateHeight = () => {
       try {
         const doc = iframe.contentDocument;
         if (!doc) return;
-
-        let previousHeight = "";
-        if (shrink) {
-          previousHeight = iframe.style.height;
-          iframe.style.height = "1px";
-        }
-
-        const next = Math.max(
-          doc.documentElement?.scrollHeight || 0,
-          doc.body?.scrollHeight || 0,
-          doc.documentElement?.offsetHeight || 0,
-          1,
-        );
-
-        if (shrink) iframe.style.height = previousHeight;
+        const offerRoot = doc.getElementById("tbx2026");
+        const bodyMarginBottom = doc.body ? Number.parseFloat(iframe.contentWindow?.getComputedStyle(doc.body).marginBottom || "0") : 0;
+        const next = offerRoot
+          ? offerRoot.getBoundingClientRect().bottom + bodyMarginBottom
+          : Math.max(doc.documentElement?.scrollHeight || 0, doc.body?.scrollHeight || 0, doc.documentElement?.offsetHeight || 0, 1);
         setIframeHeight(Math.ceil(next));
       } catch {
         // ignore cross-frame access errors
       }
     };
+    const scheduleHeightUpdate = () => {
+      if (resizeFrame !== null) cancelAnimationFrame(resizeFrame);
+      resizeFrame = requestAnimationFrame(() => {
+        resizeFrame = null;
+        updateHeight();
+      });
+    };
 
     const onLoad = () => {
-      updateHeight(true);
+      updateHeight();
       try {
         const doc = iframe.contentDocument;
         if (!doc) return;
-        observer = new ResizeObserver(() => updateHeight(false));
-        observer.observe(doc.documentElement);
-        if (doc.body) observer.observe(doc.body);
+        observer = new ResizeObserver(scheduleHeightUpdate);
+        const offerRoot = doc.getElementById("tbx2026");
+        observer.observe(offerRoot || doc.documentElement);
       } catch {
         // ignore unsupported observers
       }
@@ -57,6 +55,7 @@ const Tarif = () => {
     return () => {
       iframe.removeEventListener("load", onLoad);
       observer?.disconnect();
+      if (resizeFrame !== null) cancelAnimationFrame(resizeFrame);
     };
   }, [src]);
 
