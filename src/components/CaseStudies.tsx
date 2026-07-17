@@ -56,7 +56,7 @@ const caseStudies: CaseStudy[] = [
       <>
         Nach der Implementierung seines Energieassistenten ergänzte Marcel seinen D2D-Vertrieb gezielt mit Einwurfkarten in den Gebieten, in denen er ohnehin unterwegs war. Viele Haushalte kannten ihn dadurch bereits vor dem ersten Gespräch, wodurch er auf mehr Grundvertrauen traf und seine Gespräche deutlich leichter führen konnte.
         <br /><br />
-        Gleichzeitig wurden über seinen Energieassistenten in den ersten drei Monaten 111 Verträge automatisiert abgeschlossen – bei nahezu keinen Widerrufen oder Stornos. Parallel erzielte Marcel weiterhin jeden Monat mehr als 30 D2D-Abschlüsse.
+        Gleichzeitig wurden über seinen Energieassistenten in den ersten drei Monaten 111 Verträge automatisiert abgeschlossen – bei nahezu keinen Widerrufen oder Stornos.
         <br /><br />
         Heute gewinnt er neben seinem klassischen D2D-Vertrieb fortlaufend zusätzliche Abschlüsse über seinen Energieassistenten.
       </>
