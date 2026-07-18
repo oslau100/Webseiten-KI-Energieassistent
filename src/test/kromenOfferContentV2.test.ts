@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
 
-const loader = readFileSync(new URL("../../public/loaders/tarif.html", import.meta.url), "utf8");
+const loader = readFileSync("public/loaders/tarif.html", "utf8");
 const rendererSource = loader.slice(loader.indexOf("  function removeSeparatorLines"), loader.indexOf("  try{", loader.indexOf("  function renderAiSummary")));
 
 type TestBlock = { type: string; text?: string; items?: Array<string | { title: string; text?: string }> };
@@ -119,7 +119,8 @@ describe("Kromen Offer Content format_version 2", () => {
     expect(toggle).toHaveTextContent("Methode öffnen");
     expect(details.hidden).toBe(true);
     expect(details).toHaveTextContent("Methodik ohne erwartetes Emoji");
-    expect(container.lastElementChild).toHaveTextContent("Abschluss");
+    expect(toggle.previousElementSibling).toHaveTextContent("Abschluss");
+    expect(container.lastElementChild).toBe(details);
     toggle.click();
     expect(toggle).toHaveAttribute("aria-expanded", "true");
     expect(details.hidden).toBe(false);
@@ -127,6 +128,120 @@ describe("Kromen Offer Content format_version 2", () => {
     toggle.click();
     expect(toggle).toHaveAttribute("aria-expanded", "false");
     expect(details.hidden).toBe(true);
+  });
+
+
+  it("renders main sections around a middle methodology group and keeps the toggle after the last main section", () => {
+    const api = createApi();
+    const container = setupContainer();
+    api.renderAiSummaryV2(container, validContent(), {}, "de");
+
+    const directNodes = [...container.children];
+    const headingTexts = [...container.querySelectorAll(":scope > .aiMainHeading")].map((node) => node.textContent);
+    expect(headingTexts).toEqual([
+      "🌐 Strukturierte Prüfung für",
+      "A Erkenntnis",
+      "T Direkt nach Antwort",
+      "P Direkt nach Paragraph",
+      "L Direkt nach Liste",
+      "D Empfehlung nach Methodik",
+    ]);
+
+    const toggleIndex = directNodes.findIndex((node) => node.classList.contains("aiDetailsToggle"));
+    const recommendationIndex = directNodes.findIndex((node) => node.textContent?.includes("Empfehlung nach Methodik"));
+    expect(toggleIndex).toBeGreaterThan(recommendationIndex);
+    expect(directNodes.slice(toggleIndex + 1).some((node) => node.classList.contains("aiMainHeading"))).toBe(false);
+  });
+
+  it("places the toggle at the end for the Nicht-Sparer structure", () => {
+    const api = createApi();
+    const content = validContent();
+    content.sections = [
+      { id: "central_insight", icon: "1", title: "Erkenntnis", group: "main", blocks: [{ type: "paragraph", text: "Eins" }] },
+      { id: "effort", icon: "2", title: "Aufwand", group: "main", blocks: [{ type: "paragraph", text: "Zwei" }] },
+      { id: "selection_reason", icon: "3", title: "Auswahl", group: "methodology", blocks: [{ type: "paragraph", text: "Drei" }] },
+      { id: "risks", icon: "4", title: "Risiken", group: "methodology", blocks: [{ type: "paragraph", text: "Vier" }] },
+      { id: "comparison", icon: "5", title: "Vergleich", group: "methodology", blocks: [{ type: "paragraph", text: "Fünf" }] },
+      { id: "changes", icon: "6", title: "Änderungen", group: "main", blocks: [{ type: "paragraph", text: "Sechs" }] },
+      { id: "inaction", icon: "7", title: "Untätigkeit", group: "main", blocks: [{ type: "paragraph", text: "Sieben" }] },
+      { id: "timing", icon: "8", title: "Zeitpunkt", group: "main", blocks: [{ type: "paragraph", text: "Acht" }] },
+      { id: "recommendation", icon: "9", title: "Empfehlung", group: "main", blocks: [{ type: "paragraph", text: "Neun" }] },
+    ];
+    expect(api.validateOfferContentV2(content).valid).toBe(true);
+    const container = setupContainer();
+    api.renderAiSummaryV2(container, content, {}, "de");
+
+    expect([...container.querySelectorAll(":scope > .aiMainHeading")].map((node) => node.textContent)).toEqual([
+      "🌐 Strukturierte Prüfung für",
+      "1 Erkenntnis",
+      "2 Aufwand",
+      "6 Änderungen",
+      "7 Untätigkeit",
+      "8 Zeitpunkt",
+      "9 Empfehlung",
+    ]);
+    const toggle = container.querySelector(".aiDetailsToggle") as HTMLElement;
+    expect([...container.children].findLast((node) => node.classList.contains("aiMainHeading"))).toHaveTextContent("Empfehlung");
+    expect(toggle.nextElementSibling).toHaveClass("aiDetails");
+  });
+
+  it("renders exactly one methodology toggle and details container", () => {
+    const api = createApi();
+    const container = setupContainer();
+    api.renderAiSummaryV2(container, validContent(), {}, "de");
+    expect(container.querySelectorAll(".aiDetailsToggle")).toHaveLength(1);
+    expect(container.querySelectorAll(".aiDetails")).toHaveLength(1);
+  });
+
+  it("keeps methodology sections in their details array order", () => {
+    const api = createApi();
+    const content = validContent();
+    content.sections.splice(6, 0, { id: "comparison", icon: "V", title: "Vergleich", group: "methodology", blocks: [{ type: "paragraph", text: "Vergleichstext" }] });
+    const container = setupContainer();
+    api.renderAiSummaryV2(container, content, {}, "de");
+    expect([...container.querySelectorAll(".aiDetails .aiMainHeading")].map((node) => node.textContent)).toEqual([
+      "B Methodik ohne erwartetes Emoji",
+      "C Risiken",
+      "V Vergleich",
+    ]);
+  });
+
+  it("does not render an empty methodology toggle or details container without methodology sections", () => {
+    const api = createApi();
+    const content = validContent();
+    content.sections = content.sections.filter((section) => section.group !== "methodology");
+    expect(api.validateOfferContentV2(content).valid).toBe(true);
+    const container = setupContainer();
+    api.renderAiSummaryV2(container, content, {}, "de");
+    expect(container.querySelector(".aiDetailsToggle")).toBeNull();
+    expect(container.querySelector(".aiDetails")).toBeNull();
+  });
+
+  it("keeps details toggling accessible and requests layout sync without fixed heights", () => {
+    const api = createApi();
+    const container = setupContainer();
+    api.renderAiSummaryV2(container, validContent(), {}, "de");
+    const toggle = container.querySelector("button.aiDetailsToggle") as HTMLButtonElement;
+    const details = container.querySelector(".aiDetails") as HTMLElement;
+    let syntheticHeight = 400;
+    Object.defineProperty(document.getElementById("tbx2026"), "offsetHeight", { configurable: true, get: () => syntheticHeight });
+
+    expect(toggle).toHaveAttribute("aria-expanded", "false");
+    expect(toggle.getAttribute("aria-controls")).toBe(details.id);
+    const closedHeight = (document.getElementById("tbx2026") as HTMLElement).offsetHeight;
+    toggle.click();
+    syntheticHeight = 640;
+    expect(toggle).toHaveAttribute("aria-expanded", "true");
+    expect(toggle).toHaveTextContent("Methode schließen");
+    expect(details.hidden).toBe(false);
+    expect((document.getElementById("tbx2026") as HTMLElement).offsetHeight).toBeGreaterThan(closedHeight);
+    toggle.click();
+    syntheticHeight = 400;
+    expect(toggle).toHaveAttribute("aria-expanded", "false");
+    expect(toggle).toHaveTextContent("Methode öffnen");
+    expect(details.hidden).toBe(true);
+    expect((document.getElementById("tbx2026") as HTMLElement).offsetHeight).toBe(closedHeight);
+    expect(details.getAttribute("style") || "").not.toMatch(/(?:^|;)\s*(?:height|max-height|min-height)\s*:/);
   });
 
   it("keeps structured rendering RTL-safe without changing German or English defaults", () => {
