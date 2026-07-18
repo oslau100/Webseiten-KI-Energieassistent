@@ -13,39 +13,50 @@ const Tarif = () => {
     if (!iframe) return;
 
     let observer: ResizeObserver | null = null;
-    const updateHeight = (shrink = false) => {
-      try {
-        const doc = iframe.contentDocument;
-        if (!doc) return;
+    let rafId = 0;
 
-        let previousHeight = "";
-        if (shrink) {
-          previousHeight = iframe.style.height;
-          iframe.style.height = "1px";
+    const measureHeight = () => {
+      const doc = iframe.contentDocument;
+      if (!doc) return 1;
+
+      const root = doc.getElementById("tbx2026") || doc.documentElement;
+      const rect = root.getBoundingClientRect();
+      const bodyStyles = doc.body ? doc.defaultView?.getComputedStyle(doc.body) : null;
+      const bodyMarginBottom = bodyStyles ? Number.parseFloat(bodyStyles.marginBottom || "0") || 0 : 0;
+      const viewportTop = doc.documentElement.getBoundingClientRect().top;
+      const rootBottom = Math.max(0, rect.bottom - viewportTop);
+
+      return Math.max(
+        Math.ceil(rootBottom + bodyMarginBottom),
+        doc.documentElement?.scrollHeight || 0,
+        doc.body?.scrollHeight || 0,
+        1,
+      );
+    };
+
+    const scheduleHeightUpdate = () => {
+      if (rafId) return;
+      rafId = window.requestAnimationFrame(() => {
+        rafId = 0;
+        try {
+          setIframeHeight(measureHeight());
+        } catch {
+          // ignore cross-frame access errors
         }
-
-        const next = Math.max(
-          doc.documentElement?.scrollHeight || 0,
-          doc.body?.scrollHeight || 0,
-          doc.documentElement?.offsetHeight || 0,
-          1,
-        );
-
-        if (shrink) iframe.style.height = previousHeight;
-        setIframeHeight(Math.ceil(next));
-      } catch {
-        // ignore cross-frame access errors
-      }
+      });
     };
 
     const onLoad = () => {
-      updateHeight(true);
+      scheduleHeightUpdate();
       try {
+        observer?.disconnect();
         const doc = iframe.contentDocument;
         if (!doc) return;
-        observer = new ResizeObserver(() => updateHeight(false));
-        observer.observe(doc.documentElement);
-        if (doc.body) observer.observe(doc.body);
+        const observedRoot = doc.getElementById("tbx2026") || doc.documentElement;
+        observer = new ResizeObserver(scheduleHeightUpdate);
+        observer.observe(observedRoot);
+        if (doc.body && doc.body !== observedRoot) observer.observe(doc.body);
+        doc.defaultView?.addEventListener("resize", scheduleHeightUpdate);
       } catch {
         // ignore unsupported observers
       }
@@ -56,7 +67,13 @@ const Tarif = () => {
 
     return () => {
       iframe.removeEventListener("load", onLoad);
+      try {
+        iframe.contentDocument?.defaultView?.removeEventListener("resize", scheduleHeightUpdate);
+      } catch {
+        // ignore cross-frame access errors
+      }
       observer?.disconnect();
+      if (rafId) window.cancelAnimationFrame(rafId);
     };
   }, [src]);
 
