@@ -2,6 +2,23 @@ import { useEffect, useRef, useState } from "react";
 import { SimpleFooter } from "@/components/SimpleFooter";
 import { useLocation } from "react-router-dom";
 
+export const calculateTarifIframeHeight = (doc: Document) => {
+  const offerRoot = doc.getElementById("tbx2026");
+  const bodyStyles = doc.body ? doc.defaultView?.getComputedStyle(doc.body) : null;
+  const bodyMarginBottom = bodyStyles ? Number.parseFloat(bodyStyles.marginBottom || "0") || 0 : 0;
+
+  const next = offerRoot
+    ? offerRoot.getBoundingClientRect().bottom + bodyMarginBottom
+    : Math.max(
+        doc.documentElement?.scrollHeight || 0,
+        doc.body?.scrollHeight || 0,
+        doc.documentElement?.offsetHeight || 0,
+        1,
+      );
+
+  return Math.max(Math.ceil(next), 1);
+};
+
 const Tarif = () => {
   const location = useLocation();
   const src = `/loaders/tarif.html${location.search || ""}`;
@@ -15,31 +32,14 @@ const Tarif = () => {
     let observer: ResizeObserver | null = null;
     let rafId = 0;
 
-    const measureHeight = () => {
-      const doc = iframe.contentDocument;
-      if (!doc) return 1;
-
-      const root = doc.getElementById("tbx2026") || doc.documentElement;
-      const rect = root.getBoundingClientRect();
-      const bodyStyles = doc.body ? doc.defaultView?.getComputedStyle(doc.body) : null;
-      const bodyMarginBottom = bodyStyles ? Number.parseFloat(bodyStyles.marginBottom || "0") || 0 : 0;
-      const viewportTop = doc.documentElement.getBoundingClientRect().top;
-      const rootBottom = Math.max(0, rect.bottom - viewportTop);
-
-      return Math.max(
-        Math.ceil(rootBottom + bodyMarginBottom),
-        doc.documentElement?.scrollHeight || 0,
-        doc.body?.scrollHeight || 0,
-        1,
-      );
-    };
-
     const scheduleHeightUpdate = () => {
-      if (rafId) return;
+      if (rafId) window.cancelAnimationFrame(rafId);
       rafId = window.requestAnimationFrame(() => {
         rafId = 0;
         try {
-          setIframeHeight(measureHeight());
+          const doc = iframe.contentDocument;
+          if (!doc) return;
+          setIframeHeight(calculateTarifIframeHeight(doc));
         } catch {
           // ignore cross-frame access errors
         }
