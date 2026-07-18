@@ -62,6 +62,36 @@ function stubDoc({ rootBottom, marginBottom = "0px", docScroll = 0, bodyScroll =
 }
 
 describe("Ehiogie Offer Content V2", () => {
+  it("matches Kromen V2 CSS hierarchy for typography, lists, toggle and mobile values", () => {
+    const css = loader.slice(loader.indexOf("#tbx2026 .aiWrap.aiV2"), loader.indexOf("#tbx2026 .sk"));
+    expect(css).toContain("#tbx2026 .aiTxt.aiStructured");
+    expect(css).toContain("font-size:15px!important");
+    expect(css).toContain("#tbx2026 .aiStructured .aiParagraph");
+    expect(css).toContain("#tbx2026 .aiStructured .aiMainHeading");
+    expect(css).toContain("font-size:16px!important");
+    expect(css).toContain("#tbx2026 .aiStructured .aiFirstHeading");
+    expect(css).toContain("font-size:20px!important");
+    expect(css).toContain("#tbx2026 .aiStructured .aiAnswerLead{font-weight:600!important");
+    expect(css).not.toContain("font-weight:900!important;color:rgba(11,16,32,.88)!important;background");
+    expect(css).not.toContain("border-radius:16px");
+    expect(css).not.toContain("padding:12px");
+    expect(css).toContain("#tbx2026 .aiStructured .aiHeadingAfterAnswer{margin-top:32px!important");
+    expect(css).toContain("#tbx2026 .aiStructured .aiListTitle{display:block!important");
+    expect(css).toContain("#tbx2026 .aiStructured .aiListText{display:block!important");
+    expect(css).not.toContain("aiListTitle::after");
+    expect(css).not.toContain('content=": "');
+    expect(css).not.toContain('content:": "');
+    expect(css).toContain("#tbx2026 .aiStructured .aiDetailsToggle");
+    expect(css).toContain("color:var(--tb-ink)!important");
+    expect(css).toContain("text-decoration:none!important");
+    expect(css).not.toContain("color:var(--tb-btn-primary-bg");
+    expect(css).not.toContain("text-decoration:underline");
+    expect(css).toContain('@media (max-width:560px)');
+    expect(css).toContain("#tbx2026 .aiTxt.aiStructured{font-size:14px!important");
+    expect(css).toContain("#tbx2026 .aiStructured .aiFirstHeading{font-size:18px!important");
+    expect(css).toContain("#tbx2026 .aiStructured .aiHeadingAfterAnswer{margin-top:28px!important");
+  });
+
   it("keeps German and non-German legacy rendering without warning for missing format_version and shows aiHead", () => {
     expect(loader).toContain("function pickAiBlock");
     expect(loader).toContain("function buildKiSummaryText");
@@ -92,6 +122,7 @@ describe("Ehiogie Offer Content V2", () => {
     expect(dom.window.document.querySelector(".aiListItem")).toBeTruthy();
     expect(dom.window.document.querySelector(".aiListTitle")?.textContent).toBe("Objekt");
     expect(dom.window.document.querySelector(".aiListText")?.textContent).toBe("Text");
+    expect(dom.window.document.querySelector(".aiListTitle")?.nextElementSibling?.classList.contains("aiListText")).toBe(true);
   });
 
   it("rejects invalid contract shapes, arrays, placeholders, groups, sections and blocks", () => {
