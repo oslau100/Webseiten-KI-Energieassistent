@@ -6,7 +6,7 @@ import { calculateTarifIframeHeight } from "../pages/Tarif";
 const loader = readFileSync("public/loaders/tarif.html", "utf8");
 const tarifPage = readFileSync("src/pages/Tarif.tsx", "utf8");
 const rendererSource = loader.slice(
-  loader.indexOf("const OFFER_V2_ALLOWED_VARIABLES"),
+  loader.indexOf("function appendTextElement"),
   loader.indexOf("function pickAiBlock"),
 );
 
@@ -20,7 +20,7 @@ function install() {
     "window",
     "document",
     "setTimeout",
-    `${rendererSource}; return { validateOfferContentV2, renderStructuredBlock, renderStructuredSection, renderMethodologyGroupV2, renderAiSummaryV2, markHeadingsAfterAnswers, scheduleOfferLayoutSync, clearAiV2State };`,
+    String.raw`const requestAnimationFrame=window.requestAnimationFrame.bind(window); const cancelAnimationFrame=window.cancelAnimationFrame.bind(window); const $=(id)=>document.getElementById(id); const interp=(text,ctx)=>String(text||"").replace(/\{\{(\w+)\}\}/g,(_,k)=>ctx[k]??"").replace(/\{(\w+)\}/g,(_,k)=>ctx[k]??""); ${rendererSource}; return { validateOfferContentV2, renderStructuredBlock, renderStructuredSection, renderMethodologyGroupV2, renderAiSummaryV2, markHeadingsAfterAnswers, scheduleOfferLayoutSync, clearAiV2State };`,
   );
   return { dom, api: factory(dom.window, dom.window.document, dom.window.setTimeout.bind(dom.window)) };
 }
@@ -62,34 +62,38 @@ function stubDoc({ rootBottom, marginBottom = "0px", docScroll = 0, bodyScroll =
 }
 
 describe("Ehiogie Offer Content V2", () => {
-  it("matches Kromen V2 CSS hierarchy for typography, lists, toggle and mobile values", () => {
-    const css = loader.slice(loader.indexOf("#tbx2026 .aiWrap.aiV2"), loader.indexOf("#tbx2026 .sk"));
-    expect(css).toContain("#tbx2026 .aiTxt.aiStructured");
-    expect(css).toContain("font-size:15px!important");
-    expect(css).toContain("#tbx2026 .aiStructured .aiParagraph");
-    expect(css).toContain("#tbx2026 .aiStructured .aiMainHeading");
-    expect(css).toContain("font-size:16px!important");
-    expect(css).toContain("#tbx2026 .aiStructured .aiFirstHeading");
-    expect(css).toContain("font-size:20px!important");
-    expect(css).toContain("#tbx2026 .aiStructured .aiAnswerLead{font-weight:600!important");
-    expect(css).not.toContain("font-weight:900!important;color:rgba(11,16,32,.88)!important;background");
-    expect(css).not.toContain("border-radius:16px");
-    expect(css).not.toContain("padding:12px");
-    expect(css).toContain("#tbx2026 .aiStructured .aiHeadingAfterAnswer{margin-top:32px!important");
-    expect(css).toContain("#tbx2026 .aiStructured .aiListTitle{display:block!important");
-    expect(css).toContain("#tbx2026 .aiStructured .aiListText{display:block!important");
-    expect(css).not.toContain("aiListTitle::after");
-    expect(css).not.toContain('content=": "');
-    expect(css).not.toContain('content:": "');
-    expect(css).toContain("#tbx2026 .aiStructured .aiDetailsToggle");
-    expect(css).toContain("color:var(--tb-ink)!important");
-    expect(css).toContain("text-decoration:none!important");
-    expect(css).not.toContain("color:var(--tb-btn-primary-bg");
-    expect(css).not.toContain("text-decoration:underline");
-    expect(css).toContain('@media (max-width:560px)');
-    expect(css).toContain("#tbx2026 .aiTxt.aiStructured{font-size:14px!important");
-    expect(css).toContain("#tbx2026 .aiStructured .aiFirstHeading{font-size:18px!important");
-    expect(css).toContain("#tbx2026 .aiStructured .aiHeadingAfterAnswer{margin-top:28px!important");
+  it("matches exact Kromen V2 CSS declarations for hierarchy, lists, toggle and mobile values", () => {
+    const css = loader;
+    expect(css).toContain("#tbx2026 .aiTxt.aiStructured{max-width:88ch!important;font-size:15px!important;line-height:1.6!important;color:rgba(11,16,32,.82)!important;white-space:normal!important;text-align:left!important;}");
+    expect(css).toContain("#tbx2026 .aiTxt .aiParagraph{margin:0 0 8px 0!important;white-space:pre-line!important;}");
+    expect(css).toContain("#tbx2026 .aiTxt .aiMainHeading{margin:24px 0 8px 0!important;font-size:16px!important;line-height:1.4!important;font-weight:800!important;color:var(--tb-ink)!important;}");
+    expect(css).toContain("#tbx2026 .aiTxt .aiMainHeading.aiFirstHeading{margin:0 0 18px 0!important;font-size:20px!important;line-height:1.3!important;font-weight:900!important;}");
+    expect(css).toContain("#tbx2026 .aiTxt .aiAnswerLead{font-weight:600!important;color:rgba(11,16,32,.88)!important;line-height:1.55!important;margin-bottom:14px!important;}");
+    expect(css).toContain("#tbx2026 .aiTxt .aiMainHeading.aiHeadingAfterAnswer{margin-top:32px!important;}");
+    expect(css).toContain("#tbx2026 .aiTxt .aiSubheading{margin:10px 0 4px 0!important;font-size:inherit!important;line-height:1.5!important;font-weight:600!important;color:rgba(11,16,32,.88)!important;}");
+    expect(css).toContain("#tbx2026 .aiTxt .aiList{margin:0 0 12px 20px!important;padding:0!important;}");
+    expect(css).toContain("#tbx2026 .aiTxt .aiListItem{margin:0 0 11px 0!important;padding-left:3px!important;}");
+    expect(css).toContain("#tbx2026 .aiTxt .aiListItem::marker{font-size:.72em!important;color:rgba(11,16,32,.48)!important;}");
+    expect(css).toContain("#tbx2026 .aiTxt .aiListTitle{font-weight:800!important;color:var(--tb-ink)!important;}");
+    expect(css).toContain("#tbx2026 .aiTxt .aiListText{margin-top:2px!important;font-weight:400!important;}");
+    expect(css).toContain("#tbx2026 .aiTxt .aiDetailsToggle{display:inline-flex!important;align-items:center!important;gap:7px!important;margin:8px 0 2px!important;padding:4px 0!important;border:0!important;background:transparent!important;color:var(--tb-ink)!important;font:inherit!important;font-weight:700!important;cursor:pointer!important;text-align:left!important;}");
+    expect(css).toContain('#tbx2026 .aiTxt .aiDetailsToggle::after{content:"⌄"!important;font-size:16px!important;line-height:1!important;transition:transform .18s ease!important;}');
+    expect(css).toContain("#tbx2026 .aiTxt .aiDetailsToggle:focus-visible{outline:2px solid var(--tb-ink)!important;outline-offset:3px!important;border-radius:3px!important;}");
+    expect(css).toContain("#tbx2026 .aiTxt .aiDetails[hidden]{display:none!important;}");
+    expect(css).toContain("#tbx2026 .aiTxt .aiDetails.isOpening{animation:tbDetailsIn .18s ease both!important;}");
+    expect(css).toContain("#tbx2026 .aiTxt.aiStructured{font-size:14px!important;}");
+    expect(css).toContain("#tbx2026 .aiTxt .aiMainHeading.aiFirstHeading{margin-bottom:16px!important;font-size:18px!important;line-height:1.35!important;}");
+    expect(css).toContain("#tbx2026 .aiTxt .aiMainHeading.aiHeadingAfterAnswer{margin-top:28px!important;}");
+    const v2Css = css.slice(css.indexOf("#tbx2026 .aiTxt.aiStructured"), css.indexOf("#tbx2026 .sk"));
+    expect(v2Css).not.toContain("line-height:1.72");
+    expect(v2Css).not.toContain("font-weight:850");
+    expect(v2Css).not.toContain("font-weight:750");
+    expect(v2Css).not.toContain("border-top:1px solid var(--tb-line)");
+    expect(v2Css).not.toContain("padding-top:14px");
+    expect(v2Css).not.toContain("rgba(37,99,235,.32)");
+    expect(v2Css).not.toContain("aiListTitle::after");
+    expect(v2Css).not.toContain("text-decoration:underline");
+    expect(v2Css).not.toContain("color:var(--tb-btn-primary-bg");
   });
 
   it("keeps German and non-German legacy rendering without warning for missing format_version and shows aiHead", () => {
@@ -110,8 +114,8 @@ describe("Ehiogie Offer Content V2", () => {
     expect(() => api.validateOfferContentV2(payload)).not.toThrow();
     api.renderAiSummaryV2(dom.window.document.getElementById("ai"), payload, ctx);
     const text = dom.window.document.getElementById("ai")!.textContent!;
-    expect(text).toContain("✨Titel Berlin");
-    expect(text).toContain("💡Antwort Ehiogie");
+    expect(text).toContain("✨ Titel Berlin");
+    expect(text).toContain("💡 Antwort Ehiogie");
     const blockTexts = Array.from(dom.window.document.querySelectorAll(".aiParagraph,.aiSubheading,.aiList")).map((el) => el.textContent);
     expect(blockTexts.slice(0, 5)).toEqual(["Absatz", "Zwischen", "Antwort", "PunktObjektText", "Eins"]);
     expect(dom.window.document.querySelector(".aiParagraph")).toBeTruthy();
@@ -171,7 +175,7 @@ describe("Ehiogie Offer Content V2", () => {
   it("invalid V2 and unexpected renderer errors remove aiV2 and show legacy text", () => {
     const { dom, api } = install(); const container = dom.window.document.getElementById("ai")!;
     api.renderAiSummaryV2(container, validPayload(), ctx);
-    try { api.renderAiSummaryV2(container, { ...validPayload(), sections: [] }, ctx); } catch { api.clearAiV2State(container); container.textContent = "Legacy fallback"; }
+    try { api.validateOfferContentV2({ ...validPayload(), sections: [] }); api.renderAiSummaryV2(container, { ...validPayload(), sections: [] }, ctx); } catch { api.clearAiV2State(container); container.textContent = "Legacy fallback"; }
     expect(dom.window.document.querySelector(".aiWrap")?.classList.contains("aiV2")).toBe(false);
     expect(container.textContent).toBe("Legacy fallback");
     api.renderAiSummaryV2(container, validPayload(), ctx);
@@ -193,23 +197,30 @@ describe("Ehiogie Offer Content V2", () => {
     expect(toggle.type).toBe("button"); expect(toggle.getAttribute("aria-expanded")).toBe("false");
     expect(toggle.getAttribute("aria-controls")).toBe(detail.id); expect(detail.hidden).toBe(true);
     const text = dom.window.document.getElementById("ai")!.textContent!;
-    expect(text.indexOf("💡Antwort")).toBeLessThan(text.indexOf("✅Empfehlung"));
-    expect(text.indexOf("Details 10115")).toBeGreaterThan(text.indexOf("✅Empfehlung"));
+    expect(text.indexOf("💡 Antwort")).toBeLessThan(text.indexOf("✅ Empfehlung"));
+    expect(text.indexOf("Details 10115")).toBeGreaterThan(text.indexOf("✅ Empfehlung"));
     expect(detail.textContent!.indexOf("Methode 1")).toBeLessThan(detail.textContent!.indexOf("Methode 2"));
     toggle.click(); expect(toggle.getAttribute("aria-expanded")).toBe("true"); expect(detail.hidden).toBe(false); expect(toggle.textContent).toBe("Ausblenden 10115");
     toggle.click(); expect(toggle.getAttribute("aria-expanded")).toBe("false"); expect(detail.hidden).toBe(true); expect(toggle.textContent).toBe("Details 10115");
     expect(detail.style.height).toBe(""); expect(detail.style.minHeight).toBe(""); expect(detail.style.maxHeight).toBe("");
   });
 
-  it("creates no toggle without methodology and requests layout sync on open and close", () => {
-    const { dom, api } = install(); let resizes = 0; dom.window.addEventListener("resize", () => resizes++);
+  it("creates no toggle without methodology and toggles without fixed detail heights", () => {
+    const { dom, api } = install();
     const p = validPayload(); p.sections = p.sections.filter((s:any)=>s.group === "main");
     api.renderAiSummaryV2(dom.window.document.getElementById("ai"), p, ctx);
     expect(dom.window.document.querySelector(".aiDetailsToggle")).toBeNull();
     const p2 = validPayload(); api.renderAiSummaryV2(dom.window.document.getElementById("ai"), p2, ctx);
-    (dom.window.document.querySelector(".aiDetailsToggle") as HTMLButtonElement).click();
-    (dom.window.document.querySelector(".aiDetailsToggle") as HTMLButtonElement).click();
-    return new Promise<void>((resolve) => dom.window.setTimeout(() => { expect(resizes).toBeGreaterThanOrEqual(1); resolve(); }, 0));
+    const toggle = dom.window.document.querySelector(".aiDetailsToggle") as HTMLButtonElement;
+    const detail = dom.window.document.querySelector(".aiDetails") as HTMLElement;
+    toggle.click();
+    expect(detail.hidden).toBe(false);
+    toggle.click();
+    expect(detail.hidden).toBe(true);
+    expect(detail.style.height).toBe("");
+    expect(detail.style.minHeight).toBe("");
+    expect(detail.style.maxHeight).toBe("");
+    expect(detail.style.overflow).toBe("");
   });
 
   it("marks following main headings after answer with DOM-based logic only", () => {
@@ -225,7 +236,7 @@ describe("Ehiogie Offer Content V2", () => {
     p.sections[0].blocks = [{ type: "list", items: ["plain"] }]; api.renderAiSummaryV2(container, p, ctx);
     expect(Array.from(container.querySelectorAll(".aiMainHeading"))[2].classList.contains("aiHeadingAfterAnswer")).toBe(false);
     const mid = validPayload(); api.renderAiSummaryV2(container, mid, ctx);
-    expect(container.textContent!.indexOf("✅Empfehlung")).toBeLessThan(container.textContent!.indexOf("Details 10115"));
+    expect(container.textContent!.indexOf("✅ Empfehlung")).toBeLessThan(container.textContent!.indexOf("Details 10115"));
   });
 
   it("calculates iframe grow and shrink from #tbx2026 without stale scrollHeight blocking shrink", () => {
