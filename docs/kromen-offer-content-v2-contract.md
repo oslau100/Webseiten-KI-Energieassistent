@@ -109,7 +109,7 @@ Bei ungültigem V2-Inhalt wird sachlich über `console.warn` protokolliert. Es e
 
 ## Methodology-Toggle
 
-Nur `group: "methodology"` entscheidet über die Zuordnung. Weder Emoji noch sichtbarer Titel werden ausgewertet. Der Renderer verwendet einen echten Button mit `aria-expanded="false"` und `aria-controls`; der Bereich ist initial geschlossen. Beim Öffnen und Schließen werden Beschriftung, versteckter Zustand, vorhandene Animation und bestehende Layout-/iframe-Höhenkorrektur aktualisiert. Es werden keine festen Gesamthöhen und keine neuen PostMessage-Mechanismen verwendet.
+Nur `group: "methodology"` entscheidet über die Zuordnung. Weder Emoji noch sichtbarer Titel werden ausgewertet. Main-Sections werden in ihrer relativen Reihenfolge aus dem `sections`-Array gerendert. Methodology-Sections werden separat gesammelt und behalten innerhalb des Detailsbereichs ebenfalls ihre relative Reihenfolge. Der Methodology-Toggle wird im UI immer nach allen Main-Sections angezeigt; seine visuelle Position ist damit unabhängig davon, an welcher Position der zusammenhängende Methodology-Block im JSON steht. Der Renderer verwendet einen echten Button mit `aria-expanded="false"` und `aria-controls`; der Bereich ist initial geschlossen. Beim Öffnen und Schließen werden Beschriftung, versteckter Zustand, vorhandene Animation und bestehende Layout-/iframe-Höhenkorrektur aktualisiert. Es werden keine festen Gesamthöhen und keine neuen PostMessage-Mechanismen verwendet.
 
 ## Sicherheit
 
