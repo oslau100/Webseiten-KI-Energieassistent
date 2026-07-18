@@ -64,6 +64,7 @@ function stubDoc({ rootBottom, marginBottom = "0px", docScroll = 0, bodyScroll =
 describe("Ehiogie Offer Content V2", () => {
   it("matches exact Kromen V2 CSS declarations for hierarchy, lists, toggle and mobile values", () => {
     const css = loader;
+    expect(css).toContain("#tbx2026 .aiWrap.aiGerman{padding-top:22px!important;padding-bottom:10px!important;}");
     expect(css).toContain("#tbx2026 .aiTxt.aiStructured{max-width:88ch!important;font-size:15px!important;line-height:1.6!important;color:rgba(11,16,32,.82)!important;white-space:normal!important;text-align:left!important;}");
     expect(css).toContain("#tbx2026 .aiTxt .aiParagraph{margin:0 0 8px 0!important;white-space:pre-line!important;}");
     expect(css).toContain("#tbx2026 .aiTxt .aiMainHeading{margin:24px 0 8px 0!important;font-size:16px!important;line-height:1.4!important;font-weight:800!important;color:var(--tb-ink)!important;}");
@@ -81,6 +82,7 @@ describe("Ehiogie Offer Content V2", () => {
     expect(css).toContain("#tbx2026 .aiTxt .aiDetailsToggle:focus-visible{outline:2px solid var(--tb-ink)!important;outline-offset:3px!important;border-radius:3px!important;}");
     expect(css).toContain("#tbx2026 .aiTxt .aiDetails[hidden]{display:none!important;}");
     expect(css).toContain("#tbx2026 .aiTxt .aiDetails.isOpening{animation:tbDetailsIn .18s ease both!important;}");
+    expect(css).toContain("#tbx2026 .aiWrap.aiGerman{padding-top:18px!important;padding-bottom:10px!important;}");
     expect(css).toContain("#tbx2026 .aiTxt.aiStructured{font-size:14px!important;}");
     expect(css).toContain("#tbx2026 .aiTxt .aiMainHeading.aiFirstHeading{margin-bottom:16px!important;font-size:18px!important;line-height:1.35!important;}");
     expect(css).toContain("#tbx2026 .aiTxt .aiMainHeading.aiHeadingAfterAnswer{margin-top:28px!important;}");
