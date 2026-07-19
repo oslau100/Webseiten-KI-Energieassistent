@@ -21,6 +21,7 @@ window.TB_BOOTSTRAP = {
 <style>
 :root{--tb-ink:#0b1020;--tb-muted:#667085;--tb-bg:#ffffff;--tb-surface:#f6f7fb;--tb-line:rgba(15,23,42,.08);--tb-green:#2563eb;--tb-shadow: 0 26px 70px rgba(15,23,42,.11);--tb-shadow2: 0 14px 34px rgba(15,23,42,.09);--tb-shadow3: 0 8px 18px rgba(15,23,42,.06);--tb-r2: 22px;--tb-r3: 28px;--tb-max: 1120px;--tb-save-bg:linear-gradient(155deg, rgba(37,99,235,.92) 0%, rgba(37,99,235,1) 55%, rgba(37,99,235,.95) 100%);--tb-save-title:rgba(0,0,0,.55);--tb-save-value:#000;--tb-save-hint:rgba(0,0,0,.60);--tb-save-border:rgba(0,0,0,.06);--tb-save-shadow:0 32px 90px rgba(37,99,235,.18),var(--tb-shadow2);}
 #tbx2026{position:relative!important;width:100%!important;margin:0!important;padding:30px 18px 56px!important;box-sizing:border-box!important;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial!important;color:var(--tb-ink)!important;-webkit-font-smoothing:antialiased!important;-moz-osx-font-smoothing:grayscale!important;background:transparent!important;overflow:hidden!important;}
+#tbx2026.offerGerman{padding-bottom:8px!important;}
 #tbx2026, #tbx2026 *, #tbx2026 *::before, #tbx2026 *::after{box-sizing:border-box!important;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial!important;}
 #tbx2026::before{content:""!important;position:absolute!important;left:50%!important;transform:translateX(-50%)!important;top:0!important;width:100vw!important;height:100%!important;background: linear-gradient(180deg, #ffffff 0%, #ffffff 65%, #fbfcff 100%)!important;z-index:0!important;}
 #tbx2026 .wrap{position:relative!important;z-index:1!important;width:min(var(--tb-max),calc(100% - 0px))!important;margin:0 auto!important;}
@@ -36,8 +37,13 @@ window.TB_BOOTSTRAP = {
 #tbx2026 .panel{border-radius:var(--tb-r3)!important;padding:20px!important;background:#fff!important;border:1px solid var(--tb-line)!important;box-shadow:var(--tb-shadow2)!important;}
 #tbx2026 .title{margin:0!important;font-size:clamp(24px,2.8vw,38px)!important;font-weight:900!important;letter-spacing:-.04em!important;line-height:1.08!important;}
 #tbx2026 .fazit{margin-top:10px!important;font-size:14px!important;line-height:1.75!important;color:rgba(11,16,32,.75)!important;white-space:pre-wrap!important;}
+#tbx2026 .fazit.fazitStructured{margin-top:12px!important;line-height:1.55!important;white-space:normal!important;}
+#tbx2026 .fazit.fazitStructured p{margin:0 0 9px 0!important;}
+#tbx2026 .fazit.fazitStructured p:last-child{margin-bottom:0!important;}
 #tbx2026 .save{border-radius:var(--tb-r3)!important;padding:18px!important;background:var(--tb-save-bg)!important;border:1px solid var(--tb-save-border)!important;box-shadow:var(--tb-save-shadow)!important;position:relative!important;overflow:hidden!important;}
-#tbx2026 .save::before,#tbx2026 .save::after{content:none!important;display:none!important;}
+#tbx2026 .hero.heroGerman .save{align-self:start!important;height:auto!important;}
+#tbx2026 .save::before{content:""!important;position:absolute!important;top:-70px!important;right:-70px!important;width:260px!important;height:260px!important;border-radius:999px!important;background:rgba(255,255,255,.16)!important;}
+#tbx2026 .save::after{content:""!important;position:absolute!important;bottom:-70px!important;left:-80px!important;width:300px!important;height:300px!important;border-radius:999px!important;background:rgba(255,255,255,.10)!important;}
 #tbx2026 .saveInner{position:relative!important;z-index:1!important;}#tbx2026 .saveK{display:flex!important;align-items:center!important;gap:10px!important;font-size:11px!important;font-weight:900!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:var(--tb-save-title)!important;}
 #tbx2026 .saveV{margin-top:10px!important;font-size:30px!important;font-weight:950!important;letter-spacing:-.03em!important;color:var(--tb-save-value)!important;line-height:1.05!important;}#tbx2026 .saveH{margin-top:8px!important;font-size:13px!important;font-weight:800!important;color:var(--tb-save-hint)!important;line-height:1.45!important;}
 #tbx2026 .section{margin-top:14px!important;}#tbx2026 .compare{display:grid!important;grid-template-columns:1fr 1fr!important;gap:14px!important;}
@@ -61,12 +67,12 @@ window.TB_BOOTSTRAP = {
 #tbx2026 .btn.secondary{background:var(--tb-btn-secondary-bg,var(--tb-surface))!important;border-color:rgba(15,23,42,.10)!important;color:var(--tb-btn-secondary-text,rgba(11,16,32,.88))!important;}#tbx2026 .btn.wide{width:100%!important;flex:1 1 100%!important;}
 #tbx2026 .compare.single{grid-template-columns:1fr!important;max-width:560px!important;width:100%!important;margin-left:0!important;margin-right:auto!important;}#tbx2026 .hide{display:none!important;}
 #tbx2026 .aiWrap{background:#fff!important;border:1px solid var(--tb-line)!important;border-radius:var(--tb-r2)!important;box-shadow:var(--tb-shadow3)!important;padding:16px!important;}
+#tbx2026 .aiWrap.aiGerman{padding-top:22px!important;padding-bottom:10px!important;}
+#tbx2026 .aiWrap.aiGerman .aiHead{display:none!important;margin:0!important;}
 #tbx2026 .aiHead{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;margin-bottom:10px!important;}
 #tbx2026 .aiLabel{display:flex!important;align-items:center!important;gap:10px!important;font-size:10.5px!important;font-weight:950!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:rgba(11,16,32,.55)!important;}
 #tbx2026 .aiIc{width:30px!important;height:30px!important;border-radius:12px!important;display:flex!important;align-items:center!important;justify-content:center!important;background:var(--tb-surface)!important;border:1px solid var(--tb-line)!important;box-shadow:0 6px 14px rgba(15,23,42,.06)!important;flex:0 0 auto!important;}
 #tbx2026 .aiTxt{font-size:13px!important;line-height:1.7!important;color:rgba(11,16,32,.72)!important;white-space:pre-wrap!important;}
-#tbx2026 .aiWrap.aiV2 .aiHead{display:none!important;margin:0!important;}
-#tbx2026 .aiWrap.aiGerman{padding-top:22px!important;padding-bottom:10px!important;}
 #tbx2026 .aiTxt.aiStructured{max-width:88ch!important;font-size:15px!important;line-height:1.6!important;color:rgba(11,16,32,.82)!important;white-space:normal!important;text-align:left!important;}
 #tbx2026 .aiTxt .aiParagraph{margin:0 0 8px 0!important;white-space:pre-line!important;}
 #tbx2026 .aiTxt .aiParagraph:last-child{margin-bottom:0!important;}
@@ -208,18 +214,58 @@ window.TB_BOOTSTRAP = {
   function safeJson(v){if(v==null) return null; if(typeof v==="object") return v; if(typeof v==="string"){try{return JSON.parse(v);}catch{return null;}} return null;}
   function resolveText(val,lang){if(val==null) return ""; if(typeof val==="string") return val; if(typeof val==="number") return String(val); if(typeof val==="object"){const direct=val[lang]; if(typeof direct==="string") return direct; const de=val.de; if(typeof de==="string") return de; for(const k of Object.keys(val)){ if(typeof val[k]==="string") return val[k]; }} return "";}
 
+  function pickAiBlock(aiRoot,lang,usecase,fallbackUsecase){const u=usecase||fallbackUsecase||"spart"; if(!aiRoot||typeof aiRoot!=="object") return {}; const L=aiRoot[lang]; if(L&&typeof L==="object"){ if(L[u]&&typeof L[u]==="object") return L[u]; if(L.fazit!=null||L.ki_zusammenfassung!=null||L.summary!=null||L.zusammenfassung!=null) return L; if(L.spart) return L.spart; if(L.nicht_spart) return L.nicht_spart; if(L.neueinzug) return L.neueinzug;} const LD=aiRoot.de; if(LD&&typeof LD==="object"){ if(LD[u]&&typeof LD[u]==="object") return LD[u]; if(LD.fazit!=null||LD.ki_zusammenfassung!=null||LD.summary!=null||LD.zusammenfassung!=null) return LD; if(LD.spart) return LD.spart; if(LD.nicht_spart) return LD.nicht_spart; if(LD.neueinzug) return LD.neueinzug;} if(aiRoot[u]&&typeof aiRoot[u]==="object") return aiRoot[u]; return aiRoot;}
+  function buildKiSummaryText(U,ctx,lang){const explicit=strip(interp(resolveText(U.ki_zusammenfassung,lang)||resolveText(U.kiSummary,lang)||resolveText(U.zusammenfassung,lang)||resolveText(U.summary,lang)||"",ctx)); if(explicit) return explicit; const parts=[]; const status=strip(interp(resolveText(U.status,lang)||"",ctx)); if(status) parts.push(status); const warum=Array.isArray(U.warum)?U.warum:[]; const hinweise=Array.isArray(U.hinweise)?U.hinweise:[]; const bullets=[]; warum.forEach(x=>{const s=strip(interp(resolveText(x,lang)||String(x||""),ctx)); if(s) bullets.push("· "+s);}); hinweise.forEach(x=>{const s=strip(interp(resolveText(x,lang)||String(x||""),ctx)); if(s) bullets.push("· "+s);}); if(bullets.length) parts.push(bullets.join("\n")); return parts.join("\n\n").trim();}
+  function removeSeparatorLines(text){return String(text||"").split(/\r?\n/).filter(line=>!/^\s*(?:⸻+|[-_─━—–═=~·•]{3,})\s*$/.test(line)).join("\n");}
   function appendTextElement(container,tag,className,text){const element=document.createElement(tag); element.className=className; element.textContent=text; container.appendChild(element);}
-  const OFFER_V2_ALLOWED_VARIABLES = new Set(["vorname","provider_current","tariff_provider","tariff_name","laufzeit_monate","preisgarantie_text","ersparnis_jahr","ersparnis_monat","plz","verbrauch","stadt","energieart","verbrauch_text","aktuelle_monatskosten","aktuelle_jahreskosten","jahreskosten","monatsabschlag","arbeitspreis","grundpreis_monat","laufzeit_text"]);
-  const OFFER_V2_SECTION_IDS = new Set(["central_insight","timing","selection_reason","risks","comparison","effort","changes","inaction","recommendation"]);
-  const OFFER_V2_GROUPS = new Set(["main","methodology"]);
-  const OFFER_V2_BLOCK_TYPES = new Set(["paragraph","subheading","answer","list","ordered_list"]);
-  const OFFER_V2_TOGGLE_FALLBACKS = { collapsed_label:"So wurde dein Tarif geprüft", expanded_label:"Prüfdetails ausblenden" };
-  function isPlainObject(value){return !!value && typeof value==="object" && !Array.isArray(value);}
-  function isNonEmptyString(value){return typeof value==="string" && value.trim().length>0;}
-  function validateOfferV2Placeholders(text,path){const value=String(text ?? ""); const token=/\{\{[A-Za-z0-9_]+\}\}|\{[A-Za-z0-9_]+\}/g; const rest=value.replace(token,(match)=>{const variable=match.replace(/[{}]/g,""); if(!OFFER_V2_ALLOWED_VARIABLES.has(variable)) throw new Error(`Unbekannte Variable in ${path}: ${variable}`); return "";}); if(/[{}]/.test(rest)) throw new Error(`Ungültiger Platzhalter in ${path}`);}
-  function validateOfferV2String(value,path,options={}){if(typeof value!=="string") throw new Error(`${path} muss ein String sein`); if(options.nonEmpty && !value.trim()) throw new Error(`${path} darf nicht leer sein`); validateOfferV2Placeholders(value,path);}
-  function interpolateOfferV2(text,ctx){return String(text||"").replace(/\{\{([A-Za-z0-9_]+)\}\}|\{([A-Za-z0-9_]+)\}/g,(_,a,b)=>String(ctx[a||b] ?? ""));}
-  function validateOfferContentV2(content){if(!isPlainObject(content)) throw new Error("V2-Inhalt muss ein Objekt sein"); if(content.format_version!==2) throw new Error("format_version muss numerisch 2 sein"); validateOfferV2String(content.fazit,"fazit"); validateOfferV2String(content.ki_zusammenfassung,"ki_zusammenfassung",{nonEmpty:true}); if(!isPlainObject(content.title)) throw new Error("title muss ein Objekt sein"); validateOfferV2String(content.title.icon,"title.icon",{nonEmpty:true}); validateOfferV2String(content.title.text,"title.text",{nonEmpty:true}); if(content.methodology_toggle!=null){if(!isPlainObject(content.methodology_toggle)) throw new Error("methodology_toggle muss ein Objekt sein"); if(content.methodology_toggle.collapsed_label!=null) validateOfferV2String(content.methodology_toggle.collapsed_label,"methodology_toggle.collapsed_label"); if(content.methodology_toggle.expanded_label!=null) validateOfferV2String(content.methodology_toggle.expanded_label,"methodology_toggle.expanded_label");} if(!Array.isArray(content.sections)||content.sections.length===0) throw new Error("sections muss ein nicht leeres Array sein"); const seen=new Set(); let inMethodology=false; let methodologyClosed=false; content.sections.forEach((section,sectionIndex)=>{if(!isPlainObject(section)) throw new Error(`sections.${sectionIndex} muss ein Objekt sein`); if(!OFFER_V2_SECTION_IDS.has(section.id)) throw new Error(`Unbekannte Section-ID: ${section.id}`); if(seen.has(section.id)) throw new Error(`Doppelte Section-ID: ${section.id}`); seen.add(section.id); validateOfferV2String(section.icon,`sections.${sectionIndex}.icon`,{nonEmpty:true}); validateOfferV2String(section.title,`sections.${sectionIndex}.title`,{nonEmpty:true}); if(!OFFER_V2_GROUPS.has(section.group)) throw new Error(`Unbekannte Gruppe: ${section.group}`); if(section.group==="methodology"){if(methodologyClosed) throw new Error("Methodology-Sections müssen zusammenhängend sein"); inMethodology=true;} else if(inMethodology){methodologyClosed=true;} if(!Array.isArray(section.blocks)||section.blocks.length===0) throw new Error(`sections.${sectionIndex}.blocks muss ein nicht leeres Array sein`); section.blocks.forEach((block,blockIndex)=>{if(!isPlainObject(block)) throw new Error(`sections.${sectionIndex}.blocks.${blockIndex} muss ein Objekt sein`); if(!OFFER_V2_BLOCK_TYPES.has(block.type)) throw new Error(`Unbekannter Blocktyp: ${block.type}`); if(block.type==="paragraph"||block.type==="subheading"||block.type==="answer"){validateOfferV2String(block.text,`sections.${sectionIndex}.blocks.${blockIndex}.text`,{nonEmpty:true}); return;} if(!Array.isArray(block.items)||block.items.length===0) throw new Error(`sections.${sectionIndex}.blocks.${blockIndex}.items muss ein nicht leeres Array sein`); block.items.forEach((item,itemIndex)=>{if(typeof item==="string"){validateOfferV2String(item,`sections.${sectionIndex}.blocks.${blockIndex}.items.${itemIndex}`,{nonEmpty:true}); return;} if(!isPlainObject(item)) throw new Error(`Ungültiges Listenitem in sections.${sectionIndex}.blocks.${blockIndex}.items.${itemIndex}`); validateOfferV2String(item.title,`sections.${sectionIndex}.blocks.${blockIndex}.items.${itemIndex}.title`,{nonEmpty:true}); validateOfferV2String(item.text,`sections.${sectionIndex}.blocks.${blockIndex}.items.${itemIndex}.text`,{nonEmpty:true});});});}); return content;}
+  function renderFazit(container,text,lang){container.classList.toggle("fazitStructured",lang==="de"); container.closest(".hero")?.classList.toggle("heroGerman",lang==="de"); if(lang!=="de"){container.textContent=text||"—"; return;} container.replaceChildren(); const paragraphs=String(text||"").trim().split(/\n\s*\n+/).filter(Boolean); if(!paragraphs.length){container.textContent="—"; return;} paragraphs.forEach(paragraph=>appendTextElement(container,"p","",paragraph.trim()));}
+  const OFFER_CONTENT_V2_SECTION_IDS=new Set(["central_insight","timing","selection_reason","risks","comparison","effort","changes","inaction","recommendation"]);
+  const OFFER_CONTENT_V2_GROUPS=new Set(["main","methodology"]);
+  const OFFER_CONTENT_V2_BLOCK_TYPES=new Set(["paragraph","subheading","answer","list","ordered_list"]);
+  const OFFER_CONTENT_V2_VARIABLES=new Set(["vorname","provider_current","tariff_provider","tariff_name","laufzeit_monate","preisgarantie_text","ersparnis_jahr","ersparnis_monat","plz","verbrauch","stadt","energieart","verbrauch_text","aktuelle_monatskosten","aktuelle_jahreskosten","jahreskosten","monatsabschlag","arbeitspreis","grundpreis_monat","laufzeit_text"]);
+  function validateOfferContentV2(content){
+    const fail=reason=>({valid:false,reason}); const nonEmpty=value=>typeof value==="string"&&value.trim().length>0;
+    const validateVariables=(value,path)=>{if(typeof value!=="string") return `${path} muss ein String sein.`; let unknownVariable=""; const remainder=value.replace(/\{\{([A-Za-z0-9_]+)\}\}|\{([A-Za-z0-9_]+)\}/g,(placeholder,doubleName,singleName)=>{const variable=doubleName||singleName; if(!OFFER_CONTENT_V2_VARIABLES.has(variable)) unknownVariable=variable; return "";}); if(unknownVariable) return `${path} verwendet die unbekannte Variable ${unknownVariable}.`; if(/[{}]/.test(remainder)) return `${path} enthält eine ungültige Platzhaltersyntax.`; return "";};
+    if(!content||typeof content!=="object"||Array.isArray(content)) return fail("Der Inhalt ist kein Objekt.");
+    if(content.format_version!==2) return fail("format_version ist nicht 2.");
+    if(typeof content.fazit!=="string") return fail("fazit muss ein String sein.");
+    if(!nonEmpty(content.ki_zusammenfassung)) return fail("ki_zusammenfassung muss als Legacy-Fallback vorhanden sein.");
+    if(!content.title||typeof content.title!=="object"||!nonEmpty(content.title.icon)||!nonEmpty(content.title.text)) return fail("title.icon und title.text werden benötigt.");
+    if(!Array.isArray(content.sections)||!content.sections.length) return fail("sections muss ein nicht leeres Array sein.");
+    const contractTexts=[[content.fazit,"fazit"],[content.ki_zusammenfassung,"ki_zusammenfassung"],[content.title.icon,"title.icon"],[content.title.text,"title.text"]];
+    const seenIds=new Set(); let methodologyEnded=false; let inMethodology=false;
+    for(let sectionIndex=0;sectionIndex<content.sections.length;sectionIndex+=1){
+      const section=content.sections[sectionIndex]; const path=`sections[${sectionIndex}]`;
+      if(!section||typeof section!=="object"||Array.isArray(section)) return fail(`${path} ist ungültig.`);
+      if(!OFFER_CONTENT_V2_SECTION_IDS.has(section.id)) return fail(`${path}.id ist unbekannt.`);
+      if(seenIds.has(section.id)) return fail(`${path}.id ist doppelt vorhanden.`); seenIds.add(section.id);
+      if(!OFFER_CONTENT_V2_GROUPS.has(section.group)) return fail(`${path}.group ist ungültig.`);
+      if(section.group==="methodology"){if(methodologyEnded) return fail("Methodology-Sections müssen zusammenhängend sein."); inMethodology=true;} else if(inMethodology){methodologyEnded=true;}
+      if(!nonEmpty(section.icon)||!nonEmpty(section.title)) return fail(`${path}.icon und ${path}.title werden benötigt.`);
+      contractTexts.push([section.icon,`${path}.icon`],[section.title,`${path}.title`]);
+      if(!Array.isArray(section.blocks)||!section.blocks.length) return fail(`${path}.blocks muss ein nicht leeres Array sein.`);
+      for(let blockIndex=0;blockIndex<section.blocks.length;blockIndex+=1){
+        const block=section.blocks[blockIndex]; const blockPath=`${path}.blocks[${blockIndex}]`;
+        if(!block||typeof block!=="object"||Array.isArray(block)||!OFFER_CONTENT_V2_BLOCK_TYPES.has(block.type)) return fail(`${blockPath}.type ist ungültig.`);
+        if(block.type==="paragraph"||block.type==="subheading"||block.type==="answer"){
+          if(!nonEmpty(block.text)) return fail(`${blockPath}.text wird benötigt.`); contractTexts.push([block.text,`${blockPath}.text`]); continue;
+        }
+        if(!Array.isArray(block.items)||!block.items.length) return fail(`${blockPath}.items muss ein nicht leeres Array sein.`);
+        for(let itemIndex=0;itemIndex<block.items.length;itemIndex+=1){
+          const item=block.items[itemIndex]; const itemPath=`${blockPath}.items[${itemIndex}]`;
+          if(nonEmpty(item)){contractTexts.push([item,itemPath]); continue;}
+          if(!item||typeof item!=="object"||Array.isArray(item)||!nonEmpty(item.title)||!nonEmpty(item.text)) return fail(`${itemPath} ist ungültig.`);
+          contractTexts.push([item.title,`${itemPath}.title`],[item.text,`${itemPath}.text`]);
+        }
+      }
+    }
+    if(content.methodology_toggle&&typeof content.methodology_toggle==="object"){
+      if(typeof content.methodology_toggle.collapsed_label==="string") contractTexts.push([content.methodology_toggle.collapsed_label,"methodology_toggle.collapsed_label"]);
+      if(typeof content.methodology_toggle.expanded_label==="string") contractTexts.push([content.methodology_toggle.expanded_label,"methodology_toggle.expanded_label"]);
+    }
+    for(const [value,path] of contractTexts){const error=validateVariables(value,path); if(error) return fail(error);}
+    return {valid:true,reason:""};
+  }
   function renderStructuredBlock(block,ctx){
     if(block.type==="paragraph"||block.type==="subheading"||block.type==="answer"){
       const element=document.createElement(block.type==="subheading"?"div":"p"); element.className=block.type==="subheading"?"aiSubheading":block.type==="answer"?"aiParagraph aiAnswerLead":"aiParagraph"; element.textContent=interp(block.text,ctx); return element;
@@ -238,7 +284,126 @@ window.TB_BOOTSTRAP = {
     const fragment=document.createDocumentFragment(); const title=document.createElement("div"); title.className="aiMainHeading aiFirstHeading"; title.textContent=`${interp(content.title.icon,ctx)} ${interp(content.title.text,ctx)}`.trim(); fragment.appendChild(title);
     const toggle=content.methodology_toggle; const labels={collapsed:toggle&&typeof toggle.collapsed_label==="string"&&toggle.collapsed_label.trim()?interp(toggle.collapsed_label,ctx):(lang==="de"?"So wurde dein Tarif geprüft":"Methodology details"),expanded:toggle&&typeof toggle.expanded_label==="string"&&toggle.expanded_label.trim()?interp(toggle.expanded_label,ctx):(lang==="de"?"Prüfdetails ausblenden":"Hide methodology details")};
     const methodology=[]; content.sections.forEach(section=>{if(section.group==="methodology"){methodology.push(section); return;} fragment.appendChild(renderStructuredSection(section,ctx));}); if(methodology.length) fragment.appendChild(renderMethodologyGroupV2(methodology,ctx,labels));
-    container.classList.add("aiStructured"); container.closest(".aiWrap")?.classList.toggle("aiGerman",lang==="de"); container.closest(".aiWrap")?.classList.add("aiV2"); container.closest("#tbx2026")?.classList.toggle("offerGerman",lang==="de"); container.replaceChildren(fragment); markHeadingsAfterAnswers(container);
+    container.classList.add("aiStructured"); container.closest(".aiWrap")?.classList.toggle("aiGerman",lang==="de"); container.closest("#tbx2026")?.classList.toggle("offerGerman",lang==="de"); container.replaceChildren(fragment); markHeadingsAfterAnswers(container);
+  }
+  function formatAiLists(container){
+    const isPairStart=node=>node?.classList?.contains("aiSubheading")&&node.nextElementSibling?.classList?.contains("aiParagraph");
+    let node=container.firstElementChild;
+    while(node){
+      if(!isPairStart(node)){node=node.nextElementSibling; continue;}
+      const pairs=[]; let cursor=node;
+      while(isPairStart(cursor)){const text=cursor.nextElementSibling; pairs.push([cursor,text]); cursor=text.nextElementSibling;}
+      if(pairs.length<2){node=cursor; continue;}
+      const list=document.createElement("ul"); list.className="aiList";
+      pairs.forEach(([title,text])=>{const item=document.createElement("li"); item.className="aiListItem"; title.className="aiListTitle"; text.className="aiListText"; item.append(title,text); list.appendChild(item);});
+      container.insertBefore(list,cursor); node=cursor;
+    }
+    const riskAnchor=Array.from(container.querySelectorAll(".aiParagraph")).find(paragraph=>paragraph.textContent.trim()==="Ausgeschlossen wurden:");
+    if(riskAnchor){
+      const riskTitles=new Set(["Tarife mit unsicheren Bonusversprechen","Tarife mit unklaren Preisgarantien","Tarife mit versteckten Kosten oder unklaren Bedingungen","Tarife, die nur im ersten Jahr günstig erscheinen","Anbieter, die schwer einzuschätzen sind"]);
+      const pairs=[]; const sourceNodes=[]; let cursor=riskAnchor.nextElementSibling;
+      while(cursor?.classList.contains("aiParagraph")){
+        const lines=cursor.textContent.split("\n").map(line=>line.trim()).filter(Boolean);
+        if(!riskTitles.has(lines[0])) break;
+        if(lines.length>=2){pairs.push([lines[0],lines.slice(1).join("\n")]); sourceNodes.push(cursor); cursor=cursor.nextElementSibling; continue;}
+        const explanation=cursor.nextElementSibling;
+        if(!explanation?.classList.contains("aiParagraph")) break;
+        pairs.push([lines[0],explanation.textContent.trim()]); sourceNodes.push(cursor,explanation); cursor=explanation.nextElementSibling;
+      }
+      if(pairs.length){
+        const list=document.createElement("ul"); list.className="aiList";
+        pairs.forEach(([title,text])=>{const item=document.createElement("li"); item.className="aiListItem"; appendTextElement(item,"div","aiListTitle",title); appendTextElement(item,"div","aiListText",text); list.appendChild(item);});
+        container.insertBefore(list,sourceNodes[0]); sourceNodes.forEach(source=>source.remove());
+      }
+    }
+    const simpleItems=new Set(["zählernummer","aktuelle kundennummer","kundennummer","gewünschter wechselzeitpunkt","wechselzeitpunkt","einzugsdatum","angaben zur neuen adresse","gleiche versorgung.","gleiche nutzung.","höherer preis – solange du nichts änderst."]);
+    const makeSimpleList=(items,before)=>{const list=document.createElement("ul"); list.className="aiList aiSimpleList"; items.forEach(text=>appendTextElement(list,"li","aiListItem",text)); container.insertBefore(list,before);};
+    node=container.firstElementChild;
+    while(node){
+      if(!node.classList.contains("aiParagraph")){node=node.nextElementSibling; continue;}
+      const lines=node.textContent.split("\n").map(line=>line.trim()).filter(Boolean);
+      const simpleRuns=[]; let runStart=-1;
+      lines.forEach((line,index)=>{const known=simpleItems.has(line.toLocaleLowerCase("de-DE")); if(known&&runStart<0) runStart=index; if((!known||index===lines.length-1)&&runStart>=0){const runEnd=known&&index===lines.length-1?index+1:index; if(runEnd-runStart>=2) simpleRuns.push([runStart,runEnd]); runStart=-1;}});
+      if(simpleRuns.length){
+        const next=node.nextElementSibling; let lineIndex=0;
+        simpleRuns.forEach(([start,end])=>{if(start>lineIndex){const paragraph=document.createElement("p"); paragraph.className="aiParagraph"; paragraph.textContent=lines.slice(lineIndex,start).join("\n"); container.insertBefore(paragraph,node);} makeSimpleList(lines.slice(start,end),node); lineIndex=end;});
+        if(lineIndex<lines.length){const paragraph=document.createElement("p"); paragraph.className="aiParagraph"; paragraph.textContent=lines.slice(lineIndex).join("\n"); container.insertBefore(paragraph,node);}
+        node.remove(); node=next; continue;
+      }
+      if(lines.length===1&&simpleItems.has(lines[0].toLocaleLowerCase("de-DE"))){
+        const items=[]; const nodes=[]; let cursor=node;
+        while(cursor?.classList.contains("aiParagraph")){const text=cursor.textContent.trim(); if(!simpleItems.has(text.toLocaleLowerCase("de-DE"))) break; items.push(text); nodes.push(cursor); cursor=cursor.nextElementSibling;}
+        if(items.length>=2){makeSimpleList(items,node); nodes.forEach(item=>item.remove()); node=cursor; continue;}
+      }
+      node=node.nextElementSibling;
+    }
+  }
+  function findSectionRange(container,headingPrefix){
+    const headings=Array.from(container.querySelectorAll(".aiMainHeading")); const heading=headings.find(item=>item.textContent.startsWith(headingPrefix));
+    if(!heading) return null; return {heading,end:headings[headings.indexOf(heading)+1]||null};
+  }
+  function findSectionElement(container,headingPrefix,text){
+    const range=findSectionRange(container,headingPrefix); if(!range) return null;
+    if(text==null) return range.heading;
+    let node=range.heading.nextElementSibling; while(node&&node!==range.end){if(!node.closest("ul,ol")&&node.textContent.trim()===text) return node; node=node.nextElementSibling;} return null;
+  }
+  function convertFollowingLinesToLists(container,headingPrefix,anchorText,groupSizes,{ordered=false,titlePairs=false,stripDash=false}={}){
+    const anchor=findSectionElement(container,headingPrefix,anchorText); if(!anchor) return;
+    const total=groupSizes.reduce((sum,size)=>sum+size,0); const lines=[]; const sources=[]; let cursor=anchor.nextElementSibling;
+    while(cursor&&lines.length<total&&cursor.classList.contains("aiParagraph")&&!cursor.closest("ul,ol")){const nodeLines=cursor.textContent.split("\n").map(line=>line.trim()).filter(Boolean); lines.push(...nodeLines); sources.push(cursor); cursor=cursor.nextElementSibling;}
+    if(lines.length<total) return;
+    const remainder=lines.slice(total); let offset=0;
+    groupSizes.forEach(size=>{const list=document.createElement(ordered?"ol":"ul"); list.className="aiList"; const group=lines.slice(offset,offset+size); offset+=size;
+      if(titlePairs){for(let index=0;index<group.length;index+=2){const item=document.createElement("li"); item.className="aiListItem"; appendTextElement(item,"div","aiListTitle",group[index]); appendTextElement(item,"div","aiListText",group[index+1]); list.appendChild(item);}}
+      else group.forEach(text=>appendTextElement(list,"li","aiListItem",stripDash?text.replace(/^[-–—]\s*/,""):text));
+      container.insertBefore(list,sources[0]);
+    });
+    if(remainder.length){const paragraph=document.createElement("p"); paragraph.className="aiParagraph"; paragraph.textContent=remainder.join("\n"); container.insertBefore(paragraph,sources[0]);}
+    sources.forEach(source=>source.remove());
+  }
+  function convertExactSectionLinesToList(container,headingPrefix,expectedLines){
+    const range=findSectionRange(container,headingPrefix); if(!range) return;
+    let node=range.heading.nextElementSibling;
+    while(node&&node!==range.end){if(!node.classList.contains("aiParagraph")||node.closest("ul,ol")){node=node.nextElementSibling; continue;}
+      const sources=[]; const lines=[]; let cursor=node; while(cursor&&cursor!==range.end&&cursor.classList.contains("aiParagraph")&&!cursor.closest("ul,ol")){sources.push(cursor); lines.push(...cursor.textContent.split("\n").map(line=>line.trim()).filter(Boolean)); cursor=cursor.nextElementSibling;}
+      const start=lines.findIndex((line,index)=>expectedLines.every((expected,offset)=>lines[index+offset]===expected)); if(start<0){node=cursor; continue;}
+      const list=document.createElement("ul"); list.className="aiList"; expectedLines.forEach(text=>appendTextElement(list,"li","aiListItem",text)); const firstSource=sources[0];
+      const before=lines.slice(0,start); const after=lines.slice(start+expectedLines.length); if(before.length){const paragraph=document.createElement("p"); paragraph.className="aiParagraph"; paragraph.textContent=before.join("\n"); container.insertBefore(paragraph,firstSource);}
+      container.insertBefore(list,firstSource); if(after.length){const paragraph=document.createElement("p"); paragraph.className="aiParagraph"; paragraph.textContent=after.join("\n"); container.insertBefore(paragraph,firstSource);} sources.forEach(source=>source.remove()); return;
+    }
+  }
+  function formatUsecaseLists(container,usecase){
+    const configs={
+      spart:[
+        ["🔍","Dabei bekommst du keinen zusätzlichen Vorteil.",[3]], ["🔎","Du müsstest weiterhin selbst bewerten:",[6]], ["⚙️","Das bedeutet:",[3]],
+        ["✅","In deinem Alltag ändert sich nichts.",[4,4]]
+      ],
+      neueinzug:[
+        ["🔍","Der wichtige Punkt ist:",[3]], ["🔎","Du müsstest weiterhin selbst bewerten:",[6]], ["⚙️","Das bedeutet:",[3]],
+        ["✅","Für dich bedeutet das konkret:",[5]], ["✅","Was sich für dich ändert:",[3]],
+        ["💸","Und dafür bekommst du keinen zusätzlichen Vorteil.",[3]], ["💸","Einfach gesagt:",[4]], ["👉","Das ist ein wichtiger Punkt:",[3]]
+      ],
+      nicht_spart:[
+        ["🔍","Besonders wichtig sind:",[10],{titlePairs:true}], ["⏳","Die Empfehlung kann deshalb interessant werden, wenn:",[6],{stripDash:true}],
+        ["🛡️","Berücksichtigt wurden vor allem diese Punkte:",[12],{titlePairs:true}], ["🔎","Du müsstest weiterhin selbst prüfen:",[7]],
+        ["⚙️","Das bedeutet:",[3]], ["✅","Auch wenn du dich für die empfohlene Alternative entscheidest, ändert sich in deinem Alltag nichts.",[4,4]],
+        ["👉","Die abschließende Einschätzung lautet deshalb:",[3],{ordered:true}]
+      ]
+    };
+    (configs[usecase]||[]).forEach(([heading,anchor,sizes,options])=>convertFollowingLinesToLists(container,heading,anchor,sizes,options));
+    if(usecase==="spart") convertExactSectionLinesToList(container,"💸",["Dabei bekommst du keine bessere Versorgung.","Du bekommst keinen zusätzlichen Vorteil.","Und du bekommst keine spürbar andere Nutzung im Alltag."]);
+  }
+  function markAnswerLeads(container,usecase){
+    const answers={
+      spart:[["🔍","Auf Basis deiner Angaben kostet dich dein aktueller Tarif rund","pro Jahr mehr als die geprüfte Alternative."],["🛡️","Er ist die Option, die nach der Prüfung am besten zu deinen Angaben passt."],["🔒","Sie soll auch sicher, nachvollziehbar und langfristig sinnvoll sein."],["🔎","Genau diese Prüfung wurde hier bereits durchgeführt."],["⚙️","Du erledigst deinen Teil in wenigen Minuten"],["✅","Du nutzt deine Energieversorgung weiterhin wie bisher – nur zu besseren Konditionen."],["💸","Es bedeutet, dass dein aktueller, teurerer Tarif weiterläuft, obwohl eine geprüfte, günstigere Alternative verfügbar ist."],["⏳","Du sicherst dir die aktuell geprüften Konditionen für einen planbaren Zeitraum."],["👉","Starte den Wechsel zum geprüften Tarif und senke deine laufenden Kosten"]],
+      neueinzug:[["🔍","Sie ist nur häufig teurer als ein geprüfter Alternativtarif."],["🛡️","Er ist die Option, die nach der Prüfung am besten zu deiner neuen Adresse passt."],["🔒","Du sollst mit einem geprüften Tarif starten, der günstig, sicher und nachvollziehbar ist."],["🔎","Genau diese Prüfung wurde hier bereits durchgeführt."],["⚙️","Du erledigst deinen Teil in wenigen Minuten"],["✅","Du startest an deiner neuen Adresse direkt mit einem bewusst ausgewählten Tarif."],["💸","Wenn du keinen eigenen Tarif für die neue Adresse auswählst, landest du in der Regel in der Grundversorgung."],["⏳","Mit der Empfehlung kannst du den","tarif für deine neue Adresse jetzt sauber festlegen."],["👉","Sichere jetzt den geprüften Tarif für deine neue Adresse"]],
+      nicht_spart:[["🔍","Wenn deine Angaben stimmen und deine jetzigen Konditionen weiterhin gelten, ist ein sofortiger Wechsel allein wegen des Preises deshalb nicht notwendig."],["⏳","Wenn deine aktuellen Konditionen jedoch bald auslaufen oder bereits eine Preisänderung angekündigt wurde, sollte die Empfehlung nicht nur anhand des heutigen Preisunterschieds bewertet werden."],["🛡️","Er ist die Option, die nach der Prüfung am besten zu deinen Angaben passt, falls ein Wechsel für deine Situation relevant wird."],["🔒","Das Ziel ist eine Empfehlung, die sicher, nachvollziehbar und langfristig sinnvoll ist."],["🔎","Du weißt jetzt, wie dein aktueller Tarif einzuordnen ist und welche geprüfte Alternative für dich infrage kommen kann."],["⚙️","Das Ausfüllen dauert in der Regel nur wenige Minuten."],["✅ Was sich bei","Auch wenn du dich für die empfohlene Alternative entscheidest, ändert sich in deinem Alltag nichts."],["✅ Was passiert","Wenn deine Angaben stimmen und deine aktuellen Konditionen weiterhin gelten, kannst du deinen bestehenden Tarif zunächst beibehalten."],["👉","Auf Basis deiner Angaben bist du mit deinem aktuellen Tarif bei","derzeit gut aufgestellt."]]
+    };
+    (answers[usecase]||[]).forEach(([headingPrefix,start,contains])=>{const range=findSectionRange(container,headingPrefix); if(!range) return;
+      const candidates=Array.from(container.querySelectorAll(".aiParagraph,.aiListItem")).filter(node=>(range.heading.compareDocumentPosition(node)&Node.DOCUMENT_POSITION_FOLLOWING)&&(!range.end||(node.compareDocumentPosition(range.end)&Node.DOCUMENT_POSITION_FOLLOWING)));
+      const isMatch=text=>text.startsWith(start)&&(!contains||text.includes(contains)); const match=candidates.find(node=>node.textContent.split("\n").map(line=>line.trim()).some(isMatch)); if(!match) return;
+      const lines=match.textContent.split("\n").map(line=>line.trim()).filter(Boolean); if(match.classList.contains("aiParagraph")&&lines.length>1){lines.forEach(text=>{const paragraph=document.createElement("p"); paragraph.className=isMatch(text)?"aiParagraph aiAnswerLead":"aiParagraph"; paragraph.textContent=text; container.insertBefore(paragraph,match);}); match.remove();} else match.classList.add("aiAnswerLead");
+    });
   }
   function markHeadingsAfterAnswers(container){
     const hasTrailingAnswer=element=>{let current=element; while(current){if(current.classList?.contains("aiAnswerLead")) return true; current=current.lastElementChild;} return false;};
@@ -249,10 +414,43 @@ window.TB_BOOTSTRAP = {
     if(offerLayoutFrame!==null) cancelAnimationFrame(offerLayoutFrame);
     offerLayoutFrame=requestAnimationFrame(()=>{offerLayoutFrame=null; const root=$("tbx2026"); if(!root) return; root.getBoundingClientRect(); root.parentElement?.getBoundingClientRect();});
   }
-  function clearAiV2State(container){container.classList.remove("aiStructured"); container.closest(".aiWrap")?.classList.remove("aiV2","aiGerman"); container.closest("#tbx2026")?.classList.remove("offerGerman");}
-
-  function pickAiBlock(aiRoot,lang,usecase,fallbackUsecase){const u=usecase||fallbackUsecase||"spart"; if(!aiRoot||typeof aiRoot!=="object") return {}; const L=aiRoot[lang]; if(L&&typeof L==="object"){ if(L[u]&&typeof L[u]==="object") return L[u]; if(L.fazit!=null||L.ki_zusammenfassung!=null||L.summary!=null||L.zusammenfassung!=null) return L; if(L.spart) return L.spart; if(L.nicht_spart) return L.nicht_spart; if(L.neueinzug) return L.neueinzug;} const LD=aiRoot.de; if(LD&&typeof LD==="object"){ if(LD[u]&&typeof LD[u]==="object") return LD[u]; if(LD.fazit!=null||LD.ki_zusammenfassung!=null||LD.summary!=null||LD.zusammenfassung!=null) return LD; if(LD.spart) return LD.spart; if(LD.nicht_spart) return LD.nicht_spart; if(LD.neueinzug) return LD.neueinzug;} if(aiRoot[u]&&typeof aiRoot[u]==="object") return aiRoot[u]; return aiRoot;}
-  function buildKiSummaryText(U,ctx,lang){const explicit=removeLongSeparatorLines(strip(interp(resolveText(U.ki_zusammenfassung,lang)||resolveText(U.kiSummary,lang)||resolveText(U.zusammenfassung,lang)||resolveText(U.summary,lang)||"",ctx))); if(explicit) return explicit; const parts=[]; const status=strip(interp(resolveText(U.status,lang)||"",ctx)); if(status) parts.push(status); const warum=Array.isArray(U.warum)?U.warum:[]; const hinweise=Array.isArray(U.hinweise)?U.hinweise:[]; const bullets=[]; warum.forEach(x=>{const s=strip(interp(resolveText(x,lang)||String(x||""),ctx)); if(s) bullets.push("· "+s);}); hinweise.forEach(x=>{const s=strip(interp(resolveText(x,lang)||String(x||""),ctx)); if(s) bullets.push("· "+s);}); if(bullets.length) parts.push(bullets.join("\n")); return parts.join("\n\n").trim();}
+  function addAiDetailsToggle(container){
+    const headings=Array.from(container.querySelectorAll(".aiMainHeading"));
+    const start=headings.find(heading=>heading.textContent.startsWith("🛡️"));
+    const risk=headings.find(heading=>heading.textContent.startsWith("🔒"));
+    const comparison=headings.find(heading=>heading.textContent.startsWith("🔎"));
+    const end=headings.find(heading=>heading.textContent.startsWith("⚙️"));
+    const follows=(first,second)=>Boolean(first.compareDocumentPosition(second)&Node.DOCUMENT_POSITION_FOLLOWING);
+    if(!start||!risk||!comparison||!end||!follows(start,risk)||!follows(risk,comparison)||!follows(comparison,end)) return;
+    const details=document.createElement("div"); details.className="aiDetails"; details.id="tbAiDetails"; details.hidden=true;
+    let node=start; while(node&&node!==end){const next=node.nextSibling; details.appendChild(node); node=next;}
+    const toggle=document.createElement("button"); toggle.type="button"; toggle.className="aiDetailsToggle"; toggle.textContent="So wurde dein Tarif geprüft"; toggle.setAttribute("aria-expanded","false"); toggle.setAttribute("aria-controls",details.id);
+    toggle.addEventListener("click",()=>{const opening=toggle.getAttribute("aria-expanded")==="false"; toggle.setAttribute("aria-expanded",String(opening)); toggle.textContent=opening?"Prüfdetails ausblenden":"So wurde dein Tarif geprüft"; details.classList.remove("isOpening"); if(opening){details.hidden=false; requestAnimationFrame(()=>{details.classList.add("isOpening"); scheduleOfferLayoutSync();});} else {details.hidden=true; ["height","max-height","min-height","overflow"].forEach(property=>details.style.removeProperty(property)); scheduleOfferLayoutSync();}});
+    container.append(toggle,details);
+  }
+  function renderAiSummary(container,text,lang,usecase){
+    const cleanText=removeSeparatorLines(text).trim();
+    container.classList.toggle("aiStructured",lang==="de");
+    container.closest(".aiWrap")?.classList.toggle("aiGerman",lang==="de");
+    container.closest("#tbx2026")?.classList.toggle("offerGerman",lang==="de");
+    if(lang!=="de"){container.textContent=cleanText||"—"; return;}
+    container.replaceChildren();
+    const mainHeading=/^(?:✨|🔍|🛡️|🔒|🔎|⚙️|✅|💸|⏳|👉)(?:\uFE0F)?\s*\S/;
+    const subheadings=new Set(["Preis:","Echte Kosten:","Preisgarantie:","Vertragsbedingungen:","Anbieterqualität:","Langfristige Eignung:","Das bedeutet:","Der wichtige Punkt:","Einfach gesagt:","Die Empfehlung lautet deshalb:","Dein aktueller Monatsabschlag","Dein Jahresverbrauch","Deine letzte Abrechnung","Aktuelle Preisänderungen","Deine bestehende Preisgarantie","Preis","Echte Gesamtkosten","Preisgarantie","Vertragsbedingungen","Anbieterqualität","Langfristige Eignung"]);
+    const structuralLines=new Set(["Dabei bekommst du keinen zusätzlichen Vorteil.","Du müsstest weiterhin selbst bewerten:","In deinem Alltag ändert sich nichts.","Für dich bedeutet das konkret:","Was sich für dich ändert:","Das ist ein wichtiger Punkt:","Der wichtige Punkt ist:","Und dafür bekommst du keinen zusätzlichen Vorteil.","Besonders wichtig sind:","Die Empfehlung kann deshalb interessant werden, wenn:","Berücksichtigt wurden vor allem diese Punkte:","Du müsstest weiterhin selbst prüfen:","Die abschließende Einschätzung lautet deshalb:","Es bedeutet, dass dein aktueller, teurerer Tarif weiterläuft, obwohl eine geprüfte, günstigere Alternative verfügbar ist.","Wenn du keinen eigenen Tarif für die neue Adresse auswählst, landest du in der Regel in der Grundversorgung.","Auch wenn du dich für die empfohlene Alternative entscheidest, ändert sich in deinem Alltag nichts."]);
+    let paragraphLines=[]; let hasMainHeading=false;
+    const flushParagraph=()=>{if(!paragraphLines.length)return; appendTextElement(container,"p","aiParagraph",paragraphLines.join("\n")); paragraphLines=[];};
+    cleanText.split(/\r?\n/).forEach(line=>{const trimmed=line.trim(); if(!trimmed){flushParagraph(); return;} if(mainHeading.test(trimmed)){flushParagraph(); appendTextElement(container,"div",hasMainHeading?"aiMainHeading":"aiMainHeading aiFirstHeading",trimmed); hasMainHeading=true; return;} if(subheadings.has(trimmed)){flushParagraph(); appendTextElement(container,"div","aiSubheading",trimmed); return;} if(structuralLines.has(trimmed)){flushParagraph(); appendTextElement(container,"p","aiParagraph",trimmed); return;} paragraphLines.push(line.trim());});
+    flushParagraph();
+    if(!container.childNodes.length){container.textContent="—"; return;}
+    formatAiLists(container); formatUsecaseLists(container,usecase); markAnswerLeads(container,usecase); markHeadingsAfterAnswers(container); addAiDetailsToggle(container);
+  }
+  function renderOfferSummary(container,content,legacyText,ctx,lang,usecase){
+    const validation=validateOfferContentV2(content);
+    if(content.format_version===2&&validation.valid){try{renderAiSummaryV2(container,content,ctx,lang); return "v2";}catch(error){console.warn("Offer Content format_version 2 konnte nicht sicher gerendert werden; Legacy-Fallback wird verwendet.",error);}}
+    else if(content.format_version===2) console.warn(`Offer Content format_version 2 ist ungültig (${validation.reason}); Legacy-Fallback wird verwendet.`);
+    renderAiSummary(container,legacyText,lang,usecase); return "legacy";
+  }
   try{
     const locationId = String(bootstrap.locationId || window.SURVEY_CONFIG?.locationId || "").trim();
     if (locationId) {
@@ -276,7 +474,7 @@ window.TB_BOOTSTRAP = {
     const ctx={vorname:row.vorname||"",provider_current:row.provider_current||"",tariff_provider:row.tariff_provider||"",tariff_name:row.tariff_name||"",laufzeit_monate:row.laufzeit_monate ?? "",preisgarantie_text:formatGuarantee(row.preisgarantie_text,t),ersparnis_jahr:(ersparnis==null||isNaN(ersparnis))?"0":euro2(ersparnis),ersparnis_monat:(ersparnis==null||isNaN(ersparnis))?"0":euro2(ersparnis/12),plz:row.plz||"",verbrauch:verbrauchRaw,stadt:row.stadt||"",energieart:formatEnergyType(energyType,t),verbrauch_text:(asPresentNumber(verbrauchRaw)!=null)?formatVerbrauchKwh(verbrauchRaw):"",aktuelle_monatskosten:currentMonthly!=null?euro2(currentMonthly):"",aktuelle_jahreskosten:currentYearly!=null?euro2(currentYearly):"",jahreskosten:recYearly!=null?euro2(recYearly):"",monatsabschlag:recMonthly!=null?euro2(recMonthly):"",arbeitspreis:workPrice!=null?formatArbeitspreis(workPrice):"",grundpreis_monat:basePriceYearly!=null?formatGrundpreisMonatText(basePriceYearly,t):"",laufzeit_text:formatTerm(row.laufzeit_monate,t)};
     $("tbTitle").textContent=t.title;
     const aiRoot=safeJson(row.ai_content) || (row.ai_content || {}); const U=pickAiBlock(aiRoot,lang,usecase,row.ai_usecase);
-    const fazitText=removeLongSeparatorLines(strip(interp(resolveText(U.fazit,lang)||"",ctx))).trim(); $("tbFazit").textContent=fazitText || "—";
+    const fazitText=removeSeparatorLines(strip(interp(resolveText(U.fazit,lang)||"",ctx))).trim(); renderFazit($("tbFazit"),fazitText,lang);
     $("tbCurTag").textContent=t.cur; $("tbRecTag").textContent=t.rec; $("tbLblYear").textContent=t.year; $("tbLblYear2").textContent=t.year; $("tbLblMonth").textContent=t.month; $("tbLblMonth2").textContent=t.month; $("tbBtnChange").textContent=t.change; $("tbBtnCta").textContent=t.cta; $("tbBtnCta2").textContent=t.cta; $("tbBtnDetails").textContent=t.details; $("tbSaveKicker").textContent=t.saveK; $("tbSavingsHint").textContent=t.saveH; $("tbAiLabel").textContent=t.aiSummary;
     const finalAuftragUrl = buildFinalUrl(PATHS.auftrag, uuid || "", lang || "");
     const finalStartUrl = buildFinalUrl(PATHS.start, uuid || "", lang || "");
@@ -305,7 +503,7 @@ window.TB_BOOTSTRAP = {
     const plzTxt=String(row.plz || "").trim(); const verbrauchForMeta=(row.verbrauch ?? row.consumption_kwh ?? ""); const verbTxt=String(verbrauchForMeta ?? "").trim(); const metaParts=[]; if(verbTxt){metaParts.push(formatVerbrauchKwh(verbrauchForMeta));} if(plzTxt){metaParts.push(plzTxt);} if(metaParts.length===2){$("tbRecMeta").innerHTML=`<span>${metaParts[0]}</span><span class="dot"></span><span>${metaParts[1]}</span>`;} else if(metaParts.length===1){$("tbRecMeta").textContent=metaParts[0];} else {$("tbRecMeta").textContent="";}
     const bullets=[]; const termTxt=formatTerm(row.laufzeit_monate,t); const garTxt=formatGuarantee(row.preisgarantie_text,t); if(termTxt) bullets.push(`${t.m_term}: ${termTxt}`); if(garTxt) bullets.push(`${t.m_guarantee}: ${garTxt}`); if(row.oekotarif===true) bullets.push(t.oeko); bullets.push(t.fast);
     $("tbBullets").innerHTML=bullets.slice(0,4).map(b=>`<div class="bulIt"><span class="check">✓</span><span>${String(b)}</span></div>`).join("");
-    let summaryText=""; if(U&&U.format_version===2){try{validateOfferContentV2(U); renderAiSummaryV2($("tbAiText"),U,ctx,lang); summaryText=null;}catch(v2Error){console.warn("Offer Content V2 konnte nicht gerendert werden; Legacy-Fallback wird verwendet.",v2Error); summaryText=(buildKiSummaryText(U,ctx,lang) || "").trim(); clearAiV2State($("tbAiText")); $("tbAiText").textContent=summaryText || "—";}} else {summaryText=(buildKiSummaryText(U,ctx,lang) || "").trim(); clearAiV2State($("tbAiText")); $("tbAiText").textContent=summaryText || "—";}
+    const summaryText=(buildKiSummaryText(U,ctx,lang) || "").trim(); renderOfferSummary($("tbAiText"),U,summaryText,ctx,lang,usecase);
     $("tbBtnDetails").addEventListener("click",()=>{renderModal(t,row,usecase);openModal();});
     $("tbModalClose").addEventListener("click",closeModal); $("tbModalBack").addEventListener("click",(e)=>{if(e.target === $("tbModalBack")) closeModal();}); document.addEventListener("keydown",(e)=>{if(e.key==="Escape") closeModal();});
   }catch(e){
