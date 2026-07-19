@@ -233,13 +233,14 @@ window.TB_BOOTSTRAP = {
     if(!content.title||typeof content.title!=="object"||!nonEmpty(content.title.icon)||!nonEmpty(content.title.text)) return fail("title.icon und title.text werden benötigt.");
     if(!Array.isArray(content.sections)||!content.sections.length) return fail("sections muss ein nicht leeres Array sein.");
     const contractTexts=[[content.fazit,"fazit"],[content.ki_zusammenfassung,"ki_zusammenfassung"],[content.title.icon,"title.icon"],[content.title.text,"title.text"]];
-    const seenIds=new Set();
+    const seenIds=new Set(); let methodologyEnded=false; let inMethodology=false;
     for(let sectionIndex=0;sectionIndex<content.sections.length;sectionIndex+=1){
       const section=content.sections[sectionIndex]; const path=`sections[${sectionIndex}]`;
       if(!section||typeof section!=="object"||Array.isArray(section)) return fail(`${path} ist ungültig.`);
       if(!OFFER_CONTENT_V2_SECTION_IDS.has(section.id)) return fail(`${path}.id ist unbekannt.`);
       if(seenIds.has(section.id)) return fail(`${path}.id ist doppelt vorhanden.`); seenIds.add(section.id);
       if(!OFFER_CONTENT_V2_GROUPS.has(section.group)) return fail(`${path}.group ist ungültig.`);
+      if(section.group==="methodology"){if(methodologyEnded) return fail("Methodology-Sections müssen zusammenhängend sein."); inMethodology=true;} else if(inMethodology){methodologyEnded=true;}
       if(!nonEmpty(section.icon)||!nonEmpty(section.title)) return fail(`${path}.icon und ${path}.title werden benötigt.`);
       contractTexts.push([section.icon,`${path}.icon`],[section.title,`${path}.title`]);
       if(!Array.isArray(section.blocks)||!section.blocks.length) return fail(`${path}.blocks muss ein nicht leeres Array sein.`);
