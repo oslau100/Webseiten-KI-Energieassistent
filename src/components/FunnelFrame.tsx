@@ -10,6 +10,28 @@ interface FunnelFrameProps {
   requireUuid?: boolean;
   showChrome?: boolean;
   showSimpleFooter?: boolean;
+  /** Measure this iframe document root directly so content can shrink again. */
+  contentRootId?: string;
+}
+
+export function calculateFunnelFrameHeight(doc: Document, contentRootId?: string): number {
+  const body = doc.body;
+  const html = doc.documentElement;
+  const contentRoot = contentRootId ? doc.getElementById(contentRootId) : null;
+
+  if (contentRoot && body) {
+    const marginBottom = Number.parseFloat(doc.defaultView?.getComputedStyle(body).marginBottom || "0") || 0;
+    return Math.max(1, Math.ceil(contentRoot.getBoundingClientRect().bottom + marginBottom));
+  }
+
+  return Math.ceil(Math.max(
+    520,
+    body?.scrollHeight || 0,
+    body?.offsetHeight || 0,
+    html?.clientHeight || 0,
+    html?.scrollHeight || 0,
+    html?.offsetHeight || 0
+  ));
 }
 
 function getSafeNavigationUrl(rawUrl: string): string | null {
@@ -24,7 +46,7 @@ function getSafeNavigationUrl(rawUrl: string): string | null {
   }
 }
 
-export function FunnelFrame({ title, src, requireUuid = false, showChrome = true, showSimpleFooter = false }: FunnelFrameProps) {
+export function FunnelFrame({ title, src, requireUuid = false, showChrome = true, showSimpleFooter = false, contentRootId }: FunnelFrameProps) {
   const [searchParams] = useSearchParams();
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [height, setHeight] = useState(720);
@@ -51,17 +73,8 @@ export function FunnelFrame({ title, src, requireUuid = false, showChrome = true
     body.style.overflow = "hidden";
     html.style.overflow = "hidden";
 
-    const nextHeight = Math.max(
-      520,
-      body.scrollHeight,
-      body.offsetHeight,
-      html.clientHeight,
-      html.scrollHeight,
-      html.offsetHeight
-    );
-
-    setHeight(Math.ceil(nextHeight));
-  }, [showChrome]);
+    setHeight(calculateFunnelFrameHeight(doc, contentRootId));
+  }, [contentRootId, showChrome]);
 
 
   useEffect(() => {
@@ -88,9 +101,11 @@ export function FunnelFrame({ title, src, requireUuid = false, showChrome = true
         return;
       }
 
-      if (doc.body) {
+      const contentRoot = contentRootId ? doc.getElementById(contentRootId) : null;
+      if (contentRoot || doc.body) {
         frameObserver = new ResizeObserver(scheduleMeasure);
-        frameObserver.observe(doc.body);
+        if (contentRoot) frameObserver.observe(contentRoot);
+        if (doc.body && doc.body !== contentRoot) frameObserver.observe(doc.body);
       }
 
       if (doc.documentElement) {
@@ -112,7 +127,7 @@ export function FunnelFrame({ title, src, requireUuid = false, showChrome = true
       frameObserver?.disconnect();
       window.cancelAnimationFrame(animationFrame);
     };
-  }, [frameSrc, measureIframeHeight, showChrome]);
+  }, [contentRootId, frameSrc, measureIframeHeight, showChrome]);
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
