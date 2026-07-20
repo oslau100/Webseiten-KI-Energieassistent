@@ -7,6 +7,7 @@ const Tarif = () => (
     requireUuid
     showChrome={false}
     showSimpleFooter
+    contentRootId="tbx2026"
   />
 );
 
