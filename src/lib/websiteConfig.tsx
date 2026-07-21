@@ -33,6 +33,10 @@ const firstUsablePublicRuntimeValue = (...values: unknown[]) => {
   return typeof value === "string" ? value.trim() : "";
 };
 
+// Legacy Supabase anon keys are JWTs. Modern sb_publishable_* keys are not and
+// must only be sent through the apikey header.
+const isLegacyJwtPublicKey = (value: string) => /^eyJ[A-Za-z0-9_-]*\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(value);
+
 export const defaultWebsiteDesignConfig: JsonRecord = websiteDefaultDesignConfig;
 
 export const defaultWebsiteLayoutConfig: JsonRecord = websiteDefaultLayoutConfig;
@@ -87,12 +91,12 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
         }
 
         const endpoint = `${supabaseUrl}/rest/v1/kunden_config?select=webseite_design_config,webseite_content_config,webseite_layout_config&location_id=eq.${encodeURIComponent(locationId)}&limit=1`;
-        const response = await fetch(endpoint, {
-          headers: {
-            apikey: supabaseKey,
-            Authorization: `Bearer ${supabaseKey}`,
-          },
-        });
+        const headers: Record<string, string> = { apikey: supabaseKey };
+        if (isLegacyJwtPublicKey(supabaseKey)) {
+          headers.Authorization = `Bearer ${supabaseKey}`;
+        }
+
+        const response = await fetch(endpoint, { headers });
 
         if (!response.ok) {
           setState((prev) => ({ ...prev, loading: false }));

@@ -95,9 +95,9 @@ describe("Kromen runtime/config contracts", () => {
     expect(fetchMock.mock.calls[0][1]).toMatchObject({
       headers: {
         apikey: "query-key",
-        Authorization: "Bearer query-key",
       },
     });
+    expect(fetchMock.mock.calls[0][1].headers.Authorization).toBeUndefined();
   });
 
   it("uses TB_BOOTSTRAP for remote loading when query parameters are absent", async () => {
@@ -133,7 +133,7 @@ describe("Kromen runtime/config contracts", () => {
     });
     vi.stubGlobal("fetch", fetchMock);
     vi.stubEnv("VITE_SUPABASE_URL", "https://environment.supabase.test");
-    vi.stubEnv("VITE_SUPABASE_PUBLISHABLE_KEY", "publishable-key");
+    vi.stubEnv("VITE_SUPABASE_PUBLISHABLE_KEY", "sb_publishable_test_value");
 
     renderRuntimeProbe();
     const state = await readRuntimeProbe();
@@ -141,32 +141,39 @@ describe("Kromen runtime/config contracts", () => {
     expect(state.source).toBe("remote");
     expect(state.brandName).toBe("Environment Remote");
     expect(fetchMock.mock.calls[0][0]).toContain("https://environment.supabase.test/rest/v1/kunden_config");
-    expect(fetchMock.mock.calls[0][1]).toMatchObject({ headers: { apikey: "publishable-key" } });
+    expect(fetchMock.mock.calls[0][1]).toMatchObject({ headers: { apikey: "sb_publishable_test_value" } });
+    expect(fetchMock.mock.calls[0][1].headers.Authorization).toBeUndefined();
   });
 
   it("uses VITE_SUPABASE_ANON_KEY as the legacy environment fallback", async () => {
     const fetchMock = vi.fn().mockResolvedValue({ ok: true, json: async () => [{ webseite_content_config: {} }] });
     vi.stubGlobal("fetch", fetchMock);
     vi.stubEnv("VITE_SUPABASE_URL", "https://environment.supabase.test");
-    vi.stubEnv("VITE_SUPABASE_ANON_KEY", "legacy-anon-key");
+    vi.stubEnv("VITE_SUPABASE_ANON_KEY", "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSJ9.test-signature");
 
     renderRuntimeProbe();
     await readRuntimeProbe();
 
-    expect(fetchMock.mock.calls[0][1]).toMatchObject({ headers: { apikey: "legacy-anon-key" } });
+    expect(fetchMock.mock.calls[0][1]).toMatchObject({
+      headers: {
+        apikey: "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSJ9.test-signature",
+        Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSJ9.test-signature",
+      },
+    });
   });
 
   it("prefers the publishable environment key over the legacy anon key", async () => {
     const fetchMock = vi.fn().mockResolvedValue({ ok: true, json: async () => [{ webseite_content_config: {} }] });
     vi.stubGlobal("fetch", fetchMock);
     vi.stubEnv("VITE_SUPABASE_URL", "https://environment.supabase.test");
-    vi.stubEnv("VITE_SUPABASE_PUBLISHABLE_KEY", "publishable-key");
-    vi.stubEnv("VITE_SUPABASE_ANON_KEY", "legacy-anon-key");
+    vi.stubEnv("VITE_SUPABASE_PUBLISHABLE_KEY", "sb_publishable_test_value");
+    vi.stubEnv("VITE_SUPABASE_ANON_KEY", "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSJ9.test-signature");
 
     renderRuntimeProbe();
     await readRuntimeProbe();
 
-    expect(fetchMock.mock.calls[0][1]).toMatchObject({ headers: { apikey: "publishable-key" } });
+    expect(fetchMock.mock.calls[0][1]).toMatchObject({ headers: { apikey: "sb_publishable_test_value" } });
+    expect(fetchMock.mock.calls[0][1].headers.Authorization).toBeUndefined();
   });
 
   it("keeps query overrides ahead of bootstrap and environment configuration", async () => {
