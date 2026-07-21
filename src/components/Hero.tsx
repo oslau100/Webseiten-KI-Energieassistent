@@ -47,7 +47,7 @@ export const Hero = () => {
             className="hero-cta-wiggle cta-shimmer bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:text-base md:text-lg tracking-tighter sm:tracking-normal font-bold px-6 sm:px-12 py-3 sm:py-4 md:px-16 md:py-4 rounded-md transition-all hover:scale-105 h-auto whitespace-normal sm:whitespace-nowrap w-full sm:w-auto mb-2 min-w-[280px]"
             asChild
           >
-            <a href="https://calendly.com/laurent-digital-info/60min" target="_blank" rel="noopener noreferrer" className="text-center">
+            <a href="https://calendly.com/energieassistent-potentialanalyse/30min" target="_blank" rel="noopener noreferrer" className="text-center">
               Kostenfreie Potenzialanalyse buchen
             </a>
           </Button>
