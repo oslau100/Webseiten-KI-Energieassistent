@@ -163,7 +163,13 @@ describe("Kromen runtime/config contracts", () => {
       brand: {
         name: "Kromen Energieassistent",
         contact_email: "info@kromen-energieassistent.de",
-        agency_url: "https://www.laurent-digital.de",
+        agency_url: "",
+      },
+      integrations: {
+        google_reviews: {
+          main_widget_id: "",
+          hero_widget_id: "",
+        },
       },
       legal: {
         variables: {

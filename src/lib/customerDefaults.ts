@@ -35,6 +35,12 @@ export const customerDefaultWebsiteLayoutConfig: JsonRecord = {
 };
 
 export const customerDefaultWebsiteContentConfig: JsonRecord = {
+  integrations: {
+    google_reviews: {
+      main_widget_id: "",
+      hero_widget_id: "",
+    },
+  },
   brand: {
     name: "Kromen Energieassistent",
     contact_email: "info@kromen-energieassistent.de",
