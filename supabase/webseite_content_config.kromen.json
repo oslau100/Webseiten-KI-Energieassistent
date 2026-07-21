@@ -4024,5 +4024,11 @@
         "pl": "April 2026"
       }
     }
+  },
+  "integrations": {
+    "google_reviews": {
+      "main_widget_id": "",
+      "hero_widget_id": ""
+    }
   }
 }
