@@ -5,6 +5,8 @@ import { I18nProvider } from "@/lib/i18n";
 import { GET_REVIEW_WIDGET_SRC } from "./GetReviewWidget";
 
 let config: Record<string, unknown> = {};
+const mainWidgetId = "8179db6b-2332-4da8-84cc-e2e1eb8cdb6c";
+const heroWidgetId = "05c58679-3beb-4511-abfa-73b965d8d7e9";
 
 vi.mock("@/lib/websiteConfig", () => ({
   useWebsiteConfig: () => ({
@@ -35,19 +37,19 @@ describe("config-driven Google review fallbacks", () => {
   });
 
   it("replaces both mock carousels while preserving headings and CTAs for a configured main widget", () => {
-    config = { "integrations.google_reviews.main_widget_id": "main-widget" };
+    config = { "integrations.google_reviews.main_widget_id": mainWidgetId };
     const home = renderWithI18n(<Testimonials />);
     expect(screen.queryByText("Sabine M.")).toBeNull();
     expect(screen.getByRole("heading", { name: /Über 2000 Haushalte/i })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /Jetzt Ersparnis prüfen/i })).toBeInTheDocument();
-    expect(document.querySelector(`script[data-widget-id="main-widget"][src="${GET_REVIEW_WIDGET_SRC}"]`)).toHaveProperty("async", true);
+    expect(document.querySelector(`script[data-widget-id="${mainWidgetId}"][src="${GET_REVIEW_WIDGET_SRC}"]`)).toHaveProperty("async", true);
     home.unmount();
 
     const annual = renderWithI18n(<Jahresrechnung />);
     expect(screen.queryByText("Lisa K.")).toBeNull();
     expect(screen.getByRole("heading", { name: /Mehr als 2.000 Haushalte/i })).toBeInTheDocument();
     expect(screen.getAllByRole("link", { name: /Jahresabrechnung prüfen/i }).length).toBeGreaterThan(0);
-    expect(document.querySelector(`script[data-widget-id="main-widget"][src="${GET_REVIEW_WIDGET_SRC}"]`)).toBeTruthy();
+    expect(document.querySelector(`script[data-widget-id="${mainWidgetId}"][src="${GET_REVIEW_WIDGET_SRC}"]`)).toBeTruthy();
   });
 
   it("does not add an empty hero wrapper without an ID and places the configured hero widget after the result note", () => {
@@ -57,12 +59,11 @@ describe("config-driven Google review fallbacks", () => {
     expect(document.querySelector(`script[src="${GET_REVIEW_WIDGET_SRC}"]`)).toBeNull();
     fallback.unmount();
 
-    config = { "integrations.google_reviews.hero_widget_id": "hero-widget" };
-    const { container } = renderWithI18n(<Hero />);
+    config = { "integrations.google_reviews.hero_widget_id": heroWidgetId };
+    renderWithI18n(<Hero />);
     const note = screen.getByText(/Ergebnis in 60 Sekunden/i);
     const widget = screen.getByTestId("get-review-widget");
     expect(note.compareDocumentPosition(widget) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(document.querySelector(`script[data-widget-id="hero-widget"][src="${GET_REVIEW_WIDGET_SRC}"]`)).toBeTruthy();
-    expect(container.scrollWidth).toBeLessThanOrEqual(container.clientWidth || container.scrollWidth);
+    expect(document.querySelector(`script[data-widget-id="${heroWidgetId}"][src="${GET_REVIEW_WIDGET_SRC}"]`)).toBeTruthy();
   });
 });

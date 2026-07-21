@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
 import { AnimatedSection } from "./AnimatedSection";
 import { useWebsiteConfig } from "@/lib/websiteConfig";
-import { GetReviewWidget } from "./GetReviewWidget";
+import { GetReviewWidget, getValidReviewWidgetId } from "./GetReviewWidget";
 
 type Review = { title: string; text: string; name: string };
 
@@ -14,7 +14,7 @@ export const Testimonials = () => {
   const { t, withLang, lang } = useI18n();
   const { getArray, getText } = useWebsiteConfig();
   const mainWidgetId = getText("integrations.google_reviews.main_widget_id", "");
-  const hasMainWidget = Boolean(mainWidgetId.trim());
+  const validMainWidgetId = getValidReviewWidgetId(mainWidgetId);
 
   const fallbackReviews: Review[] = [
     {
@@ -36,7 +36,7 @@ export const Testimonials = () => {
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{t("home_testimonials_h2")}</h2>
         </AnimatedSection>
         <AnimatedSection delay={200} className="max-w-5xl mx-auto px-4 md:px-12 relative">
-          {hasMainWidget ? <GetReviewWidget widgetId={mainWidgetId} /> : <Carousel opts={{ align: "start" }} className="w-full">
+          {validMainWidgetId ? <GetReviewWidget widgetId={validMainWidgetId} /> : <Carousel opts={{ align: "start" }} className="w-full">
             <CarouselContent>
               {reviews.map((review, index) => (
                 <CarouselItem key={index} className="basis-[88%] sm:basis-[82%] md:basis-1/2 lg:basis-1/2 pl-3 md:pl-4">
