@@ -6,12 +6,14 @@ import { Link } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
 import { AnimatedSection } from "./AnimatedSection";
 import { useWebsiteConfig } from "@/lib/websiteConfig";
+import { JotformReviewWidget, getValidJotformWidgetId } from "./JotformReviewWidget";
 
 type Review = { title: string; text: string; name: string };
 
 export const Testimonials = () => {
   const { t, withLang, lang } = useI18n();
   const { getArray, getText } = useWebsiteConfig();
+  const validJotformWidgetId = getValidJotformWidgetId(getText("integrations.google_reviews.jotform_widget_id", ""));
 
   const fallbackReviews: Review[] = [
     {
@@ -32,8 +34,8 @@ export const Testimonials = () => {
           <p className="text-primary font-semibold tracking-wide uppercase text-sm">{getText("sections.testimonials.kicker", "Das sagen unsere Nutzer", lang)}</p>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{getText("sections.testimonials.headline", t("home_testimonials_h2"), lang)}</h2>
         </AnimatedSection>
-        <AnimatedSection delay={200} className="max-w-5xl mx-auto px-4 md:px-12 relative">
-          <Carousel opts={{ align: "start" }} className="w-full">
+        <AnimatedSection delay={200} className={validJotformWidgetId ? "w-full max-w-7xl mx-auto relative" : "max-w-5xl mx-auto px-4 md:px-12 relative"}>
+          {validJotformWidgetId ? <JotformReviewWidget widgetId={validJotformWidgetId} /> : <Carousel opts={{ align: "start" }} className="w-full">
             <CarouselContent>
               {reviews.map((review, index) => (
                 <CarouselItem key={index} className="basis-[85%] md:basis-1/2 lg:basis-1/2 pl-4">
@@ -56,7 +58,7 @@ export const Testimonials = () => {
             </CarouselContent>
             <CarouselPrevious className="hidden md:flex -left-12 h-12 w-12 border-none shadow-md" />
             <CarouselNext className="hidden md:flex -right-12 h-12 w-12 border-none shadow-md" />
-          </Carousel>
+          </Carousel>}
         </AnimatedSection>
         <AnimatedSection delay={400} className="mt-16 text-center">
           <Button size="lg" className="h-14 px-10 text-lg font-semibold shadow-lg shadow-primary/20" asChild>

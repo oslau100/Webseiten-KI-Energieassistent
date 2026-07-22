@@ -37,7 +37,7 @@ export type WebsiteTenantConfig = {
 
 type SupabaseRuntimeConfig = {
   url?: string;
-  anonKey?: string;
+  key?: string;
 };
 
 type RuntimeQueryConfig = {
@@ -57,6 +57,22 @@ const EhiogieTenantFallback: WebsiteTenantConfig = {
   customer: "ehiogie",
   locationId: "tn90CyE3XuYFTy4c1M3F",
 };
+
+// This is the public Supabase project URL fallback. A key must always come
+// from a runtime override or the Vite environment before making a request.
+const DEFAULT_SUPABASE_URL = "https://oynhnhkldvpoqhsfirwf.supabase.co";
+
+const isUsablePublicRuntimeValue = (value: unknown) => {
+  const normalized = typeof value === "string" ? value.trim() : "";
+  return Boolean(normalized) && !/^<[^>]+>$/.test(normalized) && !/^(secret|placeholder)$/i.test(normalized);
+};
+
+const firstUsablePublicRuntimeValue = (...values: unknown[]) => {
+  const value = values.find(isUsablePublicRuntimeValue);
+  return typeof value === "string" ? value.trim() : "";
+};
+
+const isLegacyJwtPublicKey = (value: string) => /^eyJ[A-Za-z0-9_-]*\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(value);
 
 const safeDefaultWebsiteConfig: WebsiteConfig = {
   content: {},
@@ -112,16 +128,20 @@ const getRuntimeQueryConfig = (): RuntimeQueryConfig => {
 };
 
 const getRuntimeLocationId = (bootstrap: BootstrapConfig, query: RuntimeQueryConfig): string => {
-  return String(query.locationId || bootstrap.locationId || EhiogieTenantFallback.locationId).trim();
+  return firstUsablePublicRuntimeValue(query.locationId, bootstrap.locationId, EhiogieTenantFallback.locationId);
 };
 
 const getRuntimeSupabaseConfig = (bootstrap: BootstrapConfig, query: RuntimeQueryConfig): SupabaseRuntimeConfig => {
   const env = import.meta.env as Record<string, string | undefined>;
   return {
-    url: String(query.supabaseUrl || bootstrap.supabaseUrl || env.VITE_SUPABASE_URL || "").trim() || undefined,
-    anonKey: String(
-      query.supabaseKey || bootstrap.supabaseAnonKey || bootstrap.supabaseKey || env.VITE_SUPABASE_ANON_KEY || "",
-    ).trim() || undefined,
+    url: firstUsablePublicRuntimeValue(query.supabaseUrl, bootstrap.supabaseUrl, env.VITE_SUPABASE_URL, DEFAULT_SUPABASE_URL) || undefined,
+    key: firstUsablePublicRuntimeValue(
+      query.supabaseKey,
+      bootstrap.supabaseAnonKey,
+      bootstrap.supabaseKey,
+      env.VITE_SUPABASE_PUBLISHABLE_KEY,
+      env.VITE_SUPABASE_ANON_KEY,
+    ) || undefined,
   };
 };
 
@@ -150,18 +170,17 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
         const runtimeSupabase = getRuntimeSupabaseConfig(bootstrap, query);
         const locationId = getRuntimeLocationId(bootstrap, query);
 
-        if (!locationId || !runtimeSupabase.url || !runtimeSupabase.anonKey) {
+        if (!locationId || !runtimeSupabase.url || !runtimeSupabase.key) {
           setState((prev) => ({ ...prev, loading: false }));
           return;
         }
 
         const endpoint = `${runtimeSupabase.url}/rest/v1/kunden_config?select=webseite_design_config,webseite_content_config,webseite_layout_config&location_id=eq.${encodeURIComponent(locationId)}&limit=1`;
-        const response = await fetch(endpoint, {
-          headers: {
-            apikey: runtimeSupabase.anonKey,
-            Authorization: `Bearer ${runtimeSupabase.anonKey}`,
-          },
-        });
+        const headers: Record<string, string> = { apikey: runtimeSupabase.key };
+        if (isLegacyJwtPublicKey(runtimeSupabase.key)) {
+          headers.Authorization = `Bearer ${runtimeSupabase.key}`;
+        }
+        const response = await fetch(endpoint, { headers });
 
         if (!response.ok) {
           setState((prev) => ({ ...prev, loading: false }));
