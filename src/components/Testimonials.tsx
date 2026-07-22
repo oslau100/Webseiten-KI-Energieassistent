@@ -6,15 +6,15 @@ import { Link } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
 import { AnimatedSection } from "./AnimatedSection";
 import { useWebsiteConfig } from "@/lib/websiteConfig";
-import { GetReviewWidget, getValidReviewWidgetId } from "./GetReviewWidget";
+import { JotformReviewWidget, getValidJotformWidgetId } from "./JotformReviewWidget";
 
 type Review = { title: string; text: string; name: string };
 
 export const Testimonials = () => {
   const { t, withLang, lang } = useI18n();
   const { getArray, getText } = useWebsiteConfig();
-  const mainWidgetId = getText("integrations.google_reviews.main_widget_id", "");
-  const validMainWidgetId = getValidReviewWidgetId(mainWidgetId);
+  const mainWidgetId = getText("integrations.google_reviews.jotform_widget_id", "");
+  const validJotformWidgetId = getValidJotformWidgetId(mainWidgetId);
 
   const fallbackReviews: Review[] = [
     {
@@ -35,8 +35,8 @@ export const Testimonials = () => {
           <p className="text-primary font-semibold tracking-wide uppercase text-sm">{getText("sections.testimonials.kicker", "Das sagen unsere Nutzer", lang)}</p>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{t("home_testimonials_h2")}</h2>
         </AnimatedSection>
-        <AnimatedSection delay={200} className={validMainWidgetId ? "w-full max-w-7xl mx-auto relative" : "max-w-5xl mx-auto px-4 md:px-12 relative"}>
-          {validMainWidgetId ? <GetReviewWidget widgetId={validMainWidgetId} /> : <Carousel opts={{ align: "start" }} className="w-full">
+        <AnimatedSection delay={200} className={validJotformWidgetId ? "w-full max-w-7xl mx-auto relative" : "max-w-5xl mx-auto px-4 md:px-12 relative"}>
+          {validJotformWidgetId ? <JotformReviewWidget widgetId={validJotformWidgetId} /> : <Carousel opts={{ align: "start" }} className="w-full">
             <CarouselContent>
               {reviews.map((review, index) => (
                 <CarouselItem key={index} className="basis-[88%] sm:basis-[82%] md:basis-1/2 lg:basis-1/2 pl-3 md:pl-4">

@@ -25,7 +25,7 @@ const RuntimeProbe = () => {
         source: config.source,
         brandName: config.getText("brand.name", "missing"),
         primary: (config.design.colors as Record<string, string>).primary,
-        mainWidgetId: config.getText("integrations.google_reviews.main_widget_id", ""),
+        jotformWidgetId: config.getText("integrations.google_reviews.jotform_widget_id", ""),
         homeSections: config.getArray<string>("sections.faq.home_items", []).length,
         layoutHomeSections: ((config.layout.pages as Record<string, { sections?: string[] }>).home.sections || []).join(","),
       })}
@@ -218,11 +218,11 @@ describe("Kromen runtime/config contracts", () => {
     expect(state.brandName).toBe("Kromen Energieassistent");
   });
 
-  it("exposes the configured main review widget ID from remote kunden_config", async () => {
+  it("exposes the configured Jotform review widget ID from remote kunden_config", async () => {
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue({
       ok: true,
       json: async () => [{ webseite_content_config: { integrations: { google_reviews: {
-        main_widget_id: "8179db6b-2332-4da8-84cc-e2e1eb8cdb6c",
+        jotform_widget_id: "019f893d595870008c4dd1e6ec285a30e32a",
       } } } }],
     }));
     vi.stubEnv("VITE_SUPABASE_URL", "https://environment.supabase.test");
@@ -231,7 +231,7 @@ describe("Kromen runtime/config contracts", () => {
     renderRuntimeProbe();
     const state = await readRuntimeProbe();
 
-    expect(state.mainWidgetId).toBe("8179db6b-2332-4da8-84cc-e2e1eb8cdb6c");
+    expect(state.jotformWidgetId).toBe("019f893d595870008c4dd1e6ec285a30e32a");
   });
 
   it("falls back cleanly to Kromen defaults when no remote config row exists", async () => {
@@ -291,7 +291,7 @@ describe("Kromen runtime/config contracts", () => {
       },
       integrations: {
         google_reviews: {
-          main_widget_id: "",
+          jotform_widget_id: "",
         },
       },
       legal: {
