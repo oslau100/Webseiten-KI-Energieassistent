@@ -1,3 +1,4 @@
+import { StrictMode } from "react";
 import { render } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { JOTFORM_WIDGET_EMBED_BASE, JotformReviewWidget, getValidJotformWidgetId } from "./JotformReviewWidget";
@@ -27,5 +28,12 @@ describe("JotformReviewWidget", () => {
     rerender(<JotformReviewWidget widgetId={second} />);
     expect(document.querySelectorAll('[data-testid="jotform-review-widget"] script')).toHaveLength(1);
     expect(document.querySelector("script")?.src).toBe(`${JOTFORM_WIDGET_EMBED_BASE}${second}`);
+  });
+  it("does not duplicate the embed in React StrictMode", () => {
+    const { unmount } = render(<StrictMode><JotformReviewWidget widgetId={id} /></StrictMode>);
+    expect(document.querySelectorAll('[data-testid="jotform-review-widget"]')).toHaveLength(1);
+    expect(document.querySelectorAll(`[data-testid="jotform-review-widget"] script[src="${JOTFORM_WIDGET_EMBED_BASE}${id}"]`)).toHaveLength(1);
+    unmount();
+    expect(document.querySelector("script")).toBeNull();
   });
 });

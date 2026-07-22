@@ -38,7 +38,7 @@ describe("config-driven Google review fallbacks", () => {
     config = { "integrations.google_reviews.jotform_widget_id": jotformWidgetId };
     const home = renderWithI18n(<Testimonials />);
     expect(screen.queryByText("Sabine M.")).toBeNull();
-    expect(screen.getByRole("heading", { name: /Über 2000 Haushalte/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /Über 2000 Haushalte nutzen den Energieassistenten/i })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /Jetzt Ersparnis prüfen/i })).toBeInTheDocument();
     const homeWidget = document.querySelector(`div[data-testid="jotform-review-widget"]`) as HTMLIFrameElement;
     expect(homeWidget).toBeTruthy();
