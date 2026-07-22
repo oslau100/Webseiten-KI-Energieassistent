@@ -5,7 +5,6 @@ import { I18nProvider } from "@/lib/i18n";
 
 let config: Record<string, unknown> = {};
 const mainWidgetId = "8179db6b-2332-4da8-84cc-e2e1eb8cdb6c";
-const heroWidgetId = "05c58679-3beb-4511-abfa-73b965d8d7e9";
 
 vi.mock("@/lib/websiteConfig", () => ({
   useWebsiteConfig: () => ({
@@ -58,18 +57,12 @@ describe("config-driven Google review fallbacks", () => {
     expect(annualWidget.parentElement?.parentElement?.className).not.toContain("md:px-12");
   });
 
-  it("does not add an empty hero wrapper without an ID and places the configured hero widget after the result note", () => {
-    config = {};
-    const fallback = renderWithI18n(<Hero />);
-    expect(screen.queryByTestId("get-review-widget")).toBeNull();
-    expect(document.querySelector("iframe")).toBeNull();
-    fallback.unmount();
-
-    config = { "integrations.google_reviews.hero_widget_id": heroWidgetId };
+  it("does not render a review widget in the hero", () => {
+    config = { "integrations.google_reviews.hero_widget_id": "05c58679-3beb-4511-abfa-73b965d8d7e9" };
     renderWithI18n(<Hero />);
     const note = screen.getByText(/Ergebnis in 60 Sekunden/i);
-    const widget = screen.getByTestId("get-review-widget");
-    expect(note.compareDocumentPosition(widget) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(document.querySelector(`iframe[data-widget-id="${heroWidgetId}"]`)).toBeTruthy();
+    expect(note).toBeInTheDocument();
+    expect(screen.queryByTestId("get-review-widget")).toBeNull();
+    expect(document.querySelector("iframe")).toBeNull();
   });
 });
