@@ -41,14 +41,21 @@ describe("config-driven Google review fallbacks", () => {
     expect(screen.queryByText("Sabine M.")).toBeNull();
     expect(screen.getByRole("heading", { name: /Über 2000 Haushalte/i })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /Jetzt Ersparnis prüfen/i })).toBeInTheDocument();
-    expect(document.querySelector(`iframe[data-widget-id="${mainWidgetId}"]`)).toBeTruthy();
+    const homeWidget = document.querySelector(`iframe[data-widget-id="${mainWidgetId}"]`) as HTMLIFrameElement;
+    expect(homeWidget).toBeTruthy();
+    expect(homeWidget.parentElement?.parentElement?.className).toContain("max-w-7xl");
+    expect(homeWidget.parentElement?.parentElement?.className).not.toContain("max-w-5xl");
+    expect(homeWidget.parentElement?.parentElement?.className).not.toContain("md:px-12");
     home.unmount();
 
     const annual = renderWithI18n(<Jahresrechnung />);
     expect(screen.queryByText("Lisa K.")).toBeNull();
     expect(screen.getByRole("heading", { name: /Mehr als 2.000 Haushalte/i })).toBeInTheDocument();
     expect(screen.getAllByRole("link", { name: /Jahresabrechnung prüfen/i }).length).toBeGreaterThan(0);
-    expect(document.querySelector(`iframe[data-widget-id="${mainWidgetId}"]`)).toBeTruthy();
+    const annualWidget = document.querySelector(`iframe[data-widget-id="${mainWidgetId}"]`) as HTMLIFrameElement;
+    expect(annualWidget).toBeTruthy();
+    expect(annualWidget.parentElement?.parentElement?.className).not.toContain("max-w-5xl");
+    expect(annualWidget.parentElement?.parentElement?.className).not.toContain("md:px-12");
   });
 
   it("does not add an empty hero wrapper without an ID and places the configured hero widget after the result note", () => {

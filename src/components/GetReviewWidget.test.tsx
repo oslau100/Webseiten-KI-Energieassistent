@@ -1,6 +1,6 @@
-import { act, render } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import { GET_REVIEW_WIDGET_SRC, GetReviewWidget, getValidReviewWidgetId, RESIZE_MESSAGE_TYPE } from "./GetReviewWidget";
+import { GET_REVIEW_WIDGET_SRC, GetReviewWidget, getValidReviewWidgetId, HERO_LOAD_TIMEOUT_MS, RESIZE_MESSAGE_TYPE } from "./GetReviewWidget";
 
 const mainWidgetId = "8179db6b-2332-4da8-84cc-e2e1eb8cdb6c";
 const heroWidgetId = "05c58679-3beb-4511-abfa-73b965d8d7e9";
@@ -41,7 +41,7 @@ describe("GetReviewWidget", () => {
     expect(hero.getAttribute("sandbox")).toBe("allow-scripts");
   });
 
-  it("applies height reports only to the iframe that sent a valid matching message", () => {
+  it("keeps the hero compact until visible provider content marks it ready", () => {
     render(<><GetReviewWidget widgetId={heroWidgetId} variant="hero" /><GetReviewWidget widgetId={mainWidgetId} variant="main" /></>);
     const hero = document.querySelector('[data-testid="get-review-widget-hero"]') as HTMLIFrameElement;
     const main = document.querySelector('[data-testid="get-review-widget-main"]') as HTMLIFrameElement;
@@ -51,8 +51,16 @@ describe("GetReviewWidget", () => {
     act(() => {
       window.dispatchEvent(new MessageEvent("message", { source: hero.contentWindow, data: { type: RESIZE_MESSAGE_TYPE, instanceId: heroInstanceId, height: 222 } }));
     });
-    expect(hero.style.height).toBe("222px");
+    expect(screen.getByTestId("get-review-widget-hero-skeleton")).toBeTruthy();
+    expect(hero.style.height).toBe("0px");
     expect(main.style.height).toBe("320px");
+
+    act(() => {
+      window.dispatchEvent(new MessageEvent("message", { source: hero.contentWindow, data: { type: RESIZE_MESSAGE_TYPE, instanceId: heroInstanceId, height: 222, ready: true } }));
+    });
+    expect(document.querySelector('[data-testid="get-review-widget-hero-skeleton"]')).toBeNull();
+    expect(hero.style.height).toBe("222px");
+    expect(hero.className).toContain("opacity-100");
 
     act(() => {
       window.dispatchEvent(new MessageEvent("message", { source: hero.contentWindow, data: { type: RESIZE_MESSAGE_TYPE, instanceId: mainInstanceId, height: 444 } }));
@@ -61,6 +69,21 @@ describe("GetReviewWidget", () => {
     });
     expect(hero.style.height).toBe("222px");
     expect(main.style.height).toBe("320px");
+  });
+
+  it("removes an unresolved hero loading area after the timeout", () => {
+    vi.useFakeTimers();
+    render(<GetReviewWidget widgetId={heroWidgetId} variant="hero" />);
+    expect(screen.getByTestId("get-review-widget-hero-skeleton")).toBeTruthy();
+    act(() => vi.advanceTimersByTime(HERO_LOAD_TIMEOUT_MS));
+    expect(document.querySelector('[data-testid="get-review-widget"]')).toBeNull();
+    vi.useRealTimers();
+  });
+
+  it("loads hero embeds eagerly and main embeds lazily", () => {
+    render(<><GetReviewWidget widgetId={heroWidgetId} variant="hero" /><GetReviewWidget widgetId={mainWidgetId} variant="main" /></>);
+    expect(document.querySelector('[data-testid="get-review-widget-hero"]')?.getAttribute("loading")).toBe("eager");
+    expect(document.querySelector('[data-testid="get-review-widget-main"]')?.getAttribute("loading")).toBe("lazy");
   });
 
   it("removes its message listener and embedded iframe on unmount", () => {

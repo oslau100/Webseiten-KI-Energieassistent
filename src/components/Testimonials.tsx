@@ -35,7 +35,7 @@ export const Testimonials = () => {
           <p className="text-primary font-semibold tracking-wide uppercase text-sm">{getText("sections.testimonials.kicker", "Das sagen unsere Nutzer", lang)}</p>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{t("home_testimonials_h2")}</h2>
         </AnimatedSection>
-        <AnimatedSection delay={200} className="max-w-5xl mx-auto px-4 md:px-12 relative">
+        <AnimatedSection delay={200} className={validMainWidgetId ? "w-full max-w-7xl mx-auto relative" : "max-w-5xl mx-auto px-4 md:px-12 relative"}>
           {validMainWidgetId ? <GetReviewWidget widgetId={validMainWidgetId} variant="main" /> : <Carousel opts={{ align: "start" }} className="w-full">
             <CarouselContent>
               {reviews.map((review, index) => (
