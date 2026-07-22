@@ -227,7 +227,7 @@ const headlineDictionaries: Record<LangCode, Dictionary> = {
     home_solution_h2: "Genau deshalb lohnt sich eine kurze Ersparnisprüfung.",
     home_how_it_works_h2: "So einfach funktioniert's",
     home_comparison_h2: "So unterscheidet sich der digitale Energieassistent von Vergleichsportalen",
-    home_testimonials_h2: "Über 2000 Haushalte nutzen bereits den digitalen Energieassistenten",
+    home_testimonials_h2: "Über 2000 Haushalte nutzen den Energieassistenten",
     home_about_h2: "Wer steckt hinter dem Energieassistenten?",
     home_faq_h2: "Häufige Fragen",
     home_final_cta_h2: "Jetzt Ersparnis prüfen",

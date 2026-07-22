@@ -19,8 +19,23 @@ type WebsiteConfigState = {
 };
 
 const DEFAULT_LOCATION_ID = "Ddc0DVM8MT67wmLP3wAA";
+// This URL has deliberately been the public Kromen fallback. A key must always
+// come from a runtime override or the Vite environment before making a request.
 const DEFAULT_SUPABASE_URL = "https://oynhnhkldvpoqhsfirwf.supabase.co";
-const DEFAULT_SUPABASE_ANON_KEY = "<SECRET>";
+
+const isUsablePublicRuntimeValue = (value: unknown) => {
+  const normalized = typeof value === "string" ? value.trim() : "";
+  return Boolean(normalized) && !/^<[^>]+>$/.test(normalized) && !/^(secret|placeholder)$/i.test(normalized);
+};
+
+const firstUsablePublicRuntimeValue = (...values: unknown[]) => {
+  const value = values.find(isUsablePublicRuntimeValue);
+  return typeof value === "string" ? value.trim() : "";
+};
+
+// Legacy Supabase anon keys are JWTs. Modern sb_publishable_* keys are not and
+// must only be sent through the apikey header.
+const isLegacyJwtPublicKey = (value: string) => /^eyJ[A-Za-z0-9_-]*\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(value);
 
 export const defaultWebsiteDesignConfig: JsonRecord = websiteDefaultDesignConfig;
 
@@ -57,21 +72,31 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
         const bootstrap = (window as Window & { TB_BOOTSTRAP?: Record<string, string> }).TB_BOOTSTRAP || {};
 
         const locationId = String(queryLocation || bootstrap.locationId || DEFAULT_LOCATION_ID).trim();
-        const supabaseUrl = String(querySupabaseUrl || bootstrap.supabaseUrl || DEFAULT_SUPABASE_URL).trim();
-        const supabaseKey = String(querySupabaseKey || bootstrap.supabaseKey || DEFAULT_SUPABASE_ANON_KEY).trim();
+        const supabaseUrl = firstUsablePublicRuntimeValue(
+          querySupabaseUrl,
+          bootstrap.supabaseUrl,
+          import.meta.env.VITE_SUPABASE_URL,
+          DEFAULT_SUPABASE_URL,
+        );
+        const supabaseKey = firstUsablePublicRuntimeValue(
+          querySupabaseKey,
+          bootstrap.supabaseKey,
+          import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+          import.meta.env.VITE_SUPABASE_ANON_KEY,
+        );
 
-        if (!locationId || !supabaseUrl || !supabaseKey || supabaseKey === "<SECRET>") {
+        if (!locationId || !supabaseUrl || !supabaseKey) {
           setState((prev) => ({ ...prev, loading: false }));
           return;
         }
 
         const endpoint = `${supabaseUrl}/rest/v1/kunden_config?select=webseite_design_config,webseite_content_config,webseite_layout_config&location_id=eq.${encodeURIComponent(locationId)}&limit=1`;
-        const response = await fetch(endpoint, {
-          headers: {
-            apikey: supabaseKey,
-            Authorization: `Bearer ${supabaseKey}`,
-          },
-        });
+        const headers: Record<string, string> = { apikey: supabaseKey };
+        if (isLegacyJwtPublicKey(supabaseKey)) {
+          headers.Authorization = `Bearer ${supabaseKey}`;
+        }
+
+        const response = await fetch(endpoint, { headers });
 
         if (!response.ok) {
           setState((prev) => ({ ...prev, loading: false }));

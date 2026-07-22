@@ -39,6 +39,7 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
     google_reviews: {
       main_widget_id: "",
       hero_widget_id: "",
+      jotform_widget_id: "",
     },
   },
   brand: {
