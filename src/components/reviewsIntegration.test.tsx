@@ -5,6 +5,8 @@ import { I18nProvider } from "@/lib/i18n";
 
 let config: Record<string, unknown> = {};
 const jotformWidgetId = "019f893d595870008c4dd1e6ec285a30e32a";
+const jotformScriptSelector = `script[src="https://www.jotform.com/website-widgets/embed/${jotformWidgetId}"]`;
+const anyJotformScriptSelector = 'script[src^="https://www.jotform.com/website-widgets/embed/"]';
 
 vi.mock("@/lib/websiteConfig", () => ({
   useWebsiteConfig: () => ({
@@ -26,12 +28,14 @@ describe("config-driven Google review fallbacks", () => {
     config = { "integrations.google_reviews.jotform_widget_id": "   " };
     const home = renderWithI18n(<Testimonials />);
     expect(screen.getByText("Sabine M.")).toBeInTheDocument();
-    expect(document.querySelector("iframe")).toBeNull();
+    expect(screen.queryByTestId("jotform-review-widget")).toBeNull();
+    expect(document.querySelector(anyJotformScriptSelector)).toBeNull();
     home.unmount();
 
     const annual = renderWithI18n(<Jahresrechnung />);
     expect(screen.getByText("Lisa K.")).toBeInTheDocument();
-    expect(document.querySelector("iframe")).toBeNull();
+    expect(screen.queryByTestId("jotform-review-widget")).toBeNull();
+    expect(document.querySelector(anyJotformScriptSelector)).toBeNull();
   });
 
   it("replaces both mock carousels while preserving headings and CTAs for a configured Jotform widget", () => {
@@ -42,6 +46,7 @@ describe("config-driven Google review fallbacks", () => {
     expect(screen.getByRole("link", { name: /Jetzt Ersparnis prüfen/i })).toBeInTheDocument();
     const homeWidget = document.querySelector(`div[data-testid="jotform-review-widget"]`) as HTMLIFrameElement;
     expect(homeWidget).toBeTruthy();
+    expect(document.querySelectorAll(jotformScriptSelector)).toHaveLength(1);
     expect(homeWidget.parentElement?.className).toContain("max-w-7xl");
     expect(homeWidget.parentElement?.className).not.toContain("max-w-5xl");
     expect(homeWidget.parentElement?.className).not.toContain("md:px-12");
@@ -53,6 +58,7 @@ describe("config-driven Google review fallbacks", () => {
     expect(screen.getAllByRole("link", { name: /Jahresabrechnung prüfen/i }).length).toBeGreaterThan(0);
     const annualWidget = document.querySelector(`div[data-testid="jotform-review-widget"]`) as HTMLIFrameElement;
     expect(annualWidget).toBeTruthy();
+    expect(document.querySelectorAll(jotformScriptSelector)).toHaveLength(1);
     expect(annualWidget.parentElement?.className).not.toContain("max-w-5xl");
     expect(annualWidget.parentElement?.className).not.toContain("md:px-12");
   });
@@ -62,7 +68,7 @@ describe("config-driven Google review fallbacks", () => {
     renderWithI18n(<Hero />);
     const note = screen.getByText(/Ergebnis in 60 Sekunden/i);
     expect(note).toBeInTheDocument();
-    expect(screen.queryByTestId("get-review-widget")).toBeNull();
-    expect(document.querySelector("iframe")).toBeNull();
+    expect(screen.queryByTestId("jotform-review-widget")).toBeNull();
+    expect(document.querySelector(anyJotformScriptSelector)).toBeNull();
   });
 });

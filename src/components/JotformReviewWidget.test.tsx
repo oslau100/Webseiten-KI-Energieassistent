@@ -21,19 +21,21 @@ describe("JotformReviewWidget", () => {
     expect(script.src).toBe(`${JOTFORM_WIDGET_EMBED_BASE}${id}`);
     unmount();
     expect(document.querySelector('[data-testid="jotform-review-widget"]')).toBeNull();
+    expect(document.querySelector(`script[src="${JOTFORM_WIDGET_EMBED_BASE}${id}"]`)).toBeNull();
   });
   it("replaces an old instance when the ID changes", () => {
     const { rerender } = render(<JotformReviewWidget widgetId={id} />);
     const second = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
     rerender(<JotformReviewWidget widgetId={second} />);
     expect(document.querySelectorAll('[data-testid="jotform-review-widget"] script')).toHaveLength(1);
-    expect(document.querySelector("script")?.src).toBe(`${JOTFORM_WIDGET_EMBED_BASE}${second}`);
+    expect(document.querySelector(`script[src="${JOTFORM_WIDGET_EMBED_BASE}${second}"]`)).toBeTruthy();
   });
   it("does not duplicate the embed in React StrictMode", () => {
     const { unmount } = render(<StrictMode><JotformReviewWidget widgetId={id} /></StrictMode>);
     expect(document.querySelectorAll('[data-testid="jotform-review-widget"]')).toHaveLength(1);
     expect(document.querySelectorAll(`[data-testid="jotform-review-widget"] script[src="${JOTFORM_WIDGET_EMBED_BASE}${id}"]`)).toHaveLength(1);
     unmount();
-    expect(document.querySelector("script")).toBeNull();
+    expect(document.querySelector('[data-testid="jotform-review-widget"]')).toBeNull();
+    expect(document.querySelector(`script[src="${JOTFORM_WIDGET_EMBED_BASE}${id}"]`)).toBeNull();
   });
 });
