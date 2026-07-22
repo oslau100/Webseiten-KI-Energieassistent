@@ -50,9 +50,7 @@ describe("WebsiteConfigProvider runtime config", () => {
     const [endpoint, options] = fetchMock.mock.calls[0];
     expect(String(endpoint)).toContain("https://query.supabase.co/rest/v1/kunden_config");
     expect(String(endpoint)).toContain("location_id=eq.query-location");
-    expect((options as RequestInit).headers).toMatchObject({
-      apikey: "query-key",
-      Authorization: "Bearer query-key",
-    });
+    expect((options as RequestInit).headers).toMatchObject({ apikey: "query-key" });
+    expect((options as RequestInit).headers).not.toHaveProperty("Authorization");
   });
 });

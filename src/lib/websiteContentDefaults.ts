@@ -27,6 +27,11 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
     },
   },
   i18n: {},
+  integrations: {
+    google_reviews: {
+      jotform_widget_id: "",
+    },
+  },
   sections: {
     hero: {
       image_alt: "Energieassistent",
