@@ -13,7 +13,8 @@ describe("GetReviewWidget", () => {
 
   it("does not render an iframe for missing, blank, malformed, or XSS-like IDs", () => {
     const { rerender } = render(<GetReviewWidget widgetId="   " />);
-    for (const invalidId of [null, "not-a-uuid", 'widget-id"><img src=x onerror=alert(1)>']) {
+    expect(document.querySelector("iframe")).toBeNull();
+    for (const invalidId of [undefined, null, "not-a-uuid", 'widget-id"><img src=x onerror=alert(1)>']) {
       rerender(<GetReviewWidget widgetId={invalidId} />);
       expect(document.querySelector('[data-testid="get-review-widget"]')).toBeNull();
     }
