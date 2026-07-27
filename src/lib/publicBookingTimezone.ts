@@ -21,7 +21,9 @@ export function zonedLocalToIso(date: string, time: string, timeZone = "Europe/B
     if (`${p.year}-${p.month}-${p.day}` === date && `${p.hour}:${p.minute}` === time.slice(0, 5) && p.second === "00") matches.push(instant);
   }
   if (!matches.length) throw new Error("NONEXISTENT_LOCAL_TIME");
-  const iso = new Date(Math.min(...matches)).toISOString();
+  // The booking API accepts exact minute slots only. Date#toISOString includes
+  // `.000`, so remove that fixed suffix rather than weakening the API contract.
+  const iso = new Date(Math.min(...matches)).toISOString().replace(".000Z", "Z");
   const roundtrip = partsAt(new Date(iso), timeZone);
   if (`${roundtrip.year}-${roundtrip.month}-${roundtrip.day}T${roundtrip.hour}:${roundtrip.minute}:${roundtrip.second}` !== `${date}T${time.slice(0, 5)}:00`) throw new Error("INVALID_TIMEZONE_ROUNDTRIP");
   return iso;
