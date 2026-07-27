@@ -18,7 +18,7 @@ export const Footer = () => {
             </div>
             <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} {t("footer_rights")}<br />{getText("brand.name", "Energieassistent")}</p>
           </div>
-          <div className="space-y-4"><h4 className="font-semibold text-foreground">{t("footer_contact")}</h4><div className="space-y-2 text-sm text-muted-foreground"><Link to={withLang("/rueckruf-anfordern")} className="hover:text-primary transition-colors block underline underline-offset-4">{t("footer_callback")}</Link></div></div>
+          <div className="space-y-4"><h4 className="font-semibold text-foreground">{t("footer_contact")}</h4><div className="space-y-2 text-sm text-muted-foreground"><Link to={withLang("/rueckruf-buchen")} className="hover:text-primary transition-colors block underline underline-offset-4">{t("footer_callback")}</Link></div></div>
           <div className="space-y-4"><h4 className="font-semibold text-foreground">{t("footer_legal")}</h4><div className="space-y-2 text-sm text-muted-foreground"><Link to={withLang("/datenschutz")} className="hover:text-primary transition-colors block">{t("footer_privacy")}</Link><Link to={withLang("/impressum")} className="hover:text-primary transition-colors block">{t("footer_imprint")}</Link></div></div>
         </div>
       </div>
