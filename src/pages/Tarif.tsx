@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { SimpleFooter } from "@/components/SimpleFooter";
 import { useLocation } from "react-router-dom";
+import { TarifCallbackSection } from "@/components/TarifCallbackSection";
 
 const Tarif = () => {
   const location = useLocation();
@@ -70,6 +71,7 @@ const Tarif = () => {
           style={{ height: `${iframeHeight}px` }}
           className="w-full border-0 overflow-hidden"
         />
+        <TarifCallbackSection />
       </main>
       <SimpleFooter />
     </div>
