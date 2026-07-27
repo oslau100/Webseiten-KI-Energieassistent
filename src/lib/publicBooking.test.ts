@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { availabilityRange, bookingRequest, isLegacyAnonJwt, readUtm, resolveBookingRuntime } from "./publicBooking";
+import { availabilityRange, bookingRequest, isLegacyAnonJwt, readUtm, resolveBookingRuntime, normalizePhone } from "./publicBooking";
 const jwt=()=>`eyJhbGciOiJIUzI1NiJ9.${btoa(JSON.stringify({role:"anon"})).replace(/=/g,"")}.signature`;
 afterEach(()=>{vi.unstubAllEnvs();vi.restoreAllMocks();delete (window as Window & {TB_BOOTSTRAP?:unknown}).TB_BOOTSTRAP;history.replaceState({},"","/");});
 describe("booking runtime and client",()=>{
@@ -9,4 +9,8 @@ describe("booking runtime and client",()=>{
  it("does not call with a publishable key or reveal it",async()=>{vi.stubEnv("VITE_SUPABASE_PUBLISHABLE_KEY","sb_publishable_secret");const fetchMock=vi.spyOn(globalThis,"fetch");expect(()=>resolveBookingRuntime()).toThrow("nicht korrekt konfiguriert");expect(fetchMock).not.toHaveBeenCalled();try{resolveBookingRuntime();}catch(e){expect(String(e)).not.toContain("sb_publishable_secret");}});
  it("filters bounded UTM strings",()=>expect(readUtm("?utm_source=mail&bad=x&utm_%24=no")).toEqual({utm_source:"mail"}));
  it("limits availability to today plus 30 days",()=>expect(availabilityRange(new Date("2026-07-27T12:00:00Z"))).toEqual({start:"2026-07-27",end:"2026-08-26"}));
+});
+
+describe("phone normalization",()=>{
+ it.each([["123456",null],["1234567","1234567"],["123456789012345","123456789012345"],["1234567890123456",null],["+49 123 456 789","+49123456789"],["(030) 123-4567","0301234567"],["123ABC4567",null],["12+3456789",null]])("normalizes %s",(input,expected)=>expect(normalizePhone(input)).toBe(expected));
 });

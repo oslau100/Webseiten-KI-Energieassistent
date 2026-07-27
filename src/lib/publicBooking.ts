@@ -43,3 +43,9 @@ export const readUtm = (search: string) => {
   return result;
 };
 
+export const normalizePhone = (value: string) => {
+  if (/[A-Za-z]/.test(value) || (value.match(/\+/g)?.length ?? 0) > 1 || value.includes("+") && !value.trim().startsWith("+")) return null;
+  const prefix = value.trim().startsWith("+") ? "+" : "";
+  const digits = value.replace(/\D/g, "");
+  return /^\d{7,15}$/.test(digits) ? `${prefix}${digits}` : null;
+};
