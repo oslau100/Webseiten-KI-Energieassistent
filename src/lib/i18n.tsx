@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { useLocation } from "react-router-dom";
 import { useWebsiteConfig } from "./websiteConfig";
+import { tariffCallbackTranslations } from "./tariffCallbackI18n";
 
 export const LANGUAGES = [
   { code: "de", label: "Deutsch", flagUrl: "https://flagcdn.com/w40/de.png" },
@@ -665,6 +666,8 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
         annualFaqDictionaries.de[key] ??
         headlineDictionaries[lang][key] ??
         headlineDictionaries.de[key] ??
+        tariffCallbackTranslations[lang][key] ??
+        tariffCallbackTranslations.de[key] ??
         dictionaries[lang][key] ??
         dictionaries.de[key] ??
         key,
