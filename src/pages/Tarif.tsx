@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { SimpleFooter } from "@/components/SimpleFooter";
 import { useLocation } from "react-router-dom";
+import { TarifCallbackSection } from "@/components/TarifCallbackSection";
 
 export const calculateTarifIframeHeight = (doc: Document) => {
   const offerRoot = doc.getElementById("tbx2026");
@@ -89,6 +90,7 @@ const Tarif = () => {
           className="w-full border-0 overflow-hidden"
         />
       </main>
+      <TarifCallbackSection />
       <SimpleFooter />
     </div>
   );
