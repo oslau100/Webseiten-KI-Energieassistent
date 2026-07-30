@@ -1,4 +1,4 @@
-/** Shared contact rules used by the Kromen Settings and Rechnung surveys. */
+/** Shared contact rules used by booking and survey forms. */
 export const SURVEY_EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export const normalizeSurveyEmail = (value: string) => value.trim();

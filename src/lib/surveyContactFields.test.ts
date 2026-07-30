@@ -1,7 +1,7 @@
 import { describe,expect,it } from "vitest";
 import { isValidSurveyEmail,isValidSurveyPhone,normalizeGermanSurveyPhone,normalizeSurveyEmail,SURVEY_EMAIL_PATTERN } from "./surveyContactFields";
 
-describe("shared Kromen survey contact rules",()=>{
+describe("shared survey contact rules",()=>{
  it.each(["","plain-address","name@localhost","name @example.de"])('rejects invalid survey email %j',value=>expect(isValidSurveyEmail(value)).toBe(false));
  it("accepts and trims email exactly like the survey submit path",()=>{expect(SURVEY_EMAIL_PATTERN.test("ada@example.de")).toBe(true);expect(isValidSurveyEmail("  ada@example.de  ")).toBe(true);expect(normalizeSurveyEmail("  ada@example.de  ")).toBe("ada@example.de");});
  it.each([
