@@ -16,7 +16,7 @@ import RechnungEingegangen from "./pages/RechnungEingegangen";
 import Fehler from "./pages/Fehler";
 import FehlerRechnung from "./pages/FehlerRechnung";
 import Rechnung from "./pages/Rechnung";
-import RueckrufAnfordern from "./pages/RueckrufAnfordern";
+import RueckrufBuchen from "./pages/RueckrufBuchen";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { CookieBar } from "./components/CookieBar";
 import { I18nProvider } from "./lib/i18n";
@@ -53,7 +53,7 @@ const App = () => (
             <Route path="/rechnung-fehler" element={<FehlerRechnung />} />
             <Route path="/rechnung" element={<Rechnung />} />
             <Route path="/start-rechnung" element={<Rechnung />} />
-            <Route path="/rueckruf-anfordern" element={<RueckrufAnfordern />} />
+            <Route path="/rueckruf-buchen" element={<RueckrufBuchen />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <CookieBar />
