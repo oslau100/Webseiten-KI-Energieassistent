@@ -10,8 +10,8 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
   brand: {
     name: "Ehiogie Energieassistent",
     contact_email: "marvin@ehiogie-energieassistent.de",
-    agency_url: "",
-    agency_alt: "",
+    agency_url: "https://energieassistent.io",
+    agency_alt: "Powered by Energieassistent.io",
   },
   legal: {
     variables: {
