@@ -317,7 +317,7 @@ describe("Kromen runtime/config contracts", () => {
         background: "#ffffff",
       },
       assets: {
-        agency_logo: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/logo-schwarz-100x100.png",
+        agency_logo: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/logo-schwarz-powered-by-400x100.png",
       },
     });
     expect(defaultWebsiteLayoutConfig).toMatchObject({

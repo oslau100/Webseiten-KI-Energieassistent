@@ -19,7 +19,7 @@ export const customerDefaultWebsiteDesignConfig: JsonRecord = {
   assets: {
     logo_header: "https://vibe.filesafe.space/1774643086282323006/attachments/e9aa516d-6891-4336-a8a2-49e0e6e79579.png",
     logo_footer: "https://vibe.filesafe.space/1774643086282323006/attachments/2e3ecdff-f542-4634-89f0-2179d8141a83.png",
-    agency_logo: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/logo-schwarz-100x100.png",
+    agency_logo: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/logo-schwarz-powered-by-400x100.png",
     hero_image: "https://vibe.filesafe.space/1774643086282323006/attachments/a00ebdfb-5bde-454f-921f-abeedbbb3c22.png",
   },
 };

@@ -30,16 +30,16 @@ export const Footer = () => {
               <Link to={withLang("/impressum")} className="hover:text-primary transition-colors block">{t("footer_imprint")}</Link>
             </div>
             {showAgencyAttribution ? (
-              <div className="pt-3">
+              <div className="pt-5">
                 <a
                   href={agencyUrl}
                   aria-label={agencyAlt}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex flex-col items-start gap-2 rounded-md text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  className="inline-flex flex-col items-start gap-[6px] text-[10px] font-medium text-muted-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 >
                   <span>Powered by</span>
-                  <img src={agencyLogo} alt={agencyAlt} className="h-10 w-auto max-w-[10rem] object-contain object-left" />
+                  <img src={agencyLogo} alt={agencyAlt} className="h-auto w-[110px] object-contain object-left md:w-[130px]" />
                 </a>
               </div>
             ) : null}

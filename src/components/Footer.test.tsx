@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-const agencyLogo = "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/logo-schwarz-100x100.png";
+const agencyLogo = "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/logo-schwarz-powered-by-400x100.png";
 
 let assets: Record<string, string> = {};
 let textConfig: Record<string, string> = {};
@@ -55,7 +55,7 @@ describe("Footer powered-by attribution", () => {
 
     const logo = screen.getByRole("img", { name: "Powered by Energieassistent.io" });
     expect(logo).toHaveAttribute("src", agencyLogo);
-    expect(logo).toHaveClass("h-10", "w-auto", "object-contain");
+    expect(logo).toHaveClass("h-auto", "w-[110px]", "md:w-[130px]", "object-contain");
   });
 
   it("does not render a broken attribution image when agency_logo is missing", () => {
