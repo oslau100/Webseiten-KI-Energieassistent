@@ -48,6 +48,7 @@ describe("Footer powered-by attribution", () => {
     renderFooter();
 
     const link = screen.getByRole("link", { name: /powered by energieassistent\.io/i });
+    expect(link).toHaveAccessibleName("Powered by Energieassistent.io");
     expect(link).toHaveAttribute("href", "https://energieassistent.io");
     expect(link).toHaveAttribute("target", "_blank");
     expect(link).toHaveAttribute("rel", "noopener noreferrer");

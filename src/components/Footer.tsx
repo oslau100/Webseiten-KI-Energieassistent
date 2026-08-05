@@ -33,6 +33,7 @@ export const Footer = () => {
               <div className="pt-3">
                 <a
                   href={agencyUrl}
+                  aria-label={agencyAlt}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex flex-col items-start gap-2 rounded-md text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
