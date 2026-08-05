@@ -1,25 +1,25 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { Footer } from "./Footer";
 import { I18nProvider } from "@/lib/i18n";
-import { WebsiteConfigProvider } from "@/lib/websiteConfig";
+import * as websiteConfig from "@/lib/websiteConfig";
 import { customerDefaultWebsiteContentConfig } from "@/lib/websiteContentDefaults";
 import { customerDefaultWebsiteDesignConfig } from "@/lib/customerDefaults";
 
 const agencyUrl = "https://energieassistent.io";
 const agencyAlt = "Powered by Energieassistent.io";
 const agencyLogo =
-  "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/logo-schwarz-100x100.png";
+  "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/logo-schwarz-powered-by-400x100.png";
 
 const renderFooter = () =>
   render(
     <MemoryRouter>
-      <WebsiteConfigProvider>
+      <websiteConfig.WebsiteConfigProvider>
         <I18nProvider>
           <Footer />
         </I18nProvider>
-      </WebsiteConfigProvider>
+      </websiteConfig.WebsiteConfigProvider>
     </MemoryRouter>,
   );
 
@@ -45,5 +45,19 @@ describe("Footer powered-by attribution", () => {
 
     const logo = screen.getByRole("img", { name: agencyAlt });
     expect(logo).toHaveAttribute("src", agencyLogo);
+  });
+
+  it("does not render the attribution when the agency logo is missing", () => {
+    vi.spyOn(websiteConfig, "useWebsiteConfig").mockReturnValue({
+      content: {},
+      design: { assets: { agency_logo: "" } },
+      getText: (path: string, fallback: string) =>
+        path === "brand.agency_url" ? agencyUrl : fallback,
+    } as ReturnType<typeof websiteConfig.useWebsiteConfig>);
+
+    renderFooter();
+
+    expect(screen.queryByRole("link", { name: agencyAlt })).not.toBeInTheDocument();
+    vi.restoreAllMocks();
   });
 });

@@ -71,21 +71,21 @@ export const Footer = () => {
               </Link>
             </div>
             {showAgencyAttribution ? (
-              <div className="pt-4">
-                <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground/80">
-                  Powered by
-                </p>
+              <div className="pt-5">
                 <a
                   href={agencyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={agencyAlt}
-                  className="inline-flex max-w-[9rem] rounded-md transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  className="inline-flex flex-col items-start gap-1.5 rounded-sm transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 >
+                  <span className="text-[10px] font-medium leading-none text-muted-foreground/80">
+                    Powered by
+                  </span>
                   <img
                     src={agencyLogo}
                     alt={agencyAlt}
-                    className="h-10 w-auto object-contain"
+                    className="h-auto w-[110px] object-contain object-left md:w-[130px]"
                   />
                 </a>
               </div>
