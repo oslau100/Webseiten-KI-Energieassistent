@@ -7,6 +7,10 @@ export const Footer = () => {
   const { getText, design } = useWebsiteConfig();
 
   const assets = (design.assets as Record<string, string> | undefined) || {};
+  const agencyUrl = getText("brand.agency_url", "").trim();
+  const agencyAlt = getText("brand.agency_alt", "Powered by Energieassistent.io").trim();
+  const agencyLogo = assets.agency_logo?.trim();
+  const showAgencyAttribution = Boolean(agencyUrl && agencyLogo);
 
   return (
     <footer className="bg-muted pt-12 pb-2 md:py-16 border-t">
@@ -19,7 +23,26 @@ export const Footer = () => {
             <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} {t("footer_rights")}<br />{getText("brand.name", "Energieassistent")}</p>
           </div>
           <div className="space-y-4"><h4 className="font-semibold text-foreground">{t("footer_contact")}</h4><div className="space-y-2 text-sm text-muted-foreground"><Link to={withLang("/rueckruf-buchen")} className="hover:text-primary transition-colors block underline underline-offset-4">{t("footer_callback")}</Link></div></div>
-          <div className="space-y-4"><h4 className="font-semibold text-foreground">{t("footer_legal")}</h4><div className="space-y-2 text-sm text-muted-foreground"><Link to={withLang("/datenschutz")} className="hover:text-primary transition-colors block">{t("footer_privacy")}</Link><Link to={withLang("/impressum")} className="hover:text-primary transition-colors block">{t("footer_imprint")}</Link></div></div>
+          <div className="space-y-4">
+            <h4 className="font-semibold text-foreground">{t("footer_legal")}</h4>
+            <div className="space-y-2 text-sm text-muted-foreground">
+              <Link to={withLang("/datenschutz")} className="hover:text-primary transition-colors block">{t("footer_privacy")}</Link>
+              <Link to={withLang("/impressum")} className="hover:text-primary transition-colors block">{t("footer_imprint")}</Link>
+            </div>
+            {showAgencyAttribution ? (
+              <div className="pt-3">
+                <a
+                  href={agencyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex flex-col items-start gap-2 rounded-md text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                >
+                  <span>Powered by</span>
+                  <img src={agencyLogo} alt={agencyAlt} className="h-10 w-auto max-w-[10rem] object-contain object-left" />
+                </a>
+              </div>
+            ) : null}
+          </div>
         </div>
       </div>
     </footer>

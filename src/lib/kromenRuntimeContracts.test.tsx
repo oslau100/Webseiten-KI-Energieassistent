@@ -287,7 +287,8 @@ describe("Kromen runtime/config contracts", () => {
       brand: {
         name: "Kromen Energieassistent",
         contact_email: "info@kromen-energieassistent.de",
-        agency_url: "",
+        agency_url: "https://energieassistent.io",
+        agency_alt: "Powered by Energieassistent.io",
       },
       integrations: {
         google_reviews: {
@@ -314,6 +315,9 @@ describe("Kromen runtime/config contracts", () => {
         text: "#0f172a",
         mutedText: "#64748b",
         background: "#ffffff",
+      },
+      assets: {
+        agency_logo: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/logo-schwarz-100x100.png",
       },
     });
     expect(defaultWebsiteLayoutConfig).toMatchObject({
