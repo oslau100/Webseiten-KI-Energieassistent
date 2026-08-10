@@ -2,6 +2,7 @@ import { Check, Star } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { landingAssets } from "@/lib/landingAssets";
 
 export const Hero = () => {
   return (
@@ -55,8 +56,13 @@ export const Hero = () => {
           {/* Social Proof */}
           <div className="flex flex-col items-center mt-2 mb-10 md:mb-16">
             <img 
-              src="https://vibe.filesafe.space/1779705604088859430/attachments/eebcb0f6-2c85-4f93-835a-25679b6bf9c9.png" 
+              src={landingAssets.socialProof}
               alt="Social Proof" 
+              width={800}
+              height={420}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               className="h-28 sm:h-32 md:h-[130px] w-auto object-contain"
             />
           </div>

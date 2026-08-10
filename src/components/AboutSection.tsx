@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { landingAssets } from "@/lib/landingAssets";
 
 export const AboutSection = () => {
   return (
@@ -31,8 +32,12 @@ export const AboutSection = () => {
             </h2>
             <div className="relative w-full rounded-2xl shadow-lg bg-white p-3 sm:p-4 h-[400px] min-[400px]:h-[450px] sm:h-[600px]">
               <img
-                src="https://vibe.filesafe.space/1779705604088859430/attachments/d4930340-5977-4138-b91e-0909b811de67.png"
+                src={landingAssets.about.founder}
                 alt="Osasere Laurent"
+                width={1200}
+                height={630}
+                loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover rounded-xl"
               />
             </div>
@@ -47,8 +52,12 @@ export const AboutSection = () => {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="relative w-full overflow-hidden rounded-2xl shadow-lg bg-white">
             <img
-              src="https://vibe.filesafe.space/1779705604088859430/attachments/edb61f2b-b1c0-47ac-958f-915654225372.png"
+              src={landingAssets.about.location}
               alt="Unser Standort"
+              width={1200}
+              height={630}
+              loading="lazy"
+              decoding="async"
               className="w-full h-auto object-cover"
             />
           </div>
