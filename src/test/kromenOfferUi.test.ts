@@ -72,6 +72,8 @@ describe("Kromen Offer tariff modal", () => {
 
   it("keeps dialog semantics, internal scrolling, localised naming, Escape and backdrop close wiring", () => {
     expect(loader).toContain('role="dialog" aria-modal="true" aria-labelledby="tbModalTitle"');
+    expect(loader.match(/id="tbModalTitle"/g)).toHaveLength(1);
+    expect(loader).not.toContain("summary-title");
     expect(loader).toContain('$("tbModalClose").setAttribute("aria-label",String(t.closeLabel || "Close"))');
     expect(loader).toContain('#tbx2026 .modalBody{padding:18px 20px 20px!important;overflow:auto!important;-webkit-overflow-scrolling:touch!important;}');
     expect(loader).toContain('if(e.key==="Escape") closeModal()');
