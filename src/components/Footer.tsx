@@ -1,5 +1,6 @@
 import { Mail, Phone } from "lucide-react";
 import { useLocation } from "react-router-dom";
+import { landingAssets } from "@/lib/landingAssets";
 
 export const Footer = () => {
   const location = useLocation();
@@ -27,8 +28,12 @@ export const Footer = () => {
           <div className="flex flex-col">
             <div className="flex items-start">
               <img 
-                src="https://vibe.filesafe.space/1779705604088859430/attachments/62898ce1-fbf0-49e2-bbe3-58b700e1a2ee.png" 
+                src={landingAssets.logo}
                 alt="Laurent Digital" 
+                width={800}
+                height={800}
+                loading="lazy"
+                decoding="async"
                 className="h-64 md:h-72 w-auto -mt-24 md:-mt-[110px]"
               />
             </div>

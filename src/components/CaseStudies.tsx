@@ -1,8 +1,9 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { ChevronLeft, ChevronRight, ArrowDown } from "lucide-react";
+import { landingAssets } from "@/lib/landingAssets";
 
 type CaseStudy = {
   id: number;
@@ -21,7 +22,7 @@ const caseStudies: CaseStudy[] = [
     title: "2.366 Verträge automatisiert abgeschlossen bei nur Ø 56€ pro Abschluss",
     website: "www.tarif-butler.de",
     company: "Switch Energy GmbH",
-    previewImage: "https://vibe.filesafe.space/1779705604088859430/attachments/f3190deb-9a68-459a-9666-decfb70c5580.png",
+    previewImage: landingAssets.caseStudies.tarifbutler,
     previewImageAlt: "TarifButler App Preview",
     situation: (
       <>
@@ -43,7 +44,7 @@ const caseStudies: CaseStudy[] = [
     title: "111 Verträge in den ersten 3 Monaten mit Einwurfkarten",
     website: "www.kromen-energieassistent.de",
     company: "Marcel Kromen",
-    previewImage: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/Fallstudie-Seite-Kromen.png",
+    previewImage: landingAssets.caseStudies.kromen,
     previewImageAlt: "Kromen Energieassistent Vorschau",
     situation: (
       <>
@@ -67,7 +68,7 @@ const caseStudies: CaseStudy[] = [
     title: "Jeden Monat über 50 Verträge mit deutlich weniger Aufwand",
     website: "www.ehiogie-energieassistent.de",
     company: "Marvin Ehiogie",
-    previewImage: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/Fallstudie-Seite-Ehiogie.png",
+    previewImage: landingAssets.caseStudies.ehiogie,
     previewImageAlt: "Ehiogie Energieassistent Vorschau",
     situation: (
       <>
@@ -90,7 +91,41 @@ const caseStudies: CaseStudy[] = [
 
 export const CaseStudies = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
   const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const preloadImages = () => {
+      caseStudies.forEach(({ previewImage }) => {
+        const image = new Image();
+        image.src = previewImage;
+        if (typeof image.decode === "function") {
+          void image.decode().catch(() => undefined);
+        }
+      });
+    };
+
+    if (!("IntersectionObserver" in window)) {
+      preloadImages();
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          preloadImages();
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "900px 0px" },
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   const nextSlide = () => setActiveIndex((p) => (p + 1) % caseStudies.length);
   const prevSlide = () => setActiveIndex((p) => (p - 1 + caseStudies.length) % caseStudies.length);
@@ -121,7 +156,7 @@ export const CaseStudies = () => {
   const activeCaseStudy = caseStudies[activeIndex];
 
   return (
-    <section className="relative bg-[#000000] py-20 overflow-hidden border-t border-white/5">
+    <section ref={sectionRef} className="relative bg-[#000000] py-20 overflow-hidden border-t border-white/5">
       {/* Background Grid Pattern */}
       <div
         className="pointer-events-none absolute inset-0 z-0 opacity-[0.075]"
@@ -174,6 +209,10 @@ export const CaseStudies = () => {
                   <img
                     src={activeCaseStudy.previewImage}
                     alt={activeCaseStudy.previewImageAlt}
+                    width={800}
+                    height={448}
+                    loading="lazy"
+                    decoding="async"
                     className="max-h-full w-full rounded-xl bg-white object-contain shadow-sm"
                   />
                 </div>

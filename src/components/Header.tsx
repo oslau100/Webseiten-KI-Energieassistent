@@ -3,6 +3,7 @@ import { Button } from "./ui/button";
 import { useLocation } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useState } from "react";
+import { landingAssets } from "@/lib/landingAssets";
 
 const navLinks = [
   { name: "Problem", href: "#problem" },
@@ -46,8 +47,11 @@ export const Header = () => {
       <div className="container relative z-10 mx-auto flex py-0 items-center justify-between px-4 md:px-8">
         <a href="/" className="flex items-center z-10 -my-14 md:-my-16">
           <img
-            src="https://vibe.filesafe.space/1779705604088859430/attachments/62898ce1-fbf0-49e2-bbe3-58b700e1a2ee.png"
+            src={landingAssets.logo}
             alt="Energieassistent.io"
+            width={800}
+            height={800}
+            decoding="async"
             className="h-48 md:h-64 w-auto"
           />
         </a>

@@ -1,4 +1,5 @@
 import { Button } from "./ui/button";
+import { landingAssets } from "@/lib/landingAssets";
 
 export const CrmIntegration = () => {
   return (
@@ -30,8 +31,14 @@ export const CrmIntegration = () => {
           <div className="absolute inset-[-100%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,#195044_50%,transparent_100%)]" />
           <div className="relative bg-white rounded-[14px] md:rounded-[30px] overflow-hidden">
             <img 
-              src="https://vibe.filesafe.space/1779705604088859430/attachments/83795923-f5b6-48a7-8560-04923eccea8c.png" 
+              src={landingAssets.crmDashboard.width1200}
+              srcSet={`${landingAssets.crmDashboard.width1200} 1200w, ${landingAssets.crmDashboard.width2000} 2000w`}
+              sizes="(min-width: 1152px) 1152px, 100vw"
               alt="CRM Dashboard" 
+              width={2000}
+              height={1050}
+              loading="lazy"
+              decoding="async"
               className="w-full h-auto object-cover"
             />
           </div>

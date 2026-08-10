@@ -1,3 +1,5 @@
+import { landingAssets } from "@/lib/landingAssets";
+
 export const SystemSolution = () => {
   return (
     <section className="relative w-full py-20 md:py-32 bg-[#000000] text-white overflow-hidden">
@@ -40,8 +42,14 @@ export const SystemSolution = () => {
           {/* Right Column: Graphic Representation */}
           <div className="relative w-full max-w-[1000px] mx-auto mt-16 md:mt-12 lg:mt-0 flex items-center justify-center mb-16 sm:mb-0">
             <img 
-              src="https://vibe.filesafe.space/1779705604088859430/attachments/921658c1-2ee1-4ae6-a37c-a126410c4d40.png" 
+              src={landingAssets.systemSolution.width1000}
+              srcSet={`${landingAssets.systemSolution.width1000} 1000w, ${landingAssets.systemSolution.width2000} 2000w`}
+              sizes="(min-width: 1280px) 900px, (min-width: 1024px) 700px, 100vw"
               alt="Automatisiertes Vertriebssystem" 
+              width={2000}
+              height={1050}
+              loading="lazy"
+              decoding="async"
               className="w-full h-auto object-contain drop-shadow-[0_0_40px_rgba(25,80,68,0.2)] scale-[1.75] sm:scale-[1.3] md:scale-125 lg:scale-[1.35] origin-center"
             />
           </div>
