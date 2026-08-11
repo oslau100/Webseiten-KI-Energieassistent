@@ -1,9 +1,10 @@
 import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { landingAssets } from "@/lib/landingAssets";
+import { scrollToHash } from "@/hooks/use-hash-scroll";
 
 const navLinks = [
   { name: "Problem", href: "#problem" },
@@ -14,18 +15,28 @@ const navLinks = [
 
 export const Header = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const isHome = location.pathname === "/";
   const [isOpen, setIsOpen] = useState(false);
+  const pendingHash = useRef<string | null>(null);
 
-  const handleNavClick = (href: string) => {
+  const handleMobileNavClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!isHome) return;
+
+    event.preventDefault();
+    pendingHash.current = href;
     setIsOpen(false);
-    if (isHome && href.startsWith('#')) {
-      const id = href.replace("#", "");
-      const element = document.getElementById(id);
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: "smooth" });
-        }, 100);
+  };
+
+  const handleCloseAutoFocus = () => {
+    if (pendingHash.current) {
+      const hash = pendingHash.current;
+      pendingHash.current = null;
+
+      if (location.hash === hash) {
+        scrollToHash(hash);
+      } else {
+        navigate({ pathname: "/", hash });
       }
     }
   };
@@ -59,13 +70,13 @@ export const Header = () => {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-4 lg:gap-8 text-[14px] lg:text-[15px] font-medium z-10">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={isHome ? link.href : `/${link.href}`}
+              to={isHome ? link.href : `/${link.href}`}
               className="text-gray-300 transition-colors hover:text-white"
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -73,22 +84,32 @@ export const Header = () => {
         <div className="md:hidden z-10">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="bg-transparent text-white hover:bg-transparent hover:text-white">
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="Navigationsmenü öffnen"
+                aria-expanded={isOpen}
+                className="bg-transparent text-white hover:bg-transparent hover:text-white"
+              >
                 <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="top" className="bg-[#000000] border-b-0 text-white pt-20">
+            <SheetContent
+              side="top"
+              aria-label="Mobile Navigation"
+              onCloseAutoFocus={handleCloseAutoFocus}
+              className="bg-[#000000] border-b-0 text-white pt-20"
+            >
               <nav className="flex flex-col items-center gap-6 text-lg font-medium">
                 {navLinks.map((link) => (
-                  <a
+                  <Link
                     key={link.name}
-                    href={isHome ? link.href : `/${link.href}`}
-                    onClick={() => handleNavClick(link.href)}
+                    to={isHome ? link.href : `/${link.href}`}
+                    onClick={(event) => handleMobileNavClick(event, link.href)}
                     className="text-gray-300 transition-colors hover:text-white w-full text-center py-2"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 ))}
               </nav>
             </SheetContent>
