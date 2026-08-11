@@ -57,6 +57,21 @@ describe("mobile hash navigation", () => {
     expect(scrollIntoView).toHaveBeenCalledWith({ behavior: "auto", block: "start" });
   });
 
+  it("scrolls once when the selected mobile hash is already active", async () => {
+    window.history.replaceState({}, "", "/#vorteile");
+    renderPage();
+    expect(scrollIntoView).toHaveBeenCalledOnce();
+    scrollIntoView.mockClear();
+
+    const trigger = screen.getByRole("button", { name: "Navigationsmenü öffnen" });
+    fireEvent.click(trigger);
+    fireEvent.click(screen.getByRole("link", { name: "Vorteile" }));
+
+    await waitFor(() => expect(trigger).toHaveAttribute("aria-expanded", "false"));
+    expect(window.location.hash).toBe("#vorteile");
+    expect(scrollIntoView).toHaveBeenCalledOnce();
+  });
+
   it("keeps desktop links on the controlled hash navigation path", async () => {
     renderPage();
 

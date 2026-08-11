@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useRef, useState } from "react";
 import { landingAssets } from "@/lib/landingAssets";
+import { scrollToHash } from "@/hooks/use-hash-scroll";
 
 const navLinks = [
   { name: "Problem", href: "#problem" },
@@ -31,7 +32,12 @@ export const Header = () => {
     if (pendingHash.current) {
       const hash = pendingHash.current;
       pendingHash.current = null;
-      navigate({ pathname: "/", hash });
+
+      if (location.hash === hash) {
+        scrollToHash(hash);
+      } else {
+        navigate({ pathname: "/", hash });
+      }
     }
   };
 
