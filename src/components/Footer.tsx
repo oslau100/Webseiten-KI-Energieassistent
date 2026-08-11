@@ -1,5 +1,5 @@
 import { Mail, Phone } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { landingAssets } from "@/lib/landingAssets";
 
 export const Footer = () => {
@@ -67,29 +67,29 @@ export const Footer = () => {
             <h3 className="text-2xl font-bold mb-8">Navigation</h3>
             <ul className="space-y-5">
               <li>
-                <a href={getHref("#problem")} className="text-gray-300 hover:text-white transition-colors text-lg">
+                <Link to={getHref("#problem")} className="text-gray-300 hover:text-white transition-colors text-lg">
                   Problem
-                </a>
+                </Link>
               </li>
               <li>
-                <a href={getHref("#loesung")} className="text-gray-300 hover:text-white transition-colors text-lg">
+                <Link to={getHref("#loesung")} className="text-gray-300 hover:text-white transition-colors text-lg">
                   Lösung
-                </a>
+                </Link>
               </li>
               <li>
-                <a href={getHref("#prozess")} className="text-gray-300 hover:text-white transition-colors text-lg">
+                <Link to={getHref("#prozess")} className="text-gray-300 hover:text-white transition-colors text-lg">
                   Prozess
-                </a>
+                </Link>
               </li>
               <li>
-                <a href={getHref("#vorteile")} className="text-gray-300 hover:text-white transition-colors text-lg">
+                <Link to={getHref("#vorteile")} className="text-gray-300 hover:text-white transition-colors text-lg">
                   Vorteile
-                </a>
+                </Link>
               </li>
               <li>
-                <a href={getHref("#ueber-uns")} className="text-gray-300 hover:text-white transition-colors text-lg">
+                <Link to={getHref("#ueber-uns")} className="text-gray-300 hover:text-white transition-colors text-lg">
                   Über uns
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

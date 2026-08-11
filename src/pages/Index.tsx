@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { PainPoints } from "@/components/PainPoints";
@@ -15,21 +13,10 @@ import { CollaborationProcess } from "@/components/CollaborationProcess";
 import { NextStep } from "@/components/NextStep";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
+import { useHashScroll } from "@/hooks/use-hash-scroll";
 
 const Index = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.hash) {
-      const id = location.hash.replace("#", "");
-      const element = document.getElementById(id);
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: "smooth" });
-        }, 100);
-      }
-    }
-  }, [location]);
+  useHashScroll();
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
       {/* Global Background Pattern */}
@@ -50,16 +37,16 @@ const Index = () => {
         <Header />
       <main>
         <Hero />
-        <div id="problem"><PainPoints /></div>
+        <div id="problem" className="scroll-mt-24 md:scroll-mt-28"><PainPoints /></div>
         <FailedSolutions />
-        <div id="loesung"><SystemSolution /></div>
+        <div id="loesung" className="scroll-mt-24 md:scroll-mt-28"><SystemSolution /></div>
         <SystemOverview />
         <CrmIntegration />
         <SystemUsage />
         <CaseStudies />
-        <div id="vorteile"><Comparison /></div>
-        <div id="prozess"><CollaborationProcess /></div>
-        <div id="ueber-uns"><AboutSection /></div>
+        <div id="vorteile" className="scroll-mt-24 md:scroll-mt-28"><Comparison /></div>
+        <div id="prozess" className="scroll-mt-24 md:scroll-mt-28"><CollaborationProcess /></div>
+        <div id="ueber-uns" className="scroll-mt-24 md:scroll-mt-28"><AboutSection /></div>
         <NextStep />
         <FAQ />
       </main>
