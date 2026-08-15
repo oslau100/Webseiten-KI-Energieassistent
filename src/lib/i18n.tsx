@@ -629,11 +629,8 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const queryLang = params.get("lang") as LangCode | null;
-    const storedLang =
-      (localStorage.getItem("site_lang") as LangCode | null) ??
-      (localStorage.getItem("kromen_lang") as LangCode | null);
     const valid = new Set(LANGUAGES.map((l) => l.code));
-    const nextLang = (queryLang && valid.has(queryLang) ? queryLang : storedLang && valid.has(storedLang) ? storedLang : "de") as LangCode;
+    const nextLang = (queryLang && valid.has(queryLang) ? queryLang : "de") as LangCode;
     setLangState(nextLang);
     localStorage.setItem("site_lang", nextLang);
   }, [location.search]);
