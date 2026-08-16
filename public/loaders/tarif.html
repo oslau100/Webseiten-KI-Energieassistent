@@ -480,7 +480,11 @@ window.TB_BOOTSTRAP = {
       applyDesignVars(designConfig.brand, designConfig.offer);
     }
     const qp=new URLSearchParams(window.location.search); const uuid=qp.get("uuid"); const submissionId=qp.get("submission_id"); if(!uuid&&!submissionId) throw new Error("Fehlende URL-Parameter: uuid oder submission_id");
-    let q=client.from("auftraege").select("*"); q=uuid?q.eq("uuid",uuid):q.eq("submission_id",submissionId); const {data:rows,error}=await q.limit(1); if(error) throw error; const row=rows&&rows[0]?rows[0]:null; if(!row) throw new Error("Kein Auftrag gefunden.");
+    let q=client.from("auftraege").select("*").eq("location_id",locationId);
+    q=uuid?q.eq("uuid",uuid):q.eq("submission_id",submissionId);
+    const {data:rows,error}=await q.limit(1); if(error) throw error;
+    const row=rows&&rows[0]?rows[0]:null;
+    if(!row){const notFound=new Error("Diese Tarifempfehlung wurde nicht gefunden."); notFound.code="offer_not_found"; throw notFound;}
     const lang=getLang(qp.get("lang")||row.language||"de"); const t=I18N[lang] || I18N.de; if(t.direction==="rtl") $("tbx2026").classList.add("rtl");
     $("tbStatus").textContent=t.statusLine || $("tbStatus").textContent;
     const usecase=pickUsecase(row); const ersparnis=(row.ersparnis==null)?null:Number(row.ersparnis);
@@ -531,6 +535,7 @@ window.TB_BOOTSTRAP = {
     window.addEventListener("orientationchange",()=>{if($("tbModalBack").classList.contains("open")) positionModal();});
     try { window.parent.visualViewport?.addEventListener("resize",positionModal); window.parent.visualViewport?.addEventListener("scroll",positionModal); } catch(_) {}
   }catch(e){
+    if(e && e.code === "offer_not_found"){$("tbFazit").textContent="Diese Tarifempfehlung wurde nicht gefunden."; $("tbAiLabel").textContent=""; $("tbAiText").textContent=""; return;}
     $("tbFazit").textContent="Konnte Daten nicht laden."; $("tbAiLabel").textContent="Fehler"; $("tbAiText").textContent=String(e.message || e);
   }
 })();
