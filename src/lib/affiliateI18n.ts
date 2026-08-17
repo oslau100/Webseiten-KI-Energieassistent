@@ -1,0 +1,31 @@
+// German is the reviewed, authoritative portal source. Other site languages
+// intentionally fall back to it until customer-reviewed translations exist.
+const de = {
+  program: "Empfehlungsprogramm", login: "Anmelden", register: "Registrieren", logout: "Abmelden",
+  landingTitle: "Energie weiterempfehlen. Gemeinsam profitieren.",
+  landingCopy: "Empfehle den persönlichen Service von Ehiogie über deinen eigenen Link. Wenn daraus ein bestätigter Abschluss entsteht, kann eine Belohnung gemäß den Programmbedingungen verfügbar werden.",
+  personalLink: "Dein persönlicher Empfehlungslink", reward: "Belohnungen im Blick", transparent: "Transparent und einfach",
+  landingStep1: "Kostenlos registrieren", landingStep2: "Persönlichen Link teilen", landingStep3: "Status im Portal verfolgen",
+  noGuarantee: "Eine Belohnung ist nicht garantiert. Es gelten die jeweiligen Programmbedingungen und die Bestätigung des Abschlusses.",
+  name: "Name", email: "E-Mail-Adresse", password: "Passwort", confirmPassword: "Passwort bestätigen",
+  consent: "Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Angaben zur Einrichtung des Kontos zu.",
+  forgot: "Passwort vergessen?", backLogin: "Zurück zur Anmeldung", createAccount: "Konto erstellen",
+  neutralError: "Die Anfrage konnte nicht abgeschlossen werden. Bitte versuche es später erneut.",
+  passwordMismatch: "Die Passwörter stimmen nicht überein.", submittedTitle: "E-Mail ist unterwegs",
+  submittedCopy: "Wenn ein Konto zu dieser Adresse besteht, erhältst du eine E-Mail mit den nächsten Schritten.",
+  forgotTitle: "Passwort zurücksetzen", forgotCopy: "Gib deine E-Mail-Adresse ein. Wir senden dir einen sicheren Link.",
+  resetTitle: "Neues Passwort festlegen", resetSuccess: "Dein Passwort wurde aktualisiert. Du kannst dich jetzt anmelden.",
+  invalidLink: "Dieser Link ist ungültig oder abgelaufen. Bitte fordere einen neuen Link an.",
+  activationTitle: "Konto aktivieren", activationPending: "Dein Aktivierungslink wird geprüft.", activationSuccess: "Dein Konto ist aktiviert. Du kannst dich jetzt anmelden.",
+  dashboard: "Übersicht", referrals: "Empfehlungen", rewards: "Belohnungen", profile: "Profil",
+  unavailable: "Die Portaldaten sind derzeit nicht verfügbar.", unavailableCopy: "Die sichere Serveranbindung wird vorbereitet. Es werden keine Beispieldaten als echte Kontodaten angezeigt.",
+  linkClicks: "Link-Klicks", recommendations: "Tarifempfehlungen", contracts: "Abschlüsse", confirmed: "Bestätigte Abschlüsse",
+  pending: "Ausstehend", available: "Auszahlbar", paid: "Ausgezahlt", cancelled: "Storniert", copy: "Kopieren", copied: "Kopiert",
+  programSummary: "Programm & Belohnung", programSummaryCopy: "Teile deinen Link. Mögliche Belohnungen werden erst nach bestätigtem Abschluss ausgewiesen.",
+  referralLink: "Dein Empfehlungslink", share: "Teilen", status: "Status", date: "Zugeordnet am", lifecycle: "Phase", amount: "Belohnung",
+  referralsEmpty: "Noch keine Empfehlungen verfügbar.", rewardsEmpty: "Noch keine Belohnungen verfügbar.", snapshot: "Betrag bei Entstehung", payoutDate: "Auszahlungsdatum",
+  accountInfo: "Kontoinformationen", security: "Sicherheit", payout: "Auszahlungsmethode", changePassword: "Passwort ändern",
+  payoutMissing: "Noch keine Auszahlungsmethode hinterlegt.", ibanHint: "IBAN wird ausschließlich maskiert dargestellt, z. B. DE•• •••• •••• 1234.",
+};
+export type AffiliateKey = keyof typeof de;
+export const affiliateT = (key: AffiliateKey) => de[key];
