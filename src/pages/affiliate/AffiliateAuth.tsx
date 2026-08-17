@@ -1,5 +1,4 @@
 import { AffiliateLayout } from "@/components/affiliate/AffiliateLayout";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -39,7 +38,7 @@ export default function AffiliateAuth({ mode }: { mode: Mode }) {
     {(mode === "login" || mode === "register" || mode === "reset") && <Field name="password" label={t("password")} type="password" autoComplete={mode === "login" ? "current-password" : "new-password"} />}
     {(mode === "register" || mode === "reset") && <Field name="confirmPassword" label={t("confirmPassword")} type="password" autoComplete="new-password" />}
     {mode === "register" && <div className="flex items-start gap-3"><Checkbox id="consent" name="consent" required /><Label htmlFor="consent" className="text-sm font-normal leading-5">{t("consent")}</Label></div>}
-    {error && <Alert variant="destructive"><AlertDescription>{error}</AlertDescription></Alert>}
+    {error && <div role="alert" className="rounded-lg border border-destructive/50 bg-destructive/10 p-4 text-sm text-destructive">{error}</div>}
     <Button className="w-full font-semibold" disabled={loading}>{loading && <Loader2 className="me-2 h-4 w-4 animate-spin" />}{mode === "login" ? t("login") : mode === "forgot" ? t("forgotTitle") : mode === "reset" ? t("resetTitle") : t("createAccount")}</Button>
     <div className="flex flex-wrap justify-between gap-2 text-sm">{mode === "login" && <Link className="text-primary hover:underline" to={withLang("/empfehlungsprogramm/passwort-vergessen")}>{t("forgot")}</Link>}<Link className="text-primary hover:underline" to={withLang(mode === "login" ? "/empfehlungsprogramm/registrieren" : "/empfehlungsprogramm/anmelden")}>{mode === "login" ? t("register") : t("backLogin")}</Link></div>
   </form></AuthShell></AffiliateLayout>;
