@@ -70,10 +70,22 @@ describe("AffiliateAuth", () => {
     mockedApi.resetPassword.mockRejectedValueOnce(new Error("offline"));
     renderAuth("passwort-zuruecksetzen", "/empfehlungsprogramm/passwort-zuruecksetzen?token=test");
 
-    fireEvent.change(screen.getByLabelText("Passwort"), { target: { value: "secret" } });
+    fireEvent.change(screen.getByLabelText("Neues Passwort"), { target: { value: "secret" } });
+    fireEvent.change(screen.getByLabelText("Neues Passwort bestätigen"), { target: { value: "secret" } });
     fireEvent.click(screen.getByRole("button", { name: "Anfrage senden" }));
 
     await waitFor(() => expect(screen.getByRole("alert")).toBeInTheDocument());
     expect(screen.queryByText(/erfolgreich geändert/)).not.toBeInTheDocument();
+  });
+
+  it("rejects mismatched reset passwords before calling the API", async () => {
+    renderAuth("passwort-zuruecksetzen", "/empfehlungsprogramm/passwort-zuruecksetzen?token=test");
+
+    fireEvent.change(screen.getByLabelText("Neues Passwort"), { target: { value: "secret-one" } });
+    fireEvent.change(screen.getByLabelText("Neues Passwort bestätigen"), { target: { value: "secret-two" } });
+    fireEvent.click(screen.getByRole("button", { name: "Anfrage senden" }));
+
+    expect(await screen.findByRole("alert")).toHaveTextContent("Die Passwörter stimmen nicht überein.");
+    expect(mockedApi.resetPassword).not.toHaveBeenCalled();
   });
 });
