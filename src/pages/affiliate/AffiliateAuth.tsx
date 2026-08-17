@@ -9,12 +9,13 @@ import { affiliateT as t } from "@/lib/affiliateI18n";
 import { useI18n } from "@/lib/i18n";
 import { Loader2 } from "lucide-react";
 import { FormEvent, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
 type Mode = "login" | "register" | "forgot" | "reset" | "activation";
+type Completion = Exclude<Mode, "login" | "activation">;
 export default function AffiliateAuth({ mode }: { mode: Mode }) {
-  const { withLang } = useI18n(); const [params] = useSearchParams();
-  const [loading, setLoading] = useState(false); const [error, setError] = useState(""); const [submitted, setSubmitted] = useState(false);
+  const { withLang } = useI18n(); const navigate = useNavigate(); const [params] = useSearchParams();
+  const [loading, setLoading] = useState(false); const [error, setError] = useState(""); const [completion, setCompletion] = useState<Completion | null>(null);
   const title = mode === "login" ? t("login") : mode === "register" ? t("createAccount") : mode === "forgot" ? t("forgotTitle") : mode === "reset" ? t("resetTitle") : t("activationTitle");
   const invalidToken = (mode === "reset" || mode === "activation") && !params.get("token");
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -22,16 +23,20 @@ export default function AffiliateAuth({ mode }: { mode: Mode }) {
     if ((mode === "register" || mode === "reset") && data.get("password") !== data.get("confirmPassword")) { setError(t("passwordMismatch")); return; }
     setLoading(true);
     try {
-      if (mode === "login") await affiliateApi.login(String(data.get("email")), String(data.get("password")));
+      if (mode === "login") {
+        await affiliateApi.login(String(data.get("email")), String(data.get("password")));
+        navigate(withLang("/empfehlungsprogramm/portal"));
+        return;
+      }
       if (mode === "register") await affiliateApi.register(String(data.get("name")), String(data.get("email")), String(data.get("password")));
       if (mode === "forgot") await affiliateApi.forgotPassword(String(data.get("email")));
       if (mode === "reset") await affiliateApi.resetPassword(params.get("token") ?? "", String(data.get("password")));
-      setSubmitted(true);
+      setCompletion(mode);
     } catch { setError(t("neutralError")); } finally { setLoading(false); }
   }
   if (mode === "activation") return <AffiliateLayout><AuthShell title={title}>{invalidToken ? <State text={t("invalidLink")} /> : <State loading text={t("activationPending")} />}</AuthShell></AffiliateLayout>;
   if (invalidToken) return <AffiliateLayout><AuthShell title={title}><State text={t("invalidLink")} /><Button asChild className="w-full"><Link to={withLang("/empfehlungsprogramm/passwort-vergessen")}>{t("forgotTitle")}</Link></Button></AuthShell></AffiliateLayout>;
-  if (submitted) return <AffiliateLayout><AuthShell title={mode === "forgot" ? t("submittedTitle") : mode === "reset" ? t("resetSuccess") : t("submittedTitle")}><State text={mode === "forgot" || mode === "register" ? t("submittedCopy") : t("resetSuccess")} /><Button asChild className="w-full"><Link to={withLang("/empfehlungsprogramm/anmelden")}>{t("backLogin")}</Link></Button></AuthShell></AffiliateLayout>;
+  if (completion) return <AffiliateLayout><AuthShell title={completion === "register" ? t("registrationSuccessTitle") : completion === "forgot" ? t("submittedTitle") : t("resetSuccess")}><State text={completion === "register" ? t("registrationSuccessCopy") : completion === "forgot" ? t("submittedCopy") : t("resetSuccess")} /><Button asChild className="w-full"><Link to={withLang("/empfehlungsprogramm/anmelden")}>{t("backLogin")}</Link></Button></AuthShell></AffiliateLayout>;
   return <AffiliateLayout><AuthShell title={title} description={mode === "forgot" ? t("forgotCopy") : undefined}><form className="space-y-4" onSubmit={submit}>
     {mode === "register" && <Field name="name" label={t("name")} autoComplete="name" />}
     {mode !== "reset" && <Field name="email" label={t("email")} type="email" autoComplete="email" />}
