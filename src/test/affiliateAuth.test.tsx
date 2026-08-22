@@ -13,6 +13,7 @@ vi.mock("@/lib/affiliate-api", () => ({
   affiliateApi: {
     login: vi.fn(),
     register: vi.fn(),
+    activate: vi.fn(),
     forgotPassword: vi.fn(),
     resetPassword: vi.fn(),
   },
@@ -59,11 +60,20 @@ describe("AffiliateAuth", () => {
     expect(mockedApi.login).toHaveBeenCalledWith("ada@example.com", "secret");
   });
 
-  it("does not accept a browser-controlled activation success status", () => {
+  it("activates with the token instead of trusting a browser-controlled status", async () => {
+    mockedApi.activate.mockResolvedValueOnce(undefined);
     renderAuth("aktivieren", "/empfehlungsprogramm/aktivieren?token=test&status=success");
 
+    expect(await screen.findByText(/Dein Konto wurde aktiviert/)).toBeInTheDocument();
+    expect(mockedApi.activate).toHaveBeenCalledWith("test");
+  });
+
+  it("does not claim activation when the activation request fails", async () => {
+    mockedApi.activate.mockRejectedValueOnce(new Error("offline"));
+    renderAuth("aktivieren", "/empfehlungsprogramm/aktivieren?token=test&status=success");
+
+    expect(await screen.findByRole("alert")).toBeInTheDocument();
     expect(screen.queryByText(/Dein Konto wurde aktiviert/)).not.toBeInTheDocument();
-    expect(screen.getByText(/Kontoaktivierung ist derzeit noch nicht verfügbar/)).toBeInTheDocument();
   });
 
   it("shows an unavailable error instead of success when reset fails", async () => {
