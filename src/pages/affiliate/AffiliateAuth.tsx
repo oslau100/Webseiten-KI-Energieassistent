@@ -8,7 +8,7 @@ import { affiliateApi } from "@/lib/affiliateApi";
 import { affiliateT as t } from "@/lib/affiliateI18n";
 import { useI18n } from "@/lib/i18n";
 import { Loader2 } from "lucide-react";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
 type Mode = "login" | "register" | "forgot" | "reset" | "activation";
@@ -16,8 +16,20 @@ type Completion = Exclude<Mode, "login" | "activation">;
 export default function AffiliateAuth({ mode }: { mode: Mode }) {
   const { withLang } = useI18n(); const navigate = useNavigate(); const [params] = useSearchParams();
   const [loading, setLoading] = useState(false); const [error, setError] = useState(""); const [completion, setCompletion] = useState<Completion | null>(null);
+  const [activationStatus, setActivationStatus] = useState<"pending" | "success" | "error">("pending");
   const title = mode === "login" ? t("login") : mode === "register" ? t("createAccount") : mode === "forgot" ? t("forgotTitle") : mode === "reset" ? t("resetTitle") : t("activationTitle");
-  const invalidToken = (mode === "reset" || mode === "activation") && !params.get("token");
+  const token = params.get("token");
+  const invalidToken = (mode === "reset" || mode === "activation") && !token;
+  useEffect(() => {
+    if (mode !== "activation" || !token) return;
+    let active = true;
+    setActivationStatus("pending");
+    affiliateApi.activate(token).then(
+      () => { if (active) setActivationStatus("success"); },
+      () => { if (active) setActivationStatus("error"); },
+    );
+    return () => { active = false; };
+  }, [mode, token]);
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault(); setError(""); const data = new FormData(event.currentTarget);
     if ((mode === "register" || mode === "reset") && data.get("password") !== data.get("confirmPassword")) { setError(t("passwordMismatch")); return; }
@@ -34,7 +46,7 @@ export default function AffiliateAuth({ mode }: { mode: Mode }) {
       setCompletion(mode);
     } catch { setError(t("neutralError")); } finally { setLoading(false); }
   }
-  if (mode === "activation") return <AffiliateLayout><AuthShell title={title}>{invalidToken ? <State text={t("invalidLink")} /> : <State loading text={t("activationPending")} />}</AuthShell></AffiliateLayout>;
+  if (mode === "activation") return <AffiliateLayout><AuthShell title={title}>{invalidToken ? <State text={t("invalidLink")} /> : activationStatus === "pending" ? <State loading text={t("activationPending")} /> : activationStatus === "error" ? <State error text={t("neutralError")} /> : <><State text={t("activationSuccess")} /><Button asChild className="w-full"><Link to={withLang("/empfehlungsprogramm/anmelden")}>{t("backLogin")}</Link></Button></>}</AuthShell></AffiliateLayout>;
   if (invalidToken) return <AffiliateLayout><AuthShell title={title}><State text={t("invalidLink")} /><Button asChild className="w-full"><Link to={withLang("/empfehlungsprogramm/passwort-vergessen")}>{t("forgotTitle")}</Link></Button></AuthShell></AffiliateLayout>;
   if (completion) return <AffiliateLayout><AuthShell title={completion === "register" ? t("registrationSuccessTitle") : completion === "forgot" ? t("submittedTitle") : t("resetSuccess")}><State text={completion === "register" ? t("registrationSuccessCopy") : completion === "forgot" ? t("submittedCopy") : t("resetSuccess")} /><Button asChild className="w-full"><Link to={withLang("/empfehlungsprogramm/anmelden")}>{t("backLogin")}</Link></Button></AuthShell></AffiliateLayout>;
   return <AffiliateLayout><AuthShell title={title} description={mode === "forgot" ? t("forgotCopy") : undefined}><form className="space-y-4" onSubmit={submit}>
@@ -50,4 +62,4 @@ export default function AffiliateAuth({ mode }: { mode: Mode }) {
 }
 function AuthShell({ title, description, children }: { title: string; description?: string; children: React.ReactNode }) { return <section className="container max-w-md px-4 py-12 md:py-20"><Card><CardHeader><p className="text-sm font-semibold text-primary">{t("program")}</p><CardTitle className="text-2xl">{title}</CardTitle>{description && <CardDescription>{description}</CardDescription>}</CardHeader><CardContent>{children}</CardContent></Card></section>; }
 function Field({ name, label, ...props }: { name: string; label: string } & React.ComponentProps<typeof Input>) { return <div className="space-y-2"><Label htmlFor={name}>{label}</Label><Input id={name} name={name} required {...props} /></div>; }
-function State({ text, loading }: { text: string; loading?: boolean }) { return <div role="status" className="mb-5 flex items-start gap-3 rounded-lg bg-muted p-4 text-sm text-muted-foreground">{loading && <Loader2 className="h-5 w-5 shrink-0 animate-spin text-primary" />}{text}</div>; }
+function State({ text, loading, error }: { text: string; loading?: boolean; error?: boolean }) { return <div role={error ? "alert" : "status"} className={`mb-5 flex items-start gap-3 rounded-lg p-4 text-sm ${error ? "border border-destructive/50 bg-destructive/10 text-destructive" : "bg-muted text-muted-foreground"}`}>{loading && <Loader2 className="h-5 w-5 shrink-0 animate-spin text-primary" />}{text}</div>; }
