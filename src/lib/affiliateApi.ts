@@ -14,7 +14,7 @@ export const affiliateApi = {
   login: (email: string, password: string) => request("/api/auth/login", { method: "POST", body: JSON.stringify({ email, password }) }),
   register: (payload: { name: string; email: string; password: string }) => request("/api/auth/register", { method: "POST", body: JSON.stringify(payload) }),
   forgotPassword: (email: string) => request("/api/auth/password/forgot", { method: "POST", body: JSON.stringify({ email }) }),
-  resetPassword: (token: string, password: string) => request("/api/auth/password/reset", { method: "POST", body: JSON.stringify({ token, password }) }),
+  resetPassword: (token: string, newPassword: string) => request("/api/auth/password/reset", { method: "POST", body: JSON.stringify({ token, newPassword }) }),
   activate: (token: string) => request("/api/auth/activate", { method: "POST", body: JSON.stringify({ token }) }),
   dashboard: () => request("/api/affiliate/dashboard"),
 };
