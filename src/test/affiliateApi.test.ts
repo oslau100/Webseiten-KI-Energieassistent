@@ -22,4 +22,36 @@ describe("affiliateApi auth contract", () => {
       body: JSON.stringify(body),
     }));
   });
+
+  it("passes an optional invite token only as registration data", async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response(null, { status: 204 }));
+    vi.stubGlobal("fetch", fetchMock);
+
+    await affiliateApi.register({ name: "Ada", email: "ada@example.com", password: "secret", inviteToken: "invite-123" });
+
+    expect(fetchMock).toHaveBeenCalledWith("/api/auth/register", expect.objectContaining({
+      credentials: "include",
+      body: JSON.stringify({ name: "Ada", email: "ada@example.com", password: "secret", inviteToken: "invite-123" }),
+    }));
+  });
+
+  it.each([
+    ["logout", () => affiliateApi.logout(), "/api/auth/logout", "POST"],
+    ["session", () => affiliateApi.session(), "/api/auth/session", undefined],
+    ["password change", () => affiliateApi.changePassword("old", "new"), "/api/auth/password/change", "POST"],
+    ["profile bootstrap", () => affiliateApi.bootstrapProfile(), "/api/affiliate/profile/bootstrap", "POST"],
+    ["overview", () => affiliateApi.overview(), "/api/affiliate/overview", undefined],
+    ["referrals", () => affiliateApi.referrals(), "/api/affiliate/referrals", undefined],
+    ["rewards", () => affiliateApi.rewards(), "/api/affiliate/rewards", undefined],
+    ["profile", () => affiliateApi.profile(), "/api/affiliate/profile", undefined],
+    ["payouts", () => affiliateApi.payouts(), "/api/affiliate/payouts", undefined],
+    ["payout method", () => affiliateApi.payoutMethod(), "/api/affiliate/payout-method", undefined],
+  ])("wires the canonical %s route with credential cookies", async (_name, invoke, path, method) => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response(null, { status: 204 }));
+    vi.stubGlobal("fetch", fetchMock);
+
+    await invoke();
+
+    expect(fetchMock).toHaveBeenCalledWith(path, expect.objectContaining({ credentials: "include", ...(method ? { method } : {}) }));
+  });
 });
