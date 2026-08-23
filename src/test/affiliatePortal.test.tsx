@@ -28,9 +28,9 @@ describe("AffiliatePortal session contract", () => {
   });
 
   it("bootstraps an authenticated profile before loading real overview data", async () => {
-    api.session.mockResolvedValueOnce({ authenticated: true, user: { emailVerified: true } });
+    api.session.mockResolvedValueOnce({ authenticated: true, user: { id: "user-1", name: "Ada", image: null, emailVerified: true } });
     api.bootstrapProfile.mockResolvedValueOnce(undefined);
-    api.overview.mockResolvedValueOnce({ clicks: 7, currency: "EUR" });
+    api.overview.mockResolvedValueOnce({ profile: { id: "affiliate-1", firstName: "Ada", lastName: "Lovelace", languageCode: "de", status: "active", memberSince: "2026-01-01" }, program: {}, defaultLink: {}, totals: { referrals: 7 }, referralUrl: "https://example.test/r/ada" });
     renderPortal();
     expect(await screen.findByText("7")).toBeInTheDocument();
     await waitFor(() => expect(api.overview).toHaveBeenCalled());

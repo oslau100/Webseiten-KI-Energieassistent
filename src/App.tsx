@@ -15,6 +15,7 @@ import Fehler from "./pages/Fehler";
 import Privacy from "./pages/Privacy";
 import Imprint from "./pages/Imprint";
 import { AffiliateAuth, AffiliateLanding, AffiliatePortal } from "./pages/Affiliate";
+import { ReferralCapture } from "./components/affiliate/ReferralCapture";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ReferralCapture />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/ueber-uns" element={<About />} />

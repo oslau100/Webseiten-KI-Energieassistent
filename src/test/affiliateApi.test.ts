@@ -23,15 +23,15 @@ describe("affiliateApi auth contract", () => {
     }));
   });
 
-  it("passes an optional invite token only as registration data", async () => {
+  it("sends only canonical registration identity fields", async () => {
     const fetchMock = vi.fn().mockResolvedValue(new Response(null, { status: 204 }));
     vi.stubGlobal("fetch", fetchMock);
 
-    await affiliateApi.register({ name: "Ada", email: "ada@example.com", password: "secret", inviteToken: "invite-123" });
+    await affiliateApi.register({ name: "Ada", email: "ada@example.com", password: "secret" });
 
     expect(fetchMock).toHaveBeenCalledWith("/api/auth/register", expect.objectContaining({
       credentials: "include",
-      body: JSON.stringify({ name: "Ada", email: "ada@example.com", password: "secret", inviteToken: "invite-123" }),
+      body: JSON.stringify({ name: "Ada", email: "ada@example.com", password: "secret" }),
     }));
   });
 
@@ -46,6 +46,7 @@ describe("affiliateApi auth contract", () => {
     ["profile", () => affiliateApi.profile(), "/api/affiliate/profile", undefined],
     ["payouts", () => affiliateApi.payouts(), "/api/affiliate/payouts", undefined],
     ["payout method", () => affiliateApi.payoutMethod(), "/api/affiliate/payout-method", undefined],
+    ["referral resolution", () => affiliateApi.resolveReferral("friend & me"), "/api/affiliate/resolve?code=friend%20%26%20me", undefined],
   ])("wires the canonical %s route with credential cookies", async (_name, invoke, path, method) => {
     const fetchMock = vi.fn().mockResolvedValue(new Response(null, { status: 204 }));
     vi.stubGlobal("fetch", fetchMock);

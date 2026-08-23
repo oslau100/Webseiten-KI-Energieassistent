@@ -7,26 +7,22 @@ export class AffiliateApiError extends Error {
 
 export interface AffiliateSession {
   authenticated: boolean;
-  user?: { name?: string; email?: string; emailVerified?: boolean };
+  user?: { id: string; name: string; image: string | null; emailVerified: boolean };
 }
 
 export interface AffiliateOverview {
+  profile: AffiliateProfile;
+  program: unknown;
+  defaultLink: unknown;
+  totals: { referrals?: number; availableRewards?: number; paidRewards?: number };
   referralUrl?: string;
-  clicks?: number;
-  recommendations?: number;
-  conversions?: number;
-  confirmedConversions?: number;
-  pendingReward?: number;
-  availableReward?: number;
-  paidReward?: number;
-  currency?: string;
 }
 
-export interface AffiliateReferral { id: string; name?: string; initials?: string; createdAt?: string; status?: string; rewardAmount?: number; currency?: string }
-export interface AffiliateReward { id: string; amount?: number; currency?: string; status?: string; earnedAt?: string; programName?: string }
-export interface AffiliateProfile { name?: string; email?: string }
-export interface AffiliatePayout { id: string; amount?: number; currency?: string; status?: string; createdAt?: string }
-export interface AffiliatePayoutMethod { type?: string; maskedIban?: string }
+export interface AffiliateReferral { id: string; status: string; attributedAt: string | null; tariffRecommendedAt: string | null; closedAt: string | null; confirmedAt: string | null }
+export interface AffiliateReward { id: string; referralId: string; status: string; method: string; amount: number; currency: string; voucherLabel: string | null; availableAt: string | null; paidAt: string | null }
+export interface AffiliateProfile { id: string; firstName: string; lastName: string; languageCode: string; status: string; memberSince: string }
+export interface AffiliatePayout { id: string; status: string; amount: number; currency: string; paidAt: string | null; createdAt: string }
+export interface AffiliatePayoutMethod { id: string; method: string; status: string; maskedIban: string | null; updatedAt: string }
 
 const request = async <T>(path: string, init?: RequestInit): Promise<T> => {
   const response = await fetch(`/api/${path}`, {
@@ -45,7 +41,7 @@ const post = <T>(path: string, body?: unknown) => request<T>(path, {
 });
 
 export const affiliateApi = {
-  register: (payload: { name: string; email: string; password: string; inviteToken?: string }) => post<void>("auth/register", payload),
+  register: (payload: { name: string; email: string; password: string }) => post<void>("auth/register", payload),
   login: (email: string, password: string) => post<void>("auth/login", { email, password }),
   logout: () => post<void>("auth/logout"),
   session: () => request<AffiliateSession>("auth/session"),
@@ -55,9 +51,10 @@ export const affiliateApi = {
   changePassword: (currentPassword: string, newPassword: string) => post<void>("auth/password/change", { currentPassword, newPassword }),
   bootstrapProfile: () => post<void>("affiliate/profile/bootstrap"),
   overview: () => request<AffiliateOverview>("affiliate/overview"),
-  referrals: () => request<AffiliateReferral[] | { referrals: AffiliateReferral[] }>("affiliate/referrals"),
-  rewards: () => request<AffiliateReward[] | { rewards: AffiliateReward[] }>("affiliate/rewards"),
+  referrals: () => request<AffiliateReferral[]>("affiliate/referrals"),
+  rewards: () => request<AffiliateReward[]>("affiliate/rewards"),
   profile: () => request<AffiliateProfile>("affiliate/profile"),
-  payouts: () => request<AffiliatePayout[] | { payouts: AffiliatePayout[] }>("affiliate/payouts"),
+  payouts: () => request<AffiliatePayout[]>("affiliate/payouts"),
   payoutMethod: () => request<AffiliatePayoutMethod | null>("affiliate/payout-method"),
+  resolveReferral: (code: string) => request<void>(`affiliate/resolve?code=${encodeURIComponent(code)}`),
 };
