@@ -6,7 +6,10 @@ import { AffiliateAuth } from "@/pages/Affiliate";
 import { affiliateApi } from "@/lib/affiliate-api";
 
 vi.mock("@/components/affiliate/AffiliateLayout", () => ({
-  AffiliateLayout: ({ children }: { children: React.ReactNode }) => <>{children}</>,
+  AffiliateLayout: ({ children }: { children: React.ReactNode }) => {
+    const location = useLocation();
+    return <><output data-testid="current-location">{location.pathname}{location.search}{location.hash}</output>{children}</>;
+  },
 }));
 
 vi.mock("@/lib/affiliate-api", () => ({
@@ -88,6 +91,16 @@ describe("AffiliateAuth", () => {
     await waitFor(() => expect(mockedApi.register).toHaveBeenCalledWith({
       name: "Ada", email: "ada@example.com", password: "secret", inviteToken: "opaque-token",
     }));
+    expect(screen.getByTestId("current-location")).toHaveTextContent("/empfehlungsprogramm/registrieren?lang=ar");
+    expect(screen.getByRole("link", { name: "Bereits registriert?" })).toHaveAttribute("href", "/empfehlungsprogramm/anmelden?lang=ar");
+    fireEvent.click(screen.getByRole("button", { name: "Anfrage senden" }));
+    await waitFor(() => expect(mockedApi.register).toHaveBeenCalledTimes(2));
+    expect(mockedApi.register).toHaveBeenLastCalledWith({ name: "Ada", email: "ada@example.com", password: "secret" });
+  });
+
+  it("never propagates an invite token into login navigation", () => {
+    renderAuth("registrieren", "/empfehlungsprogramm/registrieren?inviteToken=opaque-token&lang=de&campaign=safe");
+    expect(screen.getByRole("link", { name: "Bereits registriert?" })).toHaveAttribute("href", "/empfehlungsprogramm/anmelden?lang=de&campaign=safe");
   });
 
   it("activates with the token instead of trusting a browser-controlled status", async () => {
@@ -96,6 +109,20 @@ describe("AffiliateAuth", () => {
 
     expect(await screen.findByText(/Dein Konto wurde aktiviert/)).toBeInTheDocument();
     expect(mockedApi.activate).toHaveBeenCalledWith("test");
+    expect(screen.getByTestId("current-location")).toHaveTextContent("/empfehlungsprogramm/aktivieren?status=success");
+  });
+
+  it("removes a reset token after successful consumption while preserving safe context", async () => {
+    mockedApi.resetPassword.mockResolvedValueOnce(undefined);
+    renderAuth("passwort-zuruecksetzen", "/empfehlungsprogramm/passwort-zuruecksetzen?token=secret&lang=ar&campaign=safe");
+    fireEvent.change(screen.getByLabelText("Neues Passwort"), { target: { value: "new-secret" } });
+    fireEvent.change(screen.getByLabelText("Neues Passwort bestätigen"), { target: { value: "new-secret" } });
+    fireEvent.click(screen.getByRole("button", { name: "Anfrage senden" }));
+
+    expect(await screen.findByText(/erfolgreich geändert/)).toBeInTheDocument();
+    expect(mockedApi.resetPassword).toHaveBeenCalledOnce();
+    expect(screen.getByTestId("current-location")).toHaveTextContent("/empfehlungsprogramm/passwort-zuruecksetzen?lang=ar&campaign=safe");
+    expect(screen.getByRole("link", { name: "Noch nicht registriert?" })).toHaveAttribute("href", "/empfehlungsprogramm/registrieren?lang=ar&campaign=safe");
   });
 
   it("does not claim activation when the activation request fails", async () => {
