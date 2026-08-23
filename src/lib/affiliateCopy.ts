@@ -15,6 +15,7 @@ export const affiliateCopy = {
     status: "Status", person: "Empfehlung", date: "Erfasst am", lifecycle: "Letzter Stand", reward: "Belohnung", noReferrals: "Noch keine Empfehlungen vorhanden.", noRewards: "Noch keine Belohnungen vorhanden.",
     pending: "Ausstehend", available: "Verfügbar", paid: "Ausgezahlt", cancelled: "Storniert", attributed: "Zugeordnet", recommended: "Tarif empfohlen", closed: "Abgeschlossen", confirmedStatus: "Bestätigt",
     method: "Auszahlungsart", amount: "Betrag", created: "Erstellt", availableDate: "Verfügbar ab", paidDate: "Ausgezahlt am", identity: "Persönliche Angaben", security: "Konto & Sicherheit", changePassword: "Passwort ändern", payout: "Auszahlung", payoutBody: "Eine Auszahlungsart ist noch nicht hinterlegt.", backHome: "Zur Kromen Website",
+    portalLoading: "Portaldaten werden geladen …", portalError: "Die Portaldaten konnten nicht geladen werden. Bitte versuche es später erneut.", portalUnverified: "Bitte bestätige zuerst deine E-Mail-Adresse, bevor du das Portal verwendest.", portalEmpty: "Noch keine Portaldaten vorhanden.", currentPassword: "Aktuelles Passwort", newPassword: "Neues Passwort", passwordChanged: "Dein Passwort wurde geändert.",
   },
 } as const;
 
