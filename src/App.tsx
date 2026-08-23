@@ -24,6 +24,7 @@ import { WebsiteConfigProvider } from "./lib/websiteConfig";
 import { AutoPageTranslator } from "./components/AutoPageTranslator";
 import { AffiliateAuth, AffiliateLanding } from "./pages/Affiliate";
 import { Dashboard, Profile, Referrals, Rewards } from "./pages/AffiliatePortal";
+import { AffiliateReferralCapture } from "./components/affiliate/AffiliateReferralCapture";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
       <BrowserRouter>
         <WebsiteConfigProvider>
           <I18nProvider>
+          <AffiliateReferralCapture />
           <ScrollToTop />
           <AutoPageTranslator />
           <Routes>
