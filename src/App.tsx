@@ -14,6 +14,8 @@ import AuftragEingegangen from "./pages/AuftragEingegangen";
 import Fehler from "./pages/Fehler";
 import Privacy from "./pages/Privacy";
 import Imprint from "./pages/Imprint";
+import { AffiliateAuth, AffiliateLanding, AffiliatePortal } from "./pages/Affiliate";
+import { ReferralCapture } from "./components/affiliate/ReferralCapture";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +25,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ReferralCapture />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/ueber-uns" element={<About />} />
@@ -33,6 +36,16 @@ const App = () => (
           <Route path="/fehler" element={<Fehler />} />
           <Route path="/datenschutz" element={<Privacy />} />
           <Route path="/impressum" element={<Imprint />} />
+          <Route path="/empfehlungsprogramm" element={<AffiliateLanding />} />
+          <Route path="/empfehlungsprogramm/anmelden" element={<AffiliateAuth kind="anmelden" />} />
+          <Route path="/empfehlungsprogramm/registrieren" element={<AffiliateAuth kind="registrieren" />} />
+          <Route path="/empfehlungsprogramm/passwort-vergessen" element={<AffiliateAuth kind="passwort-vergessen" />} />
+          <Route path="/empfehlungsprogramm/passwort-zuruecksetzen" element={<AffiliateAuth kind="passwort-zuruecksetzen" />} />
+          <Route path="/empfehlungsprogramm/aktivieren" element={<AffiliateAuth kind="aktivieren" />} />
+          <Route path="/empfehlungsprogramm/portal" element={<AffiliatePortal section="portal" />} />
+          <Route path="/empfehlungsprogramm/empfehlungen" element={<AffiliatePortal section="empfehlungen" />} />
+          <Route path="/empfehlungsprogramm/belohnungen" element={<AffiliatePortal section="belohnungen" />} />
+          <Route path="/empfehlungsprogramm/profil" element={<AffiliatePortal section="profil" />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
