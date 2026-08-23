@@ -13,6 +13,7 @@ export function AffiliateGuard({ children }: { children: ReactNode }) {
     affiliateApi.session().then(async session => {
       if (!active) return;
       if (!session.authenticated) { navigate(withLang("/empfehlungsprogramm/anmelden"), { replace: true }); return; }
+      if (!session.user?.emailVerified) { setStatus("error"); return; }
       await affiliateApi.bootstrapProfile();
       if (active) setStatus("ready");
     }).catch(error => {

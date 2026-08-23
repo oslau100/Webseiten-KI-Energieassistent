@@ -28,6 +28,7 @@ import AffiliatePortal from "./pages/affiliate/AffiliatePortal";
 import AffiliateRecords from "./pages/affiliate/AffiliateRecords";
 import AffiliateProfile from "./pages/affiliate/AffiliateProfile";
 import { AffiliateGuard } from "./components/affiliate/AffiliateGuard";
+import { AffiliateReferralCapture } from "./components/affiliate/AffiliateReferralCapture";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => (
       <BrowserRouter>
         <WebsiteConfigProvider>
           <I18nProvider>
+          <AffiliateReferralCapture />
           <ScrollToTop />
           <AutoPageTranslator />
           <Routes>
