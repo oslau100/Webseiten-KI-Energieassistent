@@ -14,7 +14,7 @@ vi.mock("@/lib/affiliate-api", async importOriginal => {
   } };
 });
 const api = vi.mocked(affiliateApi);
-const renderPortal = () => render(<MemoryRouter initialEntries={["/empfehlungsprogramm/portal"]}><Routes><Route path="/empfehlungsprogramm/portal" element={<AffiliatePortal />} /><Route path="/empfehlungsprogramm/anmelden" element={<div>Anmeldung erforderlich</div>} /></Routes></MemoryRouter>);
+const renderPortal = () => render(<MemoryRouter initialEntries={["/empfehlungsprogramm/portal"]}><Routes><Route path="/empfehlungsprogramm/portal" element={<AffiliatePortal section="portal" />} /><Route path="/empfehlungsprogramm/anmelden" element={<div>Anmeldung erforderlich</div>} /></Routes></MemoryRouter>);
 
 describe("AffiliatePortal session contract", () => {
   beforeEach(() => vi.clearAllMocks());

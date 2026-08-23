@@ -6,7 +6,7 @@ import { UserRound } from "lucide-react";
 
 export function AffiliateLayout({ children, portal = false }: { children: React.ReactNode; portal?: boolean }) {
   const location = useLocation(); const navigate = useNavigate(); const lang = getAffiliateLanguage(location.search);
-  const changeLanguage = (value: string) => { const q = new URLSearchParams(location.search); q.set("lang", value); navigate(`${location.pathname}?${q}`); };
+  const changeLanguage = (value: string) => { const q = new URLSearchParams(location.search); q.set("lang", value); navigate(`${location.pathname}?${q}${location.hash}`); };
   return <div className="min-h-screen flex flex-col bg-white" dir={lang === "ar" ? "rtl" : "ltr"}>
     <Navbar />
     {portal && <div className="border-y bg-[#f4f5f7]"><div className="mx-auto flex max-w-6xl items-center gap-1 overflow-x-auto px-4 py-3 text-sm font-semibold">

@@ -35,6 +35,17 @@ describe("affiliateApi auth contract", () => {
     }));
   });
 
+  it("forwards an optional opaque registration invite token", async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response(null, { status: 204 }));
+    vi.stubGlobal("fetch", fetchMock);
+
+    await affiliateApi.register({ name: "Ada", email: "ada@example.com", password: "secret", inviteToken: "opaque-token" });
+
+    expect(fetchMock).toHaveBeenCalledWith("/api/auth/register", expect.objectContaining({
+      body: JSON.stringify({ name: "Ada", email: "ada@example.com", password: "secret", inviteToken: "opaque-token" }),
+    }));
+  });
+
   it.each([
     ["logout", () => affiliateApi.logout(), "/api/auth/logout", "POST"],
     ["session", () => affiliateApi.session(), "/api/auth/session", undefined],

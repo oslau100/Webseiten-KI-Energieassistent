@@ -41,7 +41,7 @@ const post = <T>(path: string, body?: unknown) => request<T>(path, {
 });
 
 export const affiliateApi = {
-  register: (payload: { name: string; email: string; password: string }) => post<void>("auth/register", payload),
+  register: (payload: { name: string; email: string; password: string; inviteToken?: string }) => post<void>("auth/register", payload),
   login: (email: string, password: string) => post<void>("auth/login", { email, password }),
   logout: () => post<void>("auth/logout"),
   session: () => request<AffiliateSession>("auth/session"),

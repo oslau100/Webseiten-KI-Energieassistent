@@ -42,7 +42,10 @@ const App = () => (
           <Route path="/empfehlungsprogramm/passwort-vergessen" element={<AffiliateAuth kind="passwort-vergessen" />} />
           <Route path="/empfehlungsprogramm/passwort-zuruecksetzen" element={<AffiliateAuth kind="passwort-zuruecksetzen" />} />
           <Route path="/empfehlungsprogramm/aktivieren" element={<AffiliateAuth kind="aktivieren" />} />
-          <Route path="/empfehlungsprogramm/:section(portal|empfehlungen|belohnungen|profil)" element={<AffiliatePortal />} />
+          <Route path="/empfehlungsprogramm/portal" element={<AffiliatePortal section="portal" />} />
+          <Route path="/empfehlungsprogramm/empfehlungen" element={<AffiliatePortal section="empfehlungen" />} />
+          <Route path="/empfehlungsprogramm/belohnungen" element={<AffiliatePortal section="belohnungen" />} />
+          <Route path="/empfehlungsprogramm/profil" element={<AffiliatePortal section="profil" />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
