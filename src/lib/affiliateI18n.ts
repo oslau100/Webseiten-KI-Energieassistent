@@ -27,6 +27,10 @@ const de = {
   referralsEmpty: "Noch keine Empfehlungen verfügbar.", rewardsEmpty: "Noch keine Belohnungen verfügbar.", snapshot: "Betrag bei Entstehung", payoutDate: "Auszahlungsdatum",
   accountInfo: "Kontoinformationen", security: "Sicherheit", payout: "Auszahlungsmethode", changePassword: "Passwort ändern",
   payoutMissing: "Noch keine Auszahlungsmethode hinterlegt.", ibanHint: "IBAN wird ausschließlich maskiert dargestellt, z. B. DE•• •••• •••• 1234.",
+  portalLoading: "Sichere Sitzung wird geprüft …", dataLoading: "Portaldaten werden geladen …",
+  dataError: "Die Portaldaten konnten nicht geladen werden. Bitte versuche es später erneut.", linkEmpty: "Noch kein Empfehlungslink verfügbar.",
+  payouts: "Auszahlungen", payoutsEmpty: "Noch keine Auszahlungen verfügbar.",
+  currentPassword: "Aktuelles Passwort", newPassword: "Neues Passwort", passwordChangeSuccess: "Dein Passwort wurde aktualisiert.",
 };
 export type AffiliateKey = keyof typeof de;
 export const affiliateT = (key: AffiliateKey) => de[key];

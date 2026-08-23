@@ -40,7 +40,7 @@ export default function AffiliateAuth({ mode }: { mode: Mode }) {
         navigate(withLang("/empfehlungsprogramm/portal"));
         return;
       }
-      if (mode === "register") await affiliateApi.register(String(data.get("name")), String(data.get("email")), String(data.get("password")));
+      if (mode === "register") await affiliateApi.register(String(data.get("name")), String(data.get("email")), String(data.get("password")), params.get("inviteToken") || undefined);
       if (mode === "forgot") await affiliateApi.forgotPassword(String(data.get("email")));
       if (mode === "reset") await affiliateApi.resetPassword(params.get("token") ?? "", String(data.get("password")));
       setCompletion(mode);

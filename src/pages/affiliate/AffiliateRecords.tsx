@@ -1,14 +1,19 @@
-import { AffiliateLayout, PortalUnavailable } from "@/components/affiliate/AffiliateLayout";
+import { AffiliateLayout } from "@/components/affiliate/AffiliateLayout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { affiliateApi, type AffiliateReferral, type AffiliateReward } from "@/lib/affiliateApi";
 import { affiliateT as t } from "@/lib/affiliateI18n";
-import { Page } from "./AffiliatePortal";
+import { useEffect, useState } from "react";
+import { Empty, ErrorState, Loading, Page } from "./AffiliatePortal";
 
 export default function AffiliateRecords({ type }: { type: "referrals" | "rewards" }) {
-  const referrals = type === "referrals";
-  return <AffiliateLayout portal><Page title={referrals ? t("referrals") : t("rewards")}><PortalUnavailable />
-    {!referrals && <div className="my-5 flex flex-wrap gap-2">{(["pending", "available", "paid", "cancelled"] as const).map(s => <span key={s} className="rounded-full border px-2.5 py-0.5 text-xs font-semibold">{t(s)}</span>)}</div>}
-    <Card className="mt-6 hidden md:block"><CardContent className="p-0"><Table><TableHeader><TableRow>{(referrals ? ["Name", t("status"), t("date"), t("lifecycle"), t("amount")] : [t("status"), t("snapshot"), t("date"), t("payoutDate")]).map(h => <TableHead key={h}>{h}</TableHead>)}</TableRow></TableHeader><TableBody><TableRow><TableCell colSpan={5} className="h-28 text-center text-muted-foreground">{referrals ? t("referralsEmpty") : t("rewardsEmpty")}</TableCell></TableRow></TableBody></Table></CardContent></Card>
-    <Card className="mt-6 md:hidden"><CardContent className="py-10 text-center text-sm text-muted-foreground">{referrals ? t("referralsEmpty") : t("rewardsEmpty")}</CardContent></Card>
+  const referrals = type === "referrals"; const [items, setItems] = useState<(AffiliateReferral | AffiliateReward)[] | null>(null); const [error, setError] = useState(false);
+  useEffect(() => { let active = true; const load = referrals ? affiliateApi.referrals() : affiliateApi.rewards(); load.then(value => { if (active) setItems(value); }).catch(() => { if (active) setError(true); }); return () => { active = false; }; }, [referrals]);
+  return <AffiliateLayout portal><Page title={referrals ? t("referrals") : t("rewards")}>
+    {!items && !error && <Loading />}{error && <ErrorState />}{items && items.length === 0 && <Empty text={referrals ? t("referralsEmpty") : t("rewardsEmpty")} />}
+    {items && items.length > 0 && <Card><CardContent className="p-0 overflow-x-auto"><Table><TableHeader><TableRow>{(referrals ? [t("name"), t("status"), t("date"), t("lifecycle"), t("amount")] : [t("status"), t("snapshot"), t("date"), t("payoutDate")]).map(h => <TableHead key={h}>{h}</TableHead>)}</TableRow></TableHeader><TableBody>{items.map(item => referrals ? <ReferralRow key={item.id} item={item as AffiliateReferral} /> : <RewardRow key={item.id} item={item as AffiliateReward} />)}</TableBody></Table></CardContent></Card>}
   </Page></AffiliateLayout>;
 }
+const money = (amount: number, currency: string) => new Intl.NumberFormat("de-DE", { style: "currency", currency }).format(amount);
+function ReferralRow({ item }: { item: AffiliateReferral }) { return <TableRow><TableCell>{item.name || "—"}</TableCell><TableCell>{item.status}</TableCell><TableCell>{item.createdAt}</TableCell><TableCell>{item.lifecycle}</TableCell><TableCell>{money(item.rewardAmount, item.currency)}</TableCell></TableRow>; }
+function RewardRow({ item }: { item: AffiliateReward }) { return <TableRow><TableCell>{item.status}</TableCell><TableCell>{money(item.amount, item.currency)}</TableCell><TableCell>{item.createdAt}</TableCell><TableCell>{item.payoutDate || "—"}</TableCell></TableRow>; }

@@ -27,6 +27,7 @@ import AffiliateAuth from "./pages/affiliate/AffiliateAuth";
 import AffiliatePortal from "./pages/affiliate/AffiliatePortal";
 import AffiliateRecords from "./pages/affiliate/AffiliateRecords";
 import AffiliateProfile from "./pages/affiliate/AffiliateProfile";
+import { AffiliateGuard } from "./components/affiliate/AffiliateGuard";
 
 const queryClient = new QueryClient();
 
@@ -65,10 +66,10 @@ const App = () => (
             <Route path="/empfehlungsprogramm/passwort-vergessen" element={<AffiliateAuth mode="forgot" />} />
             <Route path="/empfehlungsprogramm/passwort-zuruecksetzen" element={<AffiliateAuth mode="reset" />} />
             <Route path="/empfehlungsprogramm/aktivieren" element={<AffiliateAuth mode="activation" />} />
-            <Route path="/empfehlungsprogramm/portal" element={<AffiliatePortal />} />
-            <Route path="/empfehlungsprogramm/empfehlungen" element={<AffiliateRecords type="referrals" />} />
-            <Route path="/empfehlungsprogramm/belohnungen" element={<AffiliateRecords type="rewards" />} />
-            <Route path="/empfehlungsprogramm/profil" element={<AffiliateProfile />} />
+            <Route path="/empfehlungsprogramm/portal" element={<AffiliateGuard><AffiliatePortal /></AffiliateGuard>} />
+            <Route path="/empfehlungsprogramm/empfehlungen" element={<AffiliateGuard><AffiliateRecords type="referrals" /></AffiliateGuard>} />
+            <Route path="/empfehlungsprogramm/belohnungen" element={<AffiliateGuard><AffiliateRecords type="rewards" /></AffiliateGuard>} />
+            <Route path="/empfehlungsprogramm/profil" element={<AffiliateGuard><AffiliateProfile /></AffiliateGuard>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <CookieBar />
