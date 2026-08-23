@@ -10,11 +10,11 @@ import { useEffect, useState, type FormEvent } from "react";
 import { Empty, ErrorState, Loading, Page } from "./AffiliatePortal";
 
 export default function AffiliateProfilePage() {
-  const [data, setData] = useState<{ profile: AffiliateProfile; payouts: AffiliatePayout[]; method: AffiliatePayoutMethod } | null>(null); const [error, setError] = useState(false);
+  const [data, setData] = useState<{ profile: AffiliateProfile; payouts: AffiliatePayout[]; method: AffiliatePayoutMethod | null } | null>(null); const [error, setError] = useState(false);
   useEffect(() => { let active = true; Promise.all([affiliateApi.profile(), affiliateApi.payouts(), affiliateApi.payoutMethod()]).then(([profile, payouts, method]) => { if (active) setData({ profile, payouts, method }); }).catch(() => { if (active) setError(true); }); return () => { active = false; }; }, []);
   return <AffiliateLayout portal><Page title={t("profile")}>{!data && !error && <Loading />}{error && <ErrorState />}{data && <div className="grid gap-5 lg:grid-cols-2">
     <Info icon={UserRound} title={t("accountInfo")}><p className="font-medium">{[data.profile.firstName, data.profile.lastName].filter(Boolean).join(" ") || "—"}</p><p className="mt-1 text-sm text-muted-foreground">{data.profile.status}</p></Info>
-    <Info icon={CreditCard} title={t("payout")}>{data.method.maskedIban ? <><p className="font-medium" dir="ltr">{data.method.maskedIban}</p><p className="mt-1 text-sm text-muted-foreground">{data.method.status}</p></> : <Empty text={t("payoutMissing")} />}</Info>
+    <Info icon={CreditCard} title={t("payout")}>{data.method?.maskedIban ? <><p className="font-medium" dir="ltr">{data.method.maskedIban}</p><p className="mt-1 text-sm text-muted-foreground">{data.method.status}</p></> : <Empty text={t("payoutMissing")} />}</Info>
     <Info icon={WalletCards} title={t("payouts")}>{data.payouts.length ? <ul className="space-y-2 text-sm">{data.payouts.map(payout => <li key={payout.id} className="flex justify-between gap-3"><span>{payout.status}</span><strong>{new Intl.NumberFormat("de-DE", { style: "currency", currency: payout.currency }).format(payout.amount)}</strong></li>)}</ul> : <Empty text={t("payoutsEmpty")} />}</Info>
     <Info icon={LockKeyhole} title={t("security")}><PasswordChange /></Info>
   </div>}</Page></AffiliateLayout>;

@@ -21,6 +21,15 @@ describe("affiliateApi final public contract", () => {
     await expect(affiliateApi.session()).resolves.toEqual({ authenticated: true, user: { id: "user-1", name: "Ada", image: null, emailVerified: true } });
   });
 
+  it("forwards a non-empty registration invite token without changing self-signup", async () => {
+    const fetchMock = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response(null, { status: 204 }));
+    await affiliateApi.register("Ada", "person@example.test", "secret", "opaque/+ invite");
+    expect(JSON.parse(String(fetchMock.mock.calls[0][1]?.body))).toEqual({ name: "Ada", email: "person@example.test", password: "secret", inviteToken: "opaque/+ invite" });
+
+    await affiliateApi.register("Ada", "person@example.test", "secret");
+    expect(JSON.parse(String(fetchMock.mock.calls[1][1]?.body))).toEqual({ name: "Ada", email: "person@example.test", password: "secret" });
+  });
+
   it("parses the final overview field names without invented metrics", async () => {
     const response = { profile: { id: "p1", firstName: "Ada", lastName: "L", languageCode: "de", status: "active", memberSince: "2026-01-01" }, program: { id: "program-1" }, defaultLink: { id: "link-1" }, totals: { referrals: 7, availableRewards: 25, paidRewards: 50 }, referralUrl: "https://example.test/?ref=abc", metrics: { clicks: 99 } };
     vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response(JSON.stringify(response)));
@@ -41,5 +50,10 @@ describe("affiliateApi final public contract", () => {
     const fetchMock = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response(null, { status: 204 }));
     await affiliateApi.resolveReferral("code /?ß");
     expect(fetchMock).toHaveBeenCalledWith("/api/affiliate/resolve?code=code%20%2F%3F%C3%9F", expect.objectContaining({ credentials: "include" }));
+  });
+
+  it("preserves a null payout method", async () => {
+    vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response("null"));
+    await expect(affiliateApi.payoutMethod()).resolves.toBeNull();
   });
 });

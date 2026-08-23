@@ -56,7 +56,7 @@ const post = (path: string, body?: JsonRecord) => request<void>(path, { method: 
 
 export const affiliateApi = {
   login: (email: string, password: string) => post("/api/auth/login", { email, password }),
-  register: (name: string, email: string, password: string) => post("/api/auth/register", { name, email, password }),
+  register: (name: string, email: string, password: string, inviteToken?: string) => post("/api/auth/register", { name, email, password, ...(inviteToken ? { inviteToken } : {}) }),
   logout: () => post("/api/auth/logout"),
   session: () => request("/api/auth/session", undefined, parseSession),
   forgotPassword: (email: string) => post("/api/auth/password/forgot", { email }),
@@ -70,5 +70,5 @@ export const affiliateApi = {
   rewards: () => request("/api/affiliate/rewards", undefined, value => directList(value).map(raw => { const item = record(raw); return { id: text(item.id), referralId: text(item.referralId), status: text(item.status), method: text(item.method), amount: number(item.amount), currency: text(item.currency), voucherLabel: nullableText(item.voucherLabel), availableAt: nullableText(item.availableAt), paidAt: nullableText(item.paidAt) }; })),
   profile: () => request("/api/affiliate/profile", undefined, parseProfile),
   payouts: () => request("/api/affiliate/payouts", undefined, value => directList(value).map(raw => { const item = record(raw); return { id: text(item.id), status: text(item.status), amount: number(item.amount), currency: text(item.currency), paidAt: nullableText(item.paidAt), createdAt: text(item.createdAt) }; })),
-  payoutMethod: () => request("/api/affiliate/payout-method", undefined, value => { const item = record(value); return { id: text(item.id), method: text(item.method), status: text(item.status), maskedIban: nullableText(item.maskedIban), updatedAt: text(item.updatedAt) }; }),
+  payoutMethod: () => request<AffiliatePayoutMethod | null>("/api/affiliate/payout-method", undefined, value => { if (value === null) return null; const item = record(value); return { id: text(item.id), method: text(item.method), status: text(item.status), maskedIban: nullableText(item.maskedIban), updatedAt: text(item.updatedAt) }; }),
 };
