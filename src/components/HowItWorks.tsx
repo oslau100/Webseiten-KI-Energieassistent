@@ -27,6 +27,13 @@ const steps = [
   },
 ];
 
+export type HowItWorksStep = {
+  id: string | number;
+  num: string;
+  title: string;
+  description: string;
+};
+
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -49,7 +56,13 @@ const itemVariants: Variants = {
   },
 };
 
-export const HowItWorks = () => {
+export const HowItWorks = ({
+  title = "So einfach funktioniert's",
+  steps: displayedSteps = steps,
+}: {
+  title?: string;
+  steps?: readonly HowItWorksStep[];
+} = {}) => {
   return (
     <section id="how-it-works" className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4 max-w-4xl">
@@ -60,7 +73,7 @@ export const HowItWorks = () => {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-extrabold text-center text-[#0b1221] mb-20"
         >
-          So einfach funktioniert's
+          {title}
         </motion.h2>
 
         <motion.div
@@ -70,7 +83,7 @@ export const HowItWorks = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="relative border-l-4 border-gray-100 ml-[26px] md:ml-[38px] space-y-12 md:space-y-16 py-4"
         >
-          {steps.map((step) => (
+          {displayedSteps.map((step) => (
             <motion.div
               key={step.id}
               variants={itemVariants}
