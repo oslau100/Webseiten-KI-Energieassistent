@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { SimpleFooter } from "@/components/SimpleFooter";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { recordSettingAttribution } from "@/lib/setting-attribution";
 
 interface FunnelFrameProps {
   title: string;
@@ -144,7 +145,9 @@ export function FunnelFrame({ title, src, requireUuid = false, showChrome = true
       if (data.type === "tarifbutler:navigate" && typeof data.url === "string") {
         const safeUrl = getSafeNavigationUrl(data.url);
         if (safeUrl) {
-          window.location.assign(safeUrl);
+          void recordSettingAttribution(safeUrl)
+            .catch(() => undefined)
+            .finally(() => window.location.assign(safeUrl));
         }
       }
     };

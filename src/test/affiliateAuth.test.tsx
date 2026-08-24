@@ -19,6 +19,7 @@ vi.mock("@/lib/affiliate-api", () => ({
     activate: vi.fn(),
     forgotPassword: vi.fn(),
     resetPassword: vi.fn(),
+    session: vi.fn(),
   },
 }));
 
@@ -36,7 +37,10 @@ const renderAuth = (kind: Parameters<typeof AffiliateAuth>[0]["kind"], path: str
   );
 
 describe("AffiliateAuth", () => {
-  beforeEach(() => vi.clearAllMocks());
+  beforeEach(() => {
+    vi.clearAllMocks();
+    mockedApi.session.mockResolvedValue({ authenticated: false });
+  });
 
   it("rejects mismatched registration passwords before calling the API", async () => {
     renderAuth("registrieren", "/empfehlungsprogramm/registrieren");
@@ -96,6 +100,22 @@ describe("AffiliateAuth", () => {
     fireEvent.click(screen.getByRole("button", { name: "Anfrage senden" }));
     await waitFor(() => expect(mockedApi.register).toHaveBeenCalledTimes(2));
     expect(mockedApi.register).toHaveBeenLastCalledWith({ name: "Ada", email: "ada@example.com", password: "secret" });
+  });
+
+  it("uses the canonical post-registration session to enter the portal", async () => {
+    mockedApi.register.mockResolvedValueOnce(undefined);
+    mockedApi.session.mockResolvedValueOnce({ authenticated: true, user: { id: "user-1", name: "Ada", image: null, emailVerified: false } });
+    renderAuth("registrieren", "/empfehlungsprogramm/registrieren?lang=ar");
+
+    fireEvent.change(screen.getByLabelText("Name"), { target: { value: "Ada" } });
+    fireEvent.change(screen.getByLabelText("E-Mail-Adresse"), { target: { value: "ada@example.com" } });
+    fireEvent.change(screen.getByLabelText("Passwort", { selector: "input" }), { target: { value: "secret" } });
+    fireEvent.change(screen.getByLabelText("Passwort bestätigen"), { target: { value: "secret" } });
+    fireEvent.click(screen.getByRole("checkbox"));
+    fireEvent.click(screen.getByRole("button", { name: "Anfrage senden" }));
+
+    expect(await screen.findByText("Affiliate portal ?lang=ar")).toBeInTheDocument();
+    expect(mockedApi.session).toHaveBeenCalledOnce();
   });
 
   it("never propagates an invite token into login navigation", () => {

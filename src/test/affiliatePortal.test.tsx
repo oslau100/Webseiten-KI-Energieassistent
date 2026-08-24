@@ -37,4 +37,15 @@ describe("AffiliatePortal session contract", () => {
     expect(api.session.mock.invocationCallOrder[0]).toBeLessThan(api.bootstrapProfile.mock.invocationCallOrder[0]);
     expect(api.bootstrapProfile.mock.invocationCallOrder[0]).toBeLessThan(api.overview.mock.invocationCallOrder[0]);
   });
+
+  it("lets the server authorize profile bootstrap for an unverified authenticated session", async () => {
+    api.session.mockResolvedValueOnce({ authenticated: true, user: { id: "user-1", name: "Ada", image: null, emailVerified: false } });
+    api.bootstrapProfile.mockResolvedValueOnce(undefined);
+    api.overview.mockResolvedValueOnce({ profile: { id: "affiliate-1", firstName: "Ada", lastName: "Lovelace", languageCode: "de", status: "active", memberSince: "2026-01-01" }, program: {}, defaultLink: {}, totals: {}, referralUrl: "https://example.test/r/server-value" });
+    renderPortal();
+
+    expect(await screen.findByText("https://example.test/r/server-value")).toBeInTheDocument();
+    expect(api.bootstrapProfile).toHaveBeenCalledOnce();
+    expect(api.overview).toHaveBeenCalledOnce();
+  });
 });

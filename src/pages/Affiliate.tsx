@@ -29,7 +29,7 @@ export function AffiliateAuth({ kind }: { kind: AuthKind }) {
     setBusy(true);
     try {
       if (kind === "anmelden") { await affiliateApi.login(String(data.get("email")), String(data.get("password"))); navigate(affiliateDestination("/empfehlungsprogramm/portal", location.search), { replace: true }); return; }
-      if (kind === "registrieren") { const inviteToken = query.get("inviteToken")?.trim(); await affiliateApi.register({ name: String(data.get("name")), email: String(data.get("email")), password: String(data.get("password")), ...(inviteToken ? { inviteToken } : {}) }); setMessage("Dein Konto wurde erstellt. Bitte prüfe dein E-Mail-Postfach, um die Registrierung zu bestätigen."); removeSecretsFromAddress(); }
+      if (kind === "registrieren") { const inviteToken = query.get("inviteToken")?.trim(); await affiliateApi.register({ name: String(data.get("name")), email: String(data.get("email")), password: String(data.get("password")), ...(inviteToken ? { inviteToken } : {}) }); const session = await affiliateApi.session(); if (session.authenticated && session.user) { navigate(affiliateDestination("/empfehlungsprogramm/portal", location.search), { replace: true }); return; } setMessage("Dein Konto wurde erstellt. Bitte prüfe dein E-Mail-Postfach, um die Registrierung zu bestätigen."); removeSecretsFromAddress(); }
       else if (kind === "passwort-vergessen") { await affiliateApi.forgotPassword(String(data.get("email"))); setMessage("Falls ein Konto zu dieser E-Mail-Adresse besteht, erhältst du weitere Anweisungen per E-Mail."); }
       else { await affiliateApi.resetPassword(token || "", String(data.get("password"))); setTokenConsumed(true); setMessage("Dein Passwort wurde erfolgreich geändert. Du kannst dich jetzt anmelden."); removeSecretsFromAddress(); }
     } catch { setIsError(true); setMessage(t.unavailable); } finally { setBusy(false); }
@@ -47,7 +47,7 @@ export function AffiliatePortal({ section }: { section: "portal" | "empfehlungen
     setState({ status: "loading" });
     try {
       const session = await affiliateApi.session();
-      if (!session.authenticated || !session.user || session.user.emailVerified !== true) { navigate(affiliateDestination("/empfehlungsprogramm/anmelden", location.search), { replace: true }); return; }
+      if (!session.authenticated || !session.user) { navigate(affiliateDestination("/empfehlungsprogramm/anmelden", location.search), { replace: true }); return; }
       await affiliateApi.bootstrapProfile();
       let data: PortalData;
       if (section === "empfehlungen") data = await affiliateApi.referrals();
