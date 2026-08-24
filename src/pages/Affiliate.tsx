@@ -15,6 +15,9 @@ const Notice = ({ children = t.unavailable, error = false }: { children?: React.
 export function AffiliateLanding() {
   const { search } = useLocation();
   const register = affiliateDestination("/empfehlungsprogramm/registrieren", search);
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0 });
+  }, []);
   const steps = [
     [Link2, "Registrieren und Link erhalten", "Nach der Registrierung findest du deinen persönlichen Empfehlungslink direkt in deinem TarifButler Empfehlungsportal."],
     [Share2, "Link teilen", "Teile deinen Link mit Freunden, Familie oder Bekannten – zum Beispiel per WhatsApp, Social Media oder einfach direkt."],

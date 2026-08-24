@@ -18,6 +18,7 @@ const Location = () => <output data-testid="route">{useLocation().pathname}</out
 describe("Affiliate layout contexts", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    vi.spyOn(window, "scrollTo").mockImplementation(() => undefined);
     api.session.mockResolvedValue({ authenticated: true, user: { id: "u", name: "Ada", image: null, emailVerified: true } });
     api.bootstrapProfile.mockResolvedValue(undefined);
     api.overview.mockResolvedValue({ profile: { id: "p", firstName: "Ada", lastName: "L", languageCode: "de", status: "active", memberSince: "2026-01-01" }, program: {}, defaultLink: {}, totals: {}, referralUrl: "https://www.tarif-butler.de/?ref=server" });
@@ -38,6 +39,23 @@ describe("Affiliate layout contexts", () => {
     expect(screen.getAllByRole("link", { name: "Registrieren" })).toHaveLength(3);
     expect(screen.getByRole("heading", { name: "Gemeinsam weniger für Energie zahlen." })).toBeInTheDocument();
     expect(screen.getByRole("contentinfo")).toHaveTextContent("Empfehlungsprogramm");
+  });
+
+  it("scrolls to the top on entry while registration CTAs keep navigating", async () => {
+    Object.defineProperty(window, "scrollY", { configurable: true, value: 640 });
+    const scrollTo = vi.mocked(window.scrollTo);
+
+    render(<MemoryRouter initialEntries={["/empfehlungsprogramm"]}><Location /><Routes>
+      <Route path="/empfehlungsprogramm" element={<AffiliateLanding />} />
+      <Route path="/empfehlungsprogramm/registrieren" element={<p>Registrierungsformular</p>} />
+    </Routes></MemoryRouter>);
+
+    await waitFor(() => expect(scrollTo).toHaveBeenCalledWith({ top: 0, left: 0 }));
+    const registrationLinks = screen.getAllByRole("link", { name: "Registrieren" });
+    expect(registrationLinks).toHaveLength(3);
+    fireEvent.click(registrationLinks[0]);
+    expect(screen.getByTestId("route")).toHaveTextContent("/empfehlungsprogramm/registrieren");
+    expect(screen.getByText("Registrierungsformular")).toBeInTheDocument();
   });
 
   it("uses the approved registration heading", () => {
