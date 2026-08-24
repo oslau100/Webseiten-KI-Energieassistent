@@ -29,12 +29,21 @@ describe("Affiliate layout contexts", () => {
   it("uses a minimal public header and retains the public footer", () => {
     render(<MemoryRouter><AffiliateLanding /></MemoryRouter>);
     const header = screen.getByRole("banner");
-    expect(within(header).getByRole("link", { name: "TarifButler Startseite" })).toBeInTheDocument();
+    const logo = within(header).getByRole("img", { name: "TarifButler Logo" });
+    expect(logo).toHaveClass("h-40", "md:h-56");
     expect(within(header).getByRole("link", { name: "Anmelden" })).toBeInTheDocument();
     expect(within(header).queryByText("Vorteile")).not.toBeInTheDocument();
     expect(within(header).queryByText("Ersparnis prüfen")).not.toBeInTheDocument();
     expect(screen.queryByLabelText("Sprache")).not.toBeInTheDocument();
+    expect(screen.getAllByRole("link", { name: "Registrieren" })).toHaveLength(3);
+    expect(screen.getByRole("heading", { name: "Gemeinsam weniger für Energie zahlen." })).toBeInTheDocument();
     expect(screen.getByRole("contentinfo")).toHaveTextContent("Empfehlungsprogramm");
+  });
+
+  it("uses the approved registration heading", () => {
+    render(<MemoryRouter><AffiliateAuth kind="registrieren" /></MemoryRouter>);
+    expect(screen.getByRole("heading", { name: "Registrieren" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Registrieren" })).toBeInTheDocument();
   });
 
   it("keeps auth pages free of marketing navigation, language selection and footer", () => {

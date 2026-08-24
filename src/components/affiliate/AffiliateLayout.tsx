@@ -3,10 +3,10 @@ import { Footer } from "@/components/Footer";
 import { affiliateDestination } from "@/lib/affiliate-navigation";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
-const logo = "https://vibe.filesafe.space/1775221216043671236/attachments/1051300b-abc5-4b5b-bcc5-ac3429d17253.png";
+const logo = "https://vibe.filesafe.space/1775221216043671236/attachments/b2572ba8-d0c7-41dd-a8da-2b7674556501.png";
 
 function AffiliateLogo() {
-  return <Link to="/" className="relative z-10 shrink-0" aria-label="TarifButler Startseite"><img src={logo} alt="TarifButler" className="h-16 w-auto object-contain sm:h-20" /></Link>;
+  return <Link to="/" className="relative z-10 flex shrink-0 items-center" aria-label="TarifButler Startseite"><img src={logo} alt="TarifButler Logo" className="h-40 w-auto object-contain -my-8 md:h-56 md:-my-12" /></Link>;
 }
 
 type LayoutKind = "landing" | "auth" | "portal";
