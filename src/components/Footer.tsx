@@ -55,6 +55,11 @@ export const Footer = () => {
                   Über uns
                 </Link>
               </li>
+              <li>
+                <Link to="/empfehlungsprogramm" className="text-[#111827] hover:text-primary transition-colors text-lg">
+                  Empfehlungsprogramm
+                </Link>
+              </li>
             </ul>
           </div>
           

@@ -34,7 +34,7 @@ describe("Affiliate Portal routes", () => {
   afterEach(cleanup);
 
   it.each([
-    ["portal", "Hier findest du dein Empfehlungsprogramm auf einen Blick."],
+    ["portal", "Hier findest du deinen persönlichen Empfehlungslink und behältst deine Empfehlungen und Belohnungen im Blick."],
     ["empfehlungen", "Noch keine Empfehlungen"],
     ["belohnungen", "Keine Belohnungen vorhanden"],
     ["profil", "Konto & Profil"],

@@ -50,7 +50,7 @@ describe("AffiliateAuth", () => {
     fireEvent.change(screen.getByLabelText("Passwort", { selector: "input" }), { target: { value: "secret-one" } });
     fireEvent.change(screen.getByLabelText("Passwort bestätigen"), { target: { value: "secret-two" } });
     fireEvent.click(screen.getByRole("checkbox"));
-    fireEvent.click(screen.getByRole("button", { name: "Anfrage senden" }));
+    fireEvent.click(screen.getByRole("button", { name: "Registrieren" }));
 
     expect(await screen.findByRole("alert")).toHaveTextContent("Die Passwörter stimmen nicht überein.");
     expect(mockedApi.register).not.toHaveBeenCalled();
@@ -90,14 +90,14 @@ describe("AffiliateAuth", () => {
     fireEvent.change(screen.getByLabelText("Passwort", { selector: "input" }), { target: { value: "secret" } });
     fireEvent.change(screen.getByLabelText("Passwort bestätigen"), { target: { value: "secret" } });
     fireEvent.click(screen.getByRole("checkbox"));
-    fireEvent.click(screen.getByRole("button", { name: "Anfrage senden" }));
+    fireEvent.click(screen.getByRole("button", { name: "Registrieren" }));
 
     await waitFor(() => expect(mockedApi.register).toHaveBeenCalledWith({
       name: "Ada", email: "ada@example.com", password: "secret", inviteToken: "opaque-token",
     }));
     expect(screen.getByTestId("current-location")).toHaveTextContent("/empfehlungsprogramm/registrieren?lang=ar");
     expect(screen.getByRole("link", { name: "Bereits registriert?" })).toHaveAttribute("href", "/empfehlungsprogramm/anmelden?lang=ar");
-    fireEvent.click(screen.getByRole("button", { name: "Anfrage senden" }));
+    fireEvent.click(screen.getByRole("button", { name: "Registrieren" }));
     await waitFor(() => expect(mockedApi.register).toHaveBeenCalledTimes(2));
     expect(mockedApi.register).toHaveBeenLastCalledWith({ name: "Ada", email: "ada@example.com", password: "secret" });
   });
@@ -112,7 +112,7 @@ describe("AffiliateAuth", () => {
     fireEvent.change(screen.getByLabelText("Passwort", { selector: "input" }), { target: { value: "secret" } });
     fireEvent.change(screen.getByLabelText("Passwort bestätigen"), { target: { value: "secret" } });
     fireEvent.click(screen.getByRole("checkbox"));
-    fireEvent.click(screen.getByRole("button", { name: "Anfrage senden" }));
+    fireEvent.click(screen.getByRole("button", { name: "Registrieren" }));
 
     expect(await screen.findByText("Affiliate portal ?lang=ar")).toBeInTheDocument();
     expect(mockedApi.session).toHaveBeenCalledOnce();
@@ -137,7 +137,7 @@ describe("AffiliateAuth", () => {
     renderAuth("passwort-zuruecksetzen", "/empfehlungsprogramm/passwort-zuruecksetzen?token=secret&lang=ar&campaign=safe");
     fireEvent.change(screen.getByLabelText("Neues Passwort"), { target: { value: "new-secret" } });
     fireEvent.change(screen.getByLabelText("Neues Passwort bestätigen"), { target: { value: "new-secret" } });
-    fireEvent.click(screen.getByRole("button", { name: "Anfrage senden" }));
+    fireEvent.click(screen.getByRole("button", { name: "Passwort speichern" }));
 
     expect(await screen.findByText(/erfolgreich geändert/)).toBeInTheDocument();
     expect(mockedApi.resetPassword).toHaveBeenCalledOnce();
@@ -159,7 +159,7 @@ describe("AffiliateAuth", () => {
 
     fireEvent.change(screen.getByLabelText("Neues Passwort"), { target: { value: "secret" } });
     fireEvent.change(screen.getByLabelText("Neues Passwort bestätigen"), { target: { value: "secret" } });
-    fireEvent.click(screen.getByRole("button", { name: "Anfrage senden" }));
+    fireEvent.click(screen.getByRole("button", { name: "Passwort speichern" }));
 
     await waitFor(() => expect(screen.getByRole("alert")).toBeInTheDocument());
     expect(screen.queryByText(/erfolgreich geändert/)).not.toBeInTheDocument();
@@ -170,7 +170,7 @@ describe("AffiliateAuth", () => {
 
     fireEvent.change(screen.getByLabelText("Neues Passwort"), { target: { value: "secret-one" } });
     fireEvent.change(screen.getByLabelText("Neues Passwort bestätigen"), { target: { value: "secret-two" } });
-    fireEvent.click(screen.getByRole("button", { name: "Anfrage senden" }));
+    fireEvent.click(screen.getByRole("button", { name: "Passwort speichern" }));
 
     expect(await screen.findByRole("alert")).toHaveTextContent("Die Passwörter stimmen nicht überein.");
     expect(mockedApi.resetPassword).not.toHaveBeenCalled();
