@@ -60,14 +60,14 @@ export function AffiliateLayout({ children, kind = "landing", onLogout }: { chil
               <Menu className="h-5 w-5" aria-hidden="true" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-64 max-w-[calc(100vw-2rem)] p-2">
+          <DropdownMenuContent align="end" className="w-64 max-w-[calc(100vw-2rem)] rounded-2xl p-2">
             {portalLinks.map(([path, label]) => (
-              <DropdownMenuItem key={path} asChild className="cursor-pointer px-3 py-3 text-base font-semibold">
+              <DropdownMenuItem key={path} asChild className="cursor-pointer rounded-xl px-3 py-3 text-base font-semibold">
                 <Link to={affiliateDestination(`/empfehlungsprogramm/${path}`, location.search)} onClick={() => setMobileMenuOpen(false)}>{label}</Link>
               </DropdownMenuItem>
             ))}
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="cursor-pointer px-3 py-3 text-base font-semibold" onSelect={onLogout}>Abmelden</DropdownMenuItem>
+            <DropdownMenuItem className="cursor-pointer rounded-xl px-3 py-3 text-base font-semibold" onSelect={onLogout}>Abmelden</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

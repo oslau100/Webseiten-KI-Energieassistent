@@ -96,6 +96,9 @@ describe("Affiliate layout contexts", () => {
     await waitFor(() => expect(menuButton).toHaveAttribute("aria-expanded", "true"));
 
     const mobileMenu = await screen.findByRole("menu");
+    expect(mobileMenu).toHaveClass("rounded-2xl");
+    expect(within(mobileMenu).getAllByRole("menuitem")).toHaveLength(5);
+    within(mobileMenu).getAllByRole("menuitem").forEach(item => expect(item).toHaveClass("rounded-xl"));
     expect(within(mobileMenu).getByRole("menuitem", { name: "Übersicht" })).toHaveAttribute("href", "/empfehlungsprogramm/portal");
     expect(within(mobileMenu).getByRole("menuitem", { name: "Empfehlungen" })).toHaveAttribute("href", "/empfehlungsprogramm/empfehlungen");
     expect(within(mobileMenu).getByRole("menuitem", { name: "Belohnungen" })).toHaveAttribute("href", "/empfehlungsprogramm/belohnungen");
