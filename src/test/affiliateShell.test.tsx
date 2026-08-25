@@ -3,6 +3,7 @@ import { MemoryRouter, Route, Routes, useLocation } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { AffiliateAuth, AffiliateLanding, AffiliatePortal } from "@/pages/Affiliate";
+import { AffiliateLayout } from "@/components/affiliate/AffiliateLayout";
 import { affiliateApi } from "@/lib/affiliate-api";
 
 vi.mock("@/lib/affiliate-api", async importOriginal => {
@@ -70,6 +71,46 @@ describe("Affiliate layout contexts", () => {
     expect(screen.queryByText("Sicher über TarifButler anmelden und Empfehlungen verwalten.")).not.toBeInTheDocument();
     expect(screen.queryByRole("contentinfo")).not.toBeInTheDocument();
     expect(screen.queryByLabelText("Sprache")).not.toBeInTheDocument();
+  });
+
+  it("provides an accessible mobile portal menu without replacing the desktop navigation", async () => {
+    const logout = vi.fn();
+    render(<MemoryRouter initialEntries={["/empfehlungsprogramm/portal"]}>
+      <AffiliateLayout kind="portal" onLogout={logout}><Location /></AffiliateLayout>
+    </MemoryRouter>);
+
+    const header = screen.getByTestId("affiliate-portal-header");
+    expect(within(header).getByRole("link", { name: "TarifButler Startseite" })).toHaveAttribute("href", "/");
+
+    const desktopNav = within(header).getByRole("navigation", { name: "Empfehlungsportal" });
+    expect(desktopNav).toHaveClass("hidden", "lg:flex");
+    expect(within(desktopNav).getByRole("link", { name: "Übersicht" })).toHaveAttribute("href", "/empfehlungsprogramm/portal");
+    expect(within(desktopNav).getByRole("link", { name: "Empfehlungen" })).toHaveAttribute("href", "/empfehlungsprogramm/empfehlungen");
+    expect(within(desktopNav).getByRole("link", { name: "Belohnungen" })).toHaveAttribute("href", "/empfehlungsprogramm/belohnungen");
+    expect(within(desktopNav).getByRole("link", { name: "Einstellungen" })).toHaveAttribute("href", "/empfehlungsprogramm/profil");
+    expect(within(header).getByRole("button", { name: "Abmelden" })).toHaveClass("hidden", "lg:inline-flex");
+
+    const menuButton = within(header).getByRole("button", { name: "Portal-Menü öffnen" });
+    expect(menuButton).toHaveAttribute("aria-expanded", "false");
+    fireEvent.keyDown(menuButton, { key: "Enter" });
+    await waitFor(() => expect(menuButton).toHaveAttribute("aria-expanded", "true"));
+
+    const mobileMenu = await screen.findByRole("menu");
+    expect(mobileMenu).toHaveClass("rounded-2xl");
+    expect(within(mobileMenu).getAllByRole("menuitem")).toHaveLength(5);
+    within(mobileMenu).getAllByRole("menuitem").forEach(item => expect(item).toHaveClass("rounded-xl"));
+    expect(within(mobileMenu).getByRole("menuitem", { name: "Übersicht" })).toHaveAttribute("href", "/empfehlungsprogramm/portal");
+    expect(within(mobileMenu).getByRole("menuitem", { name: "Empfehlungen" })).toHaveAttribute("href", "/empfehlungsprogramm/empfehlungen");
+    expect(within(mobileMenu).getByRole("menuitem", { name: "Belohnungen" })).toHaveAttribute("href", "/empfehlungsprogramm/belohnungen");
+    expect(within(mobileMenu).getByRole("menuitem", { name: "Einstellungen" })).toHaveAttribute("href", "/empfehlungsprogramm/profil");
+
+    fireEvent.click(within(mobileMenu).getByRole("menuitem", { name: "Empfehlungen" }));
+    await waitFor(() => expect(menuButton).toHaveAttribute("aria-expanded", "false"));
+    expect(screen.getByTestId("route")).toHaveTextContent("/empfehlungsprogramm/empfehlungen");
+
+    fireEvent.keyDown(menuButton, { key: "Enter" });
+    fireEvent.click(await screen.findByRole("menuitem", { name: "Abmelden" }));
+    expect(logout).toHaveBeenCalledTimes(1);
   });
 
   it("navigates through every portal section without stale data or a homepage detour", async () => {
