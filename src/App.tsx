@@ -22,6 +22,9 @@ import { CookieBar } from "./components/CookieBar";
 import { I18nProvider } from "./lib/i18n";
 import { WebsiteConfigProvider } from "./lib/websiteConfig";
 import { AutoPageTranslator } from "./components/AutoPageTranslator";
+import { AffiliateAuth, AffiliateLanding } from "./pages/Affiliate";
+import { Dashboard, Profile, Referrals, Rewards } from "./pages/AffiliatePortal";
+import { AffiliateReferralCapture } from "./components/affiliate/AffiliateReferralCapture";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +36,7 @@ const App = () => (
       <BrowserRouter>
         <WebsiteConfigProvider>
           <I18nProvider>
+          <AffiliateReferralCapture />
           <ScrollToTop />
           <AutoPageTranslator />
           <Routes>
@@ -54,6 +58,16 @@ const App = () => (
             <Route path="/rechnung" element={<Rechnung />} />
             <Route path="/start-rechnung" element={<Rechnung />} />
             <Route path="/rueckruf-buchen" element={<RueckrufBuchen />} />
+            <Route path="/empfehlungsprogramm" element={<AffiliateLanding />} />
+            <Route path="/empfehlungsprogramm/anmelden" element={<AffiliateAuth mode="login" />} />
+            <Route path="/empfehlungsprogramm/registrieren" element={<AffiliateAuth mode="register" />} />
+            <Route path="/empfehlungsprogramm/passwort-vergessen" element={<AffiliateAuth mode="forgot" />} />
+            <Route path="/empfehlungsprogramm/passwort-zuruecksetzen" element={<AffiliateAuth mode="reset" />} />
+            <Route path="/empfehlungsprogramm/aktivieren" element={<AffiliateAuth mode="activate" />} />
+            <Route path="/empfehlungsprogramm/portal" element={<Dashboard />} />
+            <Route path="/empfehlungsprogramm/empfehlungen" element={<Referrals />} />
+            <Route path="/empfehlungsprogramm/belohnungen" element={<Rewards />} />
+            <Route path="/empfehlungsprogramm/profil" element={<Profile />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <CookieBar />
