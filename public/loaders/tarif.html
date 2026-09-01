@@ -507,6 +507,17 @@ window.TB_BOOTSTRAP = {
     else if(content.format_version===2) console.warn(`Offer Content format_version 2 ist ungültig (${validation.reason}); Legacy-Fallback wird verwendet.`);
     renderAiSummary(container,legacyText,lang,usecase); return "legacy";
   }
+  function scopeAuftragQuery(query, identifiers, locationId) {
+    const identifierQuery = identifiers.uuid
+      ? query.eq("uuid", identifiers.uuid)
+      : query.eq("submission_id", identifiers.submissionId);
+    return identifierQuery.eq("location_id", locationId);
+  }
+  const NOT_FOUND_TEXT = "Diese Tarifempfehlung wurde nicht gefunden.";
+  function renderNotFound() {
+    const root = $("tbx2026");
+    root.innerHTML = `<div class="wrap"><section class="panel"><h1 class="title">${NOT_FOUND_TEXT}</h1></section></div>`;
+  }
   try{
     const locationId = String(bootstrap.locationId || window.SURVEY_CONFIG?.locationId || "").trim();
     if (locationId) {
@@ -515,7 +526,9 @@ window.TB_BOOTSTRAP = {
       applyDesignVars(designConfig.brand, designConfig.offer);
     }
     const qp=new URLSearchParams(window.location.search); const uuid=qp.get("uuid"); const submissionId=qp.get("submission_id"); if(!uuid&&!submissionId) throw new Error("Fehlende URL-Parameter: uuid oder submission_id");
-    let q=client.from("auftraege").select("*"); q=uuid?q.eq("uuid",uuid):q.eq("submission_id",submissionId); const {data:rows,error}=await q.limit(1); if(error) throw error; const row=rows&&rows[0]?rows[0]:null; if(!row) throw new Error("Kein Auftrag gefunden.");
+    if(!locationId) throw new Error("Missing TB_BOOTSTRAP value: locationId");
+    const q=scopeAuftragQuery(client.from("auftraege").select("*"),{uuid,submissionId},locationId);
+    const {data:rows,error}=await q.limit(1); if(error) throw error; const row=rows&&rows[0]?rows[0]:null; if(!row) throw new Error(NOT_FOUND_TEXT);
     const lang=getLang(qp.get("lang")||row.language||"de"); const t=getUi(lang); if(I18N[lang].direction==="rtl") $("tbx2026").classList.add("rtl"); $("tbx2026").setAttribute("dir",I18N[lang].direction);
     $("tbStatus").textContent=t.statusLine || $("tbStatus").textContent;
     const usecase=pickUsecase(row); const ersparnis=(row.ersparnis==null)?null:Number(row.ersparnis);
@@ -563,6 +576,7 @@ window.TB_BOOTSTRAP = {
     $("tbBtnDetails").addEventListener("click",(event)=>{renderModal(t,row,usecase);openModal(event.currentTarget);});
     $("tbModalClose").addEventListener("click",closeModal); $("tbModalBack").addEventListener("click",(e)=>{if(e.target === $("tbModalBack")) closeModal();}); document.addEventListener("keydown",(e)=>{if(e.key==="Escape") closeModal();});
   }catch(e){
+    if(e && e.message === NOT_FOUND_TEXT){renderNotFound(); return;}
     $("tbFazit").textContent="Konnte Daten nicht laden."; $("tbAiLabel").textContent="Fehler"; $("tbAiText").textContent=String(e.message || e);
   }
 })();

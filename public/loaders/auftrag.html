@@ -264,6 +264,17 @@ window.TB_BOOTSTRAP = {
       mount.innerHTML = `<div class="survey-card-container"><h2 class="survey-question" style="color:#ef4444;">${String(msg || "Error")}</h2><div class="survey-subtext">Bitte Seite neu laden oder später erneut versuchen.</div></div>`;
     }
 
+    const NOT_FOUND_TEXT = "Diese Tarifempfehlung wurde nicht gefunden.";
+
+    function showNotFound() {
+      const mount = document.getElementById("survey-app");
+      mount.innerHTML = `<div class="survey-card-container"><h2 class="survey-question">${NOT_FOUND_TEXT}</h2></div>`;
+    }
+
+    function scopeClosingPreflightQuery(query, uuid, locationId) {
+      return query.eq("uuid", uuid).eq("location_id", locationId);
+    }
+
     try {
       if (!config.locationId || !config.supabaseUrl || !config.supabaseKey) {
         throw new Error("Missing TB_BOOTSTRAP values: locationId, supabaseUrl, supabaseKey");
@@ -290,6 +301,24 @@ window.TB_BOOTSTRAP = {
       const fallbackDesign = (data && (data.closing_survey_design || data.setting_survey_design)) || {};
       const design = hasDesignConfig ? { ...fallbackDesign, ...brandDesign, ...surveyDesign } : fallbackDesign;
       applyDesignVars(design);
+
+      if (!config.uuidOverride) {
+        window.SURVEY_CONFIG.errorCode = "offer_not_found";
+        showNotFound();
+        return;
+      }
+
+      const preflightQuery = scopeClosingPreflightQuery(
+        client.from("auftraege").select("uuid"),
+        config.uuidOverride,
+        config.locationId
+      );
+      const { data: matchingAuftrag, error: preflightError } = await preflightQuery.limit(1).maybeSingle();
+      if (preflightError || !matchingAuftrag) {
+        window.SURVEY_CONFIG.errorCode = "offer_not_found";
+        showNotFound();
+        return;
+      }
 
       const engineUrl = window.SURVEY_CONFIG.engineUrl;
       if (!engineUrl) throw new Error("Missing closing engine URL (runtime_config.closing_engine_url)");
