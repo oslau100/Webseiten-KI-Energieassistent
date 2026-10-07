@@ -3,7 +3,8 @@ import { Footer } from "@/components/Footer";
 import { useWebsiteConfig } from "@/lib/websiteConfig";
 
 const Impressum = () => {
-  const { getText } = useWebsiteConfig();
+  const { getText, getObject } = useWebsiteConfig();
+  const legalReady = getObject("legal", { ready: false }).ready === true;
   const legalStandFallback = new Date().toLocaleDateString("de-DE", { month: "long", year: "numeric" });
   const htmlOverride = getText("pages.impressum.html", "");
   const legalVars = {
@@ -30,7 +31,7 @@ const Impressum = () => {
     );
   }
 
-  if (!legalVars.firma.trim() || !legalVars.email.trim()) {
+  if (!legalReady || !legalVars.firma.trim() || !legalVars.email.trim()) {
     return (
       <div className="min-h-screen bg-background text-foreground font-sans flex flex-col">
         <Header />

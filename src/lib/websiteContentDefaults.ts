@@ -20,6 +20,7 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
     image_url: "",
   },
   legal: {
+    ready: false,
     variables: {
       firma: "",
       inhaber: "",
