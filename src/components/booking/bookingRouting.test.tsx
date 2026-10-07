@@ -3,7 +3,7 @@ import { afterEach,beforeEach,describe,expect,it,vi } from "vitest";
 import App from "@/App";
 import { readFileSync } from "node:fs";
 const key=`eyJhbGciOiJIUzI1NiJ9.${btoa(JSON.stringify({role:"anon"})).replace(/=/g,"")}.signature`;
-beforeEach(()=>{vi.stubGlobal("scrollTo",vi.fn());vi.spyOn(console,"error").mockImplementation(()=>{});});
+beforeEach(()=>{vi.stubEnv("VITE_LOCATION_ID","test-location");vi.stubGlobal("scrollTo",vi.fn());vi.spyOn(console,"error").mockImplementation(()=>{});});
 afterEach(()=>{vi.restoreAllMocks();vi.unstubAllEnvs();});
 describe("booking routing and legacy removal",()=>{
  it("renders the localized free-callback note above the new callback page route",async()=>{vi.stubEnv("VITE_SUPABASE_ANON_KEY",key);vi.spyOn(globalThis,"fetch").mockImplementation(url=>Promise.resolve(new Response(String(url).includes("/rest/v1/")?"[]":JSON.stringify({calendar_name:"Rückruf buchen",calendar_slug:"rueckruf-buchen",timezone:"Europe/Berlin",duration_minutes:15,dates:[]}),{status:200})));history.replaceState({},"","/rueckruf-buchen?lang=de");render(<App/>);expect(await screen.findByRole("heading",{name:"Rückruf buchen",level:1})).toBeVisible();expect(screen.getByText("Kostenfreier Rückruf · ca. 15 Minuten")).toBeVisible();expect(screen.getByRole("link",{name:"Rückruf buchen"})).toHaveAttribute("href","/rueckruf-buchen?lang=de");});

@@ -1,6 +1,7 @@
 import { Facebook, Instagram, Youtube } from "lucide-react";
 import { AnimatedSection } from "./AnimatedSection";
 import { useI18n } from "@/lib/i18n";
+import { resolveLocalizedText } from "@/lib/websiteContentResolver";
 import { useWebsiteConfig } from "@/lib/websiteConfig";
 
 const TikTokIcon = ({ className }: { className?: string }) => (
@@ -10,48 +11,54 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 );
 
 export const About = () => {
-  const { t, lang } = useI18n();
-  const { getText } = useWebsiteConfig();
+  const { lang } = useI18n();
+  const { getText, getArray } = useWebsiteConfig();
+  const mode = getText("sections.about.mode", "company");
+  const name = getText("sections.about.name", "Energieassistent", lang);
+  const image = getText("sections.about.image_url", "", lang);
+  const role = getText("sections.about.role", "", lang);
+  const socialHint = getText("sections.about.social_hint", "", lang);
+  const socialLinks = [
+    { key: "tiktok", label: "TikTok", Icon: TikTokIcon },
+    { key: "youtube", label: "YouTube", Icon: Youtube },
+    { key: "facebook", label: "Facebook", Icon: Facebook },
+    { key: "instagram", label: "Instagram", Icon: Instagram },
+  ].map((link) => ({ ...link, href: getText(`sections.about.social.${link.key}`, "", lang).trim() }))
+    .filter((link) => /^https?:\/\//i.test(link.href));
+  const legacyParagraphs = Array.from({ length: 6 }, (_, index) => getText(`sections.about.paragraph_${index + 1}`, "", lang));
+  const paragraphs = getArray<unknown>("sections.about.paragraphs", legacyParagraphs)
+    .map((value) => resolveLocalizedText({ value }, "value", "", lang)).filter((value) => value.trim());
+  const hasAside = Boolean(image || socialLinks.length);
+
+  if (mode === "hidden") return null;
 
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="py-16 md:py-24 bg-background" data-about-mode={mode === "person" ? "person" : "company"}>
       <div className="container px-4 md:px-6">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{t("home_about_h2")}</h2>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{getText("sections.about.headline", "Über den Energieassistenten", lang)}</h2>
         </AnimatedSection>
 
         <AnimatedSection delay={200} className="bg-muted/30 rounded-3xl overflow-hidden shadow-sm max-w-6xl mx-auto">
           <div className="grid md:grid-cols-12 gap-8 items-center p-8 md:p-12 lg:p-16">
-            <div className="md:col-span-4 lg:col-span-5 flex flex-col items-center text-center space-y-6">
-              <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-background shadow-xl">
-                {getText("sections.about.avatar_url", "", lang) ? <img
-                  src={getText("sections.about.avatar_url", "", lang)}
-                  alt={getText("sections.about.person_name", "Team", lang)}
-                  className="w-full h-full object-cover"
-                /> : <div className="w-full h-full bg-muted" />}
-              </div>
-              <div className="space-y-4">
-                <p className="font-bold text-sm uppercase tracking-wider text-muted-foreground">{getText("sections.about.social_hint", "Folge mir auf den Sozialen Medien für Tipps rund um Strom & Gas", lang)}</p>
+            {hasAside ? <div className="md:col-span-4 lg:col-span-5 flex flex-col items-center text-center space-y-6">
+              {image ? <div className={`w-48 h-48 md:w-64 md:h-64 ${mode === "person" ? "rounded-full" : "rounded-3xl"} overflow-hidden border-4 border-background shadow-xl`}>
+                <img src={image} alt={getText("sections.about.image_alt", name, lang) || name} className={`w-full h-full ${mode === "person" ? "object-cover" : "object-contain"}`} />
+              </div> : null}
+              {socialLinks.length ? <div className="space-y-4">
+                {socialHint ? <p className="font-bold text-sm uppercase tracking-wider text-muted-foreground">{socialHint}</p> : null}
                 <div className="flex justify-center gap-4 text-muted-foreground">
-                  <a href={getText("sections.about.social.tiktok", "#", lang)} target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="transition-colors hover:text-primary"><TikTokIcon className="h-6 w-6" /></a>
-                  <a href={getText("sections.about.social.youtube", "#", lang)} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="transition-colors hover:text-primary"><Youtube className="h-6 w-6" /></a>
-                  <a href={getText("sections.about.social.facebook", "#", lang)} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="transition-colors hover:text-primary"><Facebook className="h-6 w-6" /></a>
-                  <a href={getText("sections.about.social.instagram", "#", lang)} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="transition-colors hover:text-primary"><Instagram className="h-6 w-6" /></a>
+                  {socialLinks.map(({ key, label, href, Icon }) => <a key={key} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="transition-colors hover:text-primary"><Icon className="h-6 w-6" /></a>)}
                 </div>
-              </div>
-            </div>
-            <div className="md:col-span-8 lg:col-span-7 space-y-6">
+              </div> : null}
+            </div> : null}
+            <div className={`${hasAside ? "md:col-span-8 lg:col-span-7" : "md:col-span-12"} space-y-6`}>
               <div>
-                <h3 className="text-2xl font-bold">{getText("sections.about.person_name", "Team", lang)}</h3>
-                <p className="text-primary font-medium">{getText("sections.about.role", "Experte für Strom & Gas", lang)}</p>
+                {name ? <h3 className="text-2xl font-bold">{name}</h3> : null}
+                {role ? <p className="text-primary font-medium">{role}</p> : null}
               </div>
               <div className="space-y-4 text-muted-foreground leading-relaxed text-lg">
-                <p>{getText("sections.about.paragraph_1", "Wir unterstützen Haushalte dabei, mehr Transparenz beim Thema Strom- und Gastarife zu bekommen und mögliche Einsparungen zu erkennen.", lang)}</p>
-                <p>{getText("sections.about.paragraph_2", "In meiner Arbeit habe ich immer wieder gesehen, wie unübersichtlich der Energiemarkt für viele Menschen geworden ist. Unterschiedliche Anbieter, ständig neue Tarife und komplizierte Vertragsbedingungen machen es schwer zu erkennen, welcher Tarif wirklich sinnvoll ist. Viele Haushalte beschäftigen sich deshalb erst dann mit ihrem Energievertrag, wenn eine hohe Nachzahlung kommt oder die Kosten plötzlich steigen.", lang)}</p>
-                <p>{getText("sections.about.paragraph_3", "Genau hier setze ich an. Mit dem digitalen Energieassistenten stelle ich ein System zur Verfügung, das Tarife automatisch prüft, Jahresrechnungen analysiert und verständlich zeigt, wo Einsparungen oder Auffälligkeiten liegen. So wird aus einem komplexen Energiethema eine klare und verständliche Lösung.", lang)}</p>
-                <p>{getText("sections.about.paragraph_4", "Mein Ziel ist es, so vielen Haushalten wie möglich zu helfen, ihre Energiekosten besser zu verstehen, unnötige Ausgaben zu vermeiden und langfristig Einsparungen zu erzielen ohne komplizierte Vergleiche oder zusätzlichen Aufwand.", lang)}</p>
-                <p>{getText("sections.about.paragraph_5", "So wird aus einem komplizierten Tarifvergleich oder einer schwer verständlichen Jahresrechnung eine einfache Entscheidung.", lang)}</p>
-                <p>{getText("sections.about.paragraph_6", "Mein Ziel ist es, Haushalten eine einfache und sichere Möglichkeit zu geben, ihre Energiekosten zu prüfen – ohne Tarifchaos und ohne Risiko.", lang)}</p>
+                {paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
               </div>
             </div>
           </div>

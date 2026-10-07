@@ -8,14 +8,6 @@ const CONSENT_KEY = "cookie-consent";
 const CONSENT_MAX_AGE_SECONDS = 60 * 60 * 24 * 180;
 const FALLBACK_PRIMARY_COLOR = "#2563eb";
 
-const getCookieDomain = (hostname: string) => {
-  if (hostname === "ehiogie-energieassistent.de" || hostname.endsWith(".ehiogie-energieassistent.de")) {
-    return ".ehiogie-energieassistent.de";
-  }
-
-  return undefined;
-};
-
 const getCookieValue = (name: string) => {
   const prefix = `${name}=`;
   const cookies = document.cookie ? document.cookie.split(";") : [];
@@ -38,10 +30,7 @@ const setConsentStorage = (value: "all" | "essential") => {
     "SameSite=Lax",
   ];
 
-  const cookieDomain = getCookieDomain(window.location.hostname);
-  if (cookieDomain) {
-    cookieParts.push(`Domain=${cookieDomain}`);
-  }
+  // Keep consent scoped to this Location host.
 
   if (window.location.protocol === "https:") {
     cookieParts.push("Secure");

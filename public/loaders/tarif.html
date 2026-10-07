@@ -1,18 +1,25 @@
 <script>
 window.TB_BOOTSTRAP = {
-  locationId: "tn90CyE3XuYFTy4c1M3F",
+  locationId: "",
   supabaseUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co",
-  supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im95bmhuaGtsZHZwb3Foc2ZpcndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0OTAwODksImV4cCI6MjA3NTA2NjA4OX0.9zYOwel585SOUAtVc4XkWhhJl4qldwX6oOhOH7L-eJ4",
+  supabaseKey: "",
   settingEngineUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/engine-assets/setting-survey-engine.js",
   closingEngineUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/engine-assets/closing-survey-engine.js",
   settingProxyPath: "https://oynhnhkldvpoqhsfirwf.supabase.co/functions/v1/setting-proxy",
   closingProxyPath: "https://oynhnhkldvpoqhsfirwf.supabase.co/functions/v1/closing-proxy",
-  offerUrl: "https://www.ehiogie-energieassistent.de/tarif",
-  auftragUrl: "https://www.ehiogie-energieassistent.de/auftrag",
-  startUrl: "https://www.ehiogie-energieassistent.de/start",
-  avatarUrl: "https://assets.cdn.filesafe.space/tn90CyE3XuYFTy4c1M3F/media/69d3fc76bc1d4a17f7def171.png"
+  offerUrl: "/tarif",
+  auftragUrl: "/auftrag",
+  startUrl: "/start",
+  avatarUrl: "",
+  // The SPA passes its resolved Location and public API configuration to this iframe.
+  ...(() => {
+    try { return window.parent !== window && window.parent.location.origin === window.location.origin ? window.parent.WEBSITE_LOADER_BOOTSTRAP || {} : {}; }
+    catch { return {}; }
+  })(),
+  ...(window.TB_BOOTSTRAP || {})
 };
 </script>
+<script src="/loaders/bootstrap.js"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -127,7 +134,7 @@ window.TB_BOOTSTRAP = {
   const bootstrap = (window.TB_BOOTSTRAP && typeof window.TB_BOOTSTRAP === "object") ? window.TB_BOOTSTRAP : {};
   const SUPA_URL = String(bootstrap.supabaseUrl || "").trim();
   const SUPA_KEY = String(bootstrap.supabaseKey || "").trim();
-  if(!SUPA_URL || !SUPA_KEY) throw new Error("Missing TB_BOOTSTRAP values: supabaseUrl, supabaseKey");
+  if(!bootstrap.locationId || !SUPA_URL || !SUPA_KEY) { document.getElementById("tbFazit").textContent = "Konnte Daten nicht laden."; document.getElementById("tbAiText").textContent = "Die Tarifseite wird gerade vorbereitet."; return; }
   const client = supabase.createClient(SUPA_URL, SUPA_KEY);
   const PATHS = { auftrag: String(bootstrap.auftragUrl || "/auftrag"), start: String(bootstrap.startUrl || "/start") };
 

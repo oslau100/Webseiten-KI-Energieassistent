@@ -1,15 +1,22 @@
 <script>
 window.TB_BOOTSTRAP = {
-  locationId: "tn90CyE3XuYFTy4c1M3F",
+  locationId: "",
   supabaseUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co",
-  supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im95bmhuaGtsZHZwb3Foc2ZpcndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0OTAwODksImV4cCI6MjA3NTA2NjA4OX0.9zYOwel585SOUAtVc4XkWhhJl4qldwX6oOhOH7L-eJ4",
+  supabaseKey: "",
   rechnungEngineUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/engine-assets/rechnung-survey-engine.js",
   rechnungProxyPath: "https://oynhnhkldvpoqhsfirwf.supabase.co/functions/v1/rechnung-proxy",
-  rechnungSuccessUrl: "https://www.ehiogie-energieassistent.de/rechnung-eingegangen",
-  rechnungErrorUrl: "https://www.ehiogie-energieassistent.de/rechnung-fehler",
-  privacyUrl: "https://www.ehiogie-energieassistent.de/datenschutz"
+  rechnungSuccessUrl: "/rechnung-eingegangen",
+  rechnungErrorUrl: "/rechnung-fehler",
+  privacyUrl: "/datenschutz",
+  // The SPA passes its resolved Location and public API configuration to this iframe.
+  ...(() => {
+    try { return window.parent !== window && window.parent.location.origin === window.location.origin ? window.parent.WEBSITE_LOADER_BOOTSTRAP || {} : {}; }
+    catch { return {}; }
+  })(),
+  ...(window.TB_BOOTSTRAP || {})
 };
 </script>
+<script src="/loaders/bootstrap.js"></script>
 
 <style id="survey-dynamic-styles">
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
