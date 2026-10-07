@@ -1,31 +1,25 @@
-export const BOOKING_LOCATION_ID = "tn90CyE3XuYFTy4c1M3F";
+import { getBootstrapConfig, resolveWebsiteRuntime, isLegacyAnonJwt } from "./websiteRuntime";
+export { isLegacyAnonJwt } from "./websiteRuntime";
 export const BOOKING_CALENDAR_SLUG = "rueckruf-buchen";
-export const PRIVACY_URL = "https://www.ehiogie-energieassistent.de/datenschutz";
-const FALLBACK_URL = "https://oynhnhkldvpoqhsfirwf.supabase.co";
+export const PRIVACY_URL = "/datenschutz";
 
-type BootstrapWindow = Window & { TB_BOOTSTRAP?: Record<string, string> };
 export type BookingErrorCode = "CONFIGURATION_ERROR" | "CALENDAR_NOT_FOUND" | "CALENDAR_DISABLED" | "BOOKING_DISABLED" | "ORIGIN_NOT_ALLOWED" | "RATE_LIMITED" | "MINIMUM_NOTICE_NOT_MET" | "MAXIMUM_ADVANCE_EXCEEDED" | "SLOT_UNAVAILABLE" | "IDEMPOTENCY_CONFLICT" | "CONSENT_REQUIRED" | "VALIDATION_ERROR" | "INTERNAL_ERROR";
 export class BookingApiError extends Error { constructor(public code: BookingErrorCode, message = "Booking request failed") { super(message); this.name = "BookingApiError"; } }
 
-export const isLegacyAnonJwt = (value: unknown): value is string => {
-  if (typeof value !== "string" || !/^eyJ[A-Za-z0-9_-]*\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(value)) return false;
-  try { const payload = JSON.parse(atob(value.split(".")[1].replace(/-/g, "+").replace(/_/g, "/"))); return payload.role === "anon"; } catch { return false; }
-};
-
 export function resolveBookingRuntime(href = window.location.href) {
-  const query = new URL(href).searchParams;
-  const bootstrap = (window as BootstrapWindow).TB_BOOTSTRAP || {};
-  const supabaseUrl = [query.get("supabase_url"), bootstrap.supabaseUrl, import.meta.env.VITE_SUPABASE_URL, FALLBACK_URL].find((v) => typeof v === "string" && /^https:\/\//.test(v.trim()))!.trim().replace(/\/$/, "");
-  // The build-time anon JWT is deliberately preferred; runtime keys are accepted only after JWT validation.
-  const candidates = [import.meta.env.VITE_SUPABASE_ANON_KEY, query.get("supabase_key"), bootstrap.supabaseKey];
+  const bootstrap = getBootstrapConfig();
+  const { locationId, supabaseUrl } = resolveWebsiteRuntime({ search: new URL(href).search });
+  // booking-proxy still requires a legacy anon JWT; preserve that backend contract.
+  const query = new URLSearchParams(import.meta.env.DEV ? new URL(href).search : "");
+  const candidates = [import.meta.env.VITE_SUPABASE_ANON_KEY, bootstrap.supabaseAnonKey, bootstrap.supabaseKey, query.get("supabase_key")];
   const anonJwt = candidates.find(isLegacyAnonJwt);
-  if (!anonJwt) throw new BookingApiError("CONFIGURATION_ERROR", "Die Terminbuchung ist derzeit nicht korrekt konfiguriert.");
-  return { supabaseUrl, anonJwt, endpoint: `${supabaseUrl}/functions/v1/booking-proxy` };
+  if (!locationId || !supabaseUrl || !anonJwt) throw new BookingApiError("CONFIGURATION_ERROR", "Die Terminbuchung ist derzeit nicht korrekt konfiguriert.");
+  return { locationId, supabaseUrl, anonJwt, endpoint: `${supabaseUrl}/functions/v1/booking-proxy` };
 }
 
 export async function bookingRequest<T>(body: Record<string, unknown>, signal?: AbortSignal): Promise<T> {
-  const { endpoint, anonJwt } = resolveBookingRuntime();
-  const response = await fetch(endpoint, { method: "POST", signal, headers: { "Content-Type": "application/json", apikey: anonJwt, Authorization: `Bearer ${anonJwt}` }, body: JSON.stringify(body) });
+  const { endpoint, anonJwt, locationId } = resolveBookingRuntime();
+  const response = await fetch(endpoint, { method: "POST", signal, headers: { "Content-Type": "application/json", apikey: anonJwt, Authorization: `Bearer ${anonJwt}` }, body: JSON.stringify({ ...body, location_id: locationId }) });
   const data = await response.json().catch(() => ({}));
   if (!response.ok || data?.error) throw new BookingApiError((data?.code || data?.error?.code || "INTERNAL_ERROR") as BookingErrorCode);
   return data as T;

@@ -22,6 +22,7 @@ import { CookieBar } from "./components/CookieBar";
 import { I18nProvider } from "./lib/i18n";
 import { WebsiteConfigProvider } from "./lib/websiteConfig";
 import { AutoPageTranslator } from "./components/AutoPageTranslator";
+import { WebsiteMetadata } from "./components/WebsiteMetadata";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => (
       <BrowserRouter>
         <WebsiteConfigProvider>
           <I18nProvider>
+          <WebsiteMetadata />
           <ScrollToTop />
           <AutoPageTranslator />
           <Routes>
