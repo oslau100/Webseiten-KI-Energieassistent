@@ -99,6 +99,13 @@ type WebsiteConfigContextValue = WebsiteConfigState & {
   interpolate: (template: string, vars?: Record<string, string>) => string;
 };
 
+// Central UI/product copy may fall back; customer identity, assets, legal values,
+// claims (badges/statistics), integration IDs and page HTML must come from config.
+const customerSystemText = (path: string) => /^(header|cookie)\./.test(path)
+  || /^seo\.(title|description)$/.test(path)
+  || /^sections\.about\.(headline|mode)$/.test(path)
+  || /^sections\.(hero|problem|solution|how_it_works|comparison|testimonials|final_cta|jahresrechnung)\.(headline|subline|body|cta_text|cta|result_note|image_position|kicker|portals_title|assistant_title|hero_text|why_intro|value_text|comparison_self_title|comparison_assistant_title|reviews_kicker|final_text)$/.test(path);
+
 const WebsiteConfigContext = createContext<WebsiteConfigContextValue | null>(null);
 
 export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => {
@@ -181,7 +188,7 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
     ...state,
     tenant: { locationId: runtime.locationId },
     customerRuntime: runtime.identity.customer,
-    getText: (path, fallback, lang) => resolveLocalizedText(state.content, path, runtime.identity.customer ? "" : fallback, lang),
+    getText: (path, fallback, lang) => resolveLocalizedText(state.content, path, runtime.identity.customer && !customerSystemText(path) ? "" : fallback, lang),
     getArray: (path, fallback) => resolveArray(state.content, path, runtime.identity.customer ? resolveArray(state.content, path.replace(/\.(de|en|tr|ru|ar|it|zh|hi|es|fr|nl|pl)$/, ""), []) : fallback),
     getObject: (path, fallback) => resolveObject(state.content, path, runtime.identity.customer ? {} as typeof fallback : fallback),
     interpolate: (template, vars = {}) => interpolateTemplate(template, vars),

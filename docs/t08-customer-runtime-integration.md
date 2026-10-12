@@ -27,9 +27,12 @@ No environment or hosting settings were written by this task.
 The existing `kunden_config` read includes `location_id` with the three existing
 config buckets. Customer responses must contain exactly one matching row.
 Customer consumption uses only supplied buckets: no repository content, design,
-assets, testimonials, statistics, or dictionary fallbacks are merged in. Localized
-arrays may use an actual supplied unlocalized array. Missing individual copy is
-omitted, never replaced with repository customer facts.
+assets, testimonials, or statistics are merged in. Central translation dictionaries
+and explicitly scoped UI/product text fallbacks remain available; customer identity,
+contact/legal values, asset references and factual claims require actual config. Localized
+arrays may use an actual supplied unlocalized array. Missing customer-specific copy is
+omitted, never replaced with repository customer facts. Central system copy is
+not treated as missing customer data.
 
 Required configuration prerequisites:
 
@@ -81,3 +84,32 @@ project compilation. Successful Vitest/build checks used temporary configs under
 transform and preserving project aliases, test environment/setup and other Vite
 options. Repository configs and dependency manifests were not changed for this
 workaround. These results do not assert that the native SWC commands passed.
+
+
+## PR #176 system-text correction
+
+The correction restores the existing I18n dictionary chain and scopes `getText`
+fallbacks to central navigation/cookie/SEO and product-copy fields. It does not
+restore repository customer bucket merging, branding, contact/legal variables,
+asset references, user-count badges, statistics or review fallbacks. Unknown
+section fields also stay empty rather than inheriting unclassified facts.
+German home/annual navigation, cookie controls, legal routes and dormant funnel
+boundaries are tested for both Locations, including explicit config translations
+and missing customer fields.
+
+The expected pre-correction head was `f387f85c803872d930a1fe4653cb956bee9579d6`.
+Its sole GitHub check run, `114873974063` (Cloudflare Workers Builds), reports:
+`Preview creation failed: This Worker does not exist on your account.`
+The script is `oecher-strom-energieassistent`, build ID
+`d83f3f04-71fd-4b16-8f60-b97fb5c3d8cc`; start and completion have the same
+timestamp and there are zero code annotations. No Actions runs or classic commit
+statuses are reported. Thus the available check attributes failure only to the
+missing Worker preview target; Cloudflare-internal build logs are unavailable,
+so absence of additional internal errors is not independently proven. No CI or
+Cloudflare configuration is changed and no deployment is performed.
+
+Correction validation: 9 focused Vitest files / 166 tests pass; changed-file lint
+has 0 errors and 8 existing warnings; full app TypeScript diagnostics remain
+byte-identical to the base (13 existing errors). Vite build passes with the
+existing chunk warning using the same temporary esbuild workaround documented
+above. No repository build/test config or dependency manifest is changed.
