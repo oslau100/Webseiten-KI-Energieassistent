@@ -623,7 +623,7 @@ const I18nContext = createContext<I18nContextValue | null>(null);
 
 export const I18nProvider = ({ children }: { children: ReactNode }) => {
   const location = useLocation();
-  const { content } = useWebsiteConfig();
+  const { content, customerRuntime } = useWebsiteConfig();
   const [lang, setLangState] = useState<LangCode>("de");
 
   useEffect(() => {
@@ -659,6 +659,7 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
       t: (key) =>
         i18nOverrides[key]?.[lang] ??
         i18nOverrides[key]?.de ??
+        (customerRuntime ? "" : undefined) ??
         statusPageDictionaries[lang][key] ??
         statusPageDictionaries.de[key] ??
         annualFaqDictionaries[lang][key] ??
@@ -672,7 +673,7 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
         key,
       withLang: (path) => `${path}${path.includes("?") ? "&" : "?"}lang=${lang}`,
     };
-  }, [content, lang]);
+  }, [content, lang, customerRuntime]);
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 };

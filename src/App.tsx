@@ -1,3 +1,4 @@
+import { CustomerRuntimeBoundary } from "./components/CustomerRuntimeBoundary";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -33,6 +34,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <WebsiteConfigProvider>
+          <CustomerRuntimeBoundary>
           <I18nProvider>
           <WebsiteMetadata />
           <ScrollToTop />
@@ -60,6 +62,7 @@ const App = () => (
           </Routes>
           <CookieBar />
         </I18nProvider>
+        </CustomerRuntimeBoundary>
         </WebsiteConfigProvider>
       </BrowserRouter>
     </TooltipProvider>
