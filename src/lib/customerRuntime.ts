@@ -27,12 +27,25 @@ export function resolveCustomerIdentity(locationId: string, hostname: string, pr
 const record = (value: unknown): Record<string, unknown> =>
   value && typeof value === "object" && !Array.isArray(value) ? value as Record<string, unknown> : {};
 const populated = (value: unknown) => typeof value === "string" && Boolean(value.trim());
+// Explicit code-owned trust; never derive this from customer JSON or bootstrap URLs.
+export const customerPublicAssetOrigin = "https://oynhnhkldvpoqhsfirwf.supabase.co";
+const customerPublicAssetFiles: Record<string, readonly string[]> = {
+  NPhuVMAaBPQz6OhIPpkj: ["logo.png", "hero-angled.jpeg", "section-straight.jpeg", "about.webp"],
+  uGJsQ3CWvFTraTfrRgjC: ["logo.jpg", "hero-angled.jpeg", "section-straight.jpeg", "about.png"],
+};
+
+/** Exact canonical references only; does not establish object existence or release approval. */
+export function isTrustedCustomerPublicAsset(value: unknown, locationId?: string): boolean {
+  if (typeof value !== "string" || !locationId || !Object.prototype.hasOwnProperty.call(customerPublicAssetFiles, locationId)) return false;
+  const prefix = `${customerPublicAssetOrigin}/storage/v1/object/public/website-assets/locations/${locationId}/t08/v1/`;
+  // Full equality rejects credentials, ports, query/hash, encoding and URL-parser normalization.
+  return customerPublicAssetFiles[locationId].some(filename => value === prefix + filename);
+}
+
 const asset = (value: unknown) => {
   if (!populated(value)) return false;
   if (typeof value !== "string") return false;
-  // No canonical external Storage origin/bucket/delivery contract is approved.
-  // HTTPS and a matching Location path do not establish trusted asset delivery.
-  // Keep external and symbolic Storage references closed until that separate review.
+  // Preserve existing same-origin references; external URLs use the exact allowlist below.
   if (!/^\/(?!\/)/.test(value) || /[\\\s]/.test(value) || /%(?:2f|5c|25)/i.test(value)) return false;
   try {
     const url = new URL(value, "https://asset-validation.invalid");
@@ -43,6 +56,7 @@ const asset = (value: unknown) => {
 
 // Reference validation only: neither URL ownership nor object delivery is proven here.
 const isolatedAsset = (value: unknown, locationId?: string): boolean => {
+  if (isTrustedCustomerPublicAsset(value, locationId)) return true;
   if (!asset(value)) return false;
   if (!locationId) return true;
   try {

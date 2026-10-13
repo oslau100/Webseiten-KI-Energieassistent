@@ -4,7 +4,7 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import App from "@/App";
 import { LANGUAGES } from "@/lib/i18n";
-import { customerConfigReadiness, customerRuntimeBindings } from "@/lib/customerRuntime";
+import { customerConfigReadiness, customerRuntimeBindings, customerPublicAssetOrigin } from "@/lib/customerRuntime";
 import type { WebsiteConfig } from "@/lib/websiteConfig";
 import { getByPath } from "@/lib/websiteContentResolver";
 
@@ -27,7 +27,7 @@ function readyFixture(index: number) {
   setPath(config, "content.legal.ready", true);
   setPath(config, "content.legal.variables.email", "legal-fixture@example.test");
   for (const entry of manifest.customers[index].assets) {
-    for (const field of entry.configFields) setPath(config, field, `/${entry.plannedObjectPath}`);
+    for (const field of entry.configFields) setPath(config, field, `${customerPublicAssetOrigin}/storage/v1/object/public/website-assets/${entry.plannedObjectPath}`);
   }
   return config;
 }
@@ -107,8 +107,8 @@ describe.each([0, 1])("operator draft %i", index => {
     for (const asset of plan.assets) expect(imageSources.some(src => src?.endsWith(asset.plannedObjectPath))).toBe(true);
     expect(imageSources.every(src => src?.includes(`/locations/${plan.locationId}/`) || LANGUAGES.some(language => language.flagUrl === src))).toBe(true);
     expect(container.textContent).not.toContain(other.brand);
-    expect(screen.getByAltText(getByPath(config, "content.sections.hero.image_alt") as string)).toHaveAttribute("src", `/locations/${plan.locationId}/t08/v1/hero-angled.jpeg`);
-    expect(screen.getByAltText(getByPath(config, "content.sections.solution.image_alt") as string)).toHaveAttribute("src", `/locations/${plan.locationId}/t08/v1/section-straight.jpeg`);
+    expect(screen.getByAltText(getByPath(config, "content.sections.hero.image_alt") as string)).toHaveAttribute("src", `${customerPublicAssetOrigin}/storage/v1/object/public/website-assets/locations/${plan.locationId}/t08/v1/hero-angled.jpeg`);
+    expect(screen.getByAltText(getByPath(config, "content.sections.solution.image_alt") as string)).toHaveAttribute("src", `${customerPublicAssetOrigin}/storage/v1/object/public/website-assets/locations/${plan.locationId}/t08/v1/section-straight.jpeg`);
     expect(container.textContent).not.toMatch(/1\.500|1500|600000|Manfred|Marvin|Ehiogie/);
     expect(container.textContent).toContain("Marketingbeispiel mit 177 Tarifen und 477 EUR");
     expect(fetcher).toHaveBeenCalledOnce();

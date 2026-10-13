@@ -4,7 +4,11 @@ Local preparation only on `codex/t08-oecher-tarivia-runtime-integration`.
 Starting local commit: `dc423bf3352dbda896ce82c01ec245f6b7e099fc`.
 Expected remote head: `8888b523707241e644261456531270af0533160d`.
 Both drafts remain **NOT_READY**, `content.legal.ready = false`.
-No upload, config write, preview, deployment, push or merge is authorized.
+These are historical preparation inputs. The follow-up at start SHA
+`71e6e15c5d29e0a7c03727d3d2f88e8e50e95a20` prepares the exact public-asset
+consumer and [operator config plan](operator-config-plan.md). Its commit/push is
+restricted to PR #176; uploads, Production writes, deploy commands and merge remain
+excluded. Existing Git integrations may create automatic previews after a push.
 
 | Draft | Location | Host | Colors |
 | --- | --- | --- | --- |
@@ -84,23 +88,21 @@ Do not reuse a private-record/document bucket or another customer's files.
 
 ## Runtime trust boundary
 
-The previous validator accepted arbitrary HTTPS URLs with no trusted-origin or
-object-delivery evidence. It now rejects **all absolute/external references** in
-required assets and supplied optional solution, About, agency and SEO images.
-This includes plausible Supabase public-object URLs and matching Location paths:
-there is no accepted external Storage origin/bucket/delivery contract to trust yet.
-No browser permission, RLS policy, upload authority, network probe, public UUID
-behavior, API endpoint or release flag is added.
+The validator now permits only the eight manifest-listed external public-object
+references on the code-owned exact origin `https://oynhnhkldvpoqhsfirwf.supabase.co`,
+bucket `website-assets`, the explicitly supplied matching Location, and exact
+`t08/v1/<filename>` path. Whole-string equality rejects URL normalization,
+credentials, ports, encoded paths, traversal, query/hash and foreign projects,
+buckets or Locations. Customer JSON and bootstrap API URLs cannot expand trust.
+Unknown Locations and missing Location IDs cannot authorize external references.
 
-Existing safe same-origin root-path references can still satisfy configuration
-reference prerequisites, with foreign Location namespaces, protocol-relative and
-backslash paths, unsafe/double encoding, malformed escapes, query strings and
-fragments rejected. A same-origin path does not prove that an object exists or is
-approved Storage delivery. `READY` continues to mean config/legal/reference
-prerequisites; independent delivery and release review remain required. A future
-external Storage consumer requires separate trusted integration review rather than
-relaxing this gate based on public JSON or a self-asserted `deliveryVerified` value.
-Customer row identity and no-fallback behavior remain independently tested.
+Existing same-origin root-path validation is preserved. Required assets and supplied
+optional solution, About, agency and SEO images (including every localized value)
+all pass through the same validation boundary. No network probe, Storage permission,
+upload authority, API endpoint or release flag is added. `READY` still means only
+config/legal/reference prerequisites: it proves neither ownership nor object delivery.
+The symbolic draft references remain rejected and `legal.ready` remains false.
+See the operator plan for the separate delivery, legal and release gates.
 
 ## Legal drafts and remaining review
 
