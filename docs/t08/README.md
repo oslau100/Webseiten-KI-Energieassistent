@@ -113,17 +113,13 @@ Germany is carried as the source's address-derived country, pending final review
 The supplied USt-ID is not silently corrected; its format/validity needs confirmation.
 No blank placeholders remain for known identity/contact data.
 
-The Impressum is adapted from the original with current DDG heading proposed for
-legal review. The privacy draft preserves all 14 source sections and distinguishes
-source business-process descriptions from verified new-website processing. Tarivia
-uses its own brand and does not inherit Aachen-only tariff/service assertions.
-Legacy platform claims are replaced by explicit review tasks; no unverified
-Cloudflare/Supabase/AI processing, region, DPA, subprocessor, retention or encryption
-claim is asserted. Original source documents remain unchanged as evidence.
-
-Both HTML overrides are marked ENTWURF and `legal.ready` stays false. The customer
-boundary withholds them. [legal-review-checklist.md](legal-review-checklist.md)
-records remaining approval work. No inherited legal fallback can serve as approval.
+The four brand-specific standard legal texts now contain no visible review markers
+or placeholders. Hosting, browser preferences and planned external advertising
+reflect the current evidence. Both keep `legal.ready=false`; final legal and
+processing review remains separate. See [legal-review-checklist.md](legal-review-checklist.md)
+for verified facts, consent behavior and remaining blockers. Historical source
+texts remain unchanged. Legal pages require explicit approved, safe HTML and do
+not publish generic legal fallback bodies.
 
 ## Favicon and existing rendering limits
 

@@ -4,64 +4,28 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useWebsiteConfig } from "@/lib/websiteConfig";
 
-const CONSENT_KEY = "cookie-consent";
-const CONSENT_MAX_AGE_SECONDS = 60 * 60 * 24 * 180;
+import { openConsentSettingsEvent, readConsent, setConsentStorage } from "@/lib/cookieConsent";
+
 const FALLBACK_PRIMARY_COLOR = "#2563eb";
-
-const getCookieValue = (name: string) => {
-  const prefix = `${name}=`;
-  const cookies = document.cookie ? document.cookie.split(";") : [];
-  for (const rawCookie of cookies) {
-    const cookie = rawCookie.trim();
-    if (cookie.startsWith(prefix)) {
-      return decodeURIComponent(cookie.slice(prefix.length));
-    }
-  }
-  return null;
-};
-
-const setConsentStorage = (value: "all" | "essential") => {
-  localStorage.setItem(CONSENT_KEY, value);
-
-  const cookieParts = [
-    `${CONSENT_KEY}=${encodeURIComponent(value)}`,
-    "Path=/",
-    `Max-Age=${CONSENT_MAX_AGE_SECONDS}`,
-    "SameSite=Lax",
-  ];
-
-  // Keep consent scoped to this Location host.
-
-  if (window.location.protocol === "https:") {
-    cookieParts.push("Secure");
-  }
-
-  document.cookie = cookieParts.join("; ");
-};
 
 export const CookieBar = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [marketingAccepted, setMarketingAccepted] = useState(true);
+  const [marketingAccepted, setMarketingAccepted] = useState(false);
   const { getText, design } = useWebsiteConfig();
   const primaryColor =
     (design?.colors as Record<string, unknown> | undefined)?.primary?.toString().trim() ||
     FALLBACK_PRIMARY_COLOR;
 
   useEffect(() => {
-    const localConsent = localStorage.getItem(CONSENT_KEY);
-    const cookieConsent = getCookieValue(CONSENT_KEY);
-    const consent = localConsent || cookieConsent;
-
-    if (!consent) {
-      setIsVisible(true);
-      return;
-    }
-
-    if (!localConsent && cookieConsent) {
-      localStorage.setItem(CONSENT_KEY, cookieConsent);
-    }
-
+    const consent = readConsent();
+    setIsVisible(consent === null);
     setMarketingAccepted(consent === "all");
+    const reopen = () => {
+      setMarketingAccepted(readConsent() === "all");
+      setIsVisible(true);
+    };
+    window.addEventListener(openConsentSettingsEvent, reopen);
+    return () => window.removeEventListener(openConsentSettingsEvent, reopen);
   }, []);
 
   const handleAcceptAll = () => {
@@ -92,6 +56,8 @@ export const CookieBar = () => {
               <strong>{getText("cookie.essential_label", "Essenzielle Cookies")}</strong> {getText("cookie.essential_copy", "sind für die Funktion der Website notwendig und können nicht deaktiviert werden.")}{" "}
               <strong>{getText("cookie.marketing_label", "Marketing Cookies")}</strong> {getText("cookie.marketing_copy", "helfen uns, Inhalte und Angebote für Sie zu verbessern.")}
             </p>
+
+            <p>{getText("cookie.optional_services", "Optionale Dienste: Google Translate kann zur automatischen Übersetzung Texte und Verbindungsdaten an Google übermitteln; konfigurierte Jotform-Bewertungen übermitteln Verbindungsdaten an Jotform. Dabei kann eine Verarbeitung außerhalb der EU stattfinden. Diese Dienste werden erst nach Ihrer Zustimmung geladen.")}</p>
 
             <p className="text-xs text-slate-500">
               {getText("cookie.more_info", "Weitere Informationen finden Sie in der")}{" "}

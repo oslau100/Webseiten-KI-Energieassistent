@@ -69,3 +69,43 @@ No network probe of a supplied image is treated as delivery verification.
 
 No push, Cloudflare preview/deployment, Supabase mutation, merge, UI-wave change,
 funnel-security change or customer-base-branch modification is performed.
+
+## Standard-Rechtstexte und Consent — 14. Oktober 2026
+
+Ausgangspunkt: PR #176, Branch `codex/t08-oecher-tarivia-runtime-integration`,
+SHA `12045f5c1f72be35449a7214ca22eabd13cb1a4f`. Kein neuer PR und kein Merge.
+
+- 13 relevante Vitest-Dateien / **307 Tests bestanden**: Rechtstext-Readiness und
+  HTML-Sicherheit (auch bei Fixture-Freigabe beider Kunden), vollständige
+  markenspezifische Texte, Browserpräferenzen, optionale Ressourcen vor/nach
+  Zustimmung und Widerruf, Kundenisolation sowie Runtime-/Loader-/Preview-Sperren.
+  Aufruf: `npm test -- --config work/vitest.esbuild.ts` mit den Dateien
+  `legalReadiness`, `customerConfigDrafts`, `customerSystemTexts`,
+  `privacyIntegrations`, `i18nStorage`, `JotformReviewWidget`, `reviewsIntegration`,
+  `customerRuntime`, `websiteRuntime`, `previewLock`, `customerLoaderBoundary`,
+  `CustomerRuntimeBoundary`, `Footer`.
+- `npm run build` mit regulärer Konfiguration ausgeführt: SWC-Start scheitert
+  umgebungsbedingt mit `ERR_SWC_NATIVE_CACHE` / `Failed to load native binding`.
+  Ein eigener Cachepfad behebt die Vertrauensprüfung der Vorfahren nicht.
+  `npm run build -- --config work/vite.esbuild.ts` **bestanden**, nur vorhandene
+  Chunk-Größenwarnung. Wie zuvor werden automatische JSX/esbuild-Konfigurationen
+  ausschließlich im ignorierten `work/` genutzt. Keine Vite-/Vitest-/Dependency-
+  Konfiguration für diesen Umgebungsfehler geändert. Native SWC-Prüfung bleibt offen.
+- `npm run lint` ausgeführt: **106 Fehler / 11 Warnungen**, identische Diagnostik
+  gegenüber einem unveränderten Worktree des Start-SHA. Geänderte Dateien einzeln:
+  **0 Fehler / 2 vorhandene Fast-Refresh-Warnungen**.
+- Zusätzlich TypeScript geprüft: **13 vorhandene Fehler**, Ausgabe byte-identisch
+  zum unveränderten Startstand; keine neuen TypeScript-Diagnosen.
+- `git diff --check` **bestanden**.
+- Supabase-Projektmetadaten ausschließlich read-only abgerufen: `eu-central-1`.
+  Keine Datenbank-/Storage-/Production-Writes, Migrationen oder Versandtests.
+- Keine Änderungen an `crm/app/**`, keine zusätzlichen Tracking-Skripte und keine
+  Änderungen der Hostingkonfiguration oder manuellen Deployments. Der beauftragte
+  Push kann über die bestehende Git-Integration automatische Branch-Previews
+  auslösen. Beide gespeicherten Configs behalten `legal.ready=false`.
+
+Verbleibende rechtliche/technische Nachweise stehen im aktualisierten
+[legal-review-checklist.md](legal-review-checklist.md); insbesondere finale
+Text-/Datenflussfreigabe, USt-ID-Prüfung, Dienstleisterverträge/Transfers,
+Speicherregeln sowie Location-spezifische Mailgun-Konfiguration. Diese werden
+nicht durch sichtbare Platzhalter in den Veröffentlichungstexten ersetzt.

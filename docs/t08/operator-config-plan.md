@@ -38,7 +38,7 @@ value, including localized copy; do not reconstruct the full buckets from this s
 | `content.seo.site_url` | `https://app.oecher-strom.de` | `https://www.tarivia.de` |
 | `content.legal.ready` | `false` | `false` |
 | `content.legal.variables` | full BeConnected object below | same |
-| `content.pages.impressum.html`, `datenschutz.html` | own ENTWURF HTML, withheld pending review | own ENTWURF HTML, withheld pending review |
+| `content.pages.impressum.html`, `datenschutz.html` | own standard legal HTML, withheld pending separate review | own standard legal HTML, withheld pending separate review |
 | `content.i18n`, `integrations`, `sections` | exact objects in own content draft; empty values remain empty | exact objects in own content draft; empty values remain empty |
 | `layout.pages.home.sections`, `annual.sections` | exact arrays in own layout draft | same |
 
@@ -54,7 +54,7 @@ Planned `content.legal.variables` (source data, not final legal approval):
   "land": "Deutschland",
   "email": "info@beconnected-aachen.de",
   "telefon": "0241 47595243",
-  "stand": "Review-Entwurf, 13. Oktober 2026",
+  "stand": "14. Oktober 2026",
   "rechtsform": "Einzelunternehmen",
   "ust_id": "253125657"
 }

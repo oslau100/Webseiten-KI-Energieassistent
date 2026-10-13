@@ -1,6 +1,7 @@
+import { setConsentStorage } from "@/lib/cookieConsent";
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, afterEach, describe, expect, it, vi } from "vitest";
 import { I18nProvider } from "@/lib/i18n";
 
 let config: Record<string, unknown> = {};
@@ -20,6 +21,9 @@ import { Testimonials } from "./Testimonials";
 import Jahresrechnung from "@/pages/Jahresrechnung";
 
 const renderWithI18n = (component: React.ReactNode) => render(<MemoryRouter><I18nProvider>{component}</I18nProvider></MemoryRouter>);
+
+beforeEach(() => setConsentStorage("all"));
+afterEach(() => { document.cookie = "cookie-consent=; Path=/; Max-Age=0"; localStorage.clear(); });
 
 describe("Ehiogie config-driven review fallbacks", () => {
   it("keeps Ehiogie review carousels, headings, kickers, and CTAs without an ID", () => {

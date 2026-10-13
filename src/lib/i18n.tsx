@@ -1,21 +1,22 @@
+import { languageFlag } from "./languageFlags";
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { useLocation } from "react-router-dom";
 import { useWebsiteConfig } from "./websiteConfig";
 import { tariffCallbackTranslations } from "./tariffCallbackI18n";
 
 export const LANGUAGES = [
-  { code: "de", label: "Deutsch", flagUrl: "https://flagcdn.com/w40/de.png" },
-  { code: "en", label: "English", flagUrl: "https://flagcdn.com/w40/gb.png" },
-  { code: "tr", label: "Türkçe", flagUrl: "https://flagcdn.com/w40/tr.png" },
-  { code: "ru", label: "Русский", flagUrl: "https://flagcdn.com/w40/ru.png" },
-  { code: "ar", label: "العربية", flagUrl: "https://flagcdn.com/w40/sa.png" },
-  { code: "it", label: "Italiano", flagUrl: "https://flagcdn.com/w40/it.png" },
-  { code: "zh", label: "中文", flagUrl: "https://flagcdn.com/w40/cn.png" },
-  { code: "hi", label: "हिन्दी", flagUrl: "https://flagcdn.com/w40/in.png" },
-  { code: "es", label: "Español", flagUrl: "https://flagcdn.com/w40/es.png" },
-  { code: "fr", label: "Français", flagUrl: "https://flagcdn.com/w40/fr.png" },
-  { code: "nl", label: "Nederlands", flagUrl: "https://flagcdn.com/w40/nl.png" },
-  { code: "pl", label: "Polski", flagUrl: "https://flagcdn.com/w40/pl.png" },
+  { code: "de", label: "Deutsch", flagUrl: languageFlag("de") },
+  { code: "en", label: "English", flagUrl: languageFlag("gb") },
+  { code: "tr", label: "Türkçe", flagUrl: languageFlag("tr") },
+  { code: "ru", label: "Русский", flagUrl: languageFlag("ru") },
+  { code: "ar", label: "العربية", flagUrl: languageFlag("sa") },
+  { code: "it", label: "Italiano", flagUrl: languageFlag("it") },
+  { code: "zh", label: "中文", flagUrl: languageFlag("cn") },
+  { code: "hi", label: "हिन्दी", flagUrl: languageFlag("in") },
+  { code: "es", label: "Español", flagUrl: languageFlag("es") },
+  { code: "fr", label: "Français", flagUrl: languageFlag("fr") },
+  { code: "nl", label: "Nederlands", flagUrl: languageFlag("nl") },
+  { code: "pl", label: "Polski", flagUrl: languageFlag("pl") },
 ] as const;
 
 type LangCode = (typeof LANGUAGES)[number]["code"];
@@ -629,16 +630,18 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const queryLang = params.get("lang") as LangCode | null;
-    const storedLang =
-      (localStorage.getItem("site_lang") as LangCode | null);
+    let storedLang: LangCode | null = null;
+    try { storedLang = localStorage.getItem("site_lang") as LangCode | null; } catch { /* Storage is optional. */ }
     const valid = new Set(LANGUAGES.map((l) => l.code));
     const nextLang = (queryLang && valid.has(queryLang) ? queryLang : storedLang && valid.has(storedLang) ? storedLang : "de") as LangCode;
     setLangState(nextLang);
-    localStorage.setItem("site_lang", nextLang);
+    if ((queryLang && valid.has(queryLang)) || (storedLang && valid.has(storedLang))) {
+      try { localStorage.setItem("site_lang", nextLang); } catch { /* Keep the selected language in memory. */ }
+    }
   }, [location.search]);
 
   const setLang = (code: LangCode) => {
-    localStorage.setItem("site_lang", code);
+    try { localStorage.setItem("site_lang", code); } catch { /* URL still carries the selected language. */ }
 
     const nextUrl = new URL(window.location.href);
     nextUrl.searchParams.set("lang", code);

@@ -1,53 +1,80 @@
-# BeConnected legal review — supplied-source remediation
+# BeConnected — Standardtexte und verbleibende Freigabeprüfung
 
-Status: **NOT_READY**. Both customer drafts keep `legal.ready = false`.
-Sources: `source-evidence/BEConnected_LEGAL_INPUT.md` and
-`source-evidence/BEConnected_ORIGINAL_RECHTSTEXTE_REVIEWBASIS.md`.
-These are operator-approved inputs for reuse, not final publication approval.
+Stand: 14. Oktober 2026. `legal.ready = false` bleibt für beide Locations bestehen.
+Die vier markenspezifischen HTML-Texte enthalten keine sichtbaren Reviewmarker oder
+Platzhalter. Das ist keine rechtliche Freigabe und aktiviert keine Kundenfunktionen.
+Die Originale unter `source-evidence/` bleiben unverändert.
 
-- [x] Populate both brands with the supplied identity: BeConnected,
-  Einzelunternehmen, Andy Khelifa, Heidchenweg 13, 52080 Aachen,
-  0241 47595243, info@beconnected-aachen.de, USt-ID 253125657.
-- [x] Keep each brand label, exact Location and its own legal overrides separate.
-- [x] Adapt the original Impressum and retain all 14 privacy-source sections.
-- [x] Replace legacy hosting/platform assertions in consumer drafts with open review
-  items, keeping the historical original text unchanged as source evidence.
-- [x] Avoid unconfirmed infrastructure, processor, region, retention, cookie,
-  anonymization, AI, encryption and deployed-feature claims.
-- [ ] Confirm current operator data, address-derived country Deutschland, authority
-  for both brands, and supplied USt-ID format/validity. Do not invent a replacement.
-- [ ] Review § 5 DDG wording replacing the old § 5 TMG heading; confirm applicable
-  register, supervisory/professional details, MStV responsibility and current VSBG
-  statements. Do not restore the obsolete EU dispute-platform link.
-- [ ] Confirm controller identity/privacy contact and whether a DPO is required.
-  Verify the source's NRW supervisory authority and complaint channel.
-- [ ] Review brand-specific scope: original Öcher Strom copy describes Stromtarife
-  im Raum Aachen; do not transfer that regional/tariff scope to Tarivia unchecked.
-- [ ] Confirm whether historical shop, outside-sales, telephone, paper/tablet and
-  digital order processes belong in these particular website declarations.
-- [ ] For each enabled function, document actual categories, purpose, legal basis,
-  recipients, regions, retention and deletion. Dormant customer funnels remain
-  guarded; this task does not activate tariff/rechnung/upload/order/CRM/AI services.
-- [ ] Check contact and callback/calendar processes independently; do not name
-  unconfirmed WhatsApp, communication or appointment services as active processors.
-- [ ] Verify actual hosting, configuration reads, asset delivery and access logging.
-  No claimed EU hosting/DPA from the old source applies automatically to new sites.
-- [ ] Inventory cookies/local storage (`site_lang`, consent preferences), language
-  flags, translation scripts, optional review widgets and tracking against actual
-  behavior. Review § 25 TDDDG, DSGVO bases, consent and withdrawal.
-- [ ] Confirm all processors/subprocessors, contracts, regions and transfers;
-  assess AI access and Art. 22 duties where applicable from real data flows.
-- [ ] Confirm implemented security measures and retention/lifecycle behavior;
-  do not imply automatic deletion after order forwarding without evidence.
-- [ ] Review rights, Art. 21 objection, consent withdrawal and working contact channels.
-- [ ] Confirm all 177 tariff / 477 EUR labels remain approved static marketing,
-  separately from personal calculated results. Originals must remain byte-identical.
-- [ ] Resolve every bracketed processing review item in both HTML documents and
-  record final reviewer, date, final-text hashes and approval for each Location.
-- [ ] Obtain separately approved favicon originals and consumer/delivery review.
-- [ ] Resolve the NOT_APPROVED canonical bucket decision with T01/T08/T11;
-  source-file verification is not Storage delivery verification or release approval.
+## Nachweise und umgesetztes Verhalten
 
-No publication, Storage write, database update, merge, push or deployment is part
-of this preparation. Final legal text approval and subsequent release authorization
-are separate; no approval flag is flipped here.
+- Betreiberquelle und erneute Bestätigung im Auftrag: BeConnected, Einzelunternehmen,
+  Andy Khelifa, Heidchenweg 13, 52080 Aachen, Deutschland, 0241 47595243,
+  info@beconnected-aachen.de, USt-ID unverändert 253125657; Betreiber beider Marken.
+- Cloudflare-Hosting: bestehende Git-/Pages-Konfiguration und dokumentierte Checks
+  von PR #176. Keine Behauptung einer ausschließlich europäischen Verarbeitung.
+- Supabase: öffentliche Konfigurationsabrufe in `websiteConfig.tsx` und freigegebener
+  Asset-Origin in `customerRuntime.ts`. Read-only `get_project` für
+  `oynhnhkldvpoqhsfirwf` bestätigt `region: eu-central-1` (Frankfurt).
+  Projektregion bedeutet keine pauschale EU-Garantie für alle Anbieterleistungen.
+- Mailgun-EU-Versand: Betreiberangabe im aktuellen Auftrag; Code-Unterstützung
+  ebenfalls vom Betreiber angegeben. Eine CRM-Mailgun-Konfiguration für die beiden
+  Locations ist nicht nachgewiesen. Kein Versandtest und keine CRM-Änderung.
+  Die Texte unterscheiden Betreiber-E-Mail-Versand von gesperrten automatisierten
+  Website-/CRM-Funktionen und behaupten keine nachgewiesene Location-Konfiguration.
+- Facebook-/Instagram-(Meta)- und TikTok-Werbung: geplant laut Betreiber. Keine
+  Pixel, Conversion-API oder zusätzlichen Tracking-Skripte implementiert.
+- Beide Kundenruntimes laden weder Google Translate noch Jotform, unabhängig von
+  Sprache, gültiger Widget-ID oder Zustimmung. Globale Translate-Einbindung und
+  Jotform-DNS-Prefetch/Preconnect sind aus `index.html` entfernt.
+- Andere Standorte können den bestehenden Übersetzer und konfigurierte Jotform-
+  Bewertungen nach ausdrücklicher Zustimmung nutzen. Sprachwörterbücher bleiben
+  verfügbar. Sprachsymbole sind eingebettete SVGs statt Flagcdn-Netzwerkabrufen.
+- Rechtsseiten verlangen `legal.ready === true`, Firma, E-Mail und explizites
+  sicheres Dokument-HTML. Kein generischer Rechtstext-Fallback. Inerte Template-
+  Analyse und React-Rendering erlauben nur semantische Tags und geprüfte Links;
+  Scripts, Eventhandler, Styles, Frames, Bilder, SVG und unsichere URLs sperren das
+  ganze Dokument. Bestehende Kunden-, Loader- und Preview-Sperren bleiben bestehen.
+
+## Browserpräferenzen und Widerruf
+
+| Schlüssel | Speicher und Inhalt | Laufzeit / Bedeutung |
+| --- | --- | --- |
+| `site_lang` | Local Storage, gültiger Sprachcode bei ausdrücklicher Sprachwahl/Sprach-URL | Keine automatische Ablaufzeit; kein Cookie. Ohne ausgewählte Sprache wird der Standard nicht gespeichert. Browserdaten löschen entfernt die Präferenz. |
+| `cookie-consent` | Local Storage und Host-Cookie; `v2:all:<Ablaufzeit>` oder `v2:essential:<Ablaufzeit>` in Millisekunden | Cookie: 180 Tage, Path=/, SameSite=Lax, Secure bei HTTPS, kein Domain-Attribut. Local Storage läuft nicht automatisch ab und wird nicht als Autorität für optionale Dienste verwendet. |
+
+Nur ein gültiges, nicht abgelaufenes v2-Host-Cookie mit `all` erlaubt optionale
+Dienste bei anderen Standorten. Alte Werte, reine Local-Storage-Einträge, ungültige
+oder abgelaufene Einträge aktivieren nichts. Marketing ist nicht vorausgewählt.
+Der Footer öffnet die vorhandene CookieBar erneut. Deaktivieren und Speichern
+widerruft die Auswahl. Übersetzungsanfragen werden abgebrochen und Widgets entfernt;
+bei anderen Standorten beendet zusätzlich ein Reload nach Widerruf den bereits
+laufenden Vendor-Code. Bei beiden Kundenstandorten sind diese Dienste immer aus.
+Der lokale Präferenzeintrag kann bestehen bleiben, gilt aber nach Ablauf nicht als
+Zustimmung. Browserdaten löschen entfernt ihn.
+
+## Echte offene Prüfungen vor Veröffentlichung
+
+- [ ] Format/Gültigkeit der gelieferten USt-ID 253125657 bestätigen (kein Präfix
+  erfinden). Prüfen, ob zusätzliche Register-/Aufsichts-/Berufsangaben, MStV-
+  Verantwortlichkeit oder VSBG-Angaben erforderlich sind. Kein alter ODR-Link.
+- [ ] Endgültige Rechtstexte separat für beide Marken prüfen und freigeben;
+  Reviewer, Datum, Texthashes und tatsächliche Datenflüsse dokumentieren.
+- [ ] Cloudflare-/Supabase-/Mailgun-Verträge, Unterauftragnehmer, tatsächliche
+  Drittlandtransfers und erforderliche Garantien prüfen. Kein AVV-Abschluss oder
+  vorhandene Transfergarantie wurde durch diese Arbeit verifiziert.
+- [ ] Tatsächliche Zugriffsprotokolle, Speicher-/Löschregeln und Sicherheitsmaßnahmen
+  der Anbieter und des Betreibers bestätigen; keine konkreten Fristen erfunden.
+- [ ] Mailgun-EU-Konfiguration, Versanddaten, mögliche Öffnungs-/Klickauswertung und
+  jede Location-Anbindung vor Freischaltung separat nachweisen. Code-Unterstützung
+  und Betreiberangabe beweisen keine aktivierte CRM-Konfiguration.
+- [ ] Bei späterer Freischaltung von Rückruf, Upload, Tarif-/Rechnungsprüfung,
+  Auftragsvermittlung oder KI: Kategorien, Empfänger, Rechtsgrundlagen, Speicherung,
+  Sicherheits- und Einwilligungsanforderungen erneut gegen die reale Implementierung
+  prüfen. Diese Funktionen werden durch diesen Patch nicht freigeschaltet.
+- [ ] Bestehende Asset-/Favicon-/Bucket- und Release-Voraussetzungen aus dem
+  Operator-Konfigurationsplan bleiben unabhängig von der Rechtstextarbeit offen.
+
+Keine Änderungen an `crm/app/**`, keine Supabase-/Production-Writes, Migrationen,
+manuellen Deployments, neuen PRs oder Merges. Commit/Push auf den bestehenden
+PR-Branch sind ausdrücklich beauftragt. Die bestehende Cloudflare-Git-Integration
+kann dadurch automatisch Branch-Previews anlegen; Hostingkonfiguration unverändert.

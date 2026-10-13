@@ -22,8 +22,8 @@ function mount(locationId: string, path: string, row = config(locationId)) {
   const result = render(<App />);
   return { ...result, fetcher };
 }
-beforeEach(() => { vi.spyOn(window, "scrollTo").mockImplementation(() => {}); });
-afterEach(() => { vi.restoreAllMocks(); vi.unstubAllEnvs(); delete window.TB_BOOTSTRAP; localStorage.clear(); history.replaceState({}, "", "/"); });
+beforeEach(() => { document.cookie = "cookie-consent=; Path=/; Max-Age=0"; vi.spyOn(window, "scrollTo").mockImplementation(() => {}); });
+afterEach(() => { vi.restoreAllMocks(); vi.unstubAllEnvs(); delete window.TB_BOOTSTRAP; localStorage.clear(); document.cookie = "cookie-consent=; Path=/; Max-Age=0"; history.replaceState({}, "", "/"); });
 
 const CopyProbe = () => {
   const { getText, getArray, loading } = useWebsiteConfig();
@@ -73,7 +73,8 @@ describe.each(customerRuntimeBindings)("central German copy for $locationId", ({
   it.each(["impressum", "datenschutz"])("keeps %s labels and customer legal values behind approval", async page => {
     mount(locationId, `/${page}`);
     expect(await screen.findByRole("heading", { name: page === "impressum" ? "Impressum" : "Datenschutzerklärung" })).toBeInTheDocument();
-    expect(screen.getAllByRole("link", { name: "fixture@example.test" }).length).toBeGreaterThan(0);
+    expect(screen.queryByRole("link", { name: "fixture@example.test" })).toBeNull();
+    expect(screen.getByText("Die rechtlichen Angaben werden für diesen Standort vorbereitet.")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Datenschutz" })).toHaveAttribute("href", "/datenschutz?lang=de");
   });
   it.each(["impressum", "datenschutz"])("cannot bypass legal approval via %s HTML", async page => {

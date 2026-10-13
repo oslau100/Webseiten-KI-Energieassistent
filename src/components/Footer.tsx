@@ -1,3 +1,4 @@
+import { openConsentSettingsEvent } from "@/lib/cookieConsent";
 import { Link } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
 import { useWebsiteConfig } from "@/lib/websiteConfig";
@@ -69,6 +70,9 @@ export const Footer = () => {
               >
                 {t("footer_imprint")}
               </Link>
+              <button type="button" className="hover:text-primary transition-colors block text-left" onClick={() => window.dispatchEvent(new Event(openConsentSettingsEvent))}>
+                {getText("cookie.title", "Privatsphäre-Einstellungen")}
+              </button>
             </div>
             {showAgencyAttribution ? (
               <div className="pt-5">

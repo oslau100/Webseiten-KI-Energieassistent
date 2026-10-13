@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import App from "@/App";
 import { LANGUAGES } from "@/lib/i18n";
 import { customerConfigReadiness, customerRuntimeBindings, customerPublicAssetOrigin } from "@/lib/customerRuntime";
@@ -42,7 +42,8 @@ function mount(index: number, config: WebsiteConfig, rowLocation = manifest.cust
     webseite_content_config: config.content, webseite_design_config: config.design, webseite_layout_config: config.layout }])));
   return { ...render(<App />), fetcher };
 }
-afterEach(() => { vi.restoreAllMocks(); vi.unstubAllEnvs(); delete window.TB_BOOTSTRAP; localStorage.clear(); history.replaceState({}, "", "/"); });
+beforeEach(() => { document.cookie = "cookie-consent=; Path=/; Max-Age=0"; });
+afterEach(() => { vi.restoreAllMocks(); vi.unstubAllEnvs(); delete window.TB_BOOTSTRAP; localStorage.clear(); document.cookie = "cookie-consent=; Path=/; Max-Age=0"; history.replaceState({}, "", "/"); });
 
 describe.each([0, 1])("operator draft %i", index => {
   const plan = manifest.customers[index];
@@ -91,12 +92,33 @@ describe.each([0, 1])("operator draft %i", index => {
     expect(getByPath(drafts[index], "content.legal.variables.email")).toBe("info@beconnected-aachen.de");
     for (const page of ["impressum", "datenschutz"]) {
       const html = getByPath(drafts[index], `content.pages.${page}.html`) as string;
-      expect(html).toContain("ENTWURF");
+      expect(html).not.toMatch(/ENTWURF|MUSTER|Platzhalter|\[Vor|Vor Freigabe/i);
+      expect(html).toContain(plan.brand);
+      expect(html).not.toContain(other.brand);
       expect(html).toContain("BeConnected");
       for (const known of ["Einzelunternehmen", "Andy Khelifa", "Heidchenweg 13", "52080 Aachen", "0241 47595243", "info@beconnected-aachen.de", "253125657"]) expect(html).toContain(known);
       expect(html).not.toContain("[zur Prüfung ergänzen]");
-      expect(html).not.toMatch(/WordPress|Elementor|Mailgun|eigenen Server|ec\.europa\.eu\/consumers\/odr/i);
+      expect(html).not.toMatch(/WordPress|Elementor|eigenen Server|ec\.europa\.eu\/consumers\/odr/i);
     }
+  });
+  it("describes only supported infrastructure and external advertising", () => {
+    const html = getByPath(drafts[index], "content.pages.datenschutz.html") as string;
+    for (const fact of ["Cloudflare", "Supabase", "eu-central-1 (Frankfurt)", "Mailgun", "EU-Region", "Facebook", "Instagram", "TikTok", "site_lang", "cookie-consent", "180 Tage", "§ 25", "Privatsphäre-Einstellungen"]) expect(html).toContain(fact);
+    expect(html).not.toMatch(/besteht ein Vertrag|ausschließlich.*anonymisiert|keine personenbezogenen Daten an externe KI/);
+    expect(JSON.stringify(drafts[index].content)).not.toMatch(/ENTWURF|MUSTER|Review-Entwurf/i);
+  });
+  it.each(["impressum", "datenschutz"])("renders the complete supplied %s only with fixture approval", async page => {
+    const { container } = mount(index, readyFixture(index), plan.locationId, `/${page}?lang=de`);
+    expect(await screen.findByRole("heading", { name: `${page === "impressum" ? "Impressum" : "Datenschutzerklärung"} – ${plan.brand}` })).toBeInTheDocument();
+    expect(container.textContent).not.toMatch(/ENTWURF|MUSTER|Vor Freigabe|WordPress|Elementor/);
+  });
+  it.each(["impressum", "datenschutz"])("rejects unsafe %s HTML even after fixture approval", async page => {
+    const config = readyFixture(index);
+    setPath(config, `content.pages.${page}.html`, '<h1>Unsafe override</h1><img src="https://unwanted.example/x" onerror="alert(1)">');
+    const { container } = mount(index, config, plan.locationId, `/${page}?lang=de`);
+    expect(await screen.findByText("Die rechtlichen Angaben werden für diesen Standort vorbereitet.")).toBeInTheDocument();
+    expect(screen.queryByRole("heading", { name: "Unsafe override" })).toBeNull();
+    expect(container.querySelector('img[src^="https://unwanted"]')).toBeNull();
   });
   it("renders only its supplied copy and fixture assets after fixture approval", async () => {
     const config = readyFixture(index);
