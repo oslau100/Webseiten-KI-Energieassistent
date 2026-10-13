@@ -1,0 +1,309 @@
+{
+  "brand": {
+    "name": "Öcher Strom",
+    "contact_email": "",
+    "agency_url": "",
+    "agency_alt": ""
+  },
+  "seo": {
+    "title": "Öcher Strom | Strom, Gas und Jahresabrechnung im Blick",
+    "description": "Strom und Gas im Alltag: Mit Öcher Strom behältst du Preise, Verbrauch und Vertragsbedingungen im Blick. Prüfe, was zu deinem Haushalt passt.",
+    "site_url": "https://app.oecher-strom.de",
+    "image_url": ""
+  },
+  "legal": {
+    "ready": false,
+    "variables": {
+      "firma": "BeConnected",
+      "inhaber": "",
+      "strasse": "",
+      "plz": "",
+      "ort": "",
+      "land": "",
+      "email": "",
+      "telefon": "",
+      "stand": "Entwurf, 13. Oktober 2026"
+    }
+  },
+  "i18n": {
+    "annual_testimonials_h2": {
+      "de": ""
+    },
+    "home_testimonials_h2": {
+      "de": ""
+    },
+    "annual_final_cta_h2": {
+      "de": "Deine Rechnung verstehen, dann entscheiden."
+    },
+    "annual_faq_1_q": {
+      "de": "Was gehört zu einer Rechnungsprüfung?"
+    },
+    "annual_faq_1_a": {
+      "de": "Verbrauch, Abrechnungszeitraum, Preise und Zahlungen gemeinsam betrachten."
+    },
+    "annual_faq_2_q": {
+      "de": "Wo finde ich Angaben zur Datenverarbeitung?"
+    },
+    "annual_faq_2_a": {
+      "de": "In der abschließend freigegebenen Datenschutzerklärung. Eine Freigabe liegt für diesen Entwurf noch nicht vor."
+    },
+    "annual_faq_3_q": {
+      "de": "Welche Kosten gelten für den Service?"
+    },
+    "annual_faq_3_a": {
+      "de": "Maßgeblich sind die vor Nutzung ausgewiesenen Konditionen. Dieser Entwurf enthält keine Preiszusage."
+    },
+    "annual_faq_4_q": {
+      "de": "Wer betreibt Öcher Strom?"
+    },
+    "annual_faq_4_a": {
+      "de": "Der autorisierte rechtliche Betreiber ist BeConnected."
+    },
+    "annual_faq_5_q": {
+      "de": "Was tun bei einer unklaren Rechnungsposition?"
+    },
+    "annual_faq_5_a": {
+      "de": "Gleiche die Position mit deinem Vertrag ab und halte konkrete Fragen an deinen Anbieter fest."
+    },
+    "annual_faq_6_q": {
+      "de": "Sind die Werte in der Smartphone-Grafik verbindlich?"
+    },
+    "annual_faq_6_a": {
+      "de": "Die 177 Tarife und 477 EUR sind statischer Marketinginhalt und kein persönliches Berechnungsergebnis."
+    },
+    "annual_hero_h1": {
+      "de": "Deine Jahresabrechnung mit Öcher Strom im Blick."
+    }
+  },
+  "integrations": {
+    "google_reviews": {
+      "jotform_widget_id": ""
+    }
+  },
+  "sections": {
+    "hero": {
+      "headline": {
+        "de": "Öcher Strom: Dein Tarif verdient einen zweiten Blick."
+      },
+      "subline": {
+        "de": "Strom und Gas im Alltag: Mit Öcher Strom behältst du Preise, Verbrauch und Vertragsbedingungen im Blick. Prüfe, was zu deinem Haushalt passt."
+      },
+      "cta_text": {
+        "de": "Meinen Tarif mit Öcher Strom prüfen"
+      },
+      "badge": "",
+      "image_alt": "Öcher Strom: freigegebene gerade Smartphone-Marketinggrafik mit 177 Tarifen und 477 EUR; kein persönliches Ergebnis",
+      "result_note": {
+        "de": "Die Smartphone-Grafik zeigt ein freigegebenes Marketingbeispiel mit 177 Tarifen und 477 EUR. Dein persönliches Ergebnis wird separat berechnet; eine Ersparnis ist nicht garantiert."
+      }
+    },
+    "problem": {
+      "headline": "Was steckt wirklich in deinem Strom- oder Gastarif?",
+      "items": [
+        {
+          "title": "Preis und Verbrauch zusammen betrachten",
+          "description": "Öcher Strom: Prüfe Arbeitspreis, Grundpreis und deinen Jahresverbrauch gemeinsam.",
+          "iconKey": "coins"
+        },
+        {
+          "title": "Laufzeiten im Blick behalten",
+          "description": "Vergleiche Vertragslaufzeit, Kündigungsfrist und Preisgarantie.",
+          "iconKey": "calendar"
+        },
+        {
+          "title": "Angebote nachvollziehbar vergleichen",
+          "description": "Achte auf die Bedingungen hinter Boni und ausgewiesenen Preisen.",
+          "iconKey": "search"
+        },
+        {
+          "title": "Deine Ausgangslage kennen",
+          "description": "Halte deine aktuelle Abrechnung bereit, bevor du einen Tarif beurteilst.",
+          "iconKey": "building"
+        }
+      ]
+    },
+    "solution": {
+      "headline": "Dein Überblick mit Öcher Strom.",
+      "body": "Ein Tarifvergleich beginnt bei deinem Haushalt. Preise und Bedingungen gehören zusammen, damit du eine passende Entscheidung treffen kannst.",
+      "cta_text": "Meinen Tarif mit Öcher Strom prüfen",
+      "result_note": "Die Smartphone-Grafik zeigt ein freigegebenes Marketingbeispiel mit 177 Tarifen und 477 EUR. Dein persönliches Ergebnis wird separat berechnet; eine Ersparnis ist nicht garantiert.",
+      "image_url": "supabase-storage://customer-website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/smartphone-angled.original",
+      "image_alt": "Öcher Strom: freigegebene angewinkelte Smartphone-Marketinggrafik; statisches Beispiel mit 177 Tarifen und 477 EUR",
+      "image_position": "left"
+    },
+    "how_it_works": {
+      "headline": "Schritt für Schritt mit Öcher Strom.",
+      "cta_text": "Meinen Tarif mit Öcher Strom prüfen",
+      "items": [
+        {
+          "title": "Ausgangslage erfassen",
+          "description": "Halte Verbrauch, Postleitzahl und deinen aktuellen Tarif bereit."
+        },
+        {
+          "title": "Kosten einordnen",
+          "description": "Betrachte Grundpreis, Arbeitspreis und Vertragsbedingungen."
+        },
+        {
+          "title": "Angebote abwägen",
+          "description": "Vergleiche Angebote anhand deiner Angaben und prüfe offene Fragen."
+        },
+        {
+          "title": "Bewusst entscheiden",
+          "description": "Ein möglicher Wechsel ist eine eigene Entscheidung; die Grafik enthält keine individuelle Zusage."
+        }
+      ]
+    },
+    "comparison": {
+      "headline": "Welche Informationen brauchst du für deine Entscheidung?",
+      "portals_title": "Beim eigenen Vergleich",
+      "assistant_title": "Mit Öcher Strom",
+      "portals": [
+        "Preise und Bedingungen selbst zusammenführen",
+        "Verbrauch und Laufzeit in den Vergleich einbeziehen",
+        "Unklare Angaben gezielt nachfragen"
+      ],
+      "assistant": [
+        "Öcher Strom stellt deine Energiekosten in den Mittelpunkt.",
+        "Tarifbedingungen gehören zum Blick auf den Preis.",
+        "Die Entscheidung richtet sich nach deiner persönlichen Ausgangslage."
+      ],
+      "cta_text": "Meinen Tarif mit Öcher Strom prüfen"
+    },
+    "testimonials": {
+      "kicker": "",
+      "headline": "",
+      "home_reviews": []
+    },
+    "stats": {
+      "headline": "",
+      "items": []
+    },
+    "about": {
+      "mode": "company",
+      "headline": "Über Öcher Strom",
+      "name": "Öcher Strom",
+      "role": "Eine Marke unter dem rechtlichen Betreiber BeConnected",
+      "image_url": "supabase-storage://customer-website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/about.original",
+      "image_alt": "Freigegebenes About-Motiv für Öcher Strom",
+      "social_hint": "",
+      "social": {
+        "youtube": "",
+        "facebook": "",
+        "tiktok": "",
+        "instagram": ""
+      },
+      "paragraphs": [
+        "Öcher Strom richtet den Blick auf die Energiekosten deines Haushalts. Verständliche Informationen zu Strom, Gas und Jahresabrechnungen stehen dabei im Mittelpunkt.",
+        "BeConnected ist der autorisierte rechtliche Betreiber von Öcher Strom.",
+        "Die Werte in den Smartphone-Grafiken sind freigegebene Marketingbeispiele. Sie ersetzen keine Berechnung für deinen Haushalt."
+      ]
+    },
+    "faq": {
+      "home_items": [
+        {
+          "question": "Sind 177 Tarife und 477 EUR mein persönliches Ergebnis?",
+          "answer": "Nein. Diese Angaben gehören zur freigegebenen statischen Smartphone-Grafik. Ein persönliches Ergebnis hängt von deinen Angaben und den dann verfügbaren Angeboten ab."
+        },
+        {
+          "question": "Wer betreibt Öcher Strom?",
+          "answer": "BeConnected ist der autorisierte rechtliche Betreiber von Öcher Strom."
+        },
+        {
+          "question": "Was sollte ich für einen Tarifvergleich bereithalten?",
+          "answer": "Deinen aktuellen Tarif, den Jahresverbrauch, die Postleitzahl und die relevanten Vertragsbedingungen."
+        }
+      ]
+    },
+    "final_cta": {
+      "headline": "Nimm deine Energiekosten in den Blick.",
+      "subline": "Beginne bei deinem aktuellen Vertrag und deinem Verbrauch. Öcher Strom ist dein Ausgangspunkt.",
+      "cta_text": "Meinen Tarif mit Öcher Strom prüfen"
+    },
+    "callback": {
+      "title": "Rückruf anfordern",
+      "description": "",
+      "calendar_url": "",
+      "disabled_text": "Der Rückruf-Kalender wird vorbereitet."
+    },
+    "links": {
+      "website": "/",
+      "datenschutz": "/datenschutz",
+      "impressum": "/impressum",
+      "tarif": "/tarif",
+      "jahresrechnung": "/jahresrechnung",
+      "auftrag_eingegangen": "/auftrag-eingegangen",
+      "rechnung_eingegangen": "/rechnung-eingegangen",
+      "fehler": "/fehler",
+      "rechnung_fehler": "/rechnung-fehler"
+    },
+    "jahresrechnung": {
+      "hero_text": "Öcher Strom: Verbrauch, Abschläge und Jahreskosten gemeinsam betrachten.",
+      "cta": "Jahresabrechnung prüfen",
+      "free_note": "",
+      "why_intro": "Eine Jahresabrechnung verbindet Verbrauch, Preise und bereits geleistete Zahlungen. Prüfe, wie diese Angaben zusammenpassen.",
+      "value_text": "Mit Öcher Strom steht eine nachvollziehbare Einordnung deiner Jahresabrechnung im Mittelpunkt.",
+      "comparison_self_title": "Rechnung selbst einordnen",
+      "comparison_assistant_title": "Mit Öcher Strom",
+      "comparison_self": [
+        "Zählerstände und Zeitraum zuordnen",
+        "Preise und Abschläge nachvollziehen"
+      ],
+      "comparison_assistant": [
+        "Verbrauch und Kosten zusammen betrachten",
+        "Offene Fragen strukturiert festhalten"
+      ],
+      "reviews_kicker": "",
+      "reviews": [],
+      "final_text": "Prüfe die Angaben deiner Rechnung anhand deines Vertrags. Die Smartphone-Grafik ist kein Ergebnis einer Rechnungsprüfung.",
+      "process": [
+        {
+          "step": "1",
+          "title": "Unterlagen bereithalten",
+          "desc": "Rechnung und Vertragsbedingungen zusammenstellen."
+        },
+        {
+          "step": "2",
+          "title": "Verbrauch zuordnen",
+          "desc": "Abrechnungszeitraum und Zählerstände vergleichen."
+        },
+        {
+          "step": "3",
+          "title": "Kosten nachvollziehen",
+          "desc": "Preise, Abschläge und Zahlungen einordnen."
+        },
+        {
+          "step": "4",
+          "title": "Fragen festhalten",
+          "desc": "Unklare Positionen vor einer Entscheidung klären."
+        }
+      ],
+      "why": [
+        {
+          "title": "Verbrauch verstehen",
+          "desc": "Vergleiche Abrechnungszeitraum und Zählerstände."
+        },
+        {
+          "title": "Preise nachvollziehen",
+          "desc": "Prüfe Grundpreis und Arbeitspreis anhand des Vertrags."
+        },
+        {
+          "title": "Abschläge einordnen",
+          "desc": "Gleiche geleistete Zahlungen mit der Abrechnung ab."
+        },
+        {
+          "title": "Unklarheiten klären",
+          "desc": "Halte Rückfragen an deinen Anbieter fest."
+        }
+      ],
+      "badge": ""
+    }
+  },
+  "pages": {
+    "impressum": {
+      "html": "<h1>Impressum – Öcher Strom</h1><p>ENTWURF – nicht freigegeben.</p><h2>Anbieter</h2><p>BeConnected ist der autorisierte rechtliche Betreiber dieser Marke.</p><p>Vollständige Firmierung und Rechtsform: [zur Prüfung ergänzen]<br>Vertretungsberechtigte Person: [zur Prüfung ergänzen]<br>Ladungsfähige Anschrift: [zur Prüfung ergänzen]<br>E-Mail und Telefonnummer: [zur Prüfung ergänzen]<br>Register und Registernummer, soweit anwendbar: [zur Prüfung ergänzen]<br>Umsatzsteuer-ID, soweit anwendbar: [zur Prüfung ergänzen]</p><h2>Weitere Pflichtangaben</h2><p>Informationspflichten, gegebenenfalls Aufsicht und berufsrechtliche Angaben, Verantwortlichkeit für redaktionelle Inhalte und Verbraucherstreitbeilegung sind vor Freigabe rechtlich zu prüfen.</p>"
+    },
+    "datenschutz": {
+      "html": "<h1>Datenschutzerklärung – Öcher Strom</h1><p>ENTWURF – nicht freigegeben; offene Angaben müssen vor Veröffentlichung ersetzt werden.</p><h2>Verantwortlicher</h2><p>Autorisierter rechtlicher Betreiber: BeConnected. Vollständige Firmierung, Anschrift, Vertretung und Datenschutzkontakt: [zur Prüfung ergänzen]. Die datenschutzrechtliche Verantwortlichkeit ist abschließend zu bestätigen.</p><h2>Besuch der Website</h2><p>[Tatsächliche Hosting- und Asset-Auslieferung, Datenkategorien, Zwecke, Rechtsgrundlagen, Empfänger und Speicherdauer anhand der technischen Konfiguration ergänzen.]</p><h2>Kontakt und mögliche Servicefunktionen</h2><p>[Nur tatsächlich aktivierte Funktionen beschreiben. Datenflüsse für Kontakt, Rückruf, Tarifprüfung und Rechnungsprüfung getrennt bestätigen; Zwecke, Datenkategorien, Rechtsgrundlagen, Empfänger und Löschfristen ergänzen.]</p><h2>Endgerätezugriffe und Einwilligung</h2><p>[Cookies und lokale Speicherung inventarisieren; erforderliche Einwilligungen nach DSGVO und § 25 TDDDG sowie Widerrufsmöglichkeiten prüfen.]</p><h2>Dienstleister und Drittlandübermittlungen</h2><p>[Nur bestätigte Anbieter, Rollen, Regionen, Verträge und gegebenenfalls Garantien für Drittlandübermittlungen aufnehmen. KI-Verarbeitung und automatisierte Entscheidungen anhand tatsächlicher Datenflüsse prüfen.]</p><h2>Rechte betroffener Personen</h2><p>Nach Maßgabe der gesetzlichen Voraussetzungen bestehen Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit. Soweit eine Verarbeitung auf Einwilligung beruht, kann diese mit Wirkung für die Zukunft widerrufen werden. Bei Verarbeitungen nach Art. 6 Abs. 1 lit. e oder f DSGVO besteht unter den gesetzlichen Voraussetzungen ein Widerspruchsrecht. Es besteht ein Beschwerderecht bei einer Datenschutzaufsichtsbehörde.</p><p>[Zuständige Aufsichtsbehörde, Kontaktdaten und Stand nach Prüfung ergänzen.]</p>"
+    }
+  }
+}

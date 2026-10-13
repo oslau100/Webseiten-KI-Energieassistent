@@ -34,13 +34,39 @@ const asset = (value: unknown) => {
   try { return new URL(value).protocol === "https:"; } catch { return false; }
 };
 
+// Reference validation only: neither URL ownership nor object delivery is proven here.
+const isolatedAsset = (value: unknown, locationId?: string): boolean => {
+  if (!asset(value)) return false;
+  if (!locationId) return true;
+  try {
+    const path = decodeURIComponent(new URL(value as string, "https://asset-validation.invalid").pathname);
+    const segments = path.split("/");
+    if (customerRuntimeBindings.some(binding => binding.locationId !== locationId && segments.includes(binding.locationId))) return false;
+    const namespace = segments.indexOf("locations");
+    return namespace === -1 || segments[namespace + 1] === locationId;
+  } catch { return false; }
+};
+
+const optionalAsset = (value: unknown, locationId?: string): boolean => {
+  if (value === undefined || value === null || value === "") return true;
+  // Content image fields can be localized; every supplied translation must qualify.
+  if (typeof value === "object" && !Array.isArray(value)) {
+    return Object.values(record(value)).every(item => typeof item === "string" && (item === "" || isolatedAsset(item, locationId)));
+  }
+  return isolatedAsset(value, locationId);
+};
+
 /** Uses actual config buckets, never repository defaults or inferred legal approval. */
-export function customerConfigReadiness(config: WebsiteConfig): "READY" | "CONFIG_NOT_READY" | "LEGAL_NOT_READY" | "ASSETS_NOT_READY" {
+export function customerConfigReadiness(config: WebsiteConfig, locationId?: string): "READY" | "CONFIG_NOT_READY" | "LEGAL_NOT_READY" | "ASSETS_NOT_READY" {
   if (![config.content, config.design, config.layout].every(bucket => Object.keys(bucket).length > 0)) return "CONFIG_NOT_READY";
   const legal = record(config.content.legal);
   const variables = record(legal.variables);
   if (legal.ready !== true || !populated(variables.firma) || !populated(variables.email)) return "LEGAL_NOT_READY";
   const assets = record(config.design.assets);
-  if (!["logo_header", "logo_footer", "hero_image"].every(key => asset(assets[key]))) return "ASSETS_NOT_READY";
+  if (!["logo_header", "logo_footer", "hero_image"].every(key => isolatedAsset(assets[key], locationId))) return "ASSETS_NOT_READY";
+  const sections = record(config.content.sections);
+  const optionalImages = [assets.agency_logo, record(config.content.seo).image_url,
+    record(sections.solution).image_url, record(sections.about).image_url];
+  if (!optionalImages.every(value => optionalAsset(value, locationId))) return "ASSETS_NOT_READY";
   return "READY";
 }

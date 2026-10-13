@@ -1,0 +1,20 @@
+{
+  "colors": {
+    "primary": "#FFBD59",
+    "cta": "#E7AC24",
+    "accent": "#FFBD59",
+    "white": "#FFFFFF",
+    "text": "#102A43",
+    "mutedText": "#64748B",
+    "background": "#FFFFFF"
+  },
+  "radius": {
+    "section": "2.5rem"
+  },
+  "assets": {
+    "logo_header": "supabase-storage://customer-website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/logo.original",
+    "logo_footer": "supabase-storage://customer-website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/logo.original",
+    "hero_image": "supabase-storage://customer-website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/smartphone-straight.original",
+    "agency_logo": ""
+  }
+}

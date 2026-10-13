@@ -1,0 +1,190 @@
+{
+  "status": "NOT_READY",
+  "bucket": "customer-website-assets",
+  "bucketStatus": "PLANNED_NOT_VERIFIED",
+  "referenceScheme": "supabase-storage://<bucket>/<objectPath>",
+  "customers": [
+    {
+      "brand": "Öcher Strom",
+      "locationId": "NPhuVMAaBPQz6OhIPpkj",
+      "hostname": "app.oecher-strom.de",
+      "status": "NOT_READY",
+      "assets": [
+        {
+          "role": "logo",
+          "configFields": [
+            "design.assets.logo_header",
+            "design.assets.logo_footer"
+          ],
+          "plannedObjectPath": "locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/logo.original",
+          "plannedReference": "supabase-storage://customer-website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/logo.original",
+          "source": null,
+          "sourceSha256": null,
+          "mimeType": null,
+          "width": null,
+          "height": null,
+          "publicUrl": null,
+          "deliveryVerified": false,
+          "status": "SOURCE_REQUIRED",
+          "preserveOriginalBytes": true,
+          "approvedMarketingLabels": [],
+          "reviewNote": "Exact approved source must be supplied; no replacement, regeneration, cropping or relabeling. .original is a planning filename, not a verified format."
+        },
+        {
+          "role": "smartphone_straight",
+          "configFields": [
+            "design.assets.hero_image"
+          ],
+          "plannedObjectPath": "locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/smartphone-straight.original",
+          "plannedReference": "supabase-storage://customer-website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/smartphone-straight.original",
+          "source": null,
+          "sourceSha256": null,
+          "mimeType": null,
+          "width": null,
+          "height": null,
+          "publicUrl": null,
+          "deliveryVerified": false,
+          "status": "SOURCE_REQUIRED",
+          "preserveOriginalBytes": true,
+          "approvedMarketingLabels": [
+            "177 Tarife",
+            "477 EUR"
+          ],
+          "reviewNote": "Exact approved source must be supplied; no replacement, regeneration, cropping or relabeling. .original is a planning filename, not a verified format."
+        },
+        {
+          "role": "smartphone_angled",
+          "configFields": [
+            "content.sections.solution.image_url"
+          ],
+          "plannedObjectPath": "locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/smartphone-angled.original",
+          "plannedReference": "supabase-storage://customer-website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/smartphone-angled.original",
+          "source": null,
+          "sourceSha256": null,
+          "mimeType": null,
+          "width": null,
+          "height": null,
+          "publicUrl": null,
+          "deliveryVerified": false,
+          "status": "SOURCE_REQUIRED",
+          "preserveOriginalBytes": true,
+          "approvedMarketingLabels": [
+            "177 Tarife",
+            "477 EUR"
+          ],
+          "reviewNote": "Exact approved source must be supplied; no replacement, regeneration, cropping or relabeling. .original is a planning filename, not a verified format."
+        },
+        {
+          "role": "about",
+          "configFields": [
+            "content.sections.about.image_url"
+          ],
+          "plannedObjectPath": "locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/about.original",
+          "plannedReference": "supabase-storage://customer-website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/about.original",
+          "source": null,
+          "sourceSha256": null,
+          "mimeType": null,
+          "width": null,
+          "height": null,
+          "publicUrl": null,
+          "deliveryVerified": false,
+          "status": "SOURCE_REQUIRED",
+          "preserveOriginalBytes": true,
+          "approvedMarketingLabels": [],
+          "reviewNote": "Exact approved source must be supplied; no replacement, regeneration, cropping or relabeling. .original is a planning filename, not a verified format."
+        }
+      ]
+    },
+    {
+      "brand": "Tarivia",
+      "locationId": "uGJsQ3CWvFTraTfrRgjC",
+      "hostname": "www.tarivia.de",
+      "status": "NOT_READY",
+      "assets": [
+        {
+          "role": "logo",
+          "configFields": [
+            "design.assets.logo_header",
+            "design.assets.logo_footer"
+          ],
+          "plannedObjectPath": "locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/logo.original",
+          "plannedReference": "supabase-storage://customer-website-assets/locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/logo.original",
+          "source": null,
+          "sourceSha256": null,
+          "mimeType": null,
+          "width": null,
+          "height": null,
+          "publicUrl": null,
+          "deliveryVerified": false,
+          "status": "SOURCE_REQUIRED",
+          "preserveOriginalBytes": true,
+          "approvedMarketingLabels": [],
+          "reviewNote": "Exact approved source must be supplied; no replacement, regeneration, cropping or relabeling. .original is a planning filename, not a verified format."
+        },
+        {
+          "role": "smartphone_straight",
+          "configFields": [
+            "design.assets.hero_image"
+          ],
+          "plannedObjectPath": "locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/smartphone-straight.original",
+          "plannedReference": "supabase-storage://customer-website-assets/locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/smartphone-straight.original",
+          "source": null,
+          "sourceSha256": null,
+          "mimeType": null,
+          "width": null,
+          "height": null,
+          "publicUrl": null,
+          "deliveryVerified": false,
+          "status": "SOURCE_REQUIRED",
+          "preserveOriginalBytes": true,
+          "approvedMarketingLabels": [
+            "177 Tarife",
+            "477 EUR"
+          ],
+          "reviewNote": "Exact approved source must be supplied; no replacement, regeneration, cropping or relabeling. .original is a planning filename, not a verified format."
+        },
+        {
+          "role": "smartphone_angled",
+          "configFields": [
+            "content.sections.solution.image_url"
+          ],
+          "plannedObjectPath": "locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/smartphone-angled.original",
+          "plannedReference": "supabase-storage://customer-website-assets/locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/smartphone-angled.original",
+          "source": null,
+          "sourceSha256": null,
+          "mimeType": null,
+          "width": null,
+          "height": null,
+          "publicUrl": null,
+          "deliveryVerified": false,
+          "status": "SOURCE_REQUIRED",
+          "preserveOriginalBytes": true,
+          "approvedMarketingLabels": [
+            "177 Tarife",
+            "477 EUR"
+          ],
+          "reviewNote": "Exact approved source must be supplied; no replacement, regeneration, cropping or relabeling. .original is a planning filename, not a verified format."
+        },
+        {
+          "role": "about",
+          "configFields": [
+            "content.sections.about.image_url"
+          ],
+          "plannedObjectPath": "locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/about.original",
+          "plannedReference": "supabase-storage://customer-website-assets/locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/about.original",
+          "source": null,
+          "sourceSha256": null,
+          "mimeType": null,
+          "width": null,
+          "height": null,
+          "publicUrl": null,
+          "deliveryVerified": false,
+          "status": "SOURCE_REQUIRED",
+          "preserveOriginalBytes": true,
+          "approvedMarketingLabels": [],
+          "reviewNote": "Exact approved source must be supplied; no replacement, regeneration, cropping or relabeling. .original is a planning filename, not a verified format."
+        }
+      ]
+    }
+  ]
+}

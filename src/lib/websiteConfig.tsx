@@ -160,7 +160,7 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
           layout: isJsonRecord(row.webseite_layout_config) ? row.webseite_layout_config : {},
         };
         const config = runtime.identity.customer ? overrides : resolveWebsiteConfig(overrides);
-        const reason = runtime.identity.customer ? customerConfigReadiness(config) : "READY";
+        const reason = runtime.identity.customer ? customerConfigReadiness(config, locationId) : "READY";
         setState({
           ...(reason === "READY" ? config : safeDefaultWebsiteConfig),
           loading: false,
