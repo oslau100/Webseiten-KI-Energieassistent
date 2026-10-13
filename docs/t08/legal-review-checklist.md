@@ -1,51 +1,53 @@
-# BeConnected legal review — both customer drafts
+# BeConnected legal review — supplied-source remediation
 
-Status: **NOT_READY**. `legal.ready` remains false for both Locations. BeConnected
-is the task-authorized legal operator; the exact registered entity and full contact
-record have not been supplied. The HTML in each `content.json` is an operator-review
-draft, not approved publishable legal advice or evidence of a processing arrangement.
+Status: **NOT_READY**. Both customer drafts keep `legal.ready = false`.
+Sources: `source-evidence/BEConnected_LEGAL_INPUT.md` and
+`source-evidence/BEConnected_ORIGINAL_RECHTSTEXTE_REVIEWBASIS.md`.
+These are operator-approved inputs for reuse, not final publication approval.
 
-Review each brand separately and record reviewer, dated evidence, final-text hash,
-and unresolved items. Shared operator status does not prove identical data flows.
+- [x] Populate both brands with the supplied identity: BeConnected,
+  Einzelunternehmen, Andy Khelifa, Heidchenweg 13, 52080 Aachen,
+  0241 47595243, info@beconnected-aachen.de, USt-ID 253125657.
+- [x] Keep each brand label, exact Location and its own legal overrides separate.
+- [x] Adapt the original Impressum and retain all 14 privacy-source sections.
+- [x] Replace legacy hosting/platform assertions in consumer drafts with open review
+  items, keeping the historical original text unchanged as source evidence.
+- [x] Avoid unconfirmed infrastructure, processor, region, retention, cookie,
+  anonymization, AI, encryption and deployed-feature claims.
+- [ ] Confirm current operator data, address-derived country Deutschland, authority
+  for both brands, and supplied USt-ID format/validity. Do not invent a replacement.
+- [ ] Review § 5 DDG wording replacing the old § 5 TMG heading; confirm applicable
+  register, supervisory/professional details, MStV responsibility and current VSBG
+  statements. Do not restore the obsolete EU dispute-platform link.
+- [ ] Confirm controller identity/privacy contact and whether a DPO is required.
+  Verify the source's NRW supervisory authority and complaint channel.
+- [ ] Review brand-specific scope: original Öcher Strom copy describes Stromtarife
+  im Raum Aachen; do not transfer that regional/tariff scope to Tarivia unchecked.
+- [ ] Confirm whether historical shop, outside-sales, telephone, paper/tablet and
+  digital order processes belong in these particular website declarations.
+- [ ] For each enabled function, document actual categories, purpose, legal basis,
+  recipients, regions, retention and deletion. Dormant customer funnels remain
+  guarded; this task does not activate tariff/rechnung/upload/order/CRM/AI services.
+- [ ] Check contact and callback/calendar processes independently; do not name
+  unconfirmed WhatsApp, communication or appointment services as active processors.
+- [ ] Verify actual hosting, configuration reads, asset delivery and access logging.
+  No claimed EU hosting/DPA from the old source applies automatically to new sites.
+- [ ] Inventory cookies/local storage (`site_lang`, consent preferences), language
+  flags, translation scripts, optional review widgets and tracking against actual
+  behavior. Review § 25 TDDDG, DSGVO bases, consent and withdrawal.
+- [ ] Confirm all processors/subprocessors, contracts, regions and transfers;
+  assess AI access and Art. 22 duties where applicable from real data flows.
+- [ ] Confirm implemented security measures and retention/lifecycle behavior;
+  do not imply automatic deletion after order forwarding without evidence.
+- [ ] Review rights, Art. 21 objection, consent withdrawal and working contact channels.
+- [ ] Confirm all 177 tariff / 477 EUR labels remain approved static marketing,
+  separately from personal calculated results. Originals must remain byte-identical.
+- [ ] Resolve every bracketed processing review item in both HTML documents and
+  record final reviewer, date, final-text hashes and approval for each Location.
+- [ ] Obtain separately approved favicon originals and consumer/delivery review.
+- [ ] Resolve the NOT_APPROVED canonical bucket decision with T01/T08/T11;
+  source-file verification is not Storage delivery verification or release approval.
 
-- [ ] Confirm complete BeConnected firm name/legal form and operator authority for
-  Öcher Strom (`NPhuVMAaBPQz6OhIPpkj`) and Tarivia (`uGJsQ3CWvFTraTfrRgjC`).
-- [ ] Supply serviceable address, legal representative, monitored email, telephone,
-  register/court/number, VAT identification and applicable supervisory/professional
-  information. Decide which fields legally apply rather than inventing values.
-- [ ] Review DDG information duties, MStV responsibility where applicable, and
-  current VSBG consumer-dispute information. Do not restore the discontinued EU
-  online-dispute platform link from legacy fallback HTML.
-- [ ] Confirm GDPR controller identity, privacy contact/DPO where required and
-  competent supervisory authority. Fill the draft's open identity/contact fields.
-- [ ] Inventory actual website hosting, asset delivery, runtime config reads and
-  access logs: categories, purposes, legal bases, recipients, regions and retention.
-  No WordPress/Elementor or own-server assumption may be copied from old text.
-- [ ] Inventory cookies and local storage (including `site_lang` and consent
-  preferences), consent UI and any optional widgets. Assess DSGVO and § 25 TDDDG
-  obligations; do not assert that only necessary cookies exist without evidence.
-- [ ] Review each actually enabled contact/callback function and external calendar
-  separately. Blank calendar/review IDs in these drafts authorize no integration.
-- [ ] Review any future tariff/rechnung/upload/CRM/order data flow independently.
-  These dormant funnel routes are not activated by this task; do not imply they
-  are a verified processing service already available to customers.
-- [ ] Confirm every processor/subprocessor, contractual role, DPA, transfer region,
-  third-country safeguard and deletion schedule from actual agreements/config.
-  A planned Supabase asset path is not proof of an active processor agreement.
-  No unverified Mailgun, AI provider, analytics or other supplier is named as active.
-- [ ] Confirm whether AI receives personal data, whether decisions have legal or
-  comparable effects, and any applicable Art. 22 obligations. Do not assume all
-  processing is anonymized, internal-only, encrypted at rest or immediately deleted.
-- [ ] Review rights text, consent withdrawal, Art. 21 objection, complaint channel,
-  statutory retention and implemented security measures against actual behavior.
-- [ ] Approve brand-specific claims, service/pricing conditions and graphic context.
-  Preserve the supplied 177 tariff / 477 EUR smartphone originals as marketing
-  examples; approve captions separately from any live calculation result.
-- [ ] Replace all bracketed open fields in both legal HTML overrides, fill verified
-  `legal.variables` and `brand.contact_email`, and record final approval evidence.
-- [ ] Verify no legacy legal fallback will substitute for approved customer HTML.
-  Missing legal text/approval, config or asset evidence blocks release.
-
-A later release requires separate authorization. No approval flag is set, legal
-text published, Storage object written, Supabase row updated, branch merged or
-customer deployed as part of these drafts.
+No publication, Storage write, database update, merge, push or deployment is part
+of this preparation. Final legal text approval and subsequent release authorization
+are separate; no approval flag is flipped here.

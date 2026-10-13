@@ -1,4 +1,5 @@
 import { readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import App from "@/App";
@@ -7,7 +8,7 @@ import { customerConfigReadiness, customerRuntimeBindings } from "@/lib/customer
 import type { WebsiteConfig } from "@/lib/websiteConfig";
 import { getByPath } from "@/lib/websiteContentResolver";
 
-type AssetEntry = { role: string; configFields: string[]; plannedObjectPath: string; plannedReference: string; source: null; sourceSha256: null; publicUrl: null; deliveryVerified: boolean; preserveOriginalBytes: boolean; approvedMarketingLabels: string[] };
+type AssetEntry = { role: string; configFields: string[]; plannedObjectPath: string; plannedReference: string; source: string; sourceSha256: string; mimeType: string; width: number; height: number; bytes: number; publicUrl: null; deliveryVerified: boolean; preserveOriginalBytes: boolean; approvedMarketingLabels: string[] };
 type CustomerPlan = { brand: string; locationId: string; hostname: string; assets: AssetEntry[] };
 const read = (file: string) => JSON.parse(readFileSync(`docs/t08/${file}`, "utf8"));
 const manifest = read("asset-manifest.json") as { customers: CustomerPlan[] };
@@ -26,7 +27,7 @@ function readyFixture(index: number) {
   setPath(config, "content.legal.ready", true);
   setPath(config, "content.legal.variables.email", "legal-fixture@example.test");
   for (const entry of manifest.customers[index].assets) {
-    for (const field of entry.configFields) setPath(config, field, `https://assets.example.test/storage/v1/object/public/customer-website-assets/${entry.plannedObjectPath}`);
+    for (const field of entry.configFields) setPath(config, field, `/${entry.plannedObjectPath}`);
   }
   return config;
 }
@@ -48,15 +49,24 @@ describe.each([0, 1])("operator draft %i", index => {
   const other = manifest.customers[1 - index];
   it("maps the exact runtime identity, palette and every planned asset field", () => {
     expect({ locationId: plan.locationId, hostname: plan.hostname }).toEqual(customerRuntimeBindings[index]);
-    expect(drafts[index].content.brand).toMatchObject({ name: plan.brand, contact_email: "" });
+    expect(drafts[index].content.brand).toMatchObject({ name: plan.brand, contact_email: "info@beconnected-aachen.de" });
     expect(drafts[index].design.colors).toMatchObject(index === 0 ? { primary: "#FFBD59", cta: "#E7AC24" } : { primary: "#102A43", accent: "#38E8A0", white: "#FFFFFF" });
-    expect(plan.assets.map(asset => asset.role)).toEqual(["logo", "smartphone_straight", "smartphone_angled", "about"]);
+    expect(plan.assets.map(asset => asset.role)).toEqual(["logo", "hero_angled", "section_straight", "about"]);
     for (const asset of plan.assets) {
+      const bytes = readFileSync(asset.source);
+      expect(createHash("sha256").update(bytes).digest("hex")).toBe(asset.sourceSha256);
+      expect(bytes.length).toBe(asset.bytes);
+      expect(asset.width).toBeGreaterThan(0);
+      expect(asset.height).toBeGreaterThan(0);
+      expect(asset.mimeType).toMatch(/^image\/(png|jpeg|webp)$/);
       expect(asset.plannedObjectPath).toMatch(new RegExp(`^locations/${plan.locationId}/t08/v1/`));
-      expect(asset).toMatchObject({ source: null, sourceSha256: null, publicUrl: null, deliveryVerified: false, preserveOriginalBytes: true });
+      expect(asset).toMatchObject({ publicUrl: null, deliveryVerified: false, preserveOriginalBytes: true });
       for (const field of asset.configFields) expect(getByPath(drafts[index], field)).toBe(asset.plannedReference);
-      if (asset.role.startsWith("smartphone")) expect(asset.approvedMarketingLabels).toEqual(["177 Tarife", "477 EUR"]);
+      if (["hero_angled", "section_straight"].includes(asset.role)) expect(asset.approvedMarketingLabels).toEqual(["177 Tarife", "477 EUR"]);
     }
+    expect(getByPath(drafts[index], "design.assets.hero_image")).toContain("hero-angled.jpeg");
+    expect(getByPath(drafts[index], "content.sections.solution.image_url")).toContain("section-straight.jpeg");
+    expect(getByPath(drafts[index], "content.pages.datenschutz.html")).toMatch(/14 Aktualität/);
     expect(JSON.stringify(drafts[index])).not.toContain(other.locationId);
     expect(drafts[index].layout).toEqual(drafts[1 - index].layout);
   });
@@ -78,12 +88,13 @@ describe.each([0, 1])("operator draft %i", index => {
   it("uses operator review legal overrides without asserting legacy infrastructure", () => {
     expect(getByPath(drafts[index], "content.legal.ready")).toBe(false);
     expect(getByPath(drafts[index], "content.legal.variables.firma")).toBe("BeConnected");
-    expect(getByPath(drafts[index], "content.legal.variables.email")).toBe("");
+    expect(getByPath(drafts[index], "content.legal.variables.email")).toBe("info@beconnected-aachen.de");
     for (const page of ["impressum", "datenschutz"]) {
       const html = getByPath(drafts[index], `content.pages.${page}.html`) as string;
       expect(html).toContain("ENTWURF");
       expect(html).toContain("BeConnected");
-      expect(html).toContain("[zur Prüfung ergänzen]");
+      for (const known of ["Einzelunternehmen", "Andy Khelifa", "Heidchenweg 13", "52080 Aachen", "0241 47595243", "info@beconnected-aachen.de", "253125657"]) expect(html).toContain(known);
+      expect(html).not.toContain("[zur Prüfung ergänzen]");
       expect(html).not.toMatch(/WordPress|Elementor|Mailgun|eigenen Server|ec\.europa\.eu\/consumers\/odr/i);
     }
   });
@@ -96,6 +107,8 @@ describe.each([0, 1])("operator draft %i", index => {
     for (const asset of plan.assets) expect(imageSources.some(src => src?.endsWith(asset.plannedObjectPath))).toBe(true);
     expect(imageSources.every(src => src?.includes(`/locations/${plan.locationId}/`) || LANGUAGES.some(language => language.flagUrl === src))).toBe(true);
     expect(container.textContent).not.toContain(other.brand);
+    expect(screen.getByAltText(getByPath(config, "content.sections.hero.image_alt") as string)).toHaveAttribute("src", `/locations/${plan.locationId}/t08/v1/hero-angled.jpeg`);
+    expect(screen.getByAltText(getByPath(config, "content.sections.solution.image_alt") as string)).toHaveAttribute("src", `/locations/${plan.locationId}/t08/v1/section-straight.jpeg`);
     expect(container.textContent).not.toMatch(/1\.500|1500|600000|Manfred|Marvin|Ehiogie/);
     expect(container.textContent).toContain("Marketingbeispiel mit 177 Tarifen und 477 EUR");
     expect(fetcher).toHaveBeenCalledOnce();
@@ -126,7 +139,7 @@ describe.each([0, 1])("operator draft %i", index => {
   it.each(["design.assets.logo_header", "design.assets.logo_footer", "design.assets.hero_image", "content.sections.solution.image_url", "content.sections.about.image_url"])("rejects foreign Location references at %s", field => {
     const config = readyFixture(index);
     for (const foreign of [other.locationId, "unrecognized-location"]) {
-      setPath(config, field, `https://assets.example.test/storage/v1/object/public/customer-website-assets/locations/${foreign}/t08/v1/image.png`);
+      setPath(config, field, `/locations/${foreign}/t08/v1/image.png`);
       expect(customerConfigReadiness(config, plan.locationId)).toBe("ASSETS_NOT_READY");
     }
   });
@@ -137,6 +150,15 @@ describe.each([0, 1])("operator draft %i", index => {
     await waitFor(() => expect(screen.getByRole("status")).toHaveAttribute("data-reason", "ASSETS_NOT_READY"));
     expect(container.querySelector("img")).toBeNull();
     expect(container.querySelector("iframe")).toBeNull();
+  });
+  it.each(["design.assets.hero_image", "content.sections.solution.image_url", "content.sections.about.image_url", "design.assets.agency_logo", "content.seo.image_url"])("blocks external HTTPS at %s even with its own Location path", async field => {
+    const config = readyFixture(index);
+    setPath(config, field, `https://untrusted.example.test/storage/v1/object/public/website-assets/locations/${plan.locationId}/t08/v1/image.png`);
+    const { container, fetcher } = mount(index, config);
+    await waitFor(() => expect(screen.getByRole("status")).toHaveAttribute("data-reason", "ASSETS_NOT_READY"));
+    expect(container.querySelector("img")).toBeNull();
+    expect(container.querySelector("iframe")).toBeNull();
+    expect(fetcher).toHaveBeenCalledOnce(); // No asset GET is mistaken for verification.
   });
   it("rejects encoded foreign namespaces and localized unsafe optional images", () => {
     const config = readyFixture(index);

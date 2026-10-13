@@ -1,53 +1,71 @@
-# T08 draft validation
+# T08 original-asset review remediation — validation
 
-Compared against untouched PR #176 head
-`8888b523707241e644261456531270af0533160d` using the same installed dependencies.
-No dependency manifest, lockfile, Vite/Vitest config or CI config changed.
+Starting local commit: `dc423bf3352dbda896ce82c01ec245f6b7e099fc`.
+Remote checked read-only and unchanged at expected
+`8888b523707241e644261456531270af0533160d`.
+Same branch; prior commit is preserved as the parent of the remediation.
 
-- Focused Vitest: 10 files / 208 tests pass, including 42 new tests loading the
-  actual JSON drafts, both customer runtimes, page/config/asset guards, legal
-  readiness, shared system translations, preview authentication, direct loader
-  boundary and dormant public-order bridge.
-- Changed-file ESLint: 0 errors, 7 existing Fast Refresh warnings in
-  `websiteConfig.tsx`.
-- Full lint: 106 errors / 11 warnings; output is byte-identical to the untouched
-  baseline with the same dependencies.
-- Full app TypeScript (`tsc --noEmit -p tsconfig.app.json`): 13 existing errors;
-  diagnostics are byte-identical to baseline. No new diagnostic in changed files.
-- Node TypeScript (`tsc --noEmit -p tsconfig.node.json`): passes.
-- Vite production build: passes with the existing >500 kB chunk-size warning.
-- `git diff --check`: passes.
+## Input verification
 
-Standard `npm test` and `npm run build` were attempted on the untouched baseline;
-SWC fails before project compilation with `ERR_SWC_NATIVE_CACHE`. Successful
-checks use ignored temporary `work/vitest.esbuild.config.ts` and
-`work/vite.esbuild.config.ts`: same project root, alias, test setup/environment and
-automatic JSX transform, omitting the unavailable native SWC plugin. Native SWC
-checks remain unverified; the workaround does not establish their success.
+All eight delivered originals independently matched the supplied SHA-256 manifest,
+file size, actual MIME format and dimensions (Pillow image-header inspection).
+All four phone images were visually checked: angled Hero, straight second section,
+177 tariff / 477 EUR marketing content retained. Review copies under docs/t08/assets
+are byte-identical, outside public/ and runtime imports; no generated replacement.
+
+The operator archive hash is recorded in asset-manifest.json. Source texts and
+operator manifest are preserved unchanged under source-evidence/. Handover #664
+was read directly in KI-Energieassistent at
+`a666af6e7bc3b3065bb7c19ff396e1f26a878a36`; its relevant excerpt is included for
+independent review. There was no live Storage inspection or write in this task.
+
+## Checks
+
+- Focused Vitest: **13 files / 242 tests pass**. Actual draft/hash checks, corrected
+  rendered Hero/second-section images, full known legal identity/14-section privacy,
+  legal gate, arbitrary HTTPS rejection, unsafe root paths, foreign Location assets,
+  matching row identity/no fallback, translations, legal/metadata/About/Footer,
+  preview auth, direct loader boundary and dormant public-order bridge.
+- Changed-file ESLint: **0 errors / 0 warnings** for customerRuntime.ts,
+  customerRuntime.test.ts and customerConfigDrafts.test.tsx.
+- Full lint: **106 errors / 11 warnings**, byte-identical to the untouched starting
+  local commit's baseline with the same installed dependencies.
+- Full app TypeScript: **13 existing errors**, diagnostics byte-identical to that
+  baseline; no new diagnostic. `tsc --noEmit -p tsconfig.app.json`.
+- Node TypeScript: **passes**. `tsc --noEmit -p tsconfig.node.json`.
+- Vite production build: **passes** using the temporary esbuild config, with the
+  existing >500 kB chunk-size warning. Build output contains no review originals.
+- `git diff --check` excluding the byte-preserved original legal source: **passes**.
+  The unfiltered check reports 14 intentional Markdown hard-break trailing-space
+  lines in the supplied original legal document. They are preserved unchanged as
+  evidence; this is not a code diagnostic or a reason to alter the original.
+
+Standard `npm test` and `npm run build` were attempted again on the untouched
+starting commit; both fail during native SWC startup (`ERR_SWC_NATIVE_CACHE`),
+before project compilation. Successful tests/build use ignored temporary
+`work/vitest.esbuild.config.ts` and `work/vite.esbuild.config.ts` with automatic JSX,
+the same root, alias and test setup/environment, and no unavailable SWC plugin.
+Native SWC checks remain unverified. Repository config, dependencies and lockfiles
+are unchanged. This workaround does not assert standard native commands passed.
 
 Focused command:
 
 ```sh
 npx vitest run --config work/vitest.esbuild.config.ts \
-  src/test/customerConfigDrafts.test.tsx \
-  src/lib/customerRuntime.test.ts src/lib/websiteConfig.test.tsx \
-  src/components/CustomerRuntimeBoundary.test.tsx \
+  src/test/customerConfigDrafts.test.tsx src/lib/customerRuntime.test.ts \
+  src/lib/websiteConfig.test.tsx src/components/CustomerRuntimeBoundary.test.tsx \
   src/test/customerSystemTexts.test.tsx src/pages/legalReadiness.test.tsx \
   src/lib/websiteRuntime.test.ts src/test/customerLoaderBoundary.test.ts \
-  src/test/previewLock.test.ts src/lib/publicOrderBridge.test.ts
+  src/test/previewLock.test.ts src/lib/publicOrderBridge.test.ts \
+  src/components/WebsiteMetadata.test.tsx src/components/About.test.tsx \
+  src/components/Footer.test.tsx
 ```
 
-The temporary test config is equivalent to the repository config with
-`plugins: [react()]` removed and `esbuild: { jsx: "automatic" }` added. The build
-config makes the same transform substitution and retains the source alias; no
-hosting or deployment command is involved.
+Positive render tests replace symbolic references only in local copies with
+same-origin fixture paths and legal approval. They do not assert actual Storage
+existence, approved delivery or publication. Both saved legal.ready flags remain
+false, the bucket remains NICHT FREIGEGEBEN and deliveryVerified remains false.
+No network probe of a supplied image is treated as delivery verification.
 
-Positive tests use local copies with fixture-only legal approval/contact and
-`assets.example.test` URLs. They prove consumer behavior, not actual customer
-readiness. Persisted drafts remain legally unapproved with undelivered symbolic
-Storage references. Tests perform no Storage, database, CRM or deployment writes.
-
-Supabase Storage documentation was checked through the read-only documentation
-connector: `getPublicUrl` is a URL-construction helper, not bucket visibility or
-object delivery verification. Direct changelog/document fetches were denied by
-the environment HTTP policy; no new Supabase API/feature is implemented here.
+No push, Cloudflare preview/deployment, Supabase mutation, merge, UI-wave change,
+funnel-security change or customer-base-branch modification is performed.

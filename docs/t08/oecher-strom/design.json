@@ -12,9 +12,9 @@
     "section": "2.5rem"
   },
   "assets": {
-    "logo_header": "supabase-storage://customer-website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/logo.original",
-    "logo_footer": "supabase-storage://customer-website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/logo.original",
-    "hero_image": "supabase-storage://customer-website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/smartphone-straight.original",
+    "logo_header": "supabase-storage://website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/logo.png",
+    "logo_footer": "supabase-storage://website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/logo.png",
+    "hero_image": "supabase-storage://website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/hero-angled.jpeg",
     "agency_logo": ""
   }
 }

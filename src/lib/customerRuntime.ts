@@ -30,8 +30,15 @@ const populated = (value: unknown) => typeof value === "string" && Boolean(value
 const asset = (value: unknown) => {
   if (!populated(value)) return false;
   if (typeof value !== "string") return false;
-  if (/^\/(?!\/)/.test(value)) return true;
-  try { return new URL(value).protocol === "https:"; } catch { return false; }
+  // No canonical external Storage origin/bucket/delivery contract is approved.
+  // HTTPS and a matching Location path do not establish trusted asset delivery.
+  // Keep external and symbolic Storage references closed until that separate review.
+  if (!/^\/(?!\/)/.test(value) || /[\\\s]/.test(value) || /%(?:2f|5c|25)/i.test(value)) return false;
+  try {
+    const url = new URL(value, "https://asset-validation.invalid");
+    decodeURIComponent(url.pathname); // Reject malformed escaping as well.
+    return url.origin === "https://asset-validation.invalid" && !url.search && !url.hash;
+  } catch { return false; }
 };
 
 // Reference validation only: neither URL ownership nor object delivery is proven here.
@@ -56,7 +63,7 @@ const optionalAsset = (value: unknown, locationId?: string): boolean => {
   return isolatedAsset(value, locationId);
 };
 
-/** Uses actual config buckets, never repository defaults or inferred legal approval. */
+/** Configuration-reference prerequisites only, never proof of delivery or Storage authorization. */
 export function customerConfigReadiness(config: WebsiteConfig, locationId?: string): "READY" | "CONFIG_NOT_READY" | "LEGAL_NOT_READY" | "ASSETS_NOT_READY" {
   if (![config.content, config.design, config.layout].every(bucket => Object.keys(bucket).length > 0)) return "CONFIG_NOT_READY";
   const legal = record(config.content.legal);

@@ -4,7 +4,7 @@ import { resolveWebsiteRuntime } from "./websiteRuntime";
 
 const config = () => ({
   content: { legal: { ready: true, variables: { firma: "Test fixture", email: "fixture@example.test" } } },
-  design: { assets: { logo_header: "/fixture.svg", logo_footer: "/fixture.svg", hero_image: "https://assets.example.test/fixture.png" } },
+  design: { assets: { logo_header: "/fixture.svg", logo_footer: "/fixture.svg", hero_image: "/fixture.png" } },
   layout: { pages: {} },
 });
 describe("customer runtime binding", () => {
@@ -52,4 +52,23 @@ describe("actual customer config readiness", () => {
     expect(customerConfigReadiness(value)).toBe("ASSETS_NOT_READY");
   });
   it("accepts only actual supplied configuration", () => expect(customerConfigReadiness(config())).toBe("READY"));
+  it.each([
+    "https://unrelated.example.test/hero.png",
+    "https://unrelated.example.test/storage/v1/object/public/website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/hero-angled.jpeg",
+    "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/hero-angled.jpeg",
+    "https://app.oecher-strom.de/hero.png",
+    "https://app.oecher-strom.de@unrelated.example.test/hero.png",
+    "//unrelated.example.test/hero.png",
+    "/\\unrelated.example.test/hero.png",
+    "/%2funrelated.example.test/hero.png",
+    "/locations%252Fother/hero.png",
+    "/hero.png?redirect=https://unrelated.example.test",
+    "/hero.png#unverified",
+    "/hero%ZZ.png",
+    "supabase-storage://website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/hero-angled.jpeg",
+  ])("does not mistake an unapproved reference for verified Storage delivery: %s", reference => {
+    const value = config();
+    value.design.assets.hero_image = reference;
+    expect(customerConfigReadiness(value, customerRuntimeBindings[0].locationId)).toBe("ASSETS_NOT_READY");
+  });
 });

@@ -1,8 +1,18 @@
 {
   "status": "NOT_READY",
-  "bucket": "customer-website-assets",
-  "bucketStatus": "PLANNED_NOT_VERIFIED",
-  "referenceScheme": "supabase-storage://<bucket>/<objectPath>",
+  "bucket": "website-assets",
+  "bucketStatus": "NOT_APPROVED",
+  "storagePlanLabel": "NICHT FREIGEGEBEN",
+  "bucketExists": false,
+  "previousBucket": "customer-website-assets",
+  "previousBucketExists": false,
+  "handover": {
+    "repository": "oslau100/KI-Energieassistent",
+    "pr": 664,
+    "headSha": "a666af6e7bc3b3065bb7c19ff396e1f26a878a36",
+    "path": "docs/PRODUCTION_HANDOVER.md"
+  },
+  "referenceScheme": "supabase-storage://<proposed-bucket>/<planned-object-path>",
   "customers": [
     {
       "brand": "Öcher Strom",
@@ -16,84 +26,98 @@
             "design.assets.logo_header",
             "design.assets.logo_footer"
           ],
-          "plannedObjectPath": "locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/logo.original",
-          "plannedReference": "supabase-storage://customer-website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/logo.original",
-          "source": null,
-          "sourceSha256": null,
-          "mimeType": null,
-          "width": null,
-          "height": null,
+          "plannedObjectPath": "locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/logo.png",
+          "plannedReference": "supabase-storage://website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/logo.png",
+          "source": "docs/t08/assets/oecher-strom/logo.png",
+          "originalUploadFilename": "Öcherstrom_logo_cropped-Kein-Titel-1200-X-1200-Px-1-1.png",
+          "sourceSha256": "0e952c1f9df9ed4bc999fa73e1910ed5e346e3ddb7e958d37ed23201c8702e9b",
+          "mimeType": "image/png",
+          "width": 512,
+          "height": 512,
+          "bytes": 22562,
           "publicUrl": null,
           "deliveryVerified": false,
-          "status": "SOURCE_REQUIRED",
+          "storageExists": false,
+          "status": "SOURCE_VERIFIED_STORAGE_NOT_APPROVED",
           "preserveOriginalBytes": true,
-          "approvedMarketingLabels": [],
-          "reviewNote": "Exact approved source must be supplied; no replacement, regeneration, cropping or relabeling. .original is a planning filename, not a verified format."
+          "approvedMarketingLabels": []
         },
         {
-          "role": "smartphone_straight",
+          "role": "hero_angled",
           "configFields": [
             "design.assets.hero_image"
           ],
-          "plannedObjectPath": "locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/smartphone-straight.original",
-          "plannedReference": "supabase-storage://customer-website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/smartphone-straight.original",
-          "source": null,
-          "sourceSha256": null,
-          "mimeType": null,
-          "width": null,
-          "height": null,
+          "plannedObjectPath": "locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/hero-angled.jpeg",
+          "plannedReference": "supabase-storage://website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/hero-angled.jpeg",
+          "source": "docs/t08/assets/oecher-strom/hero-angled.jpeg",
+          "originalUploadFilename": "image0 (2).jpeg",
+          "sourceSha256": "cd637861eac49a87903686756ce909dcc76334aaad142cb4fa188cee3b57a82c",
+          "mimeType": "image/jpeg",
+          "width": 900,
+          "height": 1600,
+          "bytes": 157236,
           "publicUrl": null,
           "deliveryVerified": false,
-          "status": "SOURCE_REQUIRED",
+          "storageExists": false,
+          "status": "SOURCE_VERIFIED_STORAGE_NOT_APPROVED",
           "preserveOriginalBytes": true,
           "approvedMarketingLabels": [
             "177 Tarife",
             "477 EUR"
-          ],
-          "reviewNote": "Exact approved source must be supplied; no replacement, regeneration, cropping or relabeling. .original is a planning filename, not a verified format."
+          ]
         },
         {
-          "role": "smartphone_angled",
+          "role": "section_straight",
           "configFields": [
             "content.sections.solution.image_url"
           ],
-          "plannedObjectPath": "locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/smartphone-angled.original",
-          "plannedReference": "supabase-storage://customer-website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/smartphone-angled.original",
-          "source": null,
-          "sourceSha256": null,
-          "mimeType": null,
-          "width": null,
-          "height": null,
+          "plannedObjectPath": "locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/section-straight.jpeg",
+          "plannedReference": "supabase-storage://website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/section-straight.jpeg",
+          "source": "docs/t08/assets/oecher-strom/section-straight.jpeg",
+          "originalUploadFilename": "image1 (1).jpeg",
+          "sourceSha256": "56a8df5957ff0ce6a0373930bb447c0c666b4480cfffc45f1ca94d2d7f91ac3f",
+          "mimeType": "image/jpeg",
+          "width": 900,
+          "height": 1600,
+          "bytes": 154934,
           "publicUrl": null,
           "deliveryVerified": false,
-          "status": "SOURCE_REQUIRED",
+          "storageExists": false,
+          "status": "SOURCE_VERIFIED_STORAGE_NOT_APPROVED",
           "preserveOriginalBytes": true,
           "approvedMarketingLabels": [
             "177 Tarife",
             "477 EUR"
-          ],
-          "reviewNote": "Exact approved source must be supplied; no replacement, regeneration, cropping or relabeling. .original is a planning filename, not a verified format."
+          ]
         },
         {
           "role": "about",
           "configFields": [
             "content.sections.about.image_url"
           ],
-          "plannedObjectPath": "locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/about.original",
-          "plannedReference": "supabase-storage://customer-website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/about.original",
-          "source": null,
-          "sourceSha256": null,
-          "mimeType": null,
-          "width": null,
-          "height": null,
+          "plannedObjectPath": "locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/about.webp",
+          "plannedReference": "supabase-storage://website-assets/locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/about.webp",
+          "source": "docs/t08/assets/oecher-strom/about.webp",
+          "originalUploadFilename": "Öcherstrom_überuns.webp",
+          "sourceSha256": "fe7473a77846f933df1d3c24b24795e4780b1ae25f83dc52ba7f12c479257858",
+          "mimeType": "image/webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 106228,
           "publicUrl": null,
           "deliveryVerified": false,
-          "status": "SOURCE_REQUIRED",
+          "storageExists": false,
+          "status": "SOURCE_VERIFIED_STORAGE_NOT_APPROVED",
           "preserveOriginalBytes": true,
-          "approvedMarketingLabels": [],
-          "reviewNote": "Exact approved source must be supplied; no replacement, regeneration, cropping or relabeling. .original is a planning filename, not a verified format."
+          "approvedMarketingLabels": []
         }
-      ]
+      ],
+      "favicon": {
+        "status": "NOT_READY_NOT_SUPPLIED",
+        "source": null,
+        "publicUrl": null,
+        "deliveryVerified": false
+      }
     },
     {
       "brand": "Tarivia",
@@ -107,84 +131,104 @@
             "design.assets.logo_header",
             "design.assets.logo_footer"
           ],
-          "plannedObjectPath": "locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/logo.original",
-          "plannedReference": "supabase-storage://customer-website-assets/locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/logo.original",
-          "source": null,
-          "sourceSha256": null,
-          "mimeType": null,
-          "width": null,
-          "height": null,
+          "plannedObjectPath": "locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/logo.jpg",
+          "plannedReference": "supabase-storage://website-assets/locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/logo.jpg",
+          "source": "docs/t08/assets/tarivia/logo.jpg",
+          "originalUploadFilename": "Tarivia Logo.jpg",
+          "sourceSha256": "26b92dc8a4b2e877ae933ee75a79f8d093cfec847807801ad54c277f014ea910",
+          "mimeType": "image/jpeg",
+          "width": 1600,
+          "height": 533,
+          "bytes": 38804,
           "publicUrl": null,
           "deliveryVerified": false,
-          "status": "SOURCE_REQUIRED",
+          "storageExists": false,
+          "status": "SOURCE_VERIFIED_STORAGE_NOT_APPROVED",
           "preserveOriginalBytes": true,
-          "approvedMarketingLabels": [],
-          "reviewNote": "Exact approved source must be supplied; no replacement, regeneration, cropping or relabeling. .original is a planning filename, not a verified format."
+          "approvedMarketingLabels": []
         },
         {
-          "role": "smartphone_straight",
+          "role": "hero_angled",
           "configFields": [
             "design.assets.hero_image"
           ],
-          "plannedObjectPath": "locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/smartphone-straight.original",
-          "plannedReference": "supabase-storage://customer-website-assets/locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/smartphone-straight.original",
-          "source": null,
-          "sourceSha256": null,
-          "mimeType": null,
-          "width": null,
-          "height": null,
+          "plannedObjectPath": "locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/hero-angled.jpeg",
+          "plannedReference": "supabase-storage://website-assets/locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/hero-angled.jpeg",
+          "source": "docs/t08/assets/tarivia/hero-angled.jpeg",
+          "originalUploadFilename": "image3 (1).jpeg",
+          "sourceSha256": "24768c2b462dffb4bf6794af0b42588ed0c506ddd5d7e4d28841b3f21a7cd6e2",
+          "mimeType": "image/jpeg",
+          "width": 900,
+          "height": 1600,
+          "bytes": 144488,
           "publicUrl": null,
           "deliveryVerified": false,
-          "status": "SOURCE_REQUIRED",
+          "storageExists": false,
+          "status": "SOURCE_VERIFIED_STORAGE_NOT_APPROVED",
           "preserveOriginalBytes": true,
           "approvedMarketingLabels": [
             "177 Tarife",
             "477 EUR"
-          ],
-          "reviewNote": "Exact approved source must be supplied; no replacement, regeneration, cropping or relabeling. .original is a planning filename, not a verified format."
+          ]
         },
         {
-          "role": "smartphone_angled",
+          "role": "section_straight",
           "configFields": [
             "content.sections.solution.image_url"
           ],
-          "plannedObjectPath": "locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/smartphone-angled.original",
-          "plannedReference": "supabase-storage://customer-website-assets/locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/smartphone-angled.original",
-          "source": null,
-          "sourceSha256": null,
-          "mimeType": null,
-          "width": null,
-          "height": null,
+          "plannedObjectPath": "locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/section-straight.jpeg",
+          "plannedReference": "supabase-storage://website-assets/locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/section-straight.jpeg",
+          "source": "docs/t08/assets/tarivia/section-straight.jpeg",
+          "originalUploadFilename": "image2 (1).jpeg",
+          "sourceSha256": "21d8a6ead4b764896fd18dbbf460070ed67c2235b88df3e00557c962cb2855a1",
+          "mimeType": "image/jpeg",
+          "width": 900,
+          "height": 1600,
+          "bytes": 128470,
           "publicUrl": null,
           "deliveryVerified": false,
-          "status": "SOURCE_REQUIRED",
+          "storageExists": false,
+          "status": "SOURCE_VERIFIED_STORAGE_NOT_APPROVED",
           "preserveOriginalBytes": true,
           "approvedMarketingLabels": [
             "177 Tarife",
             "477 EUR"
-          ],
-          "reviewNote": "Exact approved source must be supplied; no replacement, regeneration, cropping or relabeling. .original is a planning filename, not a verified format."
+          ]
         },
         {
           "role": "about",
           "configFields": [
             "content.sections.about.image_url"
           ],
-          "plannedObjectPath": "locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/about.original",
-          "plannedReference": "supabase-storage://customer-website-assets/locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/about.original",
-          "source": null,
-          "sourceSha256": null,
-          "mimeType": null,
-          "width": null,
-          "height": null,
+          "plannedObjectPath": "locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/about.png",
+          "plannedReference": "supabase-storage://website-assets/locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/about.png",
+          "source": "docs/t08/assets/tarivia/about.png",
+          "originalUploadFilename": "Tarivia über uns.png",
+          "sourceSha256": "a30c90550dfce92b00c5457a9813e62e153406d4a4eedad8f1a54f18b379171b",
+          "mimeType": "image/png",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 2182375,
           "publicUrl": null,
           "deliveryVerified": false,
-          "status": "SOURCE_REQUIRED",
+          "storageExists": false,
+          "status": "SOURCE_VERIFIED_STORAGE_NOT_APPROVED",
           "preserveOriginalBytes": true,
-          "approvedMarketingLabels": [],
-          "reviewNote": "Exact approved source must be supplied; no replacement, regeneration, cropping or relabeling. .original is a planning filename, not a verified format."
+          "approvedMarketingLabels": []
         }
-      ]
+      ],
+      "favicon": {
+        "status": "NOT_READY_NOT_SUPPLIED",
+        "source": null,
+        "publicUrl": null,
+        "deliveryVerified": false
+      }
     }
-  ]
+  ],
+  "inputArchive": {
+    "filename": "T08_approved_assets_and_legal_inputs_2026-10-13.zip",
+    "sha256": "3585a8e33c6d1c79b577add1df1748c84bcca9e11553dc24087bd0e63cce2257",
+    "originalsVerified": 8,
+    "verification": "SHA-256, byte size, decoded MIME and dimensions matched operator manifest"
+  }
 }
