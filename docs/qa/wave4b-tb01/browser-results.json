@@ -1,0 +1,510 @@
+{
+  "fixtureOnly": true,
+  "logo": "External logo request intentionally blocked; same restriction for before/after.",
+  "results": [
+    {
+      "label": "portal-320",
+      "width": 320,
+      "scroll": 320,
+      "dialogs": []
+    },
+    {
+      "label": "empfehlungen-320",
+      "width": 320,
+      "scroll": 320,
+      "dialogs": []
+    },
+    {
+      "label": "belohnungen-320",
+      "width": 320,
+      "scroll": 320,
+      "dialogs": []
+    },
+    {
+      "label": "profil-320",
+      "width": 320,
+      "scroll": 320,
+      "dialogs": []
+    },
+    {
+      "label": "bank-dialog-320",
+      "width": 320,
+      "scroll": 320,
+      "dialogs": [
+        {
+          "left": 16,
+          "right": 304,
+          "top": 125,
+          "bottom": 719,
+          "scroll": 286,
+          "client": 286
+        }
+      ]
+    },
+    {
+      "label": "profile-dialog-320",
+      "width": 320,
+      "scroll": 320,
+      "dialogs": [
+        {
+          "left": 23.200000762939453,
+          "right": 296.79997634887695,
+          "top": 229.0800018310547,
+          "bottom": 631.8799896240234,
+          "scroll": 286,
+          "client": 286
+        }
+      ]
+    },
+    {
+      "label": "portal-375",
+      "width": 375,
+      "scroll": 375,
+      "dialogs": []
+    },
+    {
+      "label": "empfehlungen-375",
+      "width": 375,
+      "scroll": 375,
+      "dialogs": []
+    },
+    {
+      "label": "belohnungen-375",
+      "width": 375,
+      "scroll": 375,
+      "dialogs": []
+    },
+    {
+      "label": "profil-375",
+      "width": 375,
+      "scroll": 375,
+      "dialogs": []
+    },
+    {
+      "label": "bank-dialog-375",
+      "width": 375,
+      "scroll": 375,
+      "dialogs": [
+        {
+          "left": 24.575002670288086,
+          "right": 350.4249782562256,
+          "top": 178.12001037597656,
+          "bottom": 687.3200225830078,
+          "scroll": 341,
+          "client": 341
+        }
+      ]
+    },
+    {
+      "label": "profile-dialog-375",
+      "width": 375,
+      "scroll": 375,
+      "dialogs": [
+        {
+          "left": 24.575002670288086,
+          "right": 350.4249782562256,
+          "top": 229.0800018310547,
+          "bottom": 631.8799896240234,
+          "scroll": 341,
+          "client": 341
+        }
+      ]
+    },
+    {
+      "label": "portal-390",
+      "width": 390,
+      "scroll": 390,
+      "dialogs": []
+    },
+    {
+      "label": "empfehlungen-390",
+      "width": 390,
+      "scroll": 390,
+      "dialogs": []
+    },
+    {
+      "label": "belohnungen-390",
+      "width": 390,
+      "scroll": 390,
+      "dialogs": []
+    },
+    {
+      "label": "profil-390",
+      "width": 390,
+      "scroll": 390,
+      "dialogs": []
+    },
+    {
+      "label": "bank-dialog-390",
+      "width": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "left": 23.93954086303711,
+          "right": 366.06045150756836,
+          "top": 184.59844970703125,
+          "bottom": 677.7113037109375,
+          "scroll": 356,
+          "client": 356
+        }
+      ]
+    },
+    {
+      "label": "profile-dialog-390",
+      "width": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "left": 24.950002670288086,
+          "right": 365.0499782562256,
+          "top": 238.1800079345703,
+          "bottom": 621.9799957275391,
+          "scroll": 356,
+          "client": 356
+        }
+      ]
+    },
+    {
+      "label": "portal-428",
+      "width": 428,
+      "scroll": 428,
+      "dialogs": []
+    },
+    {
+      "label": "empfehlungen-428",
+      "width": 428,
+      "scroll": 428,
+      "dialogs": []
+    },
+    {
+      "label": "belohnungen-428",
+      "width": 428,
+      "scroll": 428,
+      "dialogs": []
+    },
+    {
+      "label": "profil-428",
+      "width": 428,
+      "scroll": 428,
+      "dialogs": []
+    },
+    {
+      "label": "bank-dialog-428",
+      "width": 428,
+      "scroll": 428,
+      "dialogs": [
+        {
+          "left": 16,
+          "right": 412,
+          "top": 164,
+          "bottom": 680,
+          "scroll": 394,
+          "client": 394
+        }
+      ]
+    },
+    {
+      "label": "profile-dialog-428",
+      "width": 428,
+      "scroll": 428,
+      "dialogs": [
+        {
+          "left": 25.900001525878906,
+          "right": 402.10001373291016,
+          "top": 238.1800079345703,
+          "bottom": 621.9799957275391,
+          "scroll": 394,
+          "client": 394
+        }
+      ]
+    },
+    {
+      "label": "portal-760",
+      "width": 760,
+      "scroll": 760,
+      "dialogs": []
+    },
+    {
+      "label": "empfehlungen-760",
+      "width": 760,
+      "scroll": 760,
+      "dialogs": []
+    },
+    {
+      "label": "belohnungen-760",
+      "width": 760,
+      "scroll": 760,
+      "dialogs": []
+    },
+    {
+      "label": "profil-760",
+      "width": 760,
+      "scroll": 760,
+      "dialogs": []
+    },
+    {
+      "label": "bank-dialog-760",
+      "width": 760,
+      "scroll": 760,
+      "dialogs": [
+        {
+          "left": 34.20000457763672,
+          "right": 725.7999801635742,
+          "top": 308.8999938964844,
+          "bottom": 707.8999633789062,
+          "scroll": 726,
+          "client": 726
+        }
+      ]
+    },
+    {
+      "label": "profile-dialog-760",
+      "width": 760,
+      "scroll": 760,
+      "dialogs": [
+        {
+          "left": 34.20000457763672,
+          "right": 725.7999801635742,
+          "top": 325.2799987792969,
+          "bottom": 690.0800170898438,
+          "scroll": 726,
+          "client": 726
+        }
+      ]
+    },
+    {
+      "label": "portal-1024",
+      "width": 1024,
+      "scroll": 1024,
+      "dialogs": []
+    },
+    {
+      "label": "empfehlungen-1024",
+      "width": 1024,
+      "scroll": 1024,
+      "dialogs": []
+    },
+    {
+      "label": "belohnungen-1024",
+      "width": 1024,
+      "scroll": 1024,
+      "dialogs": []
+    },
+    {
+      "label": "profil-1024",
+      "width": 1024,
+      "scroll": 1024,
+      "dialogs": []
+    },
+    {
+      "label": "bank-dialog-1024",
+      "width": 1024,
+      "scroll": 1024,
+      "dialogs": [
+        {
+          "left": 40.80000686645508,
+          "right": 983.2000312805176,
+          "top": 308.8999938964844,
+          "bottom": 707.8999633789062,
+          "scroll": 990,
+          "client": 990
+        }
+      ]
+    },
+    {
+      "label": "profile-dialog-1024",
+      "width": 1024,
+      "scroll": 1024,
+      "dialogs": [
+        {
+          "left": 40.80000686645508,
+          "right": 983.2000312805176,
+          "top": 325.2799987792969,
+          "bottom": 690.0800170898438,
+          "scroll": 990,
+          "client": 990
+        }
+      ]
+    },
+    {
+      "label": "portal-1440",
+      "width": 1440,
+      "scroll": 1440,
+      "dialogs": []
+    },
+    {
+      "label": "empfehlungen-1440",
+      "width": 1440,
+      "scroll": 1440,
+      "dialogs": []
+    },
+    {
+      "label": "belohnungen-1440",
+      "width": 1440,
+      "scroll": 1440,
+      "dialogs": []
+    },
+    {
+      "label": "profil-1440",
+      "width": 1440,
+      "scroll": 1440,
+      "dialogs": []
+    },
+    {
+      "label": "bank-dialog-1440",
+      "width": 1440,
+      "scroll": 1440,
+      "dialogs": [
+        {
+          "left": 16,
+          "right": 1424,
+          "top": 290,
+          "bottom": 710,
+          "scroll": 1406,
+          "client": 1406
+        }
+      ]
+    },
+    {
+      "label": "profile-dialog-1440",
+      "width": 1440,
+      "scroll": 1440,
+      "dialogs": [
+        {
+          "left": 51.200008392333984,
+          "right": 1388.800106048584,
+          "top": 325.2799987792969,
+          "bottom": 690.0800170898438,
+          "scroll": 1406,
+          "client": 1406
+        }
+      ]
+    },
+    {
+      "label": "voucher-390",
+      "width": 390,
+      "scroll": 390,
+      "dialogs": []
+    },
+    {
+      "label": "unknown-390",
+      "width": 390,
+      "scroll": 390,
+      "dialogs": []
+    },
+    {
+      "label": "absent-390",
+      "width": 390,
+      "scroll": 390,
+      "dialogs": []
+    },
+    {
+      "label": "bank-empty-390",
+      "width": 390,
+      "scroll": 390,
+      "dialogs": []
+    },
+    {
+      "label": "voucher-1440",
+      "width": 1440,
+      "scroll": 1440,
+      "dialogs": []
+    },
+    {
+      "label": "unknown-1440",
+      "width": 1440,
+      "scroll": 1440,
+      "dialogs": []
+    },
+    {
+      "label": "absent-1440",
+      "width": 1440,
+      "scroll": 1440,
+      "dialogs": []
+    },
+    {
+      "label": "bank-empty-1440",
+      "width": 1440,
+      "scroll": 1440,
+      "dialogs": []
+    },
+    {
+      "label": "isolated-no-reward-390",
+      "width": 390,
+      "scroll": 390,
+      "dialogs": []
+    },
+    {
+      "label": "isolated-no-reward-1440",
+      "width": 1440,
+      "scroll": 1440,
+      "dialogs": []
+    }
+  ],
+  "timings": [
+    {
+      "section": "Empfehlungen",
+      "ms": 827
+    },
+    {
+      "section": "Belohnungen",
+      "ms": 833
+    },
+    {
+      "section": "Übersicht",
+      "ms": 831
+    },
+    {
+      "section": "Empfehlungen",
+      "ms": 833
+    }
+  ],
+  "errors": [],
+  "gallery": [
+    "portal-390",
+    "empfehlungen-390",
+    "belohnungen-390",
+    "profil-390",
+    "bank-empty-390",
+    "bank-incomplete-390",
+    "bank-invalid-390",
+    "bank-valid-format-redacted-390",
+    "bank-masked-save-disabled-390",
+    "profile-edit-390",
+    "portal-1440",
+    "empfehlungen-1440",
+    "belohnungen-1440",
+    "profil-1440",
+    "bank-empty-1440",
+    "bank-incomplete-1440",
+    "bank-invalid-1440",
+    "bank-valid-format-redacted-1440",
+    "bank-masked-save-disabled-1440",
+    "profile-edit-1440",
+    "settings-voucher-390",
+    "settings-unknown-390",
+    "settings-absent-390",
+    "settings-bank-empty-390",
+    "empty-empfehlungen-390",
+    "empty-belohnungen-390",
+    "empty-profil-390",
+    "read-error-390",
+    "initial-loading-390",
+    "settings-voucher-1440",
+    "settings-unknown-1440",
+    "settings-absent-1440",
+    "settings-bank-empty-1440",
+    "empty-empfehlungen-1440",
+    "empty-belohnungen-1440",
+    "empty-profil-1440",
+    "read-error-1440",
+    "initial-loading-1440",
+    "isolated-no-reward-390",
+    "isolated-no-reward-1440",
+    "before-empfehlungen-1440",
+    "before-belohnungen-1440",
+    "before-profil-1440",
+    "before-loading-1440",
+    "tab-revisit-1440"
+  ]
+}

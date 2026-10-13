@@ -1,0 +1,19 @@
+{
+  "viewport": {
+    "width": 320,
+    "height": 400
+  },
+  "focusTrap": true,
+  "escapeDismissal": true,
+  "focusRestored": true,
+  "rawHtmlAttributeAbsent": true,
+  "rawClearedOnBlur": true,
+  "noPrepopulation": true,
+  "dialog": {
+    "top": 16,
+    "bottom": 384,
+    "width": 288,
+    "scroll": 656,
+    "client": 366
+  }
+}

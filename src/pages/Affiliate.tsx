@@ -1,3 +1,6 @@
+import { PartnerList } from "@/components/affiliate/PartnerList";
+import { PayoutMethodCard, ProfileCard } from "@/components/affiliate/PartnerSettings";
+import { formatDate, money, payoutStatus, referralStatus, rewardStatus, safeMaskedIban } from "@/lib/affiliate-presentation";
 import { AffiliateLayout } from "@/components/affiliate/AffiliateLayout";
 import { HowItWorks, type HowItWorksStep } from "@/components/HowItWorks";
 import { Button } from "@/components/ui/button";
@@ -6,7 +9,7 @@ import { AffiliateApiError, affiliateApi, type AffiliateOverview, type Affiliate
 import { affiliateDE as t } from "@/i18n/affiliate";
 import { affiliateDestination, safeAffiliateSearch } from "@/lib/affiliate-navigation";
 import { Check, CheckCircle2, Copy, Gift, Link2, Share2, Sparkles, Users } from "lucide-react";
-import { FormEvent, useCallback, useEffect, useState } from "react";
+import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Card = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => <section className={`rounded-[2rem] border bg-white p-6 shadow-sm ${className}`}>{children}</section>;
@@ -62,42 +65,94 @@ function Field({ label, ...props }: { label: string; name: string; type?: string
 
 type PortalData = AffiliateOverview | AffiliateReferral[] | AffiliateReward[] | { profile: AffiliateProfile; payouts: AffiliatePayout[]; payoutMethod: AffiliatePayoutMethod | null };
 type PortalSectionName = "portal" | "empfehlungen" | "belohnungen" | "profil";
-type PortalState = { section: PortalSectionName; status: "loading" | "ready" | "empty" | "error"; data?: PortalData; userName?: string };
+type PortalState = { section: PortalSectionName; context?: string; status: "loading" | "ready" | "empty" | "error"; data?: PortalData; userName?: string };
 export function AffiliatePortal({ section }: { section: "portal" | "empfehlungen" | "belohnungen" | "profil" }) {
   const navigate = useNavigate(); const location = useLocation(); const [state, setState] = useState<PortalState>({ section, status: "loading" });
-  useEffect(() => { let active = true; const load = async () => {
-    setState({ section, status: "loading" });
-    try {
-      const session = await affiliateApi.session();
-      if (!session.authenticated || !session.user) { navigate(affiliateDestination("/empfehlungsprogramm/anmelden", location.search), { replace: true }); return; }
-      await affiliateApi.bootstrapProfile();
-      let data: PortalData;
-      if (section === "empfehlungen") data = await affiliateApi.referrals();
-      else if (section === "belohnungen") data = await affiliateApi.rewards();
-      else if (section === "profil") { const [profile, payouts, payoutMethod] = await Promise.all([affiliateApi.profile(), affiliateApi.payouts(), affiliateApi.payoutMethod()]); data = { profile, payouts, payoutMethod }; }
-      else data = await affiliateApi.overview();
-      const empty = Array.isArray(data) && data.length === 0;
-      if (active) setState({ section, status: empty ? "empty" : "ready", data, userName: session.user.name });
-    } catch (error) {
-      if (error instanceof AffiliateApiError && (error.status === 401 || error.status === 403)) { navigate(affiliateDestination("/empfehlungsprogramm/anmelden", location.search), { replace: true }); return; }
-      if (active) setState({ section, status: "error" });
-    }
-  }; void load(); return () => { active = false; }; }, [location.search, navigate, section]);
-  const logout = async () => { try { await affiliateApi.logout(); } finally { navigate(affiliateDestination("/empfehlungsprogramm/anmelden", location.search), { replace: true }); } };
-  const currentState = state.section === section ? state : { section, status: "loading" as const };
-  return <AffiliateLayout kind="portal" onLogout={logout}><div className="mx-auto max-w-6xl px-4 py-10">{currentState.status === "loading" ? <Notice>Portal wird geladen …</Notice> : currentState.status === "error" ? <Notice error /> : <PortalSection section={section} state={currentState} />}</div></AffiliateLayout>;
+  const logoutRequested = useRef(false);
+  useEffect(() => {
+    let active = true;
+    let generation = 0;
+    const load = async () => {
+      if (logoutRequested.current) return;
+      const requestGeneration = ++generation;
+      const current = () => active && !logoutRequested.current && requestGeneration === generation;
+      setState({ section, status: "loading" });
+      try {
+        const session = await affiliateApi.session();
+        if (!current()) return;
+        if (!session.authenticated || !session.user) {
+          navigate(affiliateDestination("/empfehlungsprogramm/anmelden", location.search), { replace: true }); return;
+        }
+        await affiliateApi.bootstrapProfile();
+        if (!current()) return;
+        let data: PortalData;
+        if (section === "empfehlungen") data = await affiliateApi.referrals();
+        else if (section === "belohnungen") data = await affiliateApi.rewards();
+        else if (section === "profil") {
+          const [profile, payouts, payoutMethod] = await Promise.all([affiliateApi.profile(), affiliateApi.payouts(), affiliateApi.payoutMethod()]);
+          data = { profile, payouts, payoutMethod: payoutMethod ? { ...payoutMethod, maskedIban: safeMaskedIban(payoutMethod.maskedIban) || null } : null };
+        } else data = await affiliateApi.overview();
+        if (current()) setState({ section, context: location.search, status: Array.isArray(data) && data.length === 0 ? "empty" : "ready", data, userName: session.user.name });
+      } catch (error) {
+        if (!current()) return;
+        setState({ section, context: location.search, status: "error" });
+        if (error instanceof AffiliateApiError && (error.status === 401 || error.status === 403)) {
+          navigate(affiliateDestination("/empfehlungsprogramm/anmelden", location.search), { replace: true });
+        }
+      }
+    };
+    const onFocus = () => { void load(); };
+    const onVisibility = () => {
+      if (document.hidden) { generation++; setState({ section, status: "loading" }); }
+      else void load();
+    };
+    void load();
+    window.addEventListener("focus", onFocus);
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => { active = false; generation++; window.removeEventListener("focus", onFocus); document.removeEventListener("visibilitychange", onVisibility); };
+  }, [location.search, navigate, section]);
+  const [loggingOut, setLoggingOut] = useState(false);
+  const logout = async () => {
+    logoutRequested.current = true;
+    setLoggingOut(true); setState({ section, status: "loading" });
+    try { await affiliateApi.logout(); } finally { navigate(affiliateDestination("/empfehlungsprogramm/anmelden", location.search), { replace: true }); }
+  };
+  const currentState = state.section === section && state.context === location.search ? state : { section, status: "loading" as const };
+  const loading = loggingOut || currentState.status === "loading";
+  return <AffiliateLayout kind="portal" onLogout={logout}><div className="mx-auto max-w-6xl px-4 py-10" aria-busy={loading}>
+    {loading ? <PortalSkeleton /> : currentState.status === "error" ? <Notice error /> : <PortalSection section={section} state={currentState} />}
+  </div></AffiliateLayout>;
+
 }
 
 function PortalSection({ section, state }: { section: string; state: PortalState }) {
-  if (section === "empfehlungen") { const rows = (state.data || []) as AffiliateReferral[]; return <><Heading title="Deine Empfehlungen" text="Hier siehst du, welche Empfehlungen über deinen persönlichen Link zugeordnet wurden und welchen aktuellen Status sie haben." />{rows.length === 0 ? <Empty title="Noch keine Empfehlungen" text="Neue Empfehlungen erscheinen hier, sobald sie vorliegen." /> : <div className="space-y-3">{rows.map(row => <Card key={row.id}><p className="font-bold">Empfehlung</p><p className="text-sm text-gray-600">{row.status}{row.attributedAt ? ` · ${formatDate(row.attributedAt)}` : ""}</p></Card>)}</div>}</>; }
-  if (section === "belohnungen") { const rows = (state.data || []) as AffiliateReward[]; return <><Heading title="Deine Belohnungen" text="Sobald eine Empfehlung die Voraussetzungen für eine Belohnung erfüllt, kannst du den Status hier nachvollziehen." />{rows.length === 0 ? <Empty title="Keine Belohnungen vorhanden" text="Belohnungen erscheinen hier, sobald sie vorliegen." /> : <div className="space-y-3">{rows.map(row => <Card key={row.id}><p className="font-bold">{money(row.amount, row.currency)}</p><p className="text-sm text-gray-600">{row.status}{row.voucherLabel ? ` · ${row.voucherLabel}` : ""}</p></Card>)}</div>}</>; }
-  if (section === "profil") { const data = state.data as { profile: AffiliateProfile; payouts: AffiliatePayout[]; payoutMethod: AffiliatePayoutMethod | null }; return <><Heading title="Einstellungen" text="Verwalte deine Kontodaten, dein Passwort und deine Auszahlungseinstellungen." /><div className="grid gap-5 md:grid-cols-2"><Card><h2 className="text-xl font-bold">Konto & Profil</h2><p className="mt-4">{data.profile.firstName} {data.profile.lastName}</p><p className="text-gray-600">Mitglied seit {formatDate(data.profile.memberSince)} · {data.profile.status}</p></Card><PasswordChange /><Card><h2 className="text-xl font-bold">Auszahlungsmethode</h2><p className="mt-4 text-gray-600">{safeMaskedIban(data.payoutMethod?.maskedIban || undefined) || "Noch nicht hinterlegt"}</p></Card><Card><h2 className="text-xl font-bold">Auszahlungen</h2>{data.payouts.length ? data.payouts.map(item => <p key={item.id} className="mt-3">{money(item.amount, item.currency)} · {item.status}</p>) : <p className="mt-4 text-gray-600">Noch keine Auszahlungen.</p>}</Card></div></>; }
+  if (section === "empfehlungen") {
+    const rows = (state.data || []) as AffiliateReferral[];
+    return <><Heading title="Deine Empfehlungen" text="Hier siehst du, welche Empfehlungen über deinen persönlichen Link zugeordnet wurden und welchen aktuellen Status sie haben." />
+      {rows.length === 0 ? <Empty title="Noch keine Empfehlungen" text="Neue Empfehlungen erscheinen hier, sobald sie vorliegen." /> : <PartnerList title="Empfehlungen" firstColumn="Empfehlung" rows={rows.map(row => ({ key: row.id, primary: row.attributedAt && formatDate(row.attributedAt) !== "—" ? `Empfehlung vom ${formatDate(row.attributedAt)}` : "Empfehlung", status: referralStatus(row.status), date: formatDate(row.attributedAt) }))} />}</>;
+  }
+  if (section === "belohnungen") {
+    const rows = (state.data || []) as AffiliateReward[];
+    return <><Heading title="Deine Belohnungen" text="Sobald eine Empfehlung die Voraussetzungen für eine Belohnung erfüllt, kannst du den Status hier nachvollziehen." />
+      {rows.length === 0 ? <Empty title="Keine Belohnungen vorhanden" text="Belohnungen erscheinen hier, sobald sie vorliegen." /> : <PartnerList title="Belohnungen" firstColumn="Betrag" rows={rows.map(row => ({ key: row.id, primary: `${money(row.amount, row.currency)}${row.method === "gift_card" ? " · Gutschein" : ""}`, status: rewardStatus(row.status, row.method), date: row.status === "paid" && row.paidAt ? `Erfüllt am ${formatDate(row.paidAt)}` : row.availableAt ? `Verfügbar seit ${formatDate(row.availableAt)}` : "—" }))} />}</>;
+  }
+  if (section === "profil") {
+    const data = state.data as { profile: AffiliateProfile; payouts: AffiliatePayout[]; payoutMethod: AffiliatePayoutMethod | null };
+    return <><Heading title="Einstellungen" text="Verwalte deine Kontodaten, dein Passwort und deine Auszahlungseinstellungen." /><div className="grid gap-5 md:grid-cols-2">
+      <ProfileCard profile={data.profile} /><PasswordChange /><PayoutMethodCard method={data.payoutMethod} />
+      <Card className="min-w-0"><h2 className="mb-4 text-xl font-bold">Auszahlungen</h2>{data.payouts.length ? <PartnerList embedded title="Auszahlungen" firstColumn="Betrag" rows={data.payouts.map(row => ({ key: row.id, primary: money(row.amount, row.currency), status: payoutStatus(row.status), date: row.status === "paid" && row.paidAt ? `Ausgezahlt am ${formatDate(row.paidAt)}` : `Erstellt am ${formatDate(row.createdAt)}` }))} /> : <p className="text-muted-foreground">Noch keine Auszahlungen.</p>}</Card>
+    </div></>;
+  }
   const data = state.data as AffiliateOverview; return <><Heading title={`Hallo ${state.userName || ""}`.trim()} text="Hier findest du deinen persönlichen Empfehlungslink und behältst deine Empfehlungen und Belohnungen im Blick." /><div className="grid gap-5 md:grid-cols-3"><Card className="md:col-span-2"><h2 className="text-xl font-bold">Dein persönlicher Empfehlungslink</h2><p className="mt-2 text-sm text-gray-600">Teile diesen Link mit Freunden, Familie oder Bekannten. Empfehlungen über diesen Link werden automatisch deinem Konto zugeordnet.</p><p className="my-4 break-all font-mono">{data.referralUrl || "Noch nicht verfügbar"}</p><div className="flex flex-wrap gap-3"><Button disabled={!data.referralUrl} variant="outline" onClick={() => data.referralUrl && navigator.clipboard.writeText(data.referralUrl)}><Copy /> Kopieren</Button>{data.referralUrl && <Button variant="outline" asChild><a href={`https://wa.me/?text=${encodeURIComponent(data.referralUrl)}`} target="_blank" rel="noreferrer"><Share2 /> Über WhatsApp teilen</a></Button>}</div></Card></div><div className="mt-5 grid gap-4 md:grid-cols-3">{[["Empfehlungen", data.totals.referrals], ["Verfügbare Belohnungen", data.totals.availableRewards], ["Ausgezahlte Belohnungen", data.totals.paidRewards]].map(([label, value]) => <Card key={String(label)}><p className="text-sm text-gray-500">{label}</p><p className="mt-2 text-3xl font-bold">{typeof value === "number" ? value : "—"}</p></Card>)}</div></>;
 }
 
-function PasswordChange() { const [status, setStatus] = useState(""); const [error, setError] = useState(false); const submit = async (event: FormEvent<HTMLFormElement>) => { event.preventDefault(); setStatus(""); setError(false); const form = new FormData(event.currentTarget); if (form.get("newPassword") !== form.get("confirmation")) { setError(true); setStatus("Die Passwörter stimmen nicht überein."); return; } try { await affiliateApi.changePassword(String(form.get("currentPassword")), String(form.get("newPassword"))); setStatus("Dein Passwort wurde erfolgreich geändert."); event.currentTarget.reset(); } catch { setError(true); setStatus(t.unavailable); } }; return <Card><h2 className="text-xl font-bold">Sicherheit</h2><form className="mt-4 space-y-3" onSubmit={submit}><Field name="currentPassword" label="Aktuelles Passwort" type="password" autoComplete="current-password" /><Field name="newPassword" label="Neues Passwort" type="password" autoComplete="new-password" /><Field name="confirmation" label="Neues Passwort bestätigen" type="password" autoComplete="new-password" /><Button type="submit" variant="outline">Passwort ändern</Button>{status && <Notice error={error}>{status}</Notice>}</form></Card>; }
+function PasswordChange() { const [status, setStatus] = useState(""); const [error, setError] = useState(false); const submit = async (event: FormEvent<HTMLFormElement>) => { event.preventDefault(); setStatus(""); setError(false); const formElement = event.currentTarget; const form = new FormData(formElement); if (form.get("newPassword") !== form.get("confirmation")) { setError(true); setStatus("Die Passwörter stimmen nicht überein."); return; } try { await affiliateApi.changePassword(String(form.get("currentPassword")), String(form.get("newPassword"))); setStatus("Dein Passwort wurde erfolgreich geändert."); formElement.reset(); } catch { setError(true); setStatus(t.unavailable); } }; return <Card><h2 className="text-xl font-bold">Sicherheit</h2><form className="mt-4 space-y-3" onSubmit={submit}><Field name="currentPassword" label="Aktuelles Passwort" type="password" autoComplete="current-password" /><Field name="newPassword" label="Neues Passwort" type="password" autoComplete="new-password" /><Field name="confirmation" label="Neues Passwort bestätigen" type="password" autoComplete="new-password" /><Button type="submit" variant="outline">Passwort ändern</Button>{status && <Notice error={error}>{status}</Notice>}</form></Card>; }
 function Heading({ title, text }: { title: string; text: string }) { return <header className="mb-7"><h1 className="text-3xl font-bold md:text-4xl">{title}</h1><p className="mt-2 text-gray-600">{text}</p></header>; }
 function Empty({ title, text }: { title: string; text: string }) { return <Card className="mt-6 text-center"><Users className="mx-auto mb-3 h-10 w-10 text-gray-400" /><h2 className="font-bold">{title}</h2><p className="mx-auto mt-2 max-w-lg text-sm text-gray-600">{text}</p></Card>; }
-const money = (amount?: number, currency = "EUR") => typeof amount === "number" ? new Intl.NumberFormat("de-DE", { style: "currency", currency }).format(amount) : "—";
-const formatDate = (value: string) => { const date = new Date(value); return Number.isNaN(date.getTime()) ? "—" : new Intl.DateTimeFormat("de-DE").format(date); };
-const safeMaskedIban = (value?: string) => value && /^[A-Z]{2}[•*Xx\s\d-]{6,34}$/.test(value) && /[•*Xx]/.test(value) ? value : undefined;
+function PortalSkeleton() {
+  return <div role="status" aria-label="Inhalte werden geladen" className="space-y-5">
+    <span className="sr-only">Inhalte werden geladen</span>
+    <div aria-hidden="true" className="h-9 w-2/3 rounded-2xl bg-muted" />
+    <div aria-hidden="true" className="grid gap-5 md:grid-cols-2"><div className="h-44 rounded-[2rem] border bg-muted/40" /><div className="h-44 rounded-[2rem] border bg-muted/40" /></div>
+  </div>;
+}
