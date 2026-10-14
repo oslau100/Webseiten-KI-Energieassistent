@@ -1,0 +1,13 @@
+{
+  "styleConstantsUnchanged": {
+    "card": true,
+    "dialog": true,
+    "action": true,
+    "disabledAction": true,
+    "actions": true
+  },
+  "compiledCssByteIdentical": true,
+  "cssSha256": "013fc47280cffde49c4540e94d3c3221d1198fa6f0a8ff7c8a84d3df600f4e78",
+  "baseSha": "71a5d98aa9079df1bb612521cbdd5f5baf7c301a",
+  "baseTree": "2a95630582634851a9802481fa6bf6a6ace1c718"
+}

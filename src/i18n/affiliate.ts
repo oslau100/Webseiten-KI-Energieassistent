@@ -4,7 +4,7 @@ export const languageNames: Record<AffiliateLanguage, string> = { de: "Deutsch",
 export const affiliateDE = {
   title: "TarifButler empfehlen. Gemeinsam profitieren.",
   intro: "Teile deinen persönlichen Empfehlungslink. Wenn daraus ein bestätigter Abschluss entsteht, kann eine Belohnung gemäß den aktuellen Programmbedingungen verfügbar werden.",
-  unavailable: "Der Portal-Service ist zurzeit noch nicht verfügbar. Bitte versuche es später erneut.",
+  unavailable: "Das hat leider nicht geklappt. Bitte versuche es später erneut.",
 };
 
 export function getAffiliateLanguage(search: string): AffiliateLanguage {

@@ -1,0 +1,1832 @@
+{
+  "note": "JSX text and human-language literal inventory; repeated occurrences preserved. Dynamic dates/amounts and authorized names are excluded. All candidates manually reviewed, including landing/auth and error states.",
+  "before": [
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 25,
+      "text": "Registrieren und Link erhalten"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 25,
+      "text": "Nach der Registrierung findest du deinen persönlichen Empfehlungslink direkt in deinem TarifButler Empfehlungsportal."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 26,
+      "text": "Link teilen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 26,
+      "text": "Teile deinen Link mit Freunden, Familie oder Bekannten – zum Beispiel per WhatsApp, Social Media oder einfach direkt."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 27,
+      "text": "Belohnung erhalten"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 27,
+      "text": "Eine Belohnung entsteht, wenn die empfohlene Person den Tarif abschließt und der neue Energieanbieter den Auftrag erfolgreich bestätigt."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 31,
+      "text": "TarifButler Empfehlungsprogramm"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 31,
+      "text": "Empfehlen lohnt sich."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 31,
+      "text": "Hilf Freunden, Familie oder Bekannten dabei, ihren Strom- oder Gastarif kostenlos und unverbindlich prüfen zu lassen. Wird aus deiner Empfehlung ein erfolgreich bestätigter Anbieterwechsel, erhältst du eine Belohnung als Dankeschön."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 31,
+      "text": "Bereits registriert?"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 31,
+      "text": "Anmelden"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 33,
+      "text": "Du empfiehlst."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 33,
+      "text": "Wir kümmern uns um den Rest."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 33,
+      "text": "Einfach deinen Link teilen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 33,
+      "text": "Du musst niemandem Tarife erklären oder selbst Angebote vergleichen. Du teilst einfach deinen persönlichen Empfehlungslink."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 33,
+      "text": "TarifButler übernimmt"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 33,
+      "text": "Wir prüfen die Tarife, analysieren die passenden Möglichkeiten und begleiten die empfohlene Person durch den weiteren Prozess."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 34,
+      "text": "Mehr Empfehlungen. Mehr Belohnungen."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 34,
+      "text": "Jede erfolgreich bestätigte Empfehlung zählt. Deinen persönlichen Empfehlungslink kannst du beliebig oft teilen."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 35,
+      "text": "Wann gilt eine Empfehlung als erfolgreich?"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 35,
+      "text": "Eine Empfehlung kann zugeordnet werden, wenn eine Person über deinen persönlichen Empfehlungslink zu TarifButler kommt und den Tarifprozess startet."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 35,
+      "text": "Eine Belohnung entsteht, wenn:"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 35,
+      "text": "die empfohlene Person den empfohlenen Tarif tatsächlich abschließt"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 35,
+      "text": "der neue Energieanbieter den Auftrag erfolgreich bestätigt"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 35,
+      "text": "Bestätigt statt nur geklickt"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 35,
+      "text": "Ein Klick auf deinen Link oder der Start der Tarifprüfung allein löst noch keine Belohnung aus."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 35,
+      "text": "Kommt kein Vertrag zustande oder bestätigt der Anbieter den Auftrag nicht, entsteht keine Belohnung."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 36,
+      "text": "Gemeinsam weniger für Energie zahlen."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 36,
+      "text": "Viele Menschen wissen nicht, ob ihr aktueller Strom- oder Gastarif noch zu ihrer Situation passt. Mit deiner Empfehlung gibst du ihnen einen einfachen Weg, das kostenlos herauszufinden."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 36,
+      "text": "Du teilst den Link. Wir übernehmen die Prüfung. Und eine erfolgreiche Empfehlung lohnt sich auch für dich."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 40,
+      "text": "Registrieren"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 48,
+      "text": "Dein Konto wurde aktiviert. Du kannst dich jetzt anmelden."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 51,
+      "text": "Die Passwörter stimmen nicht überein."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 55,
+      "text": "Dein Konto wurde erstellt. Bitte prüfe dein E-Mail-Postfach, um die Registrierung zu bestätigen."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 56,
+      "text": "Falls ein Konto zu dieser E-Mail-Adresse besteht, erhältst du weitere Anweisungen per E-Mail."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 57,
+      "text": "Dein Passwort wurde erfolgreich geändert. Du kannst dich jetzt anmelden."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 60,
+      "text": "Willkommen zurück"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 60,
+      "text": "Registrieren"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 60,
+      "text": "Passwort vergessen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 60,
+      "text": "Neues Passwort festlegen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 60,
+      "text": "Konto aktivieren"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 61,
+      "text": "Anmelden"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 61,
+      "text": "Registrieren"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 61,
+      "text": "Link anfordern"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 61,
+      "text": "Passwort speichern"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Wir senden dir einen Link an deine E-Mail-Adresse, mit dem du dein Passwort sicher neu festlegen kannst."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Dein Konto wird aktiviert …"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Der Link fehlt, ist ungültig oder abgelaufen. Fordere bei Bedarf einen neuen Link an."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Name"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "E-Mail-Adresse"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Neues Passwort"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Passwort"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Neues Passwort bestätigen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Passwort bestätigen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Ich akzeptiere die Programmbedingungen und habe die Datenschutzhinweise gelesen."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Wird gesendet …"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Passwort vergessen?"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Bereits registriert?"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Noch nicht registriert?"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 131,
+      "text": "Deine Empfehlungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 131,
+      "text": "Hier siehst du, welche Empfehlungen über deinen persönlichen Link zugeordnet wurden und welchen aktuellen Status sie haben."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 132,
+      "text": "Noch keine Empfehlungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 132,
+      "text": "Neue Empfehlungen erscheinen hier, sobald sie vorliegen."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 132,
+      "text": "Empfehlungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 132,
+      "text": "Empfehlung"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 132,
+      "text": "Empfehlung"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 136,
+      "text": "Deine Belohnungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 136,
+      "text": "Sobald eine Empfehlung die Voraussetzungen für eine Belohnung erfüllt, kannst du den Status hier nachvollziehen."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 137,
+      "text": "Keine Belohnungen vorhanden"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 137,
+      "text": "Belohnungen erscheinen hier, sobald sie vorliegen."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 137,
+      "text": "Belohnungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 137,
+      "text": "Betrag"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 137,
+      "text": "Erfüllt am "
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 137,
+      "text": "Verfügbar seit "
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 141,
+      "text": "Einstellungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 141,
+      "text": "Verwalte deine Kontodaten, dein Passwort und deine Auszahlungseinstellungen."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 143,
+      "text": "Auszahlungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 143,
+      "text": "Auszahlungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 143,
+      "text": "Betrag"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 143,
+      "text": "Ausgezahlt am "
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 143,
+      "text": "Erstellt am "
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 143,
+      "text": "Noch keine Auszahlungen."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 146,
+      "text": "Hallo "
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 146,
+      "text": "Hier findest du deinen persönlichen Empfehlungslink und behältst deine Empfehlungen und Belohnungen im Blick."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 146,
+      "text": "Dein persönlicher Empfehlungslink"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 146,
+      "text": "Teile diesen Link mit Freunden, Familie oder Bekannten. Empfehlungen über diesen Link werden automatisch deinem Konto zugeordnet."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 146,
+      "text": "Noch nicht verfügbar"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 146,
+      "text": "Kopieren"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 146,
+      "text": "Über WhatsApp teilen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 146,
+      "text": "Empfehlungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 146,
+      "text": "Verfügbare Belohnungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 146,
+      "text": "Ausgezahlte Belohnungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 149,
+      "text": "Die Passwörter stimmen nicht überein."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 149,
+      "text": "Dein Passwort wurde erfolgreich geändert."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 149,
+      "text": "Sicherheit"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 149,
+      "text": "Aktuelles Passwort"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 149,
+      "text": "Neues Passwort"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 149,
+      "text": "Neues Passwort bestätigen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 149,
+      "text": "Passwort ändern"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 153,
+      "text": "Inhalte werden geladen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 154,
+      "text": "Inhalte werden geladen"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 19,
+      "text": "Übersicht"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 20,
+      "text": "Empfehlungen"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 21,
+      "text": "Belohnungen"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 22,
+      "text": "Einstellungen"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 30,
+      "text": "TarifButler Startseite"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 34,
+      "text": "TarifButler Logo"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 52,
+      "text": "Empfehlungsportal"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 55,
+      "text": "Abmelden"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 59,
+      "text": "Portal-Menü öffnen"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 70,
+      "text": "Abmelden"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 78,
+      "text": "Anmelden"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 18,
+      "text": "Ohne Belohnung"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 18,
+      "text": "Für deine Teilnahme sind keine Belohnungen vorgesehen. Deine Empfehlungen bleiben hier sichtbar."
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 24,
+      "text": "Bankverbindung ändern"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 24,
+      "text": "Bankverbindung hinterlegen"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 26,
+      "text": "Bankverbindung ändern"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 26,
+      "text": "Bankverbindung hinterlegen"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 27,
+      "text": "Prüfe das Format deiner Bankverbindung. Diese Eingabe wird nicht gespeichert."
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 52,
+      "text": "Kontoinhaber"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 53,
+      "text": "IBAN"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 53,
+      "text": "IBAN erneut eingeben"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 54,
+      "text": "IBAN"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 56,
+      "text": "Nur eine formale Prüfung. Sie bestätigt weder das Konto noch die Kontoinhaberschaft."
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 57,
+      "text": "Format prüfen"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 57,
+      "text": "Speichern"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 57,
+      "text": "Abbrechen"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 58,
+      "text": "Deine Eingabe wird nicht gespeichert."
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 64,
+      "text": "Auszahlungsmethode"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 65,
+      "text": "Gutschein"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 65,
+      "text": "Deine Gutscheine werden an die E-Mail-Adresse deines Partnerkontos gesendet."
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 65,
+      "text": "Banküberweisung"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 65,
+      "text": "Noch nicht hinterlegt"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 65,
+      "text": "Die Auszahlungsmethode ist noch nicht bekannt."
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 65,
+      "text": "Noch nicht hinterlegt"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 65,
+      "text": "Deine Auszahlungsmethode wird hier angezeigt, sobald sie feststeht."
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 71,
+      "text": "Konto & Profil"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 71,
+      "text": "Mitglied seit"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 72,
+      "text": "Kontodaten ändern"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 72,
+      "text": "Kontodaten ändern"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 72,
+      "text": "Prüfe deine Angaben. Änderungen werden hier nicht gespeichert."
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 80,
+      "text": "Vorname"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 81,
+      "text": "Nachname"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 82,
+      "text": "Bitte fülle Vorname und Nachname aus."
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 83,
+      "text": "Deine Änderungen werden nicht gespeichert."
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 83,
+      "text": "Speichern"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 83,
+      "text": "Abbrechen"
+    },
+    {
+      "file": "src/components/affiliate/PartnerList.tsx",
+      "line": 6,
+      "text": "Status"
+    },
+    {
+      "file": "src/components/affiliate/PartnerList.tsx",
+      "line": 6,
+      "text": "Datum"
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 3,
+      "text": "Deutsch"
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 3,
+      "text": "English"
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 3,
+      "text": "Español"
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 3,
+      "text": "Polski"
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 3,
+      "text": "Türkçe"
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 3,
+      "text": "Français"
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 3,
+      "text": "Italiano"
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 3,
+      "text": "Nederlands"
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 5,
+      "text": "TarifButler empfehlen. Gemeinsam profitieren."
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 6,
+      "text": "Teile deinen persönlichen Empfehlungslink. Wenn daraus ein bestätigter Abschluss entsteht, kann eine Belohnung gemäß den aktuellen Programmbedingungen verfügbar werden."
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 7,
+      "text": "Der Portal-Service ist zurzeit noch nicht verfügbar. Bitte versuche es später erneut."
+    },
+    {
+      "file": "src/lib/iban.ts",
+      "line": 17,
+      "text": "Bitte verwende nur Buchstaben, Zahlen und Leerzeichen."
+    },
+    {
+      "file": "src/lib/iban.ts",
+      "line": 19,
+      "text": "Bitte gib eine IBAN ein."
+    },
+    {
+      "file": "src/lib/iban.ts",
+      "line": 20,
+      "text": "Bitte verwende nur Buchstaben, Zahlen und Leerzeichen."
+    },
+    {
+      "file": "src/lib/iban.ts",
+      "line": 21,
+      "text": "Die IBAN ist noch nicht vollständig."
+    },
+    {
+      "file": "src/lib/iban.ts",
+      "line": 22,
+      "text": "Bitte prüfe das Länderkennzeichen und die Prüfziffern."
+    },
+    {
+      "file": "src/lib/iban.ts",
+      "line": 24,
+      "text": "Dieses Länderkennzeichen kann hier nicht geprüft werden."
+    },
+    {
+      "file": "src/lib/iban.ts",
+      "line": 25,
+      "text": "Die IBAN ist noch nicht vollständig."
+    },
+    {
+      "file": "src/lib/iban.ts",
+      "line": 26,
+      "text": "Die Länge der IBAN stimmt nicht."
+    },
+    {
+      "file": "src/lib/iban.ts",
+      "line": 32,
+      "text": "Das IBAN-Format ist gültig."
+    },
+    {
+      "file": "src/lib/iban.ts",
+      "line": 32,
+      "text": "Die Prüfziffer stimmt nicht. Bitte prüfe deine IBAN."
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 3,
+      "text": "Status noch offen"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 4,
+      "text": "Tarif empfohlen"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 4,
+      "text": "Abgeschlossen"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 4,
+      "text": "Anbieterwechsel bestätigt"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 5,
+      "text": "In Prüfung"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 5,
+      "text": "Verfügbar"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 5,
+      "text": "Gutschein ausgegeben"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 5,
+      "text": "Ausgezahlt"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 5,
+      "text": "Erfüllt"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 5,
+      "text": "Storniert"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 6,
+      "text": "Ausstehend"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 6,
+      "text": "In Bearbeitung"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 6,
+      "text": "Ausgezahlt"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 6,
+      "text": "Nicht abgeschlossen"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 6,
+      "text": "Storniert"
+    }
+  ],
+  "after": [
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 25,
+      "text": "Registrieren und Link erhalten"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 25,
+      "text": "Nach der Registrierung findest du deinen persönlichen Empfehlungslink direkt in deinem TarifButler Empfehlungsportal."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 26,
+      "text": "Link teilen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 26,
+      "text": "Teile deinen Link mit Freunden, Familie oder Bekannten – zum Beispiel per WhatsApp, Social Media oder einfach direkt."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 27,
+      "text": "Belohnung erhalten"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 27,
+      "text": "Eine Belohnung entsteht, wenn die empfohlene Person den Tarif abschließt und der neue Energieanbieter den Auftrag erfolgreich bestätigt."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 31,
+      "text": "TarifButler Empfehlungsprogramm"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 31,
+      "text": "Empfehlen lohnt sich."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 31,
+      "text": "Hilf Freunden, Familie oder Bekannten dabei, ihren Strom- oder Gastarif kostenlos und unverbindlich prüfen zu lassen. Wird aus deiner Empfehlung ein erfolgreich bestätigter Anbieterwechsel, erhältst du eine Belohnung als Dankeschön."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 31,
+      "text": "Bereits registriert?"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 31,
+      "text": "Anmelden"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 33,
+      "text": "Du empfiehlst."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 33,
+      "text": "Wir kümmern uns um den Rest."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 33,
+      "text": "Einfach deinen Link teilen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 33,
+      "text": "Du musst niemandem Tarife erklären oder selbst Angebote vergleichen. Du teilst einfach deinen persönlichen Empfehlungslink."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 33,
+      "text": "TarifButler übernimmt"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 33,
+      "text": "Wir prüfen die Tarife, analysieren die passenden Möglichkeiten und begleiten die empfohlene Person durch den weiteren Prozess."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 34,
+      "text": "Mehr Empfehlungen. Mehr Belohnungen."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 34,
+      "text": "Jede erfolgreich bestätigte Empfehlung zählt. Deinen persönlichen Empfehlungslink kannst du beliebig oft teilen."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 35,
+      "text": "Wann gilt eine Empfehlung als erfolgreich?"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 35,
+      "text": "Eine Empfehlung kann zugeordnet werden, wenn eine Person über deinen persönlichen Empfehlungslink zu TarifButler kommt und den Tarifprozess startet."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 35,
+      "text": "Eine Belohnung entsteht, wenn:"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 35,
+      "text": "die empfohlene Person den empfohlenen Tarif tatsächlich abschließt"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 35,
+      "text": "der neue Energieanbieter den Auftrag erfolgreich bestätigt"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 35,
+      "text": "Bestätigt statt nur geklickt"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 35,
+      "text": "Ein Klick auf deinen Link oder der Start der Tarifprüfung allein löst noch keine Belohnung aus."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 35,
+      "text": "Kommt kein Vertrag zustande oder bestätigt der Anbieter den Auftrag nicht, entsteht keine Belohnung."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 36,
+      "text": "Gemeinsam weniger für Energie zahlen."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 36,
+      "text": "Viele Menschen wissen nicht, ob ihr aktueller Strom- oder Gastarif noch zu ihrer Situation passt. Mit deiner Empfehlung gibst du ihnen einen einfachen Weg, das kostenlos herauszufinden."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 36,
+      "text": "Du teilst den Link. Wir übernehmen die Prüfung. Und eine erfolgreiche Empfehlung lohnt sich auch für dich."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 40,
+      "text": "Registrieren"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 48,
+      "text": "Dein Konto wurde aktiviert. Du kannst dich jetzt anmelden."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 51,
+      "text": "Die Passwörter stimmen nicht überein."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 55,
+      "text": "Dein Konto wurde erstellt. Bitte prüfe dein E-Mail-Postfach, um die Registrierung zu bestätigen."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 56,
+      "text": "Falls ein Konto zu dieser E-Mail-Adresse besteht, erhältst du weitere Anweisungen per E-Mail."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 57,
+      "text": "Dein Passwort wurde erfolgreich geändert. Du kannst dich jetzt anmelden."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 60,
+      "text": "Willkommen zurück"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 60,
+      "text": "Registrieren"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 60,
+      "text": "Passwort vergessen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 60,
+      "text": "Neues Passwort festlegen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 60,
+      "text": "Konto aktivieren"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 61,
+      "text": "Anmelden"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 61,
+      "text": "Registrieren"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 61,
+      "text": "Link anfordern"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 61,
+      "text": "Passwort speichern"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Wir senden dir einen Link an deine E-Mail-Adresse, mit dem du dein Passwort sicher neu festlegen kannst."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Dein Konto wird aktiviert …"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Der Link fehlt, ist ungültig oder abgelaufen. Fordere bei Bedarf einen neuen Link an."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Name"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "E-Mail-Adresse"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Neues Passwort"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Passwort"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Neues Passwort bestätigen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Passwort bestätigen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Ich akzeptiere die Programmbedingungen und habe die Datenschutzhinweise gelesen."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Wird gesendet …"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Passwort vergessen?"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Bereits registriert?"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 62,
+      "text": "Noch nicht registriert?"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 131,
+      "text": "Deine Empfehlungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 131,
+      "text": "Hier siehst du, welche Empfehlungen über deinen persönlichen Link zugeordnet wurden und welchen aktuellen Status sie haben."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 132,
+      "text": "Noch keine Empfehlungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 132,
+      "text": "Neue Empfehlungen erscheinen hier, sobald sie vorliegen."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 132,
+      "text": "Empfehlungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 132,
+      "text": "Empfehlung"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 132,
+      "text": "Empfehlung"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 136,
+      "text": "Deine Belohnungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 136,
+      "text": "Sobald eine Empfehlung die Voraussetzungen für eine Belohnung erfüllt, kannst du den Status hier nachvollziehen."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 137,
+      "text": "Keine Belohnungen vorhanden"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 137,
+      "text": "Belohnungen erscheinen hier, sobald sie vorliegen."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 137,
+      "text": "Belohnungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 137,
+      "text": "Betrag"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 137,
+      "text": "Erfüllt am "
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 137,
+      "text": "Verfügbar seit "
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 141,
+      "text": "Einstellungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 141,
+      "text": "Verwalte deine Kontodaten, dein Passwort und deine Auszahlungseinstellungen."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 143,
+      "text": "Auszahlungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 143,
+      "text": "Auszahlungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 143,
+      "text": "Betrag"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 143,
+      "text": "Ausgezahlt am "
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 143,
+      "text": "Erstellt am "
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 143,
+      "text": "Noch keine Auszahlungen."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 146,
+      "text": "Hallo "
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 146,
+      "text": "Hier findest du deinen persönlichen Empfehlungslink und behältst deine Empfehlungen und Belohnungen im Blick."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 146,
+      "text": "Dein persönlicher Empfehlungslink"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 146,
+      "text": "Teile diesen Link mit Freunden, Familie oder Bekannten. Empfehlungen über diesen Link werden automatisch deinem Konto zugeordnet."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 146,
+      "text": "Noch nicht verfügbar"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 146,
+      "text": "Kopieren"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 146,
+      "text": "Über WhatsApp teilen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 146,
+      "text": "Empfehlungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 146,
+      "text": "Verfügbare Belohnungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 146,
+      "text": "Ausgezahlte Belohnungen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 149,
+      "text": "Die Passwörter stimmen nicht überein."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 149,
+      "text": "Dein Passwort wurde erfolgreich geändert."
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 149,
+      "text": "Sicherheit"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 149,
+      "text": "Aktuelles Passwort"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 149,
+      "text": "Neues Passwort"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 149,
+      "text": "Neues Passwort bestätigen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 149,
+      "text": "Passwort ändern"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 153,
+      "text": "Inhalte werden geladen"
+    },
+    {
+      "file": "src/pages/Affiliate.tsx",
+      "line": 154,
+      "text": "Inhalte werden geladen"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 19,
+      "text": "Übersicht"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 20,
+      "text": "Empfehlungen"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 21,
+      "text": "Belohnungen"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 22,
+      "text": "Einstellungen"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 30,
+      "text": "TarifButler Startseite"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 34,
+      "text": "TarifButler Logo"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 52,
+      "text": "Empfehlungsportal"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 55,
+      "text": "Abmelden"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 59,
+      "text": "Portal-Menü öffnen"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 70,
+      "text": "Abmelden"
+    },
+    {
+      "file": "src/components/affiliate/AffiliateLayout.tsx",
+      "line": 78,
+      "text": "Anmelden"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 18,
+      "text": "Ohne Belohnung"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 18,
+      "text": "Für deine Teilnahme sind keine Belohnungen vorgesehen. Deine Empfehlungen bleiben hier sichtbar."
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 24,
+      "text": "Bankverbindung ändern"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 24,
+      "text": "Bankverbindung hinterlegen"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 26,
+      "text": "Bankverbindung ändern"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 26,
+      "text": "Bankverbindung hinterlegen"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 51,
+      "text": "Kontoinhaber"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 52,
+      "text": "IBAN"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 52,
+      "text": "IBAN erneut eingeben"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 53,
+      "text": "IBAN"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 55,
+      "text": "Format prüfen"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 55,
+      "text": "Speichern"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 55,
+      "text": "Abbrechen"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 61,
+      "text": "Auszahlungsmethode"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 62,
+      "text": "Gutschein"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 62,
+      "text": "Deine Gutscheine werden an die E-Mail-Adresse deines Partnerkontos gesendet."
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 62,
+      "text": "Banküberweisung"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 62,
+      "text": "Noch nicht hinterlegt"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 62,
+      "text": "Die Auszahlungsmethode ist noch nicht bekannt."
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 62,
+      "text": "Noch nicht hinterlegt"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 62,
+      "text": "Deine Auszahlungsmethode wird hier angezeigt, sobald sie feststeht."
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 68,
+      "text": "Konto & Profil"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 68,
+      "text": "Mitglied seit"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 69,
+      "text": "Kontodaten ändern"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 69,
+      "text": "Kontodaten ändern"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 77,
+      "text": "Vorname"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 78,
+      "text": "Nachname"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 79,
+      "text": "Bitte fülle Vorname und Nachname aus."
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 80,
+      "text": "Speichern"
+    },
+    {
+      "file": "src/components/affiliate/PartnerSettings.tsx",
+      "line": 80,
+      "text": "Abbrechen"
+    },
+    {
+      "file": "src/components/affiliate/PartnerList.tsx",
+      "line": 6,
+      "text": "Status"
+    },
+    {
+      "file": "src/components/affiliate/PartnerList.tsx",
+      "line": 6,
+      "text": "Datum"
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 3,
+      "text": "Deutsch"
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 3,
+      "text": "English"
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 3,
+      "text": "Español"
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 3,
+      "text": "Polski"
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 3,
+      "text": "Türkçe"
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 3,
+      "text": "Français"
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 3,
+      "text": "Italiano"
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 3,
+      "text": "Nederlands"
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 5,
+      "text": "TarifButler empfehlen. Gemeinsam profitieren."
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 6,
+      "text": "Teile deinen persönlichen Empfehlungslink. Wenn daraus ein bestätigter Abschluss entsteht, kann eine Belohnung gemäß den aktuellen Programmbedingungen verfügbar werden."
+    },
+    {
+      "file": "src/i18n/affiliate.ts",
+      "line": 7,
+      "text": "Das hat leider nicht geklappt. Bitte versuche es später erneut."
+    },
+    {
+      "file": "src/lib/iban.ts",
+      "line": 17,
+      "text": "Bitte verwende nur Buchstaben, Zahlen und Leerzeichen."
+    },
+    {
+      "file": "src/lib/iban.ts",
+      "line": 19,
+      "text": "Bitte gib eine IBAN ein."
+    },
+    {
+      "file": "src/lib/iban.ts",
+      "line": 20,
+      "text": "Bitte verwende nur Buchstaben, Zahlen und Leerzeichen."
+    },
+    {
+      "file": "src/lib/iban.ts",
+      "line": 21,
+      "text": "Die IBAN ist noch nicht vollständig."
+    },
+    {
+      "file": "src/lib/iban.ts",
+      "line": 22,
+      "text": "Bitte prüfe das Länderkennzeichen und die Prüfziffern."
+    },
+    {
+      "file": "src/lib/iban.ts",
+      "line": 24,
+      "text": "Bitte prüfe das Länderkennzeichen deiner IBAN."
+    },
+    {
+      "file": "src/lib/iban.ts",
+      "line": 25,
+      "text": "Die IBAN ist noch nicht vollständig."
+    },
+    {
+      "file": "src/lib/iban.ts",
+      "line": 26,
+      "text": "Die Länge der IBAN stimmt nicht."
+    },
+    {
+      "file": "src/lib/iban.ts",
+      "line": 32,
+      "text": "Das IBAN-Format ist gültig."
+    },
+    {
+      "file": "src/lib/iban.ts",
+      "line": 32,
+      "text": "Die Prüfziffer stimmt nicht. Bitte prüfe deine IBAN."
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 3,
+      "text": "Status noch offen"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 4,
+      "text": "Tarif empfohlen"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 4,
+      "text": "Abgeschlossen"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 4,
+      "text": "Anbieterwechsel bestätigt"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 5,
+      "text": "In Prüfung"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 5,
+      "text": "Verfügbar"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 5,
+      "text": "Gutschein ausgegeben"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 5,
+      "text": "Ausgezahlt"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 5,
+      "text": "Erfüllt"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 5,
+      "text": "Storniert"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 6,
+      "text": "Ausstehend"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 6,
+      "text": "In Bearbeitung"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 6,
+      "text": "Ausgezahlt"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 6,
+      "text": "Nicht abgeschlossen"
+    },
+    {
+      "file": "src/lib/affiliate-presentation.ts",
+      "line": 6,
+      "text": "Storniert"
+    }
+  ]
+}

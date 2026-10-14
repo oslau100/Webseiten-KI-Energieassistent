@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import type { AffiliatePayoutMethod, AffiliateProfile } from "@/lib/affiliate-api";
 import { formatDate, safeMaskedIban } from "@/lib/affiliate-presentation";
 import { maskIban, validateIban } from "@/lib/iban";
@@ -22,9 +22,8 @@ export function BankDetailsDialog({ hasBank }: { hasBank: boolean }) {
   const [open, setOpen] = useState(false);
   return <Dialog open={open} onOpenChange={setOpen}>
     <DialogTrigger asChild><Button variant="outline" className={`mt-4 ${action}`}>{hasBank ? "Bankverbindung ändern" : "Bankverbindung hinterlegen"}</Button></DialogTrigger>
-    <DialogContent className={dialog}>
+    <DialogContent className={dialog} aria-describedby={undefined}>
       <DialogTitle className="pr-7">{hasBank ? "Bankverbindung ändern" : "Bankverbindung hinterlegen"}</DialogTitle>
-      <DialogDescription>Prüfe das Format deiner Bankverbindung. Diese Eingabe wird nicht gespeichert.</DialogDescription>
       {open && <BankForm onClose={() => setOpen(false)} />}
     </DialogContent>
   </Dialog>;
@@ -51,11 +50,9 @@ function BankForm({ onClose }: { onClose: () => void }) {
   return <form className="space-y-4" onSubmit={event => { event.preventDefault(); if (raw) finishEditing(); }}>
     <label className="block text-sm font-semibold">Kontoinhaber<Input value={owner} onChange={event => setOwner(event.target.value)} autoComplete="off" maxLength={120} className="mt-2 h-12 rounded-2xl" required /></label>
     {masked ? <div className="space-y-2"><p className="text-sm font-semibold">IBAN</p><p>{masked}</p><Button ref={replacementRef} type="button" variant="outline" className={action} onClick={() => { setMasked(undefined); setMessage(""); setInvalid(false); requestAnimationFrame(() => inputRef.current?.focus()); }}>IBAN erneut eingeben</Button></div> :
-      <label className="block text-sm font-semibold">IBAN<Input ref={inputRef} defaultValue="" onChange={event => { setRaw(event.target.value); setMessage(""); setInvalid(false); }} onBlur={finishEditing} autoComplete="off" autoCorrect="off" spellCheck={false} maxLength={64} aria-invalid={invalid || (raw.length > 0 && validation.status === "invalid")} aria-describedby="iban-check iban-hint" className="mt-2 h-12 rounded-2xl" /></label>}
+      <label className="block text-sm font-semibold">IBAN<Input ref={inputRef} defaultValue="" onChange={event => { setRaw(event.target.value); setMessage(""); setInvalid(false); }} onBlur={finishEditing} autoComplete="off" autoCorrect="off" spellCheck={false} maxLength={64} aria-invalid={invalid || (raw.length > 0 && validation.status === "invalid")} aria-describedby="iban-check" className="mt-2 h-12 rounded-2xl" /></label>}
     <p id="iban-check" role="status" aria-live="polite" className={`text-sm ${invalid ? "text-red-800" : "text-muted-foreground"}`}>{raw ? validation.message : message}</p>
-    <p id="iban-hint" className="text-sm text-muted-foreground">Nur eine formale Prüfung. Sie bestätigt weder das Konto noch die Kontoinhaberschaft.</p>
-    <div className={actions}><Button type="submit" variant="outline" className={disabledAction} disabled={!owner.trim() || !raw || Boolean(masked)}>Format prüfen</Button><Button type="button" disabled className={disabledAction} aria-describedby="bank-save-hint">Speichern</Button><Button type="button" variant="outline" className={action} onClick={onClose}>Abbrechen</Button></div>
-    <p id="bank-save-hint" className="text-sm text-muted-foreground">Deine Eingabe wird nicht gespeichert.</p>
+    <div className={actions}><Button type="submit" variant="outline" className={disabledAction} disabled={!owner.trim() || !raw || Boolean(masked)}>Format prüfen</Button><Button type="button" disabled className={disabledAction}>Speichern</Button><Button type="button" variant="outline" className={action} onClick={onClose}>Abbrechen</Button></div>
   </form>;
 }
 
@@ -69,7 +66,7 @@ export function PayoutMethodCard({ method }: { method: AffiliatePayoutMethod | n
 export function ProfileCard({ profile }: { profile: AffiliateProfile }) {
   const [open, setOpen] = useState(false);
   return <section className={card}><h2 className="text-xl font-bold">Konto & Profil</h2><p className="mt-4 break-words">{profile.firstName} {profile.lastName}</p><p className="text-sm text-muted-foreground">Mitglied seit {formatDate(profile.memberSince)}</p>
-    <Dialog open={open} onOpenChange={setOpen}><DialogTrigger asChild><Button variant="outline" className={`mt-4 ${action}`}>Kontodaten ändern</Button></DialogTrigger><DialogContent className={dialog}><DialogTitle className="pr-7">Kontodaten ändern</DialogTitle><DialogDescription>Prüfe deine Angaben. Änderungen werden hier nicht gespeichert.</DialogDescription>{open && <ProfileForm profile={profile} onClose={() => setOpen(false)} />}</DialogContent></Dialog>
+    <Dialog open={open} onOpenChange={setOpen}><DialogTrigger asChild><Button variant="outline" className={`mt-4 ${action}`}>Kontodaten ändern</Button></DialogTrigger><DialogContent className={dialog} aria-describedby={undefined}><DialogTitle className="pr-7">Kontodaten ändern</DialogTitle>{open && <ProfileForm profile={profile} onClose={() => setOpen(false)} />}</DialogContent></Dialog>
   </section>;
 }
 function ProfileForm({ profile, onClose }: { profile: AffiliateProfile; onClose: () => void }) {
@@ -80,6 +77,6 @@ function ProfileForm({ profile, onClose }: { profile: AffiliateProfile; onClose:
     <label className="block text-sm font-semibold">Vorname<Input required value={firstName} onChange={event => setFirstName(event.target.value)} maxLength={100} className="mt-2 h-12 rounded-2xl" autoComplete="given-name" aria-invalid={!firstName.trim()} /></label>
     <label className="block text-sm font-semibold">Nachname<Input required value={lastName} onChange={event => setLastName(event.target.value)} maxLength={100} className="mt-2 h-12 rounded-2xl" autoComplete="family-name" aria-invalid={!lastName.trim()} /></label>
     {!valid && <p role="status" className="text-sm text-red-800">Bitte fülle Vorname und Nachname aus.</p>}
-    <p id="profile-save-hint" className="text-sm text-muted-foreground">Deine Änderungen werden nicht gespeichert.</p><div className={actions}><Button disabled type="button" className={disabledAction} aria-describedby="profile-save-hint">Speichern</Button><Button type="button" variant="outline" className={action} onClick={onClose}>Abbrechen</Button></div>
+    <div className={actions}><Button disabled type="button" className={disabledAction}>Speichern</Button><Button type="button" variant="outline" className={action} onClick={onClose}>Abbrechen</Button></div>
   </form>;
 }

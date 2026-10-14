@@ -21,7 +21,7 @@ export function validateIban(input: string): IbanValidation {
   if (iban.length < 4) return { status: "incomplete", message: "Die IBAN ist noch nicht vollständig." };
   if (!/^[A-Z]{2}\d{2}/.test(iban)) return { status: "invalid", message: "Bitte prüfe das Länderkennzeichen und die Prüfziffern." };
   const length = lengths[iban.slice(0, 2)];
-  if (!length) return { status: "invalid", message: "Dieses Länderkennzeichen kann hier nicht geprüft werden." };
+  if (!length) return { status: "invalid", message: "Bitte prüfe das Länderkennzeichen deiner IBAN." };
   if (iban.length < length) return { status: "incomplete", message: "Die IBAN ist noch nicht vollständig." };
   if (iban.length !== length) return { status: "invalid", message: "Die Länge der IBAN stimmt nicht." };
   let remainder = 0;
