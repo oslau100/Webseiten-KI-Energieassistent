@@ -26,7 +26,7 @@ export const Footer = () => {
                 <img
                   src={assets.logo_footer}
                   alt={getText("brand.name", "Energieassistent") + " Logo"}
-                  className="h-28 md:h-32 w-auto object-contain object-left-top"
+                  className={`w-auto max-w-[min(70vw,280px)] object-contain object-left-top ${getText("brand.name", "") === "Tarivia" ? "max-h-16 md:max-h-20" : "h-28 md:h-32"}`}
                 />
               ) : (
                 <span className="font-semibold text-foreground pt-6">
@@ -47,7 +47,7 @@ export const Footer = () => {
             <div className="space-y-2 text-sm text-muted-foreground">
               <Link
                 to={withLang("/rueckruf-buchen")}
-                className="hover:text-primary transition-colors block underline underline-offset-4"
+                className="hover:text-primary-ink transition-colors block underline underline-offset-4"
               >
                 {t("footer_callback")}
               </Link>
@@ -60,17 +60,17 @@ export const Footer = () => {
             <div className="space-y-2 text-sm text-muted-foreground">
               <Link
                 to={withLang("/datenschutz")}
-                className="hover:text-primary transition-colors block"
+                className="hover:text-primary-ink transition-colors block"
               >
                 {t("footer_privacy")}
               </Link>
               <Link
                 to={withLang("/impressum")}
-                className="hover:text-primary transition-colors block"
+                className="hover:text-primary-ink transition-colors block"
               >
                 {t("footer_imprint")}
               </Link>
-              <button type="button" className="hover:text-primary transition-colors block text-left" onClick={() => window.dispatchEvent(new Event(openConsentSettingsEvent))}>
+              <button type="button" className="hover:text-primary-ink transition-colors block text-left" onClick={() => window.dispatchEvent(new Event(openConsentSettingsEvent))}>
                 {getText("cookie.title", "Privatsphäre-Einstellungen")}
               </button>
             </div>

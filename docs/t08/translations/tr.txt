@@ -1,0 +1,85 @@
+Fatura incelemesine neler dahildir?
+Tüketimi, faturalandırma dönemini, fiyatları ve ödemeleri birlikte değerlendirmek.
+Veri işleme bilgilerini nerede bulabilirim?
+Veri işleme ve haklarınızla ilgili bilgileri gizlilik açıklamasında bulabilirsiniz.
+Hizmet için hangi ücretler geçerlidir?
+Kullanımdan önce belirtilen koşullar esas alınır.
+{{brand}} kim tarafından işletiliyor?
+Yetkili yasal işletmeci BeConnected'dır.
+Faturadaki belirsiz bir kalem için ne yapmalıyım?
+Kalemi sözleşmenle karşılaştır ve sağlayıcına soracağın somut soruları not et.
+Akıllı telefon görselindeki değerler bağlayıcı mı?
+177 tarife ve 477 EUR statik pazarlama içeriğidir; kişisel bir hesaplama sonucu değildir.
+Günlük yaşamda elektrik ve gaz: {{brand}} ile fiyatları, tüketimi ve sözleşme koşullarını göz önünde tut. Hanene neyin uygun olduğunu kontrol et.
+Tarifemi {{brand}} ile kontrol et
+Akıllı telefon görseli, 177 tarife ve 477 EUR içeren onaylanmış bir pazarlama örneğini gösterir. Kişisel sonucun ayrı hesaplanır; tasarruf garanti edilmez.
+Birçok kişi tarifesini yıllarca kontrol etmez
+Tarifesini uzun süre kontrol etmeyen kişiler, fiyatlar ve teklifler sürekli değiştiği için çoğu zaman gerekenden belirgin ölçüde fazla öder.
+Birçok kişi tarifesinin zaten uygun fiyatlı olduğunu düşünür
+Eskiden iyi olan bir tarife bugün artık en uygun seçenek olmayabilir. Kontrol etmeden bu çoğu zaman fark edilmez.
+Birçok kişi temel tedarikçisinde kalır
+Birçok bölgede temel tedarik tarifesi, alternatif tarifelerden belirgin ölçüde pahalıdır. Buna rağmen birçok hane alışkanlık veya bilgi eksikliği nedeniyle orada kalır.
+Tarife piyasası karmaşık görünür
+Farklı koşullara sahip yüzlerce teklif, hangi tarifenin gerçekten iyi olduğunu anlamayı zorlaştırır; bu yüzden birçok kişi tarifesini olduğu gibi bırakır.
+{{brand}} ile genel görünümün.
+Tarife karşılaştırması hanenden başlar. Uygun bir karar verebilmen için fiyatlar ve koşullar birlikte ele alınmalıdır.
+Başlangıç durumunu belirle
+Tüketimini, posta kodunu ve mevcut tarifeni hazır bulundur.
+Maliyetleri değerlendir
+Sabit ücreti, enerji birim fiyatını ve sözleşme koşullarını incele.
+Teklifleri tart
+Teklifleri bilgilerine göre karşılaştır ve açık kalan soruları incele.
+Bilinçli karar ver
+Olası bir değişiklik senin kendi kararındır; görsel bireysel bir taahhüt içermez.
+Kendi karşılaştırmanda
+{{brand}} ile
+Fiyatları ve koşulları kendin bir araya getir
+Tüketimi ve sözleşme süresini karşılaştırmaya dahil et
+Belirsiz bilgiler hakkında somut sorular sor
+{{brand}} enerji maliyetlerini merkeze alır.
+Tarife koşulları, fiyat değerlendirmesinin bir parçasıdır.
+Karar, kişisel başlangıç durumuna bağlıdır.
+{{brand}} hakkında
+Yasal işletmeci BeConnected bünyesinde bir marka
+{{brand}} hanenin enerji maliyetlerine odaklanır. Elektrik, gaz ve yıllık faturalar hakkında anlaşılır bilgiler ön plandadır.
+BeConnected, {{brand}} markasının yetkili yasal işletmecisidir.
+Akıllı telefon görsellerindeki değerler onaylanmış pazarlama örnekleridir. Hanen için yapılacak bir hesaplamanın yerine geçmezler.
+177 tarife ve 477 EUR benim kişisel sonucum mu?
+Hayır. Bu bilgiler onaylanmış statik akıllı telefon görseline aittir. Kişisel sonuç, bilgilerine ve o anda mevcut tekliflere bağlıdır.
+Tarife karşılaştırması için neleri hazır bulundurmalıyım?
+Mevcut tarifeni, yıllık tüketimini, posta kodunu ve ilgili sözleşme koşullarını.
+Enerji maliyetlerine göz at.
+Mevcut sözleşmen ve tüketiminle başla. {{brand}} senin başlangıç noktandır.
+Geri arama talep et
+Geri arama takvimi hazırlanıyor.
+{{brand}}: tüketimi, avans ödemelerini ve yıllık maliyetleri birlikte değerlendir.
+Yıllık fatura tüketimi, fiyatları ve yapılmış ödemeleri bir araya getirir. Bu bilgilerin birbiriyle nasıl uyuştuğunu kontrol et.
+{{brand}} ile yıllık faturanın anlaşılır biçimde değerlendirilmesi ön plandadır.
+Faturayı kendin değerlendir
+Sayaç okumalarını dönemle eşleştir
+Fiyatları ve avans ödemelerini anla
+Tüketimi ve maliyetleri birlikte değerlendir
+Açık kalan soruları düzenli biçimde kaydet
+Faturandaki bilgileri sözleşmene göre kontrol et. Akıllı telefon görseli, fatura incelemesinin sonucu değildir.
+Belgeleri hazır bulundur
+Faturayı ve sözleşme koşullarını bir araya getir.
+Tüketimi dönemle eşleştir
+Faturalandırma dönemini ve sayaç okumalarını karşılaştır.
+Maliyetleri anla
+Fiyatları, avans ödemelerini ve ödemeleri değerlendir.
+Soruları not et
+Karar vermeden önce belirsiz kalemleri açıklığa kavuştur.
+Tüketimi anla
+Faturalandırma dönemini ve sayaç okumalarını karşılaştır.
+Fiyatları anla
+Sabit ücreti ve enerji birim fiyatını sözleşmeye göre kontrol et.
+Avans ödemelerini değerlendir
+Yapılmış ödemeleri faturayla karşılaştır.
+Belirsizlikleri gider
+Sağlayıcına soracağın soruları not et.
+Tarife fiyatlarını, sözleşme sürelerini ve yıllık faturaları anlaşılır biçimde değerlendir. {{brand}} bir sonraki kararını açık bir temele dayandırmana yardımcı olur.
+Tarifeyi {{brand}} ile kontrol et
+{{brand}} ile rakamlar bir genel görünüme dönüşür.
+Tüketimi, maliyetleri ve sözleşme koşullarını birlikte değerlendir. Böylece teklifleri daha iyi değerlendirebilir ve açık kalan soruları somut biçimde netleştirebilirsin.
+{{brand}} enerji maliyetlerine açık bir bakışı temsil eder. Bilinçli kararlar verebilmen için fiyatlar ve sözleşme koşulları anlaşılır olmalıdır.
+Bir sonraki tarife kararını daha açık bir bakışla ver.

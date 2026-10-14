@@ -24,14 +24,15 @@ export const getByPath = (obj: JsonRecord, path: string): unknown => {
   }, obj);
 };
 
-export const resolveLocalizedText = (obj: JsonRecord, path: string, fallback: string, lang?: string): string => {
+export const resolveLocalizedText = (obj: JsonRecord, path: string, fallback: string, lang?: string, allowLanguageFallback = true): string => {
   const raw = getByPath(obj, path);
-  if (typeof raw === "string") return raw;
+  if (typeof raw === "string") return lang && lang !== "de" && !allowLanguageFallback ? fallback : raw;
   if (raw && typeof raw === "object") {
     if (lang) {
       const localized = (raw as JsonRecord)[lang];
       if (typeof localized === "string") return localized;
     }
+    if (lang && !allowLanguageFallback) return fallback;
     const de = (raw as JsonRecord).de;
     if (typeof de === "string") return de;
     for (const value of Object.values(raw as JsonRecord)) {

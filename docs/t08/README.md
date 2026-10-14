@@ -1,3 +1,18 @@
+# T08 Offline-Remediation v2 — 14.10.2026
+
+Aktueller Ergebnisbericht: [remediation-result.md](remediation-result.md).
+Quellstand: PR #176 @ `64de44796d15dc0328b339f8e0621a455af90ad6`.
+Die folgenden v1-Abschnitte sind historische Vorbereitung. Die darin beschriebenen
+Rendering-Limits (Farbtokens, feste Sections) wurden lokal behoben. Freigaben für
+Produktion, Storage, Legal und Kalender wurden dadurch nicht erteilt.
+
+Aktueller Korrekturstand: [correction-review.md](correction-review.md). Alle 92 bisherigen Kunden-Übersetzungspfade sind durch getreue neue Übersetzungen der freigegebenen deutschen Texte geschlossen. Sprachliche Abnahme und Live-Konfigurationssnapshot fehlen weiterhin. Historische Draft-Buckets dürfen niemals Live-Konfigurationen ersetzen.
+
+[config-review-manifest.json](config-review-manifest.json) ist ausschließlich ein
+Diff-/Rollback-Prüfplan, enthält keine ausführbaren Datenbank-Schreibbefehle.
+
+---
+
 # T08 #176 — operator review drafts with original assets
 
 Local preparation only on `codex/t08-oecher-tarivia-runtime-integration`.

@@ -1,6 +1,6 @@
 import { languageFlag } from "./languageFlags";
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useWebsiteConfig } from "./websiteConfig";
 import { tariffCallbackTranslations } from "./tariffCallbackI18n";
 
@@ -624,7 +624,8 @@ const I18nContext = createContext<I18nContextValue | null>(null);
 
 export const I18nProvider = ({ children }: { children: ReactNode }) => {
   const location = useLocation();
-  const { content } = useWebsiteConfig();
+  const navigate = useNavigate();
+  const { content, customerRuntime } = useWebsiteConfig();
   const [lang, setLangState] = useState<LangCode>("de");
 
   useEffect(() => {
@@ -643,9 +644,10 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
   const setLang = (code: LangCode) => {
     try { localStorage.setItem("site_lang", code); } catch { /* URL still carries the selected language. */ }
 
-    const nextUrl = new URL(window.location.href);
-    nextUrl.searchParams.set("lang", code);
-    window.location.assign(nextUrl.toString());
+    setLangState(code);
+    const params = new URLSearchParams(location.search);
+    params.set("lang", code);
+    navigate(`${location.pathname}?${params.toString()}${location.hash}`, { replace: true });
   };
 
   useEffect(() => {
@@ -659,7 +661,9 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
     return {
       lang,
       setLang,
-      t: (key) =>
+      t: (key) => customerRuntime && /^(hero_|home_|annual_|cta_check_savings)/.test(key)
+        ? i18nOverrides[key]?.[lang] ?? ((content.availability as Record<string, Record<string, string>> | undefined)?.translation_pending?.[lang] || "")
+        :
         i18nOverrides[key]?.[lang] ??
         i18nOverrides[key]?.de ??
         statusPageDictionaries[lang][key] ??
@@ -675,7 +679,7 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
         key,
       withLang: (path) => `${path}${path.includes("?") ? "&" : "?"}lang=${lang}`,
     };
-  }, [content, lang]);
+  }, [content, lang, customerRuntime]);
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 };

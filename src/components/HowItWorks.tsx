@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { MarketingLink as Link } from "./MarketingLink";
 import { useI18n } from "@/lib/i18n";
 import { AnimatedSection } from "./AnimatedSection";
 import { useWebsiteConfig } from "@/lib/websiteConfig";

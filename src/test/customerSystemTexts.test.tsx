@@ -10,7 +10,7 @@ function config(locationId: string) {
   return { location_id: locationId,
     webseite_content_config: { brand: { name: "Configured fixture" }, legal: { ready: true, variables: { firma: "Fixture company", email: "fixture@example.test" } } },
     webseite_design_config: { assets: { logo_header: "/fixture.svg", logo_footer: "/fixture.svg", hero_image: "/fixture.png" } },
-    webseite_layout_config: { pages: {} },
+    webseite_layout_config: { pages: { home: { sections: ["header", "hero", "footer"] }, annual: { sections: ["header", "hero", "footer"] } } },
   };
 }
 function mount(locationId: string, path: string, row = config(locationId)) {
@@ -53,14 +53,16 @@ describe.each(customerRuntimeBindings)("central German copy for $locationId", ({
     vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response(JSON.stringify([row])));
     render(<BrowserRouter><WebsiteConfigProvider><I18nProvider><CopyProbe /></I18nProvider></WebsiteConfigProvider></BrowserRouter>);
     const copy = JSON.parse((await screen.findByTestId("copy-policy")).textContent || "{}");
-    expect(copy).toEqual({ headline: "Zahlst du zu viel für Strom oder Gas?", navigation: "Configured German navigation", brand: "", contact: "", legal: "", image: "", badge: "", stats: "", reviews: [], unknown: "" });
+    expect(copy).toEqual({ headline: "", navigation: "Configured German navigation", brand: "", contact: "", legal: "", image: "", badge: "", stats: "", reviews: [], unknown: "" });
   });
   it("renders home, navigation and cookie controls without customer fact fallbacks", async () => {
     const { container } = mount(locationId, "/");
-    expect(await screen.findByRole("heading", { name: "Zahlst du zu viel für Strom oder Gas?" })).toBeInTheDocument();
+    await waitFor(() => expect(container.querySelector("main")).toBeInTheDocument());
+    expect(screen.queryByText("Zahlst du zu viel für Strom oder Gas?")).toBeNull();
     expect(screen.getByRole("link", { name: "Jahresabrechnung prüfen" })).toHaveAttribute("href", "/jahresrechnung?lang=de");
     expect(screen.getByRole("button", { name: /Sprache wechseln/ })).toBeInTheDocument();
-    expect(screen.getAllByRole("link", { name: "Jetzt Ersparnis prüfen" }).length).toBeGreaterThan(0);
+    expect(container.querySelectorAll("[data-transport=NOT_READY]").length).toBeGreaterThan(0);
+    expect(container.querySelectorAll('a[href^="/start"]')).toHaveLength(0);
     expect(screen.getByRole("link", { name: "Rückruf buchen" })).toHaveAttribute("href", "/rueckruf-buchen?lang=de");
     expect(screen.getByRole("link", { name: "Datenschutz" })).toHaveAttribute("href", "/datenschutz?lang=de");
     expect(screen.getByRole("heading", { name: "Privatsphäre-Einstellungen" })).toBeInTheDocument();
@@ -68,7 +70,7 @@ describe.each(customerRuntimeBindings)("central German copy for $locationId", ({
     expect(container.textContent).not.toMatch(/2\.000|1\.500|900\.000|Marvin|ehiogie/);
     fireEvent.click(screen.getByRole("link", { name: "Jahresabrechnung prüfen" }));
     expect(await screen.findByRole("link", { name: "Tarifersparnis prüfen" })).toHaveAttribute("href", "/?lang=de");
-    expect(screen.getAllByRole("link", { name: "Jahresabrechnung prüfen" }).length).toBeGreaterThan(0);
+    expect(container.querySelectorAll('a[href^="/rechnung"]')).toHaveLength(0);
   });
   it.each(["impressum", "datenschutz"])("keeps %s labels and customer legal values behind approval", async page => {
     mount(locationId, `/${page}`);

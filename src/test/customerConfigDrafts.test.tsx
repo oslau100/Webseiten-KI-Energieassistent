@@ -138,9 +138,9 @@ describe.each([0, 1])("operator draft %i", index => {
     expect(screen.getByRole("link", { name: "Jahresabrechnung prüfen" })).toHaveAttribute("href", "/jahresrechnung?lang=de");
     expect(screen.getByRole("heading", { name: "Privatsphäre-Einstellungen" })).toBeInTheDocument();
   });
-  it("retains translated system navigation alongside German brand copy", async () => {
+  it("uses supplied English marketing without German fallback", async () => {
     mount(index, readyFixture(index), plan.locationId, "/?lang=en");
-    expect(await screen.findByRole("heading", { name: getByPath(drafts[index], "content.sections.hero.headline.de") as string })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { name: getByPath(drafts[index], "content.sections.hero.headline.en") as string })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Check annual energy bill" })).toHaveAttribute("href", "/jahresrechnung?lang=en");
   });
   it("consumes annual draft copy without fixture calculation results", async () => {

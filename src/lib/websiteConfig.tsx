@@ -1,3 +1,4 @@
+import { websiteThemeTokens } from "./websiteTheme";
 import { customerConfigReadiness } from "./customerRuntime";
 import { resolveWebsiteRuntime, isLegacyAnonJwt } from "./websiteRuntime";
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
@@ -99,13 +100,6 @@ type WebsiteConfigContextValue = WebsiteConfigState & {
   interpolate: (template: string, vars?: Record<string, string>) => string;
 };
 
-// Central UI/product copy may fall back; customer identity, assets, legal values,
-// claims (badges/statistics), integration IDs and page HTML must come from config.
-const customerSystemText = (path: string) => /^(header|cookie)\./.test(path)
-  || /^seo\.(title|description)$/.test(path)
-  || /^sections\.about\.(headline|mode)$/.test(path)
-  || /^sections\.(hero|problem|solution|how_it_works|comparison|testimonials|final_cta|jahresrechnung)\.(headline|subline|body|cta_text|cta|result_note|image_position|kicker|portals_title|assistant_title|hero_text|why_intro|value_text|comparison_self_title|comparison_assistant_title|reviews_kicker|final_text)$/.test(path);
-
 const WebsiteConfigContext = createContext<WebsiteConfigContextValue | null>(null);
 
 export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => {
@@ -178,18 +172,17 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
 
   useEffect(() => {
     const root = document.documentElement;
-    const colors = (state.design.colors || {}) as Record<string, string>;
-    if (colors.primary) root.style.setProperty("--website-primary", colors.primary);
-    if (colors.background) root.style.setProperty("--website-bg", colors.background);
-    if (colors.text) root.style.setProperty("--website-text", colors.text);
+    const tokens = websiteThemeTokens(state.design);
+    for (const [name, value] of Object.entries(tokens)) root.style.setProperty(name, value);
+    return () => { for (const name of Object.keys(tokens)) root.style.removeProperty(name); };
   }, [state.design]);
 
   const value = useMemo<WebsiteConfigContextValue>(() => ({
     ...state,
     tenant: { locationId: runtime.locationId },
     customerRuntime: runtime.identity.customer,
-    getText: (path, fallback, lang) => resolveLocalizedText(state.content, path, runtime.identity.customer && !customerSystemText(path) ? "" : fallback, lang),
-    getArray: (path, fallback) => resolveArray(state.content, path, runtime.identity.customer ? resolveArray(state.content, path.replace(/\.(de|en|tr|ru|ar|it|zh|hi|es|fr|nl|pl)$/, ""), []) : fallback),
+    getText: (path, fallback, lang) => resolveLocalizedText(state.content, path, runtime.identity.customer && !/^(header|cookie)\./.test(path) ? "" : fallback, lang, !runtime.identity.customer || /^(brand|legal|pages|sections\.links)\.|\.(image_url|image_alt|image_position|mode|calendar_url|social_hint)$|^sections\.about\.(name|social\.)/.test(path)),
+    getArray: (path, fallback) => resolveArray(state.content, path, runtime.identity.customer ? [] : fallback),
     getObject: (path, fallback) => resolveObject(state.content, path, runtime.identity.customer ? {} as typeof fallback : fallback),
     interpolate: (template, vars = {}) => interpolateTemplate(template, vars),
   }), [state, runtime]);

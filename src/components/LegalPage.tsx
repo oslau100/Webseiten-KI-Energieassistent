@@ -14,7 +14,7 @@ export const LegalPage = ({ page, title }: { page: "impressum" | "datenschutz"; 
       <Header />
       <main className="flex-1 container max-w-4xl mx-auto px-4 pt-36 md:pt-48 pb-16">
         {body ? <div className="prose max-w-none text-muted-foreground">{body}</div> : <>
-          <h1 className="text-3xl font-bold mb-8 text-primary">{title}</h1>
+          <h1 className="text-3xl font-bold mb-8 text-primary-ink">{title}</h1>
           <p className="text-muted-foreground">Die rechtlichen Angaben werden für diesen Standort vorbereitet.</p>
         </>}
       </main>

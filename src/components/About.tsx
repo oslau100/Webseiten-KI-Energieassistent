@@ -26,7 +26,7 @@ export const About = () => {
   ].map((link) => ({ ...link, href: getText(`sections.about.social.${link.key}`, "", lang).trim() }))
     .filter((link) => /^https?:\/\//i.test(link.href));
   const legacyParagraphs = Array.from({ length: 6 }, (_, index) => getText(`sections.about.paragraph_${index + 1}`, "", lang));
-  const paragraphs = getArray<unknown>("sections.about.paragraphs", legacyParagraphs)
+  const paragraphs = getArray<unknown>(`sections.about.paragraphs.${lang}`, getArray<unknown>("sections.about.paragraphs", legacyParagraphs))
     .map((value) => resolveLocalizedText({ value }, "value", "", lang)).filter((value) => value.trim());
   const hasAside = Boolean(image || socialLinks.length);
 
@@ -48,14 +48,14 @@ export const About = () => {
               {socialLinks.length ? <div className="space-y-4">
                 {socialHint ? <p className="font-bold text-sm uppercase tracking-wider text-muted-foreground">{socialHint}</p> : null}
                 <div className="flex justify-center gap-4 text-muted-foreground">
-                  {socialLinks.map(({ key, label, href, Icon }) => <a key={key} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="transition-colors hover:text-primary"><Icon className="h-6 w-6" /></a>)}
+                  {socialLinks.map(({ key, label, href, Icon }) => <a key={key} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="transition-colors hover:text-primary-ink"><Icon className="h-6 w-6" /></a>)}
                 </div>
               </div> : null}
             </div> : null}
             <div className={`${hasAside ? "md:col-span-8 lg:col-span-7" : "md:col-span-12"} space-y-6`}>
               <div>
                 {name ? <h3 className="text-2xl font-bold">{name}</h3> : null}
-                {role ? <p className="text-primary font-medium">{role}</p> : null}
+                {role ? <p className="text-primary-ink font-medium">{role}</p> : null}
               </div>
               <div className="space-y-4 text-muted-foreground leading-relaxed text-lg">
                 {paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}

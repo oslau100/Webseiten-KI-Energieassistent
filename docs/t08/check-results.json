@@ -1,0 +1,27 @@
+{
+  "source_sha": "64de44796d15dc0328b339f8e0621a455af90ad6",
+  "offline_tests": {
+    "command": "node --test --test-isolation=none scripts/t08-offline.test.mjs scripts/t08-corrections.test.mjs",
+    "passed": 22,
+    "failed": 0
+  },
+  "immutable_files": 13,
+  "application_checks": {
+    "vitest": "NOT_RUN: executable missing",
+    "changed_file_eslint": "NOT_RUN: executable missing",
+    "typescript": "NOT_RUN: executable missing",
+    "vite_build": "NOT_RUN: executable missing"
+  },
+  "dependency_install": "OFFLINE_BLOCKED: no lockfile; no cached @eslint/js",
+  "translation_gap_paths": 0,
+  "release_ready": false,
+  "recovered_gap_paths": 2,
+  "original_translation_gap_paths": 94,
+  "source_catalog_groups_rechecked": 6,
+  "source_languages_rechecked": 12,
+  "source_evidence_entries": 211,
+  "removed_unsourced_faq_entries": 6,
+  "faithfully_translated_gap_paths": 92,
+  "production_config_blocker": "Approved live snapshot absent; separate guarded offline config-diff preparer supplied",
+  "language_acceptance": "Native-speaker review pending"
+}

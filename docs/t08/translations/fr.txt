@@ -1,0 +1,85 @@
+Que comprend une vérification de facture ?
+Examiner ensemble la consommation, la période de facturation, les prix et les paiements.
+Où trouver des informations sur le traitement des données ?
+Vous trouverez des informations sur le traitement des données et vos droits dans la politique de confidentialité.
+Quels frais s'appliquent au service ?
+Les conditions indiquées avant l'utilisation font foi.
+Qui exploite {{brand}} ?
+L'exploitant légal autorisé est BeConnected.
+Que faire en cas de poste peu clair sur la facture ?
+Compare ce poste avec ton contrat et note des questions précises à poser à ton fournisseur.
+Les valeurs de l'illustration du smartphone sont-elles contractuelles ?
+Les 177 tarifs et 477 EUR sont un contenu marketing statique, et non le résultat d'un calcul personnel.
+L'électricité et le gaz au quotidien : avec {{brand}}, garde un œil sur les prix, la consommation et les conditions du contrat. Vérifie ce qui convient à ton foyer.
+Vérifier mon tarif avec {{brand}}
+L'illustration du smartphone présente un exemple marketing approuvé avec 177 tarifs et 477 EUR. Ton résultat personnel est calculé séparément ; les économies ne sont pas garanties.
+Beaucoup ne vérifient pas leur tarif pendant des années
+Ceux qui ne vérifient pas leur tarif pendant longtemps paient souvent nettement plus que nécessaire, car les prix et les offres évoluent constamment.
+Beaucoup pensent que leur tarif est déjà avantageux
+Un tarif qui était bon autrefois peut ne plus être optimal aujourd'hui. Sans vérification, cela passe souvent inaperçu.
+Beaucoup restent chez le fournisseur du tarif de base
+Dans de nombreuses régions, le tarif de base est nettement plus cher que les tarifs alternatifs. Pourtant, beaucoup de foyers y restent par habitude ou par manque d'information.
+Le marché des tarifs semble compliqué
+Des centaines d'offres aux conditions différentes rendent difficile l'identification d'un tarif réellement intéressant ; beaucoup laissent donc simplement leur tarif inchangé.
+Ta vue d'ensemble avec {{brand}}.
+Une comparaison de tarifs commence par ton foyer. Les prix et les conditions vont de pair pour que tu puisses prendre une décision adaptée.
+Faire le point sur la situation initiale
+Prépare ta consommation, ton code postal et ton tarif actuel.
+Mettre les coûts en perspective
+Examine le prix fixe, le prix par unité d'énergie et les conditions du contrat.
+Évaluer les offres
+Compare les offres à partir de tes informations et examine les questions en suspens.
+Décider en connaissance de cause
+Un éventuel changement reste ta propre décision ; l'illustration ne contient aucun engagement individuel.
+Lors d'une comparaison personnelle
+Avec {{brand}}
+Rassembler soi-même les prix et les conditions
+Inclure la consommation et la durée du contrat dans la comparaison
+Poser des questions précises sur les informations peu claires
+{{brand}} place tes dépenses énergétiques au centre.
+Les conditions tarifaires font partie de l'examen du prix.
+La décision dépend de ta situation personnelle initiale.
+À propos de {{brand}}
+Une marque sous l'exploitation légale de BeConnected
+{{brand}} met l'accent sur les dépenses énergétiques de ton foyer. Des informations compréhensibles sur l'électricité, le gaz et les factures annuelles sont au centre.
+BeConnected est l'exploitant légal autorisé de {{brand}}.
+Les valeurs des illustrations de smartphone sont des exemples marketing approuvés. Elles ne remplacent pas un calcul pour ton foyer.
+Les 177 tarifs et 477 EUR sont-ils mon résultat personnel ?
+Non. Ces chiffres font partie de l'illustration statique de smartphone approuvée. Un résultat personnel dépend de tes informations et des offres disponibles à ce moment-là.
+Que préparer pour une comparaison de tarifs ?
+Ton tarif actuel, ta consommation annuelle, ton code postal et les conditions contractuelles pertinentes.
+Examine tes dépenses énergétiques.
+Commence par ton contrat actuel et ta consommation. {{brand}} est ton point de départ.
+Demander un rappel
+Le calendrier des rappels est en cours de préparation.
+{{brand}} : examiner ensemble la consommation, les acomptes et les coûts annuels.
+Une facture annuelle réunit la consommation, les prix et les paiements déjà effectués. Vérifie comment ces informations s'articulent.
+Avec {{brand}}, une évaluation compréhensible de ta facture annuelle est au centre.
+Évaluer soi-même sa facture
+Associer les relevés de compteur à la période
+Comprendre les prix et les acomptes
+Examiner ensemble la consommation et les coûts
+Noter les questions en suspens de manière structurée
+Vérifie les données de ta facture à l'aide de ton contrat. L'illustration du smartphone n'est pas le résultat d'une vérification de facture.
+Préparer les documents
+Rassembler la facture et les conditions du contrat.
+Rattacher la consommation à sa période
+Comparer la période de facturation et les relevés de compteur.
+Comprendre les coûts
+Évaluer les prix, les acomptes et les paiements.
+Noter les questions
+Clarifier les postes peu clairs avant de décider.
+Comprendre la consommation
+Compare la période de facturation et les relevés de compteur.
+Comprendre les prix
+Vérifie le prix fixe et le prix par unité d'énergie à l'aide du contrat.
+Évaluer les acomptes
+Compare les paiements effectués avec la facture.
+Clarifier les incertitudes
+Note les questions à poser à ton fournisseur.
+Comprendre les prix des tarifs, les durées des contrats et les factures annuelles. {{brand}} t'aide à fonder ta prochaine décision sur une base claire.
+Vérifier le tarif avec {{brand}}
+Avec {{brand}}, les chiffres deviennent une vue d'ensemble.
+Examine ensemble la consommation, les coûts et les conditions du contrat. Tu peux ainsi mieux évaluer les offres et clarifier précisément les questions en suspens.
+{{brand}} représente une vision claire des dépenses énergétiques. Les prix et les conditions contractuelles doivent être compréhensibles pour que tu puisses décider en connaissance de cause.
+Prends ta prochaine décision tarifaire avec davantage de clarté.
