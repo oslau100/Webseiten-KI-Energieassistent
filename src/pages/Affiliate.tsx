@@ -129,7 +129,7 @@ function PortalSection({ section, state }: { section: string; state: PortalState
   if (section === "empfehlungen") {
     const rows = (state.data || []) as AffiliateReferral[];
     return <><Heading title="Deine Empfehlungen" text="Hier siehst du, welche Empfehlungen über deinen persönlichen Link zugeordnet wurden und welchen aktuellen Status sie haben." />
-      {rows.length === 0 ? <Empty title="Noch keine Empfehlungen" text="Neue Empfehlungen erscheinen hier, sobald sie vorliegen." /> : <PartnerList title="Empfehlungen" firstColumn="Empfehlung" rows={rows.map(row => ({ key: row.id, primary: row.attributedAt && formatDate(row.attributedAt) !== "—" ? `Empfehlung vom ${formatDate(row.attributedAt)}` : "Empfehlung", status: referralStatus(row.status), date: formatDate(row.attributedAt) }))} />}</>;
+      {rows.length === 0 ? <Empty title="Noch keine Empfehlungen" text="Neue Empfehlungen erscheinen hier, sobald sie vorliegen." /> : <PartnerList title="Empfehlungen" firstColumn="Empfehlung" rows={rows.map(row => ({ key: row.id, primary: "Empfehlung", status: referralStatus(row.status), date: formatDate(row.attributedAt) }))} />}</>;
   }
   if (section === "belohnungen") {
     const rows = (state.data || []) as AffiliateReward[];

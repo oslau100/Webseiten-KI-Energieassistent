@@ -46,7 +46,9 @@ describe("partner lists and guarded navigation", () => {
     mount();
     expect(await screen.findByRole("table", { name: "Empfehlungen" })).toBeInTheDocument();
     expect(screen.getByText("Anbieterwechsel bestätigt")).toBeInTheDocument();
-    expect(screen.getByText("Empfehlung vom 02.01.2026")).toBeInTheDocument();
+    expect(screen.getByText("02.01.2026")).toBeInTheDocument();
+    expect(screen.getByText("Empfehlung", { selector: "td" })).toBeInTheDocument();
+    expect(screen.queryByText(/Empfehlung vom/)).not.toBeInTheDocument();
     expect(document.body.textContent).not.toContain("private-id");
     expect(document.body.textContent).not.toContain("confirmed");
   });

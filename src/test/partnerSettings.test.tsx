@@ -22,6 +22,12 @@ describe("safe partner edit dialogs", () => {
     expect(within(dialog).getByRole("button", { name: "Speichern" })).toBeDisabled();
     fireEvent.blur(iban);
     expect(within(dialog).getByText("DE •••• •••• 3000")).toBeInTheDocument();
+    expect(within(dialog).getByRole("button", { name: "Format prüfen" })).toBeDisabled();
+    fireEvent.click(within(dialog).getByRole("button", { name: "IBAN erneut eingeben" }));
+    expect(within(dialog).getByLabelText("IBAN")).toHaveValue("");
+    fireEvent.change(within(dialog).getByLabelText("IBAN"), { target: { value: "DE89" } });
+    expect(within(dialog).getByRole("button", { name: "Format prüfen" })).toBeEnabled();
+    fireEvent.blur(within(dialog).getByLabelText("IBAN"));
     expect(document.body.innerHTML).not.toContain("3704");
     fireEvent.click(within(dialog).getByRole("button", { name: "Abbrechen" }));
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();

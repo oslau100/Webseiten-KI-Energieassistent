@@ -7,8 +7,10 @@ import { formatDate, safeMaskedIban } from "@/lib/affiliate-presentation";
 import { maskIban, validateIban } from "@/lib/iban";
 
 const card = "min-w-0 rounded-[2rem] border bg-white p-6 shadow-sm";
-const dialog = "max-w-[calc(100vw-2rem)] rounded-[2rem] max-h-[calc(100dvh-2rem)] overflow-y-auto pb-[max(1.5rem,env(safe-area-inset-bottom))] motion-reduce:animate-none [&>button]:h-11 [&>button]:w-11 [&>button]:right-1 [&>button]:top-1";
-const action = "min-h-11 rounded-full whitespace-normal";
+const dialog = "w-[calc(100vw-2rem)] max-w-[32rem] rounded-[1.5rem] sm:rounded-[1.5rem] max-h-[calc(100dvh-2rem)] overflow-y-auto pb-[max(1.5rem,env(safe-area-inset-bottom))] motion-reduce:!animate-none [&>button]:h-11 [&>button]:w-11 [&>button]:right-1 [&>button]:top-1";
+const action = "min-h-11 h-auto rounded-full whitespace-normal";
+const disabledAction = `${action} disabled:opacity-100 disabled:bg-muted disabled:text-muted-foreground disabled:border disabled:border-border disabled:shadow-none`;
+const actions = "grid grid-cols-1 gap-3 min-[375px]:grid-cols-2 sm:flex sm:flex-wrap";
 
 // QA-ready only: do not mount in the runtime portal until an authoritative
 // participation-policy DTO exists. This is not a payout method.
@@ -32,6 +34,7 @@ function BankForm({ onClose }: { onClose: () => void }) {
   const [owner, setOwner] = useState("");
   const [raw, setRaw] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
+  const replacementRef = useRef<HTMLButtonElement>(null);
   const [masked, setMasked] = useState<string>();
   const [message, setMessage] = useState("");
   const [invalid, setInvalid] = useState(false);
@@ -43,14 +46,15 @@ function BankForm({ onClose }: { onClose: () => void }) {
     setInvalid(result.status !== "valid");
     if (inputRef.current) inputRef.current.value = "";
     setRaw("");
+    if (result.status === "valid") requestAnimationFrame(() => replacementRef.current?.focus());
   };
   return <form className="space-y-4" onSubmit={event => { event.preventDefault(); if (raw) finishEditing(); }}>
     <label className="block text-sm font-semibold">Kontoinhaber<Input value={owner} onChange={event => setOwner(event.target.value)} autoComplete="off" maxLength={120} className="mt-2 h-12 rounded-2xl" required /></label>
-    {masked ? <div className="space-y-2"><p className="text-sm font-semibold">IBAN</p><p>{masked}</p><Button type="button" variant="outline" className={action} onClick={() => { setMasked(undefined); setMessage(""); setInvalid(false); }}>IBAN erneut eingeben</Button></div> :
+    {masked ? <div className="space-y-2"><p className="text-sm font-semibold">IBAN</p><p>{masked}</p><Button ref={replacementRef} type="button" variant="outline" className={action} onClick={() => { setMasked(undefined); setMessage(""); setInvalid(false); requestAnimationFrame(() => inputRef.current?.focus()); }}>IBAN erneut eingeben</Button></div> :
       <label className="block text-sm font-semibold">IBAN<Input ref={inputRef} defaultValue="" onChange={event => { setRaw(event.target.value); setMessage(""); setInvalid(false); }} onBlur={finishEditing} autoComplete="off" autoCorrect="off" spellCheck={false} maxLength={64} aria-invalid={invalid || (raw.length > 0 && validation.status === "invalid")} aria-describedby="iban-check iban-hint" className="mt-2 h-12 rounded-2xl" /></label>}
     <p id="iban-check" role="status" aria-live="polite" className={`text-sm ${invalid ? "text-red-800" : "text-muted-foreground"}`}>{raw ? validation.message : message}</p>
     <p id="iban-hint" className="text-sm text-muted-foreground">Nur eine formale Prüfung. Sie bestätigt weder das Konto noch die Kontoinhaberschaft.</p>
-    <div className="flex flex-wrap gap-3"><Button type="submit" variant="outline" className={action} disabled={!owner.trim() || (!raw && !masked)}>Format prüfen</Button><Button type="button" disabled className={action} aria-describedby="bank-save-hint">Speichern</Button><Button type="button" variant="outline" className={action} onClick={onClose}>Abbrechen</Button></div>
+    <div className={actions}><Button type="submit" variant="outline" className={disabledAction} disabled={!owner.trim() || !raw || Boolean(masked)}>Format prüfen</Button><Button type="button" disabled className={disabledAction} aria-describedby="bank-save-hint">Speichern</Button><Button type="button" variant="outline" className={action} onClick={onClose}>Abbrechen</Button></div>
     <p id="bank-save-hint" className="text-sm text-muted-foreground">Deine Eingabe wird nicht gespeichert.</p>
   </form>;
 }
@@ -76,6 +80,6 @@ function ProfileForm({ profile, onClose }: { profile: AffiliateProfile; onClose:
     <label className="block text-sm font-semibold">Vorname<Input required value={firstName} onChange={event => setFirstName(event.target.value)} maxLength={100} className="mt-2 h-12 rounded-2xl" autoComplete="given-name" aria-invalid={!firstName.trim()} /></label>
     <label className="block text-sm font-semibold">Nachname<Input required value={lastName} onChange={event => setLastName(event.target.value)} maxLength={100} className="mt-2 h-12 rounded-2xl" autoComplete="family-name" aria-invalid={!lastName.trim()} /></label>
     {!valid && <p role="status" className="text-sm text-red-800">Bitte fülle Vorname und Nachname aus.</p>}
-    <p id="profile-save-hint" className="text-sm text-muted-foreground">Deine Änderungen werden nicht gespeichert.</p><div className="flex flex-wrap gap-3"><Button disabled type="button" className={action} aria-describedby="profile-save-hint">Speichern</Button><Button type="button" variant="outline" className={action} onClick={onClose}>Abbrechen</Button></div>
+    <p id="profile-save-hint" className="text-sm text-muted-foreground">Deine Änderungen werden nicht gespeichert.</p><div className={actions}><Button disabled type="button" className={disabledAction} aria-describedby="profile-save-hint">Speichern</Button><Button type="button" variant="outline" className={action} onClick={onClose}>Abbrechen</Button></div>
   </form>;
 }

@@ -1,0 +1,795 @@
+{
+  "base": "f425147ea6ff05c3a240e992e2e0146ac1f0737c",
+  "baseTree": "f8422dc3e27209800b8b7e8a9cd2edc7848a7bbb",
+  "fixtureOnly": true,
+  "logo": "EVIDENCE REQUIRED: external assets blocked in synthetic QA; not evidence of broken production logo",
+  "checks": [
+    {
+      "tag": "before-bank-320",
+      "after": false,
+      "opacity": "1",
+      "animation": "enter",
+      "width": 288,
+      "left": 16,
+      "right": 304,
+      "top": 153,
+      "bottom": 747,
+      "radii": [
+        "32px",
+        "32px",
+        "32px",
+        "32px"
+      ],
+      "scrollWidth": 286,
+      "clientWidth": 286,
+      "scrollHeight": 592,
+      "clientHeight": 592,
+      "viewport": [
+        320,
+        900
+      ]
+    },
+    {
+      "tag": "before-profile-320",
+      "after": false,
+      "opacity": "1",
+      "animation": "enter",
+      "width": 288,
+      "left": 16,
+      "right": 304,
+      "top": 238,
+      "bottom": 662,
+      "radii": [
+        "32px",
+        "32px",
+        "32px",
+        "32px"
+      ],
+      "scrollWidth": 286,
+      "clientWidth": 286,
+      "scrollHeight": 422,
+      "clientHeight": 422,
+      "viewport": [
+        320,
+        900
+      ]
+    },
+    {
+      "tag": "before-bank-375",
+      "after": false,
+      "opacity": "1",
+      "animation": "enter",
+      "width": 343,
+      "left": 16,
+      "right": 359,
+      "top": 182,
+      "bottom": 718,
+      "radii": [
+        "32px",
+        "32px",
+        "32px",
+        "32px"
+      ],
+      "scrollWidth": 341,
+      "clientWidth": 341,
+      "scrollHeight": 534,
+      "clientHeight": 534,
+      "viewport": [
+        375,
+        900
+      ]
+    },
+    {
+      "tag": "before-profile-375",
+      "after": false,
+      "opacity": "1",
+      "animation": "enter",
+      "width": 343,
+      "left": 16,
+      "right": 359,
+      "top": 238,
+      "bottom": 662,
+      "radii": [
+        "32px",
+        "32px",
+        "32px",
+        "32px"
+      ],
+      "scrollWidth": 341,
+      "clientWidth": 341,
+      "scrollHeight": 422,
+      "clientHeight": 422,
+      "viewport": [
+        375,
+        900
+      ]
+    },
+    {
+      "tag": "before-bank-390",
+      "after": false,
+      "opacity": "1",
+      "animation": "enter",
+      "width": 358,
+      "left": 16,
+      "right": 374,
+      "top": 192,
+      "bottom": 708,
+      "radii": [
+        "32px",
+        "32px",
+        "32px",
+        "32px"
+      ],
+      "scrollWidth": 356,
+      "clientWidth": 356,
+      "scrollHeight": 514,
+      "clientHeight": 514,
+      "viewport": [
+        390,
+        900
+      ]
+    },
+    {
+      "tag": "before-profile-390",
+      "after": false,
+      "opacity": "1",
+      "animation": "enter",
+      "width": 358,
+      "left": 16,
+      "right": 374,
+      "top": 248,
+      "bottom": 652,
+      "radii": [
+        "32px",
+        "32px",
+        "32px",
+        "32px"
+      ],
+      "scrollWidth": 356,
+      "clientWidth": 356,
+      "scrollHeight": 402,
+      "clientHeight": 402,
+      "viewport": [
+        390,
+        900
+      ]
+    },
+    {
+      "tag": "before-bank-428",
+      "after": false,
+      "opacity": "1",
+      "animation": "enter",
+      "width": 396,
+      "left": 16,
+      "right": 412,
+      "top": 192,
+      "bottom": 708,
+      "radii": [
+        "32px",
+        "32px",
+        "32px",
+        "32px"
+      ],
+      "scrollWidth": 394,
+      "clientWidth": 394,
+      "scrollHeight": 514,
+      "clientHeight": 514,
+      "viewport": [
+        428,
+        900
+      ]
+    },
+    {
+      "tag": "before-profile-428",
+      "after": false,
+      "opacity": "1",
+      "animation": "enter",
+      "width": 396,
+      "left": 16,
+      "right": 412,
+      "top": 248,
+      "bottom": 652,
+      "radii": [
+        "32px",
+        "32px",
+        "32px",
+        "32px"
+      ],
+      "scrollWidth": 394,
+      "clientWidth": 394,
+      "scrollHeight": 402,
+      "clientHeight": 402,
+      "viewport": [
+        428,
+        900
+      ]
+    },
+    {
+      "tag": "before-bank-760",
+      "after": false,
+      "opacity": "1",
+      "animation": "enter",
+      "width": 728,
+      "left": 16,
+      "right": 744,
+      "top": 240,
+      "bottom": 660,
+      "radii": [
+        "9999px",
+        "9999px",
+        "9999px",
+        "9999px"
+      ],
+      "scrollWidth": 726,
+      "clientWidth": 726,
+      "scrollHeight": 418,
+      "clientHeight": 418,
+      "viewport": [
+        760,
+        900
+      ]
+    },
+    {
+      "tag": "before-profile-760",
+      "after": false,
+      "opacity": "1",
+      "animation": "enter",
+      "width": 728,
+      "left": 16,
+      "right": 744,
+      "top": 258,
+      "bottom": 642,
+      "radii": [
+        "9999px",
+        "9999px",
+        "9999px",
+        "9999px"
+      ],
+      "scrollWidth": 726,
+      "clientWidth": 726,
+      "scrollHeight": 382,
+      "clientHeight": 382,
+      "viewport": [
+        760,
+        900
+      ]
+    },
+    {
+      "tag": "before-bank-1024",
+      "after": false,
+      "opacity": "1",
+      "animation": "enter",
+      "width": 992,
+      "left": 16,
+      "right": 1008,
+      "top": 240,
+      "bottom": 660,
+      "radii": [
+        "9999px",
+        "9999px",
+        "9999px",
+        "9999px"
+      ],
+      "scrollWidth": 990,
+      "clientWidth": 990,
+      "scrollHeight": 418,
+      "clientHeight": 418,
+      "viewport": [
+        1024,
+        900
+      ]
+    },
+    {
+      "tag": "before-profile-1024",
+      "after": false,
+      "opacity": "1",
+      "animation": "enter",
+      "width": 992,
+      "left": 16,
+      "right": 1008,
+      "top": 258,
+      "bottom": 642,
+      "radii": [
+        "9999px",
+        "9999px",
+        "9999px",
+        "9999px"
+      ],
+      "scrollWidth": 990,
+      "clientWidth": 990,
+      "scrollHeight": 382,
+      "clientHeight": 382,
+      "viewport": [
+        1024,
+        900
+      ]
+    },
+    {
+      "tag": "before-bank-1440",
+      "after": false,
+      "opacity": "1",
+      "animation": "enter",
+      "width": 1408,
+      "left": 16,
+      "right": 1424,
+      "top": 240,
+      "bottom": 660,
+      "radii": [
+        "9999px",
+        "9999px",
+        "9999px",
+        "9999px"
+      ],
+      "scrollWidth": 1406,
+      "clientWidth": 1406,
+      "scrollHeight": 418,
+      "clientHeight": 418,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "tag": "before-profile-1440",
+      "after": false,
+      "opacity": "1",
+      "animation": "enter",
+      "width": 1408,
+      "left": 16,
+      "right": 1424,
+      "top": 258,
+      "bottom": 642,
+      "radii": [
+        "9999px",
+        "9999px",
+        "9999px",
+        "9999px"
+      ],
+      "scrollWidth": 1406,
+      "clientWidth": 1406,
+      "scrollHeight": 382,
+      "clientHeight": 382,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "tag": "after-bank-320",
+      "after": true,
+      "opacity": "1",
+      "animation": "none",
+      "width": 288,
+      "left": 16,
+      "right": 304,
+      "top": 125,
+      "bottom": 775,
+      "radii": [
+        "24px",
+        "24px",
+        "24px",
+        "24px"
+      ],
+      "scrollWidth": 286,
+      "clientWidth": 286,
+      "scrollHeight": 648,
+      "clientHeight": 648,
+      "viewport": [
+        320,
+        900
+      ]
+    },
+    {
+      "tag": "after-profile-320",
+      "after": true,
+      "opacity": "1",
+      "animation": "none",
+      "width": 288,
+      "left": 16,
+      "right": 304,
+      "top": 210,
+      "bottom": 690,
+      "radii": [
+        "24px",
+        "24px",
+        "24px",
+        "24px"
+      ],
+      "scrollWidth": 286,
+      "clientWidth": 286,
+      "scrollHeight": 478,
+      "clientHeight": 478,
+      "viewport": [
+        320,
+        900
+      ]
+    },
+    {
+      "tag": "after-bank-375",
+      "after": true,
+      "opacity": "1",
+      "animation": "none",
+      "width": 343,
+      "left": 16,
+      "right": 359,
+      "top": 182,
+      "bottom": 718,
+      "radii": [
+        "24px",
+        "24px",
+        "24px",
+        "24px"
+      ],
+      "scrollWidth": 341,
+      "clientWidth": 341,
+      "scrollHeight": 534,
+      "clientHeight": 534,
+      "viewport": [
+        375,
+        900
+      ]
+    },
+    {
+      "tag": "after-profile-375",
+      "after": true,
+      "opacity": "1",
+      "animation": "none",
+      "width": 343,
+      "left": 16,
+      "right": 359,
+      "top": 238,
+      "bottom": 662,
+      "radii": [
+        "24px",
+        "24px",
+        "24px",
+        "24px"
+      ],
+      "scrollWidth": 341,
+      "clientWidth": 341,
+      "scrollHeight": 422,
+      "clientHeight": 422,
+      "viewport": [
+        375,
+        900
+      ]
+    },
+    {
+      "tag": "after-bank-390",
+      "after": true,
+      "opacity": "1",
+      "animation": "none",
+      "width": 358,
+      "left": 16,
+      "right": 374,
+      "top": 192,
+      "bottom": 708,
+      "radii": [
+        "24px",
+        "24px",
+        "24px",
+        "24px"
+      ],
+      "scrollWidth": 356,
+      "clientWidth": 356,
+      "scrollHeight": 514,
+      "clientHeight": 514,
+      "viewport": [
+        390,
+        900
+      ]
+    },
+    {
+      "tag": "after-profile-390",
+      "after": true,
+      "opacity": "1",
+      "animation": "none",
+      "width": 358,
+      "left": 16,
+      "right": 374,
+      "top": 248,
+      "bottom": 652,
+      "radii": [
+        "24px",
+        "24px",
+        "24px",
+        "24px"
+      ],
+      "scrollWidth": 356,
+      "clientWidth": 356,
+      "scrollHeight": 402,
+      "clientHeight": 402,
+      "viewport": [
+        390,
+        900
+      ]
+    },
+    {
+      "tag": "after-bank-428",
+      "after": true,
+      "opacity": "1",
+      "animation": "none",
+      "width": 396,
+      "left": 16,
+      "right": 412,
+      "top": 192,
+      "bottom": 708,
+      "radii": [
+        "24px",
+        "24px",
+        "24px",
+        "24px"
+      ],
+      "scrollWidth": 394,
+      "clientWidth": 394,
+      "scrollHeight": 514,
+      "clientHeight": 514,
+      "viewport": [
+        428,
+        900
+      ]
+    },
+    {
+      "tag": "after-profile-428",
+      "after": true,
+      "opacity": "1",
+      "animation": "none",
+      "width": 396,
+      "left": 16,
+      "right": 412,
+      "top": 248,
+      "bottom": 652,
+      "radii": [
+        "24px",
+        "24px",
+        "24px",
+        "24px"
+      ],
+      "scrollWidth": 394,
+      "clientWidth": 394,
+      "scrollHeight": 402,
+      "clientHeight": 402,
+      "viewport": [
+        428,
+        900
+      ]
+    },
+    {
+      "tag": "after-bank-760",
+      "after": true,
+      "opacity": "1",
+      "animation": "none",
+      "width": 512,
+      "left": 124,
+      "right": 636,
+      "top": 220,
+      "bottom": 680,
+      "radii": [
+        "24px",
+        "24px",
+        "24px",
+        "24px"
+      ],
+      "scrollWidth": 510,
+      "clientWidth": 510,
+      "scrollHeight": 458,
+      "clientHeight": 458,
+      "viewport": [
+        760,
+        900
+      ]
+    },
+    {
+      "tag": "after-profile-760",
+      "after": true,
+      "opacity": "1",
+      "animation": "none",
+      "width": 512,
+      "left": 124,
+      "right": 636,
+      "top": 258,
+      "bottom": 642,
+      "radii": [
+        "24px",
+        "24px",
+        "24px",
+        "24px"
+      ],
+      "scrollWidth": 510,
+      "clientWidth": 510,
+      "scrollHeight": 382,
+      "clientHeight": 382,
+      "viewport": [
+        760,
+        900
+      ]
+    },
+    {
+      "tag": "after-bank-1024",
+      "after": true,
+      "opacity": "1",
+      "animation": "none",
+      "width": 512,
+      "left": 256,
+      "right": 768,
+      "top": 220,
+      "bottom": 680,
+      "radii": [
+        "24px",
+        "24px",
+        "24px",
+        "24px"
+      ],
+      "scrollWidth": 510,
+      "clientWidth": 510,
+      "scrollHeight": 458,
+      "clientHeight": 458,
+      "viewport": [
+        1024,
+        900
+      ]
+    },
+    {
+      "tag": "after-profile-1024",
+      "after": true,
+      "opacity": "1",
+      "animation": "none",
+      "width": 512,
+      "left": 256,
+      "right": 768,
+      "top": 258,
+      "bottom": 642,
+      "radii": [
+        "24px",
+        "24px",
+        "24px",
+        "24px"
+      ],
+      "scrollWidth": 510,
+      "clientWidth": 510,
+      "scrollHeight": 382,
+      "clientHeight": 382,
+      "viewport": [
+        1024,
+        900
+      ]
+    },
+    {
+      "tag": "after-bank-1440",
+      "after": true,
+      "opacity": "1",
+      "animation": "none",
+      "width": 512,
+      "left": 464,
+      "right": 976,
+      "top": 220,
+      "bottom": 680,
+      "radii": [
+        "24px",
+        "24px",
+        "24px",
+        "24px"
+      ],
+      "scrollWidth": 510,
+      "clientWidth": 510,
+      "scrollHeight": 458,
+      "clientHeight": 458,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "tag": "after-profile-1440",
+      "after": true,
+      "opacity": "1",
+      "animation": "none",
+      "width": 512,
+      "left": 464,
+      "right": 976,
+      "top": 258,
+      "bottom": 642,
+      "radii": [
+        "24px",
+        "24px",
+        "24px",
+        "24px"
+      ],
+      "scrollWidth": 510,
+      "clientWidth": 510,
+      "scrollHeight": 382,
+      "clientHeight": 382,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "tag": "after-short-bank",
+      "after": true,
+      "opacity": "1",
+      "animation": "none",
+      "width": 288,
+      "left": 16,
+      "right": 304,
+      "top": 16,
+      "bottom": 344,
+      "radii": [
+        "24px",
+        "24px",
+        "24px",
+        "24px"
+      ],
+      "scrollWidth": 286,
+      "clientWidth": 286,
+      "scrollHeight": 648,
+      "clientHeight": 326,
+      "viewport": [
+        320,
+        360
+      ]
+    },
+    {
+      "tag": "after-short-profile",
+      "after": true,
+      "opacity": "1",
+      "animation": "none",
+      "width": 288,
+      "left": 16,
+      "right": 304,
+      "top": 16,
+      "bottom": 344,
+      "radii": [
+        "24px",
+        "24px",
+        "24px",
+        "24px"
+      ],
+      "scrollWidth": 286,
+      "clientWidth": 286,
+      "scrollHeight": 478,
+      "clientHeight": 326,
+      "viewport": [
+        320,
+        360
+      ]
+    }
+  ],
+  "images": [
+    "before-payouts-390",
+    "before-bank-390",
+    "before-profile-390",
+    "before-referrals-390",
+    "before-payouts-1440",
+    "before-bank-1440",
+    "before-profile-1440",
+    "before-referrals-1440",
+    "after-payouts-390",
+    "after-bank-390",
+    "after-masked-390",
+    "after-profile-390",
+    "after-referrals-390",
+    "after-payouts-1440",
+    "after-bank-1440",
+    "after-masked-1440",
+    "after-profile-1440",
+    "after-referrals-1440",
+    "after-short-bank",
+    "after-short-profile"
+  ],
+  "errors": [],
+  "interactionAssertions": [
+    "text/input/button reachability",
+    "fixed width and radius",
+    "no horizontal overflow",
+    "save disabled and gray",
+    "format check disabled after masking/re-enabled after replacement",
+    "no raw IBAN attribute/request/summary",
+    "focus trap and return",
+    "Escape/backdrop/Close",
+    "short viewport scroll",
+    "referral date appears only in date column",
+    "single-line payout badges",
+    "reward available is not fulfilled"
+  ]
+}
