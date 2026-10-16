@@ -30,8 +30,8 @@ const populated = (value: unknown) => typeof value === "string" && Boolean(value
 // Explicit code-owned trust; never derive this from customer JSON or bootstrap URLs.
 export const customerPublicAssetOrigin = "https://oynhnhkldvpoqhsfirwf.supabase.co";
 const customerPublicAssetFiles: Record<string, readonly string[]> = {
-  NPhuVMAaBPQz6OhIPpkj: ["logo.png", "hero-angled.jpeg", "section-straight.jpeg", "about.webp"],
-  uGJsQ3CWvFTraTfrRgjC: ["logo.jpg", "hero-angled.jpeg", "section-straight.jpeg", "about.png"],
+  NPhuVMAaBPQz6OhIPpkj: ["logo.png", "hero-angled.jpeg", "section-straight.jpeg", "hero-angled.png", "section-straight.png", "about.webp"],
+  uGJsQ3CWvFTraTfrRgjC: ["logo.jpg", "logo.png", "hero-angled.jpeg", "section-straight.jpeg", "hero-angled.png", "section-straight.png", "about.png"],
 };
 
 /** Exact canonical references only; does not establish object existence or release approval. */

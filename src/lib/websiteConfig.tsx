@@ -11,6 +11,7 @@ import {
   deepMerge,
   interpolateTemplate,
   resolveArray,
+  resolveCustomerArray,
   resolveLocalizedText,
   resolveObject,
   type JsonRecord,
@@ -182,7 +183,7 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
     tenant: { locationId: runtime.locationId },
     customerRuntime: runtime.identity.customer,
     getText: (path, fallback, lang) => resolveLocalizedText(state.content, path, runtime.identity.customer && !/^(header|cookie)\./.test(path) ? "" : fallback, lang, !runtime.identity.customer || /^(brand|legal|pages|sections\.links)\.|\.(image_url|image_alt|image_position|mode|calendar_url|social_hint)$|^sections\.about\.(name|social\.)/.test(path)),
-    getArray: (path, fallback) => resolveArray(state.content, path, runtime.identity.customer ? [] : fallback),
+    getArray: (path, fallback) => runtime.identity.customer ? resolveCustomerArray(state.content, path) : resolveArray(state.content, path, fallback),
     getObject: (path, fallback) => resolveObject(state.content, path, runtime.identity.customer ? {} as typeof fallback : fallback),
     interpolate: (template, vars = {}) => interpolateTemplate(template, vars),
   }), [state, runtime]);

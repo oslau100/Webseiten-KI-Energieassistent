@@ -15,6 +15,8 @@ export const Footer = () => {
   ).trim();
   const agencyLogo = assets.agency_logo?.trim();
   const showAgencyAttribution = Boolean(agencyUrl && agencyLogo);
+  const contactLabel = t("footer_contact");
+  const callbackLabel = t("footer_callback");
 
   return (
     <footer className="bg-muted pt-12 pb-2 md:py-16 border-t">
@@ -41,16 +43,14 @@ export const Footer = () => {
             </p>
           </div>
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">
-              {t("footer_contact")}
-            </h4>
+            {contactLabel ? <h4 className="font-semibold text-foreground">{contactLabel}</h4> : null}
             <div className="space-y-2 text-sm text-muted-foreground">
-              <Link
+              {callbackLabel ? <Link
                 to={withLang("/rueckruf-buchen")}
                 className="hover:text-primary-ink transition-colors block underline underline-offset-4"
               >
-                {t("footer_callback")}
-              </Link>
+                {callbackLabel}
+              </Link> : null}
             </div>
           </div>
           <div className="space-y-4">

@@ -37,7 +37,7 @@ export const HowItWorks = () => {
             </AnimatedSection>
           ))}
         </div>
-        <AnimatedSection delay={400} className="mt-16 text-center"><Button size="lg" className="h-14 px-10 text-lg font-semibold shadow-lg shadow-primary/20" asChild><Link to={withLang("/start")}>{getText("sections.how_it_works.cta_text", t("cta_check_savings"), lang)}</Link></Button></AnimatedSection>
+        <AnimatedSection delay={400} className="mt-16 text-center"><Button size="lg" className="h-14 px-10 text-lg font-semibold shadow-lg shadow-primary/20" asChild><Link labelPath="sections.how_it_works.cta_text" to={withLang("/start")}>{getText("sections.how_it_works.cta_text", t("cta_check_savings"), lang)}</Link></Button></AnimatedSection>
       </div>
     </section>
   );

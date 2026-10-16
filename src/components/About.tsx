@@ -12,7 +12,7 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 
 export const About = () => {
   const { lang } = useI18n();
-  const { getText, getArray } = useWebsiteConfig();
+  const { getText, getArray, customerRuntime } = useWebsiteConfig();
   const mode = getText("sections.about.mode", "company");
   const name = getText("sections.about.name", "Energieassistent", lang);
   const image = getText("sections.about.image_url", "", lang);
@@ -27,7 +27,7 @@ export const About = () => {
     .filter((link) => /^https?:\/\//i.test(link.href));
   const legacyParagraphs = Array.from({ length: 6 }, (_, index) => getText(`sections.about.paragraph_${index + 1}`, "", lang));
   const paragraphs = getArray<unknown>(`sections.about.paragraphs.${lang}`, getArray<unknown>("sections.about.paragraphs", legacyParagraphs))
-    .map((value) => resolveLocalizedText({ value }, "value", "", lang)).filter((value) => value.trim());
+    .map((value) => resolveLocalizedText({ value }, "value", "", lang, !customerRuntime)).filter((value) => value.trim());
   const hasAside = Boolean(image || socialLinks.length);
 
   if (mode === "hidden") return null;

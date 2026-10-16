@@ -47,6 +47,16 @@ export const resolveArray = <T = unknown>(obj: JsonRecord, path: string, fallbac
   return Array.isArray(raw) ? (raw as T[]) : fallback;
 };
 
+/** Legacy customer arrays are German, never a fallback for another locale or tenant. */
+export const resolveCustomerArray = <T = unknown>(obj: JsonRecord, path: string): T[] => {
+  const exact = getByPath(obj, path);
+  if (Array.isArray(exact)) return exact as T[];
+  if (exact === undefined && path.endsWith(".de")) {
+    return resolveArray<T>(obj, path.slice(0, -3), []);
+  }
+  return [];
+};
+
 export const resolveObject = <T extends JsonRecord = JsonRecord>(obj: JsonRecord, path: string, fallback: T): T => {
   const raw = getByPath(obj, path);
   return raw && typeof raw === "object" && !Array.isArray(raw) ? (raw as T) : fallback;

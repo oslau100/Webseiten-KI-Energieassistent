@@ -17,7 +17,7 @@ export function FinalCTA() {
               )}
             </p>
             <Button size="lg" variant="secondary" className="h-14 px-10 text-lg font-semibold w-full sm:w-auto shadow-lg text-secondary-foreground" asChild>
-              <Link to={withLang("/start")}>{getText("sections.final_cta.cta_text", t("cta_check_savings"), lang)}</Link>
+              <Link labelPath="sections.final_cta.cta_text" to={withLang("/start")}>{getText("sections.final_cta.cta_text", t("cta_check_savings"), lang)}</Link>
             </Button>
           </div>
         </AnimatedSection></section>;

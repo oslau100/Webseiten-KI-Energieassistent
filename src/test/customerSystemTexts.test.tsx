@@ -8,7 +8,7 @@ import { customerRuntimeBindings } from "@/lib/customerRuntime";
 
 function config(locationId: string) {
   return { location_id: locationId,
-    webseite_content_config: { brand: { name: "Configured fixture" }, legal: { ready: true, variables: { firma: "Fixture company", email: "fixture@example.test" } } },
+    webseite_content_config: { i18n: { footer_contact: { de: "Kontakt" }, footer_callback: { de: "Rückruf buchen" }, header_check_bill: { de: "Jahresabrechnung prüfen" }, header_check_savings: { de: "Tarifersparnis prüfen" } }, brand: { name: "Configured fixture" }, legal: { ready: true, variables: { firma: "Fixture company", email: "fixture@example.test" } } },
     webseite_design_config: { assets: { logo_header: "/fixture.svg", logo_footer: "/fixture.svg", hero_image: "/fixture.png" } },
     webseite_layout_config: { pages: { home: { sections: ["header", "hero", "footer"] }, annual: { sections: ["header", "hero", "footer"] } } },
   };
@@ -49,7 +49,7 @@ describe.each(customerRuntimeBindings)("central German copy for $locationId", ({
     vi.stubEnv("DEV", true);
     window.TB_BOOTSTRAP = { locationId, supabaseUrl: "https://config.example.test", supabaseKey: "sb_publishable_fixture" };
     const row = config(locationId);
-    Object.assign(row.webseite_content_config, { brand: {}, i18n: { header_check_bill: { de: "Configured German navigation" } } });
+    Object.assign(row.webseite_content_config, { brand: {}, i18n: { footer_contact: { de: "Kontakt" }, footer_callback: { de: "Rückruf buchen" }, header_check_bill: { de: "Configured German navigation" } } });
     vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response(JSON.stringify([row])));
     render(<BrowserRouter><WebsiteConfigProvider><I18nProvider><CopyProbe /></I18nProvider></WebsiteConfigProvider></BrowserRouter>);
     const copy = JSON.parse((await screen.findByTestId("copy-policy")).textContent || "{}");
@@ -65,8 +65,14 @@ describe.each(customerRuntimeBindings)("central German copy for $locationId", ({
     expect(container.querySelectorAll('a[href^="/start"]')).toHaveLength(0);
     expect(screen.getByRole("link", { name: "Rückruf buchen" })).toHaveAttribute("href", "/rueckruf-buchen?lang=de");
     expect(screen.getByRole("link", { name: "Datenschutz" })).toHaveAttribute("href", "/datenschutz?lang=de");
-    expect(screen.getByRole("heading", { name: "Privatsphäre-Einstellungen" })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { name: "Privatsphäre-Einstellungen" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Einstellungen speichern" })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Einstellungen speichern" }));
+    expect(screen.queryByRole("heading", { name: "Privatsphäre-Einstellungen" })).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "Privatsphäre-Einstellungen" }));
+    expect(await screen.findByRole("heading", { name: "Privatsphäre-Einstellungen" })).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Alles akzeptieren" })).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "Einstellungen speichern" }));
     expect(container.textContent).not.toMatch(/2\.000|1\.500|900\.000|Marvin|ehiogie/);
     fireEvent.click(screen.getByRole("link", { name: "Jahresabrechnung prüfen" }));
     expect(await screen.findByRole("link", { name: "Tarifersparnis prüfen" })).toHaveAttribute("href", "/?lang=de");

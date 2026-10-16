@@ -6,7 +6,7 @@ import { useWebsiteConfig } from "@/lib/websiteConfig";
 
 export const Solution = () => {
   const { t, withLang, lang } = useI18n();
-  const { getText } = useWebsiteConfig();
+  const { getText, customerRuntime } = useWebsiteConfig();
   const imageUrl = getText("sections.solution.image_url", "", lang);
   const imagePosition = getText("sections.solution.image_position", "right", lang);
   const imageLeft = imagePosition === "left";
@@ -15,7 +15,7 @@ export const Solution = () => {
     ? "justify-start pl-0 pr-0 lg:order-1 lg:pr-6"
     : "lg:order-2 lg:justify-end";
 
-  const imageClass = "relative w-full max-w-[500px] max-h-[420px] lg:max-h-[540px] h-auto object-contain object-bottom drop-shadow-2xl";
+  const imageClass = `relative w-full max-w-[500px] max-h-[420px] lg:max-h-[540px] h-auto object-contain object-bottom ${customerRuntime ? "bg-transparent" : "drop-shadow-2xl"}`;
 
   return (
     <section className="py-16 md:py-24 bg-background">
@@ -27,7 +27,7 @@ export const Solution = () => {
               <p className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed max-w-lg">{getText("sections.solution.body", "Du musst den Tarifmarkt nicht selbst verstehen oder vergleichen. Dein digitaler Energieassistent übernimmt das für dich.", lang)}</p>
               <div className="pt-4">
                 <Button size="lg" variant="secondary" className="h-14 px-8 text-lg font-semibold w-full sm:w-auto shadow-lg text-secondary-foreground" asChild>
-                  <Link to={withLang("/start")}>{getText("sections.solution.cta_text", t("cta_check_savings"), lang)}</Link>
+                  <Link labelPath="sections.solution.cta_text" to={withLang("/start")}>{getText("sections.solution.cta_text", t("cta_check_savings"), lang)}</Link>
                 </Button>
                 <p className="text-xs text-primary-foreground/70 mt-3">{getText("sections.solution.result_note", "Ergebnis in 60 Sekunden - 100% kostenlos", lang)}</p>
               </div>

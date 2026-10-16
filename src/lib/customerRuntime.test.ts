@@ -79,8 +79,8 @@ describe("explicit Supabase public asset references", () => {
     const url = prefix + "hero-angled.jpeg";
     it(`accepts only the manifest files for ${binding.hostname}`, () => {
       const files = binding === customerRuntimeBindings[0]
-        ? ["logo.png", "hero-angled.jpeg", "section-straight.jpeg", "about.webp"]
-        : ["logo.jpg", "hero-angled.jpeg", "section-straight.jpeg", "about.png"];
+        ? ["logo.png", "hero-angled.jpeg", "section-straight.jpeg", "hero-angled.png", "section-straight.png", "about.webp"]
+        : ["logo.jpg", "logo.png", "hero-angled.jpeg", "section-straight.jpeg", "hero-angled.png", "section-straight.png", "about.png"];
       for (const file of files) expect(isTrustedCustomerPublicAsset(prefix + file, binding.locationId)).toBe(true);
       for (const location of [undefined, "", "other", "toString", "__proto__", other.locationId]) {
         expect(isTrustedCustomerPublicAsset(url, location)).toBe(false);
