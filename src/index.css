@@ -91,3 +91,8 @@ html, body, #root {
   max-width: 100%;
   overflow-x: hidden;
 }
+
+@layer utilities {
+  .prose { --tw-prose-links: hsl(var(--primary-ink, var(--primary))); }
+  .prose :where(table) { display: block; overflow-x: auto; }
+}

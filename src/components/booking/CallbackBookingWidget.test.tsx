@@ -28,3 +28,14 @@ describe("CallbackBookingWidget",()=>{
  it.each(["SLOT_UNAVAILABLE","MINIMUM_NOTICE_NOT_MET"])("clears the slot and reloads availability for %s",async code=>{let availabilityCalls=0;routeFetch(async body=>{if(body.action==="availability"){availabilityCalls++;return response(availability);}return response({code},409);});render(<CallbackBookingWidget/>,{wrapper});await choose();fill();fireEvent.click(screen.getByRole("button",{name:"Kostenfreien Rückruf buchen"}));expect(await screen.findByText(new RegExp(code==="SLOT_UNAVAILABLE"?"inzwischen vergeben":"zu kurzfristig"))).toBeVisible();await waitFor(()=>expect(availabilityCalls).toBe(2));expect(screen.getByRole("button",{name:"Weiter"})).toBeDisabled();});
  it("does not retry automatically when booking is disabled",async()=>{let books=0;routeFetch(async body=>body.action==="availability"?response(availability):(books++,response({code:"BOOKING_DISABLED"},403)));render(<CallbackBookingWidget/>,{wrapper});await choose();fill();fireEvent.click(screen.getByRole("button",{name:"Kostenfreien Rückruf buchen"}));expect(await screen.findByText(/derzeit nicht verfügbar/)).toBeVisible();expect(books).toBe(1);});
 });
+
+describe("callback without provisioned calendars", () => {
+ it("reports a missing calendar without offering or submitting an appointment", async () => {
+   const actions: string[] = [];
+   routeFetch(async body => { actions.push(String(body.action)); return response({code:"CALENDAR_NOT_FOUND"},404); });
+   render(<CallbackBookingWidget/>,{wrapper});
+   expect(await screen.findByText("Der Rückrufkalender wurde nicht gefunden.")).toBeVisible();
+   expect(screen.queryByRole("button", {name:"Kostenfreien Rückruf buchen"})).toBeNull();
+   expect(actions).toEqual(["availability"]);
+ });
+});

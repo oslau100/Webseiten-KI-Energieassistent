@@ -1,0 +1,199 @@
+{
+  "kind": "T08_OPERATOR_APPROVED_INPUT_EVIDENCE",
+  "createdAt": "2026-10-13",
+  "status": "PREPARATION_ONLY_NOT_READY",
+  "repository": "oslau100/Webseiten-KI-Energieassistent",
+  "existingPR": 176,
+  "expectedRemoteStartSHA": "8888b523707241e644261456531270af0533160d",
+  "expectedLocalCommit": "dc423bf3352dbda896ce82c01ec245f6b7e099fc",
+  "proposedBucket": "website-assets",
+  "bucketDecision": "NOT_APPROVED_BUCKET_DOES_NOT_EXIST",
+  "bucketExplanation": "Cumulative docs/PRODUCTION_HANDOVER.md on #664 recommends a dedicated Location-scoped bucket like website-assets; any actual bucket, policies and keys require separately approved T01/T08/T11 implementation. Do NOT upload/claim delivery.",
+  "approvedBrands": [
+    "Öcher Strom",
+    "Tarivia"
+  ],
+  "entries": [
+    {
+      "brand": "oecher-strom",
+      "locationId": "NPhuVMAaBPQz6OhIPpkj",
+      "role": "logo",
+      "originalUploadFilename": "Öcherstrom_logo_cropped-Kein-Titel-1200-X-1200-Px-1-1.png",
+      "bundlePath": "assets/oecher-strom/logo.png",
+      "sha256": "0e952c1f9df9ed4bc999fa73e1910ed5e346e3ddb7e958d37ed23201c8702e9b",
+      "mimeType": "image/png",
+      "dimensions": {
+        "width": 512,
+        "height": 512
+      },
+      "bytes": 22562,
+      "websiteConfigFields": [
+        "design.assets.logo_header",
+        "design.assets.logo_footer"
+      ],
+      "proposedKeyAfterBucketApproval": "locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/logo.png",
+      "remoteURL": null,
+      "storageExists": false,
+      "deliveryVerified": false,
+      "bytePreservationRequired": true
+    },
+    {
+      "brand": "oecher-strom",
+      "locationId": "NPhuVMAaBPQz6OhIPpkj",
+      "role": "hero_angled",
+      "originalUploadFilename": "image0 (2).jpeg",
+      "bundlePath": "assets/oecher-strom/hero-angled.jpeg",
+      "sha256": "cd637861eac49a87903686756ce909dcc76334aaad142cb4fa188cee3b57a82c",
+      "mimeType": "image/jpeg",
+      "dimensions": {
+        "width": 900,
+        "height": 1600
+      },
+      "bytes": 157236,
+      "websiteConfigFields": [
+        "design.assets.hero_image"
+      ],
+      "proposedKeyAfterBucketApproval": "locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/hero-angled.jpeg",
+      "remoteURL": null,
+      "storageExists": false,
+      "deliveryVerified": false,
+      "bytePreservationRequired": true
+    },
+    {
+      "brand": "oecher-strom",
+      "locationId": "NPhuVMAaBPQz6OhIPpkj",
+      "role": "section_straight",
+      "originalUploadFilename": "image1 (1).jpeg",
+      "bundlePath": "assets/oecher-strom/section-straight.jpeg",
+      "sha256": "56a8df5957ff0ce6a0373930bb447c0c666b4480cfffc45f1ca94d2d7f91ac3f",
+      "mimeType": "image/jpeg",
+      "dimensions": {
+        "width": 900,
+        "height": 1600
+      },
+      "bytes": 154934,
+      "websiteConfigFields": [
+        "content.sections.solution.image_url"
+      ],
+      "proposedKeyAfterBucketApproval": "locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/section-straight.jpeg",
+      "remoteURL": null,
+      "storageExists": false,
+      "deliveryVerified": false,
+      "bytePreservationRequired": true
+    },
+    {
+      "brand": "oecher-strom",
+      "locationId": "NPhuVMAaBPQz6OhIPpkj",
+      "role": "about",
+      "originalUploadFilename": "Öcherstrom_überuns.webp",
+      "bundlePath": "assets/oecher-strom/about.webp",
+      "sha256": "fe7473a77846f933df1d3c24b24795e4780b1ae25f83dc52ba7f12c479257858",
+      "mimeType": "image/webp",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "bytes": 106228,
+      "websiteConfigFields": [
+        "content.sections.about.image_url"
+      ],
+      "proposedKeyAfterBucketApproval": "locations/NPhuVMAaBPQz6OhIPpkj/t08/v1/about.webp",
+      "remoteURL": null,
+      "storageExists": false,
+      "deliveryVerified": false,
+      "bytePreservationRequired": true
+    },
+    {
+      "brand": "tarivia",
+      "locationId": "uGJsQ3CWvFTraTfrRgjC",
+      "role": "logo",
+      "originalUploadFilename": "Tarivia Logo.jpg",
+      "bundlePath": "assets/tarivia/logo.jpg",
+      "sha256": "26b92dc8a4b2e877ae933ee75a79f8d093cfec847807801ad54c277f014ea910",
+      "mimeType": "image/jpeg",
+      "dimensions": {
+        "width": 1600,
+        "height": 533
+      },
+      "bytes": 38804,
+      "websiteConfigFields": [
+        "design.assets.logo_header",
+        "design.assets.logo_footer"
+      ],
+      "proposedKeyAfterBucketApproval": "locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/logo.jpg",
+      "remoteURL": null,
+      "storageExists": false,
+      "deliveryVerified": false,
+      "bytePreservationRequired": true
+    },
+    {
+      "brand": "tarivia",
+      "locationId": "uGJsQ3CWvFTraTfrRgjC",
+      "role": "hero_angled",
+      "originalUploadFilename": "image3 (1).jpeg",
+      "bundlePath": "assets/tarivia/hero-angled.jpeg",
+      "sha256": "24768c2b462dffb4bf6794af0b42588ed0c506ddd5d7e4d28841b3f21a7cd6e2",
+      "mimeType": "image/jpeg",
+      "dimensions": {
+        "width": 900,
+        "height": 1600
+      },
+      "bytes": 144488,
+      "websiteConfigFields": [
+        "design.assets.hero_image"
+      ],
+      "proposedKeyAfterBucketApproval": "locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/hero-angled.jpeg",
+      "remoteURL": null,
+      "storageExists": false,
+      "deliveryVerified": false,
+      "bytePreservationRequired": true
+    },
+    {
+      "brand": "tarivia",
+      "locationId": "uGJsQ3CWvFTraTfrRgjC",
+      "role": "section_straight",
+      "originalUploadFilename": "image2 (1).jpeg",
+      "bundlePath": "assets/tarivia/section-straight.jpeg",
+      "sha256": "21d8a6ead4b764896fd18dbbf460070ed67c2235b88df3e00557c962cb2855a1",
+      "mimeType": "image/jpeg",
+      "dimensions": {
+        "width": 900,
+        "height": 1600
+      },
+      "bytes": 128470,
+      "websiteConfigFields": [
+        "content.sections.solution.image_url"
+      ],
+      "proposedKeyAfterBucketApproval": "locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/section-straight.jpeg",
+      "remoteURL": null,
+      "storageExists": false,
+      "deliveryVerified": false,
+      "bytePreservationRequired": true
+    },
+    {
+      "brand": "tarivia",
+      "locationId": "uGJsQ3CWvFTraTfrRgjC",
+      "role": "about",
+      "originalUploadFilename": "Tarivia über uns.png",
+      "bundlePath": "assets/tarivia/about.png",
+      "sha256": "a30c90550dfce92b00c5457a9813e62e153406d4a4eedad8f1a54f18b379171b",
+      "mimeType": "image/png",
+      "dimensions": {
+        "width": 1448,
+        "height": 1086
+      },
+      "bytes": 2182375,
+      "websiteConfigFields": [
+        "content.sections.about.image_url"
+      ],
+      "proposedKeyAfterBucketApproval": "locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/about.png",
+      "remoteURL": null,
+      "storageExists": false,
+      "deliveryVerified": false,
+      "bytePreservationRequired": true
+    }
+  ],
+  "legalReady": false,
+  "storageWritten": false,
+  "assetsUploaded": false
+}

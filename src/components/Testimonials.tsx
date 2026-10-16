@@ -2,17 +2,18 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { MarketingLink as Link } from "./MarketingLink";
 import { useI18n } from "@/lib/i18n";
 import { AnimatedSection } from "./AnimatedSection";
 import { useWebsiteConfig } from "@/lib/websiteConfig";
 import { JotformReviewWidget, getValidJotformWidgetId } from "./JotformReviewWidget";
+import { marketingReviewRating } from "@/lib/marketingReview";
 
-type Review = { title: string; text: string; name: string };
+type Review = { title: string; text: string; name: string; rating?: number };
 
 export const Testimonials = () => {
   const { t, withLang, lang } = useI18n();
-  const { getArray, getText } = useWebsiteConfig();
+  const { getArray, getText, customerRuntime } = useWebsiteConfig();
   const validJotformWidgetId = getValidJotformWidgetId(getText("integrations.google_reviews.jotform_widget_id", ""));
 
   const fallbackReviews: Review[] = [
@@ -27,11 +28,13 @@ export const Testimonials = () => {
 
   const reviews = getArray<Review>(`sections.testimonials.home_reviews.${lang}`, getArray<Review>("sections.testimonials.home_reviews", fallbackReviews));
 
+  if (!reviews.length && !validJotformWidgetId) return null;
+
   return (
     <section className="py-16 md:py-24 bg-muted/30">
       <div className="container px-4 md:px-6">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <p className="text-primary font-semibold tracking-wide uppercase text-sm">{getText("sections.testimonials.kicker", "Das sagen unsere Nutzer", lang)}</p>
+          <p className="text-primary-ink font-semibold tracking-wide uppercase text-sm">{getText("sections.testimonials.kicker", "Das sagen unsere Nutzer", lang)}</p>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{getText("sections.testimonials.headline", t("home_testimonials_h2"), lang)}</h2>
         </AnimatedSection>
         <AnimatedSection delay={200} className={validJotformWidgetId ? "w-full max-w-7xl mx-auto relative" : "max-w-5xl mx-auto px-4 md:px-12 relative"}>
@@ -43,7 +46,7 @@ export const Testimonials = () => {
                     <Card className="border-none shadow-md bg-background md:h-full">
                       <CardContent className="flex flex-col p-6 md:p-8 space-y-4 md:space-y-6 md:h-full">
                         <div className="space-y-3 md:space-y-4">
-                          <div className="flex gap-1 text-primary">{[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 md:h-5 md:w-5 fill-current" />)}</div>
+                          {marketingReviewRating(review.rating, customerRuntime) !== undefined ? <div className="flex gap-1 text-primary-ink" role="img" aria-label={`${marketingReviewRating(review.rating, customerRuntime)}/5`}>{Array.from({ length: marketingReviewRating(review.rating, customerRuntime) || 0 }, (_, i) => <Star key={i} className="h-4 w-4 md:h-5 md:w-5 fill-current" />)}</div> : null}
                           <h3 className="font-bold text-base md:text-lg">{review.title}</h3>
                           <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{review.text}</p>
                         </div>
@@ -62,7 +65,7 @@ export const Testimonials = () => {
         </AnimatedSection>
         <AnimatedSection delay={400} className="mt-16 text-center">
           <Button size="lg" className="h-14 px-10 text-lg font-semibold shadow-lg shadow-primary/20" asChild>
-            <Link to={withLang("/start")}>{t("cta_check_savings")}</Link>
+            <Link labelPath="i18n.cta_check_savings" to={withLang("/start")}>{t("cta_check_savings")}</Link>
           </Button>
         </AnimatedSection>
       </div>

@@ -1,0 +1,4478 @@
+{
+  "source_sha": "64de44796d15dc0328b339f8e0621a455af90ad6",
+  "original_zip": {
+    "path": "/workspace/output/T08_RESULT_PATCH.zip",
+    "bytes": 268298,
+    "sha256": "0d89e4b890c82ef464fb522dd0dda4a3c4200d1a882dccb7cca8d37277a350f3"
+  },
+  "original_diff": {
+    "bytes": 458804,
+    "lines": 10189,
+    "sha256": "e009a98d36abf74bce8541031fa56824c13c63c46d98b8ed52cd6838a72d6b40"
+  },
+  "original_files_preserved": 44,
+  "languages": [
+    "de",
+    "en",
+    "tr",
+    "ru",
+    "ar",
+    "it",
+    "zh",
+    "hi",
+    "es",
+    "fr",
+    "nl",
+    "pl"
+  ],
+  "method": "Byte-exact German string matching; all twelve catalog values copied verbatim. Same-key German mismatch is not a translation. No generated translations, new marketing or foreign customer data.",
+  "catalogs": [
+    {
+      "file": "src/lib/i18n.tsx",
+      "catalog": "dictionaries",
+      "languages": [
+        "de",
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "keys": 23,
+      "catalog_sha256": "ef16d4ae581c0814e509a6886b424d8e8e74d878632900f1b83932b45cb7418e"
+    },
+    {
+      "file": "src/lib/i18n.tsx",
+      "catalog": "headlineDictionaries",
+      "languages": [
+        "de",
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "keys": 16,
+      "catalog_sha256": "6f705984052bd97ca7ba9955728deb247db08c0a2c2d95898b9477665e1f7d6a"
+    },
+    {
+      "file": "src/lib/i18n.tsx",
+      "catalog": "annualFaqDictionaries",
+      "languages": [
+        "de",
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "keys": 12,
+      "catalog_sha256": "6f1dc3e8c49430d1b12f6cd1e21a871631f087368de079ed277ab50625c33e92"
+    },
+    {
+      "file": "src/lib/i18n.tsx",
+      "catalog": "statusPageDictionaries",
+      "languages": [
+        "de",
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "keys": 9,
+      "catalog_sha256": "fbdf0ba6a088a13433c594592ceeb9bc4a7dfa9d2696d86adf00959ce4069574"
+    },
+    {
+      "file": "src/lib/tariffCallbackI18n.ts",
+      "catalog": "tariffCallbackTranslations",
+      "languages": [
+        "de",
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "keys": 4,
+      "catalog_sha256": "ef4e970815591735e592fc76d0cd6de1cfb0dc339082604b1d31569eff1e5452"
+    },
+    {
+      "file": "src/lib/publicBookingI18n.ts",
+      "catalog": "bookingTranslations",
+      "languages": [
+        "de",
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "keys": 52,
+      "catalog_sha256": "8b39b65c8882f962bb75af5d59c77839b530152c8621b0602c9ea32f27154af5"
+    }
+  ],
+  "evidence_entries": 211,
+  "original_gap_paths": 94,
+  "summary": {
+    "RECOVERED_EXACT": 2,
+    "NON_EQUIVALENT_GERMAN_KEY": 24,
+    "ORIGINAL_GERMAN_ONLY": 2,
+    "NO_EQUIVALENT_ORIGINAL": 66
+  },
+  "remaining_gap_paths": 92,
+  "removedFaqAdditions": [
+    {
+      "customer": "oecher-strom",
+      "previous_entries": 6,
+      "retained_approved_entries": 3,
+      "removed_unsourced_entries": [
+        {
+          "question": "Wie erkenne ich die Kündigungsfrist?",
+          "answer": "Die Kündigungsfrist steht in deinem Vertrag. Vergleiche sie mit der Laufzeit und halte den nächsten Termin fest."
+        },
+        {
+          "question": "Kann ich die Onlineprüfung bereits nutzen?",
+          "answer": "Onlineprüfung derzeit nicht verfügbar. Nutze bei Fragen die angegebenen Kontaktmöglichkeiten."
+        },
+        {
+          "question": "Wo finde ich Informationen zum Datenschutz?",
+          "answer": "Die Datenschutzerklärung ist über den Link im Fußbereich erreichbar."
+        }
+      ]
+    },
+    {
+      "customer": "tarivia",
+      "previous_entries": 6,
+      "retained_approved_entries": 3,
+      "removed_unsourced_entries": [
+        {
+          "question": "Wie erkenne ich die Kündigungsfrist?",
+          "answer": "Die Kündigungsfrist steht in deinem Vertrag. Vergleiche sie mit der Laufzeit und halte den nächsten Termin fest."
+        },
+        {
+          "question": "Kann ich die Onlineprüfung bereits nutzen?",
+          "answer": "Onlineprüfung derzeit nicht verfügbar. Nutze bei Fragen die angegebenen Kontaktmöglichkeiten."
+        },
+        {
+          "question": "Wo finde ich Informationen zum Datenschutz?",
+          "answer": "Die Datenschutzerklärung ist über den Link im Fußbereich erreichbar."
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_1_q",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Was gehört zu einer Rechnungsprüfung?",
+      "checked": [
+        {
+          "path": "",
+          "text": "Was gehört zu einer Rechnungsprüfung?",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_1_q",
+          "de": "Wie funktioniert die Prüfung meiner Jahresabrechnung?",
+          "translations": {
+            "de": "Wie funktioniert die Prüfung meiner Jahresabrechnung?",
+            "en": "How does the annual bill review work?",
+            "tr": "Yıllık fatura kontrolü nasıl çalışır?",
+            "ru": "Как проходит проверка годового счёта?",
+            "ar": "كيف تتم مراجعة الفاتورة السنوية؟",
+            "it": "Come funziona la verifica della bolletta annuale?",
+            "zh": "年度账单审核是如何进行的？",
+            "hi": "वार्षिक बिल की जांच कैसे होती है?",
+            "es": "¿Cómo funciona la revisión de la factura anual?",
+            "fr": "Comment fonctionne la vérification de la facture annuelle ?",
+            "nl": "Hoe werkt de controle van mijn jaarafrekening?",
+            "pl": "Jak działa weryfikacja rocznego rachunku?"
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_1_a",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Verbrauch, Abrechnungszeitraum, Preise und Zahlungen gemeinsam betrachten.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Verbrauch, Abrechnungszeitraum, Preise und Zahlungen gemeinsam betrachten.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_1_a",
+          "de": "Du klickst dich durch ein paar kurze Fragen und lädst deine Rechnung hoch. Wir analysieren deine Daten und zeigen dir, ob es Auffälligkeiten gibt.",
+          "translations": {
+            "de": "Du klickst dich durch ein paar kurze Fragen und lädst deine Rechnung hoch. Wir analysieren deine Daten und zeigen dir, ob es Auffälligkeiten gibt.",
+            "en": "You answer a few short questions and upload your bill. We analyze your data and show you whether there are any irregularities.",
+            "tr": "Birkaç kısa soruyu yanıtlayıp faturanı yüklersin. Verilerini analiz eder ve herhangi bir tutarsızlık olup olmadığını gösteririz.",
+            "ru": "Вы отвечаете на несколько коротких вопросов и загружаете счёт. Мы анализируем данные и показываем, есть ли отклонения.",
+            "ar": "تجيب عن بضعة أسئلة قصيرة وتحمّل فاتورتك. نقوم بتحليل بياناتك ونوضح لك ما إذا كانت هناك أي ملاحظات.",
+            "it": "Rispondi a poche domande rapide e carichi la tua bolletta. Analizziamo i dati e ti mostriamo se ci sono anomalie.",
+            "zh": "你只需回答几个简短问题并上传账单。我们会分析你的数据，并告知是否存在异常。",
+            "hi": "आप कुछ छोटे सवालों के जवाब देकर अपना बिल अपलोड करते हैं। हम आपके डेटा का विश्लेषण करते हैं और बताते हैं कि कोई गड़बड़ी है या नहीं।",
+            "es": "Respondes unas pocas preguntas breves y subes tu factura. Analizamos tus datos y te mostramos si hay irregularidades.",
+            "fr": "Vous répondez à quelques questions rapides et téléversez votre facture. Nous analysons vos données et vous indiquons s'il y a des anomalies.",
+            "nl": "Je beantwoordt een paar korte vragen en uploadt je rekening. We analyseren je gegevens en laten zien of er afwijkingen zijn.",
+            "pl": "Odpowiadasz na kilka krótkich pytań i przesyłasz rachunek. Analizujemy dane i pokazujemy, czy występują nieprawidłowości."
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_2_q",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Wo finde ich Angaben zur Datenverarbeitung?",
+      "checked": [
+        {
+          "path": "",
+          "text": "Wo finde ich Angaben zur Datenverarbeitung?",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_2_q",
+          "de": "Sind meine Daten bei der Prüfung sicher?",
+          "translations": {
+            "de": "Sind meine Daten bei der Prüfung sicher?",
+            "en": "Is my data secure during the review?",
+            "tr": "Kontrol sırasında verilerim güvende mi?",
+            "ru": "Безопасны ли мои данные при проверке?",
+            "ar": "هل بياناتي آمنة أثناء المراجعة؟",
+            "it": "I miei dati sono al sicuro durante la verifica?",
+            "zh": "审核过程中我的数据安全吗？",
+            "hi": "जांच के दौरान मेरा डेटा सुरक्षित है?",
+            "es": "¿Mis datos están seguros durante la revisión?",
+            "fr": "Mes données sont-elles sécurisées pendant la vérification ?",
+            "nl": "Zijn mijn gegevens veilig tijdens de controle?",
+            "pl": "Czy moje dane są bezpieczne podczas weryfikacji?"
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_2_a",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Angaben zur Datenverarbeitung und zu Ihren Rechten finden Sie in der Datenschutzerklärung.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Angaben zur Datenverarbeitung und zu Ihren Rechten finden Sie in der Datenschutzerklärung.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_2_a",
+          "de": "Ja. Der Schutz deiner Daten hat höchste Priorität. Alle Daten werden verschlüsselt übertragen, streng vertraulich verarbeitet und deine Dokumente nach der Prüfung sicher gelöscht.",
+          "translations": {
+            "de": "Ja. Der Schutz deiner Daten hat höchste Priorität. Alle Daten werden verschlüsselt übertragen, streng vertraulich verarbeitet und deine Dokumente nach der Prüfung sicher gelöscht.",
+            "en": "Yes. Data protection is our top priority. All data is encrypted in transit, processed confidentially, and your documents are securely deleted after the review.",
+            "tr": "Evet. Veri güvenliği en yüksek önceliğimizdir. Tüm veriler şifreli iletilir, gizli şekilde işlenir ve belgelerin kontrol sonrası güvenle silinir.",
+            "ru": "Да. Защита данных для нас в приоритете. Все данные передаются в зашифрованном виде, обрабатываются конфиденциально, а документы безопасно удаляются после проверки.",
+            "ar": "نعم. حماية البيانات أولوية قصوى لدينا. تُنقل جميع البيانات بشكل مشفّر، وتُعالج بسرية تامة، ويتم حذف مستنداتك بأمان بعد المراجعة.",
+            "it": "Sì. La protezione dei dati è una priorità assoluta. Tutti i dati sono trasmessi in modo cifrato, trattati con riservatezza e i documenti vengono eliminati in modo sicuro dopo la verifica.",
+            "zh": "是的。数据安全是我们的最高优先级。所有数据均加密传输、严格保密处理，审核完成后你的文件会被安全删除。",
+            "hi": "हाँ। डेटा सुरक्षा हमारी सर्वोच्च प्राथमिकता है। सभी डेटा एन्क्रिप्ट होकर भेजा जाता है, गोपनीय रूप से प्रोसेस होता है और जांच के बाद आपके दस्तावेज़ सुरक्षित रूप से हटा दिए जाते हैं।",
+            "es": "Sí. La protección de datos es nuestra máxima prioridad. Todos los datos se transmiten cifrados, se tratan de forma confidencial y tus documentos se eliminan de forma segura tras la revisión.",
+            "fr": "Oui. La protection des données est notre priorité absolue. Toutes les données sont transmises de manière chiffrée, traitées de façon confidentielle, puis vos documents sont supprimés en toute sécurité après la vérification.",
+            "nl": "Ja. Gegevensbescherming heeft bij ons de hoogste prioriteit. Alle gegevens worden versleuteld verzonden, vertrouwelijk verwerkt en je documenten worden na de controle veilig verwijderd.",
+            "pl": "Tak. Ochrona danych jest dla nas priorytetem. Wszystkie dane są przesyłane szyfrowane, przetwarzane poufnie, a dokumenty po weryfikacji bezpiecznie usuwane."
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_3_q",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Welche Kosten gelten für den Service?",
+      "checked": [
+        {
+          "path": "",
+          "text": "Welche Kosten gelten für den Service?",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_3_q",
+          "de": "Kostet die Prüfung meiner Jahresabrechnung etwas?",
+          "translations": {
+            "de": "Kostet die Prüfung meiner Jahresabrechnung etwas?",
+            "en": "Does the annual bill review cost anything?",
+            "tr": "Yıllık fatura kontrolü ücretli mi?",
+            "ru": "Проверка годового счёта платная?",
+            "ar": "هل مراجعة الفاتورة السنوية مدفوعة؟",
+            "it": "La verifica della bolletta annuale ha un costo?",
+            "zh": "年度账单审核收费吗？",
+            "hi": "क्या वार्षिक बिल की जांच में कोई शुल्क लगता है?",
+            "es": "¿La revisión de la factura anual tiene coste?",
+            "fr": "La vérification de la facture annuelle est-elle payante ?",
+            "nl": "Kost de controle van mijn jaarafrekening geld?",
+            "pl": "Czy weryfikacja rocznego rachunku jest płatna?"
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_3_a",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Maßgeblich sind die vor Nutzung ausgewiesenen Konditionen.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Maßgeblich sind die vor Nutzung ausgewiesenen Konditionen.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_3_a",
+          "de": "Nein, die Prüfung deiner Jahresabrechnung durch den Energieassistenten ist zu 100% kostenlos und unverbindlich.",
+          "translations": {
+            "de": "Nein, die Prüfung deiner Jahresabrechnung durch den Energieassistenten ist zu 100% kostenlos und unverbindlich.",
+            "en": "No. The annual bill review by the Energy Assistant is 100% free and non-binding.",
+            "tr": "Hayır. Enerji Asistanı ile yapılan yıllık fatura kontrolü %100 ücretsiz ve bağlayıcı değildir.",
+            "ru": "Нет. Проверка годового счёта через Энергоассистент на 100% бесплатна и ни к чему не обязывает.",
+            "ar": "لا. مراجعة الفاتورة السنوية عبر مساعد الطاقة مجانية 100٪ وبدون التزام.",
+            "it": "No. La verifica della bolletta annuale con l'Assistente Energia è gratuita al 100% e senza impegno.",
+            "zh": "不收费。通过能源助手进行年度账单审核 100% 免费，且无任何绑定义务。",
+            "hi": "नहीं। एनर्जी असिस्टेंट द्वारा वार्षिक बिल जांच 100% मुफ्त और बिना किसी बाध्यता के है।",
+            "es": "No. La revisión de la factura anual con el Asistente Energético es 100% gratuita y sin compromiso.",
+            "fr": "Non. La vérification de la facture annuelle avec l'Assistant Énergie est 100 % gratuite et sans engagement.",
+            "nl": "Nee. De controle van je jaarafrekening via de Energieassistent is 100% gratis en vrijblijvend.",
+            "pl": "Nie. Weryfikacja rocznego rachunku przez Asystenta Energii jest w 100% bezpłatna i niezobowiązująca."
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_4_q",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Wer betreibt Öcher Strom?",
+      "checked": [
+        {
+          "path": "",
+          "text": "Wer betreibt Öcher Strom?",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_4_q",
+          "de": "Wie finanziert sich der Energieassistent?",
+          "translations": {
+            "de": "Wie finanziert sich der Energieassistent?",
+            "en": "How is the Energy Assistant financed?",
+            "tr": "Enerji Asistanı nasıl finanse ediliyor?",
+            "ru": "Как финансируется Энергоассистент?",
+            "ar": "كيف يتم تمويل مساعد الطاقة؟",
+            "it": "Come si finanzia l'Assistente Energia?",
+            "zh": "能源助手如何盈利？",
+            "hi": "एनर्जी असिस्टेंट का वित्तपोषण कैसे होता है?",
+            "es": "¿Cómo se financia el Asistente Energético?",
+            "fr": "Comment l'Assistant Énergie est-il financé ?",
+            "nl": "Hoe wordt de Energieassistent gefinancierd?",
+            "pl": "Jak finansowany jest Asystent Energii?"
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_4_a",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Der autorisierte rechtliche Betreiber ist BeConnected.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Der autorisierte rechtliche Betreiber ist BeConnected.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_4_a",
+          "de": "Wir finanzieren uns ausschließlich über eine Provision der Energieversorger, wenn du dich entscheidest, über uns in einen günstigeren Tarif zu wechseln. Für dich entstehen dabei keine zusätzlichen Kosten.",
+          "translations": {
+            "de": "Wir finanzieren uns ausschließlich über eine Provision der Energieversorger, wenn du dich entscheidest, über uns in einen günstigeren Tarif zu wechseln. Für dich entstehen dabei keine zusätzlichen Kosten.",
+            "en": "We are financed exclusively through a commission from energy suppliers if you decide to switch to a cheaper tariff through us. There are no additional costs for you.",
+            "tr": "Sadece, bizim aracılığımızla daha uygun bir tarifeye geçmeye karar verirsen enerji tedarikçilerinin ödediği komisyonla finanse ediliriz. Senin için ek maliyet oluşmaz.",
+            "ru": "Мы финансируемся исключительно за счёт комиссии от поставщиков энергии, если вы решите перейти на более выгодный тариф через нас. Для вас это без дополнительных расходов.",
+            "ar": "نموّل خدمتنا حصرياً عبر عمولة من مزوّدي الطاقة إذا قررت التحويل إلى تعرفة أرخص من خلالنا. لا توجد أي تكاليف إضافية عليك.",
+            "it": "Ci finanziamo esclusivamente tramite una commissione dei fornitori di energia se scegli di passare a una tariffa più conveniente tramite noi. Per te non ci sono costi aggiuntivi.",
+            "zh": "仅当你通过我们切换到更便宜的资费时，我们才会从能源供应商获得佣金。你无需承担任何额外费用。",
+            "hi": "यदि आप हमारे माध्यम से सस्ती टैरिफ पर स्विच करते हैं, तो हमें केवल ऊर्जा प्रदाताओं से कमीशन मिलता है। आपके लिए कोई अतिरिक्त लागत नहीं होती।",
+            "es": "Nos financiamos exclusivamente mediante una comisión de las comercializadoras si decides cambiar a una tarifa más barata a través de nosotros. Para ti no hay costes adicionales.",
+            "fr": "Nous sommes financés exclusivement par une commission des fournisseurs d'énergie si vous choisissez de passer à un tarif moins cher via notre service. Cela n'entraîne aucun coût supplémentaire pour vous.",
+            "nl": "Wij financieren ons uitsluitend via een provisie van energieleveranciers als je besluit via ons over te stappen naar een goedkoper tarief. Voor jou zijn er geen extra kosten.",
+            "pl": "Finansujemy się wyłącznie z prowizji od dostawców energii, jeśli zdecydujesz się zmienić taryfę na tańszą za naszym pośrednictwem. Dla Ciebie nie ma żadnych dodatkowych kosztów."
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_5_q",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Was tun bei einer unklaren Rechnungsposition?",
+      "checked": [
+        {
+          "path": "",
+          "text": "Was tun bei einer unklaren Rechnungsposition?",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_5_q",
+          "de": "Was passiert, wenn Auffälligkeiten erkannt werden?",
+          "translations": {
+            "de": "Was passiert, wenn Auffälligkeiten erkannt werden?",
+            "en": "What happens if irregularities are found?",
+            "tr": "Tutarsızlık tespit edilirse ne olur?",
+            "ru": "Что происходит, если найдены несоответствия?",
+            "ar": "ماذا يحدث إذا تم اكتشاف أي ملاحظات؟",
+            "it": "Cosa succede se vengono rilevate anomalie?",
+            "zh": "如果发现异常会怎样？",
+            "hi": "अगर गड़बड़ियां मिलती हैं तो क्या होता है?",
+            "es": "¿Qué pasa si se detectan irregularidades?",
+            "fr": "Que se passe-t-il si des anomalies sont détectées ?",
+            "nl": "Wat gebeurt er als er afwijkingen worden gevonden?",
+            "pl": "Co się dzieje, gdy wykryte zostaną nieprawidłowości?"
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_5_a",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Gleiche die Position mit deinem Vertrag ab und halte konkrete Fragen an deinen Anbieter fest.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Gleiche die Position mit deinem Vertrag ab und halte konkrete Fragen an deinen Anbieter fest.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_5_a",
+          "de": "Wenn wir Unstimmigkeiten finden, erhältst du konkrete Handlungsempfehlungen. Wir zeigen dir, welche Schritte du einleiten kannst, um Geld zurückzufordern oder zukünftige Abschläge anzupassen.",
+          "translations": {
+            "de": "Wenn wir Unstimmigkeiten finden, erhältst du konkrete Handlungsempfehlungen. Wir zeigen dir, welche Schritte du einleiten kannst, um Geld zurückzufordern oder zukünftige Abschläge anzupassen.",
+            "en": "If we find inconsistencies, you receive clear next-step recommendations. We show you what to do to reclaim money or adjust future monthly payments.",
+            "tr": "Tutarsızlık bulursak sana net aksiyon önerileri sunarız. Geri ödeme almak veya gelecekteki aylık ödemeleri ayarlamak için hangi adımları atman gerektiğini gösteririz.",
+            "ru": "Если мы обнаружим несоответствия, вы получите чёткие рекомендации по дальнейшим шагам: как вернуть деньги или скорректировать будущие авансовые платежи.",
+            "ar": "إذا وجدنا أي عدم تطابق، ستحصل على توصيات عملية واضحة. نوضح لك الخطوات اللازمة لاسترداد الأموال أو تعديل الدفعات الشهرية المستقبلية.",
+            "it": "Se troviamo incongruenze, ricevi indicazioni operative chiare. Ti mostriamo quali passi fare per richiedere rimborsi o adeguare le rate future.",
+            "zh": "如果发现不一致项，你将获得明确的后续建议。我们会告诉你如何申请退款或调整未来的月度预缴费用。",
+            "hi": "यदि हमें असंगतियां मिलती हैं, तो आपको स्पष्ट अगले कदम दिए जाते हैं। हम बताते हैं कि रिफंड कैसे मांगें या भविष्य की मासिक अग्रिम राशि कैसे समायोजित करें।",
+            "es": "Si encontramos inconsistencias, recibirás recomendaciones claras de actuación. Te mostramos qué pasos dar para reclamar dinero o ajustar futuros pagos mensuales.",
+            "fr": "Si nous détectons des incohérences, vous recevez des recommandations concrètes. Nous vous indiquons les démarches pour récupérer de l'argent ou ajuster vos paiements mensuels futurs.",
+            "nl": "Als we onregelmatigheden vinden, krijg je duidelijke vervolgstappen. We laten zien wat je kunt doen om geld terug te vragen of toekomstige maandbedragen aan te passen.",
+            "pl": "Jeśli znajdziemy rozbieżności, otrzymasz konkretne rekomendacje kolejnych kroków. Pokażemy, jak odzyskać środki lub dostosować przyszłe miesięczne zaliczki."
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_6_q",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Sind die Werte in der Smartphone-Grafik verbindlich?",
+      "checked": [
+        {
+          "path": "",
+          "text": "Sind die Werte in der Smartphone-Grafik verbindlich?",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_6_q",
+          "de": "An wen kann ich mich wenden, wenn ich Fragen habe?",
+          "translations": {
+            "de": "An wen kann ich mich wenden, wenn ich Fragen habe?",
+            "en": "Who can I contact if I have questions?",
+            "tr": "Sorularım olursa kime ulaşabilirim?",
+            "ru": "К кому обратиться, если у меня есть вопросы?",
+            "ar": "إلى من يمكنني التوجه إذا كان لدي أسئلة؟",
+            "it": "A chi posso rivolgermi se ho domande?",
+            "zh": "如果我有问题可以联系谁？",
+            "hi": "अगर मेरे सवाल हों तो मैं किससे संपर्क कर सकता हूँ?",
+            "es": "¿A quién puedo contactar si tengo preguntas?",
+            "fr": "Qui puis-je contacter si j'ai des questions ?",
+            "nl": "Met wie kan ik contact opnemen als ik vragen heb?",
+            "pl": "Do kogo mogę się zwrócić, jeśli mam pytania?"
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_6_a",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Die 177 Tarife und 477 EUR sind statischer Marketinginhalt und kein persönliches Berechnungsergebnis.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Die 177 Tarife und 477 EUR sind statischer Marketinginhalt und kein persönliches Berechnungsergebnis.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_6_a",
+          "de": "Unser Kundenservice steht dir jederzeit zur Verfügung. Du erreichst uns einfach per E-Mail oder über das Kontaktformular.",
+          "translations": {
+            "de": "Unser Kundenservice steht dir jederzeit zur Verfügung. Du erreichst uns einfach per E-Mail oder über das Kontaktformular.",
+            "en": "Our customer service team is always available. You can easily reach us by email or via the contact form.",
+            "tr": "Müşteri hizmetlerimiz her zaman ulaşılabilir. Bize e-posta veya iletişim formu üzerinden kolayca ulaşabilirsin.",
+            "ru": "Наша служба поддержки всегда на связи. Вы можете легко связаться с нами по электронной почте или через форму обратной связи.",
+            "ar": "خدمة العملاء لدينا متاحة دائماً. يمكنك التواصل معنا بسهولة عبر البريد الإلكتروني أو نموذج التواصل.",
+            "it": "Il nostro servizio clienti è sempre disponibile. Puoi contattarci facilmente via e-mail o tramite il modulo di contatto.",
+            "zh": "我们的客服随时为你服务。你可以通过电子邮件或联系表单轻松联系到我们。",
+            "hi": "हमारी कस्टमर सर्विस हमेशा उपलब्ध है। आप हमें ईमेल या संपर्क फ़ॉर्म के जरिए आसानी से संपर्क कर सकते हैं।",
+            "es": "Nuestro equipo de atención al cliente está siempre disponible. Puedes contactarnos fácilmente por correo electrónico o mediante el formulario de contacto.",
+            "fr": "Notre service client est disponible à tout moment. Vous pouvez nous contacter facilement par e-mail ou via le formulaire de contact.",
+            "nl": "Onze klantenservice staat altijd voor je klaar. Je bereikt ons eenvoudig per e-mail of via het contactformulier.",
+            "pl": "Nasz dział obsługi klienta jest zawsze do dyspozycji. Możesz łatwo skontaktować się z nami e-mailem lub przez formularz kontaktowy."
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.hero.subline",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Strom und Gas im Alltag: Mit Öcher Strom behältst du Preise, Verbrauch und Vertragsbedingungen im Blick. Prüfe, was zu deinem Haushalt passt.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Strom und Gas im Alltag: Mit Öcher Strom behältst du Preise, Verbrauch und Vertragsbedingungen im Blick. Prüfe, was zu deinem Haushalt passt.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.hero.cta_text",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Meinen Tarif mit Öcher Strom prüfen",
+      "checked": [
+        {
+          "path": "",
+          "text": "Meinen Tarif mit Öcher Strom prüfen",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.hero.result_note",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Die Smartphone-Grafik zeigt ein freigegebenes Marketingbeispiel mit 177 Tarifen und 477 EUR. Dein persönliches Ergebnis wird separat berechnet; eine Ersparnis ist nicht garantiert.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Die Smartphone-Grafik zeigt ein freigegebenes Marketingbeispiel mit 177 Tarifen und 477 EUR. Dein persönliches Ergebnis wird separat berechnet; eine Ersparnis ist nicht garantiert.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.problem.items",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "ORIGINAL_GERMAN_ONLY",
+      "german": [
+        {
+          "title": "Viele prüfen ihren Tarif jahrelang nicht",
+          "description": "Wer seinen Tarif lange nicht überprüft, zahlt oft deutlich mehr als nötig, weil sich Preise und Angebote ständig verändern.",
+          "iconKey": "calendar"
+        },
+        {
+          "title": "Viele glauben, ihr Tarif sei bereits günstig",
+          "description": "Ein Tarif, der früher gut war, kann heute längst nicht mehr optimal sein. Ohne Prüfung merkt man das oft nicht.",
+          "iconKey": "coins"
+        },
+        {
+          "title": "Viele bleiben beim Grundversorger",
+          "description": "In vielen Regionen ist die Grundversorgung deutlich teurer als alternative Tarife. Trotzdem bleiben viele Haushalte dort oft aus Gewohnheit oder Unwissen.",
+          "iconKey": "building"
+        },
+        {
+          "title": "Der Tarifmarkt wirkt kompliziert",
+          "description": "Hunderte Angebote mit unterschiedlichen Bedingungen machen es schwer zu erkennen, welcher Tarif wirklich gut ist deshalb lassen viele ihren Tarif einfach unverändert.",
+          "iconKey": "search"
+        }
+      ],
+      "checked": [
+        {
+          "path": ".0.title",
+          "text": "Viele prüfen ihren Tarif jahrelang nicht",
+          "exact_source_matches": [
+            {
+              "file": "src/lib/websiteContentDefaults.ts",
+              "catalog": "original-source-inventory",
+              "key": "sections.problem.items.0.title",
+              "translations": {
+                "de": "Viele prüfen ihren Tarif jahrelang nicht"
+              },
+              "missing": [
+                "en",
+                "tr",
+                "ru",
+                "ar",
+                "it",
+                "zh",
+                "hi",
+                "es",
+                "fr",
+                "nl",
+                "pl"
+              ]
+            }
+          ]
+        },
+        {
+          "path": ".0.description",
+          "text": "Wer seinen Tarif lange nicht überprüft, zahlt oft deutlich mehr als nötig, weil sich Preise und Angebote ständig verändern.",
+          "exact_source_matches": [
+            {
+              "file": "src/lib/websiteContentDefaults.ts",
+              "catalog": "original-source-inventory",
+              "key": "sections.problem.items.0.description",
+              "translations": {
+                "de": "Wer seinen Tarif lange nicht überprüft, zahlt oft deutlich mehr als nötig, weil sich Preise und Angebote ständig verändern."
+              },
+              "missing": [
+                "en",
+                "tr",
+                "ru",
+                "ar",
+                "it",
+                "zh",
+                "hi",
+                "es",
+                "fr",
+                "nl",
+                "pl"
+              ]
+            }
+          ]
+        },
+        {
+          "path": ".1.title",
+          "text": "Viele glauben, ihr Tarif sei bereits günstig",
+          "exact_source_matches": [
+            {
+              "file": "src/lib/websiteContentDefaults.ts",
+              "catalog": "original-source-inventory",
+              "key": "sections.problem.items.1.title",
+              "translations": {
+                "de": "Viele glauben, ihr Tarif sei bereits günstig"
+              },
+              "missing": [
+                "en",
+                "tr",
+                "ru",
+                "ar",
+                "it",
+                "zh",
+                "hi",
+                "es",
+                "fr",
+                "nl",
+                "pl"
+              ]
+            }
+          ]
+        },
+        {
+          "path": ".1.description",
+          "text": "Ein Tarif, der früher gut war, kann heute längst nicht mehr optimal sein. Ohne Prüfung merkt man das oft nicht.",
+          "exact_source_matches": [
+            {
+              "file": "src/lib/websiteContentDefaults.ts",
+              "catalog": "original-source-inventory",
+              "key": "sections.problem.items.1.description",
+              "translations": {
+                "de": "Ein Tarif, der früher gut war, kann heute längst nicht mehr optimal sein. Ohne Prüfung merkt man das oft nicht."
+              },
+              "missing": [
+                "en",
+                "tr",
+                "ru",
+                "ar",
+                "it",
+                "zh",
+                "hi",
+                "es",
+                "fr",
+                "nl",
+                "pl"
+              ]
+            }
+          ]
+        },
+        {
+          "path": ".2.title",
+          "text": "Viele bleiben beim Grundversorger",
+          "exact_source_matches": [
+            {
+              "file": "src/lib/websiteContentDefaults.ts",
+              "catalog": "original-source-inventory",
+              "key": "sections.problem.items.2.title",
+              "translations": {
+                "de": "Viele bleiben beim Grundversorger"
+              },
+              "missing": [
+                "en",
+                "tr",
+                "ru",
+                "ar",
+                "it",
+                "zh",
+                "hi",
+                "es",
+                "fr",
+                "nl",
+                "pl"
+              ]
+            }
+          ]
+        },
+        {
+          "path": ".2.description",
+          "text": "In vielen Regionen ist die Grundversorgung deutlich teurer als alternative Tarife. Trotzdem bleiben viele Haushalte dort oft aus Gewohnheit oder Unwissen.",
+          "exact_source_matches": [
+            {
+              "file": "src/lib/websiteContentDefaults.ts",
+              "catalog": "original-source-inventory",
+              "key": "sections.problem.items.2.description",
+              "translations": {
+                "de": "In vielen Regionen ist die Grundversorgung deutlich teurer als alternative Tarife. Trotzdem bleiben viele Haushalte dort oft aus Gewohnheit oder Unwissen."
+              },
+              "missing": [
+                "en",
+                "tr",
+                "ru",
+                "ar",
+                "it",
+                "zh",
+                "hi",
+                "es",
+                "fr",
+                "nl",
+                "pl"
+              ]
+            }
+          ]
+        },
+        {
+          "path": ".3.title",
+          "text": "Der Tarifmarkt wirkt kompliziert",
+          "exact_source_matches": [
+            {
+              "file": "src/lib/websiteContentDefaults.ts",
+              "catalog": "original-source-inventory",
+              "key": "sections.problem.items.3.title",
+              "translations": {
+                "de": "Der Tarifmarkt wirkt kompliziert"
+              },
+              "missing": [
+                "en",
+                "tr",
+                "ru",
+                "ar",
+                "it",
+                "zh",
+                "hi",
+                "es",
+                "fr",
+                "nl",
+                "pl"
+              ]
+            }
+          ]
+        },
+        {
+          "path": ".3.description",
+          "text": "Hunderte Angebote mit unterschiedlichen Bedingungen machen es schwer zu erkennen, welcher Tarif wirklich gut ist deshalb lassen viele ihren Tarif einfach unverändert.",
+          "exact_source_matches": [
+            {
+              "file": "src/lib/websiteContentDefaults.ts",
+              "catalog": "original-source-inventory",
+              "key": "sections.problem.items.3.description",
+              "translations": {
+                "de": "Hunderte Angebote mit unterschiedlichen Bedingungen machen es schwer zu erkennen, welcher Tarif wirklich gut ist deshalb lassen viele ihren Tarif einfach unverändert."
+              },
+              "missing": [
+                "en",
+                "tr",
+                "ru",
+                "ar",
+                "it",
+                "zh",
+                "hi",
+                "es",
+                "fr",
+                "nl",
+                "pl"
+              ]
+            }
+          ]
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.solution.headline",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Dein Überblick mit Öcher Strom.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Dein Überblick mit Öcher Strom.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.solution.body",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Ein Tarifvergleich beginnt bei deinem Haushalt. Preise und Bedingungen gehören zusammen, damit du eine passende Entscheidung treffen kannst.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Ein Tarifvergleich beginnt bei deinem Haushalt. Preise und Bedingungen gehören zusammen, damit du eine passende Entscheidung treffen kannst.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.solution.cta_text",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Meinen Tarif mit Öcher Strom prüfen",
+      "checked": [
+        {
+          "path": "",
+          "text": "Meinen Tarif mit Öcher Strom prüfen",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.solution.result_note",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Die Smartphone-Grafik zeigt ein freigegebenes Marketingbeispiel mit 177 Tarifen und 477 EUR. Dein persönliches Ergebnis wird separat berechnet; eine Ersparnis ist nicht garantiert.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Die Smartphone-Grafik zeigt ein freigegebenes Marketingbeispiel mit 177 Tarifen und 477 EUR. Dein persönliches Ergebnis wird separat berechnet; eine Ersparnis ist nicht garantiert.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.how_it_works.cta_text",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Meinen Tarif mit Öcher Strom prüfen",
+      "checked": [
+        {
+          "path": "",
+          "text": "Meinen Tarif mit Öcher Strom prüfen",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.how_it_works.items",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": [
+        {
+          "title": "Ausgangslage erfassen",
+          "description": "Halte Verbrauch, Postleitzahl und deinen aktuellen Tarif bereit."
+        },
+        {
+          "title": "Kosten einordnen",
+          "description": "Betrachte Grundpreis, Arbeitspreis und Vertragsbedingungen."
+        },
+        {
+          "title": "Angebote abwägen",
+          "description": "Vergleiche Angebote anhand deiner Angaben und prüfe offene Fragen."
+        },
+        {
+          "title": "Bewusst entscheiden",
+          "description": "Ein möglicher Wechsel ist eine eigene Entscheidung; die Grafik enthält keine individuelle Zusage."
+        }
+      ],
+      "checked": [
+        {
+          "path": ".0.title",
+          "text": "Ausgangslage erfassen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".0.description",
+          "text": "Halte Verbrauch, Postleitzahl und deinen aktuellen Tarif bereit.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1.title",
+          "text": "Kosten einordnen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1.description",
+          "text": "Betrachte Grundpreis, Arbeitspreis und Vertragsbedingungen.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2.title",
+          "text": "Angebote abwägen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2.description",
+          "text": "Vergleiche Angebote anhand deiner Angaben und prüfe offene Fragen.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".3.title",
+          "text": "Bewusst entscheiden",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".3.description",
+          "text": "Ein möglicher Wechsel ist eine eigene Entscheidung; die Grafik enthält keine individuelle Zusage.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.comparison.portals_title",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Beim eigenen Vergleich",
+      "checked": [
+        {
+          "path": "",
+          "text": "Beim eigenen Vergleich",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.comparison.assistant_title",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Mit Öcher Strom",
+      "checked": [
+        {
+          "path": "",
+          "text": "Mit Öcher Strom",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.comparison.portals",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": [
+        "Preise und Bedingungen selbst zusammenführen",
+        "Verbrauch und Laufzeit in den Vergleich einbeziehen",
+        "Unklare Angaben gezielt nachfragen"
+      ],
+      "checked": [
+        {
+          "path": ".0",
+          "text": "Preise und Bedingungen selbst zusammenführen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1",
+          "text": "Verbrauch und Laufzeit in den Vergleich einbeziehen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2",
+          "text": "Unklare Angaben gezielt nachfragen",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.comparison.assistant",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": [
+        "Öcher Strom stellt deine Energiekosten in den Mittelpunkt.",
+        "Tarifbedingungen gehören zum Blick auf den Preis.",
+        "Die Entscheidung richtet sich nach deiner persönlichen Ausgangslage."
+      ],
+      "checked": [
+        {
+          "path": ".0",
+          "text": "Öcher Strom stellt deine Energiekosten in den Mittelpunkt.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1",
+          "text": "Tarifbedingungen gehören zum Blick auf den Preis.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2",
+          "text": "Die Entscheidung richtet sich nach deiner persönlichen Ausgangslage.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.comparison.cta_text",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Meinen Tarif mit Öcher Strom prüfen",
+      "checked": [
+        {
+          "path": "",
+          "text": "Meinen Tarif mit Öcher Strom prüfen",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.about.headline",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Über Öcher Strom",
+      "checked": [
+        {
+          "path": "",
+          "text": "Über Öcher Strom",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.about.role",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Eine Marke unter dem rechtlichen Betreiber BeConnected",
+      "checked": [
+        {
+          "path": "",
+          "text": "Eine Marke unter dem rechtlichen Betreiber BeConnected",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.about.paragraphs",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": [
+        "Öcher Strom richtet den Blick auf die Energiekosten deines Haushalts. Verständliche Informationen zu Strom, Gas und Jahresabrechnungen stehen dabei im Mittelpunkt.",
+        "BeConnected ist der autorisierte rechtliche Betreiber von Öcher Strom.",
+        "Die Werte in den Smartphone-Grafiken sind freigegebene Marketingbeispiele. Sie ersetzen keine Berechnung für deinen Haushalt."
+      ],
+      "checked": [
+        {
+          "path": ".0",
+          "text": "Öcher Strom richtet den Blick auf die Energiekosten deines Haushalts. Verständliche Informationen zu Strom, Gas und Jahresabrechnungen stehen dabei im Mittelpunkt.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1",
+          "text": "BeConnected ist der autorisierte rechtliche Betreiber von Öcher Strom.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2",
+          "text": "Die Werte in den Smartphone-Grafiken sind freigegebene Marketingbeispiele. Sie ersetzen keine Berechnung für deinen Haushalt.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.faq.home_items",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": [
+        {
+          "question": "Sind 177 Tarife und 477 EUR mein persönliches Ergebnis?",
+          "answer": "Nein. Diese Angaben gehören zur freigegebenen statischen Smartphone-Grafik. Ein persönliches Ergebnis hängt von deinen Angaben und den dann verfügbaren Angeboten ab."
+        },
+        {
+          "question": "Wer betreibt Öcher Strom?",
+          "answer": "BeConnected ist der autorisierte rechtliche Betreiber von Öcher Strom."
+        },
+        {
+          "question": "Was sollte ich für einen Tarifvergleich bereithalten?",
+          "answer": "Deinen aktuellen Tarif, den Jahresverbrauch, die Postleitzahl und die relevanten Vertragsbedingungen."
+        },
+        {
+          "question": "Wie erkenne ich die Kündigungsfrist?",
+          "answer": "Die Kündigungsfrist steht in deinem Vertrag. Vergleiche sie mit der Laufzeit und halte den nächsten Termin fest."
+        },
+        {
+          "question": "Kann ich die Onlineprüfung bereits nutzen?",
+          "answer": "Onlineprüfung derzeit nicht verfügbar. Nutze bei Fragen die angegebenen Kontaktmöglichkeiten."
+        },
+        {
+          "question": "Wo finde ich Informationen zum Datenschutz?",
+          "answer": "Die Datenschutzerklärung ist über den Link im Fußbereich erreichbar."
+        }
+      ],
+      "checked": [
+        {
+          "path": ".0.question",
+          "text": "Sind 177 Tarife und 477 EUR mein persönliches Ergebnis?",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".0.answer",
+          "text": "Nein. Diese Angaben gehören zur freigegebenen statischen Smartphone-Grafik. Ein persönliches Ergebnis hängt von deinen Angaben und den dann verfügbaren Angeboten ab.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1.question",
+          "text": "Wer betreibt Öcher Strom?",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1.answer",
+          "text": "BeConnected ist der autorisierte rechtliche Betreiber von Öcher Strom.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2.question",
+          "text": "Was sollte ich für einen Tarifvergleich bereithalten?",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2.answer",
+          "text": "Deinen aktuellen Tarif, den Jahresverbrauch, die Postleitzahl und die relevanten Vertragsbedingungen.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".3.question",
+          "text": "Wie erkenne ich die Kündigungsfrist?",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".3.answer",
+          "text": "Die Kündigungsfrist steht in deinem Vertrag. Vergleiche sie mit der Laufzeit und halte den nächsten Termin fest.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".4.question",
+          "text": "Kann ich die Onlineprüfung bereits nutzen?",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".4.answer",
+          "text": "Onlineprüfung derzeit nicht verfügbar. Nutze bei Fragen die angegebenen Kontaktmöglichkeiten.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".5.question",
+          "text": "Wo finde ich Informationen zum Datenschutz?",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".5.answer",
+          "text": "Die Datenschutzerklärung ist über den Link im Fußbereich erreichbar.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.final_cta.headline",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Nimm deine Energiekosten in den Blick.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Nimm deine Energiekosten in den Blick.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.final_cta.subline",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Beginne bei deinem aktuellen Vertrag und deinem Verbrauch. Öcher Strom ist dein Ausgangspunkt.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Beginne bei deinem aktuellen Vertrag und deinem Verbrauch. Öcher Strom ist dein Ausgangspunkt.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.final_cta.cta_text",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Meinen Tarif mit Öcher Strom prüfen",
+      "checked": [
+        {
+          "path": "",
+          "text": "Meinen Tarif mit Öcher Strom prüfen",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.callback.title",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Rückruf anfordern",
+      "checked": [
+        {
+          "path": "",
+          "text": "Rückruf anfordern",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.callback.disabled_text",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Der Rückruf-Kalender wird vorbereitet.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Der Rückruf-Kalender wird vorbereitet.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.hero_text",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Öcher Strom: Verbrauch, Abschläge und Jahreskosten gemeinsam betrachten.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Öcher Strom: Verbrauch, Abschläge und Jahreskosten gemeinsam betrachten.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.cta",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "RECOVERED_EXACT",
+      "german": "Jahresabrechnung prüfen",
+      "checked": [
+        {
+          "path": "",
+          "text": "Jahresabrechnung prüfen",
+          "exact_source_matches": [
+            {
+              "file": "src/lib/i18n.tsx",
+              "catalog": "dictionaries",
+              "key": "header_check_bill",
+              "translations": {
+                "de": "Jahresabrechnung prüfen",
+                "en": "Check annual energy bill",
+                "tr": "Yıllık enerji faturasını kontrol et",
+                "ru": "Проверить годовой счёт за энергию",
+                "ar": "تحقق من الفاتورة السنوية للطاقة",
+                "it": "Controlla la bolletta energetica annuale",
+                "zh": "检查年度能源账单",
+                "hi": "वार्षिक ऊर्जा बिल जांचें",
+                "es": "Revisar factura energética anual",
+                "fr": "Vérifier la facture annuelle d'énergie",
+                "nl": "Controleer jaarlijkse energierekening",
+                "pl": "Sprawdź roczny rachunek za energię"
+              },
+              "missing": []
+            }
+          ]
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": {
+        "file": "src/lib/i18n.tsx",
+        "catalog": "dictionaries",
+        "key": "header_check_bill",
+        "translations": {
+          "de": "Jahresabrechnung prüfen",
+          "en": "Check annual energy bill",
+          "tr": "Yıllık enerji faturasını kontrol et",
+          "ru": "Проверить годовой счёт за энергию",
+          "ar": "تحقق من الفاتورة السنوية للطاقة",
+          "it": "Controlla la bolletta energetica annuale",
+          "zh": "检查年度能源账单",
+          "hi": "वार्षिक ऊर्जा बिल जांचें",
+          "es": "Revisar factura energética anual",
+          "fr": "Vérifier la facture annuelle d'énergie",
+          "nl": "Controleer jaarlijkse energierekening",
+          "pl": "Sprawdź roczny rachunek za energię"
+        },
+        "missing": []
+      }
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.why_intro",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Eine Jahresabrechnung verbindet Verbrauch, Preise und bereits geleistete Zahlungen. Prüfe, wie diese Angaben zusammenpassen.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Eine Jahresabrechnung verbindet Verbrauch, Preise und bereits geleistete Zahlungen. Prüfe, wie diese Angaben zusammenpassen.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.value_text",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Mit Öcher Strom steht eine nachvollziehbare Einordnung deiner Jahresabrechnung im Mittelpunkt.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Mit Öcher Strom steht eine nachvollziehbare Einordnung deiner Jahresabrechnung im Mittelpunkt.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.comparison_self_title",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Rechnung selbst einordnen",
+      "checked": [
+        {
+          "path": "",
+          "text": "Rechnung selbst einordnen",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.comparison_assistant_title",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Mit Öcher Strom",
+      "checked": [
+        {
+          "path": "",
+          "text": "Mit Öcher Strom",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.comparison_self",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": [
+        "Zählerstände und Zeitraum zuordnen",
+        "Preise und Abschläge nachvollziehen"
+      ],
+      "checked": [
+        {
+          "path": ".0",
+          "text": "Zählerstände und Zeitraum zuordnen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1",
+          "text": "Preise und Abschläge nachvollziehen",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.comparison_assistant",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": [
+        "Verbrauch und Kosten zusammen betrachten",
+        "Offene Fragen strukturiert festhalten"
+      ],
+      "checked": [
+        {
+          "path": ".0",
+          "text": "Verbrauch und Kosten zusammen betrachten",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1",
+          "text": "Offene Fragen strukturiert festhalten",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.final_text",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Prüfe die Angaben deiner Rechnung anhand deines Vertrags. Die Smartphone-Grafik ist kein Ergebnis einer Rechnungsprüfung.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Prüfe die Angaben deiner Rechnung anhand deines Vertrags. Die Smartphone-Grafik ist kein Ergebnis einer Rechnungsprüfung.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.process",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": [
+        {
+          "step": "1",
+          "title": "Unterlagen bereithalten",
+          "desc": "Rechnung und Vertragsbedingungen zusammenstellen."
+        },
+        {
+          "step": "2",
+          "title": "Verbrauch zuordnen",
+          "desc": "Abrechnungszeitraum und Zählerstände vergleichen."
+        },
+        {
+          "step": "3",
+          "title": "Kosten nachvollziehen",
+          "desc": "Preise, Abschläge und Zahlungen einordnen."
+        },
+        {
+          "step": "4",
+          "title": "Fragen festhalten",
+          "desc": "Unklare Positionen vor einer Entscheidung klären."
+        }
+      ],
+      "checked": [
+        {
+          "path": ".0.title",
+          "text": "Unterlagen bereithalten",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".0.desc",
+          "text": "Rechnung und Vertragsbedingungen zusammenstellen.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1.title",
+          "text": "Verbrauch zuordnen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1.desc",
+          "text": "Abrechnungszeitraum und Zählerstände vergleichen.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2.title",
+          "text": "Kosten nachvollziehen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2.desc",
+          "text": "Preise, Abschläge und Zahlungen einordnen.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".3.title",
+          "text": "Fragen festhalten",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".3.desc",
+          "text": "Unklare Positionen vor einer Entscheidung klären.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.why",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": [
+        {
+          "title": "Verbrauch verstehen",
+          "desc": "Vergleiche Abrechnungszeitraum und Zählerstände."
+        },
+        {
+          "title": "Preise nachvollziehen",
+          "desc": "Prüfe Grundpreis und Arbeitspreis anhand des Vertrags."
+        },
+        {
+          "title": "Abschläge einordnen",
+          "desc": "Gleiche geleistete Zahlungen mit der Abrechnung ab."
+        },
+        {
+          "title": "Unklarheiten klären",
+          "desc": "Halte Rückfragen an deinen Anbieter fest."
+        }
+      ],
+      "checked": [
+        {
+          "path": ".0.title",
+          "text": "Verbrauch verstehen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".0.desc",
+          "text": "Vergleiche Abrechnungszeitraum und Zählerstände.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1.title",
+          "text": "Preise nachvollziehen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1.desc",
+          "text": "Prüfe Grundpreis und Arbeitspreis anhand des Vertrags.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2.title",
+          "text": "Abschläge einordnen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2.desc",
+          "text": "Gleiche geleistete Zahlungen mit der Abrechnung ab.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".3.title",
+          "text": "Unklarheiten klären",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".3.desc",
+          "text": "Halte Rückfragen an deinen Anbieter fest.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_1_q",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Was gehört zu einer Rechnungsprüfung?",
+      "checked": [
+        {
+          "path": "",
+          "text": "Was gehört zu einer Rechnungsprüfung?",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_1_q",
+          "de": "Wie funktioniert die Prüfung meiner Jahresabrechnung?",
+          "translations": {
+            "de": "Wie funktioniert die Prüfung meiner Jahresabrechnung?",
+            "en": "How does the annual bill review work?",
+            "tr": "Yıllık fatura kontrolü nasıl çalışır?",
+            "ru": "Как проходит проверка годового счёта?",
+            "ar": "كيف تتم مراجعة الفاتورة السنوية؟",
+            "it": "Come funziona la verifica della bolletta annuale?",
+            "zh": "年度账单审核是如何进行的？",
+            "hi": "वार्षिक बिल की जांच कैसे होती है?",
+            "es": "¿Cómo funciona la revisión de la factura anual?",
+            "fr": "Comment fonctionne la vérification de la facture annuelle ?",
+            "nl": "Hoe werkt de controle van mijn jaarafrekening?",
+            "pl": "Jak działa weryfikacja rocznego rachunku?"
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_1_a",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Verbrauch, Abrechnungszeitraum, Preise und Zahlungen gemeinsam betrachten.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Verbrauch, Abrechnungszeitraum, Preise und Zahlungen gemeinsam betrachten.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_1_a",
+          "de": "Du klickst dich durch ein paar kurze Fragen und lädst deine Rechnung hoch. Wir analysieren deine Daten und zeigen dir, ob es Auffälligkeiten gibt.",
+          "translations": {
+            "de": "Du klickst dich durch ein paar kurze Fragen und lädst deine Rechnung hoch. Wir analysieren deine Daten und zeigen dir, ob es Auffälligkeiten gibt.",
+            "en": "You answer a few short questions and upload your bill. We analyze your data and show you whether there are any irregularities.",
+            "tr": "Birkaç kısa soruyu yanıtlayıp faturanı yüklersin. Verilerini analiz eder ve herhangi bir tutarsızlık olup olmadığını gösteririz.",
+            "ru": "Вы отвечаете на несколько коротких вопросов и загружаете счёт. Мы анализируем данные и показываем, есть ли отклонения.",
+            "ar": "تجيب عن بضعة أسئلة قصيرة وتحمّل فاتورتك. نقوم بتحليل بياناتك ونوضح لك ما إذا كانت هناك أي ملاحظات.",
+            "it": "Rispondi a poche domande rapide e carichi la tua bolletta. Analizziamo i dati e ti mostriamo se ci sono anomalie.",
+            "zh": "你只需回答几个简短问题并上传账单。我们会分析你的数据，并告知是否存在异常。",
+            "hi": "आप कुछ छोटे सवालों के जवाब देकर अपना बिल अपलोड करते हैं। हम आपके डेटा का विश्लेषण करते हैं और बताते हैं कि कोई गड़बड़ी है या नहीं।",
+            "es": "Respondes unas pocas preguntas breves y subes tu factura. Analizamos tus datos y te mostramos si hay irregularidades.",
+            "fr": "Vous répondez à quelques questions rapides et téléversez votre facture. Nous analysons vos données et vous indiquons s'il y a des anomalies.",
+            "nl": "Je beantwoordt een paar korte vragen en uploadt je rekening. We analyseren je gegevens en laten zien of er afwijkingen zijn.",
+            "pl": "Odpowiadasz na kilka krótkich pytań i przesyłasz rachunek. Analizujemy dane i pokazujemy, czy występują nieprawidłowości."
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_2_q",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Wo finde ich Angaben zur Datenverarbeitung?",
+      "checked": [
+        {
+          "path": "",
+          "text": "Wo finde ich Angaben zur Datenverarbeitung?",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_2_q",
+          "de": "Sind meine Daten bei der Prüfung sicher?",
+          "translations": {
+            "de": "Sind meine Daten bei der Prüfung sicher?",
+            "en": "Is my data secure during the review?",
+            "tr": "Kontrol sırasında verilerim güvende mi?",
+            "ru": "Безопасны ли мои данные при проверке?",
+            "ar": "هل بياناتي آمنة أثناء المراجعة؟",
+            "it": "I miei dati sono al sicuro durante la verifica?",
+            "zh": "审核过程中我的数据安全吗？",
+            "hi": "जांच के दौरान मेरा डेटा सुरक्षित है?",
+            "es": "¿Mis datos están seguros durante la revisión?",
+            "fr": "Mes données sont-elles sécurisées pendant la vérification ?",
+            "nl": "Zijn mijn gegevens veilig tijdens de controle?",
+            "pl": "Czy moje dane są bezpieczne podczas weryfikacji?"
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_2_a",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Angaben zur Datenverarbeitung und zu Ihren Rechten finden Sie in der Datenschutzerklärung.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Angaben zur Datenverarbeitung und zu Ihren Rechten finden Sie in der Datenschutzerklärung.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_2_a",
+          "de": "Ja. Der Schutz deiner Daten hat höchste Priorität. Alle Daten werden verschlüsselt übertragen, streng vertraulich verarbeitet und deine Dokumente nach der Prüfung sicher gelöscht.",
+          "translations": {
+            "de": "Ja. Der Schutz deiner Daten hat höchste Priorität. Alle Daten werden verschlüsselt übertragen, streng vertraulich verarbeitet und deine Dokumente nach der Prüfung sicher gelöscht.",
+            "en": "Yes. Data protection is our top priority. All data is encrypted in transit, processed confidentially, and your documents are securely deleted after the review.",
+            "tr": "Evet. Veri güvenliği en yüksek önceliğimizdir. Tüm veriler şifreli iletilir, gizli şekilde işlenir ve belgelerin kontrol sonrası güvenle silinir.",
+            "ru": "Да. Защита данных для нас в приоритете. Все данные передаются в зашифрованном виде, обрабатываются конфиденциально, а документы безопасно удаляются после проверки.",
+            "ar": "نعم. حماية البيانات أولوية قصوى لدينا. تُنقل جميع البيانات بشكل مشفّر، وتُعالج بسرية تامة، ويتم حذف مستنداتك بأمان بعد المراجعة.",
+            "it": "Sì. La protezione dei dati è una priorità assoluta. Tutti i dati sono trasmessi in modo cifrato, trattati con riservatezza e i documenti vengono eliminati in modo sicuro dopo la verifica.",
+            "zh": "是的。数据安全是我们的最高优先级。所有数据均加密传输、严格保密处理，审核完成后你的文件会被安全删除。",
+            "hi": "हाँ। डेटा सुरक्षा हमारी सर्वोच्च प्राथमिकता है। सभी डेटा एन्क्रिप्ट होकर भेजा जाता है, गोपनीय रूप से प्रोसेस होता है और जांच के बाद आपके दस्तावेज़ सुरक्षित रूप से हटा दिए जाते हैं।",
+            "es": "Sí. La protección de datos es nuestra máxima prioridad. Todos los datos se transmiten cifrados, se tratan de forma confidencial y tus documentos se eliminan de forma segura tras la revisión.",
+            "fr": "Oui. La protection des données est notre priorité absolue. Toutes les données sont transmises de manière chiffrée, traitées de façon confidentielle, puis vos documents sont supprimés en toute sécurité après la vérification.",
+            "nl": "Ja. Gegevensbescherming heeft bij ons de hoogste prioriteit. Alle gegevens worden versleuteld verzonden, vertrouwelijk verwerkt en je documenten worden na de controle veilig verwijderd.",
+            "pl": "Tak. Ochrona danych jest dla nas priorytetem. Wszystkie dane są przesyłane szyfrowane, przetwarzane poufnie, a dokumenty po weryfikacji bezpiecznie usuwane."
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_3_q",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Welche Kosten gelten für den Service?",
+      "checked": [
+        {
+          "path": "",
+          "text": "Welche Kosten gelten für den Service?",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_3_q",
+          "de": "Kostet die Prüfung meiner Jahresabrechnung etwas?",
+          "translations": {
+            "de": "Kostet die Prüfung meiner Jahresabrechnung etwas?",
+            "en": "Does the annual bill review cost anything?",
+            "tr": "Yıllık fatura kontrolü ücretli mi?",
+            "ru": "Проверка годового счёта платная?",
+            "ar": "هل مراجعة الفاتورة السنوية مدفوعة؟",
+            "it": "La verifica della bolletta annuale ha un costo?",
+            "zh": "年度账单审核收费吗？",
+            "hi": "क्या वार्षिक बिल की जांच में कोई शुल्क लगता है?",
+            "es": "¿La revisión de la factura anual tiene coste?",
+            "fr": "La vérification de la facture annuelle est-elle payante ?",
+            "nl": "Kost de controle van mijn jaarafrekening geld?",
+            "pl": "Czy weryfikacja rocznego rachunku jest płatna?"
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_3_a",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Maßgeblich sind die vor Nutzung ausgewiesenen Konditionen.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Maßgeblich sind die vor Nutzung ausgewiesenen Konditionen.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_3_a",
+          "de": "Nein, die Prüfung deiner Jahresabrechnung durch den Energieassistenten ist zu 100% kostenlos und unverbindlich.",
+          "translations": {
+            "de": "Nein, die Prüfung deiner Jahresabrechnung durch den Energieassistenten ist zu 100% kostenlos und unverbindlich.",
+            "en": "No. The annual bill review by the Energy Assistant is 100% free and non-binding.",
+            "tr": "Hayır. Enerji Asistanı ile yapılan yıllık fatura kontrolü %100 ücretsiz ve bağlayıcı değildir.",
+            "ru": "Нет. Проверка годового счёта через Энергоассистент на 100% бесплатна и ни к чему не обязывает.",
+            "ar": "لا. مراجعة الفاتورة السنوية عبر مساعد الطاقة مجانية 100٪ وبدون التزام.",
+            "it": "No. La verifica della bolletta annuale con l'Assistente Energia è gratuita al 100% e senza impegno.",
+            "zh": "不收费。通过能源助手进行年度账单审核 100% 免费，且无任何绑定义务。",
+            "hi": "नहीं। एनर्जी असिस्टेंट द्वारा वार्षिक बिल जांच 100% मुफ्त और बिना किसी बाध्यता के है।",
+            "es": "No. La revisión de la factura anual con el Asistente Energético es 100% gratuita y sin compromiso.",
+            "fr": "Non. La vérification de la facture annuelle avec l'Assistant Énergie est 100 % gratuite et sans engagement.",
+            "nl": "Nee. De controle van je jaarafrekening via de Energieassistent is 100% gratis en vrijblijvend.",
+            "pl": "Nie. Weryfikacja rocznego rachunku przez Asystenta Energii jest w 100% bezpłatna i niezobowiązująca."
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_4_q",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Wer betreibt Tarivia?",
+      "checked": [
+        {
+          "path": "",
+          "text": "Wer betreibt Tarivia?",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_4_q",
+          "de": "Wie finanziert sich der Energieassistent?",
+          "translations": {
+            "de": "Wie finanziert sich der Energieassistent?",
+            "en": "How is the Energy Assistant financed?",
+            "tr": "Enerji Asistanı nasıl finanse ediliyor?",
+            "ru": "Как финансируется Энергоассистент?",
+            "ar": "كيف يتم تمويل مساعد الطاقة؟",
+            "it": "Come si finanzia l'Assistente Energia?",
+            "zh": "能源助手如何盈利？",
+            "hi": "एनर्जी असिस्टेंट का वित्तपोषण कैसे होता है?",
+            "es": "¿Cómo se financia el Asistente Energético?",
+            "fr": "Comment l'Assistant Énergie est-il financé ?",
+            "nl": "Hoe wordt de Energieassistent gefinancierd?",
+            "pl": "Jak finansowany jest Asystent Energii?"
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_4_a",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Der autorisierte rechtliche Betreiber ist BeConnected.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Der autorisierte rechtliche Betreiber ist BeConnected.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_4_a",
+          "de": "Wir finanzieren uns ausschließlich über eine Provision der Energieversorger, wenn du dich entscheidest, über uns in einen günstigeren Tarif zu wechseln. Für dich entstehen dabei keine zusätzlichen Kosten.",
+          "translations": {
+            "de": "Wir finanzieren uns ausschließlich über eine Provision der Energieversorger, wenn du dich entscheidest, über uns in einen günstigeren Tarif zu wechseln. Für dich entstehen dabei keine zusätzlichen Kosten.",
+            "en": "We are financed exclusively through a commission from energy suppliers if you decide to switch to a cheaper tariff through us. There are no additional costs for you.",
+            "tr": "Sadece, bizim aracılığımızla daha uygun bir tarifeye geçmeye karar verirsen enerji tedarikçilerinin ödediği komisyonla finanse ediliriz. Senin için ek maliyet oluşmaz.",
+            "ru": "Мы финансируемся исключительно за счёт комиссии от поставщиков энергии, если вы решите перейти на более выгодный тариф через нас. Для вас это без дополнительных расходов.",
+            "ar": "نموّل خدمتنا حصرياً عبر عمولة من مزوّدي الطاقة إذا قررت التحويل إلى تعرفة أرخص من خلالنا. لا توجد أي تكاليف إضافية عليك.",
+            "it": "Ci finanziamo esclusivamente tramite una commissione dei fornitori di energia se scegli di passare a una tariffa più conveniente tramite noi. Per te non ci sono costi aggiuntivi.",
+            "zh": "仅当你通过我们切换到更便宜的资费时，我们才会从能源供应商获得佣金。你无需承担任何额外费用。",
+            "hi": "यदि आप हमारे माध्यम से सस्ती टैरिफ पर स्विच करते हैं, तो हमें केवल ऊर्जा प्रदाताओं से कमीशन मिलता है। आपके लिए कोई अतिरिक्त लागत नहीं होती।",
+            "es": "Nos financiamos exclusivamente mediante una comisión de las comercializadoras si decides cambiar a una tarifa más barata a través de nosotros. Para ti no hay costes adicionales.",
+            "fr": "Nous sommes financés exclusivement par une commission des fournisseurs d'énergie si vous choisissez de passer à un tarif moins cher via notre service. Cela n'entraîne aucun coût supplémentaire pour vous.",
+            "nl": "Wij financieren ons uitsluitend via een provisie van energieleveranciers als je besluit via ons over te stappen naar een goedkoper tarief. Voor jou zijn er geen extra kosten.",
+            "pl": "Finansujemy się wyłącznie z prowizji od dostawców energii, jeśli zdecydujesz się zmienić taryfę na tańszą za naszym pośrednictwem. Dla Ciebie nie ma żadnych dodatkowych kosztów."
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_5_q",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Was tun bei einer unklaren Rechnungsposition?",
+      "checked": [
+        {
+          "path": "",
+          "text": "Was tun bei einer unklaren Rechnungsposition?",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_5_q",
+          "de": "Was passiert, wenn Auffälligkeiten erkannt werden?",
+          "translations": {
+            "de": "Was passiert, wenn Auffälligkeiten erkannt werden?",
+            "en": "What happens if irregularities are found?",
+            "tr": "Tutarsızlık tespit edilirse ne olur?",
+            "ru": "Что происходит, если найдены несоответствия?",
+            "ar": "ماذا يحدث إذا تم اكتشاف أي ملاحظات؟",
+            "it": "Cosa succede se vengono rilevate anomalie?",
+            "zh": "如果发现异常会怎样？",
+            "hi": "अगर गड़बड़ियां मिलती हैं तो क्या होता है?",
+            "es": "¿Qué pasa si se detectan irregularidades?",
+            "fr": "Que se passe-t-il si des anomalies sont détectées ?",
+            "nl": "Wat gebeurt er als er afwijkingen worden gevonden?",
+            "pl": "Co się dzieje, gdy wykryte zostaną nieprawidłowości?"
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_5_a",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Gleiche die Position mit deinem Vertrag ab und halte konkrete Fragen an deinen Anbieter fest.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Gleiche die Position mit deinem Vertrag ab und halte konkrete Fragen an deinen Anbieter fest.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_5_a",
+          "de": "Wenn wir Unstimmigkeiten finden, erhältst du konkrete Handlungsempfehlungen. Wir zeigen dir, welche Schritte du einleiten kannst, um Geld zurückzufordern oder zukünftige Abschläge anzupassen.",
+          "translations": {
+            "de": "Wenn wir Unstimmigkeiten finden, erhältst du konkrete Handlungsempfehlungen. Wir zeigen dir, welche Schritte du einleiten kannst, um Geld zurückzufordern oder zukünftige Abschläge anzupassen.",
+            "en": "If we find inconsistencies, you receive clear next-step recommendations. We show you what to do to reclaim money or adjust future monthly payments.",
+            "tr": "Tutarsızlık bulursak sana net aksiyon önerileri sunarız. Geri ödeme almak veya gelecekteki aylık ödemeleri ayarlamak için hangi adımları atman gerektiğini gösteririz.",
+            "ru": "Если мы обнаружим несоответствия, вы получите чёткие рекомендации по дальнейшим шагам: как вернуть деньги или скорректировать будущие авансовые платежи.",
+            "ar": "إذا وجدنا أي عدم تطابق، ستحصل على توصيات عملية واضحة. نوضح لك الخطوات اللازمة لاسترداد الأموال أو تعديل الدفعات الشهرية المستقبلية.",
+            "it": "Se troviamo incongruenze, ricevi indicazioni operative chiare. Ti mostriamo quali passi fare per richiedere rimborsi o adeguare le rate future.",
+            "zh": "如果发现不一致项，你将获得明确的后续建议。我们会告诉你如何申请退款或调整未来的月度预缴费用。",
+            "hi": "यदि हमें असंगतियां मिलती हैं, तो आपको स्पष्ट अगले कदम दिए जाते हैं। हम बताते हैं कि रिफंड कैसे मांगें या भविष्य की मासिक अग्रिम राशि कैसे समायोजित करें।",
+            "es": "Si encontramos inconsistencias, recibirás recomendaciones claras de actuación. Te mostramos qué pasos dar para reclamar dinero o ajustar futuros pagos mensuales.",
+            "fr": "Si nous détectons des incohérences, vous recevez des recommandations concrètes. Nous vous indiquons les démarches pour récupérer de l'argent ou ajuster vos paiements mensuels futurs.",
+            "nl": "Als we onregelmatigheden vinden, krijg je duidelijke vervolgstappen. We laten zien wat je kunt doen om geld terug te vragen of toekomstige maandbedragen aan te passen.",
+            "pl": "Jeśli znajdziemy rozbieżności, otrzymasz konkretne rekomendacje kolejnych kroków. Pokażemy, jak odzyskać środki lub dostosować przyszłe miesięczne zaliczki."
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_6_q",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Sind die Werte in der Smartphone-Grafik verbindlich?",
+      "checked": [
+        {
+          "path": "",
+          "text": "Sind die Werte in der Smartphone-Grafik verbindlich?",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_6_q",
+          "de": "An wen kann ich mich wenden, wenn ich Fragen habe?",
+          "translations": {
+            "de": "An wen kann ich mich wenden, wenn ich Fragen habe?",
+            "en": "Who can I contact if I have questions?",
+            "tr": "Sorularım olursa kime ulaşabilirim?",
+            "ru": "К кому обратиться, если у меня есть вопросы?",
+            "ar": "إلى من يمكنني التوجه إذا كان لدي أسئلة؟",
+            "it": "A chi posso rivolgermi se ho domande?",
+            "zh": "如果我有问题可以联系谁？",
+            "hi": "अगर मेरे सवाल हों तो मैं किससे संपर्क कर सकता हूँ?",
+            "es": "¿A quién puedo contactar si tengo preguntas?",
+            "fr": "Qui puis-je contacter si j'ai des questions ?",
+            "nl": "Met wie kan ik contact opnemen als ik vragen heb?",
+            "pl": "Do kogo mogę się zwrócić, jeśli mam pytania?"
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_6_a",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NON_EQUIVALENT_GERMAN_KEY",
+      "german": "Die 177 Tarife und 477 EUR sind statischer Marketinginhalt und kein persönliches Berechnungsergebnis.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Die 177 Tarife und 477 EUR sind statischer Marketinginhalt und kein persönliches Berechnungsergebnis.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "annualFaqDictionaries",
+          "key": "annual_faq_6_a",
+          "de": "Unser Kundenservice steht dir jederzeit zur Verfügung. Du erreichst uns einfach per E-Mail oder über das Kontaktformular.",
+          "translations": {
+            "de": "Unser Kundenservice steht dir jederzeit zur Verfügung. Du erreichst uns einfach per E-Mail oder über das Kontaktformular.",
+            "en": "Our customer service team is always available. You can easily reach us by email or via the contact form.",
+            "tr": "Müşteri hizmetlerimiz her zaman ulaşılabilir. Bize e-posta veya iletişim formu üzerinden kolayca ulaşabilirsin.",
+            "ru": "Наша служба поддержки всегда на связи. Вы можете легко связаться с нами по электронной почте или через форму обратной связи.",
+            "ar": "خدمة العملاء لدينا متاحة دائماً. يمكنك التواصل معنا بسهولة عبر البريد الإلكتروني أو نموذج التواصل.",
+            "it": "Il nostro servizio clienti è sempre disponibile. Puoi contattarci facilmente via e-mail o tramite il modulo di contatto.",
+            "zh": "我们的客服随时为你服务。你可以通过电子邮件或联系表单轻松联系到我们。",
+            "hi": "हमारी कस्टमर सर्विस हमेशा उपलब्ध है। आप हमें ईमेल या संपर्क फ़ॉर्म के जरिए आसानी से संपर्क कर सकते हैं।",
+            "es": "Nuestro equipo de atención al cliente está siempre disponible. Puedes contactarnos fácilmente por correo electrónico o mediante el formulario de contacto.",
+            "fr": "Notre service client est disponible à tout moment. Vous pouvez nous contacter facilement par e-mail ou via le formulaire de contact.",
+            "nl": "Onze klantenservice staat altijd voor je klaar. Je bereikt ons eenvoudig per e-mail of via het contactformulier.",
+            "pl": "Nasz dział obsługi klienta jest zawsze do dyspozycji. Możesz łatwo skontaktować się z nami e-mailem lub przez formularz kontaktowy."
+          }
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.hero.subline",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Tarifpreise, Laufzeiten und Jahresabrechnungen verständlich einordnen. Tarivia hilft dir, deine nächste Entscheidung auf eine klare Grundlage zu stellen.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Tarifpreise, Laufzeiten und Jahresabrechnungen verständlich einordnen. Tarivia hilft dir, deine nächste Entscheidung auf eine klare Grundlage zu stellen.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.hero.cta_text",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Mit Tarivia den Tarif prüfen",
+      "checked": [
+        {
+          "path": "",
+          "text": "Mit Tarivia den Tarif prüfen",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.hero.result_note",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Die Smartphone-Grafik zeigt ein freigegebenes Marketingbeispiel mit 177 Tarifen und 477 EUR. Dein persönliches Ergebnis wird separat berechnet; eine Ersparnis ist nicht garantiert.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Die Smartphone-Grafik zeigt ein freigegebenes Marketingbeispiel mit 177 Tarifen und 477 EUR. Dein persönliches Ergebnis wird separat berechnet; eine Ersparnis ist nicht garantiert.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.problem.items",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "ORIGINAL_GERMAN_ONLY",
+      "german": [
+        {
+          "title": "Viele prüfen ihren Tarif jahrelang nicht",
+          "description": "Wer seinen Tarif lange nicht überprüft, zahlt oft deutlich mehr als nötig, weil sich Preise und Angebote ständig verändern.",
+          "iconKey": "calendar"
+        },
+        {
+          "title": "Viele glauben, ihr Tarif sei bereits günstig",
+          "description": "Ein Tarif, der früher gut war, kann heute längst nicht mehr optimal sein. Ohne Prüfung merkt man das oft nicht.",
+          "iconKey": "coins"
+        },
+        {
+          "title": "Viele bleiben beim Grundversorger",
+          "description": "In vielen Regionen ist die Grundversorgung deutlich teurer als alternative Tarife. Trotzdem bleiben viele Haushalte dort oft aus Gewohnheit oder Unwissen.",
+          "iconKey": "building"
+        },
+        {
+          "title": "Der Tarifmarkt wirkt kompliziert",
+          "description": "Hunderte Angebote mit unterschiedlichen Bedingungen machen es schwer zu erkennen, welcher Tarif wirklich gut ist deshalb lassen viele ihren Tarif einfach unverändert.",
+          "iconKey": "search"
+        }
+      ],
+      "checked": [
+        {
+          "path": ".0.title",
+          "text": "Viele prüfen ihren Tarif jahrelang nicht",
+          "exact_source_matches": [
+            {
+              "file": "src/lib/websiteContentDefaults.ts",
+              "catalog": "original-source-inventory",
+              "key": "sections.problem.items.0.title",
+              "translations": {
+                "de": "Viele prüfen ihren Tarif jahrelang nicht"
+              },
+              "missing": [
+                "en",
+                "tr",
+                "ru",
+                "ar",
+                "it",
+                "zh",
+                "hi",
+                "es",
+                "fr",
+                "nl",
+                "pl"
+              ]
+            }
+          ]
+        },
+        {
+          "path": ".0.description",
+          "text": "Wer seinen Tarif lange nicht überprüft, zahlt oft deutlich mehr als nötig, weil sich Preise und Angebote ständig verändern.",
+          "exact_source_matches": [
+            {
+              "file": "src/lib/websiteContentDefaults.ts",
+              "catalog": "original-source-inventory",
+              "key": "sections.problem.items.0.description",
+              "translations": {
+                "de": "Wer seinen Tarif lange nicht überprüft, zahlt oft deutlich mehr als nötig, weil sich Preise und Angebote ständig verändern."
+              },
+              "missing": [
+                "en",
+                "tr",
+                "ru",
+                "ar",
+                "it",
+                "zh",
+                "hi",
+                "es",
+                "fr",
+                "nl",
+                "pl"
+              ]
+            }
+          ]
+        },
+        {
+          "path": ".1.title",
+          "text": "Viele glauben, ihr Tarif sei bereits günstig",
+          "exact_source_matches": [
+            {
+              "file": "src/lib/websiteContentDefaults.ts",
+              "catalog": "original-source-inventory",
+              "key": "sections.problem.items.1.title",
+              "translations": {
+                "de": "Viele glauben, ihr Tarif sei bereits günstig"
+              },
+              "missing": [
+                "en",
+                "tr",
+                "ru",
+                "ar",
+                "it",
+                "zh",
+                "hi",
+                "es",
+                "fr",
+                "nl",
+                "pl"
+              ]
+            }
+          ]
+        },
+        {
+          "path": ".1.description",
+          "text": "Ein Tarif, der früher gut war, kann heute längst nicht mehr optimal sein. Ohne Prüfung merkt man das oft nicht.",
+          "exact_source_matches": [
+            {
+              "file": "src/lib/websiteContentDefaults.ts",
+              "catalog": "original-source-inventory",
+              "key": "sections.problem.items.1.description",
+              "translations": {
+                "de": "Ein Tarif, der früher gut war, kann heute längst nicht mehr optimal sein. Ohne Prüfung merkt man das oft nicht."
+              },
+              "missing": [
+                "en",
+                "tr",
+                "ru",
+                "ar",
+                "it",
+                "zh",
+                "hi",
+                "es",
+                "fr",
+                "nl",
+                "pl"
+              ]
+            }
+          ]
+        },
+        {
+          "path": ".2.title",
+          "text": "Viele bleiben beim Grundversorger",
+          "exact_source_matches": [
+            {
+              "file": "src/lib/websiteContentDefaults.ts",
+              "catalog": "original-source-inventory",
+              "key": "sections.problem.items.2.title",
+              "translations": {
+                "de": "Viele bleiben beim Grundversorger"
+              },
+              "missing": [
+                "en",
+                "tr",
+                "ru",
+                "ar",
+                "it",
+                "zh",
+                "hi",
+                "es",
+                "fr",
+                "nl",
+                "pl"
+              ]
+            }
+          ]
+        },
+        {
+          "path": ".2.description",
+          "text": "In vielen Regionen ist die Grundversorgung deutlich teurer als alternative Tarife. Trotzdem bleiben viele Haushalte dort oft aus Gewohnheit oder Unwissen.",
+          "exact_source_matches": [
+            {
+              "file": "src/lib/websiteContentDefaults.ts",
+              "catalog": "original-source-inventory",
+              "key": "sections.problem.items.2.description",
+              "translations": {
+                "de": "In vielen Regionen ist die Grundversorgung deutlich teurer als alternative Tarife. Trotzdem bleiben viele Haushalte dort oft aus Gewohnheit oder Unwissen."
+              },
+              "missing": [
+                "en",
+                "tr",
+                "ru",
+                "ar",
+                "it",
+                "zh",
+                "hi",
+                "es",
+                "fr",
+                "nl",
+                "pl"
+              ]
+            }
+          ]
+        },
+        {
+          "path": ".3.title",
+          "text": "Der Tarifmarkt wirkt kompliziert",
+          "exact_source_matches": [
+            {
+              "file": "src/lib/websiteContentDefaults.ts",
+              "catalog": "original-source-inventory",
+              "key": "sections.problem.items.3.title",
+              "translations": {
+                "de": "Der Tarifmarkt wirkt kompliziert"
+              },
+              "missing": [
+                "en",
+                "tr",
+                "ru",
+                "ar",
+                "it",
+                "zh",
+                "hi",
+                "es",
+                "fr",
+                "nl",
+                "pl"
+              ]
+            }
+          ]
+        },
+        {
+          "path": ".3.description",
+          "text": "Hunderte Angebote mit unterschiedlichen Bedingungen machen es schwer zu erkennen, welcher Tarif wirklich gut ist deshalb lassen viele ihren Tarif einfach unverändert.",
+          "exact_source_matches": [
+            {
+              "file": "src/lib/websiteContentDefaults.ts",
+              "catalog": "original-source-inventory",
+              "key": "sections.problem.items.3.description",
+              "translations": {
+                "de": "Hunderte Angebote mit unterschiedlichen Bedingungen machen es schwer zu erkennen, welcher Tarif wirklich gut ist deshalb lassen viele ihren Tarif einfach unverändert."
+              },
+              "missing": [
+                "en",
+                "tr",
+                "ru",
+                "ar",
+                "it",
+                "zh",
+                "hi",
+                "es",
+                "fr",
+                "nl",
+                "pl"
+              ]
+            }
+          ]
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.solution.headline",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Mit Tarivia wird aus Zahlen ein Überblick.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Mit Tarivia wird aus Zahlen ein Überblick.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.solution.body",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Betrachte Verbrauch, Kosten und Vertragsbedingungen gemeinsam. So kannst du Angebote besser einordnen und offene Fragen gezielt klären.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Betrachte Verbrauch, Kosten und Vertragsbedingungen gemeinsam. So kannst du Angebote besser einordnen und offene Fragen gezielt klären.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.solution.cta_text",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Mit Tarivia den Tarif prüfen",
+      "checked": [
+        {
+          "path": "",
+          "text": "Mit Tarivia den Tarif prüfen",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.solution.result_note",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Die Smartphone-Grafik zeigt ein freigegebenes Marketingbeispiel mit 177 Tarifen und 477 EUR. Dein persönliches Ergebnis wird separat berechnet; eine Ersparnis ist nicht garantiert.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Die Smartphone-Grafik zeigt ein freigegebenes Marketingbeispiel mit 177 Tarifen und 477 EUR. Dein persönliches Ergebnis wird separat berechnet; eine Ersparnis ist nicht garantiert.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.how_it_works.cta_text",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Mit Tarivia den Tarif prüfen",
+      "checked": [
+        {
+          "path": "",
+          "text": "Mit Tarivia den Tarif prüfen",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.how_it_works.items",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": [
+        {
+          "title": "Ausgangslage erfassen",
+          "description": "Halte Verbrauch, Postleitzahl und deinen aktuellen Tarif bereit."
+        },
+        {
+          "title": "Kosten einordnen",
+          "description": "Betrachte Grundpreis, Arbeitspreis und Vertragsbedingungen."
+        },
+        {
+          "title": "Angebote abwägen",
+          "description": "Vergleiche Angebote anhand deiner Angaben und prüfe offene Fragen."
+        },
+        {
+          "title": "Bewusst entscheiden",
+          "description": "Ein möglicher Wechsel ist eine eigene Entscheidung; die Grafik enthält keine individuelle Zusage."
+        }
+      ],
+      "checked": [
+        {
+          "path": ".0.title",
+          "text": "Ausgangslage erfassen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".0.description",
+          "text": "Halte Verbrauch, Postleitzahl und deinen aktuellen Tarif bereit.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1.title",
+          "text": "Kosten einordnen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1.description",
+          "text": "Betrachte Grundpreis, Arbeitspreis und Vertragsbedingungen.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2.title",
+          "text": "Angebote abwägen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2.description",
+          "text": "Vergleiche Angebote anhand deiner Angaben und prüfe offene Fragen.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".3.title",
+          "text": "Bewusst entscheiden",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".3.description",
+          "text": "Ein möglicher Wechsel ist eine eigene Entscheidung; die Grafik enthält keine individuelle Zusage.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.comparison.portals_title",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Beim eigenen Vergleich",
+      "checked": [
+        {
+          "path": "",
+          "text": "Beim eigenen Vergleich",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.comparison.assistant_title",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Mit Tarivia",
+      "checked": [
+        {
+          "path": "",
+          "text": "Mit Tarivia",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.comparison.portals",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": [
+        "Preise und Bedingungen selbst zusammenführen",
+        "Verbrauch und Laufzeit in den Vergleich einbeziehen",
+        "Unklare Angaben gezielt nachfragen"
+      ],
+      "checked": [
+        {
+          "path": ".0",
+          "text": "Preise und Bedingungen selbst zusammenführen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1",
+          "text": "Verbrauch und Laufzeit in den Vergleich einbeziehen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2",
+          "text": "Unklare Angaben gezielt nachfragen",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.comparison.assistant",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": [
+        "Tarivia stellt deine Energiekosten in den Mittelpunkt.",
+        "Tarifbedingungen gehören zum Blick auf den Preis.",
+        "Die Entscheidung richtet sich nach deiner persönlichen Ausgangslage."
+      ],
+      "checked": [
+        {
+          "path": ".0",
+          "text": "Tarivia stellt deine Energiekosten in den Mittelpunkt.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1",
+          "text": "Tarifbedingungen gehören zum Blick auf den Preis.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2",
+          "text": "Die Entscheidung richtet sich nach deiner persönlichen Ausgangslage.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.comparison.cta_text",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Mit Tarivia den Tarif prüfen",
+      "checked": [
+        {
+          "path": "",
+          "text": "Mit Tarivia den Tarif prüfen",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.about.headline",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Über Tarivia",
+      "checked": [
+        {
+          "path": "",
+          "text": "Über Tarivia",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.about.role",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Eine Marke unter dem rechtlichen Betreiber BeConnected",
+      "checked": [
+        {
+          "path": "",
+          "text": "Eine Marke unter dem rechtlichen Betreiber BeConnected",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.about.paragraphs",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": [
+        "Tarivia steht für einen klaren Blick auf Energiekosten. Preise und Vertragsbedingungen sollen verständlich werden, damit du Entscheidungen bewusst treffen kannst.",
+        "BeConnected ist der autorisierte rechtliche Betreiber von Tarivia.",
+        "Die Werte in den Smartphone-Grafiken sind freigegebene Marketingbeispiele. Sie ersetzen keine Berechnung für deinen Haushalt."
+      ],
+      "checked": [
+        {
+          "path": ".0",
+          "text": "Tarivia steht für einen klaren Blick auf Energiekosten. Preise und Vertragsbedingungen sollen verständlich werden, damit du Entscheidungen bewusst treffen kannst.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1",
+          "text": "BeConnected ist der autorisierte rechtliche Betreiber von Tarivia.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2",
+          "text": "Die Werte in den Smartphone-Grafiken sind freigegebene Marketingbeispiele. Sie ersetzen keine Berechnung für deinen Haushalt.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.faq.home_items",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": [
+        {
+          "question": "Sind 177 Tarife und 477 EUR mein persönliches Ergebnis?",
+          "answer": "Nein. Diese Angaben gehören zur freigegebenen statischen Smartphone-Grafik. Ein persönliches Ergebnis hängt von deinen Angaben und den dann verfügbaren Angeboten ab."
+        },
+        {
+          "question": "Wer betreibt Tarivia?",
+          "answer": "BeConnected ist der autorisierte rechtliche Betreiber von Tarivia."
+        },
+        {
+          "question": "Was sollte ich für einen Tarifvergleich bereithalten?",
+          "answer": "Deinen aktuellen Tarif, den Jahresverbrauch, die Postleitzahl und die relevanten Vertragsbedingungen."
+        },
+        {
+          "question": "Wie erkenne ich die Kündigungsfrist?",
+          "answer": "Die Kündigungsfrist steht in deinem Vertrag. Vergleiche sie mit der Laufzeit und halte den nächsten Termin fest."
+        },
+        {
+          "question": "Kann ich die Onlineprüfung bereits nutzen?",
+          "answer": "Onlineprüfung derzeit nicht verfügbar. Nutze bei Fragen die angegebenen Kontaktmöglichkeiten."
+        },
+        {
+          "question": "Wo finde ich Informationen zum Datenschutz?",
+          "answer": "Die Datenschutzerklärung ist über den Link im Fußbereich erreichbar."
+        }
+      ],
+      "checked": [
+        {
+          "path": ".0.question",
+          "text": "Sind 177 Tarife und 477 EUR mein persönliches Ergebnis?",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".0.answer",
+          "text": "Nein. Diese Angaben gehören zur freigegebenen statischen Smartphone-Grafik. Ein persönliches Ergebnis hängt von deinen Angaben und den dann verfügbaren Angeboten ab.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1.question",
+          "text": "Wer betreibt Tarivia?",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1.answer",
+          "text": "BeConnected ist der autorisierte rechtliche Betreiber von Tarivia.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2.question",
+          "text": "Was sollte ich für einen Tarifvergleich bereithalten?",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2.answer",
+          "text": "Deinen aktuellen Tarif, den Jahresverbrauch, die Postleitzahl und die relevanten Vertragsbedingungen.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".3.question",
+          "text": "Wie erkenne ich die Kündigungsfrist?",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".3.answer",
+          "text": "Die Kündigungsfrist steht in deinem Vertrag. Vergleiche sie mit der Laufzeit und halte den nächsten Termin fest.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".4.question",
+          "text": "Kann ich die Onlineprüfung bereits nutzen?",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".4.answer",
+          "text": "Onlineprüfung derzeit nicht verfügbar. Nutze bei Fragen die angegebenen Kontaktmöglichkeiten.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".5.question",
+          "text": "Wo finde ich Informationen zum Datenschutz?",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".5.answer",
+          "text": "Die Datenschutzerklärung ist über den Link im Fußbereich erreichbar.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.final_cta.headline",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Triff deine nächste Tarifentscheidung mit mehr Klarheit.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Triff deine nächste Tarifentscheidung mit mehr Klarheit.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.final_cta.subline",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Beginne bei deinem aktuellen Vertrag und deinem Verbrauch. Tarivia ist dein Ausgangspunkt.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Beginne bei deinem aktuellen Vertrag und deinem Verbrauch. Tarivia ist dein Ausgangspunkt.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.final_cta.cta_text",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Mit Tarivia den Tarif prüfen",
+      "checked": [
+        {
+          "path": "",
+          "text": "Mit Tarivia den Tarif prüfen",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.callback.title",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Rückruf anfordern",
+      "checked": [
+        {
+          "path": "",
+          "text": "Rückruf anfordern",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.callback.disabled_text",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Der Rückruf-Kalender wird vorbereitet.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Der Rückruf-Kalender wird vorbereitet.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.hero_text",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Tarivia: Verbrauch, Abschläge und Jahreskosten gemeinsam betrachten.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Tarivia: Verbrauch, Abschläge und Jahreskosten gemeinsam betrachten.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.cta",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "RECOVERED_EXACT",
+      "german": "Jahresabrechnung prüfen",
+      "checked": [
+        {
+          "path": "",
+          "text": "Jahresabrechnung prüfen",
+          "exact_source_matches": [
+            {
+              "file": "src/lib/i18n.tsx",
+              "catalog": "dictionaries",
+              "key": "header_check_bill",
+              "translations": {
+                "de": "Jahresabrechnung prüfen",
+                "en": "Check annual energy bill",
+                "tr": "Yıllık enerji faturasını kontrol et",
+                "ru": "Проверить годовой счёт за энергию",
+                "ar": "تحقق من الفاتورة السنوية للطاقة",
+                "it": "Controlla la bolletta energetica annuale",
+                "zh": "检查年度能源账单",
+                "hi": "वार्षिक ऊर्जा बिल जांचें",
+                "es": "Revisar factura energética anual",
+                "fr": "Vérifier la facture annuelle d'énergie",
+                "nl": "Controleer jaarlijkse energierekening",
+                "pl": "Sprawdź roczny rachunek za energię"
+              },
+              "missing": []
+            }
+          ]
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": {
+        "file": "src/lib/i18n.tsx",
+        "catalog": "dictionaries",
+        "key": "header_check_bill",
+        "translations": {
+          "de": "Jahresabrechnung prüfen",
+          "en": "Check annual energy bill",
+          "tr": "Yıllık enerji faturasını kontrol et",
+          "ru": "Проверить годовой счёт за энергию",
+          "ar": "تحقق من الفاتورة السنوية للطاقة",
+          "it": "Controlla la bolletta energetica annuale",
+          "zh": "检查年度能源账单",
+          "hi": "वार्षिक ऊर्जा बिल जांचें",
+          "es": "Revisar factura energética anual",
+          "fr": "Vérifier la facture annuelle d'énergie",
+          "nl": "Controleer jaarlijkse energierekening",
+          "pl": "Sprawdź roczny rachunek za energię"
+        },
+        "missing": []
+      }
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.why_intro",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Eine Jahresabrechnung verbindet Verbrauch, Preise und bereits geleistete Zahlungen. Prüfe, wie diese Angaben zusammenpassen.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Eine Jahresabrechnung verbindet Verbrauch, Preise und bereits geleistete Zahlungen. Prüfe, wie diese Angaben zusammenpassen.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.value_text",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Mit Tarivia steht eine nachvollziehbare Einordnung deiner Jahresabrechnung im Mittelpunkt.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Mit Tarivia steht eine nachvollziehbare Einordnung deiner Jahresabrechnung im Mittelpunkt.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.comparison_self_title",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Rechnung selbst einordnen",
+      "checked": [
+        {
+          "path": "",
+          "text": "Rechnung selbst einordnen",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.comparison_assistant_title",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Mit Tarivia",
+      "checked": [
+        {
+          "path": "",
+          "text": "Mit Tarivia",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.comparison_self",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": [
+        "Zählerstände und Zeitraum zuordnen",
+        "Preise und Abschläge nachvollziehen"
+      ],
+      "checked": [
+        {
+          "path": ".0",
+          "text": "Zählerstände und Zeitraum zuordnen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1",
+          "text": "Preise und Abschläge nachvollziehen",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.comparison_assistant",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": [
+        "Verbrauch und Kosten zusammen betrachten",
+        "Offene Fragen strukturiert festhalten"
+      ],
+      "checked": [
+        {
+          "path": ".0",
+          "text": "Verbrauch und Kosten zusammen betrachten",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1",
+          "text": "Offene Fragen strukturiert festhalten",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.final_text",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": "Prüfe die Angaben deiner Rechnung anhand deines Vertrags. Die Smartphone-Grafik ist kein Ergebnis einer Rechnungsprüfung.",
+      "checked": [
+        {
+          "path": "",
+          "text": "Prüfe die Angaben deiner Rechnung anhand deines Vertrags. Die Smartphone-Grafik ist kein Ergebnis einer Rechnungsprüfung.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.process",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": [
+        {
+          "step": "1",
+          "title": "Unterlagen bereithalten",
+          "desc": "Rechnung und Vertragsbedingungen zusammenstellen."
+        },
+        {
+          "step": "2",
+          "title": "Verbrauch zuordnen",
+          "desc": "Abrechnungszeitraum und Zählerstände vergleichen."
+        },
+        {
+          "step": "3",
+          "title": "Kosten nachvollziehen",
+          "desc": "Preise, Abschläge und Zahlungen einordnen."
+        },
+        {
+          "step": "4",
+          "title": "Fragen festhalten",
+          "desc": "Unklare Positionen vor einer Entscheidung klären."
+        }
+      ],
+      "checked": [
+        {
+          "path": ".0.title",
+          "text": "Unterlagen bereithalten",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".0.desc",
+          "text": "Rechnung und Vertragsbedingungen zusammenstellen.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1.title",
+          "text": "Verbrauch zuordnen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1.desc",
+          "text": "Abrechnungszeitraum und Zählerstände vergleichen.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2.title",
+          "text": "Kosten nachvollziehen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2.desc",
+          "text": "Preise, Abschläge und Zahlungen einordnen.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".3.title",
+          "text": "Fragen festhalten",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".3.desc",
+          "text": "Unklare Positionen vor einer Entscheidung klären.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.why",
+      "original_missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "status": "NO_EQUIVALENT_ORIGINAL",
+      "german": [
+        {
+          "title": "Verbrauch verstehen",
+          "desc": "Vergleiche Abrechnungszeitraum und Zählerstände."
+        },
+        {
+          "title": "Preise nachvollziehen",
+          "desc": "Prüfe Grundpreis und Arbeitspreis anhand des Vertrags."
+        },
+        {
+          "title": "Abschläge einordnen",
+          "desc": "Gleiche geleistete Zahlungen mit der Abrechnung ab."
+        },
+        {
+          "title": "Unklarheiten klären",
+          "desc": "Halte Rückfragen an deinen Anbieter fest."
+        }
+      ],
+      "checked": [
+        {
+          "path": ".0.title",
+          "text": "Verbrauch verstehen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".0.desc",
+          "text": "Vergleiche Abrechnungszeitraum und Zählerstände.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1.title",
+          "text": "Preise nachvollziehen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".1.desc",
+          "text": "Prüfe Grundpreis und Arbeitspreis anhand des Vertrags.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2.title",
+          "text": "Abschläge einordnen",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".2.desc",
+          "text": "Gleiche geleistete Zahlungen mit der Abrechnung ab.",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".3.title",
+          "text": "Unklarheiten klären",
+          "exact_source_matches": []
+        },
+        {
+          "path": ".3.desc",
+          "text": "Halte Rückfragen an deinen Anbieter fest.",
+          "exact_source_matches": []
+        }
+      ],
+      "non_equivalent_catalog_entries": [],
+      "resolution": null
+    }
+  ]
+}

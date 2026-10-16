@@ -1,0 +1,85 @@
+Co obejmuje sprawdzenie rachunku?
+Łączne przeanalizowanie zużycia, okresu rozliczeniowego, cen i płatności.
+Gdzie znajdę informacje o przetwarzaniu danych?
+Informacje o przetwarzaniu danych i Państwa prawach znajdują się w polityce prywatności.
+Jakie koszty dotyczą usługi?
+Obowiązują warunki przedstawione przed skorzystaniem z usługi.
+Kto prowadzi {{brand}}?
+Upoważnionym operatorem prawnym jest BeConnected.
+Co zrobić, gdy pozycja na rachunku jest niejasna?
+Porównaj tę pozycję z umową i zapisz konkretne pytania do dostawcy.
+Czy wartości na grafice smartfona są wiążące?
+177 taryf i 477 EUR to statyczna treść marketingowa, a nie wynik osobistego obliczenia.
+Prąd i gaz na co dzień: z {{brand}} masz na uwadze ceny, zużycie i warunki umowy. Sprawdź, co pasuje do Twojego gospodarstwa domowego.
+Sprawdzić moją taryfę z {{brand}}
+Grafika smartfona przedstawia zatwierdzony przykład marketingowy ze 177 taryfami i 477 EUR. Twój osobisty wynik jest obliczany oddzielnie; oszczędności nie są gwarantowane.
+Wiele osób nie sprawdza swojej taryfy przez lata
+Kto przez długi czas nie sprawdza taryfy, często płaci znacznie więcej niż potrzeba, ponieważ ceny i oferty stale się zmieniają.
+Wiele osób uważa, że ich taryfa jest już korzystna
+Taryfa, która kiedyś była dobra, dziś może już nie być optymalna. Bez sprawdzenia często się tego nie zauważa.
+Wiele osób pozostaje przy dostawcy podstawowym
+W wielu regionach taryfa podstawowa jest znacznie droższa od taryf alternatywnych. Mimo to wiele gospodarstw pozostaje przy niej z przyzwyczajenia lub niewiedzy.
+Rynek taryf wydaje się skomplikowany
+Setki ofert z różnymi warunkami utrudniają ocenę, która taryfa jest naprawdę dobra; dlatego wiele osób po prostu pozostawia swoją taryfę bez zmian.
+Twój przegląd z {{brand}}.
+Porównanie taryf zaczyna się od Twojego gospodarstwa domowego. Ceny i warunki trzeba rozpatrywać razem, aby podjąć odpowiednią decyzję.
+Określić sytuację wyjściową
+Przygotuj zużycie, kod pocztowy i obecną taryfę.
+Ocenić koszty w kontekście
+Przyjrzyj się opłacie stałej, cenie za jednostkę energii i warunkom umowy.
+Rozważyć oferty
+Porównaj oferty na podstawie swoich danych i sprawdź otwarte kwestie.
+Podjąć świadomą decyzję
+Ewentualna zmiana jest Twoją własną decyzją; grafika nie zawiera indywidualnego zobowiązania.
+Przy samodzielnym porównaniu
+Z {{brand}}
+Samodzielnie zestawić ceny i warunki
+Uwzględnić zużycie i czas trwania umowy w porównaniu
+Zadać konkretne pytania o niejasne informacje
+{{brand}} stawia w centrum Twoje koszty energii.
+Warunki taryfy są częścią oceny ceny.
+Decyzja zależy od Twojej osobistej sytuacji wyjściowej.
+O {{brand}}
+Marka pod prawnym operatorem BeConnected
+{{brand}} skupia się na kosztach energii Twojego gospodarstwa domowego. W centrum są zrozumiałe informacje o prądzie, gazie i rachunkach rocznych.
+BeConnected jest upoważnionym operatorem prawnym {{brand}}.
+Wartości na grafikach smartfonów są zatwierdzonymi przykładami marketingowymi. Nie zastępują obliczeń dla Twojego gospodarstwa domowego.
+Czy 177 taryf i 477 EUR to mój osobisty wynik?
+Nie. Dane te należą do zatwierdzonej statycznej grafiki smartfona. Osobisty wynik zależy od Twoich danych i ofert dostępnych w danym momencie.
+Co przygotować do porównania taryf?
+Obecną taryfę, roczne zużycie, kod pocztowy i istotne warunki umowy.
+Przyjrzyj się swoim kosztom energii.
+Zacznij od obecnej umowy i swojego zużycia. {{brand}} jest Twoim punktem wyjścia.
+Poprosić o oddzwonienie
+Kalendarz oddzwonień jest przygotowywany.
+{{brand}}: rozpatrywać razem zużycie, zaliczki i koszty roczne.
+Rachunek roczny łączy zużycie, ceny i dokonane już płatności. Sprawdź, jak te dane do siebie pasują.
+Z {{brand}} w centrum znajduje się zrozumiała ocena Twojego rachunku rocznego.
+Samodzielnie ocenić rachunek
+Przyporządkować odczyty licznika do okresu
+Zrozumieć ceny i zaliczki
+Rozpatrywać razem zużycie i koszty
+Zapisać otwarte pytania w uporządkowany sposób
+Sprawdź dane na rachunku na podstawie umowy. Grafika smartfona nie jest wynikiem sprawdzenia rachunku.
+Przygotować dokumenty
+Zebrać rachunek i warunki umowy.
+Przyporządkować zużycie do okresu
+Porównać okres rozliczeniowy i odczyty licznika.
+Zrozumieć koszty
+Ocenić ceny, zaliczki i płatności.
+Zapisać pytania
+Wyjaśnić niejasne pozycje przed podjęciem decyzji.
+Zrozumieć zużycie
+Porównaj okres rozliczeniowy i odczyty licznika.
+Zrozumieć ceny
+Sprawdź opłatę stałą i cenę za jednostkę energii na podstawie umowy.
+Ocenić zaliczki
+Porównaj dokonane płatności z rachunkiem.
+Wyjaśnić niejasności
+Zapisz pytania do dostawcy.
+Zrozumiale ocenić ceny taryf, okresy obowiązywania umów i rachunki roczne. {{brand}} pomaga oprzeć kolejną decyzję na jasnej podstawie.
+Sprawdzić taryfę z {{brand}}
+Z {{brand}} liczby tworzą przejrzysty obraz.
+Rozpatruj razem zużycie, koszty i warunki umowy. Dzięki temu możesz lepiej ocenić oferty i konkretnie wyjaśnić otwarte kwestie.
+{{brand}} oznacza jasne spojrzenie na koszty energii. Ceny i warunki umów powinny być zrozumiałe, aby można było świadomie podejmować decyzje.
+Podejmij kolejną decyzję o taryfie z większą jasnością.

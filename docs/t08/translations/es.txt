@@ -1,0 +1,85 @@
+¿Qué incluye una revisión de la factura?
+Examinar conjuntamente el consumo, el período de facturación, los precios y los pagos.
+¿Dónde encuentro información sobre el tratamiento de datos?
+La información sobre el tratamiento de datos y sus derechos se encuentra en la política de privacidad.
+¿Qué costes se aplican al servicio?
+Son determinantes las condiciones indicadas antes de utilizarlo.
+¿Quién gestiona {{brand}}?
+El operador legal autorizado es BeConnected.
+¿Qué hacer ante un concepto poco claro en la factura?
+Compara el concepto con tu contrato y anota preguntas concretas para tu proveedor.
+¿Son vinculantes los valores de la imagen del teléfono?
+Las 177 tarifas y los 477 EUR son contenido publicitario estático, no el resultado de un cálculo personal.
+Electricidad y gas en el día a día: con {{brand}}, mantén a la vista los precios, el consumo y las condiciones del contrato. Comprueba qué se adapta a tu hogar.
+Revisar mi tarifa con {{brand}}
+La imagen del teléfono muestra un ejemplo publicitario aprobado con 177 tarifas y 477 EUR. Tu resultado personal se calcula por separado; no se garantiza un ahorro.
+Muchas personas no revisan su tarifa durante años
+Quien no revisa su tarifa durante mucho tiempo suele pagar bastante más de lo necesario, porque los precios y las ofertas cambian constantemente.
+Muchas personas creen que su tarifa ya es económica
+Una tarifa que antes era buena puede haber dejado de ser óptima hoy. Sin revisarla, a menudo no se nota.
+Muchas personas siguen con el proveedor del suministro básico
+En muchas regiones, el suministro básico es bastante más caro que las tarifas alternativas. Aun así, muchos hogares permanecen en él por costumbre o desconocimiento.
+El mercado de tarifas parece complicado
+Cientos de ofertas con condiciones distintas dificultan reconocer qué tarifa es realmente buena; por eso muchas personas simplemente mantienen su tarifa sin cambios.
+Tu visión general con {{brand}}.
+Una comparación de tarifas empieza por tu hogar. Los precios y las condiciones van unidos para que puedas tomar una decisión adecuada.
+Registrar la situación de partida
+Ten preparados el consumo, el código postal y tu tarifa actual.
+Poner los costes en contexto
+Examina la cuota fija, el precio por unidad de energía y las condiciones del contrato.
+Valorar las ofertas
+Compara las ofertas según tus datos y revisa las cuestiones pendientes.
+Decidir con conocimiento
+Un posible cambio es tu propia decisión; la imagen no contiene ningún compromiso individual.
+Al comparar por tu cuenta
+Con {{brand}}
+Reunir por tu cuenta precios y condiciones
+Incluir el consumo y la duración del contrato en la comparación
+Preguntar de forma concreta sobre los datos poco claros
+{{brand}} pone tus costes energéticos en el centro.
+Las condiciones de la tarifa forman parte del análisis del precio.
+La decisión depende de tu situación personal de partida.
+Acerca de {{brand}}
+Una marca bajo el operador legal BeConnected
+{{brand}} se centra en los costes energéticos de tu hogar. La información comprensible sobre electricidad, gas y facturas anuales ocupa el centro.
+BeConnected es el operador legal autorizado de {{brand}}.
+Los valores de las imágenes de teléfonos son ejemplos publicitarios aprobados. No sustituyen un cálculo para tu hogar.
+¿Las 177 tarifas y los 477 EUR son mi resultado personal?
+No. Estos datos pertenecen a la imagen estática aprobada del teléfono. Un resultado personal depende de tus datos y de las ofertas disponibles en ese momento.
+¿Qué debo tener preparado para comparar tarifas?
+Tu tarifa actual, el consumo anual, el código postal y las condiciones contractuales pertinentes.
+Presta atención a tus costes energéticos.
+Empieza por tu contrato actual y tu consumo. {{brand}} es tu punto de partida.
+Solicitar una llamada
+El calendario de llamadas se está preparando.
+{{brand}}: examinar conjuntamente el consumo, los pagos a cuenta y los costes anuales.
+Una factura anual reúne el consumo, los precios y los pagos ya realizados. Comprueba cómo encajan estos datos.
+Con {{brand}}, el centro es una valoración comprensible de tu factura anual.
+Valorar la factura por tu cuenta
+Relacionar las lecturas del contador con el período
+Comprender precios y pagos a cuenta
+Examinar conjuntamente el consumo y los costes
+Anotar las cuestiones pendientes de forma estructurada
+Comprueba los datos de tu factura con tu contrato. La imagen del teléfono no es el resultado de una revisión de factura.
+Preparar la documentación
+Reunir la factura y las condiciones del contrato.
+Relacionar el consumo con su período
+Comparar el período de facturación y las lecturas del contador.
+Comprender los costes
+Valorar precios, pagos a cuenta y pagos realizados.
+Anotar preguntas
+Aclarar los conceptos poco claros antes de decidir.
+Comprender el consumo
+Compara el período de facturación y las lecturas del contador.
+Comprender los precios
+Comprueba la cuota fija y el precio por unidad de energía según el contrato.
+Valorar los pagos a cuenta
+Contrasta los pagos realizados con la factura.
+Aclarar dudas
+Anota preguntas para tu proveedor.
+Comprender los precios de las tarifas, la duración de los contratos y las facturas anuales. {{brand}} te ayuda a basar tu próxima decisión en una base clara.
+Revisar la tarifa con {{brand}}
+Con {{brand}}, las cifras se convierten en una visión general.
+Examina conjuntamente el consumo, los costes y las condiciones del contrato. Así puedes valorar mejor las ofertas y aclarar concretamente las cuestiones pendientes.
+{{brand}} representa una visión clara de los costes energéticos. Los precios y las condiciones contractuales deben ser comprensibles para que puedas decidir con conocimiento.
+Toma tu próxima decisión sobre tarifas con mayor claridad.

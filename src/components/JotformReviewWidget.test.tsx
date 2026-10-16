@@ -1,9 +1,13 @@
+import { setConsentStorage } from "@/lib/cookieConsent";
 import { StrictMode } from "react";
 import { render } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { beforeEach, afterEach, describe, expect, it } from "vitest";
 import { JOTFORM_WIDGET_EMBED_BASE, JotformReviewWidget, getValidJotformWidgetId } from "./JotformReviewWidget";
 
 const id = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+
+beforeEach(() => setConsentStorage("all"));
+afterEach(() => { document.cookie = "cookie-consent=; Path=/; Max-Age=0"; localStorage.clear(); });
 
 describe("JotformReviewWidget", () => {
   it("accepts a trimmed 36-character hexadecimal ID only", () => {

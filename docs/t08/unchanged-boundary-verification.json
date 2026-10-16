@@ -1,0 +1,57 @@
+{
+  "source_sha": "64de44796d15dc0328b339f8e0621a455af90ad6",
+  "verified_byte_identical": [
+    {
+      "path": "functions/_middleware.ts",
+      "sha256": "32ca77a77041ad23b1645717722f8ca11f28a8b892d606bd5a115b914a51287b"
+    },
+    {
+      "path": "src/components/CustomerRuntimeBoundary.tsx",
+      "sha256": "a16fb21a586caaede4b25a154b7f392be890b84c098567fcd7686af0765e1df7"
+    },
+    {
+      "path": "src/lib/customerRuntime.ts",
+      "sha256": "4256dd6a8a0591c2712e6c67fd3c6af2e99c2be0ba65aff1d2d5ebe0a03fd028"
+    },
+    {
+      "path": "src/lib/legalHtml.ts",
+      "sha256": "3beaeee82b84ea828584c4d9759216cc2c8dcbe0377282d0988371be98ca16f9"
+    },
+    {
+      "path": "src/lib/publicOrderBridge.ts",
+      "sha256": "565e9095cb9b820e85490ad09154d36a63c366dff1e55bf6dc7dde7b96db1efd"
+    },
+    {
+      "path": "docs/t08/assets/oecher-strom/about.webp",
+      "sha256": "fe7473a77846f933df1d3c24b24795e4780b1ae25f83dc52ba7f12c479257858"
+    },
+    {
+      "path": "docs/t08/assets/oecher-strom/hero-angled.jpeg",
+      "sha256": "cd637861eac49a87903686756ce909dcc76334aaad142cb4fa188cee3b57a82c"
+    },
+    {
+      "path": "docs/t08/assets/oecher-strom/logo.png",
+      "sha256": "0e952c1f9df9ed4bc999fa73e1910ed5e346e3ddb7e958d37ed23201c8702e9b"
+    },
+    {
+      "path": "docs/t08/assets/oecher-strom/section-straight.jpeg",
+      "sha256": "56a8df5957ff0ce6a0373930bb447c0c666b4480cfffc45f1ca94d2d7f91ac3f"
+    },
+    {
+      "path": "docs/t08/assets/tarivia/about.png",
+      "sha256": "a30c90550dfce92b00c5457a9813e62e153406d4a4eedad8f1a54f18b379171b"
+    },
+    {
+      "path": "docs/t08/assets/tarivia/hero-angled.jpeg",
+      "sha256": "24768c2b462dffb4bf6794af0b42588ed0c506ddd5d7e4d28841b3f21a7cd6e2"
+    },
+    {
+      "path": "docs/t08/assets/tarivia/logo.jpg",
+      "sha256": "26b92dc8a4b2e877ae933ee75a79f8d093cfec847807801ad54c277f014ea910"
+    },
+    {
+      "path": "docs/t08/assets/tarivia/section-straight.jpeg",
+      "sha256": "21d8a6ead4b764896fd18dbbf460070ed67c2235b88df3e00557c962cb2855a1"
+    }
+  ]
+}

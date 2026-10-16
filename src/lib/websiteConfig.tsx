@@ -1,3 +1,5 @@
+import { websiteThemeTokens } from "./websiteTheme";
+import { customerConfigReadiness } from "./customerRuntime";
 import { resolveWebsiteRuntime, isLegacyAnonJwt } from "./websiteRuntime";
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import {
@@ -9,6 +11,7 @@ import {
   deepMerge,
   interpolateTemplate,
   resolveArray,
+  resolveCustomerArray,
   resolveLocalizedText,
   resolveObject,
   type JsonRecord,
@@ -29,6 +32,8 @@ export type WebsiteConfigOverrides = Partial<Record<WebsiteConfigBucket, JsonRec
 type WebsiteConfigState = WebsiteConfig & {
   loading: boolean;
   source: WebsiteConfigSource;
+  readiness?: "READY" | "NOT_READY";
+  notReadyReason?: string;
 };
 
 export type WebsiteTenantConfig = {
@@ -89,6 +94,7 @@ export const resolveWebsiteConfig = (overrides: WebsiteConfigOverrides = {}): We
 
 type WebsiteConfigContextValue = WebsiteConfigState & {
   tenant: WebsiteTenantConfig;
+  customerRuntime: boolean;
   getText: (path: string, fallback: string, lang?: string) => string;
   getArray: <T = unknown>(path: string, fallback: T[]) => T[];
   getObject: <T extends JsonRecord = JsonRecord>(path: string, fallback: T) => T;
@@ -100,7 +106,9 @@ const WebsiteConfigContext = createContext<WebsiteConfigContextValue | null>(nul
 export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => {
   const [runtime] = useState(() => resolveWebsiteRuntime());
   const [state, setState] = useState<WebsiteConfigState>({
-    ...resolveWebsiteConfig(),
+    ...(runtime.identity.customer ? safeDefaultWebsiteConfig : resolveWebsiteConfig()),
+    readiness: runtime.identity.customer ? "NOT_READY" : "READY",
+    notReadyReason: runtime.identity.customer ? runtime.identity.reason || "CONFIG_NOT_READY" : undefined,
     loading: true,
     source: "fallback",
   });
@@ -116,7 +124,7 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
           return;
         }
 
-        const endpoint = `${runtimeSupabase.url}/rest/v1/kunden_config?select=webseite_design_config,webseite_content_config,webseite_layout_config&location_id=eq.${encodeURIComponent(locationId)}&limit=1`;
+        const endpoint = `${runtimeSupabase.url}/rest/v1/kunden_config?select=webseite_design_config,webseite_content_config,webseite_layout_config,location_id&location_id=eq.${encodeURIComponent(locationId)}&limit=1`;
         const headers: Record<string, string> = { apikey: runtimeSupabase.key };
         if (isLegacyAnonJwt(runtimeSupabase.key)) {
           headers.Authorization = `Bearer ${runtimeSupabase.key}`;
@@ -129,25 +137,31 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
         }
 
         const rows = (await response.json()) as Array<{
+          location_id?: unknown;
           webseite_design_config?: unknown;
           webseite_content_config?: unknown;
           webseite_layout_config?: unknown;
         }>;
 
         const row = rows?.[0];
-        if (!row) {
+        if (!row || (runtime.identity.customer && (rows.length !== 1 || row.location_id !== locationId))) {
           setState((prev) => ({ ...prev, loading: false }));
           return;
         }
 
+        const overrides = {
+          design: isJsonRecord(row.webseite_design_config) ? row.webseite_design_config : {},
+          content: isJsonRecord(row.webseite_content_config) ? row.webseite_content_config : {},
+          layout: isJsonRecord(row.webseite_layout_config) ? row.webseite_layout_config : {},
+        };
+        const config = runtime.identity.customer ? overrides : resolveWebsiteConfig(overrides);
+        const reason = runtime.identity.customer ? customerConfigReadiness(config, locationId) : "READY";
         setState({
-          ...resolveWebsiteConfig({
-            design: isJsonRecord(row.webseite_design_config) ? row.webseite_design_config : undefined,
-            content: isJsonRecord(row.webseite_content_config) ? row.webseite_content_config : undefined,
-            layout: isJsonRecord(row.webseite_layout_config) ? row.webseite_layout_config : undefined,
-          }),
+          ...(reason === "READY" ? config : safeDefaultWebsiteConfig),
           loading: false,
           source: "supabase",
+          readiness: reason === "READY" ? "READY" : "NOT_READY",
+          notReadyReason: reason === "READY" ? undefined : reason,
         });
       } catch {
         setState((prev) => ({ ...prev, loading: false }));
@@ -159,18 +173,18 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
 
   useEffect(() => {
     const root = document.documentElement;
-    const colors = (state.design.colors || {}) as Record<string, string>;
-    if (colors.primary) root.style.setProperty("--website-primary", colors.primary);
-    if (colors.background) root.style.setProperty("--website-bg", colors.background);
-    if (colors.text) root.style.setProperty("--website-text", colors.text);
+    const tokens = websiteThemeTokens(state.design);
+    for (const [name, value] of Object.entries(tokens)) root.style.setProperty(name, value);
+    return () => { for (const name of Object.keys(tokens)) root.style.removeProperty(name); };
   }, [state.design]);
 
   const value = useMemo<WebsiteConfigContextValue>(() => ({
     ...state,
     tenant: { locationId: runtime.locationId },
-    getText: (path, fallback, lang) => resolveLocalizedText(state.content, path, fallback, lang),
-    getArray: (path, fallback) => resolveArray(state.content, path, fallback),
-    getObject: (path, fallback) => resolveObject(state.content, path, fallback),
+    customerRuntime: runtime.identity.customer,
+    getText: (path, fallback, lang) => resolveLocalizedText(state.content, path, runtime.identity.customer && !/^(header|cookie)\./.test(path) ? "" : fallback, lang, !runtime.identity.customer || /^(brand|legal|pages|sections\.links)\.|\.(image_url|image_alt|image_position|mode|calendar_url|social_hint)$|^sections\.about\.(name|social\.)/.test(path)),
+    getArray: (path, fallback) => runtime.identity.customer ? resolveCustomerArray(state.content, path) : resolveArray(state.content, path, fallback),
+    getObject: (path, fallback) => resolveObject(state.content, path, runtime.identity.customer ? {} as typeof fallback : fallback),
     interpolate: (template, vars = {}) => interpolateTemplate(template, vars),
   }), [state, runtime]);
 

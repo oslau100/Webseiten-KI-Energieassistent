@@ -71,28 +71,40 @@ describe("legal readiness gate", () => {
       });
 
       it.each([false, "true", 1, null])("does not enable the document for non-boolean-true readiness %j", async (ready) => {
-        await renderPage(page, { legal: { ready, variables } });
+        await renderPage(page, { legal: { ready, variables }, pages: { [page.key]: { html: "<h1>Unapproved override</h1>" } } });
         expect(screen.getByText(preparation)).toBeInTheDocument();
         expect(screen.queryByRole("heading", { name: page.bodyHeading })).not.toBeInTheDocument();
       });
 
-      it("allows the existing fallback body only with explicit readiness and required values", async () => {
+      it("does not publish an unreviewed fallback even with explicit readiness", async () => {
         await renderPage(page, { legal: { ready: true, variables } });
-        expect(screen.getByRole("heading", { name: page.bodyHeading })).toBeInTheDocument();
-        expect(screen.queryByText(preparation)).not.toBeInTheDocument();
-        expect(screen.getByRole("link", { name: variables.email })).toHaveAttribute("href", `mailto:${variables.email}`);
+        expect(screen.getByText(preparation)).toBeInTheDocument();
+        expect(screen.queryByRole("heading", { name: page.bodyHeading })).not.toBeInTheDocument();
+      });
+
+      it("renders supplied approved semantic HTML", async () => {
+        await renderPage(page, { legal: { ready: true, variables }, pages: { [page.key]: { html: '<h1>Approved document</h1><p><a href="mailto:contact@example.test">Contact</a></p>' } } });
+        expect(screen.getByRole("heading", { name: "Approved document" })).toBeInTheDocument();
+        expect(screen.getByRole("link", { name: "Contact" })).toHaveAttribute("href", "mailto:contact@example.test");
+      });
+
+      it.each(['<script>alert(1)</script>', '<img src="https://unwanted.test/x" onerror="alert(1)">', '<iframe src="https://unwanted.test"></iframe>', '<svg onload="alert(1)"></svg>', '<p onclick="alert(1)">Unsafe</p>', '<a href="javascript:alert(1)">Unsafe</a>', '<a href="data:text/html,unsafe">Unsafe</a>', '<a href="//unwanted.test">Unsafe</a>', '<a href="https://user:password@unwanted.test">Unsafe</a>', '<p style="background:url(https://unwanted.test)">Unsafe</p>'])("fails closed on unsafe approved HTML %s", async html => {
+        const { container } = await renderPage(page, { legal: { ready: true, variables }, pages: { [page.key]: { html: '<h1>Unsafe document</h1>' + html } } });
+        expect(screen.getByText(preparation)).toBeInTheDocument();
+        expect(screen.queryByRole("heading", { name: "Unsafe document" })).not.toBeInTheDocument();
+        expect(container.querySelector('script,iframe,svg[onload],img[src^="https://unwanted"]')).toBeNull();
       });
 
       it.each(["firma", "email"])("still requires %s when readiness is true", async (missing) => {
-        await renderPage(page, { legal: { ready: true, variables: { ...variables, [missing]: "" } } });
+        await renderPage(page, { legal: { ready: true, variables: { ...variables, [missing]: "" } }, pages: { [page.key]: { html: "<h1>Incomplete override</h1>" } } });
         expect(screen.getByText(preparation)).toBeInTheDocument();
         expect(screen.queryByRole("heading", { name: page.bodyHeading })).not.toBeInTheDocument();
       });
 
-      it("preserves explicit page HTML overrides when not ready and without company variables", async () => {
+      it("blocks explicit page HTML overrides when not ready and without company variables", async () => {
         await renderPage(page, { legal: { ready: false }, pages: { [page.key]: { html: "<h1>Verified page override</h1>" } } });
-        expect(screen.getByRole("heading", { name: "Verified page override" })).toBeInTheDocument();
-        expect(screen.queryByText(preparation)).not.toBeInTheDocument();
+        expect(screen.queryByRole("heading", { name: "Verified page override" })).not.toBeInTheDocument();
+        expect(screen.getByText(preparation)).toBeInTheDocument();
         expect(screen.queryByRole("heading", { name: page.bodyHeading })).not.toBeInTheDocument();
       });
     });

@@ -1,0 +1,18 @@
+{
+  "mode": "REVIEW_ONLY_NO_PRODUCTION_WRITE",
+  "live_snapshot_available": false,
+  "source": "User-supplied review: both live home section lists omit final_cta; legal.ready=true and verified live asset URLs must be retained.",
+  "locations": ["NPhuVMAaBPQz6OhIPpkj", "uGJsQ3CWvFTraTfrRgjC"],
+  "layout_change": {
+    "path": "/webseite_layout_config/pages/home/sections",
+    "operation": "Insert final_cta before footer when absent; otherwise leave existing ordered entries unchanged.",
+    "guard": "Unknown IDs, duplicates and an explicitly hidden final_cta abort preparation. Existing whitelist is unchanged."
+  },
+  "content_change": "Apply only translated marketing fields, source-preserving existing Ehiogie dictionary translations and explicit localization metadata from the independent customer payload.",
+  "preserve_from_live_only": ["legal including ready=true and all variables", "approved legal HTML/pages", "brand/contact identity", "SEO", "integrations", "design including all verified asset URLs", "section image URLs/alts/positions", "About mode/name", "callback calendar URL", "route links"],
+  "draft_buckets_are_not_production_payloads": true,
+  "prepare_command": "node scripts/t08-safe-config-diff.mjs <customer-slug> <separately-approved-live-row.json> <local-review-diff.json>",
+  "preconditions": ["Exactly matching Location ID", "Live legal.ready=true", "Current live section whitelist", "Whole-baseline JSON-Patch test protects against drift", "Separate approval of resulting path diff and hashes before any later production write"],
+  "rollback": "Whole-result test followed by restoration of the exact captured baseline; generated locally with the forward diff. No SQL executed.",
+  "remaining_blockers": ["Exact live-row snapshots needed to produce production-specific path diffs; no snapshot inferred from archived drafts", "Vitest/ESLint/TypeScript/Vite dependencies missing offline", "Human language and visual preview acceptance pending; no independent native-language review claimed"]
+}

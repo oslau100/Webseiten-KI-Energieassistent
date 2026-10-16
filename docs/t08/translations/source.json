@@ -1,0 +1,1208 @@
+[
+  {
+    "id": 1,
+    "de": "Was gehört zu einer Rechnungsprüfung?",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "i18n.annual_faq_1_q.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "i18n.annual_faq_1_q.de"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "de": "Verbrauch, Abrechnungszeitraum, Preise und Zahlungen gemeinsam betrachten.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "i18n.annual_faq_1_a.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "i18n.annual_faq_1_a.de"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "de": "Wo finde ich Angaben zur Datenverarbeitung?",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "i18n.annual_faq_2_q.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "i18n.annual_faq_2_q.de"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "de": "Angaben zur Datenverarbeitung und zu Ihren Rechten finden Sie in der Datenschutzerklärung.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "i18n.annual_faq_2_a.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "i18n.annual_faq_2_a.de"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "de": "Welche Kosten gelten für den Service?",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "i18n.annual_faq_3_q.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "i18n.annual_faq_3_q.de"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "de": "Maßgeblich sind die vor Nutzung ausgewiesenen Konditionen.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "i18n.annual_faq_3_a.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "i18n.annual_faq_3_a.de"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "de": "Wer betreibt {{brand}}?",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "i18n.annual_faq_4_q.de"
+      },
+      {
+        "customer": "oecher-strom",
+        "path": "sections.faq.home_items.de.1.question"
+      },
+      {
+        "customer": "tarivia",
+        "path": "i18n.annual_faq_4_q.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.faq.home_items.de.1.question"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "de": "Der autorisierte rechtliche Betreiber ist BeConnected.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "i18n.annual_faq_4_a.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "i18n.annual_faq_4_a.de"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "de": "Was tun bei einer unklaren Rechnungsposition?",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "i18n.annual_faq_5_q.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "i18n.annual_faq_5_q.de"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "de": "Gleiche die Position mit deinem Vertrag ab und halte konkrete Fragen an deinen Anbieter fest.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "i18n.annual_faq_5_a.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "i18n.annual_faq_5_a.de"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "de": "Sind die Werte in der Smartphone-Grafik verbindlich?",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "i18n.annual_faq_6_q.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "i18n.annual_faq_6_q.de"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "de": "Die 177 Tarife und 477 EUR sind statischer Marketinginhalt und kein persönliches Berechnungsergebnis.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "i18n.annual_faq_6_a.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "i18n.annual_faq_6_a.de"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "de": "Strom und Gas im Alltag: Mit {{brand}} behältst du Preise, Verbrauch und Vertragsbedingungen im Blick. Prüfe, was zu deinem Haushalt passt.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.hero.subline.de"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "de": "Meinen Tarif mit {{brand}} prüfen",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.hero.cta_text.de"
+      },
+      {
+        "customer": "oecher-strom",
+        "path": "sections.solution.cta_text.de"
+      },
+      {
+        "customer": "oecher-strom",
+        "path": "sections.how_it_works.cta_text.de"
+      },
+      {
+        "customer": "oecher-strom",
+        "path": "sections.comparison.cta_text.de"
+      },
+      {
+        "customer": "oecher-strom",
+        "path": "sections.final_cta.cta_text.de"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "de": "Die Smartphone-Grafik zeigt ein freigegebenes Marketingbeispiel mit 177 Tarifen und 477 EUR. Dein persönliches Ergebnis wird separat berechnet; eine Ersparnis ist nicht garantiert.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.hero.result_note.de"
+      },
+      {
+        "customer": "oecher-strom",
+        "path": "sections.solution.result_note.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.hero.result_note.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.solution.result_note.de"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "de": "Viele prüfen ihren Tarif jahrelang nicht",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.problem.items.de.0.title"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.problem.items.de.0.title"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "de": "Wer seinen Tarif lange nicht überprüft, zahlt oft deutlich mehr als nötig, weil sich Preise und Angebote ständig verändern.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.problem.items.de.0.description"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.problem.items.de.0.description"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "de": "Viele glauben, ihr Tarif sei bereits günstig",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.problem.items.de.1.title"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.problem.items.de.1.title"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "de": "Ein Tarif, der früher gut war, kann heute längst nicht mehr optimal sein. Ohne Prüfung merkt man das oft nicht.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.problem.items.de.1.description"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.problem.items.de.1.description"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "de": "Viele bleiben beim Grundversorger",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.problem.items.de.2.title"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.problem.items.de.2.title"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "de": "In vielen Regionen ist die Grundversorgung deutlich teurer als alternative Tarife. Trotzdem bleiben viele Haushalte dort oft aus Gewohnheit oder Unwissen.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.problem.items.de.2.description"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.problem.items.de.2.description"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "de": "Der Tarifmarkt wirkt kompliziert",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.problem.items.de.3.title"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.problem.items.de.3.title"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "de": "Hunderte Angebote mit unterschiedlichen Bedingungen machen es schwer zu erkennen, welcher Tarif wirklich gut ist deshalb lassen viele ihren Tarif einfach unverändert.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.problem.items.de.3.description"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.problem.items.de.3.description"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "de": "Dein Überblick mit {{brand}}.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.solution.headline.de"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "de": "Ein Tarifvergleich beginnt bei deinem Haushalt. Preise und Bedingungen gehören zusammen, damit du eine passende Entscheidung treffen kannst.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.solution.body.de"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "de": "Ausgangslage erfassen",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.how_it_works.items.de.0.title"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.how_it_works.items.de.0.title"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "de": "Halte Verbrauch, Postleitzahl und deinen aktuellen Tarif bereit.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.how_it_works.items.de.0.description"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.how_it_works.items.de.0.description"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "de": "Kosten einordnen",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.how_it_works.items.de.1.title"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.how_it_works.items.de.1.title"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "de": "Betrachte Grundpreis, Arbeitspreis und Vertragsbedingungen.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.how_it_works.items.de.1.description"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.how_it_works.items.de.1.description"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "de": "Angebote abwägen",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.how_it_works.items.de.2.title"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.how_it_works.items.de.2.title"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "de": "Vergleiche Angebote anhand deiner Angaben und prüfe offene Fragen.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.how_it_works.items.de.2.description"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.how_it_works.items.de.2.description"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "de": "Bewusst entscheiden",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.how_it_works.items.de.3.title"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.how_it_works.items.de.3.title"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "de": "Ein möglicher Wechsel ist eine eigene Entscheidung; die Grafik enthält keine individuelle Zusage.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.how_it_works.items.de.3.description"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.how_it_works.items.de.3.description"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "de": "Beim eigenen Vergleich",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.comparison.portals_title.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.comparison.portals_title.de"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "de": "Mit {{brand}}",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.comparison.assistant_title.de"
+      },
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.comparison_assistant_title.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.comparison.assistant_title.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.comparison_assistant_title.de"
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "de": "Preise und Bedingungen selbst zusammenführen",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.comparison.portals.de.0"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.comparison.portals.de.0"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "de": "Verbrauch und Laufzeit in den Vergleich einbeziehen",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.comparison.portals.de.1"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.comparison.portals.de.1"
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "de": "Unklare Angaben gezielt nachfragen",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.comparison.portals.de.2"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.comparison.portals.de.2"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "de": "{{brand}} stellt deine Energiekosten in den Mittelpunkt.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.comparison.assistant.de.0"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.comparison.assistant.de.0"
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "de": "Tarifbedingungen gehören zum Blick auf den Preis.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.comparison.assistant.de.1"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.comparison.assistant.de.1"
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "de": "Die Entscheidung richtet sich nach deiner persönlichen Ausgangslage.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.comparison.assistant.de.2"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.comparison.assistant.de.2"
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "de": "Über {{brand}}",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.about.headline.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.about.headline.de"
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "de": "Eine Marke unter dem rechtlichen Betreiber BeConnected",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.about.role.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.about.role.de"
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "de": "{{brand}} richtet den Blick auf die Energiekosten deines Haushalts. Verständliche Informationen zu Strom, Gas und Jahresabrechnungen stehen dabei im Mittelpunkt.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.about.paragraphs.de.0"
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "de": "BeConnected ist der autorisierte rechtliche Betreiber von {{brand}}.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.about.paragraphs.de.1"
+      },
+      {
+        "customer": "oecher-strom",
+        "path": "sections.faq.home_items.de.1.answer"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.about.paragraphs.de.1"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.faq.home_items.de.1.answer"
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "de": "Die Werte in den Smartphone-Grafiken sind freigegebene Marketingbeispiele. Sie ersetzen keine Berechnung für deinen Haushalt.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.about.paragraphs.de.2"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.about.paragraphs.de.2"
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "de": "Sind 177 Tarife und 477 EUR mein persönliches Ergebnis?",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.faq.home_items.de.0.question"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.faq.home_items.de.0.question"
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "de": "Nein. Diese Angaben gehören zur freigegebenen statischen Smartphone-Grafik. Ein persönliches Ergebnis hängt von deinen Angaben und den dann verfügbaren Angeboten ab.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.faq.home_items.de.0.answer"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.faq.home_items.de.0.answer"
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "de": "Was sollte ich für einen Tarifvergleich bereithalten?",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.faq.home_items.de.2.question"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.faq.home_items.de.2.question"
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "de": "Deinen aktuellen Tarif, den Jahresverbrauch, die Postleitzahl und die relevanten Vertragsbedingungen.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.faq.home_items.de.2.answer"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.faq.home_items.de.2.answer"
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "de": "Nimm deine Energiekosten in den Blick.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.final_cta.headline.de"
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "de": "Beginne bei deinem aktuellen Vertrag und deinem Verbrauch. {{brand}} ist dein Ausgangspunkt.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.final_cta.subline.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.final_cta.subline.de"
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "de": "Rückruf anfordern",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.callback.title.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.callback.title.de"
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "de": "Der Rückruf-Kalender wird vorbereitet.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.callback.disabled_text.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.callback.disabled_text.de"
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "de": "{{brand}}: Verbrauch, Abschläge und Jahreskosten gemeinsam betrachten.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.hero_text.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.hero_text.de"
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "de": "Eine Jahresabrechnung verbindet Verbrauch, Preise und bereits geleistete Zahlungen. Prüfe, wie diese Angaben zusammenpassen.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.why_intro.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.why_intro.de"
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "de": "Mit {{brand}} steht eine nachvollziehbare Einordnung deiner Jahresabrechnung im Mittelpunkt.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.value_text.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.value_text.de"
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "de": "Rechnung selbst einordnen",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.comparison_self_title.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.comparison_self_title.de"
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "de": "Zählerstände und Zeitraum zuordnen",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.comparison_self.de.0"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.comparison_self.de.0"
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "de": "Preise und Abschläge nachvollziehen",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.comparison_self.de.1"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.comparison_self.de.1"
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "de": "Verbrauch und Kosten zusammen betrachten",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.comparison_assistant.de.0"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.comparison_assistant.de.0"
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "de": "Offene Fragen strukturiert festhalten",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.comparison_assistant.de.1"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.comparison_assistant.de.1"
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "de": "Prüfe die Angaben deiner Rechnung anhand deines Vertrags. Die Smartphone-Grafik ist kein Ergebnis einer Rechnungsprüfung.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.final_text.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.final_text.de"
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "de": "Unterlagen bereithalten",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.process.de.0.title"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.process.de.0.title"
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "de": "Rechnung und Vertragsbedingungen zusammenstellen.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.process.de.0.desc"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.process.de.0.desc"
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "de": "Verbrauch zuordnen",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.process.de.1.title"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.process.de.1.title"
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "de": "Abrechnungszeitraum und Zählerstände vergleichen.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.process.de.1.desc"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.process.de.1.desc"
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "de": "Kosten nachvollziehen",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.process.de.2.title"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.process.de.2.title"
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "de": "Preise, Abschläge und Zahlungen einordnen.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.process.de.2.desc"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.process.de.2.desc"
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "de": "Fragen festhalten",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.process.de.3.title"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.process.de.3.title"
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "de": "Unklare Positionen vor einer Entscheidung klären.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.process.de.3.desc"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.process.de.3.desc"
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "de": "Verbrauch verstehen",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.why.de.0.title"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.why.de.0.title"
+      }
+    ]
+  },
+  {
+    "id": 73,
+    "de": "Vergleiche Abrechnungszeitraum und Zählerstände.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.why.de.0.desc"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.why.de.0.desc"
+      }
+    ]
+  },
+  {
+    "id": 74,
+    "de": "Preise nachvollziehen",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.why.de.1.title"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.why.de.1.title"
+      }
+    ]
+  },
+  {
+    "id": 75,
+    "de": "Prüfe Grundpreis und Arbeitspreis anhand des Vertrags.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.why.de.1.desc"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.why.de.1.desc"
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "de": "Abschläge einordnen",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.why.de.2.title"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.why.de.2.title"
+      }
+    ]
+  },
+  {
+    "id": 77,
+    "de": "Gleiche geleistete Zahlungen mit der Abrechnung ab.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.why.de.2.desc"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.why.de.2.desc"
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "de": "Unklarheiten klären",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.why.de.3.title"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.why.de.3.title"
+      }
+    ]
+  },
+  {
+    "id": 79,
+    "de": "Halte Rückfragen an deinen Anbieter fest.",
+    "uses": [
+      {
+        "customer": "oecher-strom",
+        "path": "sections.jahresrechnung.why.de.3.desc"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.jahresrechnung.why.de.3.desc"
+      }
+    ]
+  },
+  {
+    "id": 80,
+    "de": "Tarifpreise, Laufzeiten und Jahresabrechnungen verständlich einordnen. {{brand}} hilft dir, deine nächste Entscheidung auf eine klare Grundlage zu stellen.",
+    "uses": [
+      {
+        "customer": "tarivia",
+        "path": "sections.hero.subline.de"
+      }
+    ]
+  },
+  {
+    "id": 81,
+    "de": "Mit {{brand}} den Tarif prüfen",
+    "uses": [
+      {
+        "customer": "tarivia",
+        "path": "sections.hero.cta_text.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.solution.cta_text.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.how_it_works.cta_text.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.comparison.cta_text.de"
+      },
+      {
+        "customer": "tarivia",
+        "path": "sections.final_cta.cta_text.de"
+      }
+    ]
+  },
+  {
+    "id": 82,
+    "de": "Mit {{brand}} wird aus Zahlen ein Überblick.",
+    "uses": [
+      {
+        "customer": "tarivia",
+        "path": "sections.solution.headline.de"
+      }
+    ]
+  },
+  {
+    "id": 83,
+    "de": "Betrachte Verbrauch, Kosten und Vertragsbedingungen gemeinsam. So kannst du Angebote besser einordnen und offene Fragen gezielt klären.",
+    "uses": [
+      {
+        "customer": "tarivia",
+        "path": "sections.solution.body.de"
+      }
+    ]
+  },
+  {
+    "id": 84,
+    "de": "{{brand}} steht für einen klaren Blick auf Energiekosten. Preise und Vertragsbedingungen sollen verständlich werden, damit du Entscheidungen bewusst treffen kannst.",
+    "uses": [
+      {
+        "customer": "tarivia",
+        "path": "sections.about.paragraphs.de.0"
+      }
+    ]
+  },
+  {
+    "id": 85,
+    "de": "Triff deine nächste Tarifentscheidung mit mehr Klarheit.",
+    "uses": [
+      {
+        "customer": "tarivia",
+        "path": "sections.final_cta.headline.de"
+      }
+    ]
+  }
+]

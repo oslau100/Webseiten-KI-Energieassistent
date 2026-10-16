@@ -1,0 +1,20 @@
+{
+  "colors": {
+    "primary": "#102A43",
+    "cta": "#38E8A0",
+    "accent": "#38E8A0",
+    "white": "#FFFFFF",
+    "text": "#102A43",
+    "mutedText": "#64748B",
+    "background": "#FFFFFF"
+  },
+  "radius": {
+    "section": "2.5rem"
+  },
+  "assets": {
+    "logo_header": "supabase-storage://website-assets/locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/logo.jpg",
+    "logo_footer": "supabase-storage://website-assets/locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/logo.jpg",
+    "hero_image": "supabase-storage://website-assets/locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/hero-angled.jpeg",
+    "agency_logo": ""
+  }
+}

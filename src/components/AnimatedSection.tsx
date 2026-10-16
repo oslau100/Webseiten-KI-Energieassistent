@@ -12,6 +12,13 @@ export function AnimatedSection({ children, className, delay = 0, animation = "f
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (media.matches || typeof IntersectionObserver === "undefined") {
+      setIsVisible(true);
+      return;
+    }
+    const onMotionChange = () => { if (media.matches) setIsVisible(true); };
+    media.addEventListener("change", onMotionChange);
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -25,7 +32,8 @@ export function AnimatedSection({ children, className, delay = 0, animation = "f
     if (ref.current) observer.observe(ref.current);
 
     return () => {
-      if (ref.current) observer.unobserve(ref.current);
+      observer.disconnect();
+      media.removeEventListener("change", onMotionChange);
     };
   }, []);
 
@@ -48,7 +56,7 @@ export function AnimatedSection({ children, className, delay = 0, animation = "f
   };
 
   return (
-    <div ref={ref} className={cn("transition-all duration-700 ease-out", getAnimationClasses(), className)} style={{ transitionDelay: `${delay}ms` }} {...props}>
+    <div ref={ref} className={cn("transition-all duration-700 ease-out motion-reduce:transition-none motion-reduce:!opacity-100 motion-reduce:!transform-none", getAnimationClasses(), className)} style={{ transitionDelay: `${delay}ms` }} {...props}>
       {children}
     </div>
   );

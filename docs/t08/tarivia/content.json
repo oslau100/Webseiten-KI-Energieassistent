@@ -1,0 +1,2814 @@
+{
+  "brand": {
+    "name": "Tarivia",
+    "contact_email": "info@beconnected-aachen.de",
+    "agency_url": "",
+    "agency_alt": ""
+  },
+  "seo": {
+    "title": "Tarivia | Strom, Gas und Jahresabrechnung im Blick",
+    "description": "Tarifpreise, Laufzeiten und Jahresabrechnungen verständlich einordnen. Tarivia hilft dir, deine nächste Entscheidung auf eine klare Grundlage zu stellen.",
+    "site_url": "https://www.tarivia.de",
+    "image_url": ""
+  },
+  "legal": {
+    "ready": false,
+    "variables": {
+      "firma": "BeConnected",
+      "inhaber": "Andy Khelifa",
+      "strasse": "Heidchenweg 13",
+      "plz": "52080",
+      "ort": "Aachen",
+      "land": "Deutschland",
+      "email": "info@beconnected-aachen.de",
+      "telefon": "0241 47595243",
+      "stand": "14. Oktober 2026",
+      "rechtsform": "Einzelunternehmen",
+      "ust_id": "253125657"
+    }
+  },
+  "i18n": {
+    "header_check_bill": {
+      "de": "Jahresabrechnung prüfen",
+      "en": "Check annual energy bill",
+      "tr": "Yıllık enerji faturasını kontrol et",
+      "ru": "Проверить годовой счёт за энергию",
+      "ar": "تحقق من الفاتورة السنوية للطاقة",
+      "it": "Controlla la bolletta energetica annuale",
+      "zh": "检查年度能源账单",
+      "hi": "वार्षिक ऊर्जा बिल जांचें",
+      "es": "Revisar factura energética anual",
+      "fr": "Vérifier la facture annuelle d'énergie",
+      "nl": "Controleer jaarlijkse energierekening",
+      "pl": "Sprawdź roczny rachunek za energię"
+    },
+    "header_check_savings": {
+      "de": "Tarifersparnis prüfen",
+      "en": "Check tariff savings",
+      "tr": "Tarife tasarrufunu kontrol et",
+      "ru": "Проверить экономию тарифа",
+      "ar": "تحقق من توفير التعرفة",
+      "it": "Verifica risparmio tariffa",
+      "zh": "检查资费节省",
+      "hi": "टैरिफ बचत जांचें",
+      "es": "Revisar ahorro de tarifa",
+      "fr": "Vérifier l'économie tarifaire",
+      "nl": "Controleer tariefbesparing",
+      "pl": "Sprawdź oszczędność taryfy"
+    },
+    "hero_headline": {
+      "de": "Zahlst du zu viel für Strom oder Gas?",
+      "en": "Are you paying too much for electricity or gas?",
+      "tr": "Elektrik veya gaz için fazla mı ödüyorsunuz?",
+      "ru": "Платите ли вы слишком много за электричество или газ?",
+      "ar": "هل تدفع أكثر من اللازم مقابل الكهرباء أو الغاز؟",
+      "it": "Stai pagando troppo per luce o gas?",
+      "zh": "你是否为电费或燃气费支付过高？",
+      "hi": "क्या आप बिजली या गैस के लिए ज़रूरत से ज़्यादा भुगतान कर रहे हैं?",
+      "es": "¿Estás pagando demasiado por electricidad o gas?",
+      "fr": "Payez-vous trop cher votre électricité ou votre gaz ?",
+      "nl": "Betaal je te veel voor stroom of gas?",
+      "pl": "Czy płacisz za dużo za prąd lub gaz?"
+    },
+    "footer_contact": {
+      "de": "Kontakt",
+      "en": "Contact",
+      "tr": "İletişim",
+      "ru": "Контакты",
+      "ar": "التواصل",
+      "it": "Contatto",
+      "zh": "联系方式",
+      "hi": "संपर्क",
+      "es": "Contacto",
+      "fr": "Contact",
+      "nl": "Contact",
+      "pl": "Kontakt"
+    },
+    "footer_callback": {
+      "de": "Rückruf buchen",
+      "en": "Book callback",
+      "tr": "Geri arama randevusu al",
+      "ru": "Записаться на звонок",
+      "ar": "حجز موعد للمكالمة",
+      "it": "Prenota richiamata",
+      "zh": "预约回电",
+      "hi": "कॉलबैक बुक करें",
+      "es": "Reservar una llamada",
+      "fr": "Réserver un rappel",
+      "nl": "Terugbelafspraak boeken",
+      "pl": "Umów rozmowę telefoniczną"
+    },
+    "footer_legal": {
+      "de": "Rechtliches",
+      "en": "Legal",
+      "tr": "Yasal",
+      "ru": "Правовая информация",
+      "ar": "قانوني",
+      "it": "Legale",
+      "zh": "法律信息",
+      "hi": "कानूनी",
+      "es": "Legal",
+      "fr": "Mentions légales",
+      "nl": "Juridisch",
+      "pl": "Informacje prawne"
+    },
+    "footer_privacy": {
+      "de": "Datenschutz",
+      "en": "Privacy",
+      "tr": "Gizlilik",
+      "ru": "Конфиденциальность",
+      "ar": "الخصوصية",
+      "it": "Privacy",
+      "zh": "隐私",
+      "hi": "गोपनीयता",
+      "es": "Privacidad",
+      "fr": "Confidentialité",
+      "nl": "Privacy",
+      "pl": "Prywatność"
+    },
+    "footer_imprint": {
+      "de": "Impressum",
+      "en": "Imprint",
+      "tr": "Künye",
+      "ru": "Выходные данные",
+      "ar": "بيانات النشر",
+      "it": "Note legali",
+      "zh": "法律声明",
+      "hi": "इम्प्रिंट",
+      "es": "Aviso legal",
+      "fr": "Mentions",
+      "nl": "Colofon",
+      "pl": "Stopka redakcyjna"
+    },
+    "footer_rights": {
+      "de": "Alle Rechte vorbehalten.",
+      "en": "All rights reserved.",
+      "tr": "Tüm hakları saklıdır.",
+      "ru": "Все права защищены.",
+      "ar": "جميع الحقوق محفوظة.",
+      "it": "Tutti i diritti riservati.",
+      "zh": "版权所有。",
+      "hi": "सर्वाधिकार सुरक्षित।",
+      "es": "Todos los derechos reservados.",
+      "fr": "Tous droits réservés.",
+      "nl": "Alle rechten voorbehouden.",
+      "pl": "Wszelkie prawa zastrzeżone."
+    },
+    "cookie_title": {
+      "de": "Privatsphäre-Einstellungen",
+      "en": "Privacy settings",
+      "tr": "Gizlilik ayarları",
+      "ru": "Настройки конфиденциальности",
+      "ar": "إعدادات الخصوصية",
+      "it": "Impostazioni privacy",
+      "zh": "隐私设置",
+      "hi": "गोपनीयता सेटिंग्स",
+      "es": "Configuración de privacidad",
+      "fr": "Paramètres de confidentialité",
+      "nl": "Privacy-instellingen",
+      "pl": "Ustawienia prywatności"
+    },
+    "cookie_copy_1": {
+      "de": "Wir verwenden essenzielle Cookies für den Betrieb und optionale Marketing-Cookies nur mit Ihrer Einwilligung.",
+      "en": "We use essential cookies for operation and optional marketing cookies only with your consent.",
+      "tr": "Site için gerekli çerezleri ve yalnızca onayınızla isteğe bağlı pazarlama çerezlerini kullanıyoruz.",
+      "ru": "Мы используем обязательные cookie для работы сайта и маркетинговые cookie только с вашего согласия.",
+      "ar": "نستخدم ملفات تعريف الارتباط الأساسية للتشغيل وملفات التسويق فقط بموافقتك.",
+      "it": "Usiamo cookie essenziali per il funzionamento e cookie marketing opzionali solo con consenso.",
+      "zh": "我们仅在您同意时使用营销 Cookie，网站运行必需的 Cookie 始终启用。",
+      "hi": "हम साइट संचालन के लिए आवश्यक कुकीज़ और आपकी सहमति से वैकल्पिक मार्केटिंग कुकीज़ उपयोग करते हैं।",
+      "es": "Usamos cookies esenciales para el funcionamiento y cookies de marketing opcionales solo con tu consentimiento.",
+      "fr": "Nous utilisons des cookies essentiels pour le fonctionnement et des cookies marketing optionnels uniquement avec votre consentement.",
+      "nl": "We gebruiken essentiële cookies voor werking en optionele marketingcookies alleen met uw toestemming.",
+      "pl": "Używamy niezbędnych plików cookie do działania oraz marketingowych tylko za Twoją zgodą."
+    },
+    "cookie_copy_2": {
+      "de": "Sie können jederzeit Ihre Auswahl ändern. Standardmäßig sind nur essenzielle Cookies aktiv.",
+      "en": "You can change your choices at any time. By default, only essential cookies are active.",
+      "tr": "Seçimlerinizi istediğiniz zaman değiştirebilirsiniz. Varsayılan olarak yalnızca gerekli çerezler etkindir.",
+      "ru": "Вы можете изменить выбор в любое время. По умолчанию активны только обязательные cookie.",
+      "ar": "يمكنك تغيير اختياراتك في أي وقت. افتراضيًا يتم تفعيل الملفات الأساسية فقط.",
+      "it": "Puoi modificare le scelte in qualsiasi momento. Per default sono attivi solo i cookie essenziali.",
+      "zh": "您可随时更改选择。默认仅启用必需 Cookie。",
+      "hi": "आप कभी भी अपनी पसंद बदल सकते हैं। डिफ़ॉल्ट रूप से केवल आवश्यक कुकीज़ सक्रिय हैं।",
+      "es": "Puedes cambiar tu elección en cualquier momento. Por defecto, solo están activas las cookies esenciales.",
+      "fr": "Vous pouvez modifier vos choix à tout moment. Par défaut, seuls les cookies essentiels sont actifs.",
+      "nl": "U kunt uw keuze altijd aanpassen. Standaard zijn alleen essentiële cookies actief.",
+      "pl": "Wybór możesz zmienić w każdej chwili. Domyślnie aktywne są tylko niezbędne pliki cookie."
+    },
+    "cookie_marketing": {
+      "de": "Marketing",
+      "en": "Marketing",
+      "tr": "Pazarlama",
+      "ru": "Маркетинг",
+      "ar": "تسويق",
+      "it": "Marketing",
+      "zh": "营销",
+      "hi": "मार्केटिंग",
+      "es": "Marketing",
+      "fr": "Marketing",
+      "nl": "Marketing",
+      "pl": "Marketing"
+    },
+    "cookie_essential": {
+      "de": "Essenziell",
+      "en": "Essential",
+      "tr": "Gerekli",
+      "ru": "Обязательные",
+      "ar": "أساسي",
+      "it": "Essenziali",
+      "zh": "必要",
+      "hi": "आवश्यक",
+      "es": "Esenciales",
+      "fr": "Essentiels",
+      "nl": "Essentieel",
+      "pl": "Niezbędne"
+    },
+    "cookie_save": {
+      "de": "Einstellungen speichern",
+      "en": "Save settings",
+      "tr": "Ayarları kaydet",
+      "ru": "Сохранить настройки",
+      "ar": "حفظ الإعدادات",
+      "it": "Salva impostazioni",
+      "zh": "保存设置",
+      "hi": "सेटिंग्स सहेजें",
+      "es": "Guardar ajustes",
+      "fr": "Enregistrer",
+      "nl": "Instellingen opslaan",
+      "pl": "Zapisz ustawienia"
+    },
+    "cookie_accept_all": {
+      "de": "Alle akzeptieren",
+      "en": "Accept all",
+      "tr": "Tümünü kabul et",
+      "ru": "Принять все",
+      "ar": "قبول الكل",
+      "it": "Accetta tutto",
+      "zh": "全部接受",
+      "hi": "सभी स्वीकार करें",
+      "es": "Aceptar todo",
+      "fr": "Tout accepter",
+      "nl": "Alles accepteren",
+      "pl": "Akceptuj wszystko"
+    },
+    "callback_title": {
+      "de": "Rückruf buchen",
+      "en": "Book callback",
+      "tr": "Geri arama randevusu al",
+      "ru": "Записаться на звонок",
+      "ar": "حجز موعد للمكالمة",
+      "it": "Prenota richiamata",
+      "zh": "预约回电",
+      "hi": "कॉलबैक बुक करें",
+      "es": "Reservar una llamada",
+      "fr": "Réserver un rappel",
+      "nl": "Terugbelafspraak boeken",
+      "pl": "Umów rozmowę telefoniczną"
+    },
+    "home_problem_h2": {
+      "de": "Warum viele Haushalte unnötig hohe Strom- und Gaskosten haben",
+      "en": "Why many households pay unnecessarily high electricity and gas costs",
+      "tr": "Neden birçok hane elektrik ve gaz için gereksiz yere yüksek ödeme yapıyor",
+      "ru": "Почему многие домохозяйства переплачивают за электричество и газ",
+      "ar": "لماذا تتحمّل كثير من الأسر تكاليف كهرباء وغاز أعلى من اللازم",
+      "it": "Perché molte famiglie pagano inutilmente troppo per luce e gas",
+      "zh": "为什么许多家庭在电费和燃气费上不必要地多花钱",
+      "hi": "कई परिवार बिजली और गैस पर बेवजह ज़्यादा खर्च क्यों करते हैं",
+      "es": "Por qué muchos hogares pagan de más en luz y gas sin necesidad",
+      "fr": "Pourquoi de nombreux foyers paient inutilement trop cher l'électricité et le gaz",
+      "nl": "Waarom veel huishoudens onnodig hoge stroom- en gaskosten hebben",
+      "pl": "Dlaczego wiele gospodarstw domowych niepotrzebnie płaci za dużo za prąd i gaz"
+    },
+    "home_solution_h2": {
+      "de": "Genau deshalb lohnt sich eine kurze Ersparnisprüfung.",
+      "en": "That is exactly why a short savings check is worth it.",
+      "tr": "İşte tam bu yüzden kısa bir tasarruf kontrolü fayda sağlar.",
+      "ru": "Именно поэтому быстрая проверка экономии действительно полезна.",
+      "ar": "ولهذا السبب تحديداً تستحق مراجعة التوفير السريعة.",
+      "it": "Ecco perché una rapida verifica del risparmio conviene davvero.",
+      "zh": "这正是为什么一次简短的节省检查很值得。",
+      "hi": "इसीलिए एक छोटी बचत-जांच वास्तव में फायदेमंद है।",
+      "es": "Precisamente por eso merece la pena una revisión rápida del ahorro.",
+      "fr": "C'est exactement pour cela qu'un bilan économies rapide vaut la peine.",
+      "nl": "Precies daarom loont een korte besparingscheck.",
+      "pl": "Właśnie dlatego krótka analiza oszczędności naprawdę się opłaca."
+    },
+    "home_how_it_works_h2": {
+      "de": "So einfach funktioniert's",
+      "en": "It's that simple",
+      "tr": "İşte bu kadar basit",
+      "ru": "Это работает очень просто",
+      "ar": "هكذا تعمل الخدمة ببساطة",
+      "it": "Funziona in modo semplicissimo",
+      "zh": "流程就是这么简单",
+      "hi": "यह इतना आसान है",
+      "es": "Así de simple funciona",
+      "fr": "C'est aussi simple que ça",
+      "nl": "Zo eenvoudig werkt het",
+      "pl": "To działa naprawdę prosto"
+    },
+    "home_comparison_h2": {
+      "de": "So unterscheidet sich der digitale Energieassistent von Vergleichsportalen",
+      "en": "How the digital Energy Assistant differs from comparison portals",
+      "tr": "Dijital Enerji Asistanı karşılaştırma portallarından nasıl ayrılır",
+      "ru": "Чем цифровой Энергоассистент отличается от сайтов сравнения",
+      "ar": "كيف يختلف مساعد الطاقة الرقمي عن مواقع المقارنة",
+      "it": "Ecco come l'Assistente Energia digitale si distingue dai portali di confronto",
+      "zh": "数字能源助手与比价平台有何不同",
+      "hi": "डिजिटल एनर्जी असिस्टेंट तुलना पोर्टल्स से कैसे अलग है",
+      "es": "Así se diferencia el Asistente Energético digital de los comparadores",
+      "fr": "En quoi l'Assistant Énergie numérique se distingue des comparateurs",
+      "nl": "Zo onderscheidt de digitale Energieassistent zich van vergelijkingssites",
+      "pl": "Tak cyfrowy Asystent Energii różni się od porównywarek ofert"
+    },
+    "home_about_h2": {
+      "de": "Wer steckt hinter dem Energieassistenten?",
+      "en": "Who is behind Energy Assistant?",
+      "tr": "Enerji Asistanı'nın arkasında kim var?",
+      "ru": "Кто стоит за Energy Assistant?",
+      "ar": "من يقف وراء Energy Assistant؟",
+      "it": "Chi c'è dietro Energy Assistant?",
+      "zh": "Energy Assistant 背后是谁？",
+      "hi": "Energy Assistant के पीछे कौन है?",
+      "es": "¿Quién está detrás de Energy Assistant?",
+      "fr": "Qui se cache derrière Energy Assistant ?",
+      "nl": "Wie zit er achter Energy Assistant?",
+      "pl": "Kto stoi za Energy Assistant?"
+    },
+    "home_faq_h2": {
+      "de": "Häufige Fragen",
+      "en": "Frequently asked questions",
+      "tr": "Sık sorulan sorular",
+      "ru": "Частые вопросы",
+      "ar": "الأسئلة الشائعة",
+      "it": "Domande frequenti",
+      "zh": "常见问题",
+      "hi": "अक्सर पूछे जाने वाले सवाल",
+      "es": "Preguntas frecuentes",
+      "fr": "Questions fréquentes",
+      "nl": "Veelgestelde vragen",
+      "pl": "Najczęstsze pytania"
+    },
+    "home_final_cta_h2": {
+      "de": "Jetzt Ersparnis prüfen",
+      "en": "Check savings now",
+      "tr": "Tasarrufu şimdi kontrol et",
+      "ru": "Проверить экономию",
+      "ar": "تحقق من التوفير الآن",
+      "it": "Verifica ora il risparmio",
+      "zh": "立即检查节省",
+      "hi": "अभी बचत जांचें",
+      "es": "Comprobar ahorro ahora",
+      "fr": "Vérifier les économies maintenant",
+      "nl": "Controleer nu je besparing",
+      "pl": "Sprawdź oszczędność teraz"
+    },
+    "annual_hero_h1": {
+      "de": "Wurde deine Strom- oder Gasabrechnung falsch berechnet?",
+      "en": "Was your electricity or gas bill calculated incorrectly?",
+      "tr": "Elektrik veya gaz faturanız yanlış mı hesaplandı?",
+      "ru": "Ваш счёт за электричество или газ рассчитан неверно?",
+      "ar": "هل تم احتساب فاتورة الكهرباء أو الغاز لديك بشكل خاطئ؟",
+      "it": "La tua bolletta di luce o gas è stata calcolata in modo errato?",
+      "zh": "你的电费或燃气费账单是否被错误计算？",
+      "hi": "क्या आपकी बिजली या गैस बिलिंग गलत तरीके से हुई है?",
+      "es": "¿Se calculó mal tu factura de luz o gas?",
+      "fr": "Votre facture d'électricité ou de gaz a-t-elle été mal calculée ?",
+      "nl": "Is je stroom- of gasrekening verkeerd berekend?",
+      "pl": "Czy Twój rachunek za prąd lub gaz został błędnie naliczony?"
+    },
+    "annual_process_h2": {
+      "de": "So läuft die Prüfung deiner Jahresabrechnung ab",
+      "en": "How your annual bill review works",
+      "tr": "Yıllık fatura kontrolünüz böyle ilerler",
+      "ru": "Как проходит проверка вашего годового счёта",
+      "ar": "هكذا تتم مراجعة فاتورتك السنوية",
+      "it": "Ecco come funziona il controllo della tua bolletta annuale",
+      "zh": "你的年度账单审核流程如下",
+      "hi": "आपके वार्षिक बिल की जांच ऐसे होती है",
+      "es": "Así funciona la revisión de tu factura anual",
+      "fr": "Comment se déroule la vérification de votre facture annuelle",
+      "nl": "Zo verloopt de controle van je jaarafrekening",
+      "pl": "Tak przebiega weryfikacja Twojego rocznego rachunku"
+    },
+    "annual_why_h2": {
+      "de": "Warum sich die Prüfung deiner Jahresabrechnung lohnt",
+      "en": "Why it is worth reviewing your annual bill",
+      "tr": "Yıllık faturanızı kontrol ettirmek neden faydalıdır",
+      "ru": "Почему стоит проверить ваш годовой счёт",
+      "ar": "لماذا يستحق فحص فاتورتك السنوية",
+      "it": "Perché conviene controllare la tua bolletta annuale",
+      "zh": "为什么值得审核你的年度账单",
+      "hi": "आपके वार्षिक बिल की जांच क्यों फायदेमंद है",
+      "es": "Por qué merece la pena revisar tu factura anual",
+      "fr": "Pourquoi il vaut la peine de vérifier votre facture annuelle",
+      "nl": "Waarom het loont om je jaarafrekening te controleren",
+      "pl": "Dlaczego warto sprawdzić roczny rachunek"
+    },
+    "annual_blue_value_h2": {
+      "de": "Du musst deine Jahresabrechnung nicht selbst prüfen",
+      "en": "You don't have to review your annual bill yourself",
+      "tr": "Yıllık faturanızı kendiniz kontrol etmek zorunda değilsiniz",
+      "ru": "Вам не нужно проверять годовой счёт самостоятельно",
+      "ar": "لست بحاجة إلى فحص فاتورتك السنوية بنفسك",
+      "it": "Non devi controllare da solo la tua bolletta annuale",
+      "zh": "你不必自己审核年度账单",
+      "hi": "आपको अपना वार्षिक बिल खुद जांचने की ज़रूरत नहीं है",
+      "es": "No tienes que revisar tu factura anual por tu cuenta",
+      "fr": "Vous n'avez pas besoin de vérifier votre facture annuelle vous-même",
+      "nl": "Je hoeft je jaarafrekening niet zelf te controleren",
+      "pl": "Nie musisz samodzielnie sprawdzać rocznego rachunku"
+    },
+    "annual_comparison_h2": {
+      "de": "Selbst prüfen oder professionell prüfen lassen",
+      "en": "Review it yourself or let professionals review it",
+      "tr": "Kendiniz kontrol edin veya profesyonel kontrol alın",
+      "ru": "Проверить самостоятельно или доверить профессионалам",
+      "ar": "افحصها بنفسك أو دع خبراء يفحصونها لك",
+      "it": "Controlla da solo o affidati a una verifica professionale",
+      "zh": "自己审核，或交给专业团队审核",
+      "hi": "खुद जांचें या प्रोफेशनल से जांच करवाएं",
+      "es": "Revisarla tú mismo o dejarla en manos profesionales",
+      "fr": "Vérifier soi-même ou faire vérifier par des professionnels",
+      "nl": "Zelf controleren of professioneel laten controleren",
+      "pl": "Sprawdź samodzielnie albo zleć to profesjonalistom"
+    },
+    "annual_final_cta_h2": {
+      "de": "Unsicher bei deiner Jahresabrechnung? Jetzt Klarheit bekommen",
+      "en": "Unsure about your annual bill? Get clarity now",
+      "tr": "Yıllık faturanızdan emin değil misiniz? Hemen netlik kazanın",
+      "ru": "Сомневаетесь в годовом счёте? Получите ясность уже сейчас",
+      "ar": "غير متأكد من فاتورتك السنوية؟ احصل على وضوح الآن",
+      "it": "Hai dubbi sulla tua bolletta annuale? Ottieni chiarezza ora",
+      "zh": "不确定年度账单是否正确？现在就获得清晰结论",
+      "hi": "वार्षिक बिल को लेकर असमंजस है? अभी स्पष्टता पाएं",
+      "es": "¿Dudas sobre tu factura anual? Consigue claridad ahora",
+      "fr": "Un doute sur votre facture annuelle ? Obtenez une réponse claire maintenant",
+      "nl": "Twijfel je over je jaarafrekening? Krijg nu duidelijkheid",
+      "pl": "Masz wątpliwości co do rocznego rachunku? Zyskaj jasność już teraz"
+    },
+    "home_testimonials_h2": {
+      "de": "",
+      "en": "",
+      "tr": "",
+      "ru": "",
+      "ar": "",
+      "it": "",
+      "zh": "",
+      "hi": "",
+      "es": "",
+      "fr": "",
+      "nl": "",
+      "pl": ""
+    },
+    "annual_faq_1_q": {
+      "de": "Was gehört zu einer Rechnungsprüfung?",
+      "en": "What is included in a bill review?",
+      "tr": "Fatura incelemesine neler dahildir?",
+      "ru": "Что входит в проверку счёта?",
+      "ar": "ما الذي تتضمنه مراجعة الفاتورة؟",
+      "it": "Che cosa comprende una verifica della bolletta?",
+      "zh": "账单核查包括哪些内容？",
+      "hi": "बिल की जाँच में क्या शामिल है?",
+      "es": "¿Qué incluye una revisión de la factura?",
+      "fr": "Que comprend une vérification de facture ?",
+      "nl": "Wat hoort bij een controle van de rekening?",
+      "pl": "Co obejmuje sprawdzenie rachunku?"
+    },
+    "annual_faq_1_a": {
+      "de": "Verbrauch, Abrechnungszeitraum, Preise und Zahlungen gemeinsam betrachten.",
+      "en": "Consider consumption, billing period, prices and payments together.",
+      "tr": "Tüketimi, faturalandırma dönemini, fiyatları ve ödemeleri birlikte değerlendirmek.",
+      "ru": "Рассмотреть вместе потребление, расчётный период, цены и платежи.",
+      "ar": "النظر إلى الاستهلاك وفترة الفوترة والأسعار والمدفوعات معًا.",
+      "it": "Esaminare insieme consumi, periodo di fatturazione, prezzi e pagamenti.",
+      "zh": "综合查看用量、计费周期、价格和付款。",
+      "hi": "खपत, बिल की अवधि, कीमतों और भुगतानों को एक साथ देखना।",
+      "es": "Examinar conjuntamente el consumo, el período de facturación, los precios y los pagos.",
+      "fr": "Examiner ensemble la consommation, la période de facturation, les prix et les paiements.",
+      "nl": "Verbruik, factureringsperiode, prijzen en betalingen samen bekijken.",
+      "pl": "Łączne przeanalizowanie zużycia, okresu rozliczeniowego, cen i płatności."
+    },
+    "annual_faq_2_q": {
+      "de": "Wo finde ich Angaben zur Datenverarbeitung?",
+      "en": "Where can I find information about data processing?",
+      "tr": "Veri işleme bilgilerini nerede bulabilirim?",
+      "ru": "Где найти информацию об обработке данных?",
+      "ar": "أين أجد معلومات عن معالجة البيانات؟",
+      "it": "Dove trovo informazioni sul trattamento dei dati?",
+      "zh": "在哪里可以找到有关数据处理的信息？",
+      "hi": "डेटा संसाधन के बारे में जानकारी कहाँ मिलेगी?",
+      "es": "¿Dónde encuentro información sobre el tratamiento de datos?",
+      "fr": "Où trouver des informations sur le traitement des données ?",
+      "nl": "Waar vind ik informatie over gegevensverwerking?",
+      "pl": "Gdzie znajdę informacje o przetwarzaniu danych?"
+    },
+    "annual_faq_2_a": {
+      "de": "Angaben zur Datenverarbeitung und zu Ihren Rechten finden Sie in der Datenschutzerklärung.",
+      "en": "You can find information about data processing and your rights in the privacy policy.",
+      "tr": "Veri işleme ve haklarınızla ilgili bilgileri gizlilik açıklamasında bulabilirsiniz.",
+      "ru": "Информация об обработке данных и ваших правах содержится в политике конфиденциальности.",
+      "ar": "تجدون معلومات عن معالجة البيانات وحقوقكم في سياسة الخصوصية.",
+      "it": "Le informazioni sul trattamento dei dati e sui Suoi diritti sono disponibili nell'informativa sulla privacy.",
+      "zh": "有关数据处理和您的权利的信息，请参阅隐私政策。",
+      "hi": "डेटा संसाधन और आपके अधिकारों की जानकारी गोपनीयता नीति में मिलेगी।",
+      "es": "La información sobre el tratamiento de datos y sus derechos se encuentra en la política de privacidad.",
+      "fr": "Vous trouverez des informations sur le traitement des données et vos droits dans la politique de confidentialité.",
+      "nl": "Informatie over gegevensverwerking en uw rechten vindt u in de privacyverklaring.",
+      "pl": "Informacje o przetwarzaniu danych i Państwa prawach znajdują się w polityce prywatności."
+    },
+    "annual_faq_3_q": {
+      "de": "Welche Kosten gelten für den Service?",
+      "en": "What costs apply to the service?",
+      "tr": "Hizmet için hangi ücretler geçerlidir?",
+      "ru": "Какие расходы предусмотрены за услугу?",
+      "ar": "ما التكاليف التي تنطبق على الخدمة؟",
+      "it": "Quali costi si applicano al servizio?",
+      "zh": "这项服务适用哪些费用？",
+      "hi": "सेवा के लिए कौन-से खर्च लागू होते हैं?",
+      "es": "¿Qué costes se aplican al servicio?",
+      "fr": "Quels frais s'appliquent au service ?",
+      "nl": "Welke kosten gelden voor de dienst?",
+      "pl": "Jakie koszty dotyczą usługi?"
+    },
+    "annual_faq_3_a": {
+      "de": "Maßgeblich sind die vor Nutzung ausgewiesenen Konditionen.",
+      "en": "The terms stated before use are binding.",
+      "tr": "Kullanımdan önce belirtilen koşullar esas alınır.",
+      "ru": "Определяющими являются условия, указанные до использования.",
+      "ar": "الشروط المعلنة قبل الاستخدام هي المعتمدة.",
+      "it": "Fanno fede le condizioni indicate prima dell'utilizzo.",
+      "zh": "以使用前公布的条件为准。",
+      "hi": "उपयोग से पहले बताई गई शर्तें मान्य हैं।",
+      "es": "Son determinantes las condiciones indicadas antes de utilizarlo.",
+      "fr": "Les conditions indiquées avant l'utilisation font foi.",
+      "nl": "De voorwaarden die vóór gebruik worden vermeld, zijn bepalend.",
+      "pl": "Obowiązują warunki przedstawione przed skorzystaniem z usługi."
+    },
+    "annual_faq_4_q": {
+      "de": "Wer betreibt Tarivia?",
+      "en": "Who operates Tarivia?",
+      "tr": "Tarivia kim tarafından işletiliyor?",
+      "ru": "Кто управляет Tarivia?",
+      "ar": "من يدير Tarivia؟",
+      "it": "Chi gestisce Tarivia?",
+      "zh": "谁运营Tarivia？",
+      "hi": "Tarivia का संचालन कौन करता है?",
+      "es": "¿Quién gestiona Tarivia?",
+      "fr": "Qui exploite Tarivia ?",
+      "nl": "Wie beheert Tarivia?",
+      "pl": "Kto prowadzi Tarivia?"
+    },
+    "annual_faq_4_a": {
+      "de": "Der autorisierte rechtliche Betreiber ist BeConnected.",
+      "en": "The authorised legal operator is BeConnected.",
+      "tr": "Yetkili yasal işletmeci BeConnected'dır.",
+      "ru": "Уполномоченный юридический оператор — BeConnected.",
+      "ar": "المشغّل القانوني المخوّل هو BeConnected.",
+      "it": "Il gestore legale autorizzato è BeConnected.",
+      "zh": "获授权的法律运营主体是BeConnected。",
+      "hi": "अधिकृत कानूनी संचालक BeConnected है।",
+      "es": "El operador legal autorizado es BeConnected.",
+      "fr": "L'exploitant légal autorisé est BeConnected.",
+      "nl": "De bevoegde juridische exploitant is BeConnected.",
+      "pl": "Upoważnionym operatorem prawnym jest BeConnected."
+    },
+    "annual_faq_5_q": {
+      "de": "Was tun bei einer unklaren Rechnungsposition?",
+      "en": "What should I do about an unclear item on my bill?",
+      "tr": "Faturadaki belirsiz bir kalem için ne yapmalıyım?",
+      "ru": "Что делать, если позиция в счёте непонятна?",
+      "ar": "ماذا أفعل إذا كان بند في الفاتورة غير واضح؟",
+      "it": "Che cosa fare se una voce della bolletta non è chiara?",
+      "zh": "账单中的项目不清楚时该怎么办？",
+      "hi": "बिल की कोई मद अस्पष्ट हो तो क्या करें?",
+      "es": "¿Qué hacer ante un concepto poco claro en la factura?",
+      "fr": "Que faire en cas de poste peu clair sur la facture ?",
+      "nl": "Wat moet ik doen bij een onduidelijke post op de rekening?",
+      "pl": "Co zrobić, gdy pozycja na rachunku jest niejasna?"
+    },
+    "annual_faq_5_a": {
+      "de": "Gleiche die Position mit deinem Vertrag ab und halte konkrete Fragen an deinen Anbieter fest.",
+      "en": "Compare the item with your contract and note specific questions for your provider.",
+      "tr": "Kalemi sözleşmenle karşılaştır ve sağlayıcına soracağın somut soruları not et.",
+      "ru": "Сверь позицию с договором и запиши конкретные вопросы своему поставщику.",
+      "ar": "قارن البند بعقدك وسجّل أسئلة محددة لمزوّدك.",
+      "it": "Confronta la voce con il tuo contratto e annota domande precise da rivolgere al fornitore.",
+      "zh": "将该项目与合同核对，并记下要向供应商提出的具体问题。",
+      "hi": "उस मद का अपने अनुबंध से मिलान करो और अपने प्रदाता के लिए ठोस सवाल लिख लो।",
+      "es": "Compara el concepto con tu contrato y anota preguntas concretas para tu proveedor.",
+      "fr": "Compare ce poste avec ton contrat et note des questions précises à poser à ton fournisseur.",
+      "nl": "Vergelijk de post met je contract en noteer concrete vragen voor je leverancier.",
+      "pl": "Porównaj tę pozycję z umową i zapisz konkretne pytania do dostawcy."
+    },
+    "annual_faq_6_q": {
+      "de": "Sind die Werte in der Smartphone-Grafik verbindlich?",
+      "en": "Are the values in the smartphone graphic binding?",
+      "tr": "Akıllı telefon görselindeki değerler bağlayıcı mı?",
+      "ru": "Обязательны ли значения на изображении смартфона?",
+      "ar": "هل القيم في صورة الهاتف الذكي ملزمة؟",
+      "it": "I valori nella grafica dello smartphone sono vincolanti?",
+      "zh": "手机示意图中的数值具有约束力吗？",
+      "hi": "क्या स्मार्टफोन चित्र में दिए गए मूल्य बाध्यकारी हैं?",
+      "es": "¿Son vinculantes los valores de la imagen del teléfono?",
+      "fr": "Les valeurs de l'illustration du smartphone sont-elles contractuelles ?",
+      "nl": "Zijn de waarden in de smartphone-afbeelding bindend?",
+      "pl": "Czy wartości na grafice smartfona są wiążące?"
+    },
+    "annual_faq_6_a": {
+      "de": "Die 177 Tarife und 477 EUR sind statischer Marketinginhalt und kein persönliches Berechnungsergebnis.",
+      "en": "The 177 tariffs and EUR 477 are static marketing content, not a personal calculation result.",
+      "tr": "177 tarife ve 477 EUR statik pazarlama içeriğidir; kişisel bir hesaplama sonucu değildir.",
+      "ru": "177 тарифов и 477 EUR — это статичный маркетинговый контент, а не результат индивидуального расчёта.",
+      "ar": "إن 177 تعرفة و477 EUR محتوى تسويقي ثابت وليست نتيجة حساب شخصي.",
+      "it": "Le 177 tariffe e i 477 EUR sono contenuti pubblicitari statici, non il risultato di un calcolo personale.",
+      "zh": "177种资费和477 EUR属于静态营销内容，并非个人计算结果。",
+      "hi": "177 टैरिफ और 477 EUR स्थिर विपणन सामग्री हैं, व्यक्तिगत गणना का परिणाम नहीं।",
+      "es": "Las 177 tarifas y los 477 EUR son contenido publicitario estático, no el resultado de un cálculo personal.",
+      "fr": "Les 177 tarifs et 477 EUR sont un contenu marketing statique, et non le résultat d'un calcul personnel.",
+      "nl": "De 177 tarieven en 477 EUR zijn statische marketinginhoud, geen persoonlijk berekeningsresultaat.",
+      "pl": "177 taryf i 477 EUR to statyczna treść marketingowa, a nie wynik osobistego obliczenia."
+    },
+    "annual_testimonials_h2": {
+      "de": "",
+      "en": "",
+      "tr": "",
+      "ru": "",
+      "ar": "",
+      "it": "",
+      "zh": "",
+      "hi": "",
+      "es": "",
+      "fr": "",
+      "nl": "",
+      "pl": ""
+    }
+  },
+  "integrations": {
+    "google_reviews": {
+      "jotform_widget_id": ""
+    }
+  },
+  "sections": {
+    "hero": {
+      "headline": {
+        "de": "Zahlst du gerade zu viel für Strom oder Gas?",
+        "en": "Are you currently paying too much for electricity or gas?",
+        "tr": "Şu anda elektrik veya gaz için fazla mı ödüyorsun?",
+        "ru": "Вы сейчас платите слишком много за электричество или газ?",
+        "ar": "هل تدفع حاليًا أكثر من اللازم مقابل الكهرباء أو الغاز؟",
+        "it": "Stai pagando troppo per luce o gas?",
+        "zh": "你现在是否为电费或燃气费支付过高？",
+        "hi": "क्या आप अभी बिजली या गैस के लिए ज़्यादा भुगतान कर रहे हैं?",
+        "es": "¿Estás pagando demasiado por electricidad o gas?",
+        "fr": "Payez-vous actuellement trop cher votre électricité ou votre gaz ?",
+        "nl": "Betaal je op dit moment te veel voor stroom of gas?",
+        "pl": "Czy obecnie płacisz za dużo za prąd lub gaz?"
+      },
+      "subline": {
+        "de": "Tarifpreise, Laufzeiten und Jahresabrechnungen verständlich einordnen. Tarivia hilft dir, deine nächste Entscheidung auf eine klare Grundlage zu stellen.",
+        "en": "Understand tariff prices, contract durations and annual bills. Tarivia helps you base your next decision on clear information.",
+        "tr": "Tarife fiyatlarını, sözleşme sürelerini ve yıllık faturaları anlaşılır biçimde değerlendir. Tarivia bir sonraki kararını açık bir temele dayandırmana yardımcı olur.",
+        "ru": "Понятно оценить цены тарифов, сроки договоров и годовые счета. Tarivia помогает принять следующее решение на ясной основе.",
+        "ar": "تقييم أسعار التعرفات ومدد العقود والفواتير السنوية بصورة مفهومة. تساعدك Tarivia على بناء قرارك التالي على أساس واضح.",
+        "it": "Comprendere prezzi delle tariffe, durate contrattuali e bollette annuali. Tarivia ti aiuta a basare la prossima decisione su una base chiara.",
+        "zh": "清楚地理解资费价格、合同期限和年度账单。Tarivia帮助你为下一步决定建立清晰的依据。",
+        "hi": "टैरिफ की कीमतों, अनुबंध की अवधियों और वार्षिक बिलों को स्पष्ट रूप से समझें। Tarivia तुम्हारे अगले निर्णय के लिए स्पष्ट आधार बनाने में मदद करता है।",
+        "es": "Comprender los precios de las tarifas, la duración de los contratos y las facturas anuales. Tarivia te ayuda a basar tu próxima decisión en una base clara.",
+        "fr": "Comprendre les prix des tarifs, les durées des contrats et les factures annuelles. Tarivia t'aide à fonder ta prochaine décision sur une base claire.",
+        "nl": "Tariefprijzen, contractduur en jaarrekeningen begrijpelijk beoordelen. Tarivia helpt je om je volgende beslissing op een duidelijke basis te nemen.",
+        "pl": "Zrozumiale ocenić ceny taryf, okresy obowiązywania umów i rachunki roczne. Tarivia pomaga oprzeć kolejną decyzję na jasnej podstawie."
+      },
+      "cta_text": {
+        "de": "Mit Tarivia den Tarif prüfen",
+        "en": "Check the tariff with Tarivia",
+        "tr": "Tarifeyi Tarivia ile kontrol et",
+        "ru": "Проверить тариф с Tarivia",
+        "ar": "مراجعة التعرفة مع Tarivia",
+        "it": "Verificare la tariffa con Tarivia",
+        "zh": "通过Tarivia核查资费",
+        "hi": "Tarivia के साथ टैरिफ जाँचें",
+        "es": "Revisar la tarifa con Tarivia",
+        "fr": "Vérifier le tarif avec Tarivia",
+        "nl": "Het tarief met Tarivia controleren",
+        "pl": "Sprawdzić taryfę z Tarivia"
+      },
+      "badge": {
+        "de": "",
+        "en": "",
+        "tr": "",
+        "ru": "",
+        "ar": "",
+        "it": "",
+        "zh": "",
+        "hi": "",
+        "es": "",
+        "fr": "",
+        "nl": "",
+        "pl": ""
+      },
+      "image_alt": "Tarivia: freigegebene schräge Smartphone-Marketinggrafik mit 177 Tarifen und 477 EUR; kein persönliches Ergebnis",
+      "result_note": {
+        "de": "Die Smartphone-Grafik zeigt ein freigegebenes Marketingbeispiel mit 177 Tarifen und 477 EUR. Dein persönliches Ergebnis wird separat berechnet; eine Ersparnis ist nicht garantiert.",
+        "en": "The smartphone graphic shows an approved marketing example with 177 tariffs and EUR 477. Your personal result is calculated separately; savings are not guaranteed.",
+        "tr": "Akıllı telefon görseli, 177 tarife ve 477 EUR içeren onaylanmış bir pazarlama örneğini gösterir. Kişisel sonucun ayrı hesaplanır; tasarruf garanti edilmez.",
+        "ru": "На изображении смартфона показан утверждённый маркетинговый пример со 177 тарифами и 477 EUR. Твой индивидуальный результат рассчитывается отдельно; экономия не гарантируется.",
+        "ar": "تعرض صورة الهاتف الذكي مثالًا تسويقيًا معتمدًا يتضمن 177 تعرفة و477 EUR. تُحسب نتيجتك الشخصية بشكل منفصل؛ ولا يوجد ضمان للتوفير.",
+        "it": "La grafica dello smartphone mostra un esempio pubblicitario approvato con 177 tariffe e 477 EUR. Il tuo risultato personale viene calcolato separatamente; il risparmio non è garantito.",
+        "zh": "手机示意图展示了经批准的营销示例，包含177种资费和477 EUR。你的个人结果另行计算；不保证节省费用。",
+        "hi": "स्मार्टफोन चित्र 177 टैरिफ और 477 EUR वाला स्वीकृत विपणन उदाहरण दिखाता है। तुम्हारे व्यक्तिगत परिणाम की गणना अलग की जाती है; बचत की गारंटी नहीं है।",
+        "es": "La imagen del teléfono muestra un ejemplo publicitario aprobado con 177 tarifas y 477 EUR. Tu resultado personal se calcula por separado; no se garantiza un ahorro.",
+        "fr": "L'illustration du smartphone présente un exemple marketing approuvé avec 177 tarifs et 477 EUR. Ton résultat personnel est calculé séparément ; les économies ne sont pas garanties.",
+        "nl": "De smartphone-afbeelding toont een goedgekeurd marketingvoorbeeld met 177 tarieven en 477 EUR. Je persoonlijke resultaat wordt apart berekend; een besparing is niet gegarandeerd.",
+        "pl": "Grafika smartfona przedstawia zatwierdzony przykład marketingowy ze 177 taryfami i 477 EUR. Twój osobisty wynik jest obliczany oddzielnie; oszczędności nie są gwarantowane."
+      }
+    },
+    "problem": {
+      "headline": {
+        "de": "Warum viele Haushalte unnötig hohe Strom- und Gaskosten haben",
+        "en": "Why many households pay unnecessarily high electricity and gas costs",
+        "tr": "Neden birçok hane elektrik ve gaz için gereksiz yere yüksek ödeme yapıyor",
+        "ru": "Почему многие домохозяйства переплачивают за электричество и газ",
+        "ar": "لماذا تتحمّل كثير من الأسر تكاليف كهرباء وغاز أعلى من اللازم",
+        "it": "Perché molte famiglie pagano inutilmente troppo per luce e gas",
+        "zh": "为什么许多家庭在电费和燃气费上不必要地多花钱",
+        "hi": "कई परिवार बिजली और गैस पर बेवजह ज़्यादा खर्च क्यों करते हैं",
+        "es": "Por qué muchos hogares pagan de más en luz y gas sin necesidad",
+        "fr": "Pourquoi de nombreux foyers paient inutilement trop cher l'électricité et le gaz",
+        "nl": "Waarom veel huishoudens onnodig hoge stroom- en gaskosten hebben",
+        "pl": "Dlaczego wiele gospodarstw domowych niepotrzebnie płaci za dużo za prąd i gaz"
+      },
+      "items": {
+        "de": [
+          {
+            "title": "Viele prüfen ihren Tarif jahrelang nicht",
+            "description": "Wer seinen Tarif lange nicht überprüft, zahlt oft deutlich mehr als nötig, weil sich Preise und Angebote ständig verändern.",
+            "iconKey": "calendar"
+          },
+          {
+            "title": "Viele glauben, ihr Tarif sei bereits günstig",
+            "description": "Ein Tarif, der früher gut war, kann heute längst nicht mehr optimal sein. Ohne Prüfung merkt man das oft nicht.",
+            "iconKey": "coins"
+          },
+          {
+            "title": "Viele bleiben beim Grundversorger",
+            "description": "In vielen Regionen ist die Grundversorgung deutlich teurer als alternative Tarife. Trotzdem bleiben viele Haushalte dort oft aus Gewohnheit oder Unwissen.",
+            "iconKey": "building"
+          },
+          {
+            "title": "Der Tarifmarkt wirkt kompliziert",
+            "description": "Hunderte Angebote mit unterschiedlichen Bedingungen machen es schwer zu erkennen, welcher Tarif wirklich gut ist deshalb lassen viele ihren Tarif einfach unverändert.",
+            "iconKey": "search"
+          }
+        ],
+        "en": [
+          {
+            "title": "Many people do not check their tariff for years",
+            "description": "People who do not review their tariff for a long time often pay significantly more than necessary because prices and offers keep changing.",
+            "iconKey": "calendar"
+          },
+          {
+            "title": "Many people believe their tariff is already inexpensive",
+            "description": "A tariff that was good in the past may no longer be optimal today. Without checking, this often goes unnoticed.",
+            "iconKey": "coins"
+          },
+          {
+            "title": "Many people stay with the default supplier",
+            "description": "In many regions, the default supply tariff is significantly more expensive than alternative tariffs. Nevertheless, many households stay with it out of habit or lack of knowledge.",
+            "iconKey": "building"
+          },
+          {
+            "title": "The tariff market seems complicated",
+            "description": "Hundreds of offers with different terms make it difficult to identify a genuinely good tariff, so many people simply leave their tariff unchanged.",
+            "iconKey": "search"
+          }
+        ],
+        "tr": [
+          {
+            "title": "Birçok kişi tarifesini yıllarca kontrol etmez",
+            "description": "Tarifesini uzun süre kontrol etmeyen kişiler, fiyatlar ve teklifler sürekli değiştiği için çoğu zaman gerekenden belirgin ölçüde fazla öder.",
+            "iconKey": "calendar"
+          },
+          {
+            "title": "Birçok kişi tarifesinin zaten uygun fiyatlı olduğunu düşünür",
+            "description": "Eskiden iyi olan bir tarife bugün artık en uygun seçenek olmayabilir. Kontrol etmeden bu çoğu zaman fark edilmez.",
+            "iconKey": "coins"
+          },
+          {
+            "title": "Birçok kişi temel tedarikçisinde kalır",
+            "description": "Birçok bölgede temel tedarik tarifesi, alternatif tarifelerden belirgin ölçüde pahalıdır. Buna rağmen birçok hane alışkanlık veya bilgi eksikliği nedeniyle orada kalır.",
+            "iconKey": "building"
+          },
+          {
+            "title": "Tarife piyasası karmaşık görünür",
+            "description": "Farklı koşullara sahip yüzlerce teklif, hangi tarifenin gerçekten iyi olduğunu anlamayı zorlaştırır; bu yüzden birçok kişi tarifesini olduğu gibi bırakır.",
+            "iconKey": "search"
+          }
+        ],
+        "ru": [
+          {
+            "title": "Многие годами не проверяют свой тариф",
+            "description": "Тот, кто долго не проверяет свой тариф, часто платит значительно больше необходимого, потому что цены и предложения постоянно меняются.",
+            "iconKey": "calendar"
+          },
+          {
+            "title": "Многие считают, что их тариф уже выгодный",
+            "description": "Тариф, который раньше был хорошим, сегодня может уже не быть оптимальным. Без проверки это часто остаётся незамеченным.",
+            "iconKey": "coins"
+          },
+          {
+            "title": "Многие остаются у базового поставщика",
+            "description": "Во многих регионах базовое снабжение значительно дороже альтернативных тарифов. Тем не менее многие домохозяйства остаются на нём по привычке или из-за недостатка информации.",
+            "iconKey": "building"
+          },
+          {
+            "title": "Рынок тарифов кажется сложным",
+            "description": "Сотни предложений с разными условиями затрудняют понимание того, какой тариф действительно хорош; поэтому многие просто оставляют свой тариф без изменений.",
+            "iconKey": "search"
+          }
+        ],
+        "ar": [
+          {
+            "title": "كثيرون لا يراجعون تعرفتهم لسنوات",
+            "description": "من لا يراجع تعرفته لفترة طويلة يدفع غالبًا أكثر بكثير مما يلزم، لأن الأسعار والعروض تتغير باستمرار.",
+            "iconKey": "calendar"
+          },
+          {
+            "title": "كثيرون يعتقدون أن تعرفتهم منخفضة التكلفة بالفعل",
+            "description": "قد لا تكون التعرفة التي كانت جيدة سابقًا هي الأنسب اليوم. وغالبًا لا يُلاحظ ذلك دون مراجعة.",
+            "iconKey": "coins"
+          },
+          {
+            "title": "كثيرون يبقون مع المزوّد الأساسي",
+            "description": "في كثير من المناطق تكون تعرفة الإمداد الأساسي أغلى بكثير من التعرفات البديلة. ومع ذلك تبقى أسر كثيرة عليها بدافع العادة أو نقص المعرفة.",
+            "iconKey": "building"
+          },
+          {
+            "title": "يبدو سوق التعرفات معقدًا",
+            "description": "مئات العروض بشروط مختلفة تجعل معرفة التعرفة الجيدة فعلًا أمرًا صعبًا؛ لذلك يترك كثيرون تعرفتهم دون تغيير.",
+            "iconKey": "search"
+          }
+        ],
+        "it": [
+          {
+            "title": "Molti non verificano la propria tariffa per anni",
+            "description": "Chi non verifica la propria tariffa per molto tempo spesso paga molto più del necessario, perché prezzi e offerte cambiano continuamente.",
+            "iconKey": "calendar"
+          },
+          {
+            "title": "Molti credono che la propria tariffa sia già conveniente",
+            "description": "Una tariffa che in passato era buona può non essere più ottimale oggi. Senza una verifica, spesso non ce ne si accorge.",
+            "iconKey": "coins"
+          },
+          {
+            "title": "Molti restano con il fornitore del servizio di base",
+            "description": "In molte regioni, il servizio di base è molto più costoso delle tariffe alternative. Eppure molte famiglie vi restano per abitudine o mancanza di informazioni.",
+            "iconKey": "building"
+          },
+          {
+            "title": "Il mercato delle tariffe sembra complicato",
+            "description": "Centinaia di offerte con condizioni diverse rendono difficile capire quale tariffa sia davvero buona; per questo molti lasciano semplicemente invariata la propria tariffa.",
+            "iconKey": "search"
+          }
+        ],
+        "zh": [
+          {
+            "title": "很多人多年不核查自己的资费",
+            "description": "长期不核查资费的人往往支付明显超出必要水平的费用，因为价格和报价一直在变化。",
+            "iconKey": "calendar"
+          },
+          {
+            "title": "很多人认为自己的资费已经很便宜",
+            "description": "过去合适的资费今天可能已不再最优。不核查往往就注意不到。",
+            "iconKey": "coins"
+          },
+          {
+            "title": "很多人继续使用基本供应商",
+            "description": "在许多地区，基本供应资费明显高于其他资费。然而，很多家庭仍因习惯或缺乏了解而继续使用。",
+            "iconKey": "building"
+          },
+          {
+            "title": "资费市场看起来很复杂",
+            "description": "数百种条件不同的报价让人难以判断哪种资费真正合适，因此很多人干脆保持资费不变。",
+            "iconKey": "search"
+          }
+        ],
+        "hi": [
+          {
+            "title": "बहुत से लोग वर्षों तक अपना टैरिफ नहीं जाँचते",
+            "description": "जो लंबे समय तक अपना टैरिफ नहीं जाँचते, वे अक्सर ज़रूरत से काफ़ी अधिक भुगतान करते हैं, क्योंकि कीमतें और प्रस्ताव लगातार बदलते रहते हैं।",
+            "iconKey": "calendar"
+          },
+          {
+            "title": "बहुत से लोग मानते हैं कि उनका टैरिफ पहले से सस्ता है",
+            "description": "जो टैरिफ पहले अच्छा था, वह आज सर्वोत्तम न हो सकता है। जाँच किए बिना यह अक्सर पता नहीं चलता।",
+            "iconKey": "coins"
+          },
+          {
+            "title": "बहुत से लोग मूल आपूर्ति प्रदाता के साथ बने रहते हैं",
+            "description": "कई क्षेत्रों में मूल आपूर्ति टैरिफ वैकल्पिक टैरिफ से काफ़ी महँगा है। फिर भी कई घर आदत या जानकारी की कमी के कारण उसी पर रहते हैं।",
+            "iconKey": "building"
+          },
+          {
+            "title": "टैरिफ बाज़ार जटिल लगता है",
+            "description": "अलग-अलग शर्तों वाले सैकड़ों प्रस्तावों से यह समझना कठिन हो जाता है कि कौन-सा टैरिफ वास्तव में अच्छा है; इसलिए बहुत से लोग अपना टैरिफ बस बिना बदलाव के रखते हैं।",
+            "iconKey": "search"
+          }
+        ],
+        "es": [
+          {
+            "title": "Muchas personas no revisan su tarifa durante años",
+            "description": "Quien no revisa su tarifa durante mucho tiempo suele pagar bastante más de lo necesario, porque los precios y las ofertas cambian constantemente.",
+            "iconKey": "calendar"
+          },
+          {
+            "title": "Muchas personas creen que su tarifa ya es económica",
+            "description": "Una tarifa que antes era buena puede haber dejado de ser óptima hoy. Sin revisarla, a menudo no se nota.",
+            "iconKey": "coins"
+          },
+          {
+            "title": "Muchas personas siguen con el proveedor del suministro básico",
+            "description": "En muchas regiones, el suministro básico es bastante más caro que las tarifas alternativas. Aun así, muchos hogares permanecen en él por costumbre o desconocimiento.",
+            "iconKey": "building"
+          },
+          {
+            "title": "El mercado de tarifas parece complicado",
+            "description": "Cientos de ofertas con condiciones distintas dificultan reconocer qué tarifa es realmente buena; por eso muchas personas simplemente mantienen su tarifa sin cambios.",
+            "iconKey": "search"
+          }
+        ],
+        "fr": [
+          {
+            "title": "Beaucoup ne vérifient pas leur tarif pendant des années",
+            "description": "Ceux qui ne vérifient pas leur tarif pendant longtemps paient souvent nettement plus que nécessaire, car les prix et les offres évoluent constamment.",
+            "iconKey": "calendar"
+          },
+          {
+            "title": "Beaucoup pensent que leur tarif est déjà avantageux",
+            "description": "Un tarif qui était bon autrefois peut ne plus être optimal aujourd'hui. Sans vérification, cela passe souvent inaperçu.",
+            "iconKey": "coins"
+          },
+          {
+            "title": "Beaucoup restent chez le fournisseur du tarif de base",
+            "description": "Dans de nombreuses régions, le tarif de base est nettement plus cher que les tarifs alternatifs. Pourtant, beaucoup de foyers y restent par habitude ou par manque d'information.",
+            "iconKey": "building"
+          },
+          {
+            "title": "Le marché des tarifs semble compliqué",
+            "description": "Des centaines d'offres aux conditions différentes rendent difficile l'identification d'un tarif réellement intéressant ; beaucoup laissent donc simplement leur tarif inchangé.",
+            "iconKey": "search"
+          }
+        ],
+        "nl": [
+          {
+            "title": "Veel mensen controleren hun tarief jarenlang niet",
+            "description": "Wie zijn tarief lange tijd niet controleert, betaalt vaak aanzienlijk meer dan nodig, omdat prijzen en aanbiedingen voortdurend veranderen.",
+            "iconKey": "calendar"
+          },
+          {
+            "title": "Veel mensen denken dat hun tarief al voordelig is",
+            "description": "Een tarief dat vroeger goed was, kan vandaag niet meer optimaal zijn. Zonder controle merk je dat vaak niet.",
+            "iconKey": "coins"
+          },
+          {
+            "title": "Veel mensen blijven bij de basisleverancier",
+            "description": "In veel regio's is basisvoorziening aanzienlijk duurder dan alternatieve tarieven. Toch blijven veel huishoudens daarbij uit gewoonte of onwetendheid.",
+            "iconKey": "building"
+          },
+          {
+            "title": "De tarievenmarkt lijkt ingewikkeld",
+            "description": "Honderden aanbiedingen met verschillende voorwaarden maken het moeilijk om te zien welk tarief echt goed is; daarom laten veel mensen hun tarief gewoon ongewijzigd.",
+            "iconKey": "search"
+          }
+        ],
+        "pl": [
+          {
+            "title": "Wiele osób nie sprawdza swojej taryfy przez lata",
+            "description": "Kto przez długi czas nie sprawdza taryfy, często płaci znacznie więcej niż potrzeba, ponieważ ceny i oferty stale się zmieniają.",
+            "iconKey": "calendar"
+          },
+          {
+            "title": "Wiele osób uważa, że ich taryfa jest już korzystna",
+            "description": "Taryfa, która kiedyś była dobra, dziś może już nie być optymalna. Bez sprawdzenia często się tego nie zauważa.",
+            "iconKey": "coins"
+          },
+          {
+            "title": "Wiele osób pozostaje przy dostawcy podstawowym",
+            "description": "W wielu regionach taryfa podstawowa jest znacznie droższa od taryf alternatywnych. Mimo to wiele gospodarstw pozostaje przy niej z przyzwyczajenia lub niewiedzy.",
+            "iconKey": "building"
+          },
+          {
+            "title": "Rynek taryf wydaje się skomplikowany",
+            "description": "Setki ofert z różnymi warunkami utrudniają ocenę, która taryfa jest naprawdę dobra; dlatego wiele osób po prostu pozostawia swoją taryfę bez zmian.",
+            "iconKey": "search"
+          }
+        ]
+      }
+    },
+    "solution": {
+      "headline": {
+        "de": "Mit Tarivia wird aus Zahlen ein Überblick.",
+        "en": "With Tarivia, numbers become an overview.",
+        "tr": "Tarivia ile rakamlar bir genel görünüme dönüşür.",
+        "ru": "С Tarivia цифры складываются в обзор.",
+        "ar": "مع Tarivia تتحول الأرقام إلى صورة عامة.",
+        "it": "Con Tarivia, i numeri diventano una visione d'insieme.",
+        "zh": "通过Tarivia，数字形成清晰的概况。",
+        "hi": "Tarivia के साथ आँकड़े एक समग्र अवलोकन बनते हैं।",
+        "es": "Con Tarivia, las cifras se convierten en una visión general.",
+        "fr": "Avec Tarivia, les chiffres deviennent une vue d'ensemble.",
+        "nl": "Met Tarivia worden cijfers een overzicht.",
+        "pl": "Z Tarivia liczby tworzą przejrzysty obraz."
+      },
+      "body": {
+        "de": "Betrachte Verbrauch, Kosten und Vertragsbedingungen gemeinsam. So kannst du Angebote besser einordnen und offene Fragen gezielt klären.",
+        "en": "Consider consumption, costs and contract terms together. This helps you assess offers and clarify outstanding questions specifically.",
+        "tr": "Tüketimi, maliyetleri ve sözleşme koşullarını birlikte değerlendir. Böylece teklifleri daha iyi değerlendirebilir ve açık kalan soruları somut biçimde netleştirebilirsin.",
+        "ru": "Рассмотри вместе потребление, расходы и условия договора. Так ты сможешь лучше оценить предложения и целенаправленно уточнить открытые вопросы.",
+        "ar": "انظر إلى الاستهلاك والتكاليف وشروط العقد معًا. بذلك تستطيع تقييم العروض بصورة أفضل وتوضيح الأسئلة المفتوحة بشكل محدد.",
+        "it": "Considera insieme consumi, costi e condizioni contrattuali. Così puoi valutare meglio le offerte e chiarire in modo mirato le domande aperte.",
+        "zh": "综合查看用量、费用和合同条件。这样你可以更好地评估报价，并有针对性地澄清未解决的问题。",
+        "hi": "खपत, खर्चों और अनुबंध की शर्तों को साथ देखो। इससे तुम प्रस्तावों का बेहतर आकलन कर सकते हो और खुले सवालों को ठोस रूप से स्पष्ट कर सकते हो।",
+        "es": "Examina conjuntamente el consumo, los costes y las condiciones del contrato. Así puedes valorar mejor las ofertas y aclarar concretamente las cuestiones pendientes.",
+        "fr": "Examine ensemble la consommation, les coûts et les conditions du contrat. Tu peux ainsi mieux évaluer les offres et clarifier précisément les questions en suspens.",
+        "nl": "Bekijk verbruik, kosten en contractvoorwaarden samen. Zo kun je aanbiedingen beter beoordelen en openstaande vragen gericht ophelderen.",
+        "pl": "Rozpatruj razem zużycie, koszty i warunki umowy. Dzięki temu możesz lepiej ocenić oferty i konkretnie wyjaśnić otwarte kwestie."
+      },
+      "cta_text": {
+        "de": "Mit Tarivia den Tarif prüfen",
+        "en": "Check the tariff with Tarivia",
+        "tr": "Tarifeyi Tarivia ile kontrol et",
+        "ru": "Проверить тариф с Tarivia",
+        "ar": "مراجعة التعرفة مع Tarivia",
+        "it": "Verificare la tariffa con Tarivia",
+        "zh": "通过Tarivia核查资费",
+        "hi": "Tarivia के साथ टैरिफ जाँचें",
+        "es": "Revisar la tarifa con Tarivia",
+        "fr": "Vérifier le tarif avec Tarivia",
+        "nl": "Het tarief met Tarivia controleren",
+        "pl": "Sprawdzić taryfę z Tarivia"
+      },
+      "result_note": {
+        "de": "Die Smartphone-Grafik zeigt ein freigegebenes Marketingbeispiel mit 177 Tarifen und 477 EUR. Dein persönliches Ergebnis wird separat berechnet; eine Ersparnis ist nicht garantiert.",
+        "en": "The smartphone graphic shows an approved marketing example with 177 tariffs and EUR 477. Your personal result is calculated separately; savings are not guaranteed.",
+        "tr": "Akıllı telefon görseli, 177 tarife ve 477 EUR içeren onaylanmış bir pazarlama örneğini gösterir. Kişisel sonucun ayrı hesaplanır; tasarruf garanti edilmez.",
+        "ru": "На изображении смартфона показан утверждённый маркетинговый пример со 177 тарифами и 477 EUR. Твой индивидуальный результат рассчитывается отдельно; экономия не гарантируется.",
+        "ar": "تعرض صورة الهاتف الذكي مثالًا تسويقيًا معتمدًا يتضمن 177 تعرفة و477 EUR. تُحسب نتيجتك الشخصية بشكل منفصل؛ ولا يوجد ضمان للتوفير.",
+        "it": "La grafica dello smartphone mostra un esempio pubblicitario approvato con 177 tariffe e 477 EUR. Il tuo risultato personale viene calcolato separatamente; il risparmio non è garantito.",
+        "zh": "手机示意图展示了经批准的营销示例，包含177种资费和477 EUR。你的个人结果另行计算；不保证节省费用。",
+        "hi": "स्मार्टफोन चित्र 177 टैरिफ और 477 EUR वाला स्वीकृत विपणन उदाहरण दिखाता है। तुम्हारे व्यक्तिगत परिणाम की गणना अलग की जाती है; बचत की गारंटी नहीं है।",
+        "es": "La imagen del teléfono muestra un ejemplo publicitario aprobado con 177 tarifas y 477 EUR. Tu resultado personal se calcula por separado; no se garantiza un ahorro.",
+        "fr": "L'illustration du smartphone présente un exemple marketing approuvé avec 177 tarifs et 477 EUR. Ton résultat personnel est calculé séparément ; les économies ne sont pas garanties.",
+        "nl": "De smartphone-afbeelding toont een goedgekeurd marketingvoorbeeld met 177 tarieven en 477 EUR. Je persoonlijke resultaat wordt apart berekend; een besparing is niet gegarandeerd.",
+        "pl": "Grafika smartfona przedstawia zatwierdzony przykład marketingowy ze 177 taryfami i 477 EUR. Twój osobisty wynik jest obliczany oddzielnie; oszczędności nie są gwarantowane."
+      },
+      "image_url": "supabase-storage://website-assets/locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/section-straight.jpeg",
+      "image_alt": "Tarivia: freigegebene gerade Smartphone-Marketinggrafik; statisches Beispiel mit 177 Tarifen und 477 EUR",
+      "image_position": "left"
+    },
+    "how_it_works": {
+      "headline": {
+        "de": "So einfach funktioniert's",
+        "en": "It's that simple",
+        "tr": "İşte bu kadar basit",
+        "ru": "Это работает очень просто",
+        "ar": "هكذا تعمل الخدمة ببساطة",
+        "it": "Funziona in modo semplicissimo",
+        "zh": "流程就是这么简单",
+        "hi": "यह इतना आसान है",
+        "es": "Así de simple funciona",
+        "fr": "C'est aussi simple que ça",
+        "nl": "Zo eenvoudig werkt het",
+        "pl": "To działa naprawdę prosto"
+      },
+      "cta_text": {
+        "de": "Mit Tarivia den Tarif prüfen",
+        "en": "Check the tariff with Tarivia",
+        "tr": "Tarifeyi Tarivia ile kontrol et",
+        "ru": "Проверить тариф с Tarivia",
+        "ar": "مراجعة التعرفة مع Tarivia",
+        "it": "Verificare la tariffa con Tarivia",
+        "zh": "通过Tarivia核查资费",
+        "hi": "Tarivia के साथ टैरिफ जाँचें",
+        "es": "Revisar la tarifa con Tarivia",
+        "fr": "Vérifier le tarif avec Tarivia",
+        "nl": "Het tarief met Tarivia controleren",
+        "pl": "Sprawdzić taryfę z Tarivia"
+      },
+      "items": {
+        "de": [
+          {
+            "title": "Ausgangslage erfassen",
+            "description": "Halte Verbrauch, Postleitzahl und deinen aktuellen Tarif bereit."
+          },
+          {
+            "title": "Kosten einordnen",
+            "description": "Betrachte Grundpreis, Arbeitspreis und Vertragsbedingungen."
+          },
+          {
+            "title": "Angebote abwägen",
+            "description": "Vergleiche Angebote anhand deiner Angaben und prüfe offene Fragen."
+          },
+          {
+            "title": "Bewusst entscheiden",
+            "description": "Ein möglicher Wechsel ist eine eigene Entscheidung; die Grafik enthält keine individuelle Zusage."
+          }
+        ],
+        "en": [
+          {
+            "title": "Record your starting situation",
+            "description": "Have your consumption, postcode and current tariff ready."
+          },
+          {
+            "title": "Put costs into perspective",
+            "description": "Consider the basic charge, price per unit of energy and contract terms."
+          },
+          {
+            "title": "Weigh up offers",
+            "description": "Compare offers using your information and check outstanding questions."
+          },
+          {
+            "title": "Make an informed decision",
+            "description": "A possible switch is your own decision; the graphic contains no individual commitment."
+          }
+        ],
+        "tr": [
+          {
+            "title": "Başlangıç durumunu belirle",
+            "description": "Tüketimini, posta kodunu ve mevcut tarifeni hazır bulundur."
+          },
+          {
+            "title": "Maliyetleri değerlendir",
+            "description": "Sabit ücreti, enerji birim fiyatını ve sözleşme koşullarını incele."
+          },
+          {
+            "title": "Teklifleri tart",
+            "description": "Teklifleri bilgilerine göre karşılaştır ve açık kalan soruları incele."
+          },
+          {
+            "title": "Bilinçli karar ver",
+            "description": "Olası bir değişiklik senin kendi kararındır; görsel bireysel bir taahhüt içermez."
+          }
+        ],
+        "ru": [
+          {
+            "title": "Определить исходную ситуацию",
+            "description": "Подготовь данные о потреблении, почтовый индекс и текущий тариф."
+          },
+          {
+            "title": "Оценить расходы в контексте",
+            "description": "Рассмотри постоянную плату, цену за единицу энергии и условия договора."
+          },
+          {
+            "title": "Взвесить предложения",
+            "description": "Сравни предложения на основе своих данных и проверь открытые вопросы."
+          },
+          {
+            "title": "Принять осознанное решение",
+            "description": "Возможная смена — твоё собственное решение; изображение не содержит индивидуального обязательства."
+          }
+        ],
+        "ar": [
+          {
+            "title": "تحديد الوضع الحالي",
+            "description": "جهّز بيانات استهلاكك ورمزك البريدي وتعرفتك الحالية."
+          },
+          {
+            "title": "وضع التكاليف في سياقها",
+            "description": "انظر إلى الرسم الثابت وسعر وحدة الطاقة وشروط العقد."
+          },
+          {
+            "title": "موازنة العروض",
+            "description": "قارن العروض بناءً على معلوماتك وراجع الأسئلة المفتوحة."
+          },
+          {
+            "title": "اتخاذ قرار واعٍ",
+            "description": "أي تغيير محتمل هو قرارك الشخصي؛ ولا تتضمن الصورة تعهّدًا فرديًا."
+          }
+        ],
+        "it": [
+          {
+            "title": "Rilevare la situazione iniziale",
+            "description": "Tieni a portata di mano i consumi, il codice postale e la tua tariffa attuale."
+          },
+          {
+            "title": "Inquadrare i costi",
+            "description": "Considera la quota fissa, il prezzo per unità di energia e le condizioni contrattuali."
+          },
+          {
+            "title": "Valutare le offerte",
+            "description": "Confronta le offerte in base ai tuoi dati ed esamina le domande aperte."
+          },
+          {
+            "title": "Decidere consapevolmente",
+            "description": "Un eventuale cambio è una tua decisione; la grafica non contiene alcun impegno individuale."
+          }
+        ],
+        "zh": [
+          {
+            "title": "记录当前情况",
+            "description": "准备好用量、邮政编码和当前资费。"
+          },
+          {
+            "title": "结合情况评估费用",
+            "description": "查看固定费用、单位能源价格和合同条件。"
+          },
+          {
+            "title": "权衡报价",
+            "description": "根据你的信息比较报价，并查看尚未解决的问题。"
+          },
+          {
+            "title": "做出知情决定",
+            "description": "是否更换由你自行决定；图示不包含个人承诺。"
+          }
+        ],
+        "hi": [
+          {
+            "title": "शुरुआती स्थिति दर्ज करें",
+            "description": "अपनी खपत, डाक कोड और वर्तमान टैरिफ तैयार रखो।"
+          },
+          {
+            "title": "खर्चों को संदर्भ में समझें",
+            "description": "स्थिर शुल्क, ऊर्जा की प्रति इकाई कीमत और अनुबंध की शर्तें देखो।"
+          },
+          {
+            "title": "प्रस्तावों को परखें",
+            "description": "अपनी जानकारी के आधार पर प्रस्तावों की तुलना करो और खुले सवालों की जाँच करो।"
+          },
+          {
+            "title": "सोच-समझकर निर्णय लें",
+            "description": "संभावित बदलाव तुम्हारा अपना निर्णय है; चित्र में कोई व्यक्तिगत वचन नहीं है।"
+          }
+        ],
+        "es": [
+          {
+            "title": "Registrar la situación de partida",
+            "description": "Ten preparados el consumo, el código postal y tu tarifa actual."
+          },
+          {
+            "title": "Poner los costes en contexto",
+            "description": "Examina la cuota fija, el precio por unidad de energía y las condiciones del contrato."
+          },
+          {
+            "title": "Valorar las ofertas",
+            "description": "Compara las ofertas según tus datos y revisa las cuestiones pendientes."
+          },
+          {
+            "title": "Decidir con conocimiento",
+            "description": "Un posible cambio es tu propia decisión; la imagen no contiene ningún compromiso individual."
+          }
+        ],
+        "fr": [
+          {
+            "title": "Faire le point sur la situation initiale",
+            "description": "Prépare ta consommation, ton code postal et ton tarif actuel."
+          },
+          {
+            "title": "Mettre les coûts en perspective",
+            "description": "Examine le prix fixe, le prix par unité d'énergie et les conditions du contrat."
+          },
+          {
+            "title": "Évaluer les offres",
+            "description": "Compare les offres à partir de tes informations et examine les questions en suspens."
+          },
+          {
+            "title": "Décider en connaissance de cause",
+            "description": "Un éventuel changement reste ta propre décision ; l'illustration ne contient aucun engagement individuel."
+          }
+        ],
+        "nl": [
+          {
+            "title": "Je uitgangssituatie vastleggen",
+            "description": "Houd je verbruik, postcode en huidige tarief bij de hand."
+          },
+          {
+            "title": "Kosten in perspectief plaatsen",
+            "description": "Bekijk het vaste bedrag, de prijs per energie-eenheid en de contractvoorwaarden."
+          },
+          {
+            "title": "Aanbiedingen afwegen",
+            "description": "Vergelijk aanbiedingen aan de hand van je gegevens en bekijk openstaande vragen."
+          },
+          {
+            "title": "Bewust beslissen",
+            "description": "Een mogelijke overstap is je eigen beslissing; de afbeelding bevat geen individuele toezegging."
+          }
+        ],
+        "pl": [
+          {
+            "title": "Określić sytuację wyjściową",
+            "description": "Przygotuj zużycie, kod pocztowy i obecną taryfę."
+          },
+          {
+            "title": "Ocenić koszty w kontekście",
+            "description": "Przyjrzyj się opłacie stałej, cenie za jednostkę energii i warunkom umowy."
+          },
+          {
+            "title": "Rozważyć oferty",
+            "description": "Porównaj oferty na podstawie swoich danych i sprawdź otwarte kwestie."
+          },
+          {
+            "title": "Podjąć świadomą decyzję",
+            "description": "Ewentualna zmiana jest Twoją własną decyzją; grafika nie zawiera indywidualnego zobowiązania."
+          }
+        ]
+      }
+    },
+    "comparison": {
+      "headline": {
+        "de": "So unterscheidet sich der digitale Energieassistent von Vergleichsportalen",
+        "en": "How the digital Energy Assistant differs from comparison portals",
+        "tr": "Dijital Enerji Asistanı karşılaştırma portallarından nasıl ayrılır",
+        "ru": "Чем цифровой Энергоассистент отличается от сайтов сравнения",
+        "ar": "كيف يختلف مساعد الطاقة الرقمي عن مواقع المقارنة",
+        "it": "Ecco come l'Assistente Energia digitale si distingue dai portali di confronto",
+        "zh": "数字能源助手与比价平台有何不同",
+        "hi": "डिजिटल एनर्जी असिस्टेंट तुलना पोर्टल्स से कैसे अलग है",
+        "es": "Así se diferencia el Asistente Energético digital de los comparadores",
+        "fr": "En quoi l'Assistant Énergie numérique se distingue des comparateurs",
+        "nl": "Zo onderscheidt de digitale Energieassistent zich van vergelijkingssites",
+        "pl": "Tak cyfrowy Asystent Energii różni się od porównywarek ofert"
+      },
+      "portals_title": {
+        "de": "Beim eigenen Vergleich",
+        "en": "When comparing for yourself",
+        "tr": "Kendi karşılaştırmanda",
+        "ru": "При самостоятельном сравнении",
+        "ar": "عند المقارنة بنفسك",
+        "it": "Nel confronto autonomo",
+        "zh": "自行比较时",
+        "hi": "खुद तुलना करते समय",
+        "es": "Al comparar por tu cuenta",
+        "fr": "Lors d'une comparaison personnelle",
+        "nl": "Bij zelf vergelijken",
+        "pl": "Przy samodzielnym porównaniu"
+      },
+      "assistant_title": {
+        "de": "Mit Tarivia",
+        "en": "With Tarivia",
+        "tr": "Tarivia ile",
+        "ru": "С Tarivia",
+        "ar": "مع Tarivia",
+        "it": "Con Tarivia",
+        "zh": "通过Tarivia",
+        "hi": "Tarivia के साथ",
+        "es": "Con Tarivia",
+        "fr": "Avec Tarivia",
+        "nl": "Met Tarivia",
+        "pl": "Z Tarivia"
+      },
+      "portals": {
+        "de": [
+          "Preise und Bedingungen selbst zusammenführen",
+          "Verbrauch und Laufzeit in den Vergleich einbeziehen",
+          "Unklare Angaben gezielt nachfragen"
+        ],
+        "en": [
+          "Bring prices and terms together yourself",
+          "Include consumption and contract duration in the comparison",
+          "Ask specific questions about unclear information"
+        ],
+        "tr": [
+          "Fiyatları ve koşulları kendin bir araya getir",
+          "Tüketimi ve sözleşme süresini karşılaştırmaya dahil et",
+          "Belirsiz bilgiler hakkında somut sorular sor"
+        ],
+        "ru": [
+          "Самостоятельно собрать цены и условия",
+          "Учесть потребление и срок договора при сравнении",
+          "Задать конкретные вопросы о непонятных данных"
+        ],
+        "ar": [
+          "جمع الأسعار والشروط بنفسك",
+          "إدراج الاستهلاك ومدة العقد في المقارنة",
+          "طرح أسئلة محددة حول المعلومات غير الواضحة"
+        ],
+        "it": [
+          "Raccogliere autonomamente prezzi e condizioni",
+          "Includere consumi e durata del contratto nel confronto",
+          "Chiedere chiarimenti precisi sulle informazioni poco chiare"
+        ],
+        "zh": [
+          "自行汇总价格和条件",
+          "将用量和合同期限纳入比较",
+          "针对不明确的信息提出具体问题"
+        ],
+        "hi": [
+          "कीमतें और शर्तें खुद एक साथ जुटाएँ",
+          "तुलना में खपत और अनुबंध की अवधि शामिल करें",
+          "अस्पष्ट जानकारी के बारे में ठोस सवाल पूछें"
+        ],
+        "es": [
+          "Reunir por tu cuenta precios y condiciones",
+          "Incluir el consumo y la duración del contrato en la comparación",
+          "Preguntar de forma concreta sobre los datos poco claros"
+        ],
+        "fr": [
+          "Rassembler soi-même les prix et les conditions",
+          "Inclure la consommation et la durée du contrat dans la comparaison",
+          "Poser des questions précises sur les informations peu claires"
+        ],
+        "nl": [
+          "Zelf prijzen en voorwaarden samenbrengen",
+          "Verbruik en contractduur meenemen in de vergelijking",
+          "Gericht navraag doen over onduidelijke informatie"
+        ],
+        "pl": [
+          "Samodzielnie zestawić ceny i warunki",
+          "Uwzględnić zużycie i czas trwania umowy w porównaniu",
+          "Zadać konkretne pytania o niejasne informacje"
+        ]
+      },
+      "assistant": {
+        "de": [
+          "Tarivia stellt deine Energiekosten in den Mittelpunkt.",
+          "Tarifbedingungen gehören zum Blick auf den Preis.",
+          "Die Entscheidung richtet sich nach deiner persönlichen Ausgangslage."
+        ],
+        "en": [
+          "Tarivia puts your energy costs at the centre.",
+          "Tariff terms are part of considering the price.",
+          "The decision depends on your personal starting situation."
+        ],
+        "tr": [
+          "Tarivia enerji maliyetlerini merkeze alır.",
+          "Tarife koşulları, fiyat değerlendirmesinin bir parçasıdır.",
+          "Karar, kişisel başlangıç durumuna bağlıdır."
+        ],
+        "ru": [
+          "Tarivia ставит в центр твои расходы на энергию.",
+          "Условия тарифа — часть оценки цены.",
+          "Решение зависит от твоей личной исходной ситуации."
+        ],
+        "ar": [
+          "تضع Tarivia تكاليف طاقتك في المركز.",
+          "شروط التعرفة جزء من النظر إلى السعر.",
+          "يعتمد القرار على وضعك الشخصي الحالي."
+        ],
+        "it": [
+          "Tarivia mette al centro i tuoi costi energetici.",
+          "Le condizioni tariffarie fanno parte della valutazione del prezzo.",
+          "La decisione dipende dalla tua situazione personale iniziale."
+        ],
+        "zh": [
+          "Tarivia将你的能源费用放在核心位置。",
+          "查看价格时也要考虑资费条件。",
+          "决定取决于你的个人初始情况。"
+        ],
+        "hi": [
+          "Tarivia तुम्हारे ऊर्जा खर्चों को केंद्र में रखता है।",
+          "कीमत देखते समय टैरिफ की शर्तें भी शामिल होती हैं।",
+          "निर्णय तुम्हारी व्यक्तिगत शुरुआती स्थिति पर निर्भर करता है।"
+        ],
+        "es": [
+          "Tarivia pone tus costes energéticos en el centro.",
+          "Las condiciones de la tarifa forman parte del análisis del precio.",
+          "La decisión depende de tu situación personal de partida."
+        ],
+        "fr": [
+          "Tarivia place tes dépenses énergétiques au centre.",
+          "Les conditions tarifaires font partie de l'examen du prix.",
+          "La décision dépend de ta situation personnelle initiale."
+        ],
+        "nl": [
+          "Tarivia stelt je energiekosten centraal.",
+          "Tariefvoorwaarden horen bij het bekijken van de prijs.",
+          "De beslissing hangt af van je persoonlijke uitgangssituatie."
+        ],
+        "pl": [
+          "Tarivia stawia w centrum Twoje koszty energii.",
+          "Warunki taryfy są częścią oceny ceny.",
+          "Decyzja zależy od Twojej osobistej sytuacji wyjściowej."
+        ]
+      },
+      "cta_text": {
+        "de": "Mit Tarivia den Tarif prüfen",
+        "en": "Check the tariff with Tarivia",
+        "tr": "Tarifeyi Tarivia ile kontrol et",
+        "ru": "Проверить тариф с Tarivia",
+        "ar": "مراجعة التعرفة مع Tarivia",
+        "it": "Verificare la tariffa con Tarivia",
+        "zh": "通过Tarivia核查资费",
+        "hi": "Tarivia के साथ टैरिफ जाँचें",
+        "es": "Revisar la tarifa con Tarivia",
+        "fr": "Vérifier le tarif avec Tarivia",
+        "nl": "Het tarief met Tarivia controleren",
+        "pl": "Sprawdzić taryfę z Tarivia"
+      }
+    },
+    "testimonials": {
+      "kicker": {
+        "de": "",
+        "en": "",
+        "tr": "",
+        "ru": "",
+        "ar": "",
+        "it": "",
+        "zh": "",
+        "hi": "",
+        "es": "",
+        "fr": "",
+        "nl": "",
+        "pl": ""
+      },
+      "headline": {
+        "de": "",
+        "en": "",
+        "tr": "",
+        "ru": "",
+        "ar": "",
+        "it": "",
+        "zh": "",
+        "hi": "",
+        "es": "",
+        "fr": "",
+        "nl": "",
+        "pl": ""
+      },
+      "home_reviews": []
+    },
+    "stats": {
+      "headline": {
+        "de": "",
+        "en": "",
+        "tr": "",
+        "ru": "",
+        "ar": "",
+        "it": "",
+        "zh": "",
+        "hi": "",
+        "es": "",
+        "fr": "",
+        "nl": "",
+        "pl": ""
+      },
+      "items": []
+    },
+    "about": {
+      "mode": "company",
+      "headline": {
+        "de": "Über Tarivia",
+        "en": "About Tarivia",
+        "tr": "Tarivia hakkında",
+        "ru": "О Tarivia",
+        "ar": "عن Tarivia",
+        "it": "Informazioni su Tarivia",
+        "zh": "关于Tarivia",
+        "hi": "Tarivia के बारे में",
+        "es": "Acerca de Tarivia",
+        "fr": "À propos de Tarivia",
+        "nl": "Over Tarivia",
+        "pl": "O Tarivia"
+      },
+      "name": "Tarivia",
+      "role": {
+        "de": "Eine Marke unter dem rechtlichen Betreiber BeConnected",
+        "en": "A brand under the legal operator BeConnected",
+        "tr": "Yasal işletmeci BeConnected bünyesinde bir marka",
+        "ru": "Бренд под юридическим оператором BeConnected",
+        "ar": "علامة تجارية تحت المشغّل القانوني BeConnected",
+        "it": "Un marchio sotto il gestore legale BeConnected",
+        "zh": "由法律运营主体BeConnected运营的品牌",
+        "hi": "कानूनी संचालक BeConnected के अंतर्गत एक ब्रांड",
+        "es": "Una marca bajo el operador legal BeConnected",
+        "fr": "Une marque sous l'exploitation légale de BeConnected",
+        "nl": "Een merk onder de juridische exploitant BeConnected",
+        "pl": "Marka pod prawnym operatorem BeConnected"
+      },
+      "image_url": "supabase-storage://website-assets/locations/uGJsQ3CWvFTraTfrRgjC/t08/v1/about.png",
+      "image_alt": "Freigegebenes About-Motiv für Tarivia",
+      "social_hint": "",
+      "social": {
+        "youtube": {
+          "de": "",
+          "en": "",
+          "tr": "",
+          "ru": "",
+          "ar": "",
+          "it": "",
+          "zh": "",
+          "hi": "",
+          "es": "",
+          "fr": "",
+          "nl": "",
+          "pl": ""
+        },
+        "facebook": {
+          "de": "",
+          "en": "",
+          "tr": "",
+          "ru": "",
+          "ar": "",
+          "it": "",
+          "zh": "",
+          "hi": "",
+          "es": "",
+          "fr": "",
+          "nl": "",
+          "pl": ""
+        },
+        "tiktok": {
+          "de": "",
+          "en": "",
+          "tr": "",
+          "ru": "",
+          "ar": "",
+          "it": "",
+          "zh": "",
+          "hi": "",
+          "es": "",
+          "fr": "",
+          "nl": "",
+          "pl": ""
+        },
+        "instagram": {
+          "de": "",
+          "en": "",
+          "tr": "",
+          "ru": "",
+          "ar": "",
+          "it": "",
+          "zh": "",
+          "hi": "",
+          "es": "",
+          "fr": "",
+          "nl": "",
+          "pl": ""
+        }
+      },
+      "paragraphs": {
+        "de": [
+          "Tarivia steht für einen klaren Blick auf Energiekosten. Preise und Vertragsbedingungen sollen verständlich werden, damit du Entscheidungen bewusst treffen kannst.",
+          "BeConnected ist der autorisierte rechtliche Betreiber von Tarivia.",
+          "Die Werte in den Smartphone-Grafiken sind freigegebene Marketingbeispiele. Sie ersetzen keine Berechnung für deinen Haushalt."
+        ],
+        "en": [
+          "Tarivia stands for a clear view of energy costs. Prices and contract terms should be understandable so you can make informed decisions.",
+          "BeConnected is the authorised legal operator of Tarivia.",
+          "The values in the smartphone graphics are approved marketing examples. They do not replace a calculation for your household."
+        ],
+        "tr": [
+          "Tarivia enerji maliyetlerine açık bir bakışı temsil eder. Bilinçli kararlar verebilmen için fiyatlar ve sözleşme koşulları anlaşılır olmalıdır.",
+          "BeConnected, Tarivia markasının yetkili yasal işletmecisidir.",
+          "Akıllı telefon görsellerindeki değerler onaylanmış pazarlama örnekleridir. Hanen için yapılacak bir hesaplamanın yerine geçmezler."
+        ],
+        "ru": [
+          "Tarivia означает ясный взгляд на расходы на энергию. Цены и условия договоров должны быть понятными, чтобы ты мог принимать осознанные решения.",
+          "BeConnected — уполномоченный юридический оператор Tarivia.",
+          "Значения на изображениях смартфонов — утверждённые маркетинговые примеры. Они не заменяют расчёт для твоего домохозяйства."
+        ],
+        "ar": [
+          "تمثل Tarivia رؤية واضحة لتكاليف الطاقة. ينبغي أن تكون الأسعار وشروط العقود مفهومة لتتمكن من اتخاذ قرارات واعية.",
+          "BeConnected هو المشغّل القانوني المخوّل لـ Tarivia.",
+          "القيم في صور الهواتف الذكية أمثلة تسويقية معتمدة. ولا تحل محل حساب مخصص لمنزلك."
+        ],
+        "it": [
+          "Tarivia rappresenta una visione chiara dei costi energetici. Prezzi e condizioni contrattuali devono essere comprensibili, affinché tu possa decidere consapevolmente.",
+          "BeConnected è il gestore legale autorizzato di Tarivia.",
+          "I valori nelle grafiche degli smartphone sono esempi pubblicitari approvati. Non sostituiscono un calcolo per la tua famiglia."
+        ],
+        "zh": [
+          "Tarivia代表对能源费用的清晰认识。价格和合同条件应易于理解，以便你做出知情决定。",
+          "BeConnected是Tarivia获授权的法律运营主体。",
+          "手机图示中的数值是经批准的营销示例，不能替代针对你家庭的计算。"
+        ],
+        "hi": [
+          "Tarivia ऊर्जा खर्चों के स्पष्ट अवलोकन का प्रतीक है। कीमतें और अनुबंध की शर्तें समझने योग्य होनी चाहिए, ताकि तुम सोच-समझकर निर्णय ले सको।",
+          "BeConnected, Tarivia का अधिकृत कानूनी संचालक है।",
+          "स्मार्टफोन चित्रों के मूल्य स्वीकृत विपणन उदाहरण हैं। वे तुम्हारे घर के लिए गणना का स्थान नहीं लेते।"
+        ],
+        "es": [
+          "Tarivia representa una visión clara de los costes energéticos. Los precios y las condiciones contractuales deben ser comprensibles para que puedas decidir con conocimiento.",
+          "BeConnected es el operador legal autorizado de Tarivia.",
+          "Los valores de las imágenes de teléfonos son ejemplos publicitarios aprobados. No sustituyen un cálculo para tu hogar."
+        ],
+        "fr": [
+          "Tarivia représente une vision claire des dépenses énergétiques. Les prix et les conditions contractuelles doivent être compréhensibles pour que tu puisses décider en connaissance de cause.",
+          "BeConnected est l'exploitant légal autorisé de Tarivia.",
+          "Les valeurs des illustrations de smartphone sont des exemples marketing approuvés. Elles ne remplacent pas un calcul pour ton foyer."
+        ],
+        "nl": [
+          "Tarivia staat voor een duidelijk zicht op energiekosten. Prijzen en contractvoorwaarden moeten begrijpelijk worden, zodat je bewust kunt beslissen.",
+          "BeConnected is de bevoegde juridische exploitant van Tarivia.",
+          "De waarden in de smartphone-afbeeldingen zijn goedgekeurde marketingvoorbeelden. Ze vervangen geen berekening voor je huishouden."
+        ],
+        "pl": [
+          "Tarivia oznacza jasne spojrzenie na koszty energii. Ceny i warunki umów powinny być zrozumiałe, aby można było świadomie podejmować decyzje.",
+          "BeConnected jest upoważnionym operatorem prawnym Tarivia.",
+          "Wartości na grafikach smartfonów są zatwierdzonymi przykładami marketingowymi. Nie zastępują obliczeń dla Twojego gospodarstwa domowego."
+        ]
+      }
+    },
+    "faq": {
+      "home_items": {
+        "de": [
+          {
+            "question": "Sind 177 Tarife und 477 EUR mein persönliches Ergebnis?",
+            "answer": "Nein. Diese Angaben gehören zur freigegebenen statischen Smartphone-Grafik. Ein persönliches Ergebnis hängt von deinen Angaben und den dann verfügbaren Angeboten ab."
+          },
+          {
+            "question": "Wer betreibt Tarivia?",
+            "answer": "BeConnected ist der autorisierte rechtliche Betreiber von Tarivia."
+          },
+          {
+            "question": "Was sollte ich für einen Tarifvergleich bereithalten?",
+            "answer": "Deinen aktuellen Tarif, den Jahresverbrauch, die Postleitzahl und die relevanten Vertragsbedingungen."
+          }
+        ],
+        "en": [
+          {
+            "question": "Are 177 tariffs and EUR 477 my personal result?",
+            "answer": "No. These figures belong to the approved static smartphone graphic. A personal result depends on your information and the offers available at that time."
+          },
+          {
+            "question": "Who operates Tarivia?",
+            "answer": "BeConnected is the authorised legal operator of Tarivia."
+          },
+          {
+            "question": "What should I have ready for a tariff comparison?",
+            "answer": "Your current tariff, annual consumption, postcode and relevant contract terms."
+          }
+        ],
+        "tr": [
+          {
+            "question": "177 tarife ve 477 EUR benim kişisel sonucum mu?",
+            "answer": "Hayır. Bu bilgiler onaylanmış statik akıllı telefon görseline aittir. Kişisel sonuç, bilgilerine ve o anda mevcut tekliflere bağlıdır."
+          },
+          {
+            "question": "Tarivia kim tarafından işletiliyor?",
+            "answer": "BeConnected, Tarivia markasının yetkili yasal işletmecisidir."
+          },
+          {
+            "question": "Tarife karşılaştırması için neleri hazır bulundurmalıyım?",
+            "answer": "Mevcut tarifeni, yıllık tüketimini, posta kodunu ve ilgili sözleşme koşullarını."
+          }
+        ],
+        "ru": [
+          {
+            "question": "177 тарифов и 477 EUR — мой индивидуальный результат?",
+            "answer": "Нет. Эти данные относятся к утверждённому статичному изображению смартфона. Индивидуальный результат зависит от твоих данных и предложений, доступных в тот момент."
+          },
+          {
+            "question": "Кто управляет Tarivia?",
+            "answer": "BeConnected — уполномоченный юридический оператор Tarivia."
+          },
+          {
+            "question": "Что подготовить для сравнения тарифов?",
+            "answer": "Текущий тариф, годовое потребление, почтовый индекс и соответствующие условия договора."
+          }
+        ],
+        "ar": [
+          {
+            "question": "هل 177 تعرفة و477 EUR هي نتيجتي الشخصية؟",
+            "answer": "لا. هذه المعلومات تخص صورة الهاتف الذكي الثابتة والمعتمدة. تعتمد النتيجة الشخصية على معلوماتك والعروض المتاحة حينها."
+          },
+          {
+            "question": "من يدير Tarivia؟",
+            "answer": "BeConnected هو المشغّل القانوني المخوّل لـ Tarivia."
+          },
+          {
+            "question": "ما الذي ينبغي تجهيزه لمقارنة التعرفات؟",
+            "answer": "تعرفتك الحالية واستهلاكك السنوي ورمزك البريدي وشروط العقد ذات الصلة."
+          }
+        ],
+        "it": [
+          {
+            "question": "Le 177 tariffe e i 477 EUR sono il mio risultato personale?",
+            "answer": "No. Questi dati appartengono alla grafica statica approvata dello smartphone. Un risultato personale dipende dai tuoi dati e dalle offerte disponibili in quel momento."
+          },
+          {
+            "question": "Chi gestisce Tarivia?",
+            "answer": "BeConnected è il gestore legale autorizzato di Tarivia."
+          },
+          {
+            "question": "Che cosa devo preparare per confrontare le tariffe?",
+            "answer": "La tua tariffa attuale, i consumi annuali, il codice postale e le condizioni contrattuali pertinenti."
+          }
+        ],
+        "zh": [
+          {
+            "question": "177种资费和477 EUR是我的个人结果吗？",
+            "answer": "不是。这些信息属于经批准的静态手机图示。个人结果取决于你的信息以及当时可用的报价。"
+          },
+          {
+            "question": "谁运营Tarivia？",
+            "answer": "BeConnected是Tarivia获授权的法律运营主体。"
+          },
+          {
+            "question": "比较资费时应准备什么？",
+            "answer": "当前资费、年度用量、邮政编码和相关合同条件。"
+          }
+        ],
+        "hi": [
+          {
+            "question": "क्या 177 टैरिफ और 477 EUR मेरा व्यक्तिगत परिणाम हैं?",
+            "answer": "नहीं। ये आँकड़े स्वीकृत स्थिर स्मार्टफोन चित्र का हिस्सा हैं। व्यक्तिगत परिणाम तुम्हारी जानकारी और उस समय उपलब्ध प्रस्तावों पर निर्भर करता है।"
+          },
+          {
+            "question": "Tarivia का संचालन कौन करता है?",
+            "answer": "BeConnected, Tarivia का अधिकृत कानूनी संचालक है।"
+          },
+          {
+            "question": "टैरिफ की तुलना के लिए क्या तैयार रखना चाहिए?",
+            "answer": "तुम्हारा वर्तमान टैरिफ, वार्षिक खपत, डाक कोड और संबंधित अनुबंध की शर्तें।"
+          }
+        ],
+        "es": [
+          {
+            "question": "¿Las 177 tarifas y los 477 EUR son mi resultado personal?",
+            "answer": "No. Estos datos pertenecen a la imagen estática aprobada del teléfono. Un resultado personal depende de tus datos y de las ofertas disponibles en ese momento."
+          },
+          {
+            "question": "¿Quién gestiona Tarivia?",
+            "answer": "BeConnected es el operador legal autorizado de Tarivia."
+          },
+          {
+            "question": "¿Qué debo tener preparado para comparar tarifas?",
+            "answer": "Tu tarifa actual, el consumo anual, el código postal y las condiciones contractuales pertinentes."
+          }
+        ],
+        "fr": [
+          {
+            "question": "Les 177 tarifs et 477 EUR sont-ils mon résultat personnel ?",
+            "answer": "Non. Ces chiffres font partie de l'illustration statique de smartphone approuvée. Un résultat personnel dépend de tes informations et des offres disponibles à ce moment-là."
+          },
+          {
+            "question": "Qui exploite Tarivia ?",
+            "answer": "BeConnected est l'exploitant légal autorisé de Tarivia."
+          },
+          {
+            "question": "Que préparer pour une comparaison de tarifs ?",
+            "answer": "Ton tarif actuel, ta consommation annuelle, ton code postal et les conditions contractuelles pertinentes."
+          }
+        ],
+        "nl": [
+          {
+            "question": "Zijn 177 tarieven en 477 EUR mijn persoonlijke resultaat?",
+            "answer": "Nee. Deze gegevens horen bij de goedgekeurde statische smartphone-afbeelding. Een persoonlijk resultaat hangt af van je gegevens en de aanbiedingen die dan beschikbaar zijn."
+          },
+          {
+            "question": "Wie beheert Tarivia?",
+            "answer": "BeConnected is de bevoegde juridische exploitant van Tarivia."
+          },
+          {
+            "question": "Wat moet ik voor een tariefvergelijking bij de hand houden?",
+            "answer": "Je huidige tarief, jaarverbruik, postcode en relevante contractvoorwaarden."
+          }
+        ],
+        "pl": [
+          {
+            "question": "Czy 177 taryf i 477 EUR to mój osobisty wynik?",
+            "answer": "Nie. Dane te należą do zatwierdzonej statycznej grafiki smartfona. Osobisty wynik zależy od Twoich danych i ofert dostępnych w danym momencie."
+          },
+          {
+            "question": "Kto prowadzi Tarivia?",
+            "answer": "BeConnected jest upoważnionym operatorem prawnym Tarivia."
+          },
+          {
+            "question": "Co przygotować do porównania taryf?",
+            "answer": "Obecną taryfę, roczne zużycie, kod pocztowy i istotne warunki umowy."
+          }
+        ]
+      }
+    },
+    "final_cta": {
+      "headline": {
+        "de": "Triff deine nächste Tarifentscheidung mit mehr Klarheit.",
+        "en": "Make your next tariff decision with greater clarity.",
+        "tr": "Bir sonraki tarife kararını daha açık bir bakışla ver.",
+        "ru": "Прими следующее решение о тарифе с большей ясностью.",
+        "ar": "اتخذ قرارك التالي بشأن التعرفة بوضوح أكبر.",
+        "it": "Prendi la prossima decisione tariffaria con maggiore chiarezza.",
+        "zh": "更清晰地做出下一次资费决定。",
+        "hi": "अपना अगला टैरिफ निर्णय अधिक स्पष्टता से लो।",
+        "es": "Toma tu próxima decisión sobre tarifas con mayor claridad.",
+        "fr": "Prends ta prochaine décision tarifaire avec davantage de clarté.",
+        "nl": "Neem je volgende tariefbeslissing met meer duidelijkheid.",
+        "pl": "Podejmij kolejną decyzję o taryfie z większą jasnością."
+      },
+      "subline": {
+        "de": "Beginne bei deinem aktuellen Vertrag und deinem Verbrauch. Tarivia ist dein Ausgangspunkt.",
+        "en": "Start with your current contract and consumption. Tarivia is your starting point.",
+        "tr": "Mevcut sözleşmen ve tüketiminle başla. Tarivia senin başlangıç noktandır.",
+        "ru": "Начни с текущего договора и своего потребления. Tarivia — твоя отправная точка.",
+        "ar": "ابدأ بعقدك الحالي واستهلاكك. Tarivia هي نقطة انطلاقك.",
+        "it": "Parti dal tuo contratto attuale e dai tuoi consumi. Tarivia è il tuo punto di partenza.",
+        "zh": "从当前合同和用量开始。Tarivia是你的起点。",
+        "hi": "अपने वर्तमान अनुबंध और खपत से शुरू करो। Tarivia तुम्हारा शुरुआती बिंदु है।",
+        "es": "Empieza por tu contrato actual y tu consumo. Tarivia es tu punto de partida.",
+        "fr": "Commence par ton contrat actuel et ta consommation. Tarivia est ton point de départ.",
+        "nl": "Begin bij je huidige contract en je verbruik. Tarivia is je vertrekpunt.",
+        "pl": "Zacznij od obecnej umowy i swojego zużycia. Tarivia jest Twoim punktem wyjścia."
+      },
+      "cta_text": {
+        "de": "Mit Tarivia den Tarif prüfen",
+        "en": "Check the tariff with Tarivia",
+        "tr": "Tarifeyi Tarivia ile kontrol et",
+        "ru": "Проверить тариф с Tarivia",
+        "ar": "مراجعة التعرفة مع Tarivia",
+        "it": "Verificare la tariffa con Tarivia",
+        "zh": "通过Tarivia核查资费",
+        "hi": "Tarivia के साथ टैरिफ जाँचें",
+        "es": "Revisar la tarifa con Tarivia",
+        "fr": "Vérifier le tarif avec Tarivia",
+        "nl": "Het tarief met Tarivia controleren",
+        "pl": "Sprawdzić taryfę z Tarivia"
+      }
+    },
+    "callback": {
+      "title": {
+        "de": "Rückruf anfordern",
+        "en": "Request a callback",
+        "tr": "Geri arama talep et",
+        "ru": "Запросить обратный звонок",
+        "ar": "طلب معاودة الاتصال",
+        "it": "Richiedere una richiamata",
+        "zh": "请求回电",
+        "hi": "वापस कॉल करने का अनुरोध करें",
+        "es": "Solicitar una llamada",
+        "fr": "Demander un rappel",
+        "nl": "Een terugbelverzoek indienen",
+        "pl": "Poprosić o oddzwonienie"
+      },
+      "description": {
+        "de": "",
+        "en": "",
+        "tr": "",
+        "ru": "",
+        "ar": "",
+        "it": "",
+        "zh": "",
+        "hi": "",
+        "es": "",
+        "fr": "",
+        "nl": "",
+        "pl": ""
+      },
+      "calendar_url": "",
+      "disabled_text": {
+        "de": "Der Rückruf-Kalender wird vorbereitet.",
+        "en": "The callback calendar is being prepared.",
+        "tr": "Geri arama takvimi hazırlanıyor.",
+        "ru": "Календарь обратных звонков готовится.",
+        "ar": "يجري إعداد تقويم معاودة الاتصال.",
+        "it": "Il calendario delle richiamate è in preparazione.",
+        "zh": "回电日历正在准备中。",
+        "hi": "वापस कॉल का कैलेंडर तैयार किया जा रहा है।",
+        "es": "El calendario de llamadas se está preparando.",
+        "fr": "Le calendrier des rappels est en cours de préparation.",
+        "nl": "De terugbelkalender wordt voorbereid.",
+        "pl": "Kalendarz oddzwonień jest przygotowywany."
+      }
+    },
+    "links": {
+      "website": "/",
+      "datenschutz": "/datenschutz",
+      "impressum": "/impressum",
+      "tarif": "/tarif",
+      "jahresrechnung": "/jahresrechnung",
+      "auftrag_eingegangen": "/auftrag-eingegangen",
+      "rechnung_eingegangen": "/rechnung-eingegangen",
+      "fehler": "/fehler",
+      "rechnung_fehler": "/rechnung-fehler"
+    },
+    "jahresrechnung": {
+      "hero_text": {
+        "de": "Tarivia: Verbrauch, Abschläge und Jahreskosten gemeinsam betrachten.",
+        "en": "Tarivia: Consider consumption, instalments and annual costs together.",
+        "tr": "Tarivia: tüketimi, avans ödemelerini ve yıllık maliyetleri birlikte değerlendir.",
+        "ru": "Tarivia: рассмотреть вместе потребление, авансовые платежи и годовые расходы.",
+        "ar": "Tarivia: النظر إلى الاستهلاك والدفعات المقدمة والتكاليف السنوية معًا.",
+        "it": "Tarivia: considerare insieme consumi, acconti e costi annuali.",
+        "zh": "Tarivia：综合查看用量、预付款和年度费用。",
+        "hi": "Tarivia: खपत, अग्रिम किस्तों और वार्षिक खर्चों को एक साथ देखें।",
+        "es": "Tarivia: examinar conjuntamente el consumo, los pagos a cuenta y los costes anuales.",
+        "fr": "Tarivia : examiner ensemble la consommation, les acomptes et les coûts annuels.",
+        "nl": "Tarivia: verbruik, voorschotten en jaarkosten samen bekijken.",
+        "pl": "Tarivia: rozpatrywać razem zużycie, zaliczki i koszty roczne."
+      },
+      "cta": {
+        "de": "Jahresabrechnung prüfen",
+        "en": "Check annual energy bill",
+        "tr": "Yıllık enerji faturasını kontrol et",
+        "ru": "Проверить годовой счёт за энергию",
+        "ar": "تحقق من الفاتورة السنوية للطاقة",
+        "it": "Controlla la bolletta energetica annuale",
+        "zh": "检查年度能源账单",
+        "hi": "वार्षिक ऊर्जा बिल जांचें",
+        "es": "Revisar factura energética anual",
+        "fr": "Vérifier la facture annuelle d'énergie",
+        "nl": "Controleer jaarlijkse energierekening",
+        "pl": "Sprawdź roczny rachunek za energię"
+      },
+      "free_note": {
+        "de": "",
+        "en": "",
+        "tr": "",
+        "ru": "",
+        "ar": "",
+        "it": "",
+        "zh": "",
+        "hi": "",
+        "es": "",
+        "fr": "",
+        "nl": "",
+        "pl": ""
+      },
+      "why_intro": {
+        "de": "Eine Jahresabrechnung verbindet Verbrauch, Preise und bereits geleistete Zahlungen. Prüfe, wie diese Angaben zusammenpassen.",
+        "en": "An annual bill combines consumption, prices and payments already made. Check how these figures fit together.",
+        "tr": "Yıllık fatura tüketimi, fiyatları ve yapılmış ödemeleri bir araya getirir. Bu bilgilerin birbiriyle nasıl uyuştuğunu kontrol et.",
+        "ru": "Годовой счёт объединяет потребление, цены и уже внесённые платежи. Проверь, как эти данные соотносятся.",
+        "ar": "تجمع الفاتورة السنوية بين الاستهلاك والأسعار والمدفوعات التي سُدّدت بالفعل. تحقّق من كيفية ترابط هذه المعلومات.",
+        "it": "Una bolletta annuale riunisce consumi, prezzi e pagamenti già effettuati. Verifica come questi dati si collegano.",
+        "zh": "年度账单汇总了用量、价格和已付金额。核查这些信息之间的对应关系。",
+        "hi": "वार्षिक बिल खपत, कीमतों और पहले किए गए भुगतानों को एक साथ लाता है। जाँचो कि ये जानकारियाँ आपस में कैसे मेल खाती हैं।",
+        "es": "Una factura anual reúne el consumo, los precios y los pagos ya realizados. Comprueba cómo encajan estos datos.",
+        "fr": "Une facture annuelle réunit la consommation, les prix et les paiements déjà effectués. Vérifie comment ces informations s'articulent.",
+        "nl": "Een jaarrekening brengt verbruik, prijzen en al verrichte betalingen samen. Controleer hoe deze gegevens op elkaar aansluiten.",
+        "pl": "Rachunek roczny łączy zużycie, ceny i dokonane już płatności. Sprawdź, jak te dane do siebie pasują."
+      },
+      "value_text": {
+        "de": "Mit Tarivia steht eine nachvollziehbare Einordnung deiner Jahresabrechnung im Mittelpunkt.",
+        "en": "With Tarivia, a comprehensible assessment of your annual bill is at the centre.",
+        "tr": "Tarivia ile yıllık faturanın anlaşılır biçimde değerlendirilmesi ön plandadır.",
+        "ru": "С Tarivia в центре внимания — понятная оценка твоего годового счёта.",
+        "ar": "مع Tarivia تكون الأولوية لتقييم مفهوم لفاتورتك السنوية.",
+        "it": "Con Tarivia, al centro c'è una valutazione comprensibile della tua bolletta annuale.",
+        "zh": "通过Tarivia，重点是对你的年度账单做出易于理解的评估。",
+        "hi": "Tarivia के साथ तुम्हारे वार्षिक बिल का समझने योग्य आकलन केंद्र में है।",
+        "es": "Con Tarivia, el centro es una valoración comprensible de tu factura anual.",
+        "fr": "Avec Tarivia, une évaluation compréhensible de ta facture annuelle est au centre.",
+        "nl": "Met Tarivia staat een begrijpelijke beoordeling van je jaarrekening centraal.",
+        "pl": "Z Tarivia w centrum znajduje się zrozumiała ocena Twojego rachunku rocznego."
+      },
+      "comparison_self_title": {
+        "de": "Rechnung selbst einordnen",
+        "en": "Assess your bill yourself",
+        "tr": "Faturayı kendin değerlendir",
+        "ru": "Самостоятельно оценить счёт",
+        "ar": "تقييم الفاتورة بنفسك",
+        "it": "Valutare autonomamente la bolletta",
+        "zh": "自行评估账单",
+        "hi": "बिल का खुद आकलन करें",
+        "es": "Valorar la factura por tu cuenta",
+        "fr": "Évaluer soi-même sa facture",
+        "nl": "Je rekening zelf beoordelen",
+        "pl": "Samodzielnie ocenić rachunek"
+      },
+      "comparison_assistant_title": {
+        "de": "Mit Tarivia",
+        "en": "With Tarivia",
+        "tr": "Tarivia ile",
+        "ru": "С Tarivia",
+        "ar": "مع Tarivia",
+        "it": "Con Tarivia",
+        "zh": "通过Tarivia",
+        "hi": "Tarivia के साथ",
+        "es": "Con Tarivia",
+        "fr": "Avec Tarivia",
+        "nl": "Met Tarivia",
+        "pl": "Z Tarivia"
+      },
+      "comparison_self": {
+        "de": [
+          "Zählerstände und Zeitraum zuordnen",
+          "Preise und Abschläge nachvollziehen"
+        ],
+        "en": [
+          "Match meter readings to the billing period",
+          "Understand prices and instalments"
+        ],
+        "tr": [
+          "Sayaç okumalarını dönemle eşleştir",
+          "Fiyatları ve avans ödemelerini anla"
+        ],
+        "ru": [
+          "Соотнести показания счётчика с периодом",
+          "Разобраться в ценах и авансовых платежах"
+        ],
+        "ar": [
+          "ربط قراءات العدّاد بالفترة",
+          "فهم الأسعار والدفعات المقدمة"
+        ],
+        "it": [
+          "Associare le letture del contatore al periodo",
+          "Comprendere prezzi e acconti"
+        ],
+        "zh": [
+          "将计量表读数与周期对应",
+          "理解价格和预付款"
+        ],
+        "hi": [
+          "मीटर रीडिंग को अवधि से जोड़ें",
+          "कीमतें और अग्रिम किस्तें समझें"
+        ],
+        "es": [
+          "Relacionar las lecturas del contador con el período",
+          "Comprender precios y pagos a cuenta"
+        ],
+        "fr": [
+          "Associer les relevés de compteur à la période",
+          "Comprendre les prix et les acomptes"
+        ],
+        "nl": [
+          "Meterstanden en periode aan elkaar koppelen",
+          "Prijzen en voorschotten begrijpen"
+        ],
+        "pl": [
+          "Przyporządkować odczyty licznika do okresu",
+          "Zrozumieć ceny i zaliczki"
+        ]
+      },
+      "comparison_assistant": {
+        "de": [
+          "Verbrauch und Kosten zusammen betrachten",
+          "Offene Fragen strukturiert festhalten"
+        ],
+        "en": [
+          "Consider consumption and costs together",
+          "Record outstanding questions in a structured way"
+        ],
+        "tr": [
+          "Tüketimi ve maliyetleri birlikte değerlendir",
+          "Açık kalan soruları düzenli biçimde kaydet"
+        ],
+        "ru": [
+          "Рассмотреть вместе потребление и расходы",
+          "Структурированно записать открытые вопросы"
+        ],
+        "ar": [
+          "النظر إلى الاستهلاك والتكاليف معًا",
+          "تسجيل الأسئلة المفتوحة بشكل منظّم"
+        ],
+        "it": [
+          "Considerare insieme consumi e costi",
+          "Annotare le domande aperte in modo strutturato"
+        ],
+        "zh": [
+          "综合查看用量和费用",
+          "有条理地记录未解决的问题"
+        ],
+        "hi": [
+          "खपत और खर्चों को एक साथ देखें",
+          "खुले सवाल व्यवस्थित रूप से दर्ज करें"
+        ],
+        "es": [
+          "Examinar conjuntamente el consumo y los costes",
+          "Anotar las cuestiones pendientes de forma estructurada"
+        ],
+        "fr": [
+          "Examiner ensemble la consommation et les coûts",
+          "Noter les questions en suspens de manière structurée"
+        ],
+        "nl": [
+          "Verbruik en kosten samen bekijken",
+          "Openstaande vragen gestructureerd vastleggen"
+        ],
+        "pl": [
+          "Rozpatrywać razem zużycie i koszty",
+          "Zapisać otwarte pytania w uporządkowany sposób"
+        ]
+      },
+      "reviews_kicker": {
+        "de": "",
+        "en": "",
+        "tr": "",
+        "ru": "",
+        "ar": "",
+        "it": "",
+        "zh": "",
+        "hi": "",
+        "es": "",
+        "fr": "",
+        "nl": "",
+        "pl": ""
+      },
+      "reviews": [],
+      "final_text": {
+        "de": "Prüfe die Angaben deiner Rechnung anhand deines Vertrags. Die Smartphone-Grafik ist kein Ergebnis einer Rechnungsprüfung.",
+        "en": "Check the details on your bill against your contract. The smartphone graphic is not the result of a bill review.",
+        "tr": "Faturandaki bilgileri sözleşmene göre kontrol et. Akıllı telefon görseli, fatura incelemesinin sonucu değildir.",
+        "ru": "Проверь данные счёта по своему договору. Изображение смартфона не является результатом проверки счёта.",
+        "ar": "تحقّق من معلومات فاتورتك بالاستناد إلى عقدك. صورة الهاتف الذكي ليست نتيجة مراجعة فاتورة.",
+        "it": "Verifica i dati della bolletta sulla base del tuo contratto. La grafica dello smartphone non è il risultato di una verifica della bolletta.",
+        "zh": "根据合同核查账单信息。手机示意图并非账单核查结果。",
+        "hi": "अपने अनुबंध के आधार पर बिल की जानकारी जाँचो। स्मार्टफोन चित्र बिल की जाँच का परिणाम नहीं है।",
+        "es": "Comprueba los datos de tu factura con tu contrato. La imagen del teléfono no es el resultado de una revisión de factura.",
+        "fr": "Vérifie les données de ta facture à l'aide de ton contrat. L'illustration du smartphone n'est pas le résultat d'une vérification de facture.",
+        "nl": "Controleer de gegevens op je rekening aan de hand van je contract. De smartphone-afbeelding is geen resultaat van een rekeningcontrole.",
+        "pl": "Sprawdź dane na rachunku na podstawie umowy. Grafika smartfona nie jest wynikiem sprawdzenia rachunku."
+      },
+      "process": {
+        "de": [
+          {
+            "step": "1",
+            "title": "Unterlagen bereithalten",
+            "desc": "Rechnung und Vertragsbedingungen zusammenstellen."
+          },
+          {
+            "step": "2",
+            "title": "Verbrauch zuordnen",
+            "desc": "Abrechnungszeitraum und Zählerstände vergleichen."
+          },
+          {
+            "step": "3",
+            "title": "Kosten nachvollziehen",
+            "desc": "Preise, Abschläge und Zahlungen einordnen."
+          },
+          {
+            "step": "4",
+            "title": "Fragen festhalten",
+            "desc": "Unklare Positionen vor einer Entscheidung klären."
+          }
+        ],
+        "en": [
+          {
+            "step": "1",
+            "title": "Have your documents ready",
+            "desc": "Gather your bill and contract terms."
+          },
+          {
+            "step": "2",
+            "title": "Match consumption to its period",
+            "desc": "Compare the billing period and meter readings."
+          },
+          {
+            "step": "3",
+            "title": "Understand costs",
+            "desc": "Assess prices, instalments and payments."
+          },
+          {
+            "step": "4",
+            "title": "Record questions",
+            "desc": "Clarify unclear items before making a decision."
+          }
+        ],
+        "tr": [
+          {
+            "step": "1",
+            "title": "Belgeleri hazır bulundur",
+            "desc": "Faturayı ve sözleşme koşullarını bir araya getir."
+          },
+          {
+            "step": "2",
+            "title": "Tüketimi dönemle eşleştir",
+            "desc": "Faturalandırma dönemini ve sayaç okumalarını karşılaştır."
+          },
+          {
+            "step": "3",
+            "title": "Maliyetleri anla",
+            "desc": "Fiyatları, avans ödemelerini ve ödemeleri değerlendir."
+          },
+          {
+            "step": "4",
+            "title": "Soruları not et",
+            "desc": "Karar vermeden önce belirsiz kalemleri açıklığa kavuştur."
+          }
+        ],
+        "ru": [
+          {
+            "step": "1",
+            "title": "Подготовить документы",
+            "desc": "Собрать счёт и условия договора."
+          },
+          {
+            "step": "2",
+            "title": "Соотнести потребление с периодом",
+            "desc": "Сравнить расчётный период и показания счётчика."
+          },
+          {
+            "step": "3",
+            "title": "Разобраться в расходах",
+            "desc": "Оценить цены, авансовые платежи и платежи."
+          },
+          {
+            "step": "4",
+            "title": "Записать вопросы",
+            "desc": "Уточнить непонятные позиции до принятия решения."
+          }
+        ],
+        "ar": [
+          {
+            "step": "1",
+            "title": "تجهيز المستندات",
+            "desc": "جمع الفاتورة وشروط العقد."
+          },
+          {
+            "step": "2",
+            "title": "ربط الاستهلاك بالفترة",
+            "desc": "مقارنة فترة الفوترة بقراءات العدّاد."
+          },
+          {
+            "step": "3",
+            "title": "فهم التكاليف",
+            "desc": "تقييم الأسعار والدفعات المقدمة والمدفوعات."
+          },
+          {
+            "step": "4",
+            "title": "تسجيل الأسئلة",
+            "desc": "توضيح البنود غير الواضحة قبل اتخاذ القرار."
+          }
+        ],
+        "it": [
+          {
+            "step": "1",
+            "title": "Preparare i documenti",
+            "desc": "Raccogliere la bolletta e le condizioni contrattuali."
+          },
+          {
+            "step": "2",
+            "title": "Associare i consumi al periodo",
+            "desc": "Confrontare il periodo di fatturazione e le letture del contatore."
+          },
+          {
+            "step": "3",
+            "title": "Comprendere i costi",
+            "desc": "Valutare prezzi, acconti e pagamenti."
+          },
+          {
+            "step": "4",
+            "title": "Annotare le domande",
+            "desc": "Chiarire le voci poco chiare prima di decidere."
+          }
+        ],
+        "zh": [
+          {
+            "step": "1",
+            "title": "准备资料",
+            "desc": "整理账单和合同条件。"
+          },
+          {
+            "step": "2",
+            "title": "将用量与周期对应",
+            "desc": "比较计费周期和计量表读数。"
+          },
+          {
+            "step": "3",
+            "title": "理解费用",
+            "desc": "评估价格、预付款和付款。"
+          },
+          {
+            "step": "4",
+            "title": "记录问题",
+            "desc": "做决定前澄清不明确的项目。"
+          }
+        ],
+        "hi": [
+          {
+            "step": "1",
+            "title": "दस्तावेज़ तैयार रखें",
+            "desc": "बिल और अनुबंध की शर्तें एक साथ जुटाएँ।"
+          },
+          {
+            "step": "2",
+            "title": "खपत को अवधि से जोड़ें",
+            "desc": "बिल की अवधि और मीटर रीडिंग की तुलना करें।"
+          },
+          {
+            "step": "3",
+            "title": "खर्च समझें",
+            "desc": "कीमतों, अग्रिम किस्तों और भुगतानों का आकलन करें।"
+          },
+          {
+            "step": "4",
+            "title": "सवाल दर्ज करें",
+            "desc": "निर्णय लेने से पहले अस्पष्ट मदों को स्पष्ट करें।"
+          }
+        ],
+        "es": [
+          {
+            "step": "1",
+            "title": "Preparar la documentación",
+            "desc": "Reunir la factura y las condiciones del contrato."
+          },
+          {
+            "step": "2",
+            "title": "Relacionar el consumo con su período",
+            "desc": "Comparar el período de facturación y las lecturas del contador."
+          },
+          {
+            "step": "3",
+            "title": "Comprender los costes",
+            "desc": "Valorar precios, pagos a cuenta y pagos realizados."
+          },
+          {
+            "step": "4",
+            "title": "Anotar preguntas",
+            "desc": "Aclarar los conceptos poco claros antes de decidir."
+          }
+        ],
+        "fr": [
+          {
+            "step": "1",
+            "title": "Préparer les documents",
+            "desc": "Rassembler la facture et les conditions du contrat."
+          },
+          {
+            "step": "2",
+            "title": "Rattacher la consommation à sa période",
+            "desc": "Comparer la période de facturation et les relevés de compteur."
+          },
+          {
+            "step": "3",
+            "title": "Comprendre les coûts",
+            "desc": "Évaluer les prix, les acomptes et les paiements."
+          },
+          {
+            "step": "4",
+            "title": "Noter les questions",
+            "desc": "Clarifier les postes peu clairs avant de décider."
+          }
+        ],
+        "nl": [
+          {
+            "step": "1",
+            "title": "Documenten bij de hand houden",
+            "desc": "Rekening en contractvoorwaarden verzamelen."
+          },
+          {
+            "step": "2",
+            "title": "Verbruik aan de periode koppelen",
+            "desc": "Factureringsperiode en meterstanden vergelijken."
+          },
+          {
+            "step": "3",
+            "title": "Kosten begrijpen",
+            "desc": "Prijzen, voorschotten en betalingen beoordelen."
+          },
+          {
+            "step": "4",
+            "title": "Vragen vastleggen",
+            "desc": "Onduidelijke posten ophelderen voordat je beslist."
+          }
+        ],
+        "pl": [
+          {
+            "step": "1",
+            "title": "Przygotować dokumenty",
+            "desc": "Zebrać rachunek i warunki umowy."
+          },
+          {
+            "step": "2",
+            "title": "Przyporządkować zużycie do okresu",
+            "desc": "Porównać okres rozliczeniowy i odczyty licznika."
+          },
+          {
+            "step": "3",
+            "title": "Zrozumieć koszty",
+            "desc": "Ocenić ceny, zaliczki i płatności."
+          },
+          {
+            "step": "4",
+            "title": "Zapisać pytania",
+            "desc": "Wyjaśnić niejasne pozycje przed podjęciem decyzji."
+          }
+        ]
+      },
+      "why": {
+        "de": [
+          {
+            "title": "Verbrauch verstehen",
+            "desc": "Vergleiche Abrechnungszeitraum und Zählerstände."
+          },
+          {
+            "title": "Preise nachvollziehen",
+            "desc": "Prüfe Grundpreis und Arbeitspreis anhand des Vertrags."
+          },
+          {
+            "title": "Abschläge einordnen",
+            "desc": "Gleiche geleistete Zahlungen mit der Abrechnung ab."
+          },
+          {
+            "title": "Unklarheiten klären",
+            "desc": "Halte Rückfragen an deinen Anbieter fest."
+          }
+        ],
+        "en": [
+          {
+            "title": "Understand consumption",
+            "desc": "Compare the billing period and meter readings."
+          },
+          {
+            "title": "Understand prices",
+            "desc": "Check the basic charge and price per unit of energy against your contract."
+          },
+          {
+            "title": "Assess instalments",
+            "desc": "Compare payments made with the bill."
+          },
+          {
+            "title": "Clarify uncertainties",
+            "desc": "Note questions for your provider."
+          }
+        ],
+        "tr": [
+          {
+            "title": "Tüketimi anla",
+            "desc": "Faturalandırma dönemini ve sayaç okumalarını karşılaştır."
+          },
+          {
+            "title": "Fiyatları anla",
+            "desc": "Sabit ücreti ve enerji birim fiyatını sözleşmeye göre kontrol et."
+          },
+          {
+            "title": "Avans ödemelerini değerlendir",
+            "desc": "Yapılmış ödemeleri faturayla karşılaştır."
+          },
+          {
+            "title": "Belirsizlikleri gider",
+            "desc": "Sağlayıcına soracağın soruları not et."
+          }
+        ],
+        "ru": [
+          {
+            "title": "Разобраться в потреблении",
+            "desc": "Сравни расчётный период и показания счётчика."
+          },
+          {
+            "title": "Разобраться в ценах",
+            "desc": "Проверь постоянную плату и цену за единицу энергии по договору."
+          },
+          {
+            "title": "Оценить авансовые платежи",
+            "desc": "Сверь внесённые платежи со счётом."
+          },
+          {
+            "title": "Уточнить неясности",
+            "desc": "Запиши вопросы своему поставщику."
+          }
+        ],
+        "ar": [
+          {
+            "title": "فهم الاستهلاك",
+            "desc": "قارن فترة الفوترة بقراءات العدّاد."
+          },
+          {
+            "title": "فهم الأسعار",
+            "desc": "تحقّق من الرسم الثابت وسعر وحدة الطاقة بالاستناد إلى العقد."
+          },
+          {
+            "title": "تقييم الدفعات المقدمة",
+            "desc": "قارن المدفوعات المسدّدة بالفاتورة."
+          },
+          {
+            "title": "توضيح الأمور غير الواضحة",
+            "desc": "سجّل أسئلة لمزوّدك."
+          }
+        ],
+        "it": [
+          {
+            "title": "Comprendere i consumi",
+            "desc": "Confronta il periodo di fatturazione e le letture del contatore."
+          },
+          {
+            "title": "Comprendere i prezzi",
+            "desc": "Verifica la quota fissa e il prezzo per unità di energia sulla base del contratto."
+          },
+          {
+            "title": "Valutare gli acconti",
+            "desc": "Confronta i pagamenti effettuati con la bolletta."
+          },
+          {
+            "title": "Chiarire i dubbi",
+            "desc": "Annota le domande da rivolgere al fornitore."
+          }
+        ],
+        "zh": [
+          {
+            "title": "理解用量",
+            "desc": "比较计费周期和计量表读数。"
+          },
+          {
+            "title": "理解价格",
+            "desc": "根据合同核查固定费用和单位能源价格。"
+          },
+          {
+            "title": "评估预付款",
+            "desc": "将已付金额与账单核对。"
+          },
+          {
+            "title": "澄清疑问",
+            "desc": "记下要向供应商提出的问题。"
+          }
+        ],
+        "hi": [
+          {
+            "title": "खपत समझें",
+            "desc": "बिल की अवधि और मीटर रीडिंग की तुलना करो।"
+          },
+          {
+            "title": "कीमतें समझें",
+            "desc": "अनुबंध के आधार पर स्थिर शुल्क और ऊर्जा की प्रति इकाई कीमत जाँचो।"
+          },
+          {
+            "title": "अग्रिम किस्तों का आकलन करें",
+            "desc": "किए गए भुगतानों का बिल से मिलान करो।"
+          },
+          {
+            "title": "अस्पष्टताएँ दूर करें",
+            "desc": "अपने प्रदाता से पूछने के लिए सवाल लिख लो।"
+          }
+        ],
+        "es": [
+          {
+            "title": "Comprender el consumo",
+            "desc": "Compara el período de facturación y las lecturas del contador."
+          },
+          {
+            "title": "Comprender los precios",
+            "desc": "Comprueba la cuota fija y el precio por unidad de energía según el contrato."
+          },
+          {
+            "title": "Valorar los pagos a cuenta",
+            "desc": "Contrasta los pagos realizados con la factura."
+          },
+          {
+            "title": "Aclarar dudas",
+            "desc": "Anota preguntas para tu proveedor."
+          }
+        ],
+        "fr": [
+          {
+            "title": "Comprendre la consommation",
+            "desc": "Compare la période de facturation et les relevés de compteur."
+          },
+          {
+            "title": "Comprendre les prix",
+            "desc": "Vérifie le prix fixe et le prix par unité d'énergie à l'aide du contrat."
+          },
+          {
+            "title": "Évaluer les acomptes",
+            "desc": "Compare les paiements effectués avec la facture."
+          },
+          {
+            "title": "Clarifier les incertitudes",
+            "desc": "Note les questions à poser à ton fournisseur."
+          }
+        ],
+        "nl": [
+          {
+            "title": "Verbruik begrijpen",
+            "desc": "Vergelijk de factureringsperiode en de meterstanden."
+          },
+          {
+            "title": "Prijzen begrijpen",
+            "desc": "Controleer het vaste bedrag en de prijs per energie-eenheid aan de hand van het contract."
+          },
+          {
+            "title": "Voorschotten beoordelen",
+            "desc": "Vergelijk verrichte betalingen met de rekening."
+          },
+          {
+            "title": "Onduidelijkheden ophelderen",
+            "desc": "Noteer vragen voor je leverancier."
+          }
+        ],
+        "pl": [
+          {
+            "title": "Zrozumieć zużycie",
+            "desc": "Porównaj okres rozliczeniowy i odczyty licznika."
+          },
+          {
+            "title": "Zrozumieć ceny",
+            "desc": "Sprawdź opłatę stałą i cenę za jednostkę energii na podstawie umowy."
+          },
+          {
+            "title": "Ocenić zaliczki",
+            "desc": "Porównaj dokonane płatności z rachunkiem."
+          },
+          {
+            "title": "Wyjaśnić niejasności",
+            "desc": "Zapisz pytania do dostawcy."
+          }
+        ]
+      },
+      "badge": {
+        "de": "",
+        "en": "",
+        "tr": "",
+        "ru": "",
+        "ar": "",
+        "it": "",
+        "zh": "",
+        "hi": "",
+        "es": "",
+        "fr": "",
+        "nl": "",
+        "pl": ""
+      }
+    }
+  },
+  "pages": {
+    "impressum": {
+      "html": "<h1>Impressum – Tarivia</h1><p>Tarivia – ein Angebot von BeConnected, Aachen. Diese Anbieterangaben gelten für die Website www.tarivia.de.</p><h2>Angaben gemäß § 5 DDG</h2><p><strong>BeConnected</strong><br>Einzelunternehmen<br>Inhaber: Andy Khelifa<br>Heidchenweg 13<br>52080 Aachen<br>Deutschland</p><p>Telefon: 0241 47595243<br>E-Mail: <a href=\"mailto:info@beconnected-aachen.de\">info@beconnected-aachen.de</a></p><h2>Umsatzsteuer-ID</h2><p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: 253125657</p><p>Stand: 14. Oktober 2026</p>"
+    },
+    "datenschutz": {
+      "html": "<h1>Datenschutzerklärung – Tarivia</h1><p>Tarivia – ein Angebot von BeConnected, Aachen.</p><section><h2>1 Verantwortlicher</h2><p>Verantwortlich für die Verarbeitung personenbezogener Daten im Rahmen von Tarivia auf www.tarivia.de ist:</p><p><strong>BeConnected</strong><br>Einzelunternehmen<br>Inhaber: Andy Khelifa<br>Heidchenweg 13<br>52080 Aachen<br>Deutschland</p><p>Telefon: 0241 47595243<br>E-Mail: <a href=\"mailto:info@beconnected-aachen.de\">info@beconnected-aachen.de</a></p><p>Umsatzsteuer-ID gemäß § 27a UStG: 253125657</p></section><section><h2>2 Allgemeine Hinweise zur Datenverarbeitung</h2><p>Personenbezogene Daten sind Informationen, die sich auf eine identifizierte oder identifizierbare Person beziehen, etwa Kontaktdaten, IP-Adressen oder Vertragsangaben. Diese Erklärung beschreibt die Verarbeitung beim Besuch dieser Website und bei der Kontaktaufnahme mit BeConnected. Maßgeblich sind die Datenschutz-Grundverordnung (DSGVO), das Bundesdatenschutzgesetz (BDSG) und für Zugriffe auf Ihr Endgerät das Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz (TDDDG).</p></section><section><h2>3 Zweck der Datenverarbeitung</h2><p>Tarivia bietet Informationen zu Energietarifen und Jahresabrechnungen. BeConnected betreibt dieses Angebot unter der Marke Tarivia.</p><p>Wir verarbeiten technische Verbindungsdaten zur Bereitstellung und zum Schutz der Website sowie Ihre Angaben zur Bearbeitung von Kontaktanfragen. BeConnected vermittelt Aufträge an Energieversorger. Wenn Sie uns mit einer Vermittlung beauftragen, werden die dafür erforderlichen Angaben zur Vorbereitung und Abwicklung dieser Vermittlung verarbeitet. Digitale Tarif-, Rechnungs- und Auftragsformulare sowie der Rückrufkalender sind auf dieser Website derzeit nicht freigeschaltet.</p></section><section><h2>4 Rechtsgrundlagen der Verarbeitung</h2><p>Die Bearbeitung einer Anfrage zu einem Vertrag oder einer gewünschten Vermittlung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO. Bei sonstigen Anfragen ist Art. 6 Abs. 1 lit. f DSGVO die Grundlage; unser berechtigtes Interesse ist die Beantwortung Ihrer Anfrage. Die technische Bereitstellung und Absicherung der Website beruht ebenfalls auf Art. 6 Abs. 1 lit. f DSGVO, mit dem Interesse an einem funktionsfähigen und sicheren Internetangebot. Gesetzlich vorgeschriebene Verarbeitung beruht auf Art. 6 Abs. 1 lit. c DSGVO. Soweit wir Ihre Einwilligung einholen, gilt Art. 6 Abs. 1 lit. a DSGVO. Einwilligungen sind freiwillig und widerruflich.</p></section><section><h2>5 Erhebung und Verarbeitung personenbezogener Daten</h2><p>Beim Aufruf der Website werden technische Verbindungsdaten, insbesondere Ihre IP-Adresse und die angeforderte Adresse, an die beteiligten Infrastruktur-Anbieter übermittelt. Je nach Anfrage gehören dazu Browserinformationen, Zeitpunkt und Herkunft der Anfrage. Bei einer Kontaktaufnahme verarbeiten wir die von Ihnen mitgeteilten Angaben, insbesondere Name, E-Mail-Adresse oder Telefonnummer sowie den Inhalt der Kommunikation.</p><p>Für eine von Ihnen beauftragte Energievertragsvermittlung können darüber hinaus Anschrift, Verbrauch in kWh, Zählernummer oder Marktlokationsnummer sowie Vertrags- und Tarifangaben erforderlich sein. Diese Angaben werden nicht allein durch den Besuch dieser Website erhoben. Die Bereitstellung von Kontaktdaten ist freiwillig; ohne die für eine Antwort oder Vermittlung notwendigen Angaben können wir Ihr Anliegen gegebenenfalls nicht bearbeiten.</p></section><section><h2>6 Weitergabe von Daten an Dritte</h2><p>Technische Daten werden im Rahmen der Website-Bereitstellung an Cloudflare und Supabase übermittelt. Bei einer beauftragten Vertragsvermittlung können Energieversorger, Netzbetreiber und vom Versorger vorgegebene Distributions- oder Abwicklungsplattformen die dafür erforderlichen Angaben erhalten. Die jeweils beteiligten Vertragspartner und ihre Datenschutzinformationen ergeben sich aus den Unterlagen zur konkreten Vermittlung.</p><p>Ein Projektstandort innerhalb der EU schließt internationale Verarbeitung durch einen Anbieter nicht generell aus. Für Übermittlungen personenbezogener Daten in Länder außerhalb des Europäischen Wirtschaftsraums gelten die Voraussetzungen der Art. 44 ff. DSGVO. Informationen zu den für Ihre konkrete Verarbeitung maßgeblichen Empfängern und Übermittlungen können Sie über die oben genannte Kontaktadresse anfordern.</p></section><section><h2>7 Hosting und Supabase</h2><p>Diese Website wird über Cloudflare bereitgestellt. Cloudflare verarbeitet technische Verbindungsdaten zur Auslieferung der Website und zur Absicherung des Betriebs. Cloudflare nutzt eine internationale Infrastruktur; die Verarbeitung ist nicht auf die Europäische Union beschränkt. Weitere Informationen: <a href=\"https://www.cloudflare.com/privacypolicy/\">Cloudflare-Datenschutzhinweise</a>.</p><p>Supabase wird zum Laden der öffentlichen Standortkonfiguration und zur Bereitstellung von Website-Bildern eingesetzt. Das hierfür verwendete Projekt befindet sich in der Region eu-central-1 (Frankfurt). Bei diesen Abrufen werden technische Verbindungsdaten an Supabase übermittelt. Die Projektregion ist keine Zusage einer ausschließlich europäischen Verarbeitung sämtlicher Anbieterleistungen. Weitere Informationen: <a href=\"https://supabase.com/privacy\">Supabase-Datenschutzhinweise</a>. Die Rechtsgrundlage für diese Abrufe ist Art. 6 Abs. 1 lit. f DSGVO; unser Interesse ist die Bereitstellung des standortspezifischen Internetangebots.</p></section><section><h2>8 Cookies, Browserspeicher und Werbung</h2><p>Die Sprachpräferenz wird unter dem Schlüssel <strong>site_lang</strong> im lokalen Browserspeicher gespeichert, wenn Sie eine Sprache auswählen. Dieser Eintrag wird nicht als Cookie übertragen und besitzt keine automatische Ablaufzeit. Sie können ihn durch Löschen der Website-Daten in Ihrem Browser entfernen.</p><p>Unter <strong>cookie-consent</strong> wird Ihre Auswahl der Privatsphäre-Einstellungen im lokalen Browserspeicher und in einem Cookie für diesen Host gespeichert. Das Cookie gilt für 180 Tage, verwendet den Pfad / und SameSite=Lax sowie bei HTTPS das Merkmal Secure. Der lokale Eintrag besitzt keine automatische Ablaufzeit; eine abgelaufene, ungültige oder nur lokal gespeicherte Zustimmung aktiviert keine optionalen Dienste. Die Version und der Ablaufzeitpunkt sind Teil des gespeicherten Wertes. Frühere Einträge werden nicht als Zustimmung für optionale Dienste übernommen.</p><p>Diese Präferenzen dienen der Umsetzung Ihrer angeforderten Sprachwahl und der Verwaltung Ihrer Datenschutzentscheidung. Die Endgerätezugriffe erfolgen nach § 25 Abs. 2 Nr. 2 TDDDG; die zugehörige Verarbeitung personenbezogener Daten beruht auf Art. 6 Abs. 1 lit. f DSGVO mit dem Interesse an der Beachtung Ihrer Einstellungen. Nicht erforderliche Endgerätezugriffe benötigen eine Einwilligung nach § 25 Abs. 1 TDDDG.</p><p>Auf dieser Website werden weder Google Translate noch Jotform geladen, auch nicht nach Auswahl von „Alles akzeptieren“. Es sind keine Meta- oder TikTok-Pixel, keine Conversion-API und keine zusätzlichen Tracking-Skripte eingebunden. Die Auswahl optionaler Dienste schaltet auf dieser Website derzeit kein Website-Tracking frei.</p><p>Werbeanzeigen für dieses Angebot auf Facebook und Instagram (Meta) sowie TikTok sind geplant. Werbung auf diesen externen Plattformen ist kein Tracking auf dieser Website. Bei der Nutzung einer Plattform verarbeitet deren Betreiber Daten nach eigenen Datenschutzinformationen: <a href=\"https://www.facebook.com/privacy/policy/\">Meta</a> und <a href=\"https://www.tiktok.com/legal/page/eea/privacy-policy/de\">TikTok</a>. Die bloße Anzeige einer Werbung dort aktiviert keine Tracking-Technologie auf dieser Website.</p></section><section><h2>9 Kontaktaufnahme und E-Mail-Kommunikation</h2><p>Sie können BeConnected über die oben genannte E-Mail-Adresse oder Telefonnummer kontaktieren. Ihre mitgeteilten Kontaktdaten und Kommunikationsinhalte verwenden wir zur Beantwortung Ihres Anliegens und zur Bearbeitung gewünschter vorvertraglicher Maßnahmen. Für darüber hinausgehende Werbung ist eine gesonderte Rechtsgrundlage erforderlich; Ihre Anfrage allein ist keine Werbeeinwilligung.</p><p>Nach Betreiberangabe erfolgt der E-Mail-Versand von BeConnected über Mailgun in der EU-Region. Dabei können Empfängeradresse, Name, Nachrichteninhalt und technische Versanddaten verarbeitet werden. Automatisierter CRM-Mailgun-Versand gehört derzeit nicht zu den freigeschalteten Funktionen dieser Website; der Websitebesuch löst keinen solchen Versand aus. Weitere Informationen: <a href=\"https://www.mailgun.com/legal/privacy-policy/\">Mailgun-Datenschutzhinweise</a>. Die Rechtsgrundlage richtet sich nach dem Anlass der Kommunikation, insbesondere Art. 6 Abs. 1 lit. b DSGVO bei vertragsbezogenen Anfragen oder Art. 6 Abs. 1 lit. f DSGVO bei sonstigen Anfragen.</p></section><section><h2>10 Speicherdauer</h2><p>Die Speicherdauer richtet sich nach dem jeweiligen Verarbeitungszweck und den einschlägigen gesetzlichen Aufbewahrungspflichten. Für Kontakt- und Vermittlungsdaten sind die Bearbeitung des Anliegens, gegebenenfalls die Vertragsabwicklung und gesetzliche Nachweispflichten maßgeblich. Für technische Verbindungsdaten sind die Bereitstellung und Absicherung des Betriebs maßgeblich. Eine feste einheitliche Speicherfrist gilt nicht für alle Datenarten. Die Laufzeit des Einwilligungs-Cookies und die Speicherung Ihrer Sprachpräferenz sind in Abschnitt 8 beschrieben. Auskünfte zur Speicherung Ihrer konkreten Daten erhalten Sie unter der oben genannten Kontaktadresse.</p></section><section><h2>11 Ihre Rechte als betroffene Person</h2><p>Unter den gesetzlichen Voraussetzungen haben Sie das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18) und Datenübertragbarkeit (Art. 20). Sie können sich bei einer Datenschutzaufsichtsbehörde beschweren (Art. 77 DSGVO), insbesondere bei der <a href=\"https://www.ldi.nrw.de/\">Landesbeauftragten für Datenschutz und Informationsfreiheit Nordrhein-Westfalen</a>.</p><p><strong>Widerspruchsrecht:</strong> Gegen eine Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. e oder f DSGVO können Sie aus Gründen, die sich aus Ihrer besonderen Situation ergeben, Widerspruch nach Art. 21 DSGVO einlegen. Gegen die Verarbeitung für Direktwerbung können Sie jederzeit Widerspruch einlegen. Zur Ausübung Ihrer Rechte kontaktieren Sie info@beconnected-aachen.de.</p></section><section><h2>12 Widerruf von Einwilligungen</h2><p>Sie können eine Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Die Rechtmäßigkeit der Verarbeitung bis zum Widerruf bleibt unberührt. Über „Privatsphäre-Einstellungen“ im Fußbereich können Sie die Einstellungen erneut öffnen und optionale Dienste deaktivieren; speichern Sie anschließend Ihre Auswahl. Bereits übermittelte Daten werden durch den Widerruf nicht zurückgeholt. Andere Einwilligungen können Sie über info@beconnected-aachen.de widerrufen.</p></section><section><h2>13 Datensicherheit</h2><p>Bitte übermitteln Sie bei einer Kontaktaufnahme nur die für Ihr Anliegen erforderlichen Angaben. Das Löschen Ihrer Website-Daten im Browser entfernt lokal gespeicherte Einstellungen, ersetzt aber keine Löschanfrage für bereits an einen Empfänger übermittelte Daten. Bei Fragen zum Schutz Ihrer Daten wenden Sie sich an BeConnected.</p></section><section><h2>14 Aktualität und Änderung dieser Datenschutzerklärung</h2><p>Stand: 14. Oktober 2026. Änderungen des Angebots oder der eingesetzten Dienste können eine Anpassung dieser Datenschutzerklärung erforderlich machen.</p></section>"
+    }
+  },
+  "cookie": {
+    "marketing_copy": "sind auf dieser Website derzeit nicht eingebunden. Google Translate und Jotform werden hier nicht geladen.",
+    "optional_services": "Auf dieser Website sind keine optionalen Drittanbieter-Dienste oder Tracking-Skripte eingebunden. Ihre Auswahl aktiviert hier kein Website-Tracking."
+  },
+  "content_version": "t08-v2-2026-10-14",
+  "source_revision": "64de44796d15dc0328b339f8e0621a455af90ad6",
+  "header": {
+    "language_switch_sr": {
+      "de": "Sprache wechseln",
+      "en": "Change language",
+      "tr": "Dili değiştir",
+      "ru": "Изменить язык",
+      "ar": "تغيير اللغة",
+      "it": "Cambia lingua",
+      "zh": "切换语言",
+      "hi": "भाषा बदलें",
+      "es": "Cambiar idioma",
+      "fr": "Changer de langue",
+      "nl": "Taal wijzigen",
+      "pl": "Zmień język"
+    }
+  },
+  "availability": {
+    "unavailable": {
+      "de": "Onlineprüfung derzeit nicht verfügbar",
+      "en": "Online checks are currently unavailable",
+      "tr": "Çevrimiçi kontrol şu anda kullanılamıyor",
+      "ru": "Онлайн-проверка пока недоступна",
+      "ar": "الفحص عبر الإنترنت غير متاح حاليًا",
+      "it": "La verifica online non è al momento disponibile",
+      "zh": "在线检查暂不可用",
+      "hi": "ऑनलाइन जाँच अभी उपलब्ध नहीं है",
+      "es": "La comprobación en línea no está disponible actualmente",
+      "fr": "La vérification en ligne est actuellement indisponible",
+      "nl": "Online controle is momenteel niet beschikbaar",
+      "pl": "Sprawdzanie online jest obecnie niedostępne"
+    },
+    "contact": {
+      "de": "Kontakt aufnehmen",
+      "en": "Contact us",
+      "tr": "İletişime geçin",
+      "ru": "Связаться с нами",
+      "ar": "تواصل معنا",
+      "it": "Contattaci",
+      "zh": "联系我们",
+      "hi": "संपर्क करें",
+      "es": "Contactar",
+      "fr": "Nous contacter",
+      "nl": "Neem contact op",
+      "pl": "Skontaktuj się"
+    },
+    "translation_pending": {
+      "de": "Diese Übersetzung wird vorbereitet.",
+      "en": "This translation is being prepared.",
+      "tr": "Bu çeviri hazırlanıyor.",
+      "ru": "Этот перевод готовится.",
+      "ar": "هذه الترجمة قيد الإعداد.",
+      "it": "Questa traduzione è in preparazione.",
+      "zh": "此翻译正在准备中。",
+      "hi": "यह अनुवाद तैयार किया जा रहा है।",
+      "es": "Esta traducción se está preparando.",
+      "fr": "Cette traduction est en préparation.",
+      "nl": "Deze vertaling wordt voorbereid.",
+      "pl": "To tłumaczenie jest przygotowywane."
+    },
+    "tariff": "TRANSPORT_NOT_READY",
+    "annual": "TRANSPORT_NOT_READY",
+    "callback": "CALENDARS_NOT_PROVISIONED",
+    "callback_note": {
+      "de": "Onlineprüfung derzeit nicht verfügbar",
+      "en": "Online checks are currently unavailable",
+      "tr": "Çevrimiçi kontrol şu anda kullanılamıyor",
+      "ru": "Онлайн-проверка пока недоступна",
+      "ar": "الفحص عبر الإنترنت غير متاح حاليًا",
+      "it": "La verifica online non è al momento disponibile",
+      "zh": "在线检查暂不可用",
+      "hi": "ऑनलाइन जाँच अभी उपलब्ध नहीं है",
+      "es": "La comprobación en línea no está disponible actualmente",
+      "fr": "La vérification en ligne est actuellement indisponible",
+      "nl": "Online controle is momenteel niet beschikbaar",
+      "pl": "Sprawdzanie online jest obecnie niedostępne"
+    }
+  },
+  "localization": {
+    "languages": [
+      "de",
+      "en",
+      "tr",
+      "ru",
+      "ar",
+      "it",
+      "zh",
+      "hi",
+      "es",
+      "fr",
+      "nl",
+      "pl"
+    ],
+    "complete": true,
+    "pending_paths": [],
+    "translation_provenance": "Faithful translations of existing customer German text under explicit T08 correction authorisation. Existing source-catalog translations remain unchanged.",
+    "policy": "All customer German marketing texts explicitly translated into eleven other languages; no German fallback."
+  }
+}

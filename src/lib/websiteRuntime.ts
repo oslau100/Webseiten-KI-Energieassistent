@@ -1,3 +1,5 @@
+import { resolveCustomerIdentity } from "./customerRuntime";
+
 export type BootstrapConfig = {
   locationId?: string;
   supabaseUrl?: string;
@@ -33,11 +35,13 @@ export function resolveWebsiteRuntime({
   env = import.meta.env,
   search = typeof window === "undefined" ? "" : window.location.search,
   development = import.meta.env.DEV,
+  hostname = typeof window === "undefined" ? "" : window.location.hostname,
 }: {
   bootstrap?: BootstrapConfig;
   env?: Record<string, unknown>;
   search?: string;
   development?: boolean;
+  hostname?: string;
 } = {}) {
   // Public URLs must not be able to switch a production site's tenant or API.
   const query = new URLSearchParams(development ? search : "");
@@ -48,7 +52,13 @@ export function resolveWebsiteRuntime({
   const supabaseUrl = /^https:\/\//.test(selectedUrl) ? selectedUrl.replace(/\/$/, "") : "";
   const selectedKey = first(bootstrap.supabaseAnonKey, bootstrap.supabaseKey, env.VITE_SUPABASE_PUBLISHABLE_KEY, env.VITE_SUPABASE_ANON_KEY, query.get("supabase_key"));
   const supabaseKey = isPublicSupabaseKey(selectedKey) ? selectedKey : "";
-  return { locationId, supabaseUrl, supabaseKey };
+  let identity = resolveCustomerIdentity(locationId, hostname, text(env.VITE_CUSTOMER_PREVIEW_HOSTNAME), development);
+  const configuredCustomer = resolveCustomerIdentity(text(env.VITE_LOCATION_ID), hostname, text(env.VITE_CUSTOMER_PREVIEW_HOSTNAME), development).customer;
+  if (configuredCustomer && !identity.customer) identity = { customer: true, ready: false, reason: "IDENTITY_NOT_READY" };
+  if (identity.customer && text(env.VITE_LOCATION_ID) && text(bootstrap.locationId) && text(env.VITE_LOCATION_ID) !== text(bootstrap.locationId)) {
+    identity = { customer: true, ready: false, reason: "IDENTITY_NOT_READY" };
+  }
+  return { locationId: identity.ready ? locationId : "", supabaseUrl, supabaseKey, identity };
 }
 
 export function initializeLoaderBootstrap() {

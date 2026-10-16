@@ -7,7 +7,7 @@ const RechnungEingegangen = () => {
   const { withLang } = useI18n();
 
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground font-sans selection:bg-primary/20 selection:text-primary pt-24 md:pt-32">
+    <div className="min-h-screen flex flex-col bg-background text-foreground font-sans selection:bg-primary/20 selection:text-primary-ink pt-24 md:pt-32">
       <SimpleHeader />
       <main className="flex-grow flex items-center justify-center p-4 md:p-8">
         <div className="w-full max-w-4xl text-center space-y-6 md:space-y-8">

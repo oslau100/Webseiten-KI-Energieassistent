@@ -1,3 +1,4 @@
+import { openConsentSettingsEvent } from "@/lib/cookieConsent";
 import { Link } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
 import { useWebsiteConfig } from "@/lib/websiteConfig";
@@ -14,6 +15,8 @@ export const Footer = () => {
   ).trim();
   const agencyLogo = assets.agency_logo?.trim();
   const showAgencyAttribution = Boolean(agencyUrl && agencyLogo);
+  const contactLabel = t("footer_contact");
+  const callbackLabel = t("footer_callback");
 
   return (
     <footer className="bg-muted pt-12 pb-2 md:py-16 border-t">
@@ -25,7 +28,7 @@ export const Footer = () => {
                 <img
                   src={assets.logo_footer}
                   alt={getText("brand.name", "Energieassistent") + " Logo"}
-                  className="h-28 md:h-32 w-auto object-contain object-left-top"
+                  className={`w-auto max-w-[min(70vw,280px)] object-contain object-left-top ${getText("brand.name", "") === "Tarivia" ? "max-h-16 md:max-h-20" : "h-28 md:h-32"}`}
                 />
               ) : (
                 <span className="font-semibold text-foreground pt-6">
@@ -40,16 +43,14 @@ export const Footer = () => {
             </p>
           </div>
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">
-              {t("footer_contact")}
-            </h4>
+            {contactLabel ? <h4 className="font-semibold text-foreground">{contactLabel}</h4> : null}
             <div className="space-y-2 text-sm text-muted-foreground">
-              <Link
+              {callbackLabel ? <Link
                 to={withLang("/rueckruf-buchen")}
-                className="hover:text-primary transition-colors block underline underline-offset-4"
+                className="hover:text-primary-ink transition-colors block underline underline-offset-4"
               >
-                {t("footer_callback")}
-              </Link>
+                {callbackLabel}
+              </Link> : null}
             </div>
           </div>
           <div className="space-y-4">
@@ -59,16 +60,19 @@ export const Footer = () => {
             <div className="space-y-2 text-sm text-muted-foreground">
               <Link
                 to={withLang("/datenschutz")}
-                className="hover:text-primary transition-colors block"
+                className="hover:text-primary-ink transition-colors block"
               >
                 {t("footer_privacy")}
               </Link>
               <Link
                 to={withLang("/impressum")}
-                className="hover:text-primary transition-colors block"
+                className="hover:text-primary-ink transition-colors block"
               >
                 {t("footer_imprint")}
               </Link>
+              <button type="button" className="hover:text-primary-ink transition-colors block text-left" onClick={() => window.dispatchEvent(new Event(openConsentSettingsEvent))}>
+                {getText("cookie.title", "Privatsphäre-Einstellungen")}
+              </button>
             </div>
             {showAgencyAttribution ? (
               <div className="pt-5">
