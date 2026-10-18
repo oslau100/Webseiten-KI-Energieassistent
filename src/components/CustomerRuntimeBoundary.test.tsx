@@ -9,7 +9,7 @@ import { CustomerRuntimeBoundary } from "./CustomerRuntimeBoundary";
 const supplied = (locationId: string) => ({ location_id: locationId,
   webseite_content_config: { brand: { name: "Fixture only" }, legal: { ready: true, variables: { firma: "Fixture", email: "fixture@example.test" } } },
   webseite_design_config: { assets: { logo_header: "/fixture.svg", logo_footer: "/fixture.svg", hero_image: "/fixture.png" } },
-  webseite_layout_config: { pages: {} },
+  webseite_layout_config: { pages: {}, features: { start_survey: false, rechnung_survey: false } },
 });
 const Consumer = () => {
   const { getText, getArray, source } = useWebsiteConfig();
@@ -38,6 +38,35 @@ describe("customer page and funnel boundaries", () => {
       expect(screen.getByText("supabase:Fixture only::")).toBeInTheDocument();
       expect(fetcher).toHaveBeenCalledTimes(1);
       expect(fetcher.mock.calls[0][0]).toContain(`location_id=eq.${locationId}`);
+    });
+    it.each(["/start", "/rechnung", "/rechnung-fehler", "/rueckruf", "/rueckruf-buchen"])(`opens configured survey and callback route %s for ${locationId}`, async path => {
+      const row = supplied(locationId);
+      row.webseite_layout_config.features = { start_survey: true, rechnung_survey: true };
+      mount(locationId, [row], path);
+      await waitFor(() => expect(screen.getByTestId("state")).toHaveTextContent("false:READY"));
+      expect(screen.getByText("supabase:Fixture only::")).toBeInTheDocument();
+      expect(screen.queryByText("NOT_READY")).toBeNull();
+    });
+    it.each(["/start", "/rechnung"])(`blocks missing feature config for ${locationId}: %s`, async path => {
+      const row = { ...supplied(locationId), webseite_layout_config: { pages: {} } };
+      mount(locationId, [row], path);
+      await waitFor(() => expect(screen.getByTestId("state")).toHaveTextContent("false:READY"));
+      expect(document.querySelector("main[role=status]")).toHaveAttribute("data-reason", "TRANSPORT_NOT_READY");
+      expect(screen.queryByText(/Fixture only/)).toBeNull();
+    });
+    it(`keeps order flag ineffective for ${locationId}`, async () => {
+      const row = { ...supplied(locationId), webseite_layout_config: { pages: {}, features: { order_funnel: true } } };
+      mount(locationId, [row], "/auftrag");
+      await waitFor(() => expect(screen.getByTestId("state")).toHaveTextContent("false:READY"));
+      expect(document.querySelector("main[role=status]")).toHaveAttribute("data-reason", "TRANSPORT_NOT_READY");
+    });
+    it.each(["/rechnung-eingegangen", "/rechnung-eingegangen?receipt=fake&uuid=123"])(`requires a server receipt for ${locationId}: %s`, async path => {
+      const row = supplied(locationId);
+      row.webseite_layout_config.features.rechnung_survey = true;
+      mount(locationId, [row], path);
+      await waitFor(() => expect(screen.getByTestId("state")).toHaveTextContent("false:READY"));
+      expect(document.querySelector("main[role=status]")).toHaveAttribute("data-reason", "RECEIPT_NOT_READY");
+      expect(screen.queryByText(/Fixture only/)).toBeNull();
     });
     it.each([[], [{}], [supplied("wrong-tenant")]])(`keeps absent or cross-tenant rows NOT_READY for ${locationId}`, async rows => {
       mount(locationId, rows);
@@ -78,7 +107,7 @@ describe("customer page and funnel boundaries", () => {
     const fetcher = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response(JSON.stringify([supplied(locationId)])));
     const { container } = render(<App />);
     await waitFor(() => expect(screen.getByRole("status")).toHaveAttribute("aria-busy", "false"));
-    expect(screen.getByRole("status")).toHaveAttribute("data-reason", "TRANSPORT_NOT_READY");
+    expect(document.querySelector("main[role=status]")).toHaveAttribute("data-reason", "TRANSPORT_NOT_READY");
     expect(container.querySelector("iframe")).toBeNull();
     expect(fetcher).toHaveBeenCalledTimes(1);
   });

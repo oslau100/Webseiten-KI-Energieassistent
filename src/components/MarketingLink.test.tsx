@@ -5,13 +5,28 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { MarketingLink } from "./MarketingLink";
 import { Button } from "./ui/button";
 import { I18nProvider } from "@/lib/i18n";
-const state=vi.hoisted(()=>({customer:true,missing:false,missingAvailability:false,missingContact:false}));
-vi.mock("@/lib/websiteConfig",()=>({useWebsiteConfig:()=>({customerRuntime:state.customer,content:{},getText:(key:string,_fallback:string,lang='de')=>key==='availability.unavailable'?(state.missingAvailability?'':'Unavailable'):key==='availability.contact'?(state.missingContact?'':'Contact'):key==='brand.contact_email'?'owner@example.test':state.missing?'':['i18n.cta_check_savings','sections.jahresrechnung.cta','sections.hero.cta_text'].includes(key)?`Configured ${lang} ${key}`:''})}));
-afterEach(()=>{state.customer=true;state.missing=false;state.missingAvailability=false;state.missingContact=false;localStorage.clear();});
+const state=vi.hoisted(()=>({customer:true,missing:false,missingAvailability:false,missingContact:false,enabled:false}));
+vi.mock("@/lib/websiteConfig",()=>({useWebsiteConfig:()=>({customerRuntime:state.customer,layout:{features:{start_survey:state.enabled,rechnung_survey:state.enabled,order_funnel:state.enabled}},content:{},getText:(key:string,_fallback:string,lang='de')=>key==='availability.unavailable'?(state.missingAvailability?'':'Unavailable'):key==='availability.contact'?(state.missingContact?'':'Contact'):key==='brand.contact_email'?'owner@example.test':state.missing?'':['i18n.cta_check_savings','sections.jahresrechnung.cta','sections.hero.cta_text'].includes(key)?`Configured ${lang} ${key}`:''})}));
+afterEach(()=>{state.customer=true;state.enabled=false;state.missing=false;state.missingAvailability=false;state.missingContact=false;localStorage.clear();});
 function mount(to:string,children:React.ReactNode,lang='de',onClick=vi.fn()){
  return {...render(<MemoryRouter initialEntries={[`/?lang=${lang}`]}><I18nProvider><Button asChild size="lg"><MarketingLink to={to} onClick={onClick}>{children}</MarketingLink></Button></I18nProvider></MemoryRouter>),onClick};
 }
 describe('blocked customer marketing actions',()=>{
+ it.each(['/start?lang=en', '/rechnung?lang=en'])('renders enabled configured actions as accessible links: %s',to=>{
+  state.enabled=true;
+  const {onClick}=mount(to,'Configured action','en');
+  const link=screen.getByRole('link',{name:'Configured action'});
+  expect(link).toHaveAttribute('href',to);expect(link).not.toHaveAttribute('aria-disabled');
+  fireEvent.click(link);expect(onClick).toHaveBeenCalledOnce();
+ });
+ it('keeps order actions unavailable even with an order flag',()=>{
+  state.enabled=true;
+  const {onClick}=mount('/tarif','Ignored');
+  const action=screen.getByRole('button');
+  expect(action).toHaveAttribute('aria-disabled','true');
+  expect(screen.getByRole('status')).toHaveTextContent('Unavailable');
+  fireEvent.click(action);expect(onClick).not.toHaveBeenCalled();
+ });
  it('uses only the configured action, preserves Button styling and separates status/contact',()=>{
   const {onClick}=mount('/start?lang=de','Hardcoded foreign label');
   const action=screen.getByRole('button',{name:'Configured de i18n.cta_check_savings'});

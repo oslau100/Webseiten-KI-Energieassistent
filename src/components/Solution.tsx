@@ -20,7 +20,7 @@ export const Solution = () => {
   return (
     <section className="py-16 md:py-24 bg-background">
       <div className="container px-4 md:px-6">
-        <AnimatedSection className="bg-primary rounded-[2.5rem] shadow-2xl relative overflow-hidden">
+        <AnimatedSection data-cta-surface={customerRuntime ? "brand" : undefined} className="bg-primary rounded-[2.5rem] shadow-2xl relative overflow-hidden">
           <div className="grid lg:grid-cols-2 items-center">
             <div className={`px-6 pt-10 pb-0 md:p-16 lg:p-20 space-y-8 text-primary-foreground z-10 relative ${imageLeft ? "lg:order-2" : "lg:order-1"}`}>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl leading-tight">{getText("sections.solution.headline", t("home_solution_h2"), lang)}</h2>

@@ -38,6 +38,14 @@ export function websiteThemeTokens(design: JsonRecord): Record<string, string> {
     popover: background, "popover-foreground": readableText,
     "muted-foreground": contrast(muted, background) >= 4.5 ? muted : readableText,
   })) result[`--${key}`] = hexToHsl(value);
+  // Customer-only CTA tokens are selected for their actual surrounding surface.
+  const customerCta = contrast(cta, background) >= 3 ? cta : foreground(background);
+  for (const [key, value] of Object.entries({
+    "customer-cta-bg": customerCta, "customer-cta-text": foreground(customerCta),
+    "customer-cta-focus": foreground(background),
+    "on-brand-cta-bg": foreground(primary), "on-brand-cta-text": primary,
+    "on-brand-cta-focus": foreground(primary),
+  })) result[`--${key}`] = hexToHsl(value);
   result["--website-primary"] = primary;
   result["--website-bg"] = background;
   result["--website-text"] = readableText;

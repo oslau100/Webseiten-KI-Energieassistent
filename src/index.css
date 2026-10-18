@@ -96,3 +96,30 @@ html, body, #root {
   .prose { --tw-prose-links: hsl(var(--primary-ink, var(--primary))); }
   .prose :where(table) { display: block; overflow-x: auto; }
 }
+
+/* Opt-in customer CTAs: opaque readable states on the declared surrounding surface. */
+[data-cta-surface="brand"] {
+  --customer-cta-bg: var(--on-brand-cta-bg);
+  --customer-cta-text: var(--on-brand-cta-text);
+  --customer-cta-focus: var(--on-brand-cta-focus);
+}
+.customer-cta {
+  background-color: hsl(var(--customer-cta-bg));
+  color: hsl(var(--customer-cta-text));
+}
+.customer-cta:hover {
+  background-color: hsl(var(--customer-cta-bg));
+  color: hsl(var(--customer-cta-text));
+  box-shadow: inset 0 0 0 2px currentColor;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.customer-cta:focus-visible {
+  outline: 3px solid hsl(var(--customer-cta-focus));
+  outline-offset: 3px;
+}
+.customer-cta[aria-disabled="true"] {
+  opacity: 1;
+  border: 2px dashed currentColor;
+  cursor: not-allowed;
+}

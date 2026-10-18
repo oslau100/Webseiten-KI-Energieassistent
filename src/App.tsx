@@ -57,6 +57,7 @@ const App = () => (
             <Route path="/rechnung-fehler" element={<FehlerRechnung />} />
             <Route path="/rechnung" element={<Rechnung />} />
             <Route path="/start-rechnung" element={<Rechnung />} />
+            <Route path="/rueckruf" element={<RueckrufBuchen />} />
             <Route path="/rueckruf-buchen" element={<RueckrufBuchen />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
