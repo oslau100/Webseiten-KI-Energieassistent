@@ -264,6 +264,12 @@ window.TB_BOOTSTRAP = {
       mount.innerHTML = `<div class="survey-card-container"><h2 class="survey-question" style="color:#ef4444;">${String(msg || "Error")}</h2><div class="survey-subtext">Bitte Seite neu laden oder später erneut versuchen.</div></div>`;
     }
 
+    function showOfferNotFound() {
+      const mount = document.getElementById("survey-app");
+      mount.dataset.errorCode = "offer_not_found";
+      mount.innerHTML = '<div class="survey-card-container"><h2 class="survey-question">Diese Tarifempfehlung wurde nicht gefunden.</h2></div>';
+    }
+
     try {
       if (!config.locationId || !config.supabaseUrl || !config.supabaseKey) {
         throw new Error("Missing TB_BOOTSTRAP values: locationId, supabaseUrl, supabaseKey");
@@ -272,6 +278,17 @@ window.TB_BOOTSTRAP = {
       const client = supabase.createClient(config.supabaseUrl, config.supabaseKey);
       const { data, error } = await client.from("kunden_config").select("*").eq("location_id", config.locationId).single();
       if (error) throw error;
+
+      if (!config.uuidOverride) {
+        showOfferNotFound();
+        return;
+      }
+      const { data: offer, error: offerError } = await client.from("auftraege").select("uuid").eq("uuid", config.uuidOverride).eq("location_id", config.locationId).maybeSingle();
+      if (offerError) throw offerError;
+      if (!offer) {
+        showOfferNotFound();
+        return;
+      }
 
       window.KUNDEN_DATA = data;
       const runtime = (data && typeof data.runtime_config === "object" && data.runtime_config) ? data.runtime_config : {};
