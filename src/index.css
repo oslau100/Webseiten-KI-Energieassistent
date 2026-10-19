@@ -123,3 +123,34 @@ html, body, #root {
   transform: none;
   cursor: not-allowed;
 }
+
+/* The button determines group width; a long translated note wraps within it. */
+.customer-cta-note-group {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: fit-content;
+  max-width: 100%;
+  vertical-align: top;
+}
+.customer-cta-note-group > .customer-cta {
+  max-width: 100%;
+  min-width: 0;
+  white-space: normal;
+}
+.customer-cta-note-group > [data-cta-note] {
+  width: 0;
+  min-width: 100%;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 639px) {
+  .customer-hero-cta-group { width: 100%; }
+}
+[data-customer-hero-pill="true"] {
+  background-color: hsl(var(--customer-hero-pill-bg, var(--secondary)));
+  color: hsl(var(--customer-hero-pill-text, var(--secondary-foreground)));
+}
+[data-customer-hero-pill="true"] > [data-pill-dot] {
+  background-color: hsl(var(--customer-hero-pill-dot, var(--primary)));
+}

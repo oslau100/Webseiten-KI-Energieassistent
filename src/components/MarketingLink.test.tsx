@@ -24,25 +24,25 @@ describe('blocked customer marketing actions',()=>{
   const {onClick}=mount('/tarif','Ignored');
   const action=screen.getByRole('button');
   expect(action).toHaveAttribute('aria-disabled','true');
-  expect(screen.getByRole('status')).toHaveTextContent('Unavailable');
+  expect(screen.queryByRole('status')).toBeNull();
   fireEvent.click(action);expect(onClick).not.toHaveBeenCalled();
  });
- it('uses only the configured action, preserves Button styling and separates status/contact',()=>{
+ it('uses only the configured action and styling without public status/contact',()=>{
   const {onClick}=mount('/start?lang=de','Hardcoded foreign label');
   const action=screen.getByRole('button',{name:'Configured de i18n.cta_check_savings'});
   expect(action).toHaveAttribute('aria-disabled','true');expect(action).toHaveClass('bg-cta');
-  expect(action).toHaveAccessibleDescription('Unavailable · Contact');expect(action).not.toHaveAttribute('tabindex');
+  expect(action).not.toHaveAttribute('aria-describedby');expect(action).not.toHaveAttribute('tabindex');
   fireEvent.click(action);fireEvent.keyDown(action,{key:'Enter'});expect(onClick).not.toHaveBeenCalled();
   expect(screen.queryByText('Hardcoded foreign label')).toBeNull();
-  expect(screen.getByRole('link',{name:'Contact'})).toHaveAttribute('href','mailto:owner@example.test');
+  expect(screen.queryByRole('link')).toBeNull();
  });
  for(const lang of ['de','en','tr','ru','ar','it','zh','hi','es','fr','nl','pl'])for(const path of ['/start','/tarif','/rechnung'])it(`uses configured ${lang} labels for ${path}`,()=>{
   mount(path,'',lang);
   expect(screen.getByRole('button')).toHaveTextContent(`Configured ${lang} ${path==='/rechnung'?'sections.jahresrechnung.cta':'i18n.cta_check_savings'}`);
  });
- it('omits an empty button and exposes readiness when label config is missing',()=>{
+ it('omits an empty button and retains internal readiness when label config is missing',()=>{
   state.missing=true;const {container}=mount('/start','Jetzt Ersparnis prüfen');
-  expect(screen.queryByRole('button')).toBeNull();expect(screen.getByRole('status')).toHaveTextContent('Unavailable');
+  expect(screen.queryByRole('button')).toBeNull();expect(screen.queryByRole('status')).toBeNull();
   expect(container.querySelector('[data-copy-readiness="MISSING_LABEL"]')).toBeInTheDocument();
   expect(screen.queryByText('Jetzt Ersparnis prüfen')).toBeNull();
  });
@@ -58,12 +58,12 @@ describe('blocked customer marketing actions',()=>{
   expect(container.querySelector('[data-transport="NOT_READY"]')).toBeInTheDocument();
   fireEvent.click(action);fireEvent.keyDown(action,{key:'Enter'});expect(onClick).not.toHaveBeenCalled();
  });
- it('uses configured contact alone without a technical prefix or dangling separator',()=>{
+ it('never renders contact-only configuration as a CTA status',()=>{
   state.missingAvailability=true;
   mount('/rechnung','Ignored','en');
-  expect(screen.getByRole('status')).toHaveTextContent(/^Contact$/);
-  expect(screen.getByRole('button')).toHaveAccessibleDescription('Contact');
-  expect(screen.getByRole('link',{name:'Contact'})).toHaveAttribute('href','mailto:owner@example.test');
+  expect(screen.queryByRole('status')).toBeNull();
+  expect(screen.getByRole('button')).not.toHaveAttribute('aria-describedby');
+  expect(screen.queryByRole('link')).toBeNull();
   expect(document.body.textContent).not.toContain('NOT_READY');
  });
  it('renders no empty action or technical status when all customer copy is absent',()=>{

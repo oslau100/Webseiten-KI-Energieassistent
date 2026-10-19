@@ -26,9 +26,15 @@ export function websiteThemeTokens(design: JsonRecord): Record<string, string> {
   const readableText = contrast(text, background) >= 4.5 ? text : foreground(background);
   const cta = hex(colors.cta) || primary;
   const accent = hex(colors.accent) || primary;
+  const pillBackground = hex(colors.heroPillBackground) || accent;
+  const pillText = hex(colors.heroPillText) || foreground(pillBackground);
+  const readablePillText = contrast(pillText, pillBackground) >= 4.5 ? pillText : foreground(pillBackground);
+  const pillDot = contrast(primary, pillBackground) >= 3 ? primary : foreground(pillBackground);
   const muted = hex(colors.mutedText) || readableText;
   const result: Record<string, string> = {};
   for (const [key, value] of Object.entries({
+    "customer-hero-pill-bg": pillBackground, "customer-hero-pill-text": readablePillText,
+    "customer-hero-pill-dot": pillDot,
     primary, "primary-foreground": foreground(primary), ring: primary,
     "primary-ink": contrast(primary, background) >= 4.5 ? primary : readableText,
     cta, "cta-foreground": foreground(cta),

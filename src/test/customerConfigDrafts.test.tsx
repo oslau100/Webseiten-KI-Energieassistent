@@ -7,6 +7,7 @@ import { LANGUAGES } from "@/lib/i18n";
 import { customerConfigReadiness, customerRuntimeBindings, customerPublicAssetOrigin } from "@/lib/customerRuntime";
 import type { WebsiteConfig } from "@/lib/websiteConfig";
 import { getByPath } from "@/lib/websiteContentResolver";
+import { readConsent } from "@/lib/cookieConsent";
 
 type AssetEntry = { role: string; configFields: string[]; plannedObjectPath: string; plannedReference: string; source: string; sourceSha256: string; mimeType: string; width: number; height: number; bytes: number; publicUrl: null; deliveryVerified: boolean; preserveOriginalBytes: boolean; approvedMarketingLabels: string[] };
 type CustomerPlan = { brand: string; locationId: string; hostname: string; assets: AssetEntry[] };
@@ -136,7 +137,19 @@ describe.each([0, 1])("operator draft %i", index => {
     expect(fetcher).toHaveBeenCalledOnce();
     expect(fetcher.mock.calls[0][0]).toContain(`location_id=eq.${plan.locationId}`);
     expect(screen.getByRole("link", { name: "Jahresabrechnung prüfen" })).toHaveAttribute("href", "/jahresrechnung?lang=de");
-    expect(screen.getByRole("heading", { name: "Privatsphäre-Einstellungen" })).toBeInTheDocument();
+    // These historical drafts have no required cookie copy. Asset/legal readiness
+    // must not bypass CookieBar's separate copy gate or record implicit consent.
+    expect(getByPath(config, "content.cookie.title")).toBeUndefined();
+    const cookieGate = container.querySelector('[data-copy-section="cookie"]');
+    expect(cookieGate).toHaveAttribute("data-copy-readiness", "INCOMPLETE");
+    expect(cookieGate).toHaveAttribute("hidden");
+    expect(screen.queryByRole("dialog")).toBeNull();
+    expect(screen.queryByRole("heading", { name: "Privatsphäre-Einstellungen" })).toBeNull();
+    expect(screen.queryByRole("button", { name: "Einstellungen speichern" })).toBeNull();
+    expect(screen.queryByRole("button", { name: "Alles akzeptieren" })).toBeNull();
+    expect(readConsent()).toBeNull();
+    expect(localStorage.getItem("cookie-consent")).toBeNull();
+    expect(container.querySelector("iframe")).toBeNull();
   });
   it("uses supplied English marketing without German fallback", async () => {
     mount(index, readyFixture(index), plan.locationId, "/?lang=en");

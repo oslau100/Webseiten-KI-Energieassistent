@@ -1,3 +1,4 @@
+import { customerCount, customerCountText } from "@/lib/customerSocialProof";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
@@ -13,7 +14,7 @@ type Review = { title: string; text: string; name: string; rating?: number };
 
 export const Testimonials = () => {
   const { t, withLang, lang } = useI18n();
-  const { getArray, getText, customerRuntime } = useWebsiteConfig();
+  const { getArray, getText, customerRuntime, content } = useWebsiteConfig();
   const validJotformWidgetId = getValidJotformWidgetId(getText("integrations.google_reviews.jotform_widget_id", ""));
 
   const fallbackReviews: Review[] = [
@@ -28,6 +29,9 @@ export const Testimonials = () => {
 
   const reviews = getArray<Review>(`sections.testimonials.home_reviews.${lang}`, getArray<Review>("sections.testimonials.home_reviews", fallbackReviews));
 
+  const headlineCopy = getText("sections.testimonials.headline", t("home_testimonials_h2"), lang);
+  const headline = customerRuntime ? customerCountText(headlineCopy, customerCount(content), lang) : headlineCopy;
+
   if (!reviews.length && !validJotformWidgetId) return null;
 
   return (
@@ -35,7 +39,7 @@ export const Testimonials = () => {
       <div className="container px-4 md:px-6">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <p className="text-primary-ink font-semibold tracking-wide uppercase text-sm">{getText("sections.testimonials.kicker", "Das sagen unsere Nutzer", lang)}</p>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{getText("sections.testimonials.headline", t("home_testimonials_h2"), lang)}</h2>
+          <h2 hidden={customerRuntime && !headline} data-copy-readiness={customerRuntime && !headline ? "INCOMPLETE" : undefined} className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{headline}</h2>
         </AnimatedSection>
         <AnimatedSection delay={200} className={validJotformWidgetId ? "w-full max-w-7xl mx-auto relative" : "max-w-5xl mx-auto px-4 md:px-12 relative"}>
           {validJotformWidgetId ? <JotformReviewWidget widgetId={validJotformWidgetId} /> : <Carousel opts={{ align: "start", direction: lang === "ar" ? "rtl" : "ltr" }} className="w-full">

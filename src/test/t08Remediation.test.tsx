@@ -47,10 +47,10 @@ describe("T08 remediation", () => {
   expect(container.querySelector("section")).toBeNull();
   expect(container.querySelector("button")).toBeNull();
  });
- it("makes blocked CTA honest and uses only the independent configured contact", () => {
+ it("keeps blocked CTA non-navigable without public status or contact", () => {
   configure();render(<MarketingLink to="/start?lang=de">Check now</MarketingLink>,{wrapper});
-  expect(screen.getByRole("status")).toHaveTextContent("Unavailable");
-  expect(screen.getByRole("link",{name:"Contact"})).toHaveAttribute("href","mailto:owner@example.test");
+  expect(screen.queryByRole("status")).toBeNull();
+  expect(screen.queryByRole("link",{name:"Contact"})).toBeNull();
   expect(screen.queryByRole("link",{name:"Check now"})).toBeNull();
  });
  it("opens the language menu, selects Arabic and updates direction without a document reload", async () => {
