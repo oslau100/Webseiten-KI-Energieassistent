@@ -39,7 +39,7 @@ export const Problem = () => {
               <AnimatedSection key={index} delay={(index + 1) * 150}>
                 <Card className="border-none shadow-md bg-muted/30 hover:shadow-lg transition-all h-full">
                   <CardContent className="p-8 space-y-4">
-                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center"><Icon className="h-6 w-6 text-primary" /></div>
+                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center"><Icon className="h-6 w-6 text-primary-ink" /></div>
                     <h3 className="text-xl font-bold">{problem.title}</h3>
                     <p className="text-muted-foreground leading-relaxed">{problem.description}</p>
                   </CardContent>

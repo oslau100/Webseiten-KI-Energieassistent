@@ -3,65 +3,36 @@ import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useWebsiteConfig } from "@/lib/websiteConfig";
+import { useI18n } from "@/lib/i18n";
+import { resolveWebsiteRuntime } from "@/lib/websiteRuntime";
 
-const CONSENT_KEY = "cookie-consent";
-const CONSENT_MAX_AGE_SECONDS = 60 * 60 * 24 * 180;
+import { openConsentSettingsEvent, readConsent, setConsentStorage } from "@/lib/cookieConsent";
+
 const FALLBACK_PRIMARY_COLOR = "#2563eb";
-
-const getCookieValue = (name: string) => {
-  const prefix = `${name}=`;
-  const cookies = document.cookie ? document.cookie.split(";") : [];
-  for (const rawCookie of cookies) {
-    const cookie = rawCookie.trim();
-    if (cookie.startsWith(prefix)) {
-      return decodeURIComponent(cookie.slice(prefix.length));
-    }
-  }
-  return null;
-};
-
-const setConsentStorage = (value: "all" | "essential") => {
-  localStorage.setItem(CONSENT_KEY, value);
-
-  const cookieParts = [
-    `${CONSENT_KEY}=${encodeURIComponent(value)}`,
-    "Path=/",
-    `Max-Age=${CONSENT_MAX_AGE_SECONDS}`,
-    "SameSite=Lax",
-  ];
-
-  // Keep consent scoped to this Location host.
-
-  if (window.location.protocol === "https:") {
-    cookieParts.push("Secure");
-  }
-
-  document.cookie = cookieParts.join("; ");
-};
 
 export const CookieBar = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [marketingAccepted, setMarketingAccepted] = useState(true);
-  const { getText, design } = useWebsiteConfig();
+  const [marketingAccepted, setMarketingAccepted] = useState(false);
+  const { getText: resolveText, design, customerRuntime } = useWebsiteConfig();
+  const { lang, withLang } = useI18n();
+  const getText = (path: string, fallback: string) => resolveText(path, fallback, lang);
+  // Customer optional services require a separate reviewed implementation.
+  // Pixel IDs or CRM configuration must never enable this UI or tracking.
+  const optionalServicesAvailable = !resolveWebsiteRuntime().identity.customer;
   const primaryColor =
     (design?.colors as Record<string, unknown> | undefined)?.primary?.toString().trim() ||
     FALLBACK_PRIMARY_COLOR;
 
   useEffect(() => {
-    const localConsent = localStorage.getItem(CONSENT_KEY);
-    const cookieConsent = getCookieValue(CONSENT_KEY);
-    const consent = localConsent || cookieConsent;
-
-    if (!consent) {
-      setIsVisible(true);
-      return;
-    }
-
-    if (!localConsent && cookieConsent) {
-      localStorage.setItem(CONSENT_KEY, cookieConsent);
-    }
-
+    const consent = readConsent();
+    setIsVisible(consent === null);
     setMarketingAccepted(consent === "all");
+    const reopen = () => {
+      setMarketingAccepted(readConsent() === "all");
+      setIsVisible(true);
+    };
+    window.addEventListener(openConsentSettingsEvent, reopen);
+    return () => window.removeEventListener(openConsentSettingsEvent, reopen);
   }, []);
 
   const handleAcceptAll = () => {
@@ -70,32 +41,44 @@ export const CookieBar = () => {
   };
 
   const handleSaveSettings = () => {
-    setConsentStorage(marketingAccepted ? "all" : "essential");
+    setConsentStorage(optionalServicesAvailable && marketingAccepted ? "all" : "essential");
     setIsVisible(false);
   };
 
   if (!isVisible) return null;
 
+  const requiredCopy = ["title", "browser_settings", "more_info", "privacy_link", "imprint_link", "essential", "save"];
+  if (customerRuntime && requiredCopy.some(key => !getText(`cookie.${key}`, "").trim())) {
+    return <span hidden data-copy-readiness="INCOMPLETE" data-copy-section="cookie" />;
+  }
+
   return (
-    <div className="fixed inset-0 z-[100] bg-black/35 flex items-end sm:items-center justify-center p-3 sm:p-5">
+    <div role="dialog" aria-modal="true" aria-label={getText("cookie.title", "Privatsphäre-Einstellungen")} className="fixed inset-0 z-[100] bg-black/35 flex items-end sm:items-center justify-center p-3 sm:p-5">
       <div className="bg-white rounded-2xl w-full max-w-2xl max-h-[72vh] flex flex-col shadow-2xl overflow-hidden border border-slate-100">
         <div className="p-4 sm:p-6 overflow-y-auto">
           <h2 className="text-lg sm:text-xl font-bold mb-3 text-slate-900">{getText("cookie.title", "Privatsphäre-Einstellungen")}</h2>
 
           <div className="space-y-3 text-sm leading-relaxed text-slate-700">
-            <p>
-              {getText("cookie.copy_intro", "Um Ihnen ein optimales Website-Erlebnis zu bieten, verwendet")}{" "}
-              <span className="text-blue-600">{getText("brand.name", "Energieassistent")}</span> {getText("cookie.copy_intro_suffix", "Cookies und ähnliche Technologien.")}
-            </p>
+            {optionalServicesAvailable ? <>
+              <p>
+                {getText("cookie.copy_intro", "Um Ihnen ein optimales Website-Erlebnis zu bieten, verwendet")}{" "}
+                <span className="text-blue-600">{getText("brand.name", "Energieassistent")}</span> {getText("cookie.copy_intro_suffix", "Cookies und ähnliche Technologien.")}
+              </p>
 
-            <p>
-              <strong>{getText("cookie.essential_label", "Essenzielle Cookies")}</strong> {getText("cookie.essential_copy", "sind für die Funktion der Website notwendig und können nicht deaktiviert werden.")}{" "}
-              <strong>{getText("cookie.marketing_label", "Marketing Cookies")}</strong> {getText("cookie.marketing_copy", "helfen uns, Inhalte und Angebote für Sie zu verbessern.")}
-            </p>
+              <p>
+                <strong>{getText("cookie.essential_label", "Essenzielle Cookies")}</strong> {getText("cookie.essential_copy", "sind für die Funktion der Website notwendig und können nicht deaktiviert werden.")}{" "}
+                <strong>{getText("cookie.marketing_label", "Marketing Cookies")}</strong> {getText("cookie.marketing_copy", "helfen uns, Inhalte und Angebote für Sie zu verbessern.")}
+              </p>
+
+              <p>{getText("cookie.optional_services", "Optionale Dienste: Google Translate kann zur automatischen Übersetzung Texte und Verbindungsdaten an Google übermitteln; konfigurierte Jotform-Bewertungen übermitteln Verbindungsdaten an Jotform. Dabei kann eine Verarbeitung außerhalb der EU stattfinden. Diese Dienste werden erst nach Ihrer Zustimmung geladen.")}</p>
+
+            </> : <p>
+              {getText("cookie.browser_settings", "Diese Website speichert Ihre Spracheinstellung und Ihre Privatsphäre-Einstellungen im Browser. Sie können Ihre Privatsphäre-Einstellungen jederzeit über den Link im Fußbereich erneut öffnen.")}
+            </p>}
 
             <p className="text-xs text-slate-500">
               {getText("cookie.more_info", "Weitere Informationen finden Sie in der")}{" "}
-              <Link to="/datenschutz" className="text-blue-600 hover:underline">
+              <Link to={withLang("/datenschutz")} className="text-blue-600 hover:underline">
                 {getText("cookie.privacy_link", "Datenschutzerklärung")}
               </Link>
               .
@@ -105,21 +88,21 @@ export const CookieBar = () => {
 
         <div className="border-t border-slate-200 p-4 sm:p-6 bg-white">
           <div className="bg-slate-50 rounded-xl px-4 py-3 flex flex-wrap items-center gap-5 mb-4 border border-slate-100">
-            <div className="flex items-center gap-3">
+            {optionalServicesAvailable && <div className="flex items-center gap-3">
               <span className="font-semibold text-slate-900 text-sm">{getText("cookie.marketing", "Marketing")}</span>
-              <Switch checked={marketingAccepted} onCheckedChange={setMarketingAccepted} className="data-[state=checked]:bg-[var(--cookie-primary-color)]" style={{ "--cookie-primary-color": primaryColor } as CSSProperties} />
-            </div>
+              <Switch aria-label={getText("cookie.marketing", "Marketing")} checked={marketingAccepted} onCheckedChange={setMarketingAccepted} className="data-[state=checked]:bg-[var(--cookie-primary-color)]" style={{ "--cookie-primary-color": primaryColor } as CSSProperties} />
+            </div>}
             <div className="flex items-center gap-3">
               <span className="font-semibold text-slate-900 text-sm">{getText("cookie.essential", "Essenziell")}</span>
-              <Switch checked={true} disabled className="data-[state=checked]:bg-[var(--cookie-primary-color)] disabled:opacity-100" style={{ "--cookie-primary-color": primaryColor } as CSSProperties} />
+              <Switch aria-label={getText("cookie.essential", "Essenziell")} checked={true} disabled className="data-[state=checked]:bg-[var(--cookie-primary-color)] disabled:opacity-100" style={{ "--cookie-primary-color": primaryColor } as CSSProperties} />
             </div>
           </div>
 
           <div className="flex gap-4 mb-4 text-xs text-slate-500">
-            <Link to="/datenschutz" className="hover:text-slate-800 transition-colors">
+            <Link to={withLang("/datenschutz")} className="hover:text-slate-800 transition-colors">
               {getText("cookie.privacy_link", "Datenschutzerklärung")}
             </Link>
-            <Link to="/impressum" className="hover:text-slate-800 transition-colors">
+            <Link to={withLang("/impressum")} className="hover:text-slate-800 transition-colors">
               {getText("cookie.imprint_link", "Impressum")}
             </Link>
           </div>
@@ -128,9 +111,9 @@ export const CookieBar = () => {
             <Button variant="secondary" className="w-full rounded-full py-5 text-sm font-semibold bg-slate-100 hover:bg-slate-200 text-slate-900" onClick={handleSaveSettings}>
               {getText("cookie.save", "Einstellungen speichern")}
             </Button>
-            <Button className="w-full rounded-full py-5 text-sm font-semibold bg-[var(--cookie-primary-color)] hover:brightness-95 text-white" style={{ "--cookie-primary-color": primaryColor } as CSSProperties} onClick={handleAcceptAll}>
+            {optionalServicesAvailable && <Button className="w-full rounded-full py-5 text-sm font-semibold bg-[var(--cookie-primary-color)] hover:brightness-95 text-white" style={{ "--cookie-primary-color": primaryColor } as CSSProperties} onClick={handleAcceptAll}>
               {getText("cookie.accept_all", "Alles akzeptieren")}
-            </Button>
+            </Button>}
           </div>
         </div>
       </div>

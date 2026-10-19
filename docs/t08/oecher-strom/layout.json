@@ -1,0 +1,36 @@
+{
+  "pages": {
+    "home": {
+      "sections": [
+        "header",
+        "hero",
+        "problem",
+        "solution",
+        "how_it_works",
+        "comparison",
+        "testimonials",
+        "about",
+        "stats",
+        "faq",
+        "final_cta",
+        "footer"
+      ]
+    },
+    "annual": {
+      "sections": [
+        "header",
+        "hero",
+        "process",
+        "why",
+        "value",
+        "comparison",
+        "testimonials",
+        "about",
+        "stats",
+        "faq",
+        "final_cta",
+        "footer"
+      ]
+    }
+  }
+}

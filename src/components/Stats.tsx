@@ -1,3 +1,5 @@
+import { CustomerCountUp } from "./CustomerCountUp";
+import { customerCount, customerCountText } from "@/lib/customerSocialProof";
 import { useEffect, useRef, useState } from "react";
 import { AnimatedSection } from "./AnimatedSection";
 import { useWebsiteConfig } from "@/lib/websiteConfig";
@@ -38,7 +40,7 @@ const CountUp = ({ end, suffix = "", duration = 2000 }: { end: number; suffix?: 
 type StatItem = { end: number; suffix?: string; label: string };
 
 export const Stats = () => {
-  const { getArray, getText } = useWebsiteConfig();
+  const { getArray, getText, customerRuntime, content } = useWebsiteConfig();
   const { lang } = useI18n();
 
   const fallbackStats: StatItem[] = [
@@ -47,9 +49,17 @@ export const Stats = () => {
     { end: 900000, suffix: "+ €", label: "an Energiekosten bereits eingespart" },
   ];
 
-  const stats = getArray<StatItem>(`sections.stats.items.${lang}`, getArray<StatItem>("sections.stats.items", fallbackStats));
+  const configuredStats = getArray<StatItem>(`sections.stats.items.${lang}`, getArray<StatItem>("sections.stats.items", fallbackStats));
+  const sharedCount = customerRuntime ? customerCount(content) : undefined;
+  const headlineCopy = getText("sections.stats.headline", "Über 1.500 Haushalte nutzen bereits den digitalen Energieassistenten", lang);
+  const headline = customerRuntime ? customerCountText(headlineCopy, sharedCount, lang) : headlineCopy;
+  const stats = customerRuntime
+    ? configuredStats.map((item, index) => index === 1 ? (sharedCount === undefined ? null : { ...item, end: sharedCount }) : item).filter(item => item && Number.isFinite(item.end) && item.end >= 0 && typeof item.label === "string")
+    : configuredStats;
+
+  if (!stats.length) return null;
 
   return (
-    <section className="py-12 bg-background"><div className="container px-4 md:px-6"><AnimatedSection className="text-center max-w-4xl mx-auto mb-10"><h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{getText("sections.stats.headline", "Über 1.500 Haushalte nutzen bereits den digitalen Energieassistenten", lang)}</h2></AnimatedSection><AnimatedSection className="max-w-5xl mx-auto border-2 border-primary rounded-3xl p-8 md:p-12 shadow-lg shadow-primary/5"><div className="grid gap-8 md:grid-cols-3 text-center divide-y md:divide-y-0 md:divide-x divide-border">{stats.map((item, idx) => <div key={idx} className={`space-y-2 ${idx > 0 ? "pt-8 md:pt-0" : "pt-4 md:pt-0"}`}><h3 className="text-4xl md:text-5xl font-bold text-primary tracking-tighter"><CountUp end={item.end} suffix={item.suffix || ""} /></h3><p className="text-muted-foreground md:text-lg">{item.label}</p></div>)}</div></AnimatedSection></div></section>
+    <section className="py-12 bg-background"><div className="container px-4 md:px-6"><AnimatedSection className="text-center max-w-4xl mx-auto mb-10"><h2 hidden={customerRuntime && !headline} data-copy-readiness={customerRuntime && !headline ? "INCOMPLETE" : undefined} className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{headline}</h2></AnimatedSection><AnimatedSection className="max-w-5xl mx-auto border-2 border-primary rounded-3xl p-8 md:p-12 shadow-lg shadow-primary/5"><div className="grid gap-8 md:grid-cols-3 text-center divide-y md:divide-y-0 md:divide-x divide-border">{stats.map((item, idx) => <div key={idx} className={`space-y-2 ${idx > 0 ? "pt-8 md:pt-0" : "pt-4 md:pt-0"}`}><h3 className="text-4xl md:text-5xl font-bold text-primary-ink tracking-tighter">{customerRuntime ? <CustomerCountUp end={item.end} locale={lang} suffix={typeof item.suffix === "string" ? item.suffix : ""} /> : <CountUp end={item.end} suffix={item.suffix || ""} />}</h3><p className="text-muted-foreground md:text-lg">{item.label}</p></div>)}</div></AnimatedSection></div></section>
   );
 };

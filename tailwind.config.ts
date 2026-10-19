@@ -23,6 +23,8 @@ export default {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
+        "primary-ink": "hsl(var(--primary-ink, var(--primary)))",
+        cta: { DEFAULT: "hsl(var(--cta, var(--primary)))", foreground: "hsl(var(--cta-foreground, var(--primary-foreground)))" },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
@@ -87,5 +89,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;

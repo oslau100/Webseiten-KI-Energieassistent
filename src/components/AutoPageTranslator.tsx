@@ -1,3 +1,5 @@
+import { resolveWebsiteRuntime } from "@/lib/websiteRuntime";
+import { readConsent, useOptionalConsent } from "@/lib/cookieConsent";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
@@ -100,7 +102,7 @@ const polishText = (input: string, lang: string) => {
   return value;
 };
 
-const translateText = async (text: string, targetLang: string) => {
+const translateText = async (text: string, targetLang: string, signal: AbortSignal) => {
   const cleanText = normalize(text);
   if (!cleanText || targetLang === "de") return cleanText || text;
 
@@ -110,12 +112,14 @@ const translateText = async (text: string, targetLang: string) => {
   const key = `${targetLang}:${cleanText}`;
   if (cache.has(key)) return cache.get(key)!;
 
+  if (readConsent() !== "all" || signal.aborted) return cleanText;
+
   const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=de&tl=${encodeURIComponent(
     targetLang,
   )}&dt=t&q=${encodeURIComponent(cleanText)}`;
 
   try {
-    const res = await fetch(url);
+    const res = await fetch(url, { signal });
     if (!res.ok) return cleanText;
 
     const data = (await res.json()) as unknown[];
@@ -132,9 +136,12 @@ const translateText = async (text: string, targetLang: string) => {
 export const AutoPageTranslator = () => {
   const { lang } = useI18n();
   const location = useLocation();
+  const consent = useOptionalConsent();
+  const customer = resolveWebsiteRuntime().identity.customer;
 
   useEffect(() => {
-    if (EXCLUDED_PATHS.has(location.pathname)) return;
+    if (customer || !consent || EXCLUDED_PATHS.has(location.pathname)) return;
+    const controller = new AbortController();
 
     const root = document.querySelector("main") ?? document.body;
     if (!root) return;
@@ -183,21 +190,22 @@ export const AutoPageTranslator = () => {
           const { leading, core, trailing } = splitEdgeWhitespace(textNode.__orig);
           if (!core) return;
 
-          const translated = await translateText(core, lang);
-          node.nodeValue = `${leading}${translated}${trailing}`;
+          const translated = await translateText(core, lang, controller.signal);
+          if (!controller.signal.aborted) node.nodeValue = `${leading}${translated}${trailing}`;
         }),
       );
 
       await Promise.all(
         placeholders.map(async ({ element, original }) => {
-          const translated = await translateText(original, lang);
-          element.setAttribute("placeholder", translated);
+          const translated = await translateText(original, lang, controller.signal);
+          if (!controller.signal.aborted) element.setAttribute("placeholder", translated);
         }),
       );
     };
 
-    run();
-  }, [lang, location.pathname]);
+    void run();
+    return () => controller.abort();
+  }, [lang, location.pathname, consent, customer]);
 
   return null;
 };

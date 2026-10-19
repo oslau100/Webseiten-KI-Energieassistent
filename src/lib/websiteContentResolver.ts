@@ -24,14 +24,15 @@ export const getByPath = (obj: JsonRecord, path: string): unknown => {
   }, obj);
 };
 
-export const resolveLocalizedText = (obj: JsonRecord, path: string, fallback: string, lang?: string): string => {
+export const resolveLocalizedText = (obj: JsonRecord, path: string, fallback: string, lang?: string, allowLanguageFallback = true): string => {
   const raw = getByPath(obj, path);
-  if (typeof raw === "string") return raw;
+  if (typeof raw === "string") return lang && lang !== "de" && !allowLanguageFallback ? fallback : raw;
   if (raw && typeof raw === "object") {
     if (lang) {
       const localized = (raw as JsonRecord)[lang];
       if (typeof localized === "string") return localized;
     }
+    if (lang && !allowLanguageFallback) return fallback;
     const de = (raw as JsonRecord).de;
     if (typeof de === "string") return de;
     for (const value of Object.values(raw as JsonRecord)) {
@@ -44,6 +45,16 @@ export const resolveLocalizedText = (obj: JsonRecord, path: string, fallback: st
 export const resolveArray = <T = unknown>(obj: JsonRecord, path: string, fallback: T[]): T[] => {
   const raw = getByPath(obj, path);
   return Array.isArray(raw) ? (raw as T[]) : fallback;
+};
+
+/** Legacy customer arrays are German, never a fallback for another locale or tenant. */
+export const resolveCustomerArray = <T = unknown>(obj: JsonRecord, path: string): T[] => {
+  const exact = getByPath(obj, path);
+  if (Array.isArray(exact)) return exact as T[];
+  if (exact === undefined && path.endsWith(".de")) {
+    return resolveArray<T>(obj, path.slice(0, -3), []);
+  }
+  return [];
 };
 
 export const resolveObject = <T extends JsonRecord = JsonRecord>(obj: JsonRecord, path: string, fallback: T): T => {

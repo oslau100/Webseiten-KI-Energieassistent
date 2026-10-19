@@ -1,3 +1,5 @@
+import { resolveWebsiteRuntime } from "@/lib/websiteRuntime";
+import { useOptionalConsent } from "@/lib/cookieConsent";
 import { useEffect, useRef } from "react";
 
 export const JOTFORM_WIDGET_EMBED_BASE = "https://www.jotform.com/website-widgets/embed/";
@@ -12,7 +14,8 @@ export const getValidJotformWidgetId = (widgetId?: string | null): string | null
 
 export const JotformReviewWidget = ({ widgetId, className = "" }: JotformReviewWidgetProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const validWidgetId = getValidJotformWidgetId(widgetId);
+  const consent = useOptionalConsent();
+  const validWidgetId = !resolveWebsiteRuntime().identity.customer && consent ? getValidJotformWidgetId(widgetId) : null;
 
   useEffect(() => {
     const container = containerRef.current;

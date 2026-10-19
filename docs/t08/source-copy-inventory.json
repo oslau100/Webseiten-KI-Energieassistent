@@ -1,0 +1,4612 @@
+{
+  "revision": "64de44796d15dc0328b339f8e0621a455af90ad6",
+  "languages": [
+    "de",
+    "en",
+    "tr",
+    "ru",
+    "ar",
+    "it",
+    "zh",
+    "hi",
+    "es",
+    "fr",
+    "nl",
+    "pl"
+  ],
+  "sources": {
+    "defaults": "329ca24faa2659b96cb529117e91e630335cb29d98b797f395f5aa9fc544114a",
+    "i18nCatalogs": "397d36d577d09a1b4c38281c5dbb4dbef0009c9464b52e33529afeb14753aab3"
+  },
+  "rows": [
+    {
+      "path": "sections.hero.image_alt",
+      "translations": {
+        "de": "Energieassistent"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.hero.badge",
+      "translations": {
+        "de": "Bereits 1.500+ zufriedene Nutzer in ganz Deutschland",
+        "en": "Already 1,500+ satisfied users across Germany",
+        "tr": "Almanya genelinde şimdiden 1.500+ memnun kullanıcı",
+        "ru": "Уже более 1 500 довольных пользователей по всей Германии",
+        "ar": "أكثر من 1,500 مستخدم راضٍ في جميع أنحاء ألمانيا",
+        "it": "Già oltre 1.500 utenti soddisfatti in tutta la Germania",
+        "zh": "德国各地已有 1,500 多名满意用户",
+        "hi": "जर्मनी भर में पहले से ही 1,500+ संतुष्ट उपयोगकर्ता",
+        "es": "Más de 1.500 usuarios satisfechos en toda Alemania",
+        "fr": "Déjà plus de 1 500 utilisateurs satisfaits dans toute l’Allemagne",
+        "nl": "Al meer dan 1.500 tevreden gebruikers in heel Duitsland",
+        "pl": "Już ponad 1 500 zadowolonych użytkowników w całych Niemczech"
+      },
+      "missing": []
+    },
+    {
+      "path": "sections.hero.headline",
+      "translations": {
+        "de": "Zahlst du gerade zu viel für Strom oder Gas?",
+        "en": "Are you currently paying too much for electricity or gas?",
+        "tr": "Şu anda elektrik veya gaz için fazla mı ödüyorsun?",
+        "ru": "Вы сейчас платите слишком много за электричество или газ?",
+        "ar": "هل تدفع حاليًا أكثر من اللازم مقابل الكهرباء أو الغاز؟",
+        "it": "Stai pagando troppo per luce o gas?",
+        "zh": "你现在是否为电费或燃气费支付过高？",
+        "hi": "क्या आप अभी बिजली या गैस के लिए ज़्यादा भुगतान कर रहे हैं?",
+        "es": "¿Estás pagando demasiado por electricidad o gas?",
+        "fr": "Payez-vous actuellement trop cher votre électricité ou votre gaz ?",
+        "nl": "Betaal je op dit moment te veel voor stroom of gas?",
+        "pl": "Czy obecnie płacisz za dużo za prąd lub gaz?"
+      },
+      "missing": []
+    },
+    {
+      "path": "sections.hero.subline",
+      "translations": {
+        "de": "Finde es in nur 60 Sekunden heraus. Dein digitaler Energieassistent analysiert automatisch hunderte Tarife, filtert Lockangebote und riskante Anbieter heraus und zeigt dir eine sichere Empfehlung mit möglicher Ersparnis.",
+        "en": "Find out in just 60 seconds. Your digital energy assistant automatically analyzes hundreds of tariffs, filters out teaser offers and risky providers, and shows you a reliable recommendation with potential savings.",
+        "tr": "Sadece 60 saniyede öğren. Dijital enerji asistanın yüzlerce tarifeyi otomatik olarak analiz eder, yanıltıcı teklifleri ve riskli sağlayıcıları eler, sana da olası tasarruf sağlayabilecek güvenli bir öneri gösterir.",
+        "ru": "Узнайте это всего за 60 секунд. Ваш цифровой энергоассистент автоматически анализирует сотни тарифов, отсеивает заманчивые предложения и рискованных поставщиков и показывает надёжную рекомендацию с возможной экономией.",
+        "ar": "اكتشف ذلك خلال 60 ثانية فقط. يقوم مساعدك الرقمي للطاقة بتحليل مئات التعرفات تلقائيًا، ويستبعد العروض المضللة والمزوّدين ذوي المخاطر، ثم يعرض لك توصية آمنة مع إمكانية التوفير.",
+        "it": "Scoprilo in soli 60 secondi. Il tuo assistente energetico digitale analizza automaticamente centinaia di tariffe, filtra offerte civetta e fornitori rischiosi e ti mostra una raccomandazione sicura con un possibile risparmio.",
+        "zh": "只需 60 秒即可了解。你的数字能源助手会自动分析数百种资费方案，筛除诱导性优惠和高风险供应商，并为你提供一项安全可靠、可能帮你省钱的推荐。",
+        "hi": "सिर्फ 60 सेकंड में पता करें। आपका डिजिटल ऊर्जा सहायक अपने-आप सैकड़ों टैरिफ का विश्लेषण करता है, भ्रामक ऑफ़र और जोखिम वाले प्रदाताओं को फ़िल्टर करता है, और संभावित बचत के साथ एक सुरक्षित सिफारिश दिखाता है।",
+        "es": "Descúbrelo en solo 60 segundos. Tu asistente energético digital analiza automáticamente cientos de tarifas, filtra ofertas gancho y proveedores de riesgo, y te muestra una recomendación segura con posible ahorro.",
+        "fr": "Découvrez-le en seulement 60 secondes. Votre assistant énergétique numérique analyse automatiquement des centaines de tarifs, écarte les offres d’appel et les fournisseurs à risque, puis vous propose une recommandation fiable avec des économies potentielles.",
+        "nl": "Ontdek het in slechts 60 seconden. Je digitale energieassistent analyseert automatisch honderden tarieven, filtert lokaanbiedingen en risicovolle aanbieders eruit en toont je een veilige aanbeveling met mogelijke besparing.",
+        "pl": "Sprawdź to w zaledwie 60 sekund. Twój cyfrowy asystent energetyczny automatycznie analizuje setki taryf, odfiltrowuje oferty-pułapki i ryzykownych dostawców oraz pokazuje bezpieczną rekomendację z możliwą oszczędnością."
+      },
+      "missing": []
+    },
+    {
+      "path": "sections.hero.cta_text",
+      "translations": {
+        "de": "Jetzt Ersparnis prüfen",
+        "en": "Check your savings now",
+        "tr": "Tasarrufunu şimdi kontrol et",
+        "ru": "Проверьте возможную экономию",
+        "ar": "تحقق من إمكانية التوفير الآن",
+        "it": "Verifica ora il tuo risparmio",
+        "zh": "立即查看可节省金额",
+        "hi": "अभी अपनी बचत जांचें",
+        "es": "Comprueba tu ahorro ahora",
+        "fr": "Vérifiez vos économies maintenant",
+        "nl": "Controleer nu je besparing",
+        "pl": "Sprawdź możliwe oszczędności"
+      },
+      "missing": []
+    },
+    {
+      "path": "sections.hero.result_note",
+      "translations": {
+        "de": "Ergebnis in 60 Sekunden - 100% kostenlos",
+        "en": "Result in 60 seconds - 100% free",
+        "tr": "60 saniyede sonuç - %100 ücretsiz",
+        "ru": "Результат за 60 секунд — 100% бесплатно",
+        "ar": "النتيجة خلال 60 ثانية - مجاني 100%",
+        "it": "Risultato in 60 secondi - 100% gratuito",
+        "zh": "60 秒出结果 - 100% 免费",
+        "hi": "60 सेकंड में परिणाम - 100% मुफ्त",
+        "es": "Resultado en 60 segundos - 100% gratis",
+        "fr": "Résultat en 60 secondes - 100 % gratuit",
+        "nl": "Resultaat in 60 seconden - 100% gratis",
+        "pl": "Wynik w 60 sekund — 100% bezpłatnie"
+      },
+      "missing": []
+    },
+    {
+      "path": "sections.problem.headline",
+      "translations": {
+        "de": "Warum die meisten Haushalte unnötig zu viel für Strom oder Gas zahlen"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.problem.items.0.title",
+      "translations": {
+        "de": "Viele prüfen ihren Tarif jahrelang nicht"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.problem.items.0.description",
+      "translations": {
+        "de": "Wer seinen Tarif lange nicht überprüft, zahlt oft deutlich mehr als nötig, weil sich Preise und Angebote ständig verändern."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.problem.items.0.iconKey",
+      "translations": {
+        "de": "calendar"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.problem.items.1.title",
+      "translations": {
+        "de": "Viele glauben, ihr Tarif sei bereits günstig"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.problem.items.1.description",
+      "translations": {
+        "de": "Ein Tarif, der früher gut war, kann heute längst nicht mehr optimal sein. Ohne Prüfung merkt man das oft nicht."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.problem.items.1.iconKey",
+      "translations": {
+        "de": "coins"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.problem.items.2.title",
+      "translations": {
+        "de": "Viele bleiben beim Grundversorger"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.problem.items.2.description",
+      "translations": {
+        "de": "In vielen Regionen ist die Grundversorgung deutlich teurer als alternative Tarife. Trotzdem bleiben viele Haushalte dort oft aus Gewohnheit oder Unwissen."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.problem.items.2.iconKey",
+      "translations": {
+        "de": "building"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.problem.items.3.title",
+      "translations": {
+        "de": "Der Tarifmarkt wirkt kompliziert"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.problem.items.3.description",
+      "translations": {
+        "de": "Hunderte Angebote mit unterschiedlichen Bedingungen machen es schwer zu erkennen, welcher Tarif wirklich gut ist deshalb lassen viele ihren Tarif einfach unverändert."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.problem.items.3.iconKey",
+      "translations": {
+        "de": "search"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.solution.image_url",
+      "translations": {
+        "de": ""
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.solution.image_alt",
+      "translations": {
+        "de": "Energieassistent"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.solution.image_position",
+      "translations": {
+        "de": "left"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.solution.headline",
+      "translations": {
+        "de": "Du musst den Tarifmarkt nicht selbst verstehen oder vergleichen."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.solution.body",
+      "translations": {
+        "de": "Dein digitaler Energieassistent übernimmt das für dich! Finde in 60 Sekunden heraus, ob du aktuell zu viel zahlst."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.solution.cta_text",
+      "translations": {
+        "de": "Jetzt Ersparnis prüfen"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.solution.result_note",
+      "translations": {
+        "de": "Ergebnis in 60 Sekunden - 100% kostenlos"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.how_it_works.headline",
+      "translations": {
+        "de": "So einfach funktioniert’s"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.how_it_works.cta_text",
+      "translations": {
+        "de": "Jetzt Ersparnis prüfen"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.how_it_works.items.0.title",
+      "translations": {
+        "de": "Ersparnisprüfung starten"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.how_it_works.items.0.description",
+      "translations": {
+        "de": "Klicke dich einfach durch ein paar kurze Fragen zu deinem Tarif und Haushalt, damit der Energieassistent deine Situation prüfen kann."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.how_it_works.items.1.title",
+      "translations": {
+        "de": "Automatische Analyse"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.how_it_works.items.1.description",
+      "translations": {
+        "de": "Der Energieassistent analysiert mithilfe von KI verfügbare Tarife in deiner Region und filtert Lockangebote, riskante Anbieter sowie versteckte Vertragsfallen für dich heraus."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.how_it_works.items.2.title",
+      "translations": {
+        "de": "Tarifempfehlung erhalten"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.how_it_works.items.2.description",
+      "translations": {
+        "de": "Statt einer langen Tarifliste erhältst du eine sichere Empfehlung mit möglicher Ersparnis inklusive Erklärung, warum dieser Tarif eine sichere Wahl ist."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.how_it_works.items.3.title",
+      "translations": {
+        "de": "Wechsel & Tarifüberwachung"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.how_it_works.items.3.description",
+      "translations": {
+        "de": "Wenn dir der empfohlene Tarif zusagt, übernimmt der Energieassistent den Wechsel für dich, überwacht deine Kündigungsfristen und meldet sich automatisch, sobald ein erneuter Wechsel sinnvoll ist."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.comparison.headline",
+      "translations": {
+        "de": "Der Unterschied: Digitaler Energieassistent vs. klassische Vergleichsportale"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.comparison.portals_title",
+      "translations": {
+        "de": "Mit Vergleichsportalen"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.comparison.assistant_title",
+      "translations": {
+        "de": "Mit Energieassistent"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.comparison.portals.0",
+      "translations": {
+        "de": "Du vergleichst hunderte Tarife mühsam selbst und bist am Ende unsicher als vorher"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.comparison.portals.1",
+      "translations": {
+        "de": "Du musst Lockangebote, Bonus-Tricks und versteckte Kosten selbst erkennen"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.comparison.portals.2",
+      "translations": {
+        "de": "Du musst selbst prüfen, ob Anbieter stabil oder risikoreich sind"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.comparison.portals.3",
+      "translations": {
+        "de": "Du erhältst viele Optionen, aber keine klare Empfehlung"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.comparison.portals.4",
+      "translations": {
+        "de": "Nach dem Wechsel bist du auf dich gestellt keine Erinnerung oder Betreuung"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.comparison.assistant.0",
+      "translations": {
+        "de": "Der Energieassistent filtert hunderte Tarife für dich du bekommst eine klare, sichere Empfehlung"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.comparison.assistant.1",
+      "translations": {
+        "de": "Lockangebote, Boni-Tricks und versteckte Kosten werden automatisch für dich ausgeschlossen"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.comparison.assistant.2",
+      "translations": {
+        "de": "Der Energieassistent prüft Anbieter auf Stabilität und Risiko du bekommst nur sichere Anbieter"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.comparison.assistant.3",
+      "translations": {
+        "de": "Du bekommst eine geprüfte Empfehlung statt endlose Listen kein Vergleichen, keine Unsicherheit"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.comparison.assistant.4",
+      "translations": {
+        "de": "Der Energieassistent bleibt für dich aktiv überwacht Fristen und meldet sich automatisch mit Empfehlungen"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.comparison.cta_text",
+      "translations": {
+        "de": "Jetzt Ersparnis prüfen"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.final_cta.headline",
+      "translations": {
+        "de": "Jedes Jahr verschenken Millionen Haushalte bis zu 1.500 € an ihren Energieanbieter"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.final_cta.subline",
+      "translations": {
+        "de": "Prüfe in nur 60 Sekunden, ob und wie viel du aktuell sparen könntest."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.final_cta.cta_text",
+      "translations": {
+        "de": "Jetzt Ersparnis prüfen"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.faq.home_items.0.question",
+      "translations": {
+        "de": "Wie funktioniert die Tarifprüfung genau?"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.faq.home_items.0.answer",
+      "translations": {
+        "de": "Der Energieassistent analysiert deine aktuellen Tarifdaten und vergleicht diese automatisch mit hunderten verfügbaren Angeboten auf dem Markt. Dabei werden Lockangebote und riskante Anbieter direkt herausgefiltert."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.faq.home_items.1.question",
+      "translations": {
+        "de": "Welche Aufgaben übernimmt der Energieassistent für mich?"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.faq.home_items.1.answer",
+      "translations": {
+        "de": "Wir überwachen deine Kündigungsfristen, prüfen regelmäßig den Markt auf bessere Angebote und übernehmen den kompletten Wechselprozess für dich, sobald ein neuer Tarif sinnvoll ist."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.faq.home_items.2.question",
+      "translations": {
+        "de": "Ist die Tarifprüfung wirklich kostenlos?"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.faq.home_items.2.answer",
+      "translations": {
+        "de": "Ja, die Prüfung deiner aktuellen Situation und die erste Empfehlung sind komplett kostenlos und unverbindlich."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.faq.home_items.3.question",
+      "translations": {
+        "de": "Sind meine Daten bei der Prüfung sicher?"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.faq.home_items.3.answer",
+      "translations": {
+        "de": "Absolut. Wir legen höchsten Wert auf Datenschutz und verarbeiten deine Angaben ausschließlich verschlüsselt nach den aktuellen DSGVO-Richtlinien."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.faq.home_items.4.question",
+      "translations": {
+        "de": "Kann es beim Wechsel zu einer Unterbrechung der Versorgung kommen?"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.faq.home_items.4.answer",
+      "translations": {
+        "de": "Nein, eine Unterbrechung der Strom- oder Gasversorgung ist gesetzlich ausgeschlossen. Der Wechsel verläuft für dich nahtlos im Hintergrund."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.faq.home_items.5.question",
+      "translations": {
+        "de": "An wen kann ich mich wenden, wenn ich Fragen habe?"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "sections.faq.home_items.5.answer",
+      "translations": {
+        "de": "Unser Kundenservice steht dir jederzeit per E-Mail oder telefonisch zur Verfügung. Die Kontaktdaten findest du im Fußbereich dieser Seite."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "i18n.cta_check_savings",
+      "translations": {
+        "de": "Jetzt Ersparnis prüfen",
+        "en": "Check savings now",
+        "tr": "Şimdi tasarrufu kontrol et",
+        "ru": "Проверить экономию",
+        "ar": "تحقق من التوفير الآن",
+        "it": "Verifica il risparmio",
+        "zh": "立即检查节省",
+        "hi": "अभी बचत जांचें",
+        "es": "Comprobar ahorro ahora",
+        "fr": "Vérifier les économies",
+        "nl": "Controleer nu besparing",
+        "pl": "Sprawdź oszczędność"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.header_check_bill",
+      "translations": {
+        "de": "Jahresabrechnung prüfen",
+        "en": "Check annual energy bill",
+        "tr": "Yıllık enerji faturasını kontrol et",
+        "ru": "Проверить годовой счёт за энергию",
+        "ar": "تحقق من الفاتورة السنوية للطاقة",
+        "it": "Controlla la bolletta energetica annuale",
+        "zh": "检查年度能源账单",
+        "hi": "वार्षिक ऊर्जा बिल जांचें",
+        "es": "Revisar factura energética anual",
+        "fr": "Vérifier la facture annuelle d'énergie",
+        "nl": "Controleer jaarlijkse energierekening",
+        "pl": "Sprawdź roczny rachunek za energię"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.header_check_savings",
+      "translations": {
+        "de": "Tarifersparnis prüfen",
+        "en": "Check tariff savings",
+        "tr": "Tarife tasarrufunu kontrol et",
+        "ru": "Проверить экономию тарифа",
+        "ar": "تحقق من توفير التعرفة",
+        "it": "Verifica risparmio tariffa",
+        "zh": "检查资费节省",
+        "hi": "टैरिफ बचत जांचें",
+        "es": "Revisar ahorro de tarifa",
+        "fr": "Vérifier l'économie tarifaire",
+        "nl": "Controleer tariefbesparing",
+        "pl": "Sprawdź oszczędność taryfy"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.hero_badge",
+      "translations": {
+        "de": "Über 2.000 zufriedene Nutzer in ganz Deutschland",
+        "en": "Over 2,000 satisfied users across Germany",
+        "tr": "Almanya genelinde 2.000+ memnun kullanıcı",
+        "ru": "Более 2 000 довольных пользователей по всей Германии",
+        "ar": "أكثر من 2,000 مستخدم راضٍ في جميع أنحاء ألمانيا",
+        "it": "Oltre 2.000 utenti soddisfatti in tutta la Germania",
+        "zh": "德国各地已有 2,000+ 位满意用户",
+        "hi": "जर्मनी भर में 2,000+ संतुष्ट उपयोगकर्ता",
+        "es": "Más de 2.000 usuarios satisfechos en toda Alemania",
+        "fr": "Plus de 2 000 utilisateurs satisfaits dans toute l'Allemagne",
+        "nl": "Meer dan 2.000 tevreden gebruikers in heel Duitsland",
+        "pl": "Ponad 2 000 zadowolonych użytkowników w całych Niemczech"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.hero_headline",
+      "translations": {
+        "de": "Zahlst du zu viel für Strom oder Gas?",
+        "en": "Are you paying too much for electricity or gas?",
+        "tr": "Elektrik veya gaz için fazla mı ödüyorsunuz?",
+        "ru": "Платите ли вы слишком много за электричество или газ?",
+        "ar": "هل تدفع أكثر من اللازم مقابل الكهرباء أو الغاز؟",
+        "it": "Stai pagando troppo per luce o gas?",
+        "zh": "你是否为电费或燃气费支付过高？",
+        "hi": "क्या आप बिजली या गैस के लिए ज़रूरत से ज़्यादा भुगतान कर रहे हैं?",
+        "es": "¿Estás pagando demasiado por electricidad o gas?",
+        "fr": "Payez-vous trop cher votre électricité ou votre gaz ?",
+        "nl": "Betaal je te veel voor stroom of gas?",
+        "pl": "Czy płacisz za dużo za prąd lub gaz?"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.hero_subline_prefix",
+      "translations": {
+        "de": "Finde es in",
+        "en": "Find out in",
+        "tr": "Bunu",
+        "ru": "Узнайте это всего за",
+        "ar": "اكتشف ذلك خلال",
+        "it": "Scoprilo in",
+        "zh": "只需",
+        "hi": "इसे",
+        "es": "Descúbrelo en",
+        "fr": "Découvrez-le en",
+        "nl": "Ontdek het in",
+        "pl": "Sprawdź to w"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.hero_subline_emphasis",
+      "translations": {
+        "de": "nur 60 Sekunden",
+        "en": "just 60 seconds",
+        "tr": "yalnızca 60 saniyede",
+        "ru": "60 секунд",
+        "ar": "60 ثانية فقط",
+        "it": "soli 60 secondi",
+        "zh": "60 秒",
+        "hi": "सिर्फ 60 सेकंड में",
+        "es": "solo 60 segundos",
+        "fr": "seulement 60 secondes",
+        "nl": "slechts 60 seconden",
+        "pl": "zaledwie 60 sekund"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.hero_subline_suffix",
+      "translations": {
+        "de": "heraus. Dein digitaler Energieassistent analysiert automatisch hunderte Tarife, filtert Lockangebote und riskante Anbieter heraus und zeigt dir eine sichere Empfehlung mit echter Ersparnis.",
+        "en": ". Your digital Energy Assistant automatically analyzes hundreds of tariffs, filters out teaser offers and risky providers, and shows you a reliable recommendation with real savings.",
+        "tr": "öğrenin. Dijital Enerji Asistanınız yüzlerce tarifeyi otomatik analiz eder, cazip ama riskli teklifleri eler ve gerçek tasarruf sunan güvenli bir öneri gösterir.",
+        "ru": ". Ваш цифровой Энергоассистент автоматически анализирует сотни тарифов, исключает заманчивые и рискованные предложения и показывает надёжную рекомендацию с реальной экономией.",
+        "ar": ". يقوم مساعد الطاقة الرقمي بتحليل مئات التعرفات تلقائياً، ويستبعد العروض المضللة والمزوّدين ذوي المخاطر، ثم يعرض لك توصية موثوقة مع توفير حقيقي.",
+        "it": ". Il tuo Assistente Energia digitale analizza automaticamente centinaia di tariffe, esclude offerte civetta e fornitori rischiosi e ti mostra una raccomandazione sicura con risparmio reale.",
+        "zh": "即可知道答案。你的数字化能源助手会自动分析数百种资费方案，过滤噱头优惠和高风险供应商，并给出真正省钱且可靠的建议。",
+        "hi": "जानें। आपका डिजिटल एनर्जी असिस्टेंट सैकड़ों टैरिफ का स्वतः विश्लेषण करता है, भ्रामक ऑफ़र और जोखिम वाले प्रदाताओं को हटाता है और वास्तविक बचत के साथ एक भरोसेमंद सिफारिश दिखाता है।",
+        "es": ". Tu Asistente Energético digital analiza automáticamente cientos de tarifas, filtra ofertas gancho y proveedores de riesgo, y te muestra una recomendación segura con ahorro real.",
+        "fr": ". Votre Assistant Énergie numérique analyse automatiquement des centaines de tarifs, écarte les offres d'appel et les fournisseurs à risque, puis vous propose une recommandation fiable avec de vraies économies.",
+        "nl": ". Je digitale Energieassistent analyseert automatisch honderden tarieven, filtert lokaanbiedingen en risicovolle leveranciers en toont een veilige aanbeveling met echte besparing.",
+        "pl": ". Twój cyfrowy Asystent Energii automatycznie analizuje setki taryf, odrzuca oferty-pułapki i ryzykownych dostawców oraz pokazuje bezpieczną rekomendację z realną oszczędnością."
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.hero_result_note",
+      "translations": {
+        "de": "Ergebnis in 60 Sekunden - 100% kostenlos",
+        "en": "Result in 60 seconds - 100% free",
+        "tr": "60 saniyede sonuç - %100 ücretsiz",
+        "ru": "Результат за 60 секунд — 100% бесплатно",
+        "ar": "النتيجة خلال 60 ثانية - مجاناً 100٪",
+        "it": "Risultato in 60 secondi - 100% gratuito",
+        "zh": "60 秒出结果 - 100% 免费",
+        "hi": "60 सेकंड में परिणाम - 100% मुफ्त",
+        "es": "Resultado en 60 segundos - 100% gratis",
+        "fr": "Résultat en 60 secondes - 100 % gratuit",
+        "nl": "Resultaat in 60 seconden - 100% gratis",
+        "pl": "Wynik w 60 sekund - 100% bezpłatnie"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.footer_contact",
+      "translations": {
+        "de": "Kontakt",
+        "en": "Contact",
+        "tr": "İletişim",
+        "ru": "Контакты",
+        "ar": "التواصل",
+        "it": "Contatto",
+        "zh": "联系方式",
+        "hi": "संपर्क",
+        "es": "Contacto",
+        "fr": "Contact",
+        "nl": "Contact",
+        "pl": "Kontakt"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.footer_callback",
+      "translations": {
+        "de": "Rückruf buchen",
+        "en": "Book callback",
+        "tr": "Geri arama randevusu al",
+        "ru": "Записаться на звонок",
+        "ar": "حجز موعد للمكالمة",
+        "it": "Prenota richiamata",
+        "zh": "预约回电",
+        "hi": "कॉलबैक बुक करें",
+        "es": "Reservar una llamada",
+        "fr": "Réserver un rappel",
+        "nl": "Terugbelafspraak boeken",
+        "pl": "Umów rozmowę telefoniczną"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.footer_legal",
+      "translations": {
+        "de": "Rechtliches",
+        "en": "Legal",
+        "tr": "Yasal",
+        "ru": "Правовая информация",
+        "ar": "قانوني",
+        "it": "Legale",
+        "zh": "法律信息",
+        "hi": "कानूनी",
+        "es": "Legal",
+        "fr": "Mentions légales",
+        "nl": "Juridisch",
+        "pl": "Informacje prawne"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.footer_privacy",
+      "translations": {
+        "de": "Datenschutz",
+        "en": "Privacy",
+        "tr": "Gizlilik",
+        "ru": "Конфиденциальность",
+        "ar": "الخصوصية",
+        "it": "Privacy",
+        "zh": "隐私",
+        "hi": "गोपनीयता",
+        "es": "Privacidad",
+        "fr": "Confidentialité",
+        "nl": "Privacy",
+        "pl": "Prywatność"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.footer_imprint",
+      "translations": {
+        "de": "Impressum",
+        "en": "Imprint",
+        "tr": "Künye",
+        "ru": "Выходные данные",
+        "ar": "بيانات النشر",
+        "it": "Note legali",
+        "zh": "法律声明",
+        "hi": "इम्प्रिंट",
+        "es": "Aviso legal",
+        "fr": "Mentions",
+        "nl": "Colofon",
+        "pl": "Stopka redakcyjna"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.footer_rights",
+      "translations": {
+        "de": "Alle Rechte vorbehalten.",
+        "en": "All rights reserved.",
+        "tr": "Tüm hakları saklıdır.",
+        "ru": "Все права защищены.",
+        "ar": "جميع الحقوق محفوظة.",
+        "it": "Tutti i diritti riservati.",
+        "zh": "版权所有。",
+        "hi": "सर्वाधिकार सुरक्षित।",
+        "es": "Todos los derechos reservados.",
+        "fr": "Tous droits réservés.",
+        "nl": "Alle rechten voorbehouden.",
+        "pl": "Wszelkie prawa zastrzeżone."
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.cookie_title",
+      "translations": {
+        "de": "Privatsphäre-Einstellungen",
+        "en": "Privacy settings",
+        "tr": "Gizlilik ayarları",
+        "ru": "Настройки конфиденциальности",
+        "ar": "إعدادات الخصوصية",
+        "it": "Impostazioni privacy",
+        "zh": "隐私设置",
+        "hi": "गोपनीयता सेटिंग्स",
+        "es": "Configuración de privacidad",
+        "fr": "Paramètres de confidentialité",
+        "nl": "Privacy-instellingen",
+        "pl": "Ustawienia prywatności"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.cookie_copy_1",
+      "translations": {
+        "de": "Wir verwenden essenzielle Cookies für den Betrieb und optionale Marketing-Cookies nur mit Ihrer Einwilligung.",
+        "en": "We use essential cookies for operation and optional marketing cookies only with your consent.",
+        "tr": "Site için gerekli çerezleri ve yalnızca onayınızla isteğe bağlı pazarlama çerezlerini kullanıyoruz.",
+        "ru": "Мы используем обязательные cookie для работы сайта и маркетинговые cookie только с вашего согласия.",
+        "ar": "نستخدم ملفات تعريف الارتباط الأساسية للتشغيل وملفات التسويق فقط بموافقتك.",
+        "it": "Usiamo cookie essenziali per il funzionamento e cookie marketing opzionali solo con consenso.",
+        "zh": "我们仅在您同意时使用营销 Cookie，网站运行必需的 Cookie 始终启用。",
+        "hi": "हम साइट संचालन के लिए आवश्यक कुकीज़ और आपकी सहमति से वैकल्पिक मार्केटिंग कुकीज़ उपयोग करते हैं।",
+        "es": "Usamos cookies esenciales para el funcionamiento y cookies de marketing opcionales solo con tu consentimiento.",
+        "fr": "Nous utilisons des cookies essentiels pour le fonctionnement et des cookies marketing optionnels uniquement avec votre consentement.",
+        "nl": "We gebruiken essentiële cookies voor werking en optionele marketingcookies alleen met uw toestemming.",
+        "pl": "Używamy niezbędnych plików cookie do działania oraz marketingowych tylko za Twoją zgodą."
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.cookie_copy_2",
+      "translations": {
+        "de": "Sie können jederzeit Ihre Auswahl ändern. Standardmäßig sind nur essenzielle Cookies aktiv.",
+        "en": "You can change your choices at any time. By default, only essential cookies are active.",
+        "tr": "Seçimlerinizi istediğiniz zaman değiştirebilirsiniz. Varsayılan olarak yalnızca gerekli çerezler etkindir.",
+        "ru": "Вы можете изменить выбор в любое время. По умолчанию активны только обязательные cookie.",
+        "ar": "يمكنك تغيير اختياراتك في أي وقت. افتراضيًا يتم تفعيل الملفات الأساسية فقط.",
+        "it": "Puoi modificare le scelte in qualsiasi momento. Per default sono attivi solo i cookie essenziali.",
+        "zh": "您可随时更改选择。默认仅启用必需 Cookie。",
+        "hi": "आप कभी भी अपनी पसंद बदल सकते हैं। डिफ़ॉल्ट रूप से केवल आवश्यक कुकीज़ सक्रिय हैं।",
+        "es": "Puedes cambiar tu elección en cualquier momento. Por defecto, solo están activas las cookies esenciales.",
+        "fr": "Vous pouvez modifier vos choix à tout moment. Par défaut, seuls les cookies essentiels sont actifs.",
+        "nl": "U kunt uw keuze altijd aanpassen. Standaard zijn alleen essentiële cookies actief.",
+        "pl": "Wybór możesz zmienić w każdej chwili. Domyślnie aktywne są tylko niezbędne pliki cookie."
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.cookie_marketing",
+      "translations": {
+        "de": "Marketing",
+        "en": "Marketing",
+        "tr": "Pazarlama",
+        "ru": "Маркетинг",
+        "ar": "تسويق",
+        "it": "Marketing",
+        "zh": "营销",
+        "hi": "मार्केटिंग",
+        "es": "Marketing",
+        "fr": "Marketing",
+        "nl": "Marketing",
+        "pl": "Marketing"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.cookie_essential",
+      "translations": {
+        "de": "Essenziell",
+        "en": "Essential",
+        "tr": "Gerekli",
+        "ru": "Обязательные",
+        "ar": "أساسي",
+        "it": "Essenziali",
+        "zh": "必要",
+        "hi": "आवश्यक",
+        "es": "Esenciales",
+        "fr": "Essentiels",
+        "nl": "Essentieel",
+        "pl": "Niezbędne"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.cookie_save",
+      "translations": {
+        "de": "Einstellungen speichern",
+        "en": "Save settings",
+        "tr": "Ayarları kaydet",
+        "ru": "Сохранить настройки",
+        "ar": "حفظ الإعدادات",
+        "it": "Salva impostazioni",
+        "zh": "保存设置",
+        "hi": "सेटिंग्स सहेजें",
+        "es": "Guardar ajustes",
+        "fr": "Enregistrer",
+        "nl": "Instellingen opslaan",
+        "pl": "Zapisz ustawienia"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.cookie_accept_all",
+      "translations": {
+        "de": "Alle akzeptieren",
+        "en": "Accept all",
+        "tr": "Tümünü kabul et",
+        "ru": "Принять все",
+        "ar": "قبول الكل",
+        "it": "Accetta tutto",
+        "zh": "全部接受",
+        "hi": "सभी स्वीकार करें",
+        "es": "Aceptar todo",
+        "fr": "Tout accepter",
+        "nl": "Alles accepteren",
+        "pl": "Akceptuj wszystko"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.callback_title",
+      "translations": {
+        "de": "Rückruf buchen",
+        "en": "Book callback",
+        "tr": "Geri arama randevusu al",
+        "ru": "Записаться на звонок",
+        "ar": "حجز موعد للمكالمة",
+        "it": "Prenota richiamata",
+        "zh": "预约回电",
+        "hi": "कॉलबैक बुक करें",
+        "es": "Reservar una llamada",
+        "fr": "Réserver un rappel",
+        "nl": "Terugbelafspraak boeken",
+        "pl": "Umów rozmowę telefoniczną"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.home_problem_h2",
+      "translations": {
+        "de": "Warum viele Haushalte unnötig hohe Strom- und Gaskosten haben",
+        "en": "Why many households pay unnecessarily high electricity and gas costs",
+        "tr": "Neden birçok hane elektrik ve gaz için gereksiz yere yüksek ödeme yapıyor",
+        "ru": "Почему многие домохозяйства переплачивают за электричество и газ",
+        "ar": "لماذا تتحمّل كثير من الأسر تكاليف كهرباء وغاز أعلى من اللازم",
+        "it": "Perché molte famiglie pagano inutilmente troppo per luce e gas",
+        "zh": "为什么许多家庭在电费和燃气费上不必要地多花钱",
+        "hi": "कई परिवार बिजली और गैस पर बेवजह ज़्यादा खर्च क्यों करते हैं",
+        "es": "Por qué muchos hogares pagan de más en luz y gas sin necesidad",
+        "fr": "Pourquoi de nombreux foyers paient inutilement trop cher l'électricité et le gaz",
+        "nl": "Waarom veel huishoudens onnodig hoge stroom- en gaskosten hebben",
+        "pl": "Dlaczego wiele gospodarstw domowych niepotrzebnie płaci za dużo za prąd i gaz"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.home_solution_h2",
+      "translations": {
+        "de": "Genau deshalb lohnt sich eine kurze Ersparnisprüfung.",
+        "en": "That is exactly why a short savings check is worth it.",
+        "tr": "İşte tam bu yüzden kısa bir tasarruf kontrolü fayda sağlar.",
+        "ru": "Именно поэтому быстрая проверка экономии действительно полезна.",
+        "ar": "ولهذا السبب تحديداً تستحق مراجعة التوفير السريعة.",
+        "it": "Ecco perché una rapida verifica del risparmio conviene davvero.",
+        "zh": "这正是为什么一次简短的节省检查很值得。",
+        "hi": "इसीलिए एक छोटी बचत-जांच वास्तव में फायदेमंद है।",
+        "es": "Precisamente por eso merece la pena una revisión rápida del ahorro.",
+        "fr": "C'est exactement pour cela qu'un bilan économies rapide vaut la peine.",
+        "nl": "Precies daarom loont een korte besparingscheck.",
+        "pl": "Właśnie dlatego krótka analiza oszczędności naprawdę się opłaca."
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.home_how_it_works_h2",
+      "translations": {
+        "de": "So einfach funktioniert's",
+        "en": "It's that simple",
+        "tr": "İşte bu kadar basit",
+        "ru": "Это работает очень просто",
+        "ar": "هكذا تعمل الخدمة ببساطة",
+        "it": "Funziona in modo semplicissimo",
+        "zh": "流程就是这么简单",
+        "hi": "यह इतना आसान है",
+        "es": "Así de simple funciona",
+        "fr": "C'est aussi simple que ça",
+        "nl": "Zo eenvoudig werkt het",
+        "pl": "To działa naprawdę prosto"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.home_comparison_h2",
+      "translations": {
+        "de": "So unterscheidet sich der digitale Energieassistent von Vergleichsportalen",
+        "en": "How the digital Energy Assistant differs from comparison portals",
+        "tr": "Dijital Enerji Asistanı karşılaştırma portallarından nasıl ayrılır",
+        "ru": "Чем цифровой Энергоассистент отличается от сайтов сравнения",
+        "ar": "كيف يختلف مساعد الطاقة الرقمي عن مواقع المقارنة",
+        "it": "Ecco come l'Assistente Energia digitale si distingue dai portali di confronto",
+        "zh": "数字能源助手与比价平台有何不同",
+        "hi": "डिजिटल एनर्जी असिस्टेंट तुलना पोर्टल्स से कैसे अलग है",
+        "es": "Así se diferencia el Asistente Energético digital de los comparadores",
+        "fr": "En quoi l'Assistant Énergie numérique se distingue des comparateurs",
+        "nl": "Zo onderscheidt de digitale Energieassistent zich van vergelijkingssites",
+        "pl": "Tak cyfrowy Asystent Energii różni się od porównywarek ofert"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.home_testimonials_h2",
+      "translations": {
+        "de": "Über 2000 Haushalte nutzen bereits den digitalen Energieassistenten",
+        "en": "Over 2,000 households already use the digital Energy Assistant",
+        "tr": "2.000'den fazla hane dijital Enerji Asistanını şimdiden kullanıyor",
+        "ru": "Более 2 000 домохозяйств уже пользуются цифровым Энергоассистентом",
+        "ar": "أكثر من 2,000 أسرة تستخدم بالفعل مساعد الطاقة الرقمي",
+        "it": "Oltre 2.000 famiglie usano già l'Assistente Energia digitale",
+        "zh": "已有超过 2,000 个家庭在使用数字能源助手",
+        "hi": "2,000 से अधिक परिवार पहले से डिजिटल एनर्जी असिस्टेंट का उपयोग कर रहे हैं",
+        "es": "Más de 2.000 hogares ya usan el Asistente Energético digital",
+        "fr": "Plus de 2 000 foyers utilisent déjà l'Assistant Énergie numérique",
+        "nl": "Meer dan 2.000 huishoudens gebruiken de digitale Energieassistent al",
+        "pl": "Ponad 2 000 gospodarstw domowych już korzysta z cyfrowego Asystenta Energii"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.home_about_h2",
+      "translations": {
+        "de": "Wer steckt hinter dem Energieassistenten?",
+        "en": "Who is behind Energy Assistant?",
+        "tr": "Enerji Asistanı'nın arkasında kim var?",
+        "ru": "Кто стоит за Energy Assistant?",
+        "ar": "من يقف وراء Energy Assistant؟",
+        "it": "Chi c'è dietro Energy Assistant?",
+        "zh": "Energy Assistant 背后是谁？",
+        "hi": "Energy Assistant के पीछे कौन है?",
+        "es": "¿Quién está detrás de Energy Assistant?",
+        "fr": "Qui se cache derrière Energy Assistant ?",
+        "nl": "Wie zit er achter Energy Assistant?",
+        "pl": "Kto stoi za Energy Assistant?"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.home_faq_h2",
+      "translations": {
+        "de": "Häufige Fragen",
+        "en": "Frequently asked questions",
+        "tr": "Sık sorulan sorular",
+        "ru": "Частые вопросы",
+        "ar": "الأسئلة الشائعة",
+        "it": "Domande frequenti",
+        "zh": "常见问题",
+        "hi": "अक्सर पूछे जाने वाले सवाल",
+        "es": "Preguntas frecuentes",
+        "fr": "Questions fréquentes",
+        "nl": "Veelgestelde vragen",
+        "pl": "Najczęstsze pytania"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.home_final_cta_h2",
+      "translations": {
+        "de": "Jetzt Ersparnis prüfen",
+        "en": "Check savings now",
+        "tr": "Tasarrufu şimdi kontrol et",
+        "ru": "Проверить экономию",
+        "ar": "تحقق من التوفير الآن",
+        "it": "Verifica ora il risparmio",
+        "zh": "立即检查节省",
+        "hi": "अभी बचत जांचें",
+        "es": "Comprobar ahorro ahora",
+        "fr": "Vérifier les économies maintenant",
+        "nl": "Controleer nu je besparing",
+        "pl": "Sprawdź oszczędność teraz"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.annual_hero_h1",
+      "translations": {
+        "de": "Wurde deine Strom- oder Gasabrechnung falsch berechnet?",
+        "en": "Was your electricity or gas bill calculated incorrectly?",
+        "tr": "Elektrik veya gaz faturanız yanlış mı hesaplandı?",
+        "ru": "Ваш счёт за электричество или газ рассчитан неверно?",
+        "ar": "هل تم احتساب فاتورة الكهرباء أو الغاز لديك بشكل خاطئ؟",
+        "it": "La tua bolletta di luce o gas è stata calcolata in modo errato?",
+        "zh": "你的电费或燃气费账单是否被错误计算？",
+        "hi": "क्या आपकी बिजली या गैस बिलिंग गलत तरीके से हुई है?",
+        "es": "¿Se calculó mal tu factura de luz o gas?",
+        "fr": "Votre facture d'électricité ou de gaz a-t-elle été mal calculée ?",
+        "nl": "Is je stroom- of gasrekening verkeerd berekend?",
+        "pl": "Czy Twój rachunek za prąd lub gaz został błędnie naliczony?"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.annual_process_h2",
+      "translations": {
+        "de": "So läuft die Prüfung deiner Jahresabrechnung ab",
+        "en": "How your annual bill review works",
+        "tr": "Yıllık fatura kontrolünüz böyle ilerler",
+        "ru": "Как проходит проверка вашего годового счёта",
+        "ar": "هكذا تتم مراجعة فاتورتك السنوية",
+        "it": "Ecco come funziona il controllo della tua bolletta annuale",
+        "zh": "你的年度账单审核流程如下",
+        "hi": "आपके वार्षिक बिल की जांच ऐसे होती है",
+        "es": "Así funciona la revisión de tu factura anual",
+        "fr": "Comment se déroule la vérification de votre facture annuelle",
+        "nl": "Zo verloopt de controle van je jaarafrekening",
+        "pl": "Tak przebiega weryfikacja Twojego rocznego rachunku"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.annual_why_h2",
+      "translations": {
+        "de": "Warum sich die Prüfung deiner Jahresabrechnung lohnt",
+        "en": "Why it is worth reviewing your annual bill",
+        "tr": "Yıllık faturanızı kontrol ettirmek neden faydalıdır",
+        "ru": "Почему стоит проверить ваш годовой счёт",
+        "ar": "لماذا يستحق فحص فاتورتك السنوية",
+        "it": "Perché conviene controllare la tua bolletta annuale",
+        "zh": "为什么值得审核你的年度账单",
+        "hi": "आपके वार्षिक बिल की जांच क्यों फायदेमंद है",
+        "es": "Por qué merece la pena revisar tu factura anual",
+        "fr": "Pourquoi il vaut la peine de vérifier votre facture annuelle",
+        "nl": "Waarom het loont om je jaarafrekening te controleren",
+        "pl": "Dlaczego warto sprawdzić roczny rachunek"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.annual_blue_value_h2",
+      "translations": {
+        "de": "Du musst deine Jahresabrechnung nicht selbst prüfen",
+        "en": "You don't have to review your annual bill yourself",
+        "tr": "Yıllık faturanızı kendiniz kontrol etmek zorunda değilsiniz",
+        "ru": "Вам не нужно проверять годовой счёт самостоятельно",
+        "ar": "لست بحاجة إلى فحص فاتورتك السنوية بنفسك",
+        "it": "Non devi controllare da solo la tua bolletta annuale",
+        "zh": "你不必自己审核年度账单",
+        "hi": "आपको अपना वार्षिक बिल खुद जांचने की ज़रूरत नहीं है",
+        "es": "No tienes que revisar tu factura anual por tu cuenta",
+        "fr": "Vous n'avez pas besoin de vérifier votre facture annuelle vous-même",
+        "nl": "Je hoeft je jaarafrekening niet zelf te controleren",
+        "pl": "Nie musisz samodzielnie sprawdzać rocznego rachunku"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.annual_comparison_h2",
+      "translations": {
+        "de": "Selbst prüfen oder professionell prüfen lassen",
+        "en": "Review it yourself or let professionals review it",
+        "tr": "Kendiniz kontrol edin veya profesyonel kontrol alın",
+        "ru": "Проверить самостоятельно или доверить профессионалам",
+        "ar": "افحصها بنفسك أو دع خبراء يفحصونها لك",
+        "it": "Controlla da solo o affidati a una verifica professionale",
+        "zh": "自己审核，或交给专业团队审核",
+        "hi": "खुद जांचें या प्रोफेशनल से जांच करवाएं",
+        "es": "Revisarla tú mismo o dejarla en manos profesionales",
+        "fr": "Vérifier soi-même ou faire vérifier par des professionnels",
+        "nl": "Zelf controleren of professioneel laten controleren",
+        "pl": "Sprawdź samodzielnie albo zleć to profesjonalistom"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.annual_testimonials_h2",
+      "translations": {
+        "de": "Mehr als 2.000 Haushalte nutzen den Energieassistenten bereits",
+        "en": "More than 2,000 households already use the Energy Assistant",
+        "tr": "2.000'den fazla hane Enerji Asistanını zaten kullanıyor",
+        "ru": "Более 2 000 домохозяйств уже используют Энергоассистент",
+        "ar": "أكثر من 2,000 أسرة تستخدم مساعد الطاقة بالفعل",
+        "it": "Più di 2.000 famiglie usano già l'Assistente Energia",
+        "zh": "已有超过 2,000 个家庭在使用能源助手",
+        "hi": "2,000 से अधिक परिवार पहले से एनर्जी असिस्टेंट का उपयोग कर रहे हैं",
+        "es": "Más de 2.000 hogares ya utilizan el Asistente Energético",
+        "fr": "Plus de 2 000 foyers utilisent déjà l'Assistant Énergie",
+        "nl": "Meer dan 2.000 huishoudens gebruiken de Energieassistent al",
+        "pl": "Ponad 2 000 gospodarstw domowych korzysta już z Asystenta Energii"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.annual_faq_h2",
+      "translations": {
+        "de": "Häufige Fragen",
+        "en": "Frequently asked questions",
+        "tr": "Sık sorulan sorular",
+        "ru": "Частые вопросы",
+        "ar": "الأسئلة الشائعة",
+        "it": "Domande frequenti",
+        "zh": "常见问题",
+        "hi": "अक्सर पूछे जाने वाले सवाल",
+        "es": "Preguntas frecuentes",
+        "fr": "Questions fréquentes",
+        "nl": "Veelgestelde vragen",
+        "pl": "Najczęstsze pytania"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.annual_final_cta_h2",
+      "translations": {
+        "de": "Unsicher bei deiner Jahresabrechnung? Jetzt Klarheit bekommen",
+        "en": "Unsure about your annual bill? Get clarity now",
+        "tr": "Yıllık faturanızdan emin değil misiniz? Hemen netlik kazanın",
+        "ru": "Сомневаетесь в годовом счёте? Получите ясность уже сейчас",
+        "ar": "غير متأكد من فاتورتك السنوية؟ احصل على وضوح الآن",
+        "it": "Hai dubbi sulla tua bolletta annuale? Ottieni chiarezza ora",
+        "zh": "不确定年度账单是否正确？现在就获得清晰结论",
+        "hi": "वार्षिक बिल को लेकर असमंजस है? अभी स्पष्टता पाएं",
+        "es": "¿Dudas sobre tu factura anual? Consigue claridad ahora",
+        "fr": "Un doute sur votre facture annuelle ? Obtenez une réponse claire maintenant",
+        "nl": "Twijfel je over je jaarafrekening? Krijg nu duidelijkheid",
+        "pl": "Masz wątpliwości co do rocznego rachunku? Zyskaj jasność już teraz"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.annual_faq_1_q",
+      "translations": {
+        "de": "Wie funktioniert die Prüfung meiner Jahresabrechnung?",
+        "en": "How does the annual bill review work?",
+        "tr": "Yıllık fatura kontrolü nasıl çalışır?",
+        "ru": "Как проходит проверка годового счёта?",
+        "ar": "كيف تتم مراجعة الفاتورة السنوية؟",
+        "it": "Come funziona la verifica della bolletta annuale?",
+        "zh": "年度账单审核是如何进行的？",
+        "hi": "वार्षिक बिल की जांच कैसे होती है?",
+        "es": "¿Cómo funciona la revisión de la factura anual?",
+        "fr": "Comment fonctionne la vérification de la facture annuelle ?",
+        "nl": "Hoe werkt de controle van mijn jaarafrekening?",
+        "pl": "Jak działa weryfikacja rocznego rachunku?"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.annual_faq_1_a",
+      "translations": {
+        "de": "Du klickst dich durch ein paar kurze Fragen und lädst deine Rechnung hoch. Wir analysieren deine Daten und zeigen dir, ob es Auffälligkeiten gibt.",
+        "en": "You answer a few short questions and upload your bill. We analyze your data and show you whether there are any irregularities.",
+        "tr": "Birkaç kısa soruyu yanıtlayıp faturanı yüklersin. Verilerini analiz eder ve herhangi bir tutarsızlık olup olmadığını gösteririz.",
+        "ru": "Вы отвечаете на несколько коротких вопросов и загружаете счёт. Мы анализируем данные и показываем, есть ли отклонения.",
+        "ar": "تجيب عن بضعة أسئلة قصيرة وتحمّل فاتورتك. نقوم بتحليل بياناتك ونوضح لك ما إذا كانت هناك أي ملاحظات.",
+        "it": "Rispondi a poche domande rapide e carichi la tua bolletta. Analizziamo i dati e ti mostriamo se ci sono anomalie.",
+        "zh": "你只需回答几个简短问题并上传账单。我们会分析你的数据，并告知是否存在异常。",
+        "hi": "आप कुछ छोटे सवालों के जवाब देकर अपना बिल अपलोड करते हैं। हम आपके डेटा का विश्लेषण करते हैं और बताते हैं कि कोई गड़बड़ी है या नहीं।",
+        "es": "Respondes unas pocas preguntas breves y subes tu factura. Analizamos tus datos y te mostramos si hay irregularidades.",
+        "fr": "Vous répondez à quelques questions rapides et téléversez votre facture. Nous analysons vos données et vous indiquons s'il y a des anomalies.",
+        "nl": "Je beantwoordt een paar korte vragen en uploadt je rekening. We analyseren je gegevens en laten zien of er afwijkingen zijn.",
+        "pl": "Odpowiadasz na kilka krótkich pytań i przesyłasz rachunek. Analizujemy dane i pokazujemy, czy występują nieprawidłowości."
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.annual_faq_2_q",
+      "translations": {
+        "de": "Sind meine Daten bei der Prüfung sicher?",
+        "en": "Is my data secure during the review?",
+        "tr": "Kontrol sırasında verilerim güvende mi?",
+        "ru": "Безопасны ли мои данные при проверке?",
+        "ar": "هل بياناتي آمنة أثناء المراجعة؟",
+        "it": "I miei dati sono al sicuro durante la verifica?",
+        "zh": "审核过程中我的数据安全吗？",
+        "hi": "जांच के दौरान मेरा डेटा सुरक्षित है?",
+        "es": "¿Mis datos están seguros durante la revisión?",
+        "fr": "Mes données sont-elles sécurisées pendant la vérification ?",
+        "nl": "Zijn mijn gegevens veilig tijdens de controle?",
+        "pl": "Czy moje dane są bezpieczne podczas weryfikacji?"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.annual_faq_2_a",
+      "translations": {
+        "de": "Ja. Der Schutz deiner Daten hat höchste Priorität. Alle Daten werden verschlüsselt übertragen, streng vertraulich verarbeitet und deine Dokumente nach der Prüfung sicher gelöscht.",
+        "en": "Yes. Data protection is our top priority. All data is encrypted in transit, processed confidentially, and your documents are securely deleted after the review.",
+        "tr": "Evet. Veri güvenliği en yüksek önceliğimizdir. Tüm veriler şifreli iletilir, gizli şekilde işlenir ve belgelerin kontrol sonrası güvenle silinir.",
+        "ru": "Да. Защита данных для нас в приоритете. Все данные передаются в зашифрованном виде, обрабатываются конфиденциально, а документы безопасно удаляются после проверки.",
+        "ar": "نعم. حماية البيانات أولوية قصوى لدينا. تُنقل جميع البيانات بشكل مشفّر، وتُعالج بسرية تامة، ويتم حذف مستنداتك بأمان بعد المراجعة.",
+        "it": "Sì. La protezione dei dati è una priorità assoluta. Tutti i dati sono trasmessi in modo cifrato, trattati con riservatezza e i documenti vengono eliminati in modo sicuro dopo la verifica.",
+        "zh": "是的。数据安全是我们的最高优先级。所有数据均加密传输、严格保密处理，审核完成后你的文件会被安全删除。",
+        "hi": "हाँ। डेटा सुरक्षा हमारी सर्वोच्च प्राथमिकता है। सभी डेटा एन्क्रिप्ट होकर भेजा जाता है, गोपनीय रूप से प्रोसेस होता है और जांच के बाद आपके दस्तावेज़ सुरक्षित रूप से हटा दिए जाते हैं।",
+        "es": "Sí. La protección de datos es nuestra máxima prioridad. Todos los datos se transmiten cifrados, se tratan de forma confidencial y tus documentos se eliminan de forma segura tras la revisión.",
+        "fr": "Oui. La protection des données est notre priorité absolue. Toutes les données sont transmises de manière chiffrée, traitées de façon confidentielle, puis vos documents sont supprimés en toute sécurité après la vérification.",
+        "nl": "Ja. Gegevensbescherming heeft bij ons de hoogste prioriteit. Alle gegevens worden versleuteld verzonden, vertrouwelijk verwerkt en je documenten worden na de controle veilig verwijderd.",
+        "pl": "Tak. Ochrona danych jest dla nas priorytetem. Wszystkie dane są przesyłane szyfrowane, przetwarzane poufnie, a dokumenty po weryfikacji bezpiecznie usuwane."
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.annual_faq_3_q",
+      "translations": {
+        "de": "Kostet die Prüfung meiner Jahresabrechnung etwas?",
+        "en": "Does the annual bill review cost anything?",
+        "tr": "Yıllık fatura kontrolü ücretli mi?",
+        "ru": "Проверка годового счёта платная?",
+        "ar": "هل مراجعة الفاتورة السنوية مدفوعة؟",
+        "it": "La verifica della bolletta annuale ha un costo?",
+        "zh": "年度账单审核收费吗？",
+        "hi": "क्या वार्षिक बिल की जांच में कोई शुल्क लगता है?",
+        "es": "¿La revisión de la factura anual tiene coste?",
+        "fr": "La vérification de la facture annuelle est-elle payante ?",
+        "nl": "Kost de controle van mijn jaarafrekening geld?",
+        "pl": "Czy weryfikacja rocznego rachunku jest płatna?"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.annual_faq_3_a",
+      "translations": {
+        "de": "Nein, die Prüfung deiner Jahresabrechnung durch den Energieassistenten ist zu 100% kostenlos und unverbindlich.",
+        "en": "No. The annual bill review by the Energy Assistant is 100% free and non-binding.",
+        "tr": "Hayır. Enerji Asistanı ile yapılan yıllık fatura kontrolü %100 ücretsiz ve bağlayıcı değildir.",
+        "ru": "Нет. Проверка годового счёта через Энергоассистент на 100% бесплатна и ни к чему не обязывает.",
+        "ar": "لا. مراجعة الفاتورة السنوية عبر مساعد الطاقة مجانية 100٪ وبدون التزام.",
+        "it": "No. La verifica della bolletta annuale con l'Assistente Energia è gratuita al 100% e senza impegno.",
+        "zh": "不收费。通过能源助手进行年度账单审核 100% 免费，且无任何绑定义务。",
+        "hi": "नहीं। एनर्जी असिस्टेंट द्वारा वार्षिक बिल जांच 100% मुफ्त और बिना किसी बाध्यता के है।",
+        "es": "No. La revisión de la factura anual con el Asistente Energético es 100% gratuita y sin compromiso.",
+        "fr": "Non. La vérification de la facture annuelle avec l'Assistant Énergie est 100 % gratuite et sans engagement.",
+        "nl": "Nee. De controle van je jaarafrekening via de Energieassistent is 100% gratis en vrijblijvend.",
+        "pl": "Nie. Weryfikacja rocznego rachunku przez Asystenta Energii jest w 100% bezpłatna i niezobowiązująca."
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.annual_faq_4_q",
+      "translations": {
+        "de": "Wie finanziert sich der Energieassistent?",
+        "en": "How is the Energy Assistant financed?",
+        "tr": "Enerji Asistanı nasıl finanse ediliyor?",
+        "ru": "Как финансируется Энергоассистент?",
+        "ar": "كيف يتم تمويل مساعد الطاقة؟",
+        "it": "Come si finanzia l'Assistente Energia?",
+        "zh": "能源助手如何盈利？",
+        "hi": "एनर्जी असिस्टेंट का वित्तपोषण कैसे होता है?",
+        "es": "¿Cómo se financia el Asistente Energético?",
+        "fr": "Comment l'Assistant Énergie est-il financé ?",
+        "nl": "Hoe wordt de Energieassistent gefinancierd?",
+        "pl": "Jak finansowany jest Asystent Energii?"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.annual_faq_4_a",
+      "translations": {
+        "de": "Wir finanzieren uns ausschließlich über eine Provision der Energieversorger, wenn du dich entscheidest, über uns in einen günstigeren Tarif zu wechseln. Für dich entstehen dabei keine zusätzlichen Kosten.",
+        "en": "We are financed exclusively through a commission from energy suppliers if you decide to switch to a cheaper tariff through us. There are no additional costs for you.",
+        "tr": "Sadece, bizim aracılığımızla daha uygun bir tarifeye geçmeye karar verirsen enerji tedarikçilerinin ödediği komisyonla finanse ediliriz. Senin için ek maliyet oluşmaz.",
+        "ru": "Мы финансируемся исключительно за счёт комиссии от поставщиков энергии, если вы решите перейти на более выгодный тариф через нас. Для вас это без дополнительных расходов.",
+        "ar": "نموّل خدمتنا حصرياً عبر عمولة من مزوّدي الطاقة إذا قررت التحويل إلى تعرفة أرخص من خلالنا. لا توجد أي تكاليف إضافية عليك.",
+        "it": "Ci finanziamo esclusivamente tramite una commissione dei fornitori di energia se scegli di passare a una tariffa più conveniente tramite noi. Per te non ci sono costi aggiuntivi.",
+        "zh": "仅当你通过我们切换到更便宜的资费时，我们才会从能源供应商获得佣金。你无需承担任何额外费用。",
+        "hi": "यदि आप हमारे माध्यम से सस्ती टैरिफ पर स्विच करते हैं, तो हमें केवल ऊर्जा प्रदाताओं से कमीशन मिलता है। आपके लिए कोई अतिरिक्त लागत नहीं होती।",
+        "es": "Nos financiamos exclusivamente mediante una comisión de las comercializadoras si decides cambiar a una tarifa más barata a través de nosotros. Para ti no hay costes adicionales.",
+        "fr": "Nous sommes financés exclusivement par une commission des fournisseurs d'énergie si vous choisissez de passer à un tarif moins cher via notre service. Cela n'entraîne aucun coût supplémentaire pour vous.",
+        "nl": "Wij financieren ons uitsluitend via een provisie van energieleveranciers als je besluit via ons over te stappen naar een goedkoper tarief. Voor jou zijn er geen extra kosten.",
+        "pl": "Finansujemy się wyłącznie z prowizji od dostawców energii, jeśli zdecydujesz się zmienić taryfę na tańszą za naszym pośrednictwem. Dla Ciebie nie ma żadnych dodatkowych kosztów."
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.annual_faq_5_q",
+      "translations": {
+        "de": "Was passiert, wenn Auffälligkeiten erkannt werden?",
+        "en": "What happens if irregularities are found?",
+        "tr": "Tutarsızlık tespit edilirse ne olur?",
+        "ru": "Что происходит, если найдены несоответствия?",
+        "ar": "ماذا يحدث إذا تم اكتشاف أي ملاحظات؟",
+        "it": "Cosa succede se vengono rilevate anomalie?",
+        "zh": "如果发现异常会怎样？",
+        "hi": "अगर गड़बड़ियां मिलती हैं तो क्या होता है?",
+        "es": "¿Qué pasa si se detectan irregularidades?",
+        "fr": "Que se passe-t-il si des anomalies sont détectées ?",
+        "nl": "Wat gebeurt er als er afwijkingen worden gevonden?",
+        "pl": "Co się dzieje, gdy wykryte zostaną nieprawidłowości?"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.annual_faq_5_a",
+      "translations": {
+        "de": "Wenn wir Unstimmigkeiten finden, erhältst du konkrete Handlungsempfehlungen. Wir zeigen dir, welche Schritte du einleiten kannst, um Geld zurückzufordern oder zukünftige Abschläge anzupassen.",
+        "en": "If we find inconsistencies, you receive clear next-step recommendations. We show you what to do to reclaim money or adjust future monthly payments.",
+        "tr": "Tutarsızlık bulursak sana net aksiyon önerileri sunarız. Geri ödeme almak veya gelecekteki aylık ödemeleri ayarlamak için hangi adımları atman gerektiğini gösteririz.",
+        "ru": "Если мы обнаружим несоответствия, вы получите чёткие рекомендации по дальнейшим шагам: как вернуть деньги или скорректировать будущие авансовые платежи.",
+        "ar": "إذا وجدنا أي عدم تطابق، ستحصل على توصيات عملية واضحة. نوضح لك الخطوات اللازمة لاسترداد الأموال أو تعديل الدفعات الشهرية المستقبلية.",
+        "it": "Se troviamo incongruenze, ricevi indicazioni operative chiare. Ti mostriamo quali passi fare per richiedere rimborsi o adeguare le rate future.",
+        "zh": "如果发现不一致项，你将获得明确的后续建议。我们会告诉你如何申请退款或调整未来的月度预缴费用。",
+        "hi": "यदि हमें असंगतियां मिलती हैं, तो आपको स्पष्ट अगले कदम दिए जाते हैं। हम बताते हैं कि रिफंड कैसे मांगें या भविष्य की मासिक अग्रिम राशि कैसे समायोजित करें।",
+        "es": "Si encontramos inconsistencias, recibirás recomendaciones claras de actuación. Te mostramos qué pasos dar para reclamar dinero o ajustar futuros pagos mensuales.",
+        "fr": "Si nous détectons des incohérences, vous recevez des recommandations concrètes. Nous vous indiquons les démarches pour récupérer de l'argent ou ajuster vos paiements mensuels futurs.",
+        "nl": "Als we onregelmatigheden vinden, krijg je duidelijke vervolgstappen. We laten zien wat je kunt doen om geld terug te vragen of toekomstige maandbedragen aan te passen.",
+        "pl": "Jeśli znajdziemy rozbieżności, otrzymasz konkretne rekomendacje kolejnych kroków. Pokażemy, jak odzyskać środki lub dostosować przyszłe miesięczne zaliczki."
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.annual_faq_6_q",
+      "translations": {
+        "de": "An wen kann ich mich wenden, wenn ich Fragen habe?",
+        "en": "Who can I contact if I have questions?",
+        "tr": "Sorularım olursa kime ulaşabilirim?",
+        "ru": "К кому обратиться, если у меня есть вопросы?",
+        "ar": "إلى من يمكنني التوجه إذا كان لدي أسئلة؟",
+        "it": "A chi posso rivolgermi se ho domande?",
+        "zh": "如果我有问题可以联系谁？",
+        "hi": "अगर मेरे सवाल हों तो मैं किससे संपर्क कर सकता हूँ?",
+        "es": "¿A quién puedo contactar si tengo preguntas?",
+        "fr": "Qui puis-je contacter si j'ai des questions ?",
+        "nl": "Met wie kan ik contact opnemen als ik vragen heb?",
+        "pl": "Do kogo mogę się zwrócić, jeśli mam pytania?"
+      },
+      "missing": []
+    },
+    {
+      "path": "i18n.annual_faq_6_a",
+      "translations": {
+        "de": "Unser Kundenservice steht dir jederzeit zur Verfügung. Du erreichst uns einfach per E-Mail oder über das Kontaktformular.",
+        "en": "Our customer service team is always available. You can easily reach us by email or via the contact form.",
+        "tr": "Müşteri hizmetlerimiz her zaman ulaşılabilir. Bize e-posta veya iletişim formu üzerinden kolayca ulaşabilirsin.",
+        "ru": "Наша служба поддержки всегда на связи. Вы можете легко связаться с нами по электронной почте или через форму обратной связи.",
+        "ar": "خدمة العملاء لدينا متاحة دائماً. يمكنك التواصل معنا بسهولة عبر البريد الإلكتروني أو نموذج التواصل.",
+        "it": "Il nostro servizio clienti è sempre disponibile. Puoi contattarci facilmente via e-mail o tramite il modulo di contatto.",
+        "zh": "我们的客服随时为你服务。你可以通过电子邮件或联系表单轻松联系到我们。",
+        "hi": "हमारी कस्टमर सर्विस हमेशा उपलब्ध है। आप हमें ईमेल या संपर्क फ़ॉर्म के जरिए आसानी से संपर्क कर सकते हैं।",
+        "es": "Nuestro equipo de atención al cliente está siempre disponible. Puedes contactarnos fácilmente por correo electrónico o mediante el formulario de contacto.",
+        "fr": "Notre service client est disponible à tout moment. Vous pouvez nous contacter facilement par e-mail ou via le formulaire de contact.",
+        "nl": "Onze klantenservice staat altijd voor je klaar. Je bereikt ons eenvoudig per e-mail of via het contactformulier.",
+        "pl": "Nasz dział obsługi klienta jest zawsze do dyspozycji. Możesz łatwo skontaktować się z nami e-mailem lub przez formularz kontaktowy."
+      },
+      "missing": []
+    },
+    {
+      "path": "annual.processFallback.0.step",
+      "translations": {
+        "de": "1"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.processFallback.0.title",
+      "translations": {
+        "de": "Rechnungsprüfung starten"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.processFallback.0.desc",
+      "translations": {
+        "de": "Klicke dich durch ein paar kurze Fragen zu deinem Haushalt und lade deine Jahresabrechnung hoch."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.processFallback.1.step",
+      "translations": {
+        "de": "2"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.processFallback.1.title",
+      "translations": {
+        "de": "Individuelle Analyse"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.processFallback.1.desc",
+      "translations": {
+        "de": "Wir analysieren deine Jahresabrechnung im Detail und prüfen, ob Auffälligkeiten, Fehler oder unnötige Kosten enthalten sind."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.processFallback.2.step",
+      "translations": {
+        "de": "3"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.processFallback.2.title",
+      "translations": {
+        "de": "Ergebnis erhalten"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.processFallback.2.desc",
+      "translations": {
+        "de": "Du erhältst eine klare und verständliche Auswertung deiner Jahresabrechnung – inklusive möglicher Auffälligkeiten und Einsparpotenziale."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.processFallback.3.step",
+      "translations": {
+        "de": "4"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.processFallback.3.title",
+      "translations": {
+        "de": "Konkrete Handlungsempfehlung"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.processFallback.3.desc",
+      "translations": {
+        "de": "Auf Basis der Analyse zeigen wir, welche nächsten Schritte sinnvoll sind – z. B. Abschläge anpassen, Fehler korrigieren oder Einsparmöglichkeiten nutzen."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.whyFallback.0.title",
+      "translations": {
+        "de": "Geschätzte Zählerstände"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.whyFallback.0.desc",
+      "translations": {
+        "de": "Wenn kein aktueller Zählerstand gemeldet wird, schätzt der Anbieter den Verbrauch. Diese Schätzungen können deutlich vom tatsächlichen Verbrauch abweichen."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.whyFallback.1.title",
+      "translations": {
+        "de": "Abschläge wurden falsch berechnet"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.whyFallback.1.desc",
+      "translations": {
+        "de": "Manchmal sind monatliche Abschläge zu niedrig oder zu hoch angesetzt das fällt vielen erst mit der Jahresabrechnung auf."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.whyFallback.2.title",
+      "translations": {
+        "de": "Tarifpreise haben sich geändert"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.whyFallback.2.desc",
+      "translations": {
+        "de": "Viele Tarife werden nach Ablauf der Preisgarantie oder durch Preisänderungen deutlich teurer. Ohne genaue Prüfung bleibt das oft unbemerkt."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.whyFallback.3.title",
+      "translations": {
+        "de": "Rechnungen sind schwer verständlich"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.whyFallback.3.desc",
+      "translations": {
+        "de": "Strom- und Gasrechnungen enthalten viele Positionen und Abkürzungen - dadurch ist es für viele Haushalte schwer zu erkennen, ob alles korrekt ist."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.comparisonSelfFallback.0",
+      "translations": {
+        "de": "Du musst alle Positionen und Abkürzungen in deiner Rechnung selbst verstehen."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.comparisonSelfFallback.1",
+      "translations": {
+        "de": "Du musst prüfen, ob Verbrauch, Preise und Abschläge korrekt berechnet wurden."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.comparisonSelfFallback.2",
+      "translations": {
+        "de": "Du musst mögliche Schätzungen oder ungewöhnliche Kosten selbst erkennen."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.comparisonSelfFallback.3",
+      "translations": {
+        "de": "Du musst selbst beurteilen, ob deine Rechnung wirklich korrekt ist."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.comparisonSelfFallback.4",
+      "translations": {
+        "de": "Du musst Zeit investieren, um die gesamte Rechnung im Detail zu analysieren."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.comparisonAssistantFallback.0",
+      "translations": {
+        "de": "Professionelle Prüfung durch uns"
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.comparisonAssistantFallback.1",
+      "translations": {
+        "de": "Wir analysieren deine Jahresabrechnung im Detail und prüfen alle relevanten Positionen."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.comparisonAssistantFallback.2",
+      "translations": {
+        "de": "Du erhältst eine klare und verständliche Auswertung deiner Rechnung."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.comparisonAssistantFallback.3",
+      "translations": {
+        "de": "Wir zeigen konkrete Handlungsempfehlungen für die nächsten Schritte."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    },
+    {
+      "path": "annual.comparisonAssistantFallback.4",
+      "translations": {
+        "de": "Du erhältst ein verlässliches Ergebnis – ohne selbst Zeit investieren zu müssen."
+      },
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ]
+    }
+  ],
+  "excluded": [
+    "All reference identity, contacts, legal, assets, reviews and statistics",
+    "User counts, savings amounts, timing/free-service guarantees",
+    "Unverified automatic market filtering, switching, monitoring, security and professional-service promises"
+  ],
+  "customerGaps": [],
+  "recoveredTranslations": [
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.cta",
+      "german": "Jahresabrechnung prüfen",
+      "sources": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "dictionaries",
+          "key": "header_check_bill"
+        }
+      ],
+      "languages": [
+        "de",
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "translations": {
+        "de": "Jahresabrechnung prüfen",
+        "en": "Check annual energy bill",
+        "tr": "Yıllık enerji faturasını kontrol et",
+        "ru": "Проверить годовой счёт за энергию",
+        "ar": "تحقق من الفاتورة السنوية للطاقة",
+        "it": "Controlla la bolletta energetica annuale",
+        "zh": "检查年度能源账单",
+        "hi": "वार्षिक ऊर्जा बिल जांचें",
+        "es": "Revisar factura energética anual",
+        "fr": "Vérifier la facture annuelle d'énergie",
+        "nl": "Controleer jaarlijkse energierekening",
+        "pl": "Sprawdź roczny rachunek za energię"
+      }
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.cta",
+      "german": "Jahresabrechnung prüfen",
+      "sources": [
+        {
+          "file": "src/lib/i18n.tsx",
+          "catalog": "dictionaries",
+          "key": "header_check_bill"
+        }
+      ],
+      "languages": [
+        "de",
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "translations": {
+        "de": "Jahresabrechnung prüfen",
+        "en": "Check annual energy bill",
+        "tr": "Yıllık enerji faturasını kontrol et",
+        "ru": "Проверить годовой счёт за энергию",
+        "ar": "تحقق من الفاتورة السنوية للطاقة",
+        "it": "Controlla la bolletta energetica annuale",
+        "zh": "检查年度能源账单",
+        "hi": "वार्षिक ऊर्जा बिल जांचें",
+        "es": "Revisar factura energética anual",
+        "fr": "Vérifier la facture annuelle d'énergie",
+        "nl": "Controleer jaarlijkse energierekening",
+        "pl": "Sprawdź roczny rachunek za energię"
+      }
+    }
+  ],
+  "translatedCustomerGaps": [
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_1_q",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_1_a",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_2_q",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_2_a",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_3_q",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_3_a",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_4_q",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_4_a",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_5_q",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_5_a",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_6_q",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "i18n.annual_faq_6_a",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.hero.subline",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.hero.cta_text",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.hero.result_note",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.problem.items",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.solution.headline",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.solution.body",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.solution.cta_text",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.solution.result_note",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.how_it_works.cta_text",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.how_it_works.items",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.comparison.portals_title",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.comparison.assistant_title",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.comparison.portals",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.comparison.assistant",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.comparison.cta_text",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.about.headline",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.about.role",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.about.paragraphs",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.faq.home_items",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.final_cta.headline",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.final_cta.subline",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.final_cta.cta_text",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.callback.title",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.callback.disabled_text",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.hero_text",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.why_intro",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.value_text",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.comparison_self_title",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.comparison_assistant_title",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.comparison_self",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.comparison_assistant",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.final_text",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.process",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "oecher-strom",
+      "path": "sections.jahresrechnung.why",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_1_q",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_1_a",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_2_q",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_2_a",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_3_q",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_3_a",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_4_q",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_4_a",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_5_q",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_5_a",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_6_q",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "i18n.annual_faq_6_a",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.hero.subline",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.hero.cta_text",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.hero.result_note",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.problem.items",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.solution.headline",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.solution.body",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.solution.cta_text",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.solution.result_note",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.how_it_works.cta_text",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.how_it_works.items",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.comparison.portals_title",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.comparison.assistant_title",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.comparison.portals",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.comparison.assistant",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.comparison.cta_text",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.about.headline",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.about.role",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.about.paragraphs",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.faq.home_items",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.final_cta.headline",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.final_cta.subline",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.final_cta.cta_text",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.callback.title",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.callback.disabled_text",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.hero_text",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.why_intro",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.value_text",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.comparison_self_title",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.comparison_assistant_title",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.comparison_self",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.comparison_assistant",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.final_text",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.process",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    },
+    {
+      "customer": "tarivia",
+      "path": "sections.jahresrechnung.why",
+      "missing": [
+        "en",
+        "tr",
+        "ru",
+        "ar",
+        "it",
+        "zh",
+        "hi",
+        "es",
+        "fr",
+        "nl",
+        "pl"
+      ],
+      "source": "User-authorised faithful translations; not claimed as pre-existing Ehiogie translations.",
+      "status": "TRANSLATED_FROM_EXISTING_GERMAN"
+    }
+  ],
+  "translationEvidence": {
+    "languages": [
+      "de",
+      "en",
+      "tr",
+      "ru",
+      "ar",
+      "it",
+      "zh",
+      "hi",
+      "es",
+      "fr",
+      "nl",
+      "pl"
+    ],
+    "source_texts": 85,
+    "translated_texts": 935,
+    "provenance": "Faithful translations of existing customer German text under explicit T08 correction authorisation. Existing source-catalog translations remain unchanged.",
+    "sources": {
+      "source.json": "a73bb1a01a56212a6a562bef707d902feda1fa8703c679b1e5a7a8f6a77897a8",
+      "en.txt": "9a6ecd1e70ee800dbada4b2e7a98b5ffd8c88b95b996cc471a7cad9327764c14",
+      "tr.txt": "096e9b0d237d6e444916460101b725883a70814bbecf56e8c851888d03f7c0f3",
+      "ru.txt": "43d28649c253143815bbd3c2c33bb010dd4dc1a8486705d52cfb61cd5ed7d913",
+      "ar.txt": "cfd57e1387371f0e1c734193cfd0fa2d9d597a430c17553046c7d3d240417b03",
+      "it.txt": "9b7f580da0cef6a2faac638774a42f3eb1dc0567d9fdedf96f00e056b84c14c2",
+      "zh.txt": "fb2d3e6efb49d7063238ad319dceaae3ca4f0c1d43c59119ea42d59f39abec18",
+      "hi.txt": "9e58fe1182639ef8493da9de95d8567bda7b30487b8f7dd71a1b469ec6982e8d",
+      "es.txt": "9868870cdb2eda22583e83c4aa0585a64b24bd3edcf9c54ecc74aed392ef8fbb",
+      "fr.txt": "e6ca239f3dd1ebad1c5f6d65c7d08d0a4e37b0b6d8fd75c7380c243c6f41d152",
+      "nl.txt": "c0edfffdd99a51aac5a5d672e649311abf4af8013008f54e4a9e5c75a09bc974",
+      "pl.txt": "1eb107cf9aeca92609f52d85061d9c62a0757fcf0e8329e88b79fec85ef6eb16"
+    }
+  }
+}

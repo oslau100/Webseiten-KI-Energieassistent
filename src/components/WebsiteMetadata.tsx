@@ -1,16 +1,36 @@
+import { isTrustedCustomerPublicAsset } from "@/lib/customerRuntime";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useWebsiteConfig } from "@/lib/websiteConfig";
 import { useI18n } from "@/lib/i18n";
 
 export const WebsiteMetadata = () => {
-  const { getText } = useWebsiteConfig();
+  const { getText, customerRuntime, readiness, loading, tenant, design } = useWebsiteConfig();
   const { lang } = useI18n();
   const { pathname } = useLocation();
   const title = getText("seo.title", getText("brand.name", "Energieassistent"), lang);
   const description = getText("seo.description", "Strom- und Gastarife sowie Jahresrechnungen verständlich prüfen.", lang);
   const siteUrl = getText("seo.site_url", "").trim();
   const image = getText("seo.image_url", "").trim();
+
+  const assets = design?.assets as Record<string, unknown> | undefined;
+  const favicon = customerRuntime && readiness === "READY" && !loading
+    ? [assets?.favicon, assets?.logo_header].find(value =>
+      typeof value === "string" && value.endsWith(".png") && isTrustedCustomerPublicAsset(value, tenant?.locationId))
+    : undefined;
+
+  useEffect(() => {
+    if (!customerRuntime) return;
+    // Never retain a generic or previous tenant icon for a customer context.
+    document.head.querySelectorAll('link[rel="icon"]').forEach(node => node.remove());
+    if (typeof favicon !== "string") return;
+    const link = document.createElement("link");
+    link.rel = "icon";
+    link.type = "image/png";
+    link.href = favicon;
+    document.head.append(link);
+    return () => link.remove();
+  }, [customerRuntime, favicon]);
 
   useEffect(() => {
     document.title = title;
