@@ -38,7 +38,7 @@ export const Testimonials = () => {
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{getText("sections.testimonials.headline", t("home_testimonials_h2"), lang)}</h2>
         </AnimatedSection>
         <AnimatedSection delay={200} className={validJotformWidgetId ? "w-full max-w-7xl mx-auto relative" : "max-w-5xl mx-auto px-4 md:px-12 relative"}>
-          {validJotformWidgetId ? <JotformReviewWidget widgetId={validJotformWidgetId} /> : <Carousel opts={{ align: "start" }} className="w-full">
+          {validJotformWidgetId ? <JotformReviewWidget widgetId={validJotformWidgetId} /> : <Carousel opts={{ align: "start", direction: lang === "ar" ? "rtl" : "ltr" }} className="w-full">
             <CarouselContent>
               {reviews.map((review, index) => (
                 <CarouselItem key={index} className="basis-[85%] md:basis-1/2 lg:basis-1/2 pl-4">
@@ -59,8 +59,8 @@ export const Testimonials = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex -left-12 h-12 w-12 border-none shadow-md" />
-            <CarouselNext className="hidden md:flex -right-12 h-12 w-12 border-none shadow-md" />
+            <CarouselPrevious aria-label={getText("ui.carousel_previous", "Previous slide", lang)} className="hidden md:flex -left-12 h-12 w-12 border-none shadow-md" />
+            <CarouselNext aria-label={getText("ui.carousel_next", "Next slide", lang)} className="hidden md:flex -right-12 h-12 w-12 border-none shadow-md" />
           </Carousel>}
         </AnimatedSection>
         <AnimatedSection delay={400} className="mt-16 text-center">

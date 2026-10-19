@@ -3,6 +3,7 @@ import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useWebsiteConfig } from "@/lib/websiteConfig";
+import { useI18n } from "@/lib/i18n";
 import { resolveWebsiteRuntime } from "@/lib/websiteRuntime";
 
 import { openConsentSettingsEvent, readConsent, setConsentStorage } from "@/lib/cookieConsent";
@@ -12,7 +13,9 @@ const FALLBACK_PRIMARY_COLOR = "#2563eb";
 export const CookieBar = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [marketingAccepted, setMarketingAccepted] = useState(false);
-  const { getText, design } = useWebsiteConfig();
+  const { getText: resolveText, design, customerRuntime } = useWebsiteConfig();
+  const { lang, withLang } = useI18n();
+  const getText = (path: string, fallback: string) => resolveText(path, fallback, lang);
   // Customer optional services require a separate reviewed implementation.
   // Pixel IDs or CRM configuration must never enable this UI or tracking.
   const optionalServicesAvailable = !resolveWebsiteRuntime().identity.customer;
@@ -44,8 +47,13 @@ export const CookieBar = () => {
 
   if (!isVisible) return null;
 
+  const requiredCopy = ["title", "browser_settings", "more_info", "privacy_link", "imprint_link", "essential", "save"];
+  if (customerRuntime && requiredCopy.some(key => !getText(`cookie.${key}`, "").trim())) {
+    return <span hidden data-copy-readiness="INCOMPLETE" data-copy-section="cookie" />;
+  }
+
   return (
-    <div className="fixed inset-0 z-[100] bg-black/35 flex items-end sm:items-center justify-center p-3 sm:p-5">
+    <div role="dialog" aria-modal="true" aria-label={getText("cookie.title", "Privatsphäre-Einstellungen")} className="fixed inset-0 z-[100] bg-black/35 flex items-end sm:items-center justify-center p-3 sm:p-5">
       <div className="bg-white rounded-2xl w-full max-w-2xl max-h-[72vh] flex flex-col shadow-2xl overflow-hidden border border-slate-100">
         <div className="p-4 sm:p-6 overflow-y-auto">
           <h2 className="text-lg sm:text-xl font-bold mb-3 text-slate-900">{getText("cookie.title", "Privatsphäre-Einstellungen")}</h2>
@@ -70,7 +78,7 @@ export const CookieBar = () => {
 
             <p className="text-xs text-slate-500">
               {getText("cookie.more_info", "Weitere Informationen finden Sie in der")}{" "}
-              <Link to="/datenschutz" className="text-blue-600 hover:underline">
+              <Link to={withLang("/datenschutz")} className="text-blue-600 hover:underline">
                 {getText("cookie.privacy_link", "Datenschutzerklärung")}
               </Link>
               .
@@ -82,19 +90,19 @@ export const CookieBar = () => {
           <div className="bg-slate-50 rounded-xl px-4 py-3 flex flex-wrap items-center gap-5 mb-4 border border-slate-100">
             {optionalServicesAvailable && <div className="flex items-center gap-3">
               <span className="font-semibold text-slate-900 text-sm">{getText("cookie.marketing", "Marketing")}</span>
-              <Switch checked={marketingAccepted} onCheckedChange={setMarketingAccepted} className="data-[state=checked]:bg-[var(--cookie-primary-color)]" style={{ "--cookie-primary-color": primaryColor } as CSSProperties} />
+              <Switch aria-label={getText("cookie.marketing", "Marketing")} checked={marketingAccepted} onCheckedChange={setMarketingAccepted} className="data-[state=checked]:bg-[var(--cookie-primary-color)]" style={{ "--cookie-primary-color": primaryColor } as CSSProperties} />
             </div>}
             <div className="flex items-center gap-3">
               <span className="font-semibold text-slate-900 text-sm">{getText("cookie.essential", "Essenziell")}</span>
-              <Switch checked={true} disabled className="data-[state=checked]:bg-[var(--cookie-primary-color)] disabled:opacity-100" style={{ "--cookie-primary-color": primaryColor } as CSSProperties} />
+              <Switch aria-label={getText("cookie.essential", "Essenziell")} checked={true} disabled className="data-[state=checked]:bg-[var(--cookie-primary-color)] disabled:opacity-100" style={{ "--cookie-primary-color": primaryColor } as CSSProperties} />
             </div>
           </div>
 
           <div className="flex gap-4 mb-4 text-xs text-slate-500">
-            <Link to="/datenschutz" className="hover:text-slate-800 transition-colors">
+            <Link to={withLang("/datenschutz")} className="hover:text-slate-800 transition-colors">
               {getText("cookie.privacy_link", "Datenschutzerklärung")}
             </Link>
-            <Link to="/impressum" className="hover:text-slate-800 transition-colors">
+            <Link to={withLang("/impressum")} className="hover:text-slate-800 transition-colors">
               {getText("cookie.imprint_link", "Impressum")}
             </Link>
           </div>

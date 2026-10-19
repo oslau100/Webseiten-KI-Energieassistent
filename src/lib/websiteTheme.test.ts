@@ -1,19 +1,29 @@
 import { describe, expect, it } from "vitest";
 import { contrast, hexToHsl, websiteThemeTokens } from "./websiteTheme";
 
-describe("customer CTA contrast on actual surfaces", () => {
-  it.each(["#002B49", "#008444", "#FFBD59", "#E7AC24", "#777777", "#FFFFFF", "#000000"])("keeps text >=4.5 and button surface >=3 on %s", primary => {
-    const design = { colors: { primary, accent: primary, cta: primary, background: "#FFFFFF" } };
-    const tokens = websiteThemeTokens(design);
-    const blackOrWhite = (surface: string) => contrast(surface, "#000000") > contrast(surface, "#FFFFFF") ? "#000000" : "#FFFFFF";
-    const bg = blackOrWhite(primary);
-    expect(tokens["--on-brand-cta-bg"]).toBe(hexToHsl(bg));
-    expect(tokens["--on-brand-cta-text"]).toBe(hexToHsl(primary));
-    expect(contrast(primary, bg)).toBeGreaterThanOrEqual(4.5);
-    const defaultBg = contrast(primary, "#FFFFFF") >= 3 ? primary : "#000000";
-    expect(tokens["--customer-cta-bg"]).toBe(hexToHsl(defaultBg));
-    expect(contrast(defaultBg, "#FFFFFF")).toBeGreaterThanOrEqual(3);
-    expect(contrast(defaultBg, blackOrWhite(defaultBg))).toBeGreaterThanOrEqual(4.5);
+describe("customer CTA brand colors and readable states", () => {
+  it.each([
+    { primary: "#FFBD59", cta: "#E7AC24", onBrand: "#FFFFFF" },
+    { primary: "#102A43", cta: "#38E8A0", onBrand: "#38E8A0" },
+  ])("preserves the configured $cta button and chooses $onBrand on brand sections", ({ primary, cta, onBrand }) => {
+    const tokens = websiteThemeTokens({ colors: { primary, cta, background: "#FFFFFF" } });
+    expect(tokens["--customer-cta-bg"]).toBe(hexToHsl(cta));
+    expect(tokens["--on-brand-cta-bg"]).toBe(hexToHsl(onBrand));
+    expect(tokens["--customer-cta-text"]).toBe(hexToHsl("#000000"));
+    expect(tokens["--on-brand-cta-text"]).toBe(hexToHsl("#000000"));
+    expect(contrast(cta, "#000000")).toBeGreaterThanOrEqual(4.5);
+    expect(contrast(onBrand, "#000000")).toBeGreaterThanOrEqual(4.5);
+    // Solid edge and focus make pale brand buttons distinguishable from the surface.
+    const edge = contrast(primary, "#000000") > contrast(primary, "#FFFFFF") ? "#000000" : "#FFFFFF";
+    expect(tokens["--on-brand-cta-edge"]).toBe(hexToHsl(edge));
+    expect(contrast(primary, edge)).toBeGreaterThanOrEqual(3);
+  });
+  it.each(["#002B49", "#008444", "#FFBD59", "#777777", "#FFFFFF", "#000000"])("keeps the configured background and readable foreground for %s", cta => {
+    const tokens = websiteThemeTokens({ colors: { primary: cta } });
+    const text = contrast(cta, "#000000") > contrast(cta, "#FFFFFF") ? "#000000" : "#FFFFFF";
+    expect(tokens["--customer-cta-bg"]).toBe(hexToHsl(cta));
+    expect(tokens["--customer-cta-text"]).toBe(hexToHsl(text));
+    expect(contrast(cta, text)).toBeGreaterThanOrEqual(4.5);
   });
   it("does not invent theme tokens for absent or invalid primary config", () => {
     expect(websiteThemeTokens({})).toEqual({});

@@ -8,7 +8,7 @@ import { customerRuntimeBindings } from "@/lib/customerRuntime";
 
 function config(locationId: string) {
   return { location_id: locationId,
-    webseite_content_config: { i18n: { footer_contact: { de: "Kontakt" }, footer_callback: { de: "Rückruf buchen" }, header_check_bill: { de: "Jahresabrechnung prüfen" }, header_check_savings: { de: "Tarifersparnis prüfen" } }, brand: { name: "Configured fixture" }, legal: { ready: true, variables: { firma: "Fixture company", email: "fixture@example.test" } } },
+    webseite_content_config: { cookie: { title: { de: "Privatsphäre-Einstellungen" }, browser_settings: { de: "Browser-Einstellungen" }, more_info: { de: "Weitere Informationen:" }, privacy_link: { de: "Datenschutzerklärung" }, imprint_link: { de: "Impressum" }, essential: { de: "Essenziell" }, save: { de: "Einstellungen speichern" } }, header: { language_switch_sr: { de: "Sprache wechseln" } }, i18n: { footer_privacy: { de: "Datenschutz" }, footer_contact: { de: "Kontakt" }, footer_callback: { de: "Rückruf buchen" }, header_check_bill: { de: "Jahresabrechnung prüfen" }, header_check_savings: { de: "Tarifersparnis prüfen" } }, brand: { name: "Configured fixture" }, legal: { ready: true, variables: { firma: "Fixture company", email: "fixture@example.test" } } },
     webseite_design_config: { assets: { logo_header: "/fixture.svg", logo_footer: "/fixture.svg", hero_image: "/fixture.png" } },
     webseite_layout_config: { pages: { home: { sections: ["header", "hero", "footer"] }, annual: { sections: ["header", "hero", "footer"] } } },
   };

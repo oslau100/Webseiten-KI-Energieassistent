@@ -661,7 +661,7 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
     return {
       lang,
       setLang,
-      t: (key) => customerRuntime && /^(hero_|home_|annual_|header_check_|footer_contact$|footer_callback$|cta_check_savings)/.test(key)
+      t: (key) => customerRuntime && /^(hero_|home_|annual_|header_check_|footer_|cookie_|cta_check_savings)/.test(key)
         ? i18nOverrides[key]?.[lang] ?? ""
         :
         i18nOverrides[key]?.[lang] ??

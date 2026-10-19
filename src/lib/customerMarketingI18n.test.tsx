@@ -5,7 +5,7 @@ import {I18nProvider,useI18n} from './i18n';
 const state=vi.hoisted(()=>({content:{} as Record<string,unknown>}));
 vi.mock('./websiteConfig',()=>({useWebsiteConfig:()=>({customerRuntime:true,content:state.content})}));
 afterEach(()=>localStorage.clear());
-const keys=['hero_headline','annual_hero_h1','header_check_bill','cta_check_savings','footer_contact','footer_callback'];
+const keys=['hero_headline','annual_hero_h1','header_check_bill','cta_check_savings','footer_contact','footer_callback','footer_privacy','footer_rights','cookie_title'];
 function Probe(){const {t,lang}=useI18n();return <output data-testid="values">{JSON.stringify({lang,values:keys.map(t)})}</output>;}
 describe('customer marketing catalog boundary',()=>{
  it('does not use German, repository marketing, or a pending notice for missing English values',async()=>{

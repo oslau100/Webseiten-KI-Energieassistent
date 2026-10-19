@@ -102,17 +102,17 @@ html, body, #root {
   --customer-cta-bg: var(--on-brand-cta-bg);
   --customer-cta-text: var(--on-brand-cta-text);
   --customer-cta-focus: var(--on-brand-cta-focus);
+  --customer-cta-edge: var(--on-brand-cta-edge);
 }
 .customer-cta {
   background-color: hsl(var(--customer-cta-bg));
   color: hsl(var(--customer-cta-text));
+  border: 1px solid hsl(var(--customer-cta-edge));
 }
-.customer-cta:hover {
+.customer-cta:not([aria-disabled="true"]):hover {
   background-color: hsl(var(--customer-cta-bg));
   color: hsl(var(--customer-cta-text));
-  box-shadow: inset 0 0 0 2px currentColor;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  filter: brightness(0.97);
 }
 .customer-cta:focus-visible {
   outline: 3px solid hsl(var(--customer-cta-focus));
@@ -120,6 +120,6 @@ html, body, #root {
 }
 .customer-cta[aria-disabled="true"] {
   opacity: 1;
-  border: 2px dashed currentColor;
+  transform: none;
   cursor: not-allowed;
 }

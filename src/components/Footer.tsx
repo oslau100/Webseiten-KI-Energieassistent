@@ -4,7 +4,7 @@ import { useI18n } from "@/lib/i18n";
 import { useWebsiteConfig } from "@/lib/websiteConfig";
 
 export const Footer = () => {
-  const { t, withLang } = useI18n();
+  const { t, withLang, lang } = useI18n();
   const { getText, design } = useWebsiteConfig();
 
   const assets = (design.assets as Record<string, string> | undefined) || {};
@@ -71,7 +71,7 @@ export const Footer = () => {
                 {t("footer_imprint")}
               </Link>
               <button type="button" className="hover:text-primary-ink transition-colors block text-left" onClick={() => window.dispatchEvent(new Event(openConsentSettingsEvent))}>
-                {getText("cookie.title", "Privatsphäre-Einstellungen")}
+                {getText("cookie.title", "Privatsphäre-Einstellungen", lang)}
               </button>
             </div>
             {showAgencyAttribution ? (
@@ -84,7 +84,7 @@ export const Footer = () => {
                   className="inline-flex flex-col items-start gap-1.5 rounded-sm transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 >
                   <span className="text-[10px] font-medium leading-none text-muted-foreground/80">
-                    Powered by
+                    {getText("footer.agency_label", "Powered by", lang)}
                   </span>
                   <img
                     src={agencyLogo}

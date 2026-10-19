@@ -26,8 +26,9 @@ export const About = () => {
   ].map((link) => ({ ...link, href: getText(`sections.about.social.${link.key}`, "", lang).trim() }))
     .filter((link) => /^https?:\/\//i.test(link.href));
   const legacyParagraphs = Array.from({ length: 6 }, (_, index) => getText(`sections.about.paragraph_${index + 1}`, "", lang));
+  const localizedParagraphs = getArray<unknown>(`sections.about.paragraphs.${lang}`, []);
   const paragraphs = getArray<unknown>(`sections.about.paragraphs.${lang}`, getArray<unknown>("sections.about.paragraphs", legacyParagraphs))
-    .map((value) => resolveLocalizedText({ value }, "value", "", lang, !customerRuntime)).filter((value) => value.trim());
+    .map((value) => typeof value === "string" && localizedParagraphs.includes(value) ? value : resolveLocalizedText({ value }, "value", "", lang, !customerRuntime)).filter((value) => value.trim());
   const hasAside = Boolean(image || socialLinks.length);
 
   if (mode === "hidden") return null;

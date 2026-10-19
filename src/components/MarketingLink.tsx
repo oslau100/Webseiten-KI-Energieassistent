@@ -24,7 +24,7 @@ export const MarketingLink = forwardRef<HTMLAnchorElement, MarketingLinkProps>(f
     const action = getText(labelPath || canonicalPath, "", lang).trim() || getText(canonicalPath, "", lang).trim();
     return <span className="inline-flex w-full sm:w-auto max-w-full flex-col items-center gap-2 align-middle" data-transport="NOT_READY" data-copy-readiness={action ? "READY" : "MISSING_LABEL"}>
       {action ? <span id={props.id} role="button" aria-disabled="true" aria-describedby={hasStatus ? statusId : undefined}
-        className={cn(props.className, customerCta && "customer-cta", "pointer-events-none cursor-not-allowed whitespace-normal h-auto min-h-11 py-3 max-w-full text-center opacity-70", props.className?.includes("h-16") && "min-h-16")}>{action}</span> : null}
+        className={cn(props.className, customerCta && "customer-cta", "pointer-events-none cursor-not-allowed whitespace-normal h-auto min-h-11 py-3 max-w-full text-center", props.className?.includes("h-16") && "min-h-16")}>{action}</span> : null}
       {hasStatus ? <span id={statusId} role="status" className="block max-w-full text-center text-xs font-normal leading-relaxed">
         {label}
         {hasContact ? <>{label ? " · " : null}<a href={`mailto:${email}`} className="underline underline-offset-4">{contact}</a></> : null}
