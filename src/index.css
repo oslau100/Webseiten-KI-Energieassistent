@@ -107,7 +107,7 @@ html, body, #root {
 .customer-cta {
   background-color: hsl(var(--customer-cta-bg));
   color: hsl(var(--customer-cta-text));
-  border: 1px solid hsl(var(--customer-cta-edge));
+  border: 0;
 }
 .customer-cta:not([aria-disabled="true"]):hover {
   background-color: hsl(var(--customer-cta-bg));
