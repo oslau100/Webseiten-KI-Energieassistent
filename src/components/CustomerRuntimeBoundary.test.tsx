@@ -98,7 +98,7 @@ describe("customer page and funnel boundaries", () => {
     expect(document.title).toBe("NOT_READY");
     expect(screen.queryByText(/Fixture only/)).not.toBeInTheDocument();
   });
-  it.each(["/start", "/tarif", "/auftrag"])("guards the actual App funnel route %s after valid config", async path => {
+  it.each(["/start", "/tarif", "/auftrag", "/signing", "/signing/"])("guards the actual App funnel route %s after valid config", async path => {
     const locationId = customerRuntimeBindings[0].locationId;
     vi.stubEnv("VITE_LOCATION_ID", locationId);
     vi.stubEnv("DEV", true);

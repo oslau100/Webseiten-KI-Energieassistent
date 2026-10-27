@@ -7,6 +7,8 @@ export function customerRouteAvailable(path: string, layout: JsonRecord = {}): b
   if (["/rechnung", "/start-rechnung", "/rechnung-fehler", "/fehler-rechnung"].includes(path)) return features.rechnung_survey === true;
   // No authenticated server-receipt verifier is wired for customer invoice completion.
   if (path === "/rechnung-eingegangen") return false;
+  // Signing is independently release-locked, including when JSON declares readiness.
+  if (path === "/signing") return false;
   if (["/tarif", "/auftrag", "/auftrag-eingegangen", "/uebermittelt", "/fehler"].includes(path)) return false;
   return ["/", "/jahresrechnung", "/impressum", "/datenschutz", "/rueckruf", "/rueckruf-buchen"].includes(path);
 }
