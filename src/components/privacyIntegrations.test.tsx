@@ -21,6 +21,11 @@ beforeEach(() => { vi.stubEnv("VITE_LOCATION_ID", ""); vi.spyOn(globalThis, "fet
 afterEach(() => { vi.restoreAllMocks(); vi.unstubAllEnvs(); vi.unstubAllGlobals(); localStorage.clear(); document.cookie = "cookie-consent=; Path=/; Max-Age=0"; });
 
 describe("optional third-party consent", () => {
+  it.each(["/signing", "/signing/", "/SIGNING"])("never machine-translates signing at %s even with consent", path => {
+    setConsentStorage("all");
+    render(<MemoryRouter initialEntries={[path]}><main><p>TEST_ONLY Erklärung</p></main><AutoPageTranslator /><CookieBar /></MemoryRouter>);
+    expect(fetch).not.toHaveBeenCalled();
+  });
   it("has no global Google Translate or Jotform resource hints in the entry document", () => {
     expect(readFileSync("index.html", "utf8")).not.toMatch(/translate\.google|google_translate|jotform/i);
   });

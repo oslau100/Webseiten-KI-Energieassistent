@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
 
-const EXCLUDED_PATHS = new Set(["/impressum", "/datenschutz"]);
+const EXCLUDED_PATHS = new Set(["/impressum", "/datenschutz", "/signing"]);
 const cache = new Map<string, string>();
 
 const normalize = (value: string) =>
@@ -140,7 +140,7 @@ export const AutoPageTranslator = () => {
   const customer = resolveWebsiteRuntime().identity.customer;
 
   useEffect(() => {
-    if (customer || !consent || EXCLUDED_PATHS.has(location.pathname)) return;
+    if (customer || !consent || EXCLUDED_PATHS.has(location.pathname.replace(/\/+$/, "").toLowerCase())) return;
     const controller = new AbortController();
 
     const root = document.querySelector("main") ?? document.body;

@@ -1,3 +1,4 @@
+import { signingTranslations } from "./signing/i18n";
 import { languageFlag } from "./languageFlags";
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -661,7 +662,9 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
     return {
       lang,
       setLang,
-      t: (key) => customerRuntime && /^(hero_|home_|annual_|header_check_|footer_|cookie_|cta_check_savings)/.test(key)
+      t: (key) => key.startsWith("signing_")
+        ? signingTranslations[lang][key] ?? key
+        : customerRuntime && /^(hero_|home_|annual_|header_check_|footer_|cookie_|cta_check_savings)/.test(key)
         ? i18nOverrides[key]?.[lang] ?? ""
         :
         i18nOverrides[key]?.[lang] ??
