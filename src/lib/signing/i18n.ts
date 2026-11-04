@@ -3,6 +3,11 @@ import type { LANGUAGES } from "../i18n";
 /** Product UI only. Manifest declarations and PDF bytes are never translated here. */
 export const signingTranslations = {
   "de": {
+    "signing_download_unavailable": "Der Download ist derzeit nicht verfügbar.",
+    "signing_download": "Unterschriebenen Vertrag herunterladen",
+    "signing_download_busy": "Download wird vorbereitet …",
+    "signing_download_failed": "Der Vertrag konnte nicht heruntergeladen werden. Bitte versuche es erneut.",
+    "signing_download_started": "Der Download wurde gestartet.",
     "signing_takeOver": "Gerät übernehmen",
     "signing_title": "Vertrag prüfen und unterschreiben",
     "signing_intro": "Prüfe das Originaldokument und bestätige jede Erklärung einzeln.",
@@ -38,6 +43,11 @@ export const signingTranslations = {
     "signing_required": "Pflicht"
   },
   "en": {
+    "signing_download_unavailable": "The download is currently unavailable.",
+    "signing_download": "Download signed contract",
+    "signing_download_busy": "Preparing download …",
+    "signing_download_failed": "The contract could not be downloaded. Please try again.",
+    "signing_download_started": "The download has started.",
     "signing_takeOver": "Take over device",
     "signing_title": "Review and sign contract",
     "signing_intro": "Review the original document and confirm each declaration separately.",
@@ -73,6 +83,11 @@ export const signingTranslations = {
     "signing_required": "Required"
   },
   "tr": {
+    "signing_download_unavailable": "İndirme şu anda kullanılamıyor.",
+    "signing_download": "İmzalanmış sözleşmeyi indir",
+    "signing_download_busy": "İndirme hazırlanıyor …",
+    "signing_download_failed": "Sözleşme indirilemedi. Lütfen tekrar deneyin.",
+    "signing_download_started": "İndirme başlatıldı.",
     "signing_takeOver": "Cihazı devral",
     "signing_title": "Sözleşmeyi inceleyin ve imzalayın",
     "signing_intro": "Orijinal belgeyi inceleyin ve her beyanı ayrı ayrı onaylayın.",
@@ -108,6 +123,11 @@ export const signingTranslations = {
     "signing_required": "Zorunlu"
   },
   "ru": {
+    "signing_download_unavailable": "Скачивание сейчас недоступно.",
+    "signing_download": "Скачать подписанный договор",
+    "signing_download_busy": "Подготовка скачивания …",
+    "signing_download_failed": "Не удалось скачать договор. Попробуйте ещё раз.",
+    "signing_download_started": "Скачивание началось.",
     "signing_takeOver": "Принять устройство",
     "signing_title": "Проверьте и подпишите договор",
     "signing_intro": "Проверьте исходный документ и подтвердите каждое заявление отдельно.",
@@ -143,6 +163,11 @@ export const signingTranslations = {
     "signing_required": "Обязательно"
   },
   "ar": {
+    "signing_download_unavailable": "التنزيل غير متاح حاليًا.",
+    "signing_download": "تنزيل العقد الموقّع",
+    "signing_download_busy": "جارٍ تجهيز التنزيل …",
+    "signing_download_failed": "تعذّر تنزيل العقد. يُرجى المحاولة مرة أخرى.",
+    "signing_download_started": "بدأ التنزيل.",
     "signing_takeOver": "استلام الجهاز",
     "signing_title": "مراجعة العقد وتوقيعه",
     "signing_intro": "راجع المستند الأصلي وأكّد كل إقرار على حدة.",
@@ -178,6 +203,11 @@ export const signingTranslations = {
     "signing_required": "إلزامي"
   },
   "it": {
+    "signing_download_unavailable": "Il download non è attualmente disponibile.",
+    "signing_download": "Scarica il contratto firmato",
+    "signing_download_busy": "Preparazione del download …",
+    "signing_download_failed": "Impossibile scaricare il contratto. Riprova.",
+    "signing_download_started": "Il download è iniziato.",
     "signing_takeOver": "Prendi il dispositivo",
     "signing_title": "Verifica e firma il contratto",
     "signing_intro": "Controlla il documento originale e conferma ogni dichiarazione separatamente.",
@@ -213,6 +243,11 @@ export const signingTranslations = {
     "signing_required": "Obbligatorio"
   },
   "zh": {
+    "signing_download_unavailable": "下载目前不可用。",
+    "signing_download": "下载已签署的合同",
+    "signing_download_busy": "正在准备下载 …",
+    "signing_download_failed": "无法下载合同。请重试。",
+    "signing_download_started": "下载已开始。",
     "signing_takeOver": "接过设备",
     "signing_title": "审核并签署合同",
     "signing_intro": "请审核原始文件，并分别确认每项声明。",
@@ -248,6 +283,11 @@ export const signingTranslations = {
     "signing_required": "必填"
   },
   "hi": {
+    "signing_download_unavailable": "डाउनलोड अभी उपलब्ध नहीं है।",
+    "signing_download": "हस्ताक्षरित अनुबंध डाउनलोड करें",
+    "signing_download_busy": "डाउनलोड तैयार हो रहा है …",
+    "signing_download_failed": "अनुबंध डाउनलोड नहीं हो सका। कृपया फिर से कोशिश करें।",
+    "signing_download_started": "डाउनलोड शुरू हो गया है।",
     "signing_takeOver": "उपकरण लें",
     "signing_title": "अनुबंध की समीक्षा करें और हस्ताक्षर करें",
     "signing_intro": "मूल दस्तावेज़ देखें और प्रत्येक घोषणा की अलग से पुष्टि करें।",
@@ -283,6 +323,11 @@ export const signingTranslations = {
     "signing_required": "अनिवार्य"
   },
   "es": {
+    "signing_download_unavailable": "La descarga no está disponible actualmente.",
+    "signing_download": "Descargar el contrato firmado",
+    "signing_download_busy": "Preparando la descarga …",
+    "signing_download_failed": "No se pudo descargar el contrato. Inténtalo de nuevo.",
+    "signing_download_started": "La descarga ha comenzado.",
     "signing_takeOver": "Tomar el dispositivo",
     "signing_title": "Revisar y firmar el contrato",
     "signing_intro": "Revisa el documento original y confirma cada declaración por separado.",
@@ -318,6 +363,11 @@ export const signingTranslations = {
     "signing_required": "Obligatorio"
   },
   "fr": {
+    "signing_download_unavailable": "Le téléchargement est actuellement indisponible.",
+    "signing_download": "Télécharger le contrat signé",
+    "signing_download_busy": "Préparation du téléchargement …",
+    "signing_download_failed": "Le contrat n’a pas pu être téléchargé. Veuillez réessayer.",
+    "signing_download_started": "Le téléchargement a commencé.",
     "signing_takeOver": "Prendre l’appareil",
     "signing_title": "Vérifier et signer le contrat",
     "signing_intro": "Vérifiez le document original et confirmez chaque déclaration séparément.",
@@ -353,6 +403,11 @@ export const signingTranslations = {
     "signing_required": "Obligatoire"
   },
   "nl": {
+    "signing_download_unavailable": "De download is momenteel niet beschikbaar.",
+    "signing_download": "Ondertekend contract downloaden",
+    "signing_download_busy": "Download voorbereiden …",
+    "signing_download_failed": "Het contract kon niet worden gedownload. Probeer het opnieuw.",
+    "signing_download_started": "De download is gestart.",
     "signing_takeOver": "Apparaat overnemen",
     "signing_title": "Contract controleren en ondertekenen",
     "signing_intro": "Controleer het originele document en bevestig elke verklaring afzonderlijk.",
@@ -388,6 +443,11 @@ export const signingTranslations = {
     "signing_required": "Verplicht"
   },
   "pl": {
+    "signing_download_unavailable": "Pobieranie jest obecnie niedostępne.",
+    "signing_download": "Pobierz podpisaną umowę",
+    "signing_download_busy": "Przygotowywanie pobierania …",
+    "signing_download_failed": "Nie udało się pobrać umowy. Spróbuj ponownie.",
+    "signing_download_started": "Pobieranie rozpoczęło się.",
     "signing_takeOver": "Przejmij urządzenie",
     "signing_title": "Sprawdź i podpisz umowę",
     "signing_intro": "Sprawdź oryginalny dokument i potwierdź każde oświadczenie osobno.",
