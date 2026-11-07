@@ -1,89 +1,92 @@
-import { Button } from "@/components/ui/button";
-import { landingAssets } from "@/lib/landingAssets";
+import { relaunchAssets } from "@/lib/relaunchAssets";
+import Reveal from "@/components/Reveal";
 
-export const AboutSection = () => {
+const AboutSection = () => {
   return (
-    <section className="bg-[#FDFDFD] py-20 text-slate-900">
-      <div className="container mx-auto max-w-6xl px-4">
-        {/* Top Row */}
-        <div className="mb-16 grid gap-12 lg:grid-cols-2 lg:items-start">
-          <div className="space-y-6 order-2 lg:order-1">
-            <h2 className="text-[22px] min-[375px]:text-[26px] sm:text-4xl font-bold text-[#1a231c] hidden lg:block">
-              Wer steckt hinter <span className="text-primary">Energieassistent.io</span>
-            </h2>
-            <div className="space-y-4 text-base leading-relaxed text-slate-700 sm:text-lg">
-              <p>
-                Osasere Laurent ist seit über 6 Jahren im Energiemarkt aktiv und hat selbst im Door-to-Door-Vertrieb gestartet. Die Herausforderungen des klassischen Vertriebs kennt er daher aus erster Hand.
-              </p>
-              <p>
-                Über die Jahre wurden mehrere hundert Verträge persönlich abgeschlossen. Dabei zeigte sich immer wieder dasselbe Bild: viel Aufwand, wenig Planbarkeit und zu viele verlorene Chancen. Genau daraus entstand die Idee für den Energieassistenten.
-              </p>
-              <p>
-                Die ersten Prozesse wurden automatisiert und die Lösung zunächst im eigenen Vertrieb eingesetzt. Über die Jahre wurden darüber mehr als 2.000 Verträge abgeschlossen. Seitdem wurde das System kontinuierlich weiterentwickelt und in der Praxis immer weiter verbessert.
-              </p>
-              <p>
-                Heute unterstützt Osasere Energievertriebler dabei, genau dieses System für ihren eigenen Vertrieb zu nutzen – um Prozesse zu vereinfachen und Abschlüsse planbarer zu machen.
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-col gap-4 order-1 lg:order-2">
-            <h2 className="text-[22px] min-[375px]:text-[26px] sm:text-4xl font-bold text-[#1a231c] lg:hidden mb-2 text-center">
-              Wer steckt hinter <span className="text-primary">Energieassistent.io</span>
-            </h2>
-            <div className="relative w-full rounded-2xl shadow-lg bg-white p-3 sm:p-4 h-[400px] min-[400px]:h-[450px] sm:h-[600px]">
-              <img
-                src={landingAssets.about.founder}
-                alt="Osasere Laurent"
-                width={1200}
-                height={630}
-                loading="lazy"
-                decoding="async"
-                className="h-full w-full object-cover rounded-xl"
-              />
-            </div>
-            <div className="text-center sm:text-left mt-2">
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900">Osasere Laurent</h3>
-              <p className="text-[#195044] text-base sm:text-lg mt-1">Gründer & Geschäftsführer</p>
-            </div>
-          </div>
-        </div>
+    <section
+      id="ueber-uns"
+      className="relative bg-white px-6 py-20 md:py-28 overflow-hidden"
+    >
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 lg:items-center">
+          {/* Headline Block — left on desktop, first on mobile */}
+          <div className="lg:col-span-7 flex flex-col text-left">
+            <Reveal className="mb-4">
+              <span className="inline-block border-b border-dotted border-gray-300 pb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#1a5147]">
+                Über uns
+              </span>
+            </Reveal>
 
-        {/* Bottom Row */}
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div className="relative w-full overflow-hidden rounded-2xl shadow-lg bg-white">
-            <img
-              src={landingAssets.about.location}
-              alt="Unser Standort"
-              width={1200}
-              height={630}
-              loading="lazy"
-              decoding="async"
-              className="w-full h-auto object-cover"
-            />
+            <Reveal delay={0.1}>
+              <h2 className="text-4xl md:text-5xl font-normal tracking-tight leading-tight text-gray-900">
+                Wer steckt hinter Energieassistent.io
+              </h2>
+            </Reveal>
           </div>
-          <div className="space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
-            <h2 className="text-[22px] min-[375px]:text-[26px] sm:text-4xl font-bold text-[#1a231c]">
-              Unser Standort
-            </h2>
-            <div className="space-y-4 text-base leading-relaxed text-slate-700 sm:text-lg">
-              <p>
-                Adenauerstraße 20A | 52146 Würselen
-                <br />
-                Von unserem Standort in Würselen aus unterstützen wir Energievertriebler in ganz Deutschland dabei, ihren Vertrieb zu automatisieren und planbar mehr Abschlüsse zu erzielen.
-              </p>
-            </div>
-            <Button 
-              size="lg" 
-              className="mt-4 cta-shimmer bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:text-base md:text-lg tracking-tighter sm:tracking-normal font-bold px-6 sm:px-12 py-3 sm:py-4 md:px-16 md:py-4 rounded-md transition-all hover:scale-105 h-auto whitespace-normal sm:whitespace-nowrap"
-              asChild
-            >
-              <a href="https://calendly.com/energieassistent-potentialanalyse/30min" target="_blank" rel="noopener noreferrer">
-                Kostenfreie Potenzialanalyse buchen
-              </a>
-            </Button>
+
+          {/* Founder Photo & Caption — right column on desktop (spans both rows), between headline and text on mobile */}
+          <div className="lg:col-span-5 lg:row-span-2 flex justify-center lg:justify-end">
+            <Reveal delay={0.2} className="w-full max-w-lg">
+              <div className="relative rounded-2xl overflow-hidden border border-gray-100 shadow-lg bg-gray-50 aspect-[4/5]">
+                <img
+                  src={relaunchAssets.founder}
+                  alt="Osasere Laurent – Gründer von Energieassistent.io"
+                  className="w-full h-full object-cover object-center"
+                  loading="lazy"
+                />
+              </div>
+              <div className="mt-4 text-left">
+                <p className="text-lg font-semibold tracking-tight text-gray-900">
+                  Osasere Laurent
+                </p>
+                <p className="text-sm font-normal text-[#1a5147] mt-0.5">
+                  Gründer & Geschäftsführer
+                </p>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Flowing Text — below headline on desktop (left column), after image on mobile */}
+          <div className="lg:col-span-7 flex flex-col text-left">
+            <Reveal delay={0.2}>
+              <div className="space-y-5 text-base md:text-lg text-gray-600 leading-relaxed font-normal">
+                <p>
+                  Osasere Laurent ist seit über 6 Jahren im Energiemarkt aktiv
+                  und hat selbst im Door-to-Door-Vertrieb gestartet. Die
+                  Herausforderungen des klassischen Energievertriebs kennt er
+                  deshalb aus erster Hand.
+                </p>
+                <p>
+                  Über die Jahre wurden mehrere hundert Verträge persönlich
+                  abgeschlossen. Dabei zeigte sich immer wieder dasselbe Muster:
+                  Für neue Verträge mussten kontinuierlich neue Menschen
+                  angesprochen werden und mehr Wachstum bedeutete meist auch
+                  mehr persönliche Vertriebsarbeit. Genau daraus entstand die
+                  Idee für den Energieassistenten.
+                </p>
+                <p>
+                  Die ersten Prozesse wurden automatisiert und die Lösung
+                  zunächst im eigenen Vertrieb eingesetzt – mit dem Ziel,
+                  Interessenten auch digital zu gewinnen und den Weg von der
+                  Tarifprüfung bis zum Abschluss zu vereinfachen. Über das
+                  System wurden seitdem mehr als 2.000 Verträge abgeschlossen
+                  und die Lösung kontinuierlich anhand echter Vertriebspraxis
+                  weiterentwickelt.
+                </p>
+                <p>
+                  Heute unterstützt Osasere Energievertriebler dabei, genau
+                  dieses System für ihren eigenen Vertrieb einzusetzen – um
+                  eigene Leads digital zu gewinnen, Prozesse zu automatisieren
+                  und mehr Verträge zu schreiben, ohne dass der persönliche
+                  Vertriebsaufwand im gleichen Verhältnis mitwachsen muss.
+                </p>
+              </div>
+            </Reveal>
           </div>
         </div>
       </div>
     </section>
   );
 };
+
+export default AboutSection;

@@ -1,127 +1,141 @@
-import { Mail, Phone } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
-import { landingAssets } from "@/lib/landingAssets";
+import { relaunchAssets } from "@/lib/relaunchAssets";
+import Reveal from "@/components/Reveal";
 
-export const Footer = () => {
-  const location = useLocation();
-  const isHome = location.pathname === "/";
+const Footer = () => {
+  const navLinks = [
+    { label: "Ads-System", href: "#ads-system" },
+    { label: "Energieassistent", href: "#energieassistent" },
+    { label: "Fallstudien", href: "#fallstudien" },
+    { label: "Ablauf", href: "#ablauf" },
+    { label: "Über uns", href: "#ueber-uns" },
+  ];
 
-  const getHref = (hash: string) => isHome ? hash : `/${hash}`;
+  const legalLinks = [
+    { label: "Impressum", href: "/impressum" },
+    { label: "Datenschutz", href: "/datenschutz" },
+  ];
 
   return (
-    <footer className="relative bg-[#000000] pt-16 pb-8 overflow-hidden text-white border-t border-white/5">
+    <footer className="relative overflow-hidden bg-background text-foreground">
+      {/* Subtle grid background (same as hero) */}
       <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0 opacity-[0.075]"
+        className="pointer-events-none absolute inset-0 z-0"
         style={{
           backgroundImage: `
-            linear-gradient(to right, #ffffff 1px, transparent 1px),
-            linear-gradient(to bottom, #ffffff 1px, transparent 1px)
+            linear-gradient(to right, hsl(var(--foreground) / 0.04) 1px, transparent 1px),
+            linear-gradient(to bottom, hsl(var(--foreground) / 0.04) 1px, transparent 1px)
           `,
-          backgroundSize: "80px 80px",
+          backgroundSize: "48px 48px",
+          maskImage:
+            "radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 80%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 80%)",
         }}
       />
 
-      <div className="container relative z-10 mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-24 mb-16">
-          {/* Column 1: Info */}
-          <div className="flex flex-col">
-            <div className="flex items-start">
-              <img 
-                src={landingAssets.logo}
-                alt="Laurent Digital" 
-                width={800}
-                height={800}
-                loading="lazy"
-                decoding="async"
-                className="h-64 md:h-72 w-auto -mt-24 md:-mt-[110px]"
-              />
-            </div>
-            
-            <div className="-mt-16 md:-mt-24 flex flex-col space-y-8">
-              <p className="text-gray-300 text-lg leading-relaxed">
-                Automatisierter<br />
-                Strom- & Gasvertrieb
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-8 md:pt-20">
+        {/* Top: columns */}
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-4 lg:gap-12">
+          {/* Column 1: Logo + Beschreibung */}
+          <Reveal className="sm:col-span-2 md:col-span-1">
+            <div className="flex flex-col items-start text-left">
+              <a href="/" className="inline-block -ml-3 sm:-ml-3.5">
+                <img
+                  src={relaunchAssets.logo}
+                  alt="Energieassistent.io"
+                  className="h-16 sm:h-20 w-auto object-contain object-left mix-blend-multiply dark:invert block"
+                />
+              </a>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                Energieassistent.io ist die Vertriebsplattform für
+                Energievertriebler, die eigene Leads gewinnen und ihren
+                Vertriebsprozess digitalisieren möchten.
               </p>
-              
-              <div className="flex flex-col space-y-4">
-                <a href="tel:01773324052" className="flex items-center space-x-4 group">
-                  <Phone className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
-                  <span className="text-gray-300 group-hover:text-white transition-colors text-lg">01773324052</span>
-                </a>
-                <a href="mailto:info@energieassistent.io" className="flex items-center space-x-4 group">
-                  <Mail className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
-                  <span className="text-gray-300 group-hover:text-white transition-colors text-lg">info@energieassistent.io</span>
-                </a>
-              </div>
+            </div>
+          </Reveal>
 
-              <div className="text-gray-300 text-lg leading-relaxed">
-                <p>Adenauerstraße 20A</p>
-                <p>52146 Würselen</p>
+          {/* Column 2: Kontakt */}
+          <Reveal delay={0.08}>
+            <div className="flex flex-col">
+              <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground/60 mb-4">
+                Kontakt
+              </h3>
+              <div className="flex flex-col gap-1.5 text-sm text-muted-foreground">
+                <p>Switch Energy GmbH</p>
+                <p>Eifelstr. 3</p>
+                <p>52068 Aachen</p>
+                <a
+                  href="mailto:info@energieassistent.io"
+                  className="mt-1 hover:text-primary transition-colors"
+                >
+                  info@energieassistent.io
+                </a>
               </div>
             </div>
-          </div>
+          </Reveal>
 
-          {/* Column 2: Sitemap */}
-          <div>
-            <h3 className="text-2xl font-bold mb-8">Navigation</h3>
-            <ul className="space-y-5">
-              <li>
-                <Link to={getHref("#problem")} className="text-gray-300 hover:text-white transition-colors text-lg">
-                  Problem
-                </Link>
-              </li>
-              <li>
-                <Link to={getHref("#loesung")} className="text-gray-300 hover:text-white transition-colors text-lg">
-                  Lösung
-                </Link>
-              </li>
-              <li>
-                <Link to={getHref("#prozess")} className="text-gray-300 hover:text-white transition-colors text-lg">
-                  Prozess
-                </Link>
-              </li>
-              <li>
-                <Link to={getHref("#vorteile")} className="text-gray-300 hover:text-white transition-colors text-lg">
-                  Vorteile
-                </Link>
-              </li>
-              <li>
-                <Link to={getHref("#ueber-uns")} className="text-gray-300 hover:text-white transition-colors text-lg">
-                  Über uns
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {/* Column 3: Navigation */}
+          <Reveal delay={0.16}>
+            <div className="flex flex-col">
+              <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground/60 mb-4">
+                Navigation
+              </h3>
+              <ul className="flex flex-col gap-3">
+                {navLinks.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
 
-          {/* Column 3: Rechtliches */}
-          <div>
-            <h3 className="text-2xl font-bold mb-8">Rechtliches</h3>
-            <ul className="space-y-5">
-              <li>
-                <a href="/datenschutz" className="text-gray-300 hover:text-white transition-colors text-lg">
-                  Datenschutz
-                </a>
-              </li>
-              <li>
-                <a href="/impressum" className="text-gray-300 hover:text-white transition-colors text-lg">
-                  Impressum
-                </a>
-              </li>
-            </ul>
-          </div>
+          {/* Column 4: Rechtliches */}
+          <Reveal delay={0.24}>
+            <div className="flex flex-col">
+              <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground/60 mb-4">
+                Rechtliches
+              </h3>
+              <ul className="flex flex-col gap-3">
+                {legalLinks.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-white/10 pt-8 mt-8">
-          <p className="text-[15px] text-gray-300 mb-6">
-            © 2026 Alle Rechte vorbehalten. Energieassistent.io
+        {/* Divider */}
+        <div className="mt-14 h-px w-full bg-border/40" />
+
+        {/* Bottom Bar */}
+        <div className="mt-6 flex flex-col items-center justify-between gap-4 sm:flex-row">
+          <p className="text-xs text-muted-foreground/70 text-center sm:text-left">
+            © {new Date().getFullYear()} Energieassistent.io — Alle Rechte
+            vorbehalten.
           </p>
-          <p className="text-[13px] text-gray-400 max-w-4xl leading-relaxed">
-            This site is not a part of the Facebook TM website or Facebook TM Inc. Additionally, this site is NOT endorsed by FacebookTM in any way. FACEBOOK TM is a trademark of FACEBOOK TM, Inc.
+
+          <p className="text-xs text-muted-foreground/70 flex items-center gap-1.5">
+            Made in Germany
+            <span className="inline-block h-3 w-[1px] bg-border" />
+            <span>🇩🇪</span>
           </p>
         </div>
       </div>
     </footer>
   );
 };
+
+export default Footer;

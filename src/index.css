@@ -2,76 +2,95 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
 @layer base {
   :root {
-    --background: 0 0% 0%; /* #000000 */
-    --foreground: 0 0% 100%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
 
-    --card: 133 15% 16%;
-    --card-foreground: 0 0% 100%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
 
-    --popover: 133 15% 16%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 169 52% 21%; /* #195044 */
+    --primary: 169 51% 21%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 133 15% 20%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 133 15% 20%;
-    --muted-foreground: 215 20% 75%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 169 52% 21%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 133 15% 20%;
-    --input: 133 15% 20%;
-    --ring: 169 52% 21%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 0%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 169 52% 21%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 133 15% 20%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 133 15% 20%;
-    --sidebar-ring: 169 52% 21%;
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
-    --card: 133 15% 16%;
-    --card-foreground: 0 0% 100%;
-    --popover: 133 15% 16%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 169 52% 21%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 133 15% 20%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 133 15% 20%;
-    --muted-foreground: 215 20% 75%;
-    --accent: 169 52% 21%;
-    --accent-foreground: 0 0% 100%;
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 133 15% 20%;
-    --input: 133 15% 20%;
-    --ring: 169 52% 21%;
-    --sidebar-background: 0 0% 0%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 169 52% 21%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 133 15% 20%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 133 15% 20%;
-    --sidebar-ring: 169 52% 21%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -80,133 +99,20 @@
     @apply border-border;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
     @apply bg-background text-foreground;
   }
+}
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-33.333333%);
   }
 }
 
-@layer components {
-  .cta-shimmer {
-    @apply relative isolate overflow-hidden;
-  }
-
-  .cta-shimmer::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    transform: translateX(-125%);
-    background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.18) 45%, transparent 70%);
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .cta-shimmer:hover::before,
-  .cta-shimmer:focus-visible::before {
-    animation: cta-shimmer-sweep 900ms ease-out;
-    opacity: 1;
-  }
-
-  @keyframes cta-shimmer-sweep {
-    from {
-      transform: translateX(-125%);
-    }
-    to {
-      transform: translateX(125%);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .cta-shimmer:hover::before,
-    .cta-shimmer:focus-visible::before {
-      animation: none;
-      opacity: 0;
-    }
-  }
-}
-
-
-@layer components {
-  .hero-headline-shimmer {
-    position: relative;
-    display: block;
-    overflow: visible;
-    color: #FFFFFF;
-    text-shadow: 0 0 18px rgba(255, 255, 255, 0.04);
-    isolation: isolate;
-  }
-
-  .hero-headline-shimmer::after {
-    content: "";
-    position: absolute;
-    inset: -0.08em -0.18em;
-    background: linear-gradient(105deg, transparent 38%, rgba(223, 255, 232, 0.10) 47%, rgba(255, 255, 255, 0.14) 50%, rgba(223, 255, 232, 0.08) 53%, transparent 62%);
-    transform: translateX(-120%);
-    opacity: 0;
-    pointer-events: none;
-    mix-blend-mode: screen;
-    animation: hero-headline-shimmer 12s ease-in-out infinite;
-  }
-
-  @keyframes hero-headline-shimmer {
-    0%, 52% {
-      transform: translateX(-115%);
-      opacity: 0;
-    }
-    60% {
-      opacity: 0.22;
-    }
-    72%, 100% {
-      transform: translateX(115%);
-      opacity: 0;
-    }
-  }
-
-
-  .hero-cta-wiggle {
-    animation: hero-cta-wiggle 6.5s ease-in-out infinite;
-    transform-origin: center;
-    will-change: translate, rotate;
-  }
-
-  @keyframes hero-cta-wiggle {
-    0%, 82%, 100% {
-      translate: 0 0;
-      rotate: 0deg;
-    }
-    85% {
-      translate: -1px 0;
-      rotate: -0.45deg;
-    }
-    88% {
-      translate: 1px 0;
-      rotate: 0.45deg;
-    }
-    91% {
-      translate: -0.5px 0;
-      rotate: -0.25deg;
-    }
-    94% {
-      translate: 0 0;
-      rotate: 0deg;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero-headline-shimmer::after {
-      animation: none;
-      opacity: 0;
-    }
-
-    .hero-cta-wiggle {
-      animation: none;
-    }
-  }
+.animate-marquee {
+  animation: marquee 26s linear infinite;
 }

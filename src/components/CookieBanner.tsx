@@ -1,148 +1,153 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
 import { Link } from "react-router-dom";
+import { Switch } from "@/components/ui/switch";
 
-export function CookieBanner() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [marketing, setMarketing] = useState(true);
+const STORAGE_KEY = "energieassistent_cookie_consent_v1";
+
+interface ConsentSettings {
+  essential: boolean;
+  marketing: boolean;
+  decided: boolean;
+}
+
+export default function CookieBanner() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [marketing, setMarketing] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem("cookie-consent");
-    if (!consent) {
-      setIsVisible(true);
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) {
+        // Show after a tiny delay for smooth appearance
+        const timer = setTimeout(() => setIsOpen(true), 600);
+        return () => clearTimeout(timer);
+      }
+    } catch {
+      setIsOpen(true);
     }
   }, []);
 
-  const handleAcceptAll = () => {
-    localStorage.setItem(
-      "cookie-consent",
-      JSON.stringify({ marketing: true, essential: true })
-    );
-    setIsVisible(false);
+  const saveConsent = (marketingEnabled: boolean) => {
+    const consent: ConsentSettings = {
+      essential: true,
+      marketing: marketingEnabled,
+      decided: true,
+    };
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
+    } catch {
+      // ignore
+    }
+    setIsOpen(false);
   };
 
-  const handleSave = () => {
-    localStorage.setItem(
-      "cookie-consent",
-      JSON.stringify({ marketing, essential: true })
-    );
-    setIsVisible(false);
-  };
-
-  if (!isVisible) return null;
+  if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center bg-black/50 p-0 sm:p-4 backdrop-blur-sm">
-      <div className="bg-[#FDFDFD] text-black rounded-t-2xl sm:rounded-2xl shadow-xl max-w-4xl w-full max-h-[60vh] sm:max-h-[90vh] flex flex-col">
-        <div className="p-4 md:p-8 space-y-3 md:space-y-6 overflow-y-auto">
-          <h2 className="text-lg md:text-2xl font-bold text-[#1a231c]">Privatsphäre-Einstellungen</h2>
+    <div className="fixed inset-0 z-[99999] flex items-end sm:items-center justify-center p-3 sm:p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="cookie-title"
+        className="w-full max-w-[560px] rounded-2xl bg-card border border-border/70 p-6 sm:p-7 shadow-2xl text-foreground animate-in zoom-in-95 duration-200"
+      >
+        <h2
+          id="cookie-title"
+          className="text-xl sm:text-2xl font-bold tracking-tight text-foreground"
+        >
+          Privatsphäre-Einstellungen
+        </h2>
 
-          <div className="space-y-3 md:space-y-4 text-xs md:text-sm text-slate-600">
-            <p>
-              Um Ihnen ein optimales Website-Erlebnis zu bieten, verwendet{" "}
-              <span className="text-primary font-medium">Energieassistent.io</span>{" "}
-              Cookies und ähnliche Technologien und verarbeitet Ihre
-              personenbezogenen Daten. Dies hilft uns dabei, die Plattform stabil
-              und sicher zu halten („Essenzielle Cookies“), unser Angebot durch
-              Analysen Ihrer Nutzung zu verbessern, Fehler zu minimieren, neue
-              Funktionen zu testen, sowie Ihnen auf Ihre Interessen zugeschnittene
-              Inhalte und Werbung, auch auf Drittseiten, anzubieten („Marketing
-              Cookies“).
-            </p>
-
-            <p>
-              <strong>Essenzielle Cookies</strong> sind für das Funktionieren der
-              Website notwendig und können nicht deaktiviert werden.{" "}
-              <strong>Marketing Cookies</strong> helfen uns, Ihr Nutzererlebnis
-              zu verbessern. Sie haben die Wahl, welche Verarbeitungen und Cookies
-              Sie zulassen möchten:
-            </p>
-
-            <ul className="list-disc pl-5 space-y-2">
-              <li>
-                <strong>Alle akzeptieren:</strong> Indem Sie zustimmen, erlauben
-                Sie uns und Drittanbietern, alle Cookies zu setzen und für die
-                oben genannten Zwecke Ihre Daten zu verarbeiten.
-              </li>
-              <li>
-                <strong>Einstellungen speichern:</strong> Wählen Sie aus, welche
-                Cookies Sie akzeptieren. Essenzielle Cookies sind vorausgewählt
-                und erforderlich. Sie können Ihre Präferenzen für Analytische
-                Cookies, Marketing Cookies und den Google Kundenabgleich anpassen.
-              </li>
-              <li>
-                <strong>Nur essenzielle Cookies akzeptieren:</strong> Wir
-                verwenden nur notwendige Cookies, um unsere Website
-                bereitzustellen.
-              </li>
-            </ul>
-
-            <p>
-              Bitte beachten Sie, dass bei der Auswahl von Marketing Cookies
-              Drittanbieter involviert sein können, die möglicherweise in Ländern
-              außerhalb der EU sitzen, in denen kein gleichwertiges
-              Datenschutzniveau garantiert wird. Dies könnte Ihre Rechte bezüglich
-              Ihrer Daten beeinträchtigen, einschließlich des Zugriffs durch
-              staatliche Stellen ohne effektive Rechtsmittel für Sie. Ihre
-              Zustimmung umfasst auch diese Übertragung und Verarbeitung. Für
-              weitere Informationen zu unseren Cookies, deren Zweck und Ihren
-              Rechten, besuchen Sie bitte unsere Datenschutzerklärung unter „
-              <Link
-                to="/datenschutz"
-                className="text-primary hover:underline font-medium"
-              >
-                Datenschutzerklärung
-              </Link>
-              “.
-            </p>
-          </div>
-
-          <div className="bg-slate-100 p-4 rounded-xl flex flex-wrap items-center gap-8">
-            <div className="flex items-center gap-3">
-              <span className="text-sm font-medium">Marketing</span>
-              <Switch
-                checked={marketing}
-                onCheckedChange={setMarketing}
-                className="data-[state=checked]:bg-black data-[state=unchecked]:bg-slate-300"
-              />
-            </div>
-            <div className="flex items-center gap-3">
-              <span className="text-sm font-medium text-slate-500">
-                Essenziell
-              </span>
-              <Switch
-                checked={true}
-                disabled
-                className="data-[state=checked]:bg-black/50 opacity-50"
-              />
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4 text-xs text-slate-500">
-            <Link to="/datenschutz" className="hover:underline">
+        <div className="mt-4 space-y-3 text-[13px] sm:text-sm leading-relaxed text-muted-foreground">
+          <p>
+            Um Ihnen ein optimales Website-Erlebnis zu bieten, verwendet{" "}
+            <span className="font-medium text-primary">
+              energieassistent.io
+            </span>{" "}
+            Cookies und ähnliche Technologien.
+          </p>
+          <p>
+            <strong className="text-foreground font-semibold">
+              Essenzielle Cookies
+            </strong>{" "}
+            sind für die Funktion der Website notwendig und können nicht
+            deaktiviert werden.{" "}
+            <strong className="text-foreground font-semibold">
+              Marketing Cookies
+            </strong>{" "}
+            helfen uns, Inhalte und Angebote für Sie zu verbessern.
+          </p>
+          <p>
+            Weitere Informationen finden Sie in der{" "}
+            <Link
+              to="/datenschutz"
+              className="text-primary hover:underline font-medium"
+            >
               Datenschutzerklärung
             </Link>
-            <Link to="/impressum" className="hover:underline">
-              Impressum
-            </Link>
-          </div>
+            .
+          </p>
         </div>
 
-        <div className="border-t border-slate-200 p-3 md:p-8 bg-slate-50 flex flex-col sm:flex-row gap-2 md:gap-3 justify-between mt-auto sm:rounded-b-2xl shrink-0">
-          <Button
-            variant="secondary"
-            onClick={handleSave}
-            className="w-full sm:w-auto bg-slate-200 hover:bg-slate-300 text-black border-none"
+        {/* Toggles bar */}
+        <div className="mt-5 flex items-center gap-6 rounded-xl bg-muted/60 border border-border/40 px-5 py-3.5">
+          {/* Marketing Toggle */}
+          <label className="flex items-center gap-3 cursor-pointer select-none">
+            <span className="text-xs sm:text-sm font-semibold text-foreground">
+              Marketing
+            </span>
+            <Switch
+              checked={marketing}
+              onCheckedChange={setMarketing}
+              className="data-[state=checked]:bg-primary"
+            />
+          </label>
+
+          {/* Essenziell Toggle (Locked on) */}
+          <label className="flex items-center gap-3 cursor-not-allowed select-none opacity-90">
+            <span className="text-xs sm:text-sm font-semibold text-foreground">
+              Essenziell
+            </span>
+            <Switch
+              checked={true}
+              disabled
+              className="data-[state=checked]:bg-primary cursor-not-allowed"
+            />
+          </label>
+        </div>
+
+        {/* Links row */}
+        <div className="mt-4 flex items-center gap-4 text-xs sm:text-[13px] text-muted-foreground">
+          <Link
+            to="/datenschutz"
+            className="hover:text-foreground transition-colors hover:underline"
+          >
+            Datenschutzerklärung
+          </Link>
+          <Link
+            to="/impressum"
+            className="hover:text-foreground transition-colors hover:underline"
+          >
+            Impressum
+          </Link>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <button
+            type="button"
+            onClick={() => saveConsent(marketing)}
+            className="w-full inline-flex items-center justify-center rounded-xl bg-muted hover:bg-muted/80 text-foreground font-medium text-sm sm:text-[15px] py-3 px-4 transition-colors"
           >
             Einstellungen speichern
-          </Button>
-          <Button
-            onClick={handleAcceptAll}
-            className="w-full sm:w-auto bg-black text-white hover:bg-black/90 dark:bg-black dark:text-white dark:hover:bg-black/90"
+          </button>
+          <button
+            type="button"
+            onClick={() => saveConsent(true)}
+            className="w-full inline-flex items-center justify-center rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm sm:text-[15px] py-3 px-4 shadow-sm transition-colors"
           >
             Alles akzeptieren
-          </Button>
+          </button>
         </div>
       </div>
     </div>

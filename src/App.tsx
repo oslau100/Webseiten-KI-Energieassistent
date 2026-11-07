@@ -2,13 +2,12 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-import Datenschutz from "./pages/Datenschutz";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import AdsPage from "./pages/AdsPage";
 import Impressum from "./pages/Impressum";
-import Danke from "./pages/Danke";
-import { CookieBanner } from "./components/CookieBanner";
+import Datenschutz from "./pages/Datenschutz";
+import NotFound from "./pages/NotFound";
+import CookieBanner from "./components/CookieBanner";
 
 const queryClient = new QueryClient();
 
@@ -18,15 +17,15 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <CookieBanner />
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/datenschutz" element={<Datenschutz />} />
+          <Route path="/" element={<AdsPage />} />
+          <Route path="/ads" element={<Navigate to="/" replace />} />
           <Route path="/impressum" element={<Impressum />} />
-          <Route path="/danke" element={<Danke />} />
+          <Route path="/datenschutz" element={<Datenschutz />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <CookieBanner />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
