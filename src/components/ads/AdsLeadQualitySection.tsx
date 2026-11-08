@@ -113,7 +113,7 @@ const AdsLeadQualitySection = () => {
         {/* CTA — ads page style */}
         <Reveal delay={0.4} className="mt-12 flex justify-center">
           <a
-            href="https://calendly.com/energieassistent-potentialanalyse/30min"
+            href="https://calendly.com/energieassistent-demo/30min"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-center text-base font-medium text-primary-foreground shadow-lg transition-all hover:shadow-xl"

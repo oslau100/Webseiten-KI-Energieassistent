@@ -83,7 +83,7 @@ const AdsHeroSection = () => {
               Log in
             </a>
             <a
-              href="https://calendly.com/energieassistent-potentialanalyse/30min"
+              href="https://calendly.com/energieassistent-demo/30min"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-xs font-medium text-primary-foreground shadow-md hover:shadow-lg transition-all"
@@ -211,7 +211,7 @@ const AdsHeroSection = () => {
                     Log in
                   </a>
                   <a
-                    href="https://calendly.com/energieassistent-potentialanalyse/30min"
+                    href="https://calendly.com/energieassistent-demo/30min"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setMobileMenuOpen(false)}
@@ -275,7 +275,7 @@ const AdsHeroSection = () => {
         {/* CTA Button */}
         <Reveal delay={0.3} className="mt-10">
           <a
-            href="https://calendly.com/energieassistent-potentialanalyse/30min"
+            href="https://calendly.com/energieassistent-demo/30min"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg transition-all hover:shadow-xl"

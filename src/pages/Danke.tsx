@@ -10,7 +10,7 @@ const Danke = () => (
         <img
           src={relaunchAssets.logo}
           alt="Energieassistent.io"
-          className="h-20 sm:h-24 w-auto object-contain mix-blend-multiply"
+          className="h-48 md:h-64 w-auto object-contain mix-blend-multiply"
         />
       </Link>
     </header>
