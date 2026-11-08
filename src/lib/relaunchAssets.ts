@@ -6,8 +6,8 @@ const existing = "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/pub
 const legacy = "https://vibe.filesafe.space/1789758049296638029/attachments";
 
 export const relaunchAssets = {
-  // Zwei Originale fehlen im ZIP; Vibe-Fallbacks sind noch Produktions-Blocker.
-  logo: `${legacy}/838e42f7-e65c-4677-b7b8-452936eb11f7.png`,
+  // Das frühere Demo-Foto bleibt ein Vibe-Fallback; das Logo kommt aus dem produktiven Supabase-Bucket.
+  logo: `${existing}/energieassistent-logo-weiss.webp`,
   demoConsultant: `${legacy}/0dddc73e-3f7c-4c97-a063-19888cc99021.png`,
   heroSocialProof: `${preview}/hero-social-proof.png`,
   ads: {
