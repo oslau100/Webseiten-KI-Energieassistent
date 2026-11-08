@@ -29,27 +29,6 @@ const caseStudies = [
   },
   {
     badge: "FALLSTUDIE 2",
-    title: "Über 500 Leads & 111 Verträge in den ersten 3 Monaten",
-    metrics: [],
-    image:
-      relaunchAssets.caseStudies.kromen,
-    imageAlt: "Energieassistent Vorschau",
-    link: "www.kromen-energieassistent.de",
-    href: "https://www.kromen-energieassistent.de",
-    author: "Marcel Kromen",
-    blocks: [
-      {
-        heading: "Ausgangssituation",
-        text: "Marcel gewann seine Kunden bisher ausschließlich über klassischen Door-to-Door-Vertrieb und schrieb damit monatlich zwischen 25 und 40 Verträgen.\n\nSeine Ergebnisse waren jedoch stark davon abhängig, wie viele Menschen er persönlich ansprach und wie erfolgreich die einzelnen Gespräche verliefen. Für mehr Verträge brauchte es entsprechend mehr Zeit auf dem Feld, mehr Gespräche und kontinuierliche Vertriebsarbeit.",
-      },
-      {
-        heading: "Ergebnis",
-        text: "Mit seinem Energieassistenten ergänzte Marcel seinen bestehenden Vertrieb um eine zusätzliche digitale Leadquelle. Dafür setzte er Einwurfkarten in seinen Zielgebieten ein, über die Interessenten ihre Tarifprüfung selbstständig starten und direkt ihr persönliches Ergebnis erhalten konnten.\n\nIn den ersten drei Monaten entstanden so über 500 Leads und daraus 111 abgeschlossene Verträge.\n\nHeute gewinnt Marcel zusätzlich zu seinem klassischen D2D-Vertrieb fortlaufend neue Leads und Verträge über seinen Energieassistenten.",
-      },
-    ],
-  },
-  {
-    badge: "FALLSTUDIE 3",
     title: "Jeden Monat über 50 Verträge mit deutlich weniger Aufwand",
     metrics: [],
     image:

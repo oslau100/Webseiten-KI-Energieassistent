@@ -64,11 +64,13 @@ const AdsHeroSection = () => {
       <header className="relative z-30 mx-auto max-w-7xl px-4 sm:px-6 pt-4 sm:pt-6">
         <nav className="flex items-center justify-between gap-4">
           {/* Logo */}
-          <a href="/" className="flex items-center shrink-0">
+          <a href="/" className="flex items-center shrink-0 -my-14 md:-my-16">
             <img
               src={relaunchAssets.logo}
               alt="Energieassistent.io"
-              className="h-16 sm:h-20 w-auto object-contain mix-blend-multiply dark:invert"
+              width={2000}
+              height={2000}
+              className="h-48 md:h-64 w-auto object-contain mix-blend-multiply"
             />
           </a>
 

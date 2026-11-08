@@ -39,14 +39,16 @@ const Footer = () => {
           {/* Column 1: Logo + Beschreibung */}
           <Reveal className="sm:col-span-2 md:col-span-1">
             <div className="flex flex-col items-start text-left">
-              <a href="/" className="inline-block -ml-3 sm:-ml-3.5">
+              <a href="/" className="inline-block -ml-3 sm:-ml-3.5 -mt-24 md:-mt-[110px]">
                 <img
                   src={relaunchAssets.logo}
                   alt="Energieassistent.io"
-                  className="h-16 sm:h-20 w-auto object-contain object-left mix-blend-multiply dark:invert block"
+                  width={2000}
+                  height={2000}
+                  className="h-64 md:h-72 w-auto object-contain object-left mix-blend-multiply block"
                 />
               </a>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+              <p className="-mt-16 md:-mt-24 text-sm text-muted-foreground leading-relaxed">
                 Energieassistent.io ist die Vertriebsplattform für
                 Energievertriebler, die eigene Leads gewinnen und ihren
                 Vertriebsprozess digitalisieren möchten.

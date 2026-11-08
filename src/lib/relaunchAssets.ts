@@ -6,8 +6,8 @@ const existing = "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/pub
 const legacy = "https://vibe.filesafe.space/1789758049296638029/attachments";
 
 export const relaunchAssets = {
-  // Das frühere Demo-Foto bleibt ein Vibe-Fallback; das Logo kommt aus dem produktiven Supabase-Bucket.
-  logo: `${existing}/energieassistent-logo-weiss.webp`,
+  // Schwarzes Logo aus demselben öffentlichen Supabase-Storage-Bucket für hellen Hintergrund.
+  logo: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/crm-lp-assets/logo-schwarz-2000x2000.png",
   demoConsultant: `${legacy}/0dddc73e-3f7c-4c97-a063-19888cc99021.png`,
   heroSocialProof: `${preview}/hero-social-proof.png`,
   ads: {
@@ -30,8 +30,6 @@ export const relaunchAssets = {
   },
   caseStudies: {
     tarifbutler: `${preview}/fallstudie-tarifbutler.png`,
-    // Kromen fehlt im Liefer-ZIP: vorhandenes Supabase-Bild als vorläufiges Preview.
-    kromen: `${existing}/fallstudie-kromen.webp`,
     ehiogie: `${preview}/fallstudie-ehiogie.png`,
   },
   founder: `${existing}/osasere-laurent.webp`,
