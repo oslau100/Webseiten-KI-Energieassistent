@@ -12,27 +12,27 @@ interface StepItem {
 const steps: StepItem[] = [
   {
     number: 1,
-    title: "Energieassistent einrichten",
+    title: "Deine Vorgaben festlegen",
     description:
-      "Wir richten deinen Energieassistenten vollständig in deinem Branding ein und machen ihn schlüsselfertig für deine Leadgewinnung einsatzbereit.",
+      "Wir stimmen dein Branding, die verfügbaren Tarife deiner Distribution und deine Vorgaben für die Tarifempfehlungen gemeinsam ab.",
   },
   {
     number: 2,
-    title: "Werbekonten verbinden",
+    title: "Energieassistent einrichten",
     description:
-      "Du verbindest die Werbekonten, mit denen du starten möchtest, direkt über unsere Plattform und kannst sie anschließend für deine Kampagnen nutzen.",
+      "Wir richten dein gesamtes System schlüsselfertig ein – inklusive Tarifprüfung, automatisierter Beratung, digitaler Abschlussstrecke und CRM.",
   },
   {
     number: 3,
-    title: "Erste Kampagne starten",
+    title: "Leadgewinnung starten",
     description:
-      "Du wählst eine bewährte Anzeige, legst dein Budget fest und startest deine Kampagne mit vorkonfigurierten Einstellungen.",
+      "Starte deine vorbereiteten Ads, verteile druckfertige QR-Einwurfkarten oder nutze dein automatisiertes Partnerprogramm.",
   },
   {
     number: 4,
-    title: "Leads erhalten & skalieren",
+    title: "Leads verwalten und nachfassen",
     description:
-      "Neue Leads landen mit allen wichtigen Informationen direkt in deinem CRM. Anschließend kannst du dein Budget flexibel skalieren und zusätzlich Partnerprogramm oder Einwurfkarten als weitere Leadwege nutzen.",
+      "Neue Leads werden automatisch in deinem CRM erfasst. Du kannst offene Interessenten gezielt nachfassen und deine Akquise schrittweise ausbauen.",
   },
 ];
 
@@ -77,10 +77,17 @@ const AdsStepsSection = () => {
         <div className="mb-16 md:mb-24 text-center flex flex-col items-center">
           <Reveal delay={0.1}>
             <h2 className="max-w-3xl text-4xl md:text-5xl font-normal tracking-tight leading-tight text-gray-900">
-              In 4 Schritten zur automatisierten Leadgewinnung
+              In 4 Schritten von der Einrichtung zur Leadgewinnung
             </h2>
           </Reveal>
         </div>
+
+        <Reveal className="-mt-8 mb-14 flex justify-center">
+          <p className="max-w-3xl text-center text-lg text-gray-500 leading-relaxed">
+            Wir richten deinen Energieassistenten individuell für deinen Vertrieb ein. Anschließend kannst du mit
+            den fertigen Akquise-Tools starten und deine gewonnenen Leads direkt weiterbearbeiten.
+          </p>
+        </Reveal>
 
         {/* Vertical Timeline Wrapper */}
         <div className="relative">

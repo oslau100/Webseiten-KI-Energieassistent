@@ -35,7 +35,7 @@ const AdsHeroSection = () => {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { label: "Ads-System", href: "#ads-system" },
+    { label: "Akquise-Tools", href: "#akquise-tools" },
     { label: "Energieassistent", href: "#energieassistent" },
     { label: "Fallstudien", href: "#fallstudien" },
     { label: "Ablauf", href: "#ablauf" },
@@ -249,7 +249,7 @@ const AdsHeroSection = () => {
               <span className="relative inline-flex h-2.5 w-2.5 animate-pulse rounded-full bg-primary" />
             </span>
             <span className="text-xs sm:text-sm font-semibold tracking-wide text-foreground">
-              Für Strom- & Gasvertriebler
+              Für den Strom- und Gasvertrieb
             </span>
           </div>
         </Reveal>
@@ -264,10 +264,9 @@ const AdsHeroSection = () => {
         {/* Subheadline */}
         <Reveal delay={0.2} className="mt-6">
           <p className="max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed">
-            Mit unserem Ads-System schaltest du auf Meta und Google Kampagnen
-            mit erprobten Anzeigen und vorkonfigurierten Einstellungen und
-            generierst so jederzeit eigene Leads von Menschen, die ihren Strom-
-            oder Gastarif prüfen möchten.
+            Dein Energieassistent gewinnt automatisch Interessenten, die ihren Strom- oder Gastarif prüfen
+            möchten, erstellt persönliche Tarifempfehlungen und liefert dir qualifizierte Leads direkt ins CRM.
+            Planbar, ohne Verkaufsdruck und ohne Ablehnung.
           </p>
         </Reveal>
 
@@ -315,19 +314,19 @@ const AdsHeroSection = () => {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
             {[
               {
-                title: "Leadkosten unter 5 €",
+                title: "Individuell für dich eingerichtet",
                 subtitle:
-                  "Mit unserem System sind je nach Region und Kampagne Leadkosten unter 5 € möglich.",
+                  "Dein Energieassistent läuft in deinem Branding. Du bestimmst, welche Tarife aus deiner Distribution bevorzugt empfohlen werden.",
               },
               {
-                title: "Ohne Ads-Erfahrung starten",
+                title: "Automatische Beratung & Abschluss",
                 subtitle:
-                  "Erprobte Anzeigen und vorkonfigurierte Einstellungen sind bereits hinterlegt – mit wenigen Klicks gehen deine Ads live.",
+                  "Interessenten erhalten in 60 Sekunden eine Tarifempfehlung, werden automatisch beraten und können den Wechsel direkt beauftragen.",
               },
               {
-                title: "Eigene Leads direkt generieren",
+                title: "Integrierte Akquise-Tools",
                 subtitle:
-                  "Keine hohen Agenturkosten und keine mehrfach verkauften Leads – jeder Lead entsteht direkt über deine eigene Kampagne.",
+                  "Neue Leads gewinnst du an der Haustür, online oder über Empfehlungen. Alle Wege sind direkt mit deinem Energieassistenten verbunden.",
               },
             ].map((benefit, i) => (
               <Reveal key={benefit.title} delay={0.4 + i * 0.12}>

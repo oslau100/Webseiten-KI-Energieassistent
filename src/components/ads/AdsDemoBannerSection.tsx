@@ -1,4 +1,3 @@
-import { relaunchAssets } from "@/lib/relaunchAssets";
 import Reveal from "@/components/Reveal";
 import CTAButton from "@/components/CTAButton";
 
@@ -12,9 +11,9 @@ const AdsDemoBannerSection = () => {
             <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
             <div className="pointer-events-none absolute -left-20 -bottom-20 h-96 w-96 rounded-full bg-emerald-400/10 blur-3xl" />
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-12 p-8 sm:p-12 md:p-14 lg:p-16">
+            <div className="flex flex-col items-start p-8 sm:p-12 md:p-14 lg:p-16">
               {/* Left Column: Offer Headline, Subtext & CTA */}
-              <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
+              <div className="relative z-10 flex flex-col items-start text-left max-w-4xl">
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider uppercase text-white/90 mb-4 backdrop-blur-sm">
                   Persönliche Demo
                 </span>
@@ -28,17 +27,7 @@ const AdsDemoBannerSection = () => {
                 </div>
               </div>
 
-              {/* Right Column: Uploaded Image (Consultant/Strategist at Mac with Headset) */}
-              <div className="lg:col-span-5 flex justify-center lg:justify-end z-10">
-                <div className="relative w-full max-w-md overflow-hidden rounded-2xl border-2 border-white/15 bg-white/5 shadow-2xl">
-                  <img
-                    src={relaunchAssets.demoConsultant}
-                    alt="Kostenlose Demo mit unserem Strategieberater"
-                    className="w-full h-auto object-cover object-center aspect-square sm:aspect-auto"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
+
             </div>
           </div>
         </Reveal>

@@ -27,11 +27,9 @@ const AdsCrmIntegrationSection = () => {
           {/* Description */}
           <Reveal delay={0.2} className="mt-6 flex justify-center">
             <p className="max-w-3xl text-center text-lg text-muted-foreground leading-relaxed">
-              Leads aus Ads, Partnerprogramm und Einwurfkarten landen
-              automatisch mit Kontaktdaten, relevanten Tarifdetails und
-              aktuellem Status in deinem CRM. So kannst du neue Leads direkt
-              bearbeiten und siehst jederzeit, welche noch offen sind und was
-              als Nächstes zu tun ist.
+              Alle Leads aus deinem Energieassistenten landen automatisch mit ihren Angaben und ihrem
+              aktuellen Status in deinem CRM. So siehst du auf einen Blick, wer bereits einen Wechsel beauftragt
+              hat, welche Interessenten noch offen sind und bei wem du gezielt nachfassen kannst.
             </p>
           </Reveal>
         </div>

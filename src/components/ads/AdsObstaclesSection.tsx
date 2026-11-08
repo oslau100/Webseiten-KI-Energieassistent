@@ -1,9 +1,8 @@
 import Reveal from "@/components/Reveal";
-import { Footprints, Megaphone, Radar } from "lucide-react";
-import React from "react";
+import { Footprints, Megaphone, Radar, type LucideIcon } from "lucide-react";
 
 interface Obstacle {
-  icon: React.ComponentType<any>;
+  icon: LucideIcon;
   title: string;
   description: string;
 }
@@ -11,21 +10,21 @@ interface Obstacle {
 const obstacles: Obstacle[] = [
   {
     icon: Footprints,
-    title: "Du musst ständig neue Leute ansprechen",
+    title: "Viele lehnen schon vor dem Angebot ab",
     description:
-      "Um Verträge zu schreiben, musst du laufend neue Menschen ansprechen – auf dem Feld, über dein Netzwerk oder durch Empfehlungen.",
+      "Viele haben im Moment deiner Ansprache weder Zeit noch Interesse an einem Gespräch. In den meisten Fällen endet der Kontakt deshalb direkt mit einem Nein.",
   },
   {
     icon: Megaphone,
-    title: "Du bekommst viel Ablehnung",
+    title: "Wertvolles Potenzial bleibt ungenutzt",
     description:
-      "Der Kontakt geht von dir aus. Viele wollen sich gerade gar nicht mit ihrem Tarif beschäftigen – deshalb musst du Interesse erst wecken und bekommst entsprechend viel Ablehnung.",
+      "Durch die vielen Absagen verlierst du potenzielle Kunden. Gleichzeitig erreichst du mit deiner bisherigen Akquise viele weitere gar nicht erst.",
   },
   {
     icon: Radar,
-    title: "Mehr Verträge bedeuten mehr Vertriebsarbeit",
+    title: "Deine Abschlüsse sind kaum planbar",
     description:
-      "Willst du mehr Verträge schreiben, brauchst du meist mehr Zeit auf dem Feld, mehr Gespräche oder zusätzliche Mitarbeiter.",
+      "Mal schreibst du mehrere Verträge am Tag, mal keinen trotz gleichem Einsatz. Wie viele Menschen du erreichst und wie viele davon Interesse zeigen, schwankt.",
   },
 ];
 
@@ -36,8 +35,16 @@ const AdsObstaclesSection = () => {
         {/* Headline */}
         <Reveal className="flex justify-center">
           <h2 className="max-w-3xl text-center text-4xl md:text-5xl font-normal tracking-tight leading-tight text-foreground">
-            Kommt dir das im Vertrieb bekannt vor?
+            Kennst du das aus deinem Vertriebsalltag?
           </h2>
+        </Reveal>
+
+        <Reveal delay={0.1} className="mt-6 flex justify-center">
+          <p className="max-w-3xl text-center text-lg text-muted-foreground leading-relaxed">
+            Im klassischen Strom- und Gasvertrieb musst du Menschen erst persönlich ansprechen, ihr Interesse
+            wecken und Einwände behandeln, bevor sie überhaupt wissen, ob sich ein Wechsel für sie lohnt.
+            Daraus entstehen diese Probleme:
+          </p>
         </Reveal>
 
         {/* Desktop View: 3 Spalten Grid */}

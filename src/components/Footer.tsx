@@ -3,7 +3,7 @@ import Reveal from "@/components/Reveal";
 
 const Footer = () => {
   const navLinks = [
-    { label: "Ads-System", href: "#ads-system" },
+    { label: "Akquise-Tools", href: "#akquise-tools" },
     { label: "Energieassistent", href: "#energieassistent" },
     { label: "Fallstudien", href: "#fallstudien" },
     { label: "Ablauf", href: "#ablauf" },

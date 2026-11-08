@@ -8,39 +8,29 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: "Brauche ich Erfahrung mit Meta oder Google Ads?",
+    question: "Muss ich mich um Technik oder Einrichtung kümmern?",
     answer:
-      "Nein. Das Ads-System ist so aufgebaut, dass du keine Vorkenntnisse im Werbeanzeigenmanager brauchst. Bewährte Creatives und zentrale Kampagneneinstellungen sind bereits vorbereitet – du wählst nur Creative, Region und Budget und schaltest die Kampagne mit wenigen Klicks live.",
-  },
-  {
-    question: "Muss ich eigene Creatives erstellen?",
-    answer:
-      "Nein. Du startest direkt mit einer vorbereiteten Creative-Bibliothek aus bewährten Anzeigenmotiven. Auf Wunsch kannst du später eigene Creatives hinzufügen, aber für den Start musst du nichts selbst entwerfen oder produzieren.",
-  },
-  {
-    question: "Wie viel Werbebudget brauche ich?",
-    answer:
-      "Du bestimmst dein Budget selbst und kannst es jederzeit anpassen. Bereits mit kleinen Budgets sammelst du erste Erfahrungswerte und generierst erste Anfragen. Sobald du siehst, wie gut deine Kampagnen laufen, kannst du das Budget gezielt hochfahren und planbar skalieren.",
-  },
-  {
-    question: "Welche Leadkosten sind möglich?",
-    answer:
-      "Da hinter den Anzeigen unser Energieassistenten-Funnel arbeitet, sind die Leadkosten typischerweise niedrig. Der Funnel bietet einen hohen unmittelbaren Nutzen bei gleichzeitig niedriger Einstiegshürde, was die Tarifprüfung besonders attraktiv macht und die Kosten pro Anfrage senkt.",
-  },
-  {
-    question: "Sind die generierten Leads ausschließlich meine?",
-    answer:
-      "Ja. Du baust dir deine eigenen Leads unter deiner eigenen Marke auf. Alle über deine Kampagnen generierten Anfragen laufen zentral in dein CRM, stehen dir zur Verfügung und können exportiert werden.",
-  },
-  {
-    question: "Wo landen meine Leads?",
-    answer:
-      "Alle Daten aus dem Energieassistenten laufen automatisch in dein CRM und Dashboard ein – übersichtlich, in Echtzeit und sofort verfügbar. Du siehst neue Leads, Abschlüsse, Aufgaben und Follow-ups zentral an einem Ort und kannst jederzeit selbst aktiv werden, Interessenten nachverfolgen oder direkt kontaktieren.",
+      "Nein. Das komplette System wird für dich eingerichtet – von der Landingpage über die Tarifprüfung bis hin zum CRM und den Follow-ups. Du musst dich um nichts Technisches kümmern.",
   },
   {
     question: "Kann ich festlegen, welche Tarife bevorzugt empfohlen werden?",
     answer:
       "Ja. In deinem System kannst du aus den verfügbaren Distributionstarifen (zb. von Stromkreis, Ennux und Energiespardienst24) jederzeit bis zu drei Prioritäten festlegen. Der Energieassistent berücksichtigt diese Reihenfolge automatisch bei der Tarifempfehlung. Ist die erste Priorität für einen Interessenten nicht verfügbar oder nicht geeignet, wird automatisch die nächste Priorität berücksichtigt. Alle Preisänderungen und Tarife werden automatisch aktualisiert.",
+  },
+  {
+    question: "Funktioniert das System auch, wenn ich ein Team oder eine Agentur habe?",
+    answer:
+      "Ja, das System funktioniert problemlos auch mit mehreren Mitarbeitern oder im Agentur-Setup. Wir richten für dich ein individuelles Tracking ein, sodass alle Anfragen und Abschlüsse klar einzelnen Mitarbeitern zugeordnet werden können. So kann dein gesamtes Team mit dem System arbeiten, ohne dass Übersicht oder Kontrolle verloren geht.",
+  },
+  {
+    question: "Funktioniert das auch, wenn ich bereits eine eigene Webseite habe?",
+    answer:
+      "Ja, das ist kein Problem. Wir können das System entweder in deine bestehende Webseite integrieren oder deine aktuelle Seite durch das System ersetzen – je nachdem, was für deine Situation mehr Sinn macht. In beiden Fällen wird alles sauber für dich eingerichtet und funktioniert nahtlos.",
+  },
+  {
+    question: "Wie schnell sehe ich erste Ergebnisse?",
+    answer:
+      "In der Regel ist dein System innerhalb weniger Wochen vollständig aufgebaut und einsatzbereit. Erste qualifizierte Anfragen und Abschlüsse können bereits kurz nach dem Start entstehen.",
   },
   {
     question: "Ist das System DSGVO-konform und wo werden die Daten gehostet?",

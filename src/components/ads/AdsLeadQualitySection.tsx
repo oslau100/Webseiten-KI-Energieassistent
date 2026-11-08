@@ -33,9 +33,9 @@ const AdsLeadQualitySection = () => {
 
           <Reveal delay={0.2} className="mt-6 flex justify-center">
             <p className="max-w-2xl text-center text-lg text-muted-foreground leading-relaxed">
-              Du bekommst nicht nur Kontaktdaten. Dein Lead hat seinen Tarif
-              bereits aktiv geprüft, eine persönliche Empfehlung erhalten und
-              damit konkretes Interesse gezeigt.
+              Dein Energieassistent liefert dir mehr als reine Kontaktdaten. Schon vor einem möglichen Gespräch
+              erhältst du wertvolle Informationen über deine Interessenten und musst bei der weiteren Beratung
+              nicht mehr bei null anfangen.
             </p>
           </Reveal>
         </div>

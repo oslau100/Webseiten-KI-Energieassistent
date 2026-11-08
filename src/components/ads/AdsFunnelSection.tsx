@@ -77,22 +77,21 @@ const AdsFunnelSection = () => {
         <div className="mb-12 flex flex-col items-center">
           <Reveal delay={0.05} className="flex justify-center">
             <p className="mb-4 text-xs sm:text-sm font-semibold tracking-wider uppercase text-primary">
-              DEIN ENERGIEASSISTENT
+              DIE LÖSUNG
             </p>
           </Reveal>
 
           <Reveal delay={0.1} className="flex justify-center">
             <h2 className="max-w-3xl text-center text-4xl md:text-5xl font-normal tracking-tight leading-tight text-foreground">
-              Das System hinter niedrigen Leadkosten
+              Automatisiere deinen Vertrieb mit einem Energieassistenten
             </h2>
           </Reveal>
 
           <Reveal delay={0.2} className="mt-6 flex justify-center">
             <p className="max-w-3xl text-center text-lg text-muted-foreground leading-relaxed">
-              Der Energieassistent liefert Interessenten direkt ein persönliches
-              Ergebnis und damit einen konkreten Nutzen – statt nur Kontaktdaten
-              abzufragen. So sinkt die Hürde zur Tarifprüfung und es entsteht
-              die Grundlage für niedrige Leadkosten.
+              Der Energieassistent macht den ersten Schritt besonders einfach: Interessenten prüfen ihren Tarif
+              selbst – ohne Unterlagen oder Vorgespräch. In 60 Sekunden erstellt er automatisch eine persönliche
+              Tarifempfehlung, übernimmt die individuelle Beratung und ermöglicht den direkten Online-Abschluss.
             </p>
           </Reveal>
         </div>

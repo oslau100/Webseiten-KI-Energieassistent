@@ -1,6 +1,5 @@
 import AdsHeroSection from "@/components/ads/AdsHeroSection";
 import AdsObstaclesSection from "@/components/ads/AdsObstaclesSection";
-import AdsThreeClickSystemSection from "@/components/ads/AdsThreeClickSystemSection";
 import AdsFunnelSection from "@/components/ads/AdsFunnelSection";
 import AdsLeadQualitySection from "@/components/ads/AdsLeadQualitySection";
 import AdsCrmIntegrationSection from "@/components/ads/AdsCrmIntegrationSection";
@@ -18,10 +17,9 @@ const AdsPage = () => {
     <>
       <AdsHeroSection />
       <AdsObstaclesSection />
-      <AdsThreeClickSystemSection />
       <AdsFunnelSection />
-      <AdsLeadQualitySection />
       <AdsAdditionalChannelsSection />
+      <AdsLeadQualitySection />
       <AdsCrmIntegrationSection />
       <AdsCaseStudiesSection />
       <AdsStepsSection />

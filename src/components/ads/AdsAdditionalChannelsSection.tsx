@@ -3,157 +3,173 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "@/components/Reveal";
 import CTAButton from "@/components/CTAButton";
-import { Users2, Mail } from "lucide-react";
+import { Users2, Mail, Megaphone } from "lucide-react";
 
-interface AdditionalChannel {
-  id: string;
+type ChannelId = "ads-system" | "einwurfkarten" | "partnerprogramm";
+
+interface AcquisitionChannel {
+  id: ChannelId;
   tabLabel: string;
-  badge: string;
+  summary: string;
   heading: string;
-  description: string;
-  gifUrl?: string;
+  paragraphs: readonly string[];
+  gifUrl: string;
+  alt: string;
 }
 
-const NEW_GIF_URL =
-  relaunchAssets.partner;
-
-const channels: AdditionalChannel[] = [
+const channels: AcquisitionChannel[] = [
   {
-    id: "partnerprogramm",
-    tabLabel: "Partnerprogramm",
-    badge: "Partnerprogramm",
-    heading: "Neue Leads über Partner",
-    description:
-      "Du erhältst ein automatisiertes Partnerprogramm, mit dem du Online- und Offline-Partner wie Influencer, Onlineshops, Makler oder Hausverwaltungen als zusätzliche Leadquelle gewinnen kannst. Jeder Partner bekommt einen persönlichen Link oder QR-Code und einen eigenen Login, in dem Empfehlungen und erfolgreiche Abschlüsse automatisch getrackt werden. Sobald ein vermittelter Vertrag provisioniert wurde, wird die von dir festgelegte Vergütung fällig.",
-    gifUrl: NEW_GIF_URL,
+    id: "ads-system",
+    tabLabel: "Ads-System",
+    summary: "Fertige Anzeigen mit wenigen Klicks starten.",
+    heading: "Neue Leads mit fertigen Ads",
+    paragraphs: [
+      "Für Strom und Gas stehen dir fertige, erprobte Ads inklusive Bildern, Videos und Kampagneneinstellungen zur Verfügung. Die Kampagnen sind darauf ausgerichtet, Menschen zu erreichen, die sich bereits für einen Tarifwechsel interessieren.",
+      "Du wählst eine Anzeige aus der Bibliothek, legst dein Budget fest und startest deine Kampagne mit wenigen Klicks – ohne selbst Anzeigen erstellen oder Kampagnen einrichten zu müssen.",
+    ],
+    gifUrl: relaunchAssets.acquisition.adsSequence,
+    alt: "Ads-System: Anzeigenbibliothek, Budget und Kampagnenstart nacheinander animiert",
   },
   {
     id: "einwurfkarten",
     tabLabel: "Einwurfkarten",
-    badge: "Einwurfkarten",
-    heading: "Lokale Leads über Einwurfkarten",
-    description:
-      "Du erhältst individuell gestaltete und druckfertige Einwurfkarten für deine gewünschten Gebiete. Stadt, Branding und Ansprache werden passend für dich vorbereitet. Über den QR-Code gelangen Haushalte direkt in die Tarifprüfung deines Energieassistenten, erhalten automatisch ihr persönliches Ergebnis und werden als qualifizierte Leads in dein System übernommen. Du kümmerst dich nur noch um die Verteilung.",
+    summary: "Mit druckfertigen QR-Karten Haushalte erreichen.",
+    heading: "Neue Leads mit Einwurfkarten",
+    paragraphs: [
+      "Du erhältst individuell gestaltete, druckfertige Einwurfkarten für deine gewünschten Gebiete. Stadtbezug, Branding und Ansprache sind bereits auf dich abgestimmt und der persönliche QR-Code ist integriert.",
+      "Nach dem Druck musst du die Karten nur noch einwerfen. Interessierte Haushalte scannen den QR-Code und starten ihre Tarifprüfung selbstständig – ohne dass du persönlich klingeln oder ein Verkaufsgespräch führen musst.",
+    ],
+    gifUrl: relaunchAssets.acquisition.flyer,
+    alt: "Animierte Einwurfkarte mit individuellem Branding, Tarifprüfung und QR-Code",
+  },
+  {
+    id: "partnerprogramm",
+    tabLabel: "Partnerprogramm",
+    summary: "Empfehlungen automatisch erfassen und zuordnen.",
+    heading: "Neue Leads über Partner",
+    paragraphs: [
+      "Mit deinem automatisierten Partnerprogramm kannst du Influencer, Onlineshops, Makler, Hausverwaltungen, Lokale Geschäfte etc. als zusätzliche Leadquellen gewinnen.",
+      "Jeder Partner erhält einen persönlichen Empfehlungslink oder QR-Code und einen eigenen Login. Empfehlungen und erfolgreiche Abschlüsse werden automatisch erfasst und zugeordnet. Die von dir festgelegte Vergütung wird erst fällig, sobald ein vermittelter Vertrag provisioniert wurde.",
+    ],
+    gifUrl: relaunchAssets.partner,
+    alt: "Partnerprogramm: Anmeldung und Empfehlungssystem als Animation",
   },
 ];
 
+const icons = { "ads-system": Megaphone, einwurfkarten: Mail, partnerprogramm: Users2 } as const;
+
 const AdsAdditionalChannelsSection = () => {
-  const [activeTabId, setActiveTabId] = useState<string>("partnerprogramm");
-  const activeChannel =
-    channels.find((c) => c.id === activeTabId) || channels[0];
+  const [activeTabId, setActiveTabId] = useState<ChannelId>("ads-system");
+  const activeChannel = channels.find((channel) => channel.id === activeTabId) ?? channels[0];
 
   return (
-    <section className="relative bg-background px-6 py-20 md:py-28 overflow-hidden">
+    <section id="akquise-tools" className="relative bg-background px-6 py-20 md:py-28 overflow-hidden scroll-mt-20">
       <div className="mx-auto max-w-7xl">
-        {/* Header — Centered */}
         <div className="mb-10 sm:mb-14 flex flex-col items-center text-center">
           <Reveal className="flex justify-center">
             <p className="mb-4 text-xs sm:text-sm font-semibold tracking-wider uppercase text-primary">
-              WEITERE FEATURES
+              AKQUISE-TOOLS
             </p>
           </Reveal>
-
           <Reveal delay={0.1} className="flex justify-center">
             <h2 className="max-w-3xl text-center text-4xl md:text-5xl font-normal tracking-tight leading-tight text-foreground">
-              Noch mehr Wege zu neuen Leads
+              So generierst du eigene Leads mit deinem Energieassistenten
             </h2>
           </Reveal>
-
           <Reveal delay={0.2} className="mt-6 flex justify-center">
             <p className="max-w-3xl text-center text-lg text-muted-foreground leading-relaxed">
-              Neben Meta- und Google-Kampagnen erhältst du weitere
-              Möglichkeiten, neue Interessenten direkt in die Tarifprüfung
-              deines Energieassistenten zu bringen.
+              Mit erprobten Ads, druckfertigen Einwurfkarten und einem automatisierten Partnerprogramm hast du
+              die passenden Tools für eine einfache und effektive Leadgewinnung.
             </p>
           </Reveal>
         </div>
 
-        {/* Pill Toggle Switch — schlank, dezent & clean */}
-        <Reveal delay={0.25} className="flex justify-center mb-8 sm:mb-10">
-          <div className="inline-flex items-center p-1 rounded-full border border-border/70 bg-card shadow-sm">
+        <Reveal delay={0.25} className="mb-8 sm:mb-10">
+          <div role="tablist" aria-label="Akquise-Tools" className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {channels.map((channel) => {
-              const isActive = channel.id === activeTabId;
+              const selected = channel.id === activeTabId;
+              const Icon = icons[channel.id];
               return (
                 <button
                   key={channel.id}
                   type="button"
+                  id={`akquise-tab-${channel.id}`}
+                  role="tab"
+                  aria-selected={selected}
+                  aria-controls="akquise-tabpanel"
+                  tabIndex={selected ? 0 : -1}
                   onClick={() => setActiveTabId(channel.id)}
-                  className={`relative px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold tracking-tight transition-all duration-200 ${
-                    isActive
-                      ? "text-white"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
+                  onKeyDown={(event) => {
+                    if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) return;
+                    event.preventDefault();
+                    const index = channels.findIndex((item) => item.id === channel.id);
+                    const next = event.key === "Home" ? 0 : event.key === "End" ? channels.length - 1
+                      : (index + (event.key === "ArrowRight" ? 1 : -1) + channels.length) % channels.length;
+                    setActiveTabId(channels[next].id);
+                    document.getElementById(`akquise-tab-${channels[next].id}`)?.focus();
+                  }}
+                  className={`rounded-2xl border p-4 sm:p-5 text-left transition-all duration-200 shadow-sm ${selected
+                    ? "border-primary bg-primary/5 ring-1 ring-primary text-foreground"
+                    : "border-border/70 bg-card text-foreground hover:border-primary/40"}`}
                 >
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeChannelPill"
-                      className="absolute inset-0 rounded-full bg-[#1a5147] shadow-sm"
-                      transition={{
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 32,
-                      }}
-                    />
-                  )}
-                  <span className="relative z-10 flex items-center gap-1.5 sm:gap-2">
-                    {channel.id === "partnerprogramm" ? (
-                      <Users2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                    ) : (
-                      <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                    )}
+                  <div className="flex items-center gap-2 font-semibold text-base mb-2">
+                    <Icon className="h-5 w-5 text-primary shrink-0" aria-hidden="true" />
                     {channel.tabLabel}
-                  </span>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{channel.summary}</p>
                 </button>
               );
             })}
           </div>
         </Reveal>
 
-        {/* Card Container — Exakt wie Layout der Hauptseite */}
         <div className="relative">
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={activeChannel.id}
+              id="akquise-tabpanel"
+              role="tabpanel"
+              aria-labelledby={`akquise-tab-${activeChannel.id}`}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
               className="rounded-2xl border border-border bg-card p-6 sm:p-8 lg:p-10 shadow-sm"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                {/* Text Content Column */}
-                <div
-                  className={`flex flex-col order-2 lg:order-1 ${activeChannel.id === "einwurfkarten" ? "lg:col-span-12" : "lg:col-span-6"}`}
-                >
-                  <div>
-                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-foreground mb-4">
-                      {activeChannel.heading}
-                    </h3>
-
-                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                      {activeChannel.description}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[360px] lg:min-h-[470px]">
+                <div className="lg:col-span-6 flex flex-col justify-center order-1">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-foreground mb-4">
+                    {activeChannel.heading}
+                  </h3>
+                  {activeChannel.paragraphs.map((paragraph) => (
+                    <p key={paragraph} className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 last:mb-0">
+                      {paragraph}
                     </p>
+                  ))}
+                </div>
+                <div className="lg:col-span-6 flex items-center justify-center order-2 min-w-0">
+                  <div className="w-full max-w-md overflow-hidden rounded-xl border border-border/70 bg-card p-2 shadow-sm flex justify-center items-center">
+                    <img
+                      src={activeChannel.gifUrl}
+                      alt={activeChannel.alt}
+                      className={`w-full max-h-[510px] h-auto object-contain rounded-lg ${activeChannel.id === "einwurfkarten" ? "motion-reduce:hidden" : ""}`}
+                      loading="lazy"
+                    />
+                    {activeChannel.id === "einwurfkarten" && (
+                      <img
+                        src={relaunchAssets.acquisition.flyerOriginal}
+                        alt="Einwurfkarten-Motiv ohne Animation"
+                        className="hidden motion-reduce:block w-full max-h-[510px] h-auto object-contain rounded-lg"
+                        loading="lazy"
+                      />
+                    )}
                   </div>
                 </div>
-
-                {/* Visual Column — nur für Partnerprogramm */}
-                {activeChannel.id === "partnerprogramm" && (
-                  <div className="lg:col-span-6 flex items-center justify-center order-1 lg:order-2">
-                    <div className="w-full overflow-hidden rounded-xl border border-border/70 bg-card p-2 shadow-sm flex items-center justify-center">
-                      <img
-                        src={activeChannel.gifUrl}
-                        alt={`${activeChannel.badge} Vorschau`}
-                        className="w-full h-auto object-contain rounded-lg"
-                      />
-                    </div>
-                  </div>
-                )}
               </div>
             </motion.div>
           </AnimatePresence>
         </div>
 
-        {/* CTA Button */}
         <div className="mt-12 flex justify-center">
           <CTAButton text="Kostenlose Demo buchen" />
         </div>

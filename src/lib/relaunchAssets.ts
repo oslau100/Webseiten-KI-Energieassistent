@@ -23,6 +23,11 @@ export const relaunchAssets = {
   },
   crm: `${preview}/crm-aktivitaeten.gif`,
   partner: `${preview}/partnerprogramm.gif`,
+  acquisition: {
+    adsSequence: `${preview}/ads-system-ablauf.gif`,
+    flyer: `${preview}/einwurfkarte-animation.gif`,
+    flyerOriginal: `${preview}/einwurfkarte-original.png`,
+  },
   caseStudies: {
     tarifbutler: `${preview}/fallstudie-tarifbutler.png`,
     // Kromen fehlt im Liefer-ZIP: vorhandenes Supabase-Bild als vorläufiges Preview.
