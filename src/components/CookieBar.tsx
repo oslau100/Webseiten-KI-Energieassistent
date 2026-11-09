@@ -8,13 +8,7 @@ const CONSENT_KEY = "cookie-consent";
 const CONSENT_MAX_AGE_SECONDS = 60 * 60 * 24 * 180;
 const FALLBACK_PRIMARY_COLOR = "#2563eb";
 
-const getCookieDomain = (hostname: string) => {
-  if (hostname === "ehiogie-energieassistent.de" || hostname.endsWith(".ehiogie-energieassistent.de")) {
-    return ".ehiogie-energieassistent.de";
-  }
-
-  return undefined;
-};
+const getCookieDomain = (_hostname: string) => undefined;
 
 const getCookieValue = (name: string) => {
   const prefix = `${name}=`;

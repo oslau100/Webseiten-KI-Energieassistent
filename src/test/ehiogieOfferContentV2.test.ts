@@ -99,7 +99,7 @@ describe("Ehiogie Offer Content V2 parity", () => {
 
   it("preserves stable iframe scheduling and all Ehiogie-only runtime constants", () => {
     ["offerRoot", "requestAnimationFrame", "cancelAnimationFrame", "observer.observe(observedRoot)"].forEach(value => expect(tarifPage).toContain(value));
-    ["tn90CyE3XuYFTy4c1M3F", "www.ehiogie-energieassistent.de", "tarif_snapshot", "abschlaege_pro_jahr", 'usecase === "neueinzug"', "appendChild(changeBtn)", "--tb-save-bg"].forEach(value => expect(loader).toContain(value));
+    ["uuDEvEGcyd3mMiKWKH4Z", "app.oecher-strom.de", "tarif_snapshot", "abschlaege_pro_jahr", 'usecase === "neueinzug"', "appendChild(changeBtn)", "--tb-save-bg"].forEach(value => expect(loader).toContain(value));
     expect(loader).not.toContain("www.kromen"); expect(loader).not.toContain("Ddc0DVM8MT67wmLP3wAA");
   });
 });

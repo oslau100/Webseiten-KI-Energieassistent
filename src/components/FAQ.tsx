@@ -88,7 +88,7 @@ export const FAQ = () => {
                 lang,
               )}
             </p>
-            <Button size="lg" variant="secondary" className="h-14 px-10 text-lg font-semibold w-full sm:w-auto shadow-lg text-primary" asChild>
+            <Button size="lg" variant="secondary" className="h-14 px-10 text-lg font-semibold w-full sm:w-auto shadow-lg bg-white hover:bg-white/90 text-foreground hover:text-foreground" asChild>
               <Link to={withLang("/start")}>{getText("sections.final_cta.cta_text", t("cta_check_savings"), lang)}</Link>
             </Button>
           </div>

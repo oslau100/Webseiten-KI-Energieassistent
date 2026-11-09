@@ -7,13 +7,6 @@ export const Footer = () => {
   const { getText, design } = useWebsiteConfig();
 
   const assets = (design.assets as Record<string, string> | undefined) || {};
-  const agencyUrl = getText("brand.agency_url", "").trim();
-  const agencyAlt = getText(
-    "brand.agency_alt",
-    "Powered by Energieassistent.io",
-  ).trim();
-  const agencyLogo = assets.agency_logo?.trim();
-  const showAgencyAttribution = Boolean(agencyUrl && agencyLogo);
 
   return (
     <footer className="bg-muted pt-12 pb-2 md:py-16 border-t">
@@ -70,26 +63,6 @@ export const Footer = () => {
                 {t("footer_imprint")}
               </Link>
             </div>
-            {showAgencyAttribution ? (
-              <div className="pt-5">
-                <a
-                  href={agencyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={agencyAlt}
-                  className="inline-flex flex-col items-start gap-1.5 rounded-sm transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                >
-                  <span className="text-[10px] font-medium leading-none text-muted-foreground/80">
-                    Powered by
-                  </span>
-                  <img
-                    src={agencyLogo}
-                    alt={agencyAlt}
-                    className="h-auto w-[110px] object-contain object-left md:w-[130px]"
-                  />
-                </a>
-              </div>
-            ) : null}
           </div>
         </div>
       </div>

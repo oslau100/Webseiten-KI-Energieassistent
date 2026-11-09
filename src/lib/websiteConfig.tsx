@@ -31,7 +31,7 @@ type WebsiteConfigState = WebsiteConfig & {
 };
 
 export type WebsiteTenantConfig = {
-  customer: "ehiogie";
+  customer: "oecher";
   locationId: string;
 };
 
@@ -53,9 +53,9 @@ type BootstrapConfig = {
   supabaseKey?: string;
 };
 
-const EhiogieTenantFallback: WebsiteTenantConfig = {
-  customer: "ehiogie",
-  locationId: "tn90CyE3XuYFTy4c1M3F",
+const BrandTenantFallback: WebsiteTenantConfig = {
+  customer: "oecher",
+  locationId: "uuDEvEGcyd3mMiKWKH4Z",
 };
 
 // This is the public Supabase project URL fallback. A key must always come
@@ -128,7 +128,7 @@ const getRuntimeQueryConfig = (): RuntimeQueryConfig => {
 };
 
 const getRuntimeLocationId = (bootstrap: BootstrapConfig, query: RuntimeQueryConfig): string => {
-  return firstUsablePublicRuntimeValue(query.locationId, bootstrap.locationId, EhiogieTenantFallback.locationId);
+  return firstUsablePublicRuntimeValue(query.locationId, bootstrap.locationId, BrandTenantFallback.locationId);
 };
 
 const getRuntimeSupabaseConfig = (bootstrap: BootstrapConfig, query: RuntimeQueryConfig): SupabaseRuntimeConfig => {
@@ -226,7 +226,7 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
 
   const value = useMemo<WebsiteConfigContextValue>(() => ({
     ...state,
-    tenant: EhiogieTenantFallback,
+    tenant: BrandTenantFallback,
     getText: (path, fallback, lang) => resolveLocalizedText(state.content, path, fallback, lang),
     getArray: (path, fallback) => resolveArray(state.content, path, fallback),
     getObject: (path, fallback) => resolveObject(state.content, path, fallback),

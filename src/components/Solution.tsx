@@ -11,14 +11,8 @@ export const Solution = () => {
   const imagePosition = getText("sections.solution.image_position", "right", lang);
   const imageLeft = imagePosition === "left";
 
-  const imageContainerClass = imageLeft
-    ? "justify-start pl-0 pr-0 lg:order-1 lg:pr-6"
-    : "lg:order-2 lg:justify-end";
-
-  const imageClass = imageLeft
-    ? "relative z-10 w-full max-w-[500px] md:max-w-[650px] lg:max-w-[850px] xl:max-w-[1000px] h-auto object-contain object-bottom drop-shadow-2xl translate-y-0 sm:translate-y-1 md:translate-y-6 lg:translate-y-8 -ml-12 sm:-ml-12 md:-ml-14 lg:-ml-14 xl:-ml-16 scale-[1.6] sm:scale-[1.65] md:scale-125 lg:scale-[1.45] origin-bottom"
-    : "relative z-10 w-full max-w-[500px] md:max-w-[650px] lg:max-w-[850px] xl:max-w-[1000px] h-auto object-contain object-bottom drop-shadow-2xl translate-y-12 md:translate-y-8 lg:translate-y-12 lg:-mr-12 scale-[1.75] md:scale-125 lg:scale-150 origin-bottom";
-
+  const imageContainerClass = imageLeft ? "lg:order-1" : "lg:order-2";
+  const imageClass = "relative z-10 block h-[390px] sm:h-[470px] lg:h-[530px] w-full max-w-[430px] object-contain object-center mx-auto drop-shadow-xl";
   return (
     <section className="py-16 md:py-24 bg-background">
       <div className="container px-4 md:px-6">
@@ -28,13 +22,13 @@ export const Solution = () => {
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl leading-tight">{getText("sections.solution.headline", t("home_solution_h2"), lang)}</h2>
               <p className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed max-w-lg">{getText("sections.solution.body", "Du musst den Tarifmarkt nicht selbst verstehen oder vergleichen. Dein digitaler Energieassistent übernimmt das für dich.", lang)}</p>
               <div className="pt-4">
-                <Button size="lg" variant="secondary" className="h-14 px-8 text-lg font-semibold w-full sm:w-auto shadow-lg text-primary" asChild>
+                <Button size="lg" variant="secondary" className="h-14 px-8 text-lg font-semibold w-full sm:w-auto shadow-lg bg-white hover:bg-white/90 text-foreground hover:text-foreground" asChild>
                   <Link to={withLang("/start")}>{getText("sections.solution.cta_text", t("cta_check_savings"), lang)}</Link>
                 </Button>
                 <p className="text-xs text-primary-foreground/70 mt-3">{getText("sections.solution.result_note", "Ergebnis in 60 Sekunden - 100% kostenlos", lang)}</p>
               </div>
             </div>
-            <div className={`relative h-full min-h-[380px] md:min-h-[380px] lg:min-h-[500px] flex items-end justify-center mt-8 md:mt-0 overflow-hidden ${imageContainerClass}`}>
+            <div className={`relative h-full min-h-[430px] md:min-h-[380px] lg:min-h-[500px] flex items-end justify-center mt-8 md:mt-0 pb-7 md:pb-0 overflow-hidden ${imageContainerClass}`}>
               {imageUrl ? <img src={imageUrl} alt={getText("sections.solution.image_alt", "Energieassistent", lang)} className={imageClass} /> : null}
             </div>
           </div>

@@ -1,6 +1,6 @@
-export const BOOKING_LOCATION_ID = "tn90CyE3XuYFTy4c1M3F";
+export const BOOKING_LOCATION_ID = "uuDEvEGcyd3mMiKWKH4Z";
 export const BOOKING_CALENDAR_SLUG = "rueckruf-buchen";
-export const PRIVACY_URL = "https://www.ehiogie-energieassistent.de/datenschutz";
+export const PRIVACY_URL = "https://app.oecher-strom.de/datenschutz";
 const FALLBACK_URL = "https://oynhnhkldvpoqhsfirwf.supabase.co";
 
 type BootstrapWindow = Window & { TB_BOOTSTRAP?: Record<string, string> };
