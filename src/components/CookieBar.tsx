@@ -12,22 +12,33 @@ const UPHEX_TRACKING_ID = "uphex-tracking-loader";
 const UPHEX_TRACKING_URL = "https://tracking.uphex.com/tracking.js";
 const UPHEX_CLIENT_TOKEN = "ADJuYilUPeWIPRqoRTH0vEwUVUTGZiLHyk8u_AxyR54";
 
-// One place controls marketing consent and the UpHex loader for this client branch.
-const applyMarketingConsent = (accepted: boolean) => {
+// Marketing consent remains opt-in. Wait for UpHex to initialize before replaying
+// granted consent, since the SDK also applies its own denied default on startup.
+const updateConsentMode = (accepted: boolean) => {
   const consent = accepted ? "granted" : "denied";
   const gtag = (window as Window & {
     gtag?: (command: string, action: string, settings: Record<string, string>) => void;
   }).gtag;
-
   gtag?.("consent", "update", {
     ad_storage: consent,
     ad_user_data: consent,
     ad_personalization: consent,
     analytics_storage: consent,
   });
+};
 
-  // No UpHex request or pixel injection until marketing consent is granted.
-  if (!accepted || document.getElementById(UPHEX_TRACKING_ID)) return;
+const applyMarketingConsent = (accepted: boolean) => {
+  if (!accepted) {
+    updateConsentMode(false);
+    return;
+  }
+
+  // Reuse an existing loader, never append the UpHex script twice.
+  if (document.getElementById(UPHEX_TRACKING_ID)) {
+    updateConsentMode(true);
+    return;
+  }
+
   const script = document.createElement("script");
   script.type = "text/javascript";
   script.id = UPHEX_TRACKING_ID;
@@ -35,6 +46,27 @@ const applyMarketingConsent = (accepted: boolean) => {
   script.dataset.clientToken = UPHEX_CLIENT_TOKEN;
   script.async = true;
   script.defer = true;
+
+  const replayGrantedConsent = () => {
+    // Never re-grant if the visitor withdrew consent while the loader was starting.
+    if (localStorage.getItem(CONSENT_KEY) === "all") updateConsentMode(true);
+  };
+
+  script.addEventListener("load", () => {
+    replayGrantedConsent();
+
+    // The SDK fetches /config asynchronously; its default-denied initialization
+    // may happen after the script load event. Reapply the recorded opt-in only
+    // after that response has completed, not before the UpHex default.
+    if (typeof PerformanceObserver === "undefined") return;
+    const observer = new PerformanceObserver((list) => {
+      if (!list.getEntries().some((entry) => entry.name.startsWith("https://tracking.uphex.com/config?"))) return;
+      observer.disconnect();
+      window.setTimeout(replayGrantedConsent, 0);
+    });
+    observer.observe({ type: "resource", buffered: true });
+  }, { once: true });
+
   document.head.appendChild(script);
 };
 
