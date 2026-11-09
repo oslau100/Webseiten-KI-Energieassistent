@@ -278,7 +278,7 @@ window.TB_BOOTSTRAP = {
       const urls = (data && typeof data.url_config === "object" && data.url_config) ? data.url_config : {};
       window.SURVEY_CONFIG = {
         ...config,
-        engineUrl: String(runtime.closing_engine_url || config.engineUrl || ""),
+        engineUrl: String(config.locationId === "uuDEvEGcyd3mMiKWKH4Z" ? "/engines/oecher-v1-closing-survey-engine.js" : (runtime.closing_engine_url || config.engineUrl || "")),
         closingProxyPath: String(runtime.closing_proxy_path || config.closingProxyPath || ""),
         offerUrl: String(urls.offer_base_url || config.offerUrl || "")
       };
