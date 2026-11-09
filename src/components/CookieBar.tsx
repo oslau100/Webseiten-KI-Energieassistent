@@ -8,6 +8,36 @@ const CONSENT_KEY = "cookie-consent";
 const CONSENT_MAX_AGE_SECONDS = 60 * 60 * 24 * 180;
 const FALLBACK_PRIMARY_COLOR = "#2563eb";
 
+const UPHEX_TRACKING_ID = "uphex-tracking-loader";
+const UPHEX_TRACKING_URL = "https://tracking.uphex.com/tracking.js";
+const UPHEX_CLIENT_TOKEN = "ADJuYilUPeWIPRqoRTH0vEwUVUTGZiLHyk8u_AxyR54";
+
+// One place controls marketing consent and the UpHex loader for this client branch.
+const applyMarketingConsent = (accepted: boolean) => {
+  const consent = accepted ? "granted" : "denied";
+  const gtag = (window as Window & {
+    gtag?: (command: string, action: string, settings: Record<string, string>) => void;
+  }).gtag;
+
+  gtag?.("consent", "update", {
+    ad_storage: consent,
+    ad_user_data: consent,
+    ad_personalization: consent,
+    analytics_storage: consent,
+  });
+
+  // No UpHex request or pixel injection until marketing consent is granted.
+  if (!accepted || document.getElementById(UPHEX_TRACKING_ID)) return;
+  const script = document.createElement("script");
+  script.type = "text/javascript";
+  script.id = UPHEX_TRACKING_ID;
+  script.src = UPHEX_TRACKING_URL;
+  script.dataset.clientToken = UPHEX_CLIENT_TOKEN;
+  script.async = true;
+  script.defer = true;
+  document.head.appendChild(script);
+};
+
 const getCookieDomain = (_hostname: string) => undefined;
 
 const getCookieValue = (name: string) => {
@@ -46,7 +76,7 @@ const setConsentStorage = (value: "all" | "essential") => {
 
 export const CookieBar = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [marketingAccepted, setMarketingAccepted] = useState(true);
+  const [marketingAccepted, setMarketingAccepted] = useState(false);
   const { getText, design } = useWebsiteConfig();
   const primaryColor =
     (design?.colors as Record<string, unknown> | undefined)?.primary?.toString().trim() ||
@@ -67,15 +97,18 @@ export const CookieBar = () => {
     }
 
     setMarketingAccepted(consent === "all");
+    applyMarketingConsent(consent === "all");
   }, []);
 
   const handleAcceptAll = () => {
     setConsentStorage("all");
+    applyMarketingConsent(true);
     setIsVisible(false);
   };
 
   const handleSaveSettings = () => {
     setConsentStorage(marketingAccepted ? "all" : "essential");
+    applyMarketingConsent(marketingAccepted);
     setIsVisible(false);
   };
 
