@@ -525,6 +525,35 @@ window.TB_BOOTSTRAP = {
     const bullets=[]; const termTxt=formatTerm(row.laufzeit_monate,t); const garTxt=formatGuarantee(row.preisgarantie_text,t); if(termTxt) bullets.push(`${t.m_term}: ${termTxt}`); if(garTxt) bullets.push(`${t.m_guarantee}: ${garTxt}`); if(row.oekotarif===true) bullets.push(t.oeko); bullets.push(t.fast);
     $("tbBullets").innerHTML=bullets.slice(0,4).map(b=>`<div class="bulIt"><span class="check">✓</span><span>${String(b)}</span></div>`).join("");
     const summaryText=(buildKiSummaryText(U,ctx,lang) || "").trim(); renderOfferSummary($("tbAiText"),U,summaryText,ctx,lang,usecase);
+    // The offer is eligible only after the completed survey produced a real,
+    // displayable tariff recommendation and the contact has a phone number.
+    // This same-origin iframe reports display only; the parent owns consent,
+    // the Meta Pixel and persistent event deduplication.
+    const validOffer =
+      String(row.phone || "").trim().length > 0 &&
+      String(row.tariff_provider || "").trim().length > 0 &&
+      String(row.tariff_name || "").trim().length > 0 &&
+      (row.jahreskosten != null || row.monatsabschlag != null) &&
+      (row.status === "Tarif wurde berechnet" || row.status === "closing_submitted") &&
+      String(row.uuid || "").trim().length > 0 &&
+      $("tbRecCard") && $("tbRecCard").isConnected &&
+      String($("tbRecProvider").textContent || "").trim() !== "—" &&
+      String($("tbRecName").textContent || "").trim() !== "—";
+    if (validOffer) {
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        if (!document.getElementById("tbRecCard")?.isConnected) return;
+        try {
+          window.parent.postMessage({
+            type: "oecher:offer-rendered",
+            uuid: String(row.uuid),
+            submissionId: String(row.submission_id || "")
+          }, window.location.origin);
+        } catch (error) {
+          console.warn("Offer analytics notification could not be delivered.", error);
+        }
+      }));
+    }
+
     $("tbBtnDetails").addEventListener("click",()=>{renderModal(t,row,usecase);openModal();});
     $("tbModalClose").addEventListener("click",closeModal); $("tbModalBack").addEventListener("click",(e)=>{if(e.target === $("tbModalBack")) closeModal();}); document.addEventListener("keydown",(e)=>{if(e.key==="Escape") closeModal();});
     window.addEventListener("resize",()=>{if($("tbModalBack").classList.contains("open")) positionModal();});
