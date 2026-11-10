@@ -8,66 +8,65 @@ const CONSENT_KEY = "cookie-consent";
 const CONSENT_MAX_AGE_SECONDS = 60 * 60 * 24 * 180;
 const FALLBACK_PRIMARY_COLOR = "#2563eb";
 
-const UPHEX_TRACKING_ID = "uphex-tracking-loader";
-const UPHEX_TRACKING_URL = "https://tracking.uphex.com/tracking.js";
-const UPHEX_CLIENT_TOKEN = "ADJuYilUPeWIPRqoRTH0vEwUVUTGZiLHyk8u_AxyR54";
+const META_PIXEL_ID = "29052911387700886";
+const META_PIXEL_SCRIPT_ID = "oecher-meta-pixel";
 
-// Marketing consent remains opt-in. Wait for UpHex to initialize before replaying
-// granted consent, since the SDK also applies its own denied default on startup.
-const updateConsentMode = (accepted: boolean) => {
+type MetaPixelFunction = ((...args: unknown[]) => void) & {
+  callMethod?: (...args: unknown[]) => void;
+  queue: unknown[][];
+  push?: (...args: unknown[]) => void;
+  loaded: boolean;
+  version: string;
+};
+
+type MetaWindow = Window & {
+  fbq?: MetaPixelFunction;
+  _fbq?: MetaPixelFunction;
+  gtag?: (command: string, action: string, settings: Record<string, string>) => void;
+};
+
+// Only the recorded opt-in enables marketing scripts for this customer.
+const applyMarketingConsent = (accepted: boolean) => {
   const consent = accepted ? "granted" : "denied";
-  const gtag = (window as Window & {
-    gtag?: (command: string, action: string, settings: Record<string, string>) => void;
-  }).gtag;
-  gtag?.("consent", "update", {
+  const marketingWindow = window as MetaWindow;
+  marketingWindow.gtag?.("consent", "update", {
     ad_storage: consent,
     ad_user_data: consent,
     ad_personalization: consent,
     analytics_storage: consent,
   });
-};
 
-const applyMarketingConsent = (accepted: boolean) => {
   if (!accepted) {
-    updateConsentMode(false);
+    marketingWindow.fbq?.("consent", "revoke");
     return;
   }
 
-  // Reuse an existing loader, never append the UpHex script twice.
-  if (document.getElementById(UPHEX_TRACKING_ID)) {
-    updateConsentMode(true);
+  if (marketingWindow.fbq) {
+    marketingWindow.fbq("consent", "grant");
     return;
   }
+
+  // Install the Meta base pixel only AFTER an explicit marketing opt-in.
+  // UpHex Smart Tracking is intentionally NOT loaded here, avoiding duplicates.
+  const fbq = ((...args: unknown[]) => {
+    if (fbq.callMethod) fbq.callMethod(...args);
+    else fbq.queue.push(args);
+  }) as MetaPixelFunction;
+  fbq.push = fbq;
+  fbq.loaded = true;
+  fbq.version = "2.0";
+  fbq.queue = [];
+  marketingWindow.fbq = fbq;
+  marketingWindow._fbq = fbq;
 
   const script = document.createElement("script");
-  script.type = "text/javascript";
-  script.id = UPHEX_TRACKING_ID;
-  script.src = UPHEX_TRACKING_URL;
-  script.dataset.clientToken = UPHEX_CLIENT_TOKEN;
+  script.id = META_PIXEL_SCRIPT_ID;
   script.async = true;
-  script.defer = true;
-
-  const replayGrantedConsent = () => {
-    // Never re-grant if the visitor withdrew consent while the loader was starting.
-    if (localStorage.getItem(CONSENT_KEY) === "all") updateConsentMode(true);
-  };
-
-  script.addEventListener("load", () => {
-    replayGrantedConsent();
-
-    // The SDK fetches /config asynchronously; its default-denied initialization
-    // may happen after the script load event. Reapply the recorded opt-in only
-    // after that response has completed, not before the UpHex default.
-    if (typeof PerformanceObserver === "undefined") return;
-    const observer = new PerformanceObserver((list) => {
-      if (!list.getEntries().some((entry) => entry.name.startsWith("https://tracking.uphex.com/config?"))) return;
-      observer.disconnect();
-      window.setTimeout(replayGrantedConsent, 0);
-    });
-    observer.observe({ type: "resource", buffered: true });
-  }, { once: true });
-
+  script.src = "https://connect.facebook.net/en_US/fbevents.js";
   document.head.appendChild(script);
+
+  fbq("init", META_PIXEL_ID);
+  fbq("track", "PageView");
 };
 
 const getCookieDomain = (_hostname: string) => undefined;
