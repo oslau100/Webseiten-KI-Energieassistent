@@ -1,6 +1,9 @@
 import { useEffect } from "react";
+import { useWebsiteConfig } from "@/lib/websiteConfig";
+import { observeOecherPageTranslations } from "@/lib/oecherPageTranslations";
 import { useLocation } from "react-router-dom";
-import { useI18n } from "@/lib/i18n";
+import { LANGUAGES, useI18n } from "@/lib/i18n";
+import { oecherWebsiteClaimTranslations } from "@/lib/websiteContentDefaults";
 
 const EXCLUDED_PATHS = new Set(["/impressum", "/datenschutz"]);
 const cache = new Map<string, string>();
@@ -21,10 +24,18 @@ const splitEdgeWhitespace = (value: string) => {
 const isOnlyPunctuation = (value: string) =>
   /^[\p{P}\p{S}\s]+$/u.test(value);
 
+type ClaimTranslations = Readonly<{
+  [Language in keyof typeof oecherWebsiteClaimTranslations.heroBadge]: string;
+}>;
+
+const languageOverrides = (translations: ClaimTranslations): Record<string, string> => Object.fromEntries(
+  LANGUAGES.filter(({ code }) => code !== "de").map(({ code }) => [code, translations[code]]),
+);
+
 const OVERRIDES: Record<string, Record<string, string>> = {
-  "Über 2.000 zufriedene Nutzer in ganz Deutschland": {
-    en: "Over 2,000 satisfied users across Germany", tr: "Almanya genelinde 2.000'den fazla memnun kullanıcı", ru: "Более 2 000 довольных пользователей по всей Германии", ar: "أكثر من 2,000 مستخدم راضٍ في جميع أنحاء ألمانيا", it: "Oltre 2.000 utenti soddisfatti in tutta la Germania", zh: "德国各地已有 2,000+ 位满意用户", hi: "पूरे जर्मनी में 2,000+ संतुष्ट उपयोगकर्ता", es: "Más de 2.000 usuarios satisfechos en toda Alemania", fr: "Plus de 2 000 utilisateurs satisfaits dans toute l'Allemagne", nl: "Meer dan 2.000 tevreden gebruikers in heel Duitsland", pl: "Ponad 2 000 zadowolonych użytkowników w całych Niemczech"
-  },
+  [oecherWebsiteClaimTranslations.heroBadge.de]: languageOverrides(oecherWebsiteClaimTranslations.heroBadge),
+  [oecherWebsiteClaimTranslations.headline.de]: languageOverrides(oecherWebsiteClaimTranslations.headline),
+  [oecherWebsiteClaimTranslations.statsHouseholdsLabel.de]: languageOverrides(oecherWebsiteClaimTranslations.statsHouseholdsLabel),
   "Zahlst du aktuell mehr für Strom oder Gas als nötig?": {
     en: "Are you currently paying more for electricity or gas than necessary?", tr: "Şu anda elektrik veya gaz için gerekenden fazla mı ödüyorsunuz?", ru: "Платите ли вы сейчас за электричество или газ больше, чем нужно?", ar: "هل تدفع حالياً مقابل الكهرباء أو الغاز أكثر مما ينبغي؟", it: "Stai pagando più del necessario per luce o gas?", zh: "你现在是否为电费或燃气费支付了不必要的高价？", hi: "क्या आप अभी बिजली या गैस के लिए जरूरत से ज्यादा भुगतान कर रहे हैं?", es: "¿Estás pagando ahora más de lo necesario por electricidad o gas?", fr: "Payez-vous actuellement plus que nécessaire pour l'électricité ou le gaz ?", nl: "Betaal je momenteel meer voor stroom of gas dan nodig is?", pl: "Czy obecnie płacisz za prąd lub gaz więcej, niż to konieczne?"
   },
@@ -132,8 +143,10 @@ const translateText = async (text: string, targetLang: string) => {
 export const AutoPageTranslator = () => {
   const { lang } = useI18n();
   const location = useLocation();
+  const { tenant } = useWebsiteConfig();
 
   useEffect(() => {
+    if (tenant?.customer === "oecher") return observeOecherPageTranslations(lang, location.pathname);
     if (EXCLUDED_PATHS.has(location.pathname)) return;
 
     const root = document.querySelector("main") ?? document.body;
@@ -197,7 +210,7 @@ export const AutoPageTranslator = () => {
     };
 
     run();
-  }, [lang, location.pathname]);
+  }, [lang, location.pathname, tenant?.customer]);
 
   return null;
 };

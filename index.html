@@ -3,6 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Consent Mode v2: no advertising/analytics consent before an explicit choice. -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied'
+      });
+    </script>
     <title>Öcher Strom — Sicher dir jetzt deinen günstigen Tarif</title>
     <meta name="description" content="Der digitale Energieassistent analysiert automatisch hunderte Tarife, filtert Lockangebote heraus und zeigt dir eine sichere Empfehlung mit echter Ersparnis." />
     <meta name="author" content="Öcher Strom" />
@@ -25,17 +36,6 @@
   </head>
 
   <body>
-    <div id="google_translate_element" style="display: none;"></div>
-    <script type="text/javascript">
-      function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-          pageLanguage: 'de',
-          includedLanguages: 'de,en,tr,ru,ar,it,zh-CN,hi,es,fr,nl,pl',
-          autoDisplay: false
-        }, 'google_translate_element');
-      }
-    </script>
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

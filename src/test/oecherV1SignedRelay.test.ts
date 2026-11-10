@@ -70,11 +70,16 @@ describe('Öcher V1 signed relay', () => {
     expect(await response.text()).toBe('{"ok":false,"error_code":"relay_upstream_failed"}');
   });
 
-  it('keeps the loaded loader pinned despite a foreign runtime URL', async () => {
+  it('keeps relay and offer navigation on this origin despite runtime overrides', async () => {
     const html = readFileSync('public/loaders/start.html', 'utf8');
-    const dom = new JSDOM(html, { url: 'https://example.test/start', runScripts: 'outside-only' });
+    const dom = new JSDOM(html, { url: 'https://example.test/start?utm_source=test&fbclid=synthetic', runScripts: 'outside-only' });
     const w = dom.window;
-    const single = vi.fn(async () => ({ data: { runtime_config: { setting_proxy_path: 'https://foreign.test/proxy' } }, error: null }));
+    w.localStorage.setItem('synthetic-session', 'keep-session');
+    w.document.cookie = 'synthetic-consent=accepted; SameSite=Lax';
+    const single = vi.fn(async () => ({ data: {
+      runtime_config: { setting_proxy_path: 'https://foreign.test/proxy' },
+      url_config: { offer_base_url: 'https://foreign.test/tarif' },
+    }, error: null }));
     (w as any).supabase = { createClient: () => ({ from: () => ({ select: () => ({ eq: () => ({ single }) }) }) }) };
     (w as any).fetch = vi.fn(async () => ({ text: async () => '' }));
     const scripts = [...w.document.querySelectorAll('script:not([src])')];
@@ -83,6 +88,10 @@ describe('Öcher V1 signed relay', () => {
     await w.eval(scripts[1].textContent!);
     expect(single).toHaveBeenCalledOnce();
     expect((w as any).SURVEY_CONFIG.settingProxyPath).toBe('/api/v1/setting');
+    expect((w as any).SURVEY_CONFIG.offerUrl).toBe('https://example.test/tarif');
+    expect(w.localStorage.getItem('synthetic-session')).toBe('keep-session');
+    expect(w.document.cookie).toContain('synthetic-consent=accepted');
+    expect(w.location.search).toBe('?utm_source=test&fbclid=synthetic');
     dom.window.close();
   });
 });

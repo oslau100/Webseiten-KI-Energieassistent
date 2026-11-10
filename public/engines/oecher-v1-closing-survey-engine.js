@@ -241,7 +241,7 @@
   const getOrderEnergy = () =>
     safeString(state.orderRow?.energy_type || "strom").toLowerCase() === "gas" ? "gas" : "strom";
 
-  const getOrderProviderName = () => safeString(state.orderRow?.anbieter || state.orderRow?.tariff_provider || "");
+  const getOrderProviderName = () => state.ewvLegal?.legal_name || safeString(state.orderRow?.anbieter || state.orderRow?.tariff_provider || "");
   const getOrderTariffName = () => safeString(state.orderRow?.tarif || state.orderRow?.tariff_name || "");
 
   const getMediatorName = () => safeString(window.KUNDEN_DATA?.firma || "Mediator");
@@ -1065,25 +1065,32 @@
   // OECHER_V1_EWV_LEGAL_START: only in Oecher V1's isolated local closing asset.
   const enforceOecherEwvLegalLinks = async () => {
     const OECHER_V1_ID = "uuDEvEGcyd3mMiKWKH4Z";
-    const EWV_PROVIDER = "EWV Energie- und Wasser-Versorgung GmbH Stolberg";
+    const EWV_PROVIDER = "EWV Energie- und Wasser-Versorgung GmbH";
+    const EWV_NAMES = new Set([EWV_PROVIDER, EWV_PROVIDER + " Stolberg"]);
+    const EWV_PROVIDER_ID = "1599c81f-0ba2-4f87-b17a-96b723e53f7a";
     const EWV_TARIFFS = {
-      52071: { product: "regiostrom", name: "heimatheld", sha256: "ea71501afa0ca4c98a40964327abc8f01fe1a485860d6d50c28880ff1dd09c8c" },
-      52072: { product: "regiostrom", name: "aktionsheld", sha256: "c2fa5921c8b4420cc85fc18270bf1292ed49e0f9c35e5929513559de7f78b3bc" },
-      52073: { product: "regiogas", name: "heimatheld", sha256: "b39d70ed95b3e69f875c31612e563e52862d184bc310ca60258697903203ab14" },
-      52074: { product: "regiogas", name: "aktionsheld", sha256: "1089b9291fe5099945c3f3da926dbb2ddfd9e709c223e31f4fe38dcbcd16f2d4" },
+      52071: { uuid: "5426805f-8551-4c76-8266-118365289ff8", product: "regiostrom", name: "heimatheld", sha256: "ea71501afa0ca4c98a40964327abc8f01fe1a485860d6d50c28880ff1dd09c8c" },
+      52072: { uuid: "ce451ecf-876a-435a-9e62-a13fcfef075f", product: "regiostrom", name: "aktionsheld", sha256: "c2fa5921c8b4420cc85fc18270bf1292ed49e0f9c35e5929513559de7f78b3bc" },
+      52073: { uuid: "cda069f6-b345-4311-a05c-5f1da5482f14", product: "regiogas", name: "heimatheld", sha256: "b39d70ed95b3e69f875c31612e563e52862d184bc310ca60258697903203ab14" },
+      52074: { uuid: "9e46835a-1a89-4bd6-bd64-8694a95b2b12", product: "regiogas", name: "aktionsheld", sha256: "1089b9291fe5099945c3f3da926dbb2ddfd9e709c223e31f4fe38dcbcd16f2d4" },
     };
     const selected = getSelectedPreisliste();
     const row = state.orderRow || {};
     const snapshot = row.tarif_snapshot || {};
-    const provider = getOrderProviderName();
+    const providerRecords = [row.anbieter, snapshot.anbieter, selected?.anbieter].filter(value => value && typeof value === "object");
+    const providerNames = [row.tariff_provider, snapshot.tariff_provider,
+      ...[row.anbieter, snapshot.anbieter, selected?.anbieter].filter(value => typeof value === "string"),
+      ...providerRecords.map(value => value.name)].map(safeString).filter(Boolean);
     const rawId = selected?.tarif_id;
     const id = typeof rawId === "number" || typeof rawId === "string" ? String(rawId).trim() : "";
     const isKnownEwvId = Object.prototype.hasOwnProperty.call(EWV_TARIFFS, id);
-    const isEwvProvider = provider === EWV_PROVIDER;
-    const potentiallyEwv = /\bewv\b/i.test(provider) || /regiostrom|regiogas/i.test(getOrderTariffName());
+    const providerIds = [row.anbieter_id, snapshot.anbieter_id, selected?.anbieter_id, ...providerRecords.map(value => value.id)]
+      .filter(value => value != null).map(safeString);
+    const isEwvProvider = providerNames.length > 0 && providerNames.every(name => EWV_NAMES.has(name));
+    const potentiallyEwv = providerNames.some(name => /\bewv\b/i.test(name)) || /regiostrom|regiogas/i.test(getOrderTariffName());
 
     // All other providers remain on the current, unchanged V1 consent path.
-    if (!potentiallyEwv && !isKnownEwvId) return;
+    if (!potentiallyEwv && !isKnownEwvId && !providerIds.includes(EWV_PROVIDER_ID)) { state.ewvLegal = null; return; }
 
     const fail = (reason) => {
       const error = new Error("Die Vertragsunterlagen für diesen EWV-Tarif sind zurzeit nicht eindeutig verfügbar. Bitte versuche es später erneut oder kontaktiere uns.");
@@ -1093,20 +1100,18 @@
     };
     if (state.locationId !== OECHER_V1_ID || row.location_id !== OECHER_V1_ID) fail("wrong location");
     if (!isEwvProvider || !isKnownEwvId) fail("missing or inconsistent provider/tariff");
+    if (providerIds.some(value => value !== EWV_PROVIDER_ID)) fail("conflicting provider ID");
     for (const candidate of [row.tarif_id, snapshot.tarif_id]) {
       if (candidate !== undefined && candidate !== null && String(candidate).trim() !== id) fail("conflicting tariff ID");
     }
-    if (typeof selected?.anbieter === "string" && selected.anbieter.trim() && selected.anbieter.trim() !== EWV_PROVIDER) {
-      fail("conflicting selected provider");
-    }
-
     const expected = EWV_TARIFFS[id];
-    const norm = (value) => String(value || "").replace(/\s+/g, "").toLowerCase();
-    for (const label of [getOrderTariffName(), selected?.tarif, selected?.tarifname]) {
-      if (!label) continue;
-      const normalized = norm(label);
-      if (!normalized.includes(expected.product) || !normalized.includes(expected.name)) fail("conflicting tariff label");
-    }
+    const tariffUuids = [row.tarif_uuid, snapshot.tarif_uuid, selected?.tarif_uuid].filter(value => value != null).map(safeString);
+    // Production stores just selected_preisliste.tarif_uuid and often no provider ID.
+    // Require one canonical tariff UUID, not a second copy (nor the order's row.uuid).
+    if (!tariffUuids.length || tariffUuids.some(value => value.toLowerCase() !== expected.uuid)) fail("missing or noncanonical tariff UUID");
+    const norm = value => safeString(value).replace(/\s+/g, " ").toLowerCase();
+    const productNames = [row.tariff_name, row.tarif, snapshot.tariff_name, selected?.tarif, selected?.tarifname].map(safeString).filter(Boolean);
+    if (!productNames.length || productNames.some(value => norm(value) !== `${expected.product} ${expected.name}`)) fail("missing or conflicting tariff label");
     const pdfPath = `/legal/ewv/${id}.pdf`;
     const pdfUrl = new URL(pdfPath, window.location.origin).href;
     let response;
@@ -1136,11 +1141,11 @@
     }
     if (hash !== expected.sha256) fail("PDF content differs from approved tariff PDF");
     state.providerLinks = {
-      ...state.providerLinks,
       agb_url: pdfUrl,
       widerruf_url: pdfUrl,
       datenschutz_url: "https://www.ewv.de/datenschutzhinweise",
     };
+    state.ewvLegal = { legal_name: EWV_PROVIDER, tarif_id: id, pdf_sha256: hash };
   };
   // OECHER_V1_EWV_LEGAL_END
 
@@ -1759,6 +1764,18 @@
 
     const legalCheckboxRaw = templates?.legal_checkbox_label_i18n ? t(templates.legal_checkbox_label_i18n) : t(defaultLegalCheckbox);
     const legalCheckboxLabel = renderTemplate(legalCheckboxRaw, { ...vars });
+    if (state.ewvLegal) {
+      const markup = document.createElement("template");
+      markup.innerHTML = legalCheckboxLabel;
+      const links = Array.from(markup.content.querySelectorAll("a"));
+      if (links.length !== 2 || links.some(link => link.href !== state.providerLinks.agb_url) ||
+          (!markup.content.textContent.includes(state.ewvLegal.legal_name) ||
+           markup.content.textContent.includes(state.ewvLegal.legal_name + " Stolberg"))) {
+        const error = new Error("Die Einwilligung enthält keine eindeutigen EWV-Vertragslinks. Bitte kontaktiere uns.");
+        error.code = "ewv_contract_docs_unavailable";
+        throw error;
+      }
+    }
 
     const providerName = getOrderProviderName();
     const mediatorName = getMediatorName();
@@ -1767,11 +1784,18 @@
     const mediatorDatUrl = String(
       urlCfg().mediator_datenschutz_url ||
         window.KUNDEN_DATA?.datenschutz_url ||
-        "#"
+        (state.ewvLegal ? new URL("/datenschutz", window.location.origin).href : "#")
     ).trim();
+    if (state.ewvLegal && !/^https?:\/\//.test(normalizeUrl(mediatorDatUrl))) {
+      const error = new Error("Die Datenschutzhinweise des Vermittlers sind nicht verfügbar. Bitte kontaktiere uns.");
+      error.code = "ewv_contract_docs_unavailable";
+      throw error;
+    }
 
     const providerLink = `<a href="${escapeHtml(providerDatUrl)}" target="_blank" rel="noopener">${escapeHtml(providerName || t({ de: "Anbieter", en: "provider" }))}</a>`;
-    const mediatorLink = `<a href="${escapeHtml(mediatorDatUrl)}" target="_blank" rel="noopener">${escapeHtml(mediatorName)}</a>`;
+    const mediatorPrivacyHref = state.ewvLegal ? normalizeUrl(mediatorDatUrl) : mediatorDatUrl;
+    if (state.ewvLegal) state.mediatorLinks.datenschutz_url = mediatorPrivacyHref;
+    const mediatorLink = `<a href="${escapeHtml(mediatorPrivacyHref)}" target="_blank" rel="noopener">${escapeHtml(mediatorName)}</a>`;
 
     const privacyI18n = {
       de:
@@ -1932,6 +1956,12 @@
 
     const hintRaw = templates?.signature_hint_i18n ? t(templates.signature_hint_i18n) : t(UI.signatureHintDefault);
     const hintTemplated = renderTemplate(hintRaw, vars);
+    if (state.ewvLegal && (!hintTemplated.includes(state.ewvLegal.legal_name) ||
+        hintTemplated.includes(state.ewvLegal.legal_name + " Stolberg"))) {
+      const error = new Error("Der Unterschriftshinweis enthält keinen eindeutigen EWV-Rechtsnamen. Bitte kontaktiere uns.");
+      error.code = "ewv_contract_docs_unavailable";
+      throw error;
+    }
 
     const clearLabel =
       state.language === "de"
@@ -2195,6 +2225,7 @@
     if (state.isSubmitting) return;
     try {
       await enforceOecherEwvLegalLinks();
+      if (state.ewvLegal) { renderSummary(); renderSignaturePad(); }
     } catch (error) {
       const container = document.getElementById("survey-app");
       if (container) container.innerHTML = `<div class="survey-card-container"><p class="survey-question">${escapeHtml(error?.message || "Vertragsunterlagen nicht verfügbar")}</p></div>`;
@@ -2251,7 +2282,17 @@
       closing_signature_data_url: signatureDataUrl,
       provider_links: state.providerLinks,
       mediator_links: state.mediatorLinks,
-      order_snapshot: state.orderRow || null,
+      order_snapshot: state.ewvLegal ? {
+        ...state.orderRow,
+        provider_legal_name: state.ewvLegal.legal_name,
+        provider_links: { ...state.providerLinks },
+        tarif_snapshot: {
+          ...state.orderRow.tarif_snapshot,
+          provider_legal_name: state.ewvLegal.legal_name,
+          provider_links: { ...state.providerLinks },
+          legal_document: { ...state.ewvLegal },
+        },
+      } : state.orderRow || null,
     };
 
     const proxyUrl =
@@ -2707,6 +2748,16 @@
       return;
     }
 
+    if (["summary_view", "signature_pad"].includes(step.type)) {
+      try {
+        await enforceOecherEwvLegalLinks();
+        // Validate configured consent markup before either consent or signature.
+        if (state.ewvLegal) { renderSummary(); renderSignaturePad(); }
+      } catch (error) {
+        container.innerHTML = `<div class="survey-card-container"><p class="survey-question">${escapeHtml(error?.message || "Vertragsunterlagen nicht verfügbar")}</p></div>`;
+        return;
+      }
+    }
     const showH2 = step.id !== "summary";
 
     container.innerHTML = `

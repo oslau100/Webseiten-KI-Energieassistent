@@ -307,7 +307,9 @@ window.TB_BOOTSTRAP = {
       window.SURVEY_CONFIG = {
         ...config,
         avatarUrl: String(runtime.avatar_url || config.avatarUrl || ""),
-        offerUrl: String(urls.offer_base_url || config.offerUrl || ""),
+        // Keep survey and recommendation on the SAME origin (Pages preview or live domain).
+        // This preserves consent, session and Meta attribution across the iframe redirect.
+        offerUrl: new URL("/tarif", window.location.origin).toString(),
         settingProxyPath: "/api/v1/setting",
         engineUrl: String(runtime.setting_engine_url || config.engineUrl || "")
       };

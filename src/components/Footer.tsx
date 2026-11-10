@@ -1,9 +1,25 @@
 import { Link } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
 import { useWebsiteConfig } from "@/lib/websiteConfig";
+import { openCookieSettings } from "./CookieBar";
+
+const cookieSettingsLabels = {
+  de: "Cookie-Einstellungen",
+  en: "Cookie settings",
+  tr: "Çerez ayarları",
+  ru: "Настройки файлов cookie",
+  ar: "إعدادات ملفات تعريف الارتباط",
+  it: "Impostazioni cookie",
+  zh: "Cookie 设置",
+  hi: "कुकी सेटिंग्स",
+  es: "Configuración de cookies",
+  fr: "Paramètres des cookies",
+  nl: "Cookie-instellingen",
+  pl: "Ustawienia plików cookie",
+} as const;
 
 export const Footer = () => {
-  const { t, withLang } = useI18n();
+  const { t, withLang, lang } = useI18n();
   const { getText, design } = useWebsiteConfig();
 
   const assets = (design.assets as Record<string, string> | undefined) || {};
@@ -62,6 +78,13 @@ export const Footer = () => {
               >
                 {t("footer_imprint")}
               </Link>
+              <button
+                type="button"
+                onClick={openCookieSettings}
+                className="hover:text-primary transition-colors block text-left"
+              >
+                {getText("cookie.edit_settings", cookieSettingsLabels[lang], lang)}
+              </button>
             </div>
           </div>
         </div>
