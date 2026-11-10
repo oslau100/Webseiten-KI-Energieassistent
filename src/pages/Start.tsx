@@ -5,6 +5,11 @@ import { useLocation } from "react-router-dom";
 const Start = () => {
   const location = useLocation();
   const src = `/loaders/start.html${location.search || ""}`;
+
+  // Only a survey visited in this browser tab can produce a Meta lead.
+  useEffect(() => {
+    sessionStorage.setItem("oecher-survey-started-at", String(Date.now()));
+  }, []);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [iframeHeight, setIframeHeight] = useState(1);
 
