@@ -43,6 +43,7 @@ const applyMarketingConsent = (accepted: boolean) => {
 
   if (marketingWindow.fbq) {
     marketingWindow.fbq("consent", "grant");
+    window.dispatchEvent(new Event("oecher:marketing-consent-updated"));
     return;
   }
 
@@ -67,6 +68,7 @@ const applyMarketingConsent = (accepted: boolean) => {
 
   fbq("init", META_PIXEL_ID);
   fbq("track", "PageView");
+  window.dispatchEvent(new Event("oecher:marketing-consent-updated"));
 };
 
 const getCookieDomain = (_hostname: string) => undefined;
