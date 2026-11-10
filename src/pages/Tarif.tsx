@@ -26,6 +26,55 @@ const Tarif = () => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [iframeHeight, setIframeHeight] = useState(1);
 
+  // Same-origin iframe bridge: Meta tracking is owned by the top-level page,
+  // where the visitor's consent and the Pixel live. Never send contact data.
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const expectedUuid = params.get("uuid");
+    const expectedSubmissionId = params.get("submission_id");
+    let pendingUuid: string | null = null;
+
+    const tryTrackLead = () => {
+      if (!pendingUuid) return;
+      if (localStorage.getItem("cookie-consent") !== "all") return;
+      const surveyStartedAt = Number(sessionStorage.getItem("oecher-survey-started-at") || 0);
+      if (!surveyStartedAt || Date.now() - surveyStartedAt > 2 * 60 * 60 * 1000) return;
+      const key = `oecher-meta-lead-v1:${pendingUuid}`;
+      if (localStorage.getItem(key) === "sent") {
+        pendingUuid = null;
+        return;
+      }
+      const fbq = (window as Window & { fbq?: (...args: unknown[]) => void }).fbq;
+      if (typeof fbq !== "function") return;
+
+      // Mark the completed survey before dispatching to avoid duplicate sends
+      // from repeated messages, iframe reloads or page reloads in this browser.
+      localStorage.setItem(key, "sent");
+      fbq("track", "Lead", {}, { eventID: `oecher-${pendingUuid}` });
+      pendingUuid = null;
+    };
+
+    const receiveOffer = (event: MessageEvent) => {
+      if (event.origin !== window.location.origin) return;
+      if (event.source !== iframeRef.current?.contentWindow) return;
+      const payload = event.data;
+      if (!payload || payload.type !== "oecher:offer-rendered") return;
+      const uuid = String(payload.uuid || "");
+      if (!/^[a-f0-9]{8}-[a-f0-9]{4}-[1-8][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i.test(uuid)) return;
+      if (expectedUuid && uuid.toLowerCase() !== expectedUuid.toLowerCase()) return;
+      if (!expectedUuid && (!expectedSubmissionId || String(payload.submissionId || "") !== expectedSubmissionId)) return;
+      pendingUuid = uuid.toLowerCase();
+      tryTrackLead();
+    };
+
+    window.addEventListener("message", receiveOffer);
+    window.addEventListener("oecher:marketing-consent-updated", tryTrackLead);
+    return () => {
+      window.removeEventListener("message", receiveOffer);
+      window.removeEventListener("oecher:marketing-consent-updated", tryTrackLead);
+    };
+  }, [location.search]);
+
   useEffect(() => {
     const iframe = iframeRef.current;
     if (!iframe) return;
