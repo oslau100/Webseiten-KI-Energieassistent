@@ -530,6 +530,8 @@ window.TB_BOOTSTRAP = {
     // This same-origin iframe reports display only; the parent owns consent,
     // the Meta Pixel and persistent event deduplication.
     const validOffer =
+      String(locationId || "").trim().length > 0 &&
+      String(row.location_id || "") === locationId &&
       String(row.phone || "").trim().length > 0 &&
       String(row.tariff_provider || "").trim().length > 0 &&
       String(row.tariff_name || "").trim().length > 0 &&
