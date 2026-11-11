@@ -5,7 +5,7 @@ window.TB_BOOTSTRAP = {
   supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im95bmhuaGtsZHZwb3Foc2ZpcndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0OTAwODksImV4cCI6MjA3NTA2NjA4OX0.9zYOwel585SOUAtVc4XkWhhJl4qldwX6oOhOH7L-eJ4",
   settingEngineUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/engine-assets/setting-survey-engine.js",
   closingEngineUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/engine-assets/closing-survey-engine.js",
-  settingProxyPath: "https://oynhnhkldvpoqhsfirwf.supabase.co/functions/v1/setting-proxy",
+  settingProxyPath: "/api/v1/setting",
   closingProxyPath: "https://oynhnhkldvpoqhsfirwf.supabase.co/functions/v1/closing-proxy",
   offerUrl: "https://app.oecher-strom.de/tarif",
   auftragUrl: "https://app.oecher-strom.de/auftrag",
@@ -310,7 +310,7 @@ window.TB_BOOTSTRAP = {
         // Keep survey and recommendation on the SAME origin (Pages preview or live domain).
         // This preserves consent, session and Meta attribution across the iframe redirect.
         offerUrl: new URL("/tarif", window.location.origin).toString(),
-        settingProxyPath: String(runtime.setting_proxy_path || config.settingProxyPath || ""),
+        settingProxyPath: "/api/v1/setting",
         engineUrl: String(runtime.setting_engine_url || config.engineUrl || "")
       };
 

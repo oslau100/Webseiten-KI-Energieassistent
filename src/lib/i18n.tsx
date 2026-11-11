@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useMemo, useState, type ReactNode
 import { useLocation } from "react-router-dom";
 import { useWebsiteConfig } from "./websiteConfig";
 import { tariffCallbackTranslations } from "./tariffCallbackI18n";
+import { oecherWebsiteClaimTranslations } from "./websiteContentDefaults";
 
 export const LANGUAGES = [
   { code: "de", label: "Deutsch", flagUrl: "https://flagcdn.com/w40/de.png" },
@@ -623,7 +624,7 @@ const I18nContext = createContext<I18nContextValue | null>(null);
 
 export const I18nProvider = ({ children }: { children: ReactNode }) => {
   const location = useLocation();
-  const { content } = useWebsiteConfig();
+  const { content, tenant } = useWebsiteConfig();
   const [lang, setLangState] = useState<LangCode>("de");
 
   useEffect(() => {
@@ -653,6 +654,15 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
 
   const value = useMemo<I18nContextValue>(() => {
     const i18nOverrides = (content.i18n || {}) as Record<string, Record<string, string>>;
+    const oecherClaim = (key: string) => {
+      if (tenant?.customer !== "oecher") return undefined;
+      if (key === "hero_badge") return oecherWebsiteClaimTranslations.heroBadge[lang];
+      if (key === "stats_households_label") return oecherWebsiteClaimTranslations.statsHouseholdsLabel[lang];
+      if (key === "home_testimonials_h2" || key === "annual_testimonials_h2") {
+        return oecherWebsiteClaimTranslations.headline[lang];
+      }
+      return undefined;
+    };
 
     return {
       lang,
@@ -660,6 +670,7 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
       t: (key) =>
         i18nOverrides[key]?.[lang] ??
         i18nOverrides[key]?.de ??
+        oecherClaim(key) ??
         statusPageDictionaries[lang][key] ??
         statusPageDictionaries.de[key] ??
         annualFaqDictionaries[lang][key] ??
@@ -673,7 +684,7 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
         key,
       withLang: (path) => `${path}${path.includes("?") ? "&" : "?"}lang=${lang}`,
     };
-  }, [content, lang]);
+  }, [content, lang, tenant]);
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 };

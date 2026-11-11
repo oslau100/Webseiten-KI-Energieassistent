@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { SimpleFooter } from "@/components/SimpleFooter";
 import { useLocation } from "react-router-dom";
 import { TarifCallbackSection } from "@/components/TarifCallbackSection";
+import { useWebsiteConfig } from "@/lib/websiteConfig";
 
 export const calculateTarifIframeHeight = (doc: Document) => {
   const offerRoot = doc.getElementById("tbx2026");
@@ -22,13 +23,32 @@ export const calculateTarifIframeHeight = (doc: Document) => {
 
 const Tarif = () => {
   const location = useLocation();
+  const { tenant } = useWebsiteConfig();
+  const isOecher = tenant?.customer === "oecher";
   const src = `/loaders/tarif.html${location.search || ""}`;
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [iframeHeight, setIframeHeight] = useState(1);
+  const [view, setView] = useState<{ src: string; stage: "preview" | "offer" } | null>(null);
+  const stage = view?.src === src ? view.stage : null;
+  const previewActive = isOecher && stage === "preview";
+
+  useEffect(() => {
+    if (!isOecher) return;
+    const receiveView = (event: MessageEvent) => {
+      if (event.origin !== window.location.origin || event.source !== iframeRef.current?.contentWindow) return;
+      if (event.data?.type !== "oecher:offer-view-state") return;
+      const stage = event.data.stage;
+      setView(stage === "preview" || stage === "offer" ? { src, stage } : null);
+    };
+    window.addEventListener("message", receiveView);
+    return () => window.removeEventListener("message", receiveView);
+  }, [isOecher, src]);
 
   // Same-origin iframe bridge: Meta tracking is owned by the top-level page,
   // where the visitor's consent and the Pixel live. Never send contact data.
   useEffect(() => {
+    if (!isOecher) return;
+
     const params = new URLSearchParams(location.search);
     const expectedUuid = params.get("uuid");
     const expectedSubmissionId = params.get("submission_id");
@@ -73,7 +93,7 @@ const Tarif = () => {
       window.removeEventListener("message", receiveOffer);
       window.removeEventListener("oecher:marketing-consent-updated", tryTrackLead);
     };
-  }, [location.search]);
+  }, [isOecher, location.search]);
 
   useEffect(() => {
     const iframe = iframeRef.current;
@@ -128,8 +148,11 @@ const Tarif = () => {
   }, [src]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground font-sans selection:bg-primary/20 selection:text-primary">
-      <main className="p-2 sm:p-4">
+    <div
+      className={`min-h-screen flex flex-col ${previewActive ? "bg-white" : "bg-background"} text-foreground font-sans selection:bg-primary/20 selection:text-primary`}
+      style={previewActive ? { minHeight: "100dvh" } : undefined}
+    >
+      <main className={previewActive ? "flex flex-1 items-center" : "p-2 sm:p-4"}>
         <iframe
           ref={iframeRef}
           title="Angebotsseite Loader"
@@ -139,8 +162,8 @@ const Tarif = () => {
           className="w-full border-0 overflow-hidden"
         />
       </main>
-      <TarifCallbackSection />
-      <SimpleFooter />
+      {(!isOecher || stage === "offer") && <TarifCallbackSection />}
+      <SimpleFooter preview={previewActive} />
     </div>
   );
 };

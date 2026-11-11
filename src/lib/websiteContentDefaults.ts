@@ -6,6 +6,51 @@ import type { JsonRecord } from "./customerDefaults";
  * Texte dürfen bei Architektur-Refactors nicht verändert werden.
  * Copy-Polish ist ein separater Schritt.
  */
+export const oecherWebsiteClaimTranslations = {
+  heroBadge: {
+    de: "Bereits 5.000+ zufriedene Nutzer in Aachen",
+    en: "Already 5,000+ satisfied users in Aachen",
+    tr: "Aachen'da şimdiden 5.000+ memnun kullanıcı",
+    ru: "Уже более 5 000 довольных пользователей в Ахене",
+    ar: "أكثر من 5,000 مستخدم راضٍ في آخن",
+    it: "Già oltre 5.000 utenti soddisfatti ad Aquisgrana",
+    zh: "亚琛已有 5,000+ 位满意用户",
+    hi: "आखेन में पहले से ही 5,000+ संतुष्ट उपयोगकर्ता",
+    es: "Ya hay más de 5.000 usuarios satisfechos en Aquisgrán",
+    fr: "Déjà plus de 5 000 utilisateurs satisfaits à Aix-la-Chapelle",
+    nl: "Al meer dan 5.000 tevreden gebruikers in Aken",
+    pl: "Już ponad 5 000 zadowolonych użytkowników w Akwizgranie",
+  },
+  statsHouseholdsLabel: {
+    de: "Haushalte in Aachen nutzen den Energieassistenten",
+    en: "Households in Aachen use the Energy Assistant",
+    tr: "Aachen'daki haneler Enerji Asistanını kullanıyor",
+    ru: "Домохозяйства в Ахене пользуются Энергоассистентом",
+    ar: "تستخدم الأسر في آخن مساعد الطاقة",
+    it: "Le famiglie ad Aquisgrana usano l'Assistente Energia",
+    zh: "亚琛的家庭正在使用能源助手",
+    hi: "आखेन के परिवार ऊर्जा सहायक का उपयोग करते हैं",
+    es: "Los hogares de Aquisgrán usan el Asistente Energético",
+    fr: "Les foyers d’Aix-la-Chapelle utilisent l’Assistant Énergie",
+    nl: "Huishoudens in Aken gebruiken de Energieassistent",
+    pl: "Gospodarstwa domowe w Akwizgranie korzystają z Asystenta Energii",
+  },
+  headline: {
+    de: "Über 5.000 Haushalte in Aachen nutzen bereits den digitalen Energieassistenten",
+    en: "Over 5,000 households in Aachen already use the digital Energy Assistant",
+    tr: "Aachen'da 5.000'den fazla hane dijital Enerji Asistanını şimdiden kullanıyor",
+    ru: "Более 5 000 домохозяйств в Ахене уже пользуются цифровым Энергоассистентом",
+    ar: "أكثر من 5,000 أسرة في آخن تستخدم مساعد الطاقة الرقمي بالفعل",
+    it: "Oltre 5.000 famiglie ad Aquisgrana usano già l'Assistente Energia digitale",
+    zh: "亚琛已有超过 5,000 个家庭在使用数字能源助手",
+    hi: "आखेन में 5,000 से अधिक परिवार पहले से डिजिटल एनर्जी असिस्टेंट का उपयोग कर रहे हैं",
+    es: "Más de 5.000 hogares en Aquisgrán ya usan el Asistente Energético digital",
+    fr: "Plus de 5 000 foyers à Aix-la-Chapelle utilisent déjà l’Assistant Énergie numérique",
+    nl: "Meer dan 5.000 huishoudens in Aken gebruiken de digitale Energieassistent al",
+    pl: "Ponad 5 000 gospodarstw domowych w Akwizgranie już korzysta z cyfrowego Asystenta Energii",
+  },
+} as const;
+
 export const customerDefaultWebsiteContentConfig: JsonRecord = {
   brand: {
     name: "Öcher Strom",
@@ -38,20 +83,7 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
   sections: {
     hero: {
       image_alt: "Energieassistent",
-      badge: {
-        de: "Bereits 5.000+ zufriedene Nutzer in ganz Deutschland",
-        en: "Already 5,000+ satisfied users across Germany",
-        tr: "Almanya genelinde şimdiden 5.000+ memnun kullanıcı",
-        ru: "Уже более 5 000 довольных пользователей по всей Германии",
-        ar: "أكثر من 5,000 مستخدم راضٍ في جميع أنحاء ألمانيا",
-        it: "Già oltre 5.000 utenti soddisfatti in tutta la Germania",
-        zh: "德国各地已有 5,000 多名满意用户",
-        hi: "जर्मनी भर में पहले से ही 5,000+ संतुष्ट उपयोगकर्ता",
-        es: "Más de 5.000 usuarios satisfechos en toda Alemania",
-        fr: "Déjà plus de 5 000 utilisateurs satisfaits dans toute l’Allemagne",
-        nl: "Al meer dan 5.000 tevreden gebruikers in heel Duitsland",
-        pl: "Już ponad 5 000 zadowolonych użytkowników w całych Niemczech",
-      },
+      badge: oecherWebsiteClaimTranslations.heroBadge,
       headline: {
         de: "Zahlst du gerade zu viel für Strom oder Gas?",
         en: "Are you currently paying too much for electricity or gas?",
@@ -194,10 +226,10 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
     },
     testimonials: {
       kicker: "Das sagen unsere Nutzer",
-      headline: "Über 5.000 Haushalte nutzen bereits den digitalen Energieassistenten",
+      headline: oecherWebsiteClaimTranslations.headline,
       home_reviews: [
         { title: "In fünf Minuten erledigt", text: "Ich wollte mich schon seit Monaten um meinen Stromvertrag kümmern, habe es aber wegen des ganzen Papierkrams immer vor mir hergeschoben. Mit dem Energieassistenten war das Thema in fünf Minuten erledigt. Jetzt zahle ich fast 250 € weniger im Jahr und der Wechsel lief komplett im Hintergrund.", name: "Sabine K." },
-        { title: "Eine transparente Empfehlung", text: "Als mein alter Anbieter die Preise erhöht hat, wollte ich eigentlich selbst vergleichen, aber die Portale haben mich nur verwirrt. Hier habe ich sofort eine transparente Empfehlung bekommen, die genau auf meinen Verbrauch passt. Der Service hat alles für mich geregelt – absolut stressfrei.", name: "Maximilian W." },
+        { title: "Eine transparente Empfehlung", text: "Als mein alter Anbieter die Preise erhöht hat, wollte ich eigentlich selbst vergleichen, aber die Portale haben mich nur verwirrt. Hier habe ich sofort eine transparente Empfehlung bekommen, die genau auf meinen Verbrauch passt. Der Service hat alles für mich geregelt. Alles lief absolut stressfrei.", name: "Maximilian W." },
         { title: "Verständlich und nahtlos", text: "Ich war anfangs skeptisch, ob sich der Wechsel überhaupt lohnt und ob alles glattläuft. Die verständliche Erklärung des Energieassistenten hat mir dann aber die Unsicherheit genommen. Der Übergang war völlig nahtlos und ich spare bares Geld, ohne stundenlang Tarife vergleichen zu müssen.", name: "Elena R." },
       ],
     },
@@ -209,10 +241,11 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
       ],
     },
     stats: {
-      headline: "Über 5.000 Haushalte nutzen bereits den digitalen Energieassistenten",
+      headline: oecherWebsiteClaimTranslations.headline,
+      households_label: oecherWebsiteClaimTranslations.statsHouseholdsLabel,
       items: [
         { end: 20000, suffix: "+", label: "Tarife und Rechnungen bereits geprüft" },
-        { end: 5000, suffix: "+", label: "Haushalte nutzen den Energieassistenten" },
+        { end: 5000, suffix: "+", label: "Haushalte in Aachen nutzen den Energieassistenten" },
         { end: 900000, suffix: "+ €", label: "an Energiekosten bereits eingespart" },
       ],
     },
